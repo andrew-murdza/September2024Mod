@@ -1,0 +1,6 @@
+{
+    "type": "forge:add_features",
+    "biomes": [],
+    "features": "forest:burning_blossom",
+    "step": "vegetal_decoration"
+}

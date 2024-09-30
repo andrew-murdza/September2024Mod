@@ -1,0 +1,16 @@
+{
+  "render_type": "minecraft:cutout",
+  "textures": {
+    "particle": "block/glow_lichen",
+    "grape_vine": "forest:block/grape_vine0"
+  },
+  "elements": [
+    {   "from": [ 0, 0, 0.1 ],
+      "to": [ 16, 16, 0.1 ],
+      "faces": {
+        "north": { "uv": [ 16, 0, 0, 16 ], "texture": "#grape_vine" },
+        "south": { "uv": [ 0, 0, 16, 16 ], "texture": "#grape_vine" }
+      }
+    }
+  ]
+}

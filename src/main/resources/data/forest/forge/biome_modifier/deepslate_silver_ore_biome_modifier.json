@@ -1,0 +1,6 @@
+{
+    "type": "forge:add_features",
+    "biomes": [],
+    "features": "forest:deepslate_silver_ore",
+    "step": "underground_ores"
+}

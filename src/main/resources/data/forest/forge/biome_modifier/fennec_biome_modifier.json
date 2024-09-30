@@ -1,0 +1,10 @@
+{
+    "type": "forge:add_spawns",
+    "biomes": [],
+    "spawners": {
+        "type": "forest:fennec",
+        "weight": 20,
+        "minCount": 2,
+        "maxCount": 4
+    }
+}

@@ -1,0 +1,11 @@
+{
+  "type": "forge:add_features",
+  "biomes": {
+    "type": "forge:or",
+    "values": [
+
+    ]
+  },
+  "features": "culturaldelights:wild_eggplants",
+  "step": "vegetal_decoration"
+}

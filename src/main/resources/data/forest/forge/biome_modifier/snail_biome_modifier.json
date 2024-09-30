@@ -1,0 +1,10 @@
+{
+    "type": "forge:add_spawns",
+    "biomes": [],
+    "spawners": {
+        "type": "forest:snail",
+        "weight": 15,
+        "minCount": 2,
+        "maxCount": 6
+    }
+}

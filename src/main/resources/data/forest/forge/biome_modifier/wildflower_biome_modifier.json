@@ -1,0 +1,6 @@
+{
+    "type": "forge:add_features",
+    "biomes": [],
+    "features": "forest:wildflower",
+    "step": "vegetal_decoration"
+}

@@ -1,0 +1,10 @@
+{
+    "type": "forge:add_spawns",
+    "biomes": [],
+    "spawners": {
+        "type": "forest:fire_salamander",
+        "weight": 20,
+        "minCount": 2,
+        "maxCount": 3
+    }
+}

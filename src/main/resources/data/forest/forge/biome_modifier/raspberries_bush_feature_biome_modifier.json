@@ -1,0 +1,6 @@
+{
+    "type": "forge:add_features",
+    "biomes": [],
+    "features": "forest:raspberries_bush_feature",
+    "step": "surface_structures"
+}

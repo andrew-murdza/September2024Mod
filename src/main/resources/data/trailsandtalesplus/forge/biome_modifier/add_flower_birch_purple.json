@@ -1,0 +1,6 @@
+{
+    "type": "forge:add_features",
+    "biomes": [],
+    "features": "trailsandtalesplus:patch_purple_petal",
+    "step": "vegetal_decoration"
+}

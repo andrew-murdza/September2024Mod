@@ -1,0 +1,10 @@
+{
+  "type": "forge:add_spawns",
+  "biomes": [],
+  "spawners": {
+    "type": "mokels_rpg_two:hummer",
+    "weight": 10,
+    "minCount": 1,
+    "maxCount": 2
+  }
+}

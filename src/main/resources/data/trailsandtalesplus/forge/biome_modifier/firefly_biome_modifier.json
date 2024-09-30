@@ -1,0 +1,10 @@
+{
+    "type": "forge:add_spawns",
+    "biomes": [],
+    "spawners": {
+        "type": "luminousworld:firefly",
+        "weight": 120,
+        "minCount": 2,
+        "maxCount": 4
+    }
+}

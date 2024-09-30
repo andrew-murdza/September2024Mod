@@ -1,0 +1,6 @@
+{
+    "type": "forge:add_features",
+    "biomes": [],
+    "features": "forest:stone_volcano_delta",
+    "step": "top_layer_modification"
+}

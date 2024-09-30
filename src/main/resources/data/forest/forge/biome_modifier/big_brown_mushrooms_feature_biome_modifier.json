@@ -1,0 +1,6 @@
+{
+    "type": "forge:add_features",
+    "biomes": [],
+    "features": "forest:big_brown_mushrooms_feature",
+    "step": "surface_structures"
+}

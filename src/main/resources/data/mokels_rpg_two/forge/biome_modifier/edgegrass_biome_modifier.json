@@ -1,0 +1,6 @@
+{
+  "type": "forge:add_features",
+  "biomes": [],
+  "features": "mokels_rpg_two:edgegrass",
+  "step": "vegetal_decoration"
+}
