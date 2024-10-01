@@ -1,6 +1,0 @@
-{
-    "type": "forge:add_features",
-    "biomes": [],
-    "features": "luminousworld:sunset_petunias",
-    "step": "vegetal_decoration"
-}

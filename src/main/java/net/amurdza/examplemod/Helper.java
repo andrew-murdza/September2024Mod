@@ -12,6 +12,7 @@ import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.Mob;
 import net.minecraft.world.entity.TamableAnimal;
+import net.minecraft.world.entity.animal.Animal;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.Level;
@@ -72,6 +73,13 @@ public class Helper {
     public static boolean isFromPlayer(@Nullable Entity entity){
         return entity instanceof Player||entity instanceof TamableAnimal animal && animal.getOwner() instanceof Player;
     }
+    public static boolean isFromAnimal(@Nullable Entity entity){
+        return entity instanceof Animal;
+    }
+    public static boolean isFromAnimal(DamageSource source){
+        return isFromAnimal(source.getEntity());
+    }
+
     public static boolean isFromPlayer(DamageSource source){
         return isFromPlayer(source.getEntity());
     }

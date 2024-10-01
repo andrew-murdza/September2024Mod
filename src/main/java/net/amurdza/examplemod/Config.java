@@ -88,8 +88,6 @@ public class Config
     @SubscribeEvent
     static void onLoad(final FMLCommonSetupEvent event)
     {
-        System.out.println("this ran");
-
         addToMap(Blocks.BAMBOO_SAPLING);
         addToMap(Blocks.BAMBOO);
         addToMap(Blocks.BEETROOTS, 0.45D);
@@ -122,8 +120,6 @@ public class Config
         addToMap(ModRegistry.CORN_BASE.get());
         addToMap(ModRegistry.CORN_MIDDLE.get());
         addToMap(ModRegistry.CORN_TOP.get());
-
-
 
         addToMap(Blocks.POINTED_DRIPSTONE,0.1);
         addToMap(Blocks.RED_MUSHROOM,0.5);

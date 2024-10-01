@@ -1,6 +1,0 @@
-{
-    "type": "forge:add_features",
-    "biomes": [],
-    "features": "luminousworld:savannah_soil_placement",
-    "step": "raw_generation"
-}

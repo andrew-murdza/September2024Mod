@@ -1,6 +1,0 @@
-{
-    "type": "forge:add_features",
-    "biomes": [],
-    "features": "trailsandtalesplus:ore_end_lapis",
-    "step": "underground_ores"
-}

@@ -83,7 +83,7 @@ public class UseEvent {
 
 
                 if(mob instanceof MushroomCow){
-                    useFood(mob,player,stack, Items.BROWN_MUSHROOM,Items.RED_MUSHROOM, GlimmeringWealdModule.glow_shroom_block.asItem());
+                    //useFood(mob,player,stack, Items.BROWN_MUSHROOM,Items.RED_MUSHROOM, GlimmeringWealdModule.glow_shroom_block.asItem());
                     if(event.getItemStack().is(Items.SHEARS)){
                         event.setCanceled(true);
                     }

@@ -52,11 +52,11 @@ public class MobAI {
 
                 if(mob instanceof Animal || mob instanceof WaterAnimal){
                     removeAI(mob, NearestAttackableTargetGoal.class, AvoidEntityGoal.class,
-                            NonTameRandomTargetGoal.class, HurtByTargetGoal.class, CreatureAITargetItems.class,
+                            NonTameRandomTargetGoal.class, HurtByTargetGoal.class,
                             PanicGoal.class, LeapAtTargetGoal.class);
                     removeAI(mob, EntityAINearestTarget3D.class, AnimalAIFleeAdult.class,
                             AnimalAIHurtByTargetNotBaby.class, AnimalAIHerdPanic.class, AnimalAIPanicBaby.class,
-                            TameableAIDestroyTurtleEggs.class,
+                            TameableAIDestroyTurtleEggs.class,CreatureAITargetItems.class,
                             Class.forName("superlord.cherry_shrimp.common.entity.CherryShrimp$ShrimpAvoidEntityGoal"),
                             Class.forName("superlord.cherry_shrimp.common.entity.CherryShrimp$ShrimpPanicGoal"));
                 }
@@ -171,7 +171,6 @@ public class MobAI {
                 else if(mob instanceof ZombifiedPiglin|| mob instanceof EntityBunfungus || mob instanceof EntityEnderiophage){
                     makeHostileToPlayers(mob);
                 }
-
             }
         }
         catch (ClassNotFoundException e) {

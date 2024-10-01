@@ -1,8 +1,0 @@
-{
-  "type": "forge:add_features",
-  "biomes": "minecraft:beach",
-  "features": [
-    "ecologics:trees_beach"
-  ],
-  "step": "vegetal_decoration"
-}

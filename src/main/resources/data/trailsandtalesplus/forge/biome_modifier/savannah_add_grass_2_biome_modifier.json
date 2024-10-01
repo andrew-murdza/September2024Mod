@@ -1,6 +1,0 @@
-{
-    "type": "forge:add_features",
-    "biomes": [],
-    "features": "luminousworld:savannah_add_grass_2",
-    "step": "top_layer_modification"
-}

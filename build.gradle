@@ -150,12 +150,11 @@ dependencies {
     // http://www.gradle.org/docs/current/userguide/artifact_dependencies_tutorial.html
     // http://www.gradle.org/docs/current/userguide/dependency_management.html
 
+    implementation fg.deobf("curse.maven:quark-243121:5594847")
+    implementation fg.deobf("curse.maven:zetaforquark-968868:5597406")//NO TOML
 
     implementation fg.deobf("curse.maven:upgradeaquatic-326895:5615651")
     implementation fg.deobf("curse.maven:blueprint-382216:5292242")//NO TOML
-
-    implementation fg.deobf("curse.maven:quark-243121:5594847")
-    implementation fg.deobf("curse.maven:zetaforquark-968868:5597406")//NO TOML
 
     implementation fg.deobf("curse.maven:farmersdelight-398521:5051242")
     implementation fg.deobf("curse.maven:delightful-637529:5654704")
@@ -167,15 +166,15 @@ dependencies {
 
     implementation fg.deobf("curse.maven:forestxreborn-689955:5516564")
     implementation fg.deobf("curse.maven:geckolibforforestxreborn-388172:5675221")//NO TOML
-
+//
     implementation fg.deobf("curse.maven:luminous-909107:5699118")
-
+//
     implementation fg.deobf("curse.maven:trails-and-tales-878476:5045548")
-
+//
     implementation fg.deobf("curse.maven:iceandfire-264231:5633453")
-
+//
     implementation fg.deobf("curse.maven:mokels-rpg-2-sunrise-971989:5203317")
-
+//
     implementation fg.deobf("curse.maven:alexsmobs-426558:5698791")
     implementation fg.deobf("curse.maven:citadelforalexsmobs-331936:5633260")//NO TOML
 
@@ -201,14 +200,14 @@ dependencies {
     implementation fg.deobf("curse.maven:mariums-soulslike-weaponry-632066:5662104")
     implementation fg.deobf("curse.maven:projectile-damage-attribute-643780:4597791")
     implementation fg.deobf("curse.maven:attributefix-280510:4911084")
-
+//
     implementation fg.deobf("curse.maven:croptopia-415438:4997459")
     implementation fg.deobf("curse.maven:epherolib-885449:4889101")//NO TOML
-
+//
     implementation fg.deobf("curse.maven:brighter-block-light-552271:4721366")
     implementation fg.deobf("curse.maven:wthit-forge-455982:5681116")//NO TOML
     implementation fg.deobf("curse.maven:badpackets-615134:4784395")//NO TOML
-
+//
     implementation fg.deobf("curse.maven:cultural-delights-574622:5512501")
 
     implementation fg.deobf("curse.maven:monsters-girls-secrets-of-mermaids-1068569:5566096")

@@ -1,6 +1,0 @@
-{
-    "type": "forge:add_features",
-    "biomes": [],
-    "features": "luminousworld:savannah_mud",
-    "step": "raw_generation"
-}

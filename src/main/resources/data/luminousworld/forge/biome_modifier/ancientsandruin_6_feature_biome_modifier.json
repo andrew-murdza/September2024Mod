@@ -1,6 +1,0 @@
-{
-    "type": "forge:add_features",
-    "biomes": [],
-    "features": "luminousworld:ancientsandruin_6_feature",
-    "step": "surface_structures"
-}
