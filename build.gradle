@@ -174,11 +174,17 @@ dependencies {
     implementation fg.deobf("curse.maven:iceandfire-264231:5633453")
 //
     implementation fg.deobf("curse.maven:mokels-rpg-2-sunrise-971989:5203317")
+
+    implementation fg.deobf("curse.maven:mokels-bossfight-kinora-1007397:5299291")
+
+
 //
     implementation fg.deobf("curse.maven:alexsmobs-426558:5698791")
     implementation fg.deobf("curse.maven:citadelforalexsmobs-331936:5633260")//NO TOML
 
     implementation fg.deobf("curse.maven:chickensshed-282684:5294511")//NO TOML
+
+
 
 
 
@@ -210,9 +216,37 @@ dependencies {
 //
     implementation fg.deobf("curse.maven:cultural-delights-574622:5512501")
 
-    implementation fg.deobf("curse.maven:monsters-girls-secrets-of-mermaids-1068569:5566096")
+//    implementation fg.deobf("curse.maven:monsters-girls-secrets-of-mermaids-1068569:5566096")
 
     implementation fg.deobf("curse.maven:delightful-637529:5654704")
+
+
+    //New
+    implementation fg.deobf("curse.maven:naturalist-627986:4847009")
+    implementation fg.deobf("curse.maven:architectury-api-419699:5137938")
+
+    implementation fg.deobf("curse.maven:mowzies-mobs-250498:5399941")
+    implementation fg.deobf("curse.maven:lets-do-wildernature-1071657:5623675")
+    implementation fg.deobf("curse.maven:nether-depths-upgrade-670011:5150560")
+    implementation fg.deobf("curse.maven:the-twilight-forest-227639:5468648")
+
+
+
+    implementation fg.deobf("curse.maven:the-dawn-era-965477:5054070")
+    implementation fg.deobf("curse.maven:astemirlib-933306:5066295")
+
+
+    implementation fg.deobf("curse.maven:lendercataclysm-551586:5474791")
+    implementation fg.deobf("curse.maven:curios-309927:5680164")
+    implementation fg.deobf("curse.maven:lionfish-api-1001614:5363774")
+
+
+    implementation fg.deobf("curse.maven:bossominium-694188:5287096")
+
+
+//    runtimeOnly fg.deobf("curse.maven:bountiful-critters-1000386:5330674")
+//    runtimeOnly fg.deobf("curse.maven:deeper-caves-882911:5157225")
+    implementation fg.deobf("curse.maven:netherific-479296:4718299")
 }
 
 

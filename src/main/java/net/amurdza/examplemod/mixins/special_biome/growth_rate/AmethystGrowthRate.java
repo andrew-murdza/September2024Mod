@@ -14,7 +14,7 @@ import org.spongepowered.asm.mixin.injection.Redirect;
 public class AmethystGrowthRate {
     @Redirect(method = "randomTick",
             at = @At(value = "INVOKE",
-                    target = "Lnet/minecraft/util/RandomSource;nextInt(I)I"))
+                    target = "Lnet/minecraft/util/RandomSource;nextInt(I)I",ordinal = 0))
     public int nextInt(RandomSource random, int n, BlockState state, ServerLevel world, BlockPos pos, RandomSource random1) {
         return Helper.nextIntCropsGrow(world,pos,state,random,n);
     }

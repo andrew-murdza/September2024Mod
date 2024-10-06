@@ -31,6 +31,7 @@ import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraftforge.event.entity.EntityJoinLevelEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
+import org.violetmoon.quark.content.world.module.GlimmeringWealdModule;
 
 import java.lang.reflect.Field;
 import java.util.ArrayList;
@@ -133,7 +134,7 @@ public class MobAI {
                     addBreeding(0, mob);
                 }
                 else if (entity instanceof MushroomCow) {
-                    addTempt(mob, Items.BROWN_MUSHROOM, Items.RED_MUSHROOM);
+                    addTempt(mob, Items.BROWN_MUSHROOM, Items.RED_MUSHROOM, GlimmeringWealdModule.glow_shroom.asItem());
                 }
                 else if (entity instanceof Strider){
                     addTempt(mob,Items.CRIMSON_ROOTS,Items.WARPED_ROOTS);
@@ -167,6 +168,9 @@ public class MobAI {
                 }
                 else if(mob instanceof EntityCapuchinMonkey){
                     addTempt(mob,AMItemRegistry.BANANA.get());
+                }
+                else if(mob instanceof EntityBananaSlug){
+                    addTempt(mob,Items.RED_MUSHROOM);
                 }
                 else if(mob instanceof ZombifiedPiglin|| mob instanceof EntityBunfungus || mob instanceof EntityEnderiophage){
                     makeHostileToPlayers(mob);

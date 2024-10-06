@@ -18,7 +18,7 @@ public class MushroomGrowthRate {
             at = @At(value = "INVOKE",
                     target ="Lnet/minecraft/util/RandomSource;nextInt(I)I",ordinal = 0))
     private int nextInt(RandomSource random, int n, BlockState state, ServerLevel world, BlockPos pos, RandomSource random1){
-        return Helper.nextIntCropsGrow(world,pos,state,random,n);
+        return Helper.nextIntCropsGrow(world,pos,state,random,5);//n
     }
 
     @ModifyConstant(method = "randomTick",constant = @Constant(intValue = 5))

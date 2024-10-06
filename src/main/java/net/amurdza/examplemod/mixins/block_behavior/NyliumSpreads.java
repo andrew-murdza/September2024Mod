@@ -1,5 +1,6 @@
 package net.amurdza.examplemod.mixins.block_behavior;
 
+import net.amurdza.examplemod.Helper;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.server.level.ServerLevel;
@@ -27,7 +28,7 @@ public class NyliumSpreads {
     }
     @Inject(method = "randomTick",at=@At("HEAD"))
     private void hi(BlockState pState, ServerLevel pLevel, BlockPos pPos, RandomSource pRandom, CallbackInfo ci){
-        if(canBeNylium(pState,pLevel,pPos)){
+        if(canBeNylium(pState,pLevel,pPos)&&Helper.withChance(pLevel,0.25F)){
             if (!pLevel.isAreaLoaded(pPos, 3)) return; // Forge: prevent loading unloaded chunks when checking neighbor's light and spreading
             BlockState blockstate = pLevel.getBlockState(pPos);
             for(int i = 0; i < 4; ++i) {

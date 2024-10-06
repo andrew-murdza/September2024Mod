@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "cultural_delights:corn"
+    },
+    {
+      "item": "cultural_delights:corn"
+    },
+    {
+      "item": "cultural_delights:corn"
+    }
+  ],
+  "result": {
+    "id": "minecraft:chipped_anvil",
+    "count": 1
+  }
+}

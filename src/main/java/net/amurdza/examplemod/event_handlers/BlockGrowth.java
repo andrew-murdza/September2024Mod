@@ -58,8 +58,6 @@ public class BlockGrowth {
                     }
                 }
             }
-            //sapling
-            //mushroom
             else{
                 event.setResult(Event.Result.DENY);
             }

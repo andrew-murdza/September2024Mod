@@ -83,7 +83,7 @@ public class UseEvent {
 
 
                 if(mob instanceof MushroomCow){
-                    //useFood(mob,player,stack, Items.BROWN_MUSHROOM,Items.RED_MUSHROOM, GlimmeringWealdModule.glow_shroom_block.asItem());
+                    useFood(mob,player,stack, Items.BROWN_MUSHROOM,Items.RED_MUSHROOM, GlimmeringWealdModule.glow_shroom.asItem());
                     if(event.getItemStack().is(Items.SHEARS)){
                         event.setCanceled(true);
                     }
@@ -132,7 +132,7 @@ public class UseEvent {
                     useFood(mob,  player,stack, Items.SEAGRASS);
                 }
                 else if(mob instanceof EntityBananaSlug){
-                    useFood(mob,  player,stack, Items.RED_MUSHROOM, GlimmeringWealdModule.glow_shroom_block.asItem());
+                    useFood(mob,  player,stack, Items.RED_MUSHROOM, GlimmeringWealdModule.glow_shroom.asItem());
                 }
                 else if(mob instanceof EntityKangaroo){
                     useFood(mob,  player,stack, Items.FERN);

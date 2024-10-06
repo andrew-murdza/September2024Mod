@@ -1,13 +1,22 @@
 package net.amurdza.examplemod;
 
 import com.belgieyt.trailsandtalesplus.Objects.TTBlockRegistry;
+import com.github.alexthe666.alexsmobs.entity.*;
+import com.github.alexthe666.alexsmobs.item.AMItemRegistry;
+import com.github.alexthe666.iceandfire.entity.EntityPixie;
+import com.github.alexthe666.iceandfire.entity.EntitySeaSerpent;
+import com.github.alexthe666.iceandfire.entity.EntitySiren;
+import com.github.alexthe666.iceandfire.item.IafItemRegistry;
 import com.teamabnormals.upgrade_aquatic.core.registry.UABlocks;
 import net.amurdza.examplemod.block.ModBlocks;
 import net.brnbrd.delightful.common.block.DelightfulBlocks;
 import net.mehvahdjukaar.hauntedharvest.reg.ModRegistry;
 import net.minecraft.core.NonNullList;
 import net.minecraft.resources.ResourceKey;
+import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.animal.Chicken;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
@@ -15,6 +24,7 @@ import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
@@ -63,6 +73,7 @@ public class Config
     public static int MAX_LEAVES_DISTANCE=8;
 
     public static HashMap<Block,BlockInfoObject>BLOCK_GROWTH_DATA=new HashMap<>();
+    public static HashMap<Class<? extends LivingEntity>,List<ShedInfoObject>> SHED_DATA=new HashMap<>();
     private static void addToMap(Block block, int i, double d){
         BLOCK_GROWTH_DATA.put(block,new BlockInfoObject(i,d));
     }
@@ -75,12 +86,37 @@ public class Config
     private static void addToMap(Block block){
         addToMap(block,1,1D);
     }
+    private static void addToMap(Class<? extends LivingEntity> entity, Item item, double d){
+        ShedInfoObject info=new ShedInfoObject(item,d);
+        if(SHED_DATA.containsKey(entity)){
+            SHED_DATA.get(entity).add(info);
+        }
+        else{
+            SHED_DATA.put(entity,new ArrayList<>(List.of(info)));
+        }
+    }
+    private static void addToMap(Class<? extends LivingEntity> entity, double d, Item... items){
+        for(Item item: items){
+            addToMap(entity,item,d);
+        }
+    }
+    private static void addToMap(Class<? extends LivingEntity> entity, Item... items){
+        addToMap(entity,0.1D,items);
+    }
 
     public static class BlockInfoObject{
         public int i;
         public double d;
         public BlockInfoObject(int i, double d){
             this.i=i;
+            this.d=d;
+        }
+    }
+    public static class ShedInfoObject{
+        public Item item;
+        public double d;
+        public ShedInfoObject(Item item, double d){
+            this.item=item;
             this.d=d;
         }
     }
@@ -133,6 +169,19 @@ public class Config
         addToMap(Blocks.TWISTING_VINES,0.4D);
         addToMap(Blocks.WEEPING_VINES,0.4D);
         addToMap(Blocks.KELP,0.6D);
+
+        addToMap(EntityEmu.class, AMItemRegistry.EMU_FEATHER.get(),AMItemRegistry.EMU_EGG.get());
+        addToMap(Chicken.class, Items.FEATHER, Items.EGG);
+        addToMap(EntitySiren.class, 0, IafItemRegistry.SIREN_TEAR.get(),IafItemRegistry.SHINY_SCALES.get());
+        addToMap(EntitySeaSerpent.class,0,IafItemRegistry.SERPENT_FANG.get());
+        addToMap(EntityPixie.class,0,IafItemRegistry.PIXIE_DUST.get(),IafItemRegistry.PIXIE_WINGS.get());
+        addToMap(EntityPixie.class,0,IafItemRegistry.PIXIE_WINGS.get());
+        addToMap(EntityAnaconda.class,AMItemRegistry.SHED_SNAKE_SKIN.get());
+        addToMap(EntityGrizzlyBear.class,AMItemRegistry.BEAR_FUR.get());
+        addToMap(EntityMoose.class,AMItemRegistry.MOOSE_ANTLER.get());
+        addToMap(EntityCrocodile.class,AMItemRegistry.CROCODILE_SCUTE.get());
+        addToMap(EntityAlligatorSnappingTurtle.class,0,AMItemRegistry.SPIKED_SCUTE.get());
+
 
         List<Block> saplings=List.of(samebutdifferent.ecologics.registry.ModBlocks.COCONUT_SEEDLING.get(), Blocks.SPRUCE_SAPLING,Blocks.ACACIA_SAPLING,Blocks.CHERRY_SAPLING,Blocks.BIRCH_SAPLING,Blocks.DARK_OAK_SAPLING,Blocks.JUNGLE_SAPLING,Blocks.OAK_SAPLING,Blocks.MANGROVE_PROPAGULE);
         for(Block block: saplings){

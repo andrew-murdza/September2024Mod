@@ -1,5 +1,7 @@
 package net.amurdza.examplemod.event_handlers;
 
+import com.belgieyt.trailsandtalesplus.Objects.TTBlockRegistry;
+import com.belgieyt.trailsandtalesplus.Objects.blocks.WallMushroomBlock;
 import net.amurdza.examplemod.AOEMod;
 import net.amurdza.examplemod.Config;
 import net.amurdza.examplemod.Helper;
@@ -20,6 +22,8 @@ import net.minecraftforge.event.entity.player.BonemealEvent;
 import net.minecraftforge.eventbus.api.Event;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
+import org.violetmoon.quark.content.world.module.GlimmeringWealdModule;
+import vectorwing.farmersdelight.common.block.WildRiceBlock;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -114,7 +118,9 @@ public class BoneMealEvent {
                     growMycelium(level,pos);
                 }
                 else if((block instanceof FlowerBlock || block instanceof DoublePlantBlock
-                        || block==Blocks.DEAD_BUSH)&&!(block instanceof TallSeagrassBlock|| block instanceof SmallDripleafBlock)){
+                        || block==Blocks.DEAD_BUSH || block instanceof TallGrassBlock)&&
+                        !(block instanceof TallSeagrassBlock|| block instanceof SmallDripleafBlock||
+                                block instanceof WildRiceBlock)){
                     //state.is(BlockTags.FLOWERS), Helper.isBlock(block, Blocks.TALL_GRASS, Blocks.LARGE_FERN, Blocks.DEAD_BUSH)
                     growFlowers(level, pos);
                 }
@@ -140,7 +146,7 @@ public class BoneMealEvent {
                 else if(block==Blocks.NETHER_WART){
                     flag =growNetherWart(pos,level);
                 }
-                else if(block == Blocks.LILY_PAD || block == Blocks.SPORE_BLOSSOM) {
+                else if(state.is(ModTags.Blocks.duplicatedByBonemeal)) {
                     Block.popResource(level, pos, new ItemStack(block));
                 }
                 else if(block == Blocks.GRASS_BLOCK){
@@ -241,8 +247,10 @@ public class BoneMealEvent {
     private static void growMycelium(Level world, BlockPos pos) {
         BlockState brown = Blocks.BROWN_MUSHROOM.defaultBlockState();
         BlockState red = Blocks.RED_MUSHROOM.defaultBlockState();
+        BlockState glow = GlimmeringWealdModule.glow_shroom_block.defaultBlockState();
         RandomSource random = world.random;
-        Function<BlockPos, Boolean> func = (pos1) -> world.setBlockAndUpdate(pos1, random.nextBoolean() ? brown : red);
+        BlockState state=Helper.select(random,red,brown,glow);
+        Function<BlockPos, Boolean> func = (pos1) -> world.setBlockAndUpdate(pos1, state);
         placeBoneMeal(world, pos, blockState -> blockState.is(Blocks.MYCELIUM), 10, func);
     }
 

@@ -14,6 +14,6 @@ import org.spongepowered.asm.mixin.injection.ModifyConstant;
 public class MyceliumGrassSpreadRate {
     @ModifyConstant(method = "randomTick", constant = @Constant(intValue = 4))
     public int randomTick1(int constant, BlockState state, ServerLevel world, BlockPos pos, RandomSource random){
-        return Helper.isSpecialBiome(world,pos)?Config.MYCELIUM_GRASS_SPREAD_NUM_TRIES:constant;
+        return Helper.withChanceToInt(world,0.25);//Helper.isSpecialBiome(world,pos)?Config.MYCELIUM_GRASS_SPREAD_NUM_TRIES:constant;
     }
 }

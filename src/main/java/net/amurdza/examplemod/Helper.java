@@ -25,6 +25,7 @@ import net.minecraftforge.common.ForgeHooks;
 import javax.annotation.Nullable;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Random;
 
 public class Helper {
 
@@ -44,6 +45,9 @@ public class Helper {
     }
     public static boolean isBlackListed(Mob mob){
         return mob.getEncodeId()!=null&&Config.BLACKLISTED_MOBS.contains(mob.getEncodeId());
+    }
+    public static <T> T select(RandomSource source, T... elements){
+        return elements[source.nextInt(elements.length)];
     }
     public static boolean isOkMob(Level level, BlockPos pos, Mob mob){
         return !Helper.isSpecialBiome(level, pos) || !isBlackListed(mob);

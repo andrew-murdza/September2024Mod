@@ -16,6 +16,7 @@ public class ModTags {
         public static final TagKey<Block> netherRootsPlaceable=tag("nether_roots_placeable");
         public static final TagKey<Block> sugarCaneCactusLike=tag("sugarcane_cactus_like");
         public static final TagKey<Block> crimsonRootsGroundBlocks=tag("crimson_roots_ground_blocks");
+        public static final TagKey<Block> duplicatedByBonemeal=tag("bone_meal_duplicates");
 
         private static TagKey<Block> tag(String name){
             return BlockTags.create(new ResourceLocation(AOEMod.MOD_ID,name));
@@ -23,6 +24,7 @@ public class ModTags {
     }
     public static class Items{
         public static final TagKey<Item> smallerFlowers=tag("small_flowers");
+        public static final TagKey<Item> vegetables=tag("vegetables");
 
         private static TagKey<Item> tag(String name){
             return ItemTags.create(new ResourceLocation(AOEMod.MOD_ID,name));
