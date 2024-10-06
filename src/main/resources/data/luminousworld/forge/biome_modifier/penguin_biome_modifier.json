@@ -1,0 +1,10 @@
+{
+    "type": "forge:add_spawns",
+    "biomes": [],
+    "spawners": {
+        "type": "luminousworld:penguin",
+        "weight": 80,
+        "minCount": 2,
+        "maxCount": 5
+    }
+}

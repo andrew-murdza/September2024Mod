@@ -1,0 +1,10 @@
+{
+    "type": "forge:add_spawns",
+    "biomes": [],
+    "spawners": {
+        "type": "luminousworld:dark_oak_zombie",
+        "weight": 100,
+        "minCount": 1,
+        "maxCount": 3
+    }
+}

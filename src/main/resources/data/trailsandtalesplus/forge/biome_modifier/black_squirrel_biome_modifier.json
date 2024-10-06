@@ -1,0 +1,10 @@
+{
+    "type": "forge:add_spawns",
+    "biomes": [],
+    "spawners": {
+        "type": "luminousworld:black_squirrel",
+        "weight": 40,
+        "minCount": 1,
+        "maxCount": 3
+    }
+}

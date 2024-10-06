@@ -1,0 +1,10 @@
+{
+    "type": "forge:add_features",
+    "biomes": [
+        "old_growth_pine_taiga",
+        "old_growth_spruce_taiga",
+        "taiga"
+    ],
+    "features": "luminousworld:blueberrybush",
+    "step": "vegetal_decoration"
+}

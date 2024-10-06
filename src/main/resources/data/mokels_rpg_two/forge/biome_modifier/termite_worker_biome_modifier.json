@@ -1,0 +1,10 @@
+{
+  "type": "forge:add_spawns",
+  "biomes": [],
+  "spawners": {
+    "type": "mokels_rpg_two:termite_worker",
+    "weight": 15,
+    "minCount": 4,
+    "maxCount": 4
+  }
+}

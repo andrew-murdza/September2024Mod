@@ -1,0 +1,10 @@
+{
+  "type": "forge:add_spawns",
+  "biomes": [],
+  "spawners": {
+    "type": "mokels_rpg_two:tinydragon",
+    "weight": 8,
+    "minCount": 2,
+    "maxCount": 4
+  }
+}
