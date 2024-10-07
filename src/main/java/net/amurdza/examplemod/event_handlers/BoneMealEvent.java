@@ -1,7 +1,5 @@
 package net.amurdza.examplemod.event_handlers;
 
-import com.belgieyt.trailsandtalesplus.Objects.TTBlockRegistry;
-import com.belgieyt.trailsandtalesplus.Objects.blocks.WallMushroomBlock;
 import net.amurdza.examplemod.AOEMod;
 import net.amurdza.examplemod.Config;
 import net.amurdza.examplemod.Helper;

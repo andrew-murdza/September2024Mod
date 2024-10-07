@@ -1,4 +1,4 @@
-package net.amurdza.examplemod.mixins.block_placement;
+package net.amurdza.examplemod.mixins.othermods.quark;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;

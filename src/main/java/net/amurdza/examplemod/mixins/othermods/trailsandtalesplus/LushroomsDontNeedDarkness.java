@@ -1,9 +1,8 @@
-package net.amurdza.examplemod.mixins.block_placement;
+package net.amurdza.examplemod.mixins.othermods.trailsandtalesplus;
 
 import com.belgieyt.trailsandtalesplus.Objects.blocks.LushroomBlock;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.level.LevelReader;
-import net.minecraft.world.level.block.MushroomBlock;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Redirect;
