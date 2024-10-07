@@ -43,7 +43,6 @@
     "special_biome.FarmlandToMoss",
     "special_biome.growth_rate.AmethystGrowthRate",
     "special_biome.growth_rate.AnimalAgingMixin",
-    "special_biome.growth_rate.ChickenEggRate",
     "special_biome.growth_rate.ChorusFlowerGrowth",
     "special_biome.growth_rate.LushroomGrowthRate",
     "special_biome.growth_rate.MangrovePropaguleGrowthRate",
@@ -60,7 +59,11 @@
     "special_biome.safety.AnimalsDontRetaliateInSpecialBiomePartI",
     "special_biome.safety.AnimalsDontRetaliateInSpecialBiomePartII",
     "special_biome.safety.MobsDontTargetInSpecialBiome",
-    "special_biome.safety.PiglinsDontAttackInSpecialBiome"
+    "special_biome.safety.PiglinsDontAttackInSpecialBiome",
+
+    "monoxide.RestoreXpOnRespawn",
+    "monoxide.AnvilAlwaysHasNoCost",
+    "monoxide.EnchantmentAlwaysHasNoCost"
   ],
   "minVersion": "0.8.5",
   "client": [
