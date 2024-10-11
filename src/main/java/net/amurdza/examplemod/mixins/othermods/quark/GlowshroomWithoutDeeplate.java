@@ -1,5 +1,6 @@
 package net.amurdza.examplemod.mixins.othermods.quark;
 
+import net.amurdza.examplemod.block.BlockHelper;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.resources.ResourceKey;
@@ -25,6 +26,6 @@ public abstract class GlowshroomWithoutDeeplate extends ZetaBushBlock {
 
     @Redirect(method = "mayPlaceOn",at = @At(value = "INVOKE", target = "Lnet/minecraft/world/level/block/state/BlockState;getBlock()Lnet/minecraft/world/level/block/Block;"))
     private Block hi(BlockState instance, BlockState state, @NotNull BlockGetter world, @NotNull BlockPos pos){
-        return instance.canSustainPlant(world, pos, Direction.UP, this)? Blocks.DEEPSLATE:Blocks.AIR;
+        return BlockHelper.isSolidBlockBelow(world,pos,state) ? Blocks.DEEPSLATE:Blocks.AIR;
     }
 }

@@ -187,7 +187,8 @@ dependencies {
     implementation fg.deobf("curse.maven:chickensshed-282684:5294511")//NO TOML
 
 
-
+    //Cherry Shrimp
+    implementation fg.deobf("curse.maven:cherry-shrimp-1018833:5357995")
 
 
     //Born in Chaos: Supreme Bonescaller, Skeleton Thrasher, Bonescaller, Infernal Spirit, Barrel Zombie, Restless Spirit,
