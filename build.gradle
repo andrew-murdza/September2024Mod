@@ -135,6 +135,8 @@ dependencies {
     // then special handling is done to allow a setup of a vanilla dependency without the use of an external repository.
     minecraft "net.minecraftforge:forge:${minecraft_version}-${forge_version}"
 
+    annotationProcessor 'org.spongepowered:mixin:0.8.5:processor'
+
     // Example mod dependency with JEI - using fg.deobf() ensures the dependency is remapped to your development mappings
     // The JEI API is declared for compile time use, while the full JEI artifact is used at runtime
     // compileOnly fg.deobf("mezz.jei:jei-${mc_version}-common-api:${jei_version}")
@@ -247,6 +249,12 @@ dependencies {
 //    runtimeOnly fg.deobf("curse.maven:bountiful-critters-1000386:5330674")
 //    runtimeOnly fg.deobf("curse.maven:deeper-caves-882911:5157225")
     implementation fg.deobf("curse.maven:netherific-479296:4718299")
+}
+
+mixin {
+    // MixinGradle Settings
+    add sourceSets.main, "${mod_id}.mixins.refmap.json"
+    config "${mod_id}.mixins.json"
 }
 
 
