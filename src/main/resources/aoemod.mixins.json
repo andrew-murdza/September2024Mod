@@ -4,6 +4,9 @@
   "compatibilityLevel": "JAVA_17",
   "refmap": "aoemod.refmap.json",
   "mixins": [
+    "access.ChunkMapAccess",
+    "access.LocalMobCapCalculatorAccess",
+    "access.NaturalSpawnerAccess",
     "HugeMushroomsNotTooShort",
     "add_ai.BreedableParrots",
     "block_behavior.LeavesDontBlockLight",
@@ -29,6 +32,7 @@
     "mob_spawning.AxolotlDontNeedClay",
     "mob_spawning.MooshroomSpawnInDarkness",
     "monoxide.AnvilAlwaysHasNoCost",
+    "monoxide.BloodMoonMonsterCapIncrease",
     "monoxide.BottlesAndStewsStackTo64",
     "monoxide.EnchantmentAlwaysHasNoCost",
     "monoxide.EnchantmentMenu20Lapis",

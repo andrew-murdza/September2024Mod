@@ -17,8 +17,6 @@ public class BottlesAndStewsStackTo64 {
   private void getMaxStackSize(final CallbackInfoReturnable<Integer> info) {
     final String id = ((Item)(Object)this).builtInRegistryHolder().key().location().getPath();
 
-    System.out.println(id);
-
     if(id.contains("bottle") || id.contains("stew")) {
       info.setReturnValue(64);
     }
