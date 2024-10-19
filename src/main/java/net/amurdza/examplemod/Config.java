@@ -57,7 +57,9 @@ public class Config
     public static final float MONSTER_DEFENSE_FACTOR = 1.1F;
     public static final float PLAYER_ATTACK_FACTOR = 1.05F;
     public static final float MONSTER_ATTACK_FACTOR = 1.05F;
+    public static final int FARMLAND_DISTANCE = 14;
     public static List<Item> BLACKLISTED_USE_ITEMS=List.of();
+    public static int MAX_BEANSTALK_Y=320;
 
     public static List<? extends String> TWIN_MOBS=List.of("minecraft:axolotl","minecraft:bee","minecraft:camel","minecraft:cat","minecraft:chicken","minecraft:cow","minecraft:donkey","minecraft:frog","minecraft:horse","minecraft:mooshroom","minecraft:mule","minecraft:ocelot","minecraft:parrot","minecraft:pig","minecraft:rabbit","minecraft:sheep","minecraft:sniffer","minecraft:tadpole","minecraft:turtle","minecraft:fox","minecraft:goat","minecraft:llama","minecraft:panda","minecraft:polar_bear","minecraft:wolf","minecraft:strider","minecraft:hoglin","minecraft:hoglin","alexsmobs:banana_slug","alexsmobs:blue_jay","alexsmobs:cockroach","alexsmobs:crow","alexsmobs:endergrade","alexsmobs:flutter","alexsmobs:fly","alexsmobs:gazelle","alexsmobs:hummingbird","alexsmobs:jerboa","alexsmobs:laviathan","alexsmobs:maned_wolf","alexsmobs:mimic_octopus","alexsmobs:mudskipper","alexsmobs:mungus","alexsmobs:Potoo","alexsmobs:rain_frog","alexsmobs:road_runner","alexsmobs:seagull","alexsmobs:seal","alexsmobs:sugar_glider","alexsmobs:terrapin","alexsmobs:toucan","alexsmobs:triops","alexsmobs:anteater","alexsmobs:bald_eagle","alexsmobs:bison","alexsmobs:caiman","alexsmobs:capuchin_monkey","alexsmobs:cosmaw","alexsmobs:elephant","alexsmobs:emu","alexsmobs:gelada_monkey","alexsmobs:gorilla","alexsmobs:kangaroo","alexsmobs:mantis_shrimp","alexsmobs:racoon","alexsmobs:snow_leopard","alexsmobs:tarantula_hawk","alexsmobs:tasmanian_devil","alexsmobs:warped_toad","alexsmobs:alligator_snapping_turtle","alexsmobs:grizzly_bear","alexsmobs:platypus","alexsmobs:rattlesnake","alexsmobs:rhinoceros","alexsmobs:skunk","alexsmobs:anaconda","alexsmobs:crocodile","alexsmobs:froststalker","alexsmobs:komodo_dragon","alexsmobs:tiger","alexsmobs:tusklin","iceandfire:hippocampus","iceandfire:hippogryphs","iceandfire:amphithere","samurai_dynasty:twotailed","quark:crab","quark:foxhound","quark:toretoise","ecoologics:coconut_crab");
     public static List<? extends String> BLACKLISTED_MOBS=List.of();
@@ -129,8 +131,8 @@ public class Config
         addToMap(Blocks.BEETROOTS, 0.45D);
         addToMap(Blocks.CACTUS, 4);
         addToMap(Blocks.CARROTS);
-        addToMap(Blocks.CAVE_VINES);
-        addToMap(Blocks.CAVE_VINES_PLANT);
+        addToMap(ModBlocks.CAVE_VINES.get());
+        addToMap(ModBlocks.CAVE_VINES_PLANT.get());
         addToMap(Blocks.COCOA);
         addToMap(Blocks.MELON_STEM);
         addToMap(Blocks.PITCHER_CROP);
@@ -158,8 +160,9 @@ public class Config
         addToMap(ModRegistry.CORN_TOP.get());
 
         addToMap(Blocks.POINTED_DRIPSTONE,0.1);
-        addToMap(Blocks.RED_MUSHROOM,0.5);
-        addToMap(Blocks.BROWN_MUSHROOM,0.5);
+        addToMap(Blocks.RED_MUSHROOM,0);
+        addToMap(Blocks.BROWN_MUSHROOM,0);
+        addToMap(TTBlockRegistry.LUSHROOM_MUSHROOM.get(),0);
         addToMap(Blocks.SMALL_AMETHYST_BUD,0.5);
         addToMap(Blocks.MEDIUM_AMETHYST_BUD,0.5);
         addToMap(Blocks.LARGE_AMETHYST_BUD,0.5);

@@ -1,4 +1,4 @@
-package net.amurdza.examplemod.mixins.block_behavior;
+package net.amurdza.examplemod.mixins.block_behavior.entity_inside;
 
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.level.block.CampfireBlock;

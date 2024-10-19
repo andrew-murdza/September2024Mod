@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    "#minecraft:animals_spawnable_on",
+    "minecraft:mud",
+    "minecraft:mangrove_roots",
+    "minecraft:muddy_mangrove_roots"
+  ]
+}

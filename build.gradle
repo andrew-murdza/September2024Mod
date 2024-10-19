@@ -135,7 +135,7 @@ dependencies {
     // then special handling is done to allow a setup of a vanilla dependency without the use of an external repository.
     minecraft "net.minecraftforge:forge:${minecraft_version}-${forge_version}"
 
-    annotationProcessor 'org.spongepowered:mixin:0.8.5:processor'
+    annotationProcessor "org.spongepowered:mixin:${mixin_version}:processor"
 
     // Example mod dependency with JEI - using fg.deobf() ensures the dependency is remapped to your development mappings
     // The JEI API is declared for compile time use, while the full JEI artifact is used at runtime
@@ -177,18 +177,83 @@ dependencies {
 //
     implementation fg.deobf("curse.maven:mokels-rpg-2-sunrise-971989:5203317")
 
-    implementation fg.deobf("curse.maven:mokels-bossfight-kinora-1007397:5299291")
+
 
 
 //
     implementation fg.deobf("curse.maven:alexsmobs-426558:5698791")
     implementation fg.deobf("curse.maven:citadelforalexsmobs-331936:5633260")//NO TOML
 
-    implementation fg.deobf("curse.maven:chickensshed-282684:5294511")//NO TOML
-
-
     //Cherry Shrimp
     implementation fg.deobf("curse.maven:cherry-shrimp-1018833:5357995")
+
+    implementation fg.deobf("curse.maven:croptopia-415438:4997459")
+    implementation fg.deobf("curse.maven:epherolib-885449:4889101")//NO TOML
+//
+
+    implementation fg.deobf("curse.maven:wthit-forge-455982:5681116")//NO TOML
+    implementation fg.deobf("curse.maven:badpackets-615134:4784395")//NO TOML
+//
+    implementation fg.deobf("curse.maven:cultural-delights-574622:5512501")
+
+
+
+    implementation fg.deobf("curse.maven:delightful-637529:5654704")
+
+
+    //New
+    implementation fg.deobf("curse.maven:naturalist-627986:4847009")
+    implementation fg.deobf("curse.maven:architectury-api-419699:5137938")
+
+
+    implementation fg.deobf("curse.maven:lets-do-wildernature-1071657:5623675")
+    implementation fg.deobf("curse.maven:nether-depths-upgrade-670011:5150560")
+    implementation fg.deobf("curse.maven:the-twilight-forest-227639:5468648")
+
+    implementation fg.deobf("curse.maven:the-dawn-era-965477:5054070")
+    implementation fg.deobf("curse.maven:astemirlib-933306:5066295")
+
+
+    implementation fg.deobf("curse.maven:netherific-479296:4718299")
+    implementation fg.deobf("curse.maven:alexs-caves-924854:5633305")
+
+    implementation fg.deobf("curse.maven:snow-real-magic-308663:5801189")
+    implementation fg.deobf("curse.maven:kiwi-303657:5603816")
+
+    implementation fg.deobf("curse.maven:nethers-exoticism-486029:5338643")
+    implementation fg.deobf("curse.maven:nethers-delight-496394:4736227")
+
+    implementation fg.deobf("curse.maven:blue-skies-312918:5010316")
+    implementation fg.deobf("curse.maven:structure-gel-api-378802:5278429")
+
+    //For the midnight
+    implementation fg.deobf("curse.maven:smartbrainlib-661293:5654964")
+    implementation fg.deobf("curse.maven:lucent-493280:4951434")
+
+
+    runtimeOnly fg.deobf("curse.maven:worldedit-225608:4586218")
+    runtimeOnly fg.deobf("curse.maven:snow-under-trees-353942:5801187")
+    runtimeOnly fg.deobf("curse.maven:notrample-914018:4764989")
+
+    runtimeOnly fg.deobf("curse.maven:pandas-falling-trees-880630:4637709")
+    runtimeOnly fg.deobf("curse.maven:cloth-config-348521:5729105")
+
+
+    //TEST LATER
+//    implementation fg.deobf("curse.maven:kitteh6660s-morecraft-59648:4855867")
+
+    //Need compile too
+//doesn't work
+//    runtimeOnly fg.deobf("curse.maven:the-midnight-304881:5644116")
+//    runtimeOnly fg.deobf("curse.maven:bountiful-critters-1000386:5330674")
+//    runtimeOnly fg.deobf("curse.maven:deeper-caves-882911:5157225")
+
+//    implementation fg.deobf("curse.maven:mokels-bossfight-kinora-1007397:5299291")
+//    implementation fg.deobf("curse.maven:mowzies-mobs-250498:5399941")
+
+//    implementation fg.deobf("curse.maven:lendercataclysm-551586:5474791")
+//    implementation fg.deobf("curse.maven:curios-309927:5680164")
+//    implementation fg.deobf("curse.maven:lionfish-api-1001614:5363774")
 
 
     //Born in Chaos: Supreme Bonescaller, Skeleton Thrasher, Bonescaller, Infernal Spirit, Barrel Zombie, Restless Spirit,
@@ -201,55 +266,23 @@ dependencies {
     //Dark metal armor; nightmare armor (robe-like), spiny shell helmet and chestplate, lord pumpkin head's cap (casts soul-life on attackers)
     //Monster flesh
 
-    implementation fg.deobf("curse.maven:born-in-chaos-686437:5369688")
+//    implementation fg.deobf("curse.maven:born-in-chaos-686437:5369688")
 
     //Marium's Soulslike Weaponry: Day Stalker, Night Prowler, Withered Demon, Forlorn, Soulmass, Frost Giant, Rime Spectre
     //The Decaying King, The Old Champion's Remains, The Returning Knight, The Fallen Icon, The Monarch of Chaos,
     //
-    implementation fg.deobf("curse.maven:mariums-soulslike-weaponry-632066:5662104")
-    implementation fg.deobf("curse.maven:projectile-damage-attribute-643780:4597791")
-    implementation fg.deobf("curse.maven:attributefix-280510:4911084")
-//
-    implementation fg.deobf("curse.maven:croptopia-415438:4997459")
-    implementation fg.deobf("curse.maven:epherolib-885449:4889101")//NO TOML
-//
-    implementation fg.deobf("curse.maven:brighter-block-light-552271:4721366")
-    implementation fg.deobf("curse.maven:wthit-forge-455982:5681116")//NO TOML
-    implementation fg.deobf("curse.maven:badpackets-615134:4784395")//NO TOML
-//
-    implementation fg.deobf("curse.maven:cultural-delights-574622:5512501")
-
-//    implementation fg.deobf("curse.maven:monsters-girls-secrets-of-mermaids-1068569:5566096")
-
-    implementation fg.deobf("curse.maven:delightful-637529:5654704")
+//    implementation fg.deobf("curse.maven:mariums-soulslike-weaponry-632066:5662104")
+//    implementation fg.deobf("curse.maven:projectile-damage-attribute-643780:4597791")
+//    implementation fg.deobf("curse.maven:attributefix-280510:4911084")
 
 
-    //New
-    implementation fg.deobf("curse.maven:naturalist-627986:4847009")
-    implementation fg.deobf("curse.maven:architectury-api-419699:5137938")
+//    implementation fg.deobf("curse.maven:bossominium-694188:5287096")
+//    implementation fg.deobf("curse.maven:monsters-girls-secrets-of-mermaids-1068569:5566096"
 
-    implementation fg.deobf("curse.maven:mowzies-mobs-250498:5399941")
-    implementation fg.deobf("curse.maven:lets-do-wildernature-1071657:5623675")
-    implementation fg.deobf("curse.maven:nether-depths-upgrade-670011:5150560")
-    implementation fg.deobf("curse.maven:the-twilight-forest-227639:5468648")
+//    No longer want
+//    implementation fg.deobf("curse.maven:chickensshed-282684:5294511")//NO TOML
+//    implementation fg.deobf("curse.maven:brighter-block-light-552271:4721366")
 
-
-
-    implementation fg.deobf("curse.maven:the-dawn-era-965477:5054070")
-    implementation fg.deobf("curse.maven:astemirlib-933306:5066295")
-
-
-    implementation fg.deobf("curse.maven:lendercataclysm-551586:5474791")
-    implementation fg.deobf("curse.maven:curios-309927:5680164")
-    implementation fg.deobf("curse.maven:lionfish-api-1001614:5363774")
-
-
-    implementation fg.deobf("curse.maven:bossominium-694188:5287096")
-
-
-//    runtimeOnly fg.deobf("curse.maven:bountiful-critters-1000386:5330674")
-//    runtimeOnly fg.deobf("curse.maven:deeper-caves-882911:5157225")
-    implementation fg.deobf("curse.maven:netherific-479296:4718299")
 }
 
 mixin {

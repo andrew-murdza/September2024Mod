@@ -8,8 +8,8 @@ import org.spongepowered.asm.mixin.injection.Redirect;
 
 @Mixin(GhoulflowerBlock.class)
 public class GhoulFlowerNotDuplicatedBonemeal {
-    @Redirect(method = "performBonemeal",at= @At(value = "INVOKE", target = "Lnet/mcreator/nourishednether/procedures/GhoulflowerOnBoneMealSuccessProcedure;execute(Lnet/minecraft/world/level/LevelAccessor;DDD)V"))
-    private void hi(LevelAccessor entityToSpawn, double _level, double world, double x){
-
-    }
+//    @Redirect(method = "performBonemeal",at= @At(value = "INVOKE", target = "Lnet/mcreator/nourishednether/procedures/GhoulflowerOnBoneMealSuccessProcedure;execute(Lnet/minecraft/world/level/LevelAccessor;DDD)V"))
+//    private void hi(LevelAccessor entityToSpawn, double _level, double world, double x){
+//
+//    }
 }

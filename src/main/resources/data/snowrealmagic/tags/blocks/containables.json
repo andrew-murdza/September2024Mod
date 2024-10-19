@@ -1,0 +1,88 @@
+{
+	"values": [
+		"#snowrealmagic:offset_y",
+		"minecraft:grass",
+		{
+			"id": "#c:grass",
+			"required": false
+		},
+		{
+			"id": "#c:grass_like",
+			"required": false
+		},
+		{
+			"id": "#c:flowers",
+			"required": false
+		},
+		"#small_flowers",
+		"#flowers",
+		"brown_mushroom",
+		"red_mushroom",
+		"quark:glow_shroom",
+		"blue_skies:brewberry_bush",
+		"blue_skies:snowcap_pinhead",
+		"#tall_flowers",
+		{
+			"id": "#c:mushrooms",
+			"required": false
+		},
+		{
+			"id": "#c:saplings",
+			"required": false
+		},
+		"#saplings",
+		{
+			"id": "#c:bushes",
+			"required": false
+		},
+		"dead_bush",
+		{
+			"id": "#regions_unexplored:shrubs",
+			"required": false
+		},
+		{
+			"id": "biomesoplenty:dune_grass",
+			"required": false
+		},
+		{
+			"id": "biomesoplenty:desert_grass",
+			"required": false
+		},
+		{
+			"id": "biomesoplenty:dead_grass",
+			"required": false
+		},
+		{
+			"id": "biomesoplenty:sprout",
+			"required": false
+		},
+		{
+			"id": "biomesoplenty:bush",
+			"required": false
+		},
+		{
+			"id": "byg:winter_grass",
+			"required": false
+		},
+		{
+			"id": "byg:leaf_pile",
+			"required": false
+		},
+		{
+			"id": "byg:flower_patch",
+			"required": false
+		},
+		{
+			"id": "byg:clover_patch",
+			"required": false
+		},
+		{
+			"id": "twigs:bamboo_leaves",
+			"required": false
+		},
+		{
+			"id": "twigs:azalea_flowers",
+			"required": false
+		}
+	]
+}

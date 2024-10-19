@@ -17,6 +17,7 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelAccessor;
+import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
@@ -137,7 +138,7 @@ public class Helper {
         return ForgeHooks.onCropsGrowPre(level,pos,state,random.nextFloat()<d)?0:1;
     }
 
-    public static boolean isSpecialBiome(LevelAccessor level, BlockPos pos){
+    public static boolean isSpecialBiome(LevelReader level, BlockPos pos){
         return level.getBiome(pos).is(ModTags.Biomes.tropicalBiomes);//isBiomeNameAtPos(level,pos,Config.SPECIAL_BIOME);
     }
     public static boolean isSpecialBiome(Entity entity){

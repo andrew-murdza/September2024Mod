@@ -1,10 +1,5 @@
 {
   "values": [
-    "aoemod:jungle",
-    "aoemod:jungle_shore",
-    "aoemod:jungle_water",
-    "aoemod:warm_ocean_water",
-    "aoemod:warm_ocean_shore",
-    "aoemod:warm_ocean"
+    "minecraft:mangrove_swamp"
   ]
 }

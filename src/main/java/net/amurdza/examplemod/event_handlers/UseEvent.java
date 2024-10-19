@@ -184,7 +184,7 @@ public class UseEvent {
         ItemStack itemStack=event.getItemStack();
         BlockState blockstate=event.getLevel().getBlockState(blockpos);
         if(itemStack.is(ItemTags.AXES)){
-            if(blockstate.is(ModBlocks.CAVE_VINES_PLANT.get())||blockstate.is(ModBlocks.CAVE_VINES_HEAD.get())&&
+            if(blockstate.is(ModBlocks.CAVE_VINES_PLANT.get())||blockstate.is(ModBlocks.CAVE_VINES.get())&&
                     blockstate.getValue(BlockStateProperties.ENABLED)){
                 Player player = event.getEntity();
                 if (player instanceof ServerPlayer) {
@@ -211,7 +211,13 @@ public class UseEvent {
             if(blockState.is(Blocks.MOSS_BLOCK)|| blockState.is(Blocks.PODZOL)){
                 level.playSound(player, pos, SoundEvents.HOE_TILL, SoundSource.BLOCKS, 1.0F, 1.0F);
                 if (!level.isClientSide) {
-                    level.setBlock(pos,Blocks.FARMLAND.defaultBlockState(),11);
+                    Block block=Blocks.FARMLAND;
+                    //begin new
+                    if(blockState.is(Blocks.MOSS_BLOCK)){
+                        block=vectorwing.farmersdelight.common.registry.ModBlocks.RICH_SOIL_FARMLAND.get();
+                    }
+                    //end new
+                    level.setBlock(pos,block.defaultBlockState(),11);
                     if (player != null) {
                         event.getItemStack().hurtAndBreak(1, player, (p_150845_) -> p_150845_.broadcastBreakEvent(event.getHand()));
                     }

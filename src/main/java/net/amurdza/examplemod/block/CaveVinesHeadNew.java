@@ -19,6 +19,7 @@ import net.minecraft.world.level.block.CaveVinesBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
+import net.minecraft.world.level.material.Fluid;
 import net.minecraft.world.level.material.FluidState;
 import net.minecraft.world.level.material.Fluids;
 import net.minecraft.world.phys.BlockHitResult;
@@ -36,6 +37,10 @@ public class CaveVinesHeadNew extends CaveVinesBlock {
     protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> pBuilder) {
         super.createBlockStateDefinition(pBuilder);
         pBuilder.add(BlockStateProperties.ENABLED).add(WATERLOGGED);
+    }
+
+    protected BlockState updateBodyAfterConvertedFromHead(BlockState head, BlockState body) {
+        return body.setValue(BERRIES, head.getValue(BERRIES)).setValue(WATERLOGGED,head.getValue(WATERLOGGED));
     }
 
     public ItemStack getCloneItemStack(BlockGetter p_152966_, BlockPos p_152967_, BlockState p_152968_) {
@@ -90,7 +95,15 @@ public class CaveVinesHeadNew extends CaveVinesBlock {
                 net.minecraftforge.common.ForgeHooks.onCropsGrowPost(pLevel, pPos, pState);
             }
             else{
-                super.randomTick(pState,pLevel,pPos,pRandom);
+                if (pState.getValue(AGE) < 25 && net.minecraftforge.common.ForgeHooks.onCropsGrowPre(pLevel, pPos.relative(this.growthDirection), pLevel.getBlockState(pPos.relative(this.growthDirection)),pRandom.nextDouble() < 0.1D)) {
+                    BlockPos blockpos = pPos.relative(this.growthDirection);
+                    if (this.canGrowInto(pLevel.getBlockState(blockpos))) {
+                        boolean inWater=pLevel.getFluidState(blockpos).is(FluidTags.WATER);
+                        BlockState growIntoState=this.getGrowIntoState(pState, pLevel.random);
+                        pLevel.setBlockAndUpdate(blockpos, growIntoState.setValue(WATERLOGGED,inWater));
+                        net.minecraftforge.common.ForgeHooks.onCropsGrowPost(pLevel, blockpos, pLevel.getBlockState(blockpos));
+                    }
+                }
             }
         }
     }

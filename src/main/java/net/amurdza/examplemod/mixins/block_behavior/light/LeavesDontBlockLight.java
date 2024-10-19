@@ -1,4 +1,4 @@
-package net.amurdza.examplemod.mixins.block_behavior;
+package net.amurdza.examplemod.mixins.block_behavior.light;
 
 import net.minecraft.world.level.block.LeavesBlock;
 import org.spongepowered.asm.mixin.Mixin;

@@ -16,7 +16,7 @@ import java.util.function.Supplier;
 public class RemoveBlackBackground {
     @SubscribeEvent
     public static void clientSetup(FMLClientSetupEvent event){
-        for(Supplier<Block> block:new Supplier[]{ModBlocks.CAVE_VINES_HEAD, ModBlocks.CAVE_VINES_PLANT,ModBlocks.GRAPE_VINE,ModBlocks.BLUE_BERRY_BUSH}){
+        for(Supplier<Block> block:new Supplier[]{ModBlocks.CAVE_VINES, ModBlocks.CAVE_VINES_PLANT,ModBlocks.GRAPE_VINE,ModBlocks.BLUE_BERRY_BUSH}){
             setRenderLayer(block, RenderType.cutout());
         }
     }

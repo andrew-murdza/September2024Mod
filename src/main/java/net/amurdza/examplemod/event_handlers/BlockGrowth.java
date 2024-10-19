@@ -6,6 +6,7 @@ import net.amurdza.examplemod.Helper;
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.CropBlock;
 import net.minecraft.world.level.block.StemBlock;
 import net.minecraft.world.level.block.state.BlockState;
@@ -46,6 +47,9 @@ public class BlockGrowth {
                         IntegerProperty property=agePropertyList[i];
                         if(state.hasProperty(property)){
                             int newAge=state.getValue(property)+numOfAgeGrowths;
+                            if(state.is(Blocks.SUGAR_CANE)){
+                                pos=pos.above();
+                            }
                             if(newAge>maxAges[i]){
                                 level.setBlockAndUpdate(pos, block.defaultBlockState());
                                 net.minecraftforge.common.ForgeHooks.onCropsGrowPost(level, pos.below(), block.defaultBlockState());

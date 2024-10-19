@@ -17,7 +17,7 @@ public class ModItems {
         ITEMS.register(eventBus);
     }
     public static final RegistryObject<Item> GLOW_BERRIES= ITEMS.register("glow_berries",
-            ()->new ItemNameBlockItem(ModBlocks.CAVE_VINES_HEAD.get(), (new Item.Properties()).food(Foods.GLOW_BERRIES)));
+            ()->new ItemNameBlockItem(ModBlocks.CAVE_VINES.get(), (new Item.Properties()).food(Foods.GLOW_BERRIES)));
     public static final  RegistryObject<Item> BLUE_BERRIES= ITEMS.register("blue_berries",()->new ItemNameBlockItem(ModBlocks.BLUE_BERRY_BUSH.get(),
             (new Item.Properties()).food((new FoodProperties.Builder()).nutrition(3).saturationMod(0.6F).build())));
 }

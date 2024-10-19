@@ -43,7 +43,7 @@ public class CaveVinesPlantNew extends CaveVinesPlantBlock {
         return !pState.getValue(BERRIES)&&pState.getValue(BlockStateProperties.ENABLED);
     }
     protected GrowingPlantHeadBlock getHeadBlock() {
-        return (GrowingPlantHeadBlock) ModBlocks.CAVE_VINES_HEAD.get();
+        return (GrowingPlantHeadBlock) ModBlocks.CAVE_VINES.get();
     }
 
     @Override

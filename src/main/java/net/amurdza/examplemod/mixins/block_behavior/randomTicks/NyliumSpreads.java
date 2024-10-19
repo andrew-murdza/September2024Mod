@@ -1,4 +1,4 @@
-package net.amurdza.examplemod.mixins.block_behavior;
+package net.amurdza.examplemod.mixins.block_behavior.randomTicks;
 
 import net.amurdza.examplemod.Helper;
 import net.minecraft.core.BlockPos;

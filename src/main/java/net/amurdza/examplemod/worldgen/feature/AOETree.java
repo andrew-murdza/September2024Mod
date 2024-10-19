@@ -153,7 +153,7 @@ public class AOETree extends Feature<AOETreeConfiguration> {
             pos1.move(Direction.UP,1);
         }
         if(config.hasCaveVines){
-            BlockState caveVinesHead=ModBlocks.CAVE_VINES_HEAD.get().defaultBlockState().setValue(BlockStateProperties.BERRIES,true)
+            BlockState caveVinesHead=ModBlocks.CAVE_VINES.get().defaultBlockState().setValue(BlockStateProperties.BERRIES,true)
                     .setValue(BlockStateProperties.AGE_25,25);
             for(int i=14;i>=10;i--){
                 for(int j=0;j<2;j++){

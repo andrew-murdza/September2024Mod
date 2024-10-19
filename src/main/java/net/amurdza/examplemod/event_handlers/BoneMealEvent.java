@@ -1,5 +1,6 @@
 package net.amurdza.examplemod.event_handlers;
 
+import com.teamabnormals.upgrade_aquatic.core.registry.UABlocks;
 import net.amurdza.examplemod.AOEMod;
 import net.amurdza.examplemod.Config;
 import net.amurdza.examplemod.Helper;
@@ -106,35 +107,35 @@ public class BoneMealEvent {
             }
             //aboveBlock!=Blocks.WATER&&aboveBlock!=Blocks.LAVA&&
             else if(!isFluid(level,pos.above(),true)){
-                if(block==Blocks.MOSS_BLOCK){
-                    growMoss(level,pos);
-                }
-                else if(block==Blocks.RED_SAND||block==Blocks.SAND){//Assumes dead bushes can always grow on sand regardless of biome
+//                if(block==Blocks.MOSS_BLOCK){
+//                    growMoss(level,pos);
+//                }
+                if(block==Blocks.RED_SAND||block==Blocks.SAND){//Assumes dead bushes can always grow on sand regardless of biome
                     growSand(level,pos);
                 }
                 else if(block==Blocks.MYCELIUM){
                     growMycelium(level,pos);
                 }
-                else if((block instanceof FlowerBlock || block instanceof DoublePlantBlock
-                        || block==Blocks.DEAD_BUSH || block instanceof TallGrassBlock)&&
-                        !(block instanceof TallSeagrassBlock|| block instanceof SmallDripleafBlock||
-                                block instanceof WildRiceBlock)){
-                    //state.is(BlockTags.FLOWERS), Helper.isBlock(block, Blocks.TALL_GRASS, Blocks.LARGE_FERN, Blocks.DEAD_BUSH)
-                    growFlowers(level, pos);
-                }
-                else if(block==Blocks.WET_SPONGE){
-                    growSponge(level,pos);
-                }
-                else if(state.is(ModTags.Blocks.netherFlowers)){
-                    List<Block> blocks= new ArrayList<>(List.of(Blocks.WARPED_NYLIUM, Blocks.CRIMSON_NYLIUM, Blocks.SOUL_SOIL));
-                    if(block==Blocks.CRIMSON_ROOTS)
-                        blocks.addAll(List.of(Blocks.BLACKSTONE,Blocks.BASALT,Blocks.POLISHED_BASALT));
-                    Function<BlockState, Boolean> func = state1 -> blocks.contains(state1.getBlock());
-                    growFlowers(level, pos, func);
-                }
-                else if(state.is(ModTags.Blocks.crimsonRootsGroundBlocks)){
-                    growCrimsonRoots(level,pos);
-                }
+//                else if((block instanceof FlowerBlock || block instanceof DoublePlantBlock
+//                        || block==Blocks.DEAD_BUSH || block instanceof TallGrassBlock)&&
+//                        !(block instanceof TallSeagrassBlock|| block instanceof SmallDripleafBlock||
+//                                block instanceof WildRiceBlock)){
+//                    //state.is(BlockTags.FLOWERS), Helper.isBlock(block, Blocks.TALL_GRASS, Blocks.LARGE_FERN, Blocks.DEAD_BUSH)
+//                    growFlowers(level, pos);
+//                }
+//                else if(block==Blocks.WET_SPONGE){
+//                    growSponge(level,pos);
+//                }
+//                else if(state.is(ModTags.Blocks.netherFlowers)){
+//                    List<Block> blocks= new ArrayList<>(List.of(Blocks.WARPED_NYLIUM, Blocks.CRIMSON_NYLIUM, Blocks.SOUL_SOIL));
+//                    if(block==Blocks.CRIMSON_ROOTS)
+//                        blocks.addAll(List.of(Blocks.BLACKSTONE,Blocks.BASALT,Blocks.POLISHED_BASALT));
+//                    Function<BlockState, Boolean> func = state1 -> blocks.contains(state1.getBlock());
+//                    growFlowers(level, pos, func);
+//                }
+//                else if(state.is(ModTags.Blocks.crimsonRootsGroundBlocks)){
+//                    growCrimsonRoots(level,pos);
+//                }
                 else if(block==Blocks.SOUL_SAND){
                     growSoulSand(level,pos);
                 }
@@ -147,20 +148,23 @@ public class BoneMealEvent {
                 else if(state.is(ModTags.Blocks.duplicatedByBonemeal)) {
                     Block.popResource(level, pos, new ItemStack(block));
                 }
-                else if(block == Blocks.GRASS_BLOCK){
-                    ((GrassBlock)block).performBonemeal(level, level.random, pos, Blocks.GRASS.defaultBlockState());
-                }
+//                else if(block == Blocks.GRASS_BLOCK){
+//                    ((GrassBlock)block).performBonemeal(level, level.random, pos, Blocks.GRASS.defaultBlockState());
+//                }
                 else if(block==Blocks.ROOTED_DIRT){
                     growRootedDirt(level,level.random,pos);
                 }
-                else if(block==Blocks.SMALL_DRIPLEAF){
-                    growSmallDripLeaf(level, level.random, pos);
+                else if(block== UABlocks.TALL_PICKERELWEED.get()||block instanceof TallFlowerBlock){
+                    event.setCanceled(true);
                 }
+//                else if(block==Blocks.SMALL_DRIPLEAF){
+//                    growSmallDripLeaf(level, level.random, pos);
+//                }
                 else {
                     flag = false;
                 }
                 if(flag) {
-                    event.setResult(Event.Result.ALLOW);
+                    event.setResult(Event.Result.DEFAULT);
                 }
             }
         }

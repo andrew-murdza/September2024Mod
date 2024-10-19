@@ -1,4 +1,4 @@
-package net.amurdza.examplemod.mixins.block_behavior;
+package net.amurdza.examplemod.mixins.block_behavior.randomTicks;
 
 import net.minecraft.core.Direction;
 import net.minecraft.util.RandomSource;

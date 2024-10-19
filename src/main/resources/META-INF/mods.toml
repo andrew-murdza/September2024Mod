@@ -70,11 +70,32 @@ versionRange = "[1.22.9,)"
 ordering = "AFTER"
 side = "BOTH"
 
+[[dependencies."${mod_id}"]]
+modId = "blue_skies"
+mandatory = false
+versionRange = "[v1.3.31,)"
+ordering = "AFTER"
+side = "BOTH"
+
+
+#[[dependencies."${mod_id}"]]
+#modId = "born_in_chaos_v1"
+#mandatory = false
+#versionRange = "[1.0.0,)"
+#ordering = "AFTER"
+#side = "BOTH"
 
 [[dependencies."${mod_id}"]]
-modId = "born_in_chaos_v1"
+modId = "culturaldelights"
 mandatory = false
-versionRange = "[1.0.0,)"
+versionRange = "[0.16.1,)"
+ordering = "AFTER"
+side = "BOTH"
+
+[[dependencies."${mod_id}"]]
+modId = "dawnera"
+mandatory = false
+versionRange = "[0.58.94,)"
 ordering = "AFTER"
 side = "BOTH"
 
@@ -82,13 +103,6 @@ side = "BOTH"
 modId = "croptopia"
 mandatory = false
 versionRange = "[1.20.4-FORGE-3.0.4,)"
-ordering = "AFTER"
-side = "BOTH"
-
-[[dependencies."${mod_id}"]]
-modId = "culturaldelights"
-mandatory = false
-versionRange = "[0.16.1,)"
 ordering = "AFTER"
 side = "BOTH"
 
@@ -155,12 +169,12 @@ versionRange = "[4.0-460,)"
 ordering = "BEFORE"
 side = "BOTH"
 
-[[dependencies."${mod_id}"]]
-modId = "soulsweapons"
-mandatory = false
-versionRange = "[1.1.4.4d-1.20.1-forge},)"
-ordering = "AFTER"
-side = "BOTH"
+#[[dependencies."${mod_id}"]]
+#modId = "soulsweapons"
+#mandatory = false
+#versionRange = "[1.1.4.4d-1.20.1-forge},)"
+#ordering = "AFTER"
+#side = "BOTH"
 
 [[dependencies."${mod_id}"]]
 modId = "trailsandtalesplus"
