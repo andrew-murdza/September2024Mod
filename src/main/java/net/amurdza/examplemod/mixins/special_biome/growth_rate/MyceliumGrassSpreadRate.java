@@ -1,7 +1,6 @@
 package net.amurdza.examplemod.mixins.special_biome.growth_rate;
 
-import net.amurdza.examplemod.Config;
-import net.amurdza.examplemod.Helper;
+import net.amurdza.examplemod.util.Helper;
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.util.RandomSource;

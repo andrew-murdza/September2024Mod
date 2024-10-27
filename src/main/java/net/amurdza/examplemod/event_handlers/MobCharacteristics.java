@@ -2,7 +2,7 @@ package net.amurdza.examplemod.event_handlers;
 
 import net.amurdza.examplemod.AOEMod;
 import net.amurdza.examplemod.Config;
-import net.amurdza.examplemod.Helper;
+import net.amurdza.examplemod.util.Helper;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.Mob;
@@ -36,12 +36,6 @@ public class MobCharacteristics {
             }
             mob.addTag("aoe.checkedCharacteristics");
 
-            //Handled by another mod
-//            if(mob instanceof MushroomCow){
-//                Method setMushroomType=MushroomCow.class.getDeclaredMethod("setVariant", MushroomCow.MushroomType.class);
-//                setMushroomType.setAccessible(true);
-//                setMushroomType.invoke(mob, Helper.select(level,MushroomCow.MushroomType.RED,MushroomCow.MushroomType.BROWN));
-//            }
             if(mob instanceof Axolotl){
                 ((Axolotl) mob).setVariant(Helper.select(level,Axolotl.Variant.values()));
             }
@@ -72,6 +66,12 @@ public class MobCharacteristics {
                 mob.getAttribute(Attributes.MOVEMENT_SPEED).setBaseValue(Config.DONKEY_SPEED);
                 mob.getAttribute(Attributes.JUMP_STRENGTH).setBaseValue(Config.DONKEY_JUMP_STRENGTH);
             }
+            //Handled by another mod
+//            if(mob instanceof MushroomCow){
+//                Method setMushroomType=MushroomCow.class.getDeclaredMethod("setVariant", MushroomCow.MushroomType.class);
+//                setMushroomType.setAccessible(true);
+//                setMushroomType.invoke(mob, Helper.select(level,MushroomCow.MushroomType.RED,MushroomCow.MushroomType.BROWN));
+//            }
         }
     }
 }

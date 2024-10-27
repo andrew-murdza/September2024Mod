@@ -1,6 +1,6 @@
 package net.amurdza.examplemod.mixins.special_biome.safety;
 
-import net.amurdza.examplemod.Helper;
+import net.amurdza.examplemod.util.Helper;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.damagesource.DamageType;

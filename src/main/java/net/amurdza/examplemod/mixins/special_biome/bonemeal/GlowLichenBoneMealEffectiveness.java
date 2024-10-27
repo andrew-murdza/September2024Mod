@@ -1,7 +1,7 @@
-package net.amurdza.examplemod.event_handlers;
+package net.amurdza.examplemod.mixins.special_biome.bonemeal;
 
 import net.amurdza.examplemod.Config;
-import net.amurdza.examplemod.Helper;
+import net.amurdza.examplemod.util.Helper;
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.util.RandomSource;
@@ -13,7 +13,7 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 @Mixin(GlowLichenBlock.class)
-public class GlowLichenMixin {
+public class GlowLichenBoneMealEffectiveness {
     @Inject(method = "performBonemeal", at=@At("HEAD"))
     public void grow(ServerLevel world, RandomSource random, BlockPos pos, BlockState state, CallbackInfo info) {
         GlowLichenBlock block=(GlowLichenBlock) (Object) this;

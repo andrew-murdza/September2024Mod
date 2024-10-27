@@ -1,7 +1,7 @@
-package net.amurdza.examplemod.mixins.special_biome;
+package net.amurdza.examplemod.mixins.special_biome.bonemeal;
 
 import net.amurdza.examplemod.Config;
-import net.amurdza.examplemod.Helper;
+import net.amurdza.examplemod.util.Helper;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.Holder;
@@ -18,7 +18,7 @@ import org.spongepowered.asm.mixin.injection.Redirect;
 import javax.annotation.Nullable;
 
 @Mixin(BoneMealItem.class)
-public class BoneMealMixin {
+public class BoneMealWaterPlants {
     @Redirect(method = "growWaterPlant",
             at = @At(value = "INVOKE",
                     target = "Lnet/minecraft/core/Holder;is(Lnet/minecraft/tags/TagKey;)Z"))

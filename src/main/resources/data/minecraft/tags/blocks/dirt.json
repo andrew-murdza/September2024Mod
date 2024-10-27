@@ -12,6 +12,7 @@
     "minecraft:mangrove_roots",
     "farmersdelight:rich_soil",
     "farmersdelight:rich_soil_farmland",
-    "minecraft:farmland"
+    "minecraft:farmland",
+    "#minecraft:leaves"
   ]
 }

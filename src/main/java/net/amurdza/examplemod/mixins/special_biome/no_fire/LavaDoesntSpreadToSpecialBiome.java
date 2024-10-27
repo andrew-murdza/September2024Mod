@@ -1,6 +1,6 @@
 package net.amurdza.examplemod.mixins.special_biome.no_fire;
 
-import net.amurdza.examplemod.Helper;
+import net.amurdza.examplemod.util.Helper;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.world.level.LevelAccessor;

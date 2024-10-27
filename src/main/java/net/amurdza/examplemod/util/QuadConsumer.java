@@ -1,4 +1,4 @@
-package net.amurdza.examplemod;
+package net.amurdza.examplemod.util;
 
 @FunctionalInterface
 public interface QuadConsumer<A,B,C,D> {

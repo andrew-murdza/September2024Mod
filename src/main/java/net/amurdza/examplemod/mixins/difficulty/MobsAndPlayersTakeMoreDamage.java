@@ -1,7 +1,7 @@
 package net.amurdza.examplemod.mixins.difficulty;
 
 import net.amurdza.examplemod.Config;
-import net.amurdza.examplemod.Helper;
+import net.amurdza.examplemod.util.Helper;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;

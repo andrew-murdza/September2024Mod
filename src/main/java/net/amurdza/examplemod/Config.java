@@ -13,6 +13,7 @@ import net.brnbrd.delightful.common.block.DelightfulBlocks;
 import net.mehvahdjukaar.hauntedharvest.reg.ModRegistry;
 import net.minecraft.core.NonNullList;
 import net.minecraft.resources.ResourceKey;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.animal.Chicken;
 import net.minecraft.world.item.Item;
@@ -27,10 +28,14 @@ import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.function.BiFunction;
+import java.util.function.Function;
+import java.util.function.Supplier;
 
 @Mod.EventBusSubscriber(modid = AOEMod.MOD_ID, bus = Mod.EventBusSubscriber.Bus.MOD)
 public class Config
 {
+    public static final Function<RandomSource, Integer> shearAmount=randomSource->2*(1+randomSource.nextInt(3));
     public static final double LLAMA_HEALTH = 40;
     public static final double HORSE_HEALTH = 40;
     public static final double HORSE_SPEED = 0.4;
@@ -41,7 +46,6 @@ public class Config
     public static final int GLOW_BERRY_HARVEST_AMOUNT = 2;
     public static final int SWEET_BERRIES_PARTIALLY_GROWN = 2;
     public static final int SWEET_BERRIES_FULLY_GROWN = 5;
-    public static final int WOOL_FROM_SHEAR = 3;
     public static final int CHANCE_OF_TALL_SEAGRASS_BONEMEAL = 4;
     public static final int MAX_MUSHROOMS_FOR_GROWTH = 5;
     public static final int MYCELIUM_GRASS_SPREAD_NUM_TRIES = 8;

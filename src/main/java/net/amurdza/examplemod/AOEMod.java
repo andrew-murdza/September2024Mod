@@ -3,7 +3,8 @@ package net.amurdza.examplemod;
 import com.mojang.logging.LogUtils;
 import net.amurdza.examplemod.block.ModBlocks;
 import net.amurdza.examplemod.item.ModItems;
-import net.amurdza.examplemod.mixins.monoxide.RestoreXpOnRespawn;
+//import net.amurdza.examplemod.mixins.monoxide.RestoreXpOnRespawn;
+import net.amurdza.examplemod.util.ConfigHelper;
 import net.amurdza.examplemod.worldgen.feature.ModFeatures;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.item.CreativeModeTabs;
@@ -74,13 +75,13 @@ public class AOEMod
 
     }
 
-    /** Takes away one level per death ({@link RestoreXpOnRespawn}) */
-    @SubscribeEvent
-    public void loseLevelOnDeath(final LivingDeathEvent event) {
-        if(event.getEntity() instanceof final ServerPlayer player) {
-            player.giveExperienceLevels(-1);
-        }
-    }
+//    /** Takes away one level per death ({@link RestoreXpOnRespawn}) */
+//    @SubscribeEvent
+//    public void loseLevelOnDeath(final LivingDeathEvent event) {
+//        if(event.getEntity() instanceof final ServerPlayer player) {
+//            player.giveExperienceLevels(-1);
+//        }
+//    }
 
     // You can use EventBusSubscriber to automatically register all static methods in the class annotated with @SubscribeEvent
     @Mod.EventBusSubscriber(modid = MOD_ID, bus = Mod.EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)

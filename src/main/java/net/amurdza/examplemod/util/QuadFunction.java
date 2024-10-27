@@ -1,4 +1,4 @@
-package net.amurdza.examplemod;
+package net.amurdza.examplemod.util;
 
 @FunctionalInterface
 public interface QuadFunction<A,B,C,D,E> {

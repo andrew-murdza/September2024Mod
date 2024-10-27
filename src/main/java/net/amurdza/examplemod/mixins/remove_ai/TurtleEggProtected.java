@@ -1,6 +1,6 @@
 package net.amurdza.examplemod.mixins.remove_ai;
 
-import net.amurdza.examplemod.Helper;
+import net.amurdza.examplemod.util.Helper;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.level.Level;

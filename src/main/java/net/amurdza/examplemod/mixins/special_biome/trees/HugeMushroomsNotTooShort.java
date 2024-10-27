@@ -1,4 +1,4 @@
-package net.amurdza.examplemod.mixins;
+package net.amurdza.examplemod.mixins.special_biome.trees;
 
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.levelgen.feature.AbstractHugeMushroomFeature;

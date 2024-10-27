@@ -1,6 +1,6 @@
-package net.amurdza.examplemod;
+package net.amurdza.examplemod.util;
 
-import net.amurdza.examplemod.util.ModTags;
+import net.amurdza.examplemod.Config;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.Holder;
@@ -26,7 +26,6 @@ import net.minecraftforge.common.ForgeHooks;
 import javax.annotation.Nullable;
 import java.util.Arrays;
 import java.util.List;
-import java.util.Random;
 
 public class Helper {
 

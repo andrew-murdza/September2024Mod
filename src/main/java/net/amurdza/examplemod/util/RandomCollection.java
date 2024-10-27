@@ -1,4 +1,4 @@
-package net.amurdza.examplemod;
+package net.amurdza.examplemod.util;
 
 import net.minecraft.util.RandomSource;
 

@@ -1,8 +1,8 @@
 package net.amurdza.examplemod.worldgen.feature;
 
 import com.mojang.serialization.Codec;
-import net.amurdza.examplemod.QuintConsumer;
-import net.amurdza.examplemod.SixConsumer;
+import net.amurdza.examplemod.util.QuintConsumer;
+import net.amurdza.examplemod.util.SixConsumer;
 import net.amurdza.examplemod.block.ModBlocks;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;

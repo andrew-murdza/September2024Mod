@@ -3,7 +3,7 @@ package net.amurdza.examplemod.mixins.othermods.alexsmobs;
 import com.github.alexthe666.alexsmobs.block.BlockLeafcutterAntChamber;
 import com.github.alexthe666.alexsmobs.item.AMItemRegistry;
 import net.amurdza.examplemod.Config;
-import net.amurdza.examplemod.Helper;
+import net.amurdza.examplemod.util.Helper;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;

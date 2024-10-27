@@ -1,4 +1,4 @@
-package net.amurdza.examplemod.mixins.special_biome;
+package net.amurdza.examplemod.mixins.special_biome.trees;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.tags.BlockTags;

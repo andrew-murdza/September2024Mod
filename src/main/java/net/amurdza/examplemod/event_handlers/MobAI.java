@@ -4,6 +4,7 @@ import com.github.alexthe666.alexsmobs.entity.*;
 import com.github.alexthe666.alexsmobs.entity.ai.*;
 import com.github.alexthe666.alexsmobs.item.AMItemRegistry;
 import com.github.alexthe666.iceandfire.entity.EntityPixie;
+import com.github.alexthe666.iceandfire.entity.EntitySiren;
 import com.github.alexthe666.iceandfire.entity.ai.PixieAIFlee;
 import com.github.alexthe666.iceandfire.entity.ai.PixieAISteal;
 import com.teamabnormals.upgrade_aquatic.common.entity.animal.Lionfish;
@@ -32,6 +33,7 @@ import net.minecraftforge.event.entity.EntityJoinLevelEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import org.violetmoon.quark.content.world.module.GlimmeringWealdModule;
+import superlord.cherry_shrimp.common.entity.CherryShrimp;
 
 import java.lang.reflect.Field;
 import java.util.ArrayList;
@@ -44,27 +46,100 @@ public class MobAI {
         try{
             Entity entity=event.getEntity();
 
-            if(!event.getLevel().isClientSide&&entity instanceof PathfinderMob) {
-                PathfinderMob mob = (PathfinderMob) entity;
+            if(!event.getLevel().isClientSide&& entity instanceof PathfinderMob mob) {
                 if(mob.getTags().contains("aoe.checkedAI")){
                     return;
                 }
                 mob.addTag("aoe.checkedAI");
 
-                if(mob instanceof Animal || mob instanceof WaterAnimal){
+                //Breeding and Food
+                if (entity instanceof Fox) {
+                    addTempt(mob, Items.CHICKEN,Items.RABBIT);
+                    addTempt(mob, ModTags.Items.rawFish);
+                } else if (entity instanceof Rabbit) {
+                    addTempt(mob, ModTags.Items.smallerFlowers);
+                } else if (entity instanceof Horse || entity instanceof AbstractChestedHorse) {
+                    addTempt(mob, Items.HAY_BLOCK);
+                } else if (entity instanceof Cat||entity instanceof Ocelot) {
+                    addTempt(mob, ModTags.Items.rawFish);
+                }
+                else if (entity instanceof PolarBear) {
+//                    addBreeding(mob); handled by rideablepolarbearmod
+                    addTempt(mob, Items.MUTTON, Items.BEEF);
+                    addTempt(mob, ModTags.Items.rawFish);
+                } else if (entity instanceof Parrot) {
+                    addTempt(1, mob, Items.WHEAT_SEEDS, Items.BEETROOT_SEEDS, Items.MELON_SEEDS, Items.PUMPKIN_SEEDS, Items.APPLE);
+                    //parrot breeding
+                    addBreeding(0, mob);
+                }
+                else if (entity instanceof MushroomCow) {
+                    addTempt(mob, ModTags.Items.mushrooms);
+                }
+                else if (entity instanceof Strider){
+                    addTempt(mob,Items.CRIMSON_ROOTS,Items.WARPED_ROOTS);
+                }
+                else if(entity instanceof Frog) {
+                    addTempt(mob, Items.SEAGRASS);
+                }
+                else if(entity instanceof EntityJerboa){
+                    addTempt(mob,Items.DEAD_BUSH,Items.GRASS,Items.FERN);
+                    addTempt(mob, ModTags.Items.smallerFlowers);
+                }
+                else if(entity instanceof EntityRoadrunner||entity instanceof EntityBlueJay||entity instanceof EntityMudskipper
+                        ||entity instanceof EntityPotoo){
+                    addTempt(mob, ModTags.Items.rawFish);
+                }
+                else if(entity instanceof EntityRainFrog){
+                    addTempt(mob, Items.SEAGRASS);
+                }
+                else if(entity instanceof EntityMoose){
+                    addTempt(mob, ModTags.Items.smallerFlowers);
+                }
+                else if(entity instanceof EntityKangaroo){
+                    addTempt(mob, Items.FERN);
+                }
+                else if(mob instanceof EntityCapuchinMonkey){
+                    addTempt(mob,AMItemRegistry.BANANA.get());
+                }
+                else if(mob instanceof EntityBananaSlug){
+                    addTempt(mob,ModTags.Items.mushrooms);
+                }
+
+                //Protect Turtle
+                if (entity instanceof Zombie) {
+                    removeAI(mob, Class.forName("net.minecraft.world.entity.monster.Zombie$ZombieAttackTurtleEggGoal"));
+                    removeAI(MobAI::removeTurtleAttack,mob);
+                }
+                else if(entity instanceof AbstractSkeleton){
+                    removeAI(MobAI::removeTurtleAttack,mob);
+                }
+                else if (entity instanceof Rabbit) {
+                    removeAI(mob,Class.forName("net.minecraft.world.entity.animal.Rabbit$RabbitAvoidEntityGoal"));
+                    removeAI(mob,Class.forName("net.minecraft.world.entity.animal.Rabbit$RaidGardenGoal"));
+                }
+
+                //Make passive and not running away
+                //Goat Ramming requires brain
+                //Axotol hunting passive fish will be fixed with the datapack and requires brain
+                //Piglin brute not attacking players with gold armor requires brain
+                if(mob instanceof Animal || mob instanceof WaterAnimal || mob instanceof EntitySiren){
+                    //Vanilla
                     removeAI(mob, NearestAttackableTargetGoal.class, AvoidEntityGoal.class,
                             NonTameRandomTargetGoal.class, HurtByTargetGoal.class,
                             PanicGoal.class, LeapAtTargetGoal.class);
+                    //Alex's Mobs
                     removeAI(mob, EntityAINearestTarget3D.class, AnimalAIFleeAdult.class,
                             AnimalAIHurtByTargetNotBaby.class, AnimalAIHerdPanic.class, AnimalAIPanicBaby.class,
-                            TameableAIDestroyTurtleEggs.class,CreatureAITargetItems.class,
-                            Class.forName("superlord.cherry_shrimp.common.entity.CherryShrimp$ShrimpAvoidEntityGoal"),
-                            Class.forName("superlord.cherry_shrimp.common.entity.CherryShrimp$ShrimpPanicGoal"));
+                            TameableAIDestroyTurtleEggs.class,CreatureAITargetItems.class);
                 }
-
                 if (entity instanceof Lionfish){
                     removeAI(mob,
                             Class.forName("com.teamabnormals.upgrade_aquatic.common.entity.animal.Lionfish$LionfishAttackGoal"));
+                }
+                if (entity instanceof CherryShrimp){
+                    removeAI(mob,
+                            Class.forName("superlord.cherry_shrimp.common.entity.CherryShrimp$ShrimpAvoidEntityGoal"),
+                            Class.forName("superlord.cherry_shrimp.common.entity.CherryShrimp$ShrimpPanicGoal"));
                 }
                 else if(entity instanceof EntityGiantSquid){
                     removeAI(mob, Class.forName("com.github.alexthe666.alexsmobs.entity.EntityGiantSquid$AIAvoidWhales"));
@@ -97,81 +172,28 @@ public class MobAI {
                 else if(entity instanceof EntityPixie){
                     removeAI(mob, PixieAIFlee.class, PixieAISteal.class);
                 }
-
-
-                else if (entity instanceof Fox) {
-                    removeAI(mob, Fox.FoxEatBerriesGoal.class,Fox.FoxPounceGoal.class,
-                            Class.forName("net.minecraft.world.entity.animal.Fox$FoxPanicGoal"),
-                            Class.forName("net.minecraft.world.entity.animal.Fox$FoxSearchForItemsGoal"),
-                            Class.forName("net.minecraft.world.entity.animal.Fox$PerchAndSearchGoal"),
-                            Class.forName("net.minecraft.world.entity.animal.Fox$StalkPreyGoal"));
-                    addTempt(mob, Items.CHICKEN,Items.RABBIT,Items.COD,Items.TROPICAL_FISH,Items.SALMON);
-                } else if (entity instanceof Ocelot) {
-                    addTempt(mob, Items.SALMON, Items.COD, Items.TROPICAL_FISH);
-                }
-                //Goat Ramming requires brain
-                //Axotol hunting passive fish will be fixed with the datapack and requires brain
-                //Piglin brute not attacking players with gold armor requires brain
-                else if (entity instanceof Rabbit) {
-                    removeAI(mob,Class.forName("net.minecraft.world.entity.animal.Rabbit$RabbitAvoidEntityGoal"));
-                    removeAI(mob,Class.forName("net.minecraft.world.entity.animal.Rabbit$RaidGardenGoal"));
-                    addTempt(mob, ModTags.Items.smallerFlowers);
-                } else if (entity instanceof Horse || entity instanceof AbstractChestedHorse) {
-                    addTempt(mob, Items.HAY_BLOCK);
-                } else if (entity instanceof Cat) {
-                    addTempt(mob, Items.SALMON, Items.COD, Items.TROPICAL_FISH);
-                }
-                else if (entity instanceof PolarBear) {
-                    removeAI(mob,Class.forName("net.minecraft.world.entity.animal.PolarBear$PolarBearAttackPlayersGoal"),
-                            Class.forName("net.minecraft.world.entity.animal.PolarBear$PolarBearPanicGoal"),
-                            Class.forName("net.minecraft.world.entity.animal.PolarBear$PolarBearHurtByTargetGoal"));
-//                    addBreeding(mob); handled by rideablepolarbearmod
-                    addTempt(mob, Items.MUTTON, Items.BEEF, Items.COD, Items.SALMON);
-                }
-                else if (entity instanceof Parrot) {
-                    addTempt(1, mob, Items.WHEAT_SEEDS, Items.BEETROOT_SEEDS, Items.MELON_SEEDS, Items.PUMPKIN_SEEDS, Items.APPLE);
-                    //parrot breeding
-                    addBreeding(0, mob);
-                }
-                else if (entity instanceof MushroomCow) {
-                    addTempt(mob, Items.BROWN_MUSHROOM, Items.RED_MUSHROOM, GlimmeringWealdModule.glow_shroom.asItem());
-                }
-                else if (entity instanceof Strider){
-                    addTempt(mob,Items.CRIMSON_ROOTS,Items.WARPED_ROOTS);
-                }
-                else if(entity instanceof Frog) {
-                    addTempt(mob, Items.SEAGRASS);
-                }
-                else if (entity instanceof Zombie) {
-                    removeAI(mob, Class.forName("net.minecraft.world.entity.monster.Zombie$ZombieAttackTurtleEggGoal"));
-                    removeAI(MobAI::removeTurtleAttack,mob);
-                }
-                else if(entity instanceof AbstractSkeleton){
-                    removeAI(MobAI::removeTurtleAttack,mob);
-                }
                 else if(entity instanceof Bee){
                     removeAI(p->true,mob.targetSelector);
                 }
                 else if(entity instanceof Wolf){
                     removeAI(mob, Class.forName("net.minecraft.world.entity.animal.Wolf$WolfPanicGoal"));
                 }
-                else if(entity instanceof EntityJerboa){
-                    addTempt(mob,Items.DEAD_BUSH,Items.GRASS,Items.FERN);
-                    addTempt(mob, ModTags.Items.smallerFlowers);
+                else if (entity instanceof PolarBear) {
+                    removeAI(mob,Class.forName("net.minecraft.world.entity.animal.PolarBear$PolarBearAttackPlayersGoal"),
+                            Class.forName("net.minecraft.world.entity.animal.PolarBear$PolarBearPanicGoal"),
+                            Class.forName("net.minecraft.world.entity.animal.PolarBear$PolarBearHurtByTargetGoal"));
                 }
-                else if(entity instanceof EntityRoadrunner||entity instanceof EntityBlueJay||entity instanceof EntityMudskipper
-                        ||entity instanceof EntityPotoo){
-                    addTempt(mob, Items.COD,Items.SALMON,Items.TROPICAL_FISH);
+                else if (entity instanceof Fox) {
+                    removeAI(mob, Fox.FoxEatBerriesGoal.class,Fox.FoxPounceGoal.class,
+                            Class.forName("net.minecraft.world.entity.animal.Fox$FoxPanicGoal"),
+                            Class.forName("net.minecraft.world.entity.animal.Fox$FoxSearchForItemsGoal"),
+                            Class.forName("net.minecraft.world.entity.animal.Fox$PerchAndSearchGoal"),
+                            Class.forName("net.minecraft.world.entity.animal.Fox$StalkPreyGoal"));
                 }
-                else if(entity instanceof EntityRainFrog){
-                    addTempt(mob, Items.SEAGRASS);
-                }
-                else if(mob instanceof EntityCapuchinMonkey){
-                    addTempt(mob,AMItemRegistry.BANANA.get());
-                }
-                else if(mob instanceof EntityBananaSlug){
-                    addTempt(mob,Items.RED_MUSHROOM);
-                }
+
+
+
+                //Make Hostile
                 else if(mob instanceof ZombifiedPiglin|| mob instanceof EntityBunfungus || mob instanceof EntityEnderiophage){
                     makeHostileToPlayers(mob);
                 }

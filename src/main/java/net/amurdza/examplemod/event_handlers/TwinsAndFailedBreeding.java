@@ -2,7 +2,7 @@ package net.amurdza.examplemod.event_handlers;
 
 import net.amurdza.examplemod.AOEMod;
 import net.amurdza.examplemod.Config;
-import net.amurdza.examplemod.Helper;
+import net.amurdza.examplemod.util.Helper;
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.entity.AgeableMob;
@@ -11,7 +11,7 @@ import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 
 @Mod.EventBusSubscriber(modid = AOEMod.MOD_ID, bus=Mod.EventBusSubscriber.Bus.FORGE)
-public class BreedingEvent {
+public class TwinsAndFailedBreeding {
     @SubscribeEvent
     public static void twinsOrInfertile(BabyEntitySpawnEvent event){
         AgeableMob parentA= (AgeableMob) event.getParentA();
@@ -27,6 +27,7 @@ public class BreedingEvent {
                     if(index>=0&&Helper.withChance(world,Config.TWIN_CHANCES.get(index))){
                         event.getChild().addTag("aoe.bred");
                         AgeableMob secondChild= parentA.getBreedOffspring(world, parentB);
+                        assert secondChild != null;
                         secondChild.addTag("aoe.bred");
                         secondChild.moveTo(parentA.getX(),parentA.getY(),parentA.getZ(),0.0F,0.0F);
                         secondChild.setBaby(true);

@@ -1,4 +1,4 @@
-package net.amurdza.examplemod;
+package net.amurdza.examplemod.util;
 
 import net.minecraft.resources.ResourceLocation;
 import net.minecraftforge.common.ForgeConfigSpec;
@@ -11,7 +11,7 @@ public class ConfigHelper {
 
     private static final ForgeConfigSpec.Builder BUILDER = new ForgeConfigSpec.Builder();
 
-    static final ForgeConfigSpec SPEC = BUILDER.build();
+    public static final ForgeConfigSpec SPEC = BUILDER.build();
 
     //    private static final ForgeConfigSpec.BooleanValue LOG_DIRT_BLOCK = BUILDER
     //            .comment("Whether to log the dirt block on common setup")

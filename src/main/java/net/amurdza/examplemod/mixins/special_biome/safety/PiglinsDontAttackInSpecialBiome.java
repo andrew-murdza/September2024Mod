@@ -1,6 +1,6 @@
 package net.amurdza.examplemod.mixins.special_biome.safety;
 
-import net.amurdza.examplemod.Helper;
+import net.amurdza.examplemod.util.Helper;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.ai.sensing.PiglinSpecificSensor;
 import net.minecraft.world.entity.monster.piglin.PiglinAi;

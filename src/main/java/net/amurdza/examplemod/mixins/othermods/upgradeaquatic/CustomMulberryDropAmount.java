@@ -2,7 +2,7 @@ package net.amurdza.examplemod.mixins.othermods.upgradeaquatic;
 
 import com.teamabnormals.upgrade_aquatic.common.block.MulberryVineBlock;
 import net.amurdza.examplemod.Config;
-import net.amurdza.examplemod.Helper;
+import net.amurdza.examplemod.util.Helper;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.entity.player.Player;

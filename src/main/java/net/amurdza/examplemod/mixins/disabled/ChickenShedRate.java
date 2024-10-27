@@ -1,13 +1,6 @@
 package net.amurdza.examplemod.mixins.disabled;
 
 //import eu.holmr.chickensshed.ChickensShed;
-import net.amurdza.examplemod.Config;
-import net.amurdza.examplemod.Helper;
-import net.minecraft.util.RandomSource;
-import net.minecraft.world.entity.LivingEntity;
-import org.spongepowered.asm.mixin.Mixin;
-import org.spongepowered.asm.mixin.injection.At;
-import org.spongepowered.asm.mixin.injection.Redirect;
 
 //@Mixin(ChickensShed.class)
 public class ChickenShedRate {

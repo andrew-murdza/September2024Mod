@@ -1,4 +1,4 @@
-package net.amurdza.examplemod;
+package net.amurdza.examplemod.util;
 
 @FunctionalInterface
 public interface SixConsumer<A,B,C,D,E,F> {
