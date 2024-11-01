@@ -6,6 +6,7 @@
   "mixins": [
     "add_ai.BreedableParrots",
     "block_behavior.LessBlockOffsetsPart1",
+    "block_behavior.LessBlockOffsetsPart2",
     "block_behavior.RichFarmlandToMoss",
     "block_behavior.SeaPicklesBoneMealGrowOnMossSponge",
     "block_behavior.entity_inside.CactusDoesntBreakItemsOrHurtMobs",
@@ -42,7 +43,6 @@
     "disabled.CropsOnMossPart3",
     "disabled.CropsOnMossPart4",
     "disabled.FarmlandToMoss",
-    "block_behavior.LessBlockOffsetsPart2",
     "disabled.MossDoesntBlockLightPart1",
     "disabled.MossDoesntBlockLightPart2",
     "disabled.MossDoesntBlockLightPart3",

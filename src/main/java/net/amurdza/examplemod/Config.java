@@ -152,6 +152,10 @@ public class Config
         addToMap(UABlocks.MULBERRY_VINE.get());
         addToMap(ModBlocks.BLUE_BERRY_BUSH.get());
         addToMap(ModBlocks.GRAPE_VINE.get());
+        addToMap(ModBlocks.LUSH_FRUIT.get());
+        addToMap(ModBlocks.SEA_PICKLE.get());
+        addToMap(ModBlocks.CAVE_VINES.get());
+        addToMap(ModBlocks.CAVE_VINES_PLANT.get());
         addToMap(DelightfulBlocks.CANTALOUPE_PLANT.get(), 0.25D);
         addToMap(net.ribs.vintagedelight.block.ModBlocks.OAT_CROP.get());
         addToMap(net.ribs.vintagedelight.block.ModBlocks.PEANUT_CROP.get());

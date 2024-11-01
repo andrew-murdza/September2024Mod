@@ -65,6 +65,13 @@ public class AOEMod
             event.accept(ModBlocks.GRAPE_VINE.get());
             event.accept(ModItems.GLOW_BERRIES.get());
             event.accept(ModItems.BLUE_BERRIES.get());
+            if(event.getTabKey()== CreativeModeTabs.NATURAL_BLOCKS){
+                event.accept(ModItems.SEA_PICKLE.get());
+                event.accept(ModItems.LUSH_FRUIT_SEEDS.get());
+            }
+            if(event.getTabKey()== CreativeModeTabs.FOOD_AND_DRINKS){
+                event.accept(ModItems.LUSH_FRUIT.get());
+            }
         }
     }
 
