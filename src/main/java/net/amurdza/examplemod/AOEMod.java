@@ -68,6 +68,8 @@ public class AOEMod
             if(event.getTabKey()== CreativeModeTabs.NATURAL_BLOCKS){
                 event.accept(ModItems.SEA_PICKLE.get());
                 event.accept(ModItems.LUSH_FRUIT_SEEDS.get());
+//                event.accept(ModBlocks.LAVENDER.get());
+//                event.accept(ModBlocks.WILDFLOWER.get());
             }
             if(event.getTabKey()== CreativeModeTabs.FOOD_AND_DRINKS){
                 event.accept(ModItems.LUSH_FRUIT.get());
