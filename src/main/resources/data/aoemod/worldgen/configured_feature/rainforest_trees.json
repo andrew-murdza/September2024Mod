@@ -1,0 +1,225 @@
+{
+  "type": "minecraft:random_selector",
+  "config": {
+    "default": {
+      "feature": "minecraft:patch_grass_jungle",
+      "placement": []
+    },
+    "features": [
+      {
+        "chance": 0.1,
+        "feature": {
+          "feature": "biomeswevegone:baobab_trees",
+          "placement": []
+        }
+      },
+      {
+        "chance": 0.1,
+        "feature": {
+          "feature": "minecraft:acacia",
+          "placement": []
+        }
+      },
+      {
+        "chance": 0.1,
+        "feature": {
+          "feature": "minecraft:huge_brown_mushroom",
+          "placement": []
+        }
+      },
+      {
+        "chance": 0.1,
+        "feature": {
+          "feature": "minecraft:huge_red_mushroom",
+          "placement": []
+        }
+      },
+      {
+        "chance": 0.1,
+        "feature": {
+          "feature": "biomeswevegone:aspen_trees",
+          "placement": []
+        }
+      },
+      {
+        "chance": 0.1,
+        "feature": {
+          "feature": "biomeswevegone:rainbow_eucalyptus_trees",
+          "placement": []
+        }
+      },
+      {
+        "chance": 0.1,
+        "feature": {
+          "feature": "biomeswevegone:forgotten_tree1",
+          "placement": []
+        }
+      },
+      {
+        "chance": 0.1,
+        "feature": {
+          "feature": "biomeswevegone:forgotten_tree1",
+          "placement": []
+        }
+      },
+      {
+        "chance": 0.1,
+        "feature": {
+          "feature": "biomeswevegone:ancient_tree1",
+          "placement": []
+        }
+      },
+      {
+        "chance": 0.1,
+        "feature": {
+          "feature": "biomeswevegone:ancient_tree2",
+          "placement": []
+        }
+      },
+      {
+        "chance": 0.1,
+        "feature": {
+          "feature": "biomeswevegone:woodlands_tree1",
+          "placement": []
+        }
+      },
+      {
+        "chance": 0.1,
+        "feature": {
+          "feature": "biomeswevegone:huge_weeping_milkcap1",
+          "placement": []
+        }
+      },
+      {
+        "chance": 0.1,
+        "feature": {
+          "feature": "biomeswevegone:huge_green_mushroom1",
+          "placement": []
+        }
+      },
+      {
+        "chance": 0.1,
+        "feature": {
+          "feature": "biomeswevegone:white_mangrove_trees",
+          "placement": []
+        }
+      },
+      {
+        "chance": 0.1,
+        "feature": {
+          "feature": "biomeswevegone:witch_hazel_trees",
+          "placement": []
+        }
+      },
+      {
+        "chance": 0.1,
+        "feature": {
+          "feature": "biomeswevegone:witch_hazel_trees",
+          "placement": []
+        }
+      },
+      {
+        "chance": 0.1,
+        "feature": {
+          "feature": "biomeswevegone:mahogany_trees",
+          "placement": []
+        }
+      },
+      {
+        "chance": 0.1,
+        "feature": {
+          "feature": "biomeswevegone:holly_trees",
+          "placement": []
+        }
+      },
+      {
+        "chance": 0.1,
+        "feature": {
+          "feature": "biomeswevegone:spruce_tree_large1",
+          "placement": []
+        }
+      },
+      {
+        "chance": 0.1,
+        "feature": {
+          "feature": "biomeswevegone:spruce_tree_large1",
+          "placement": []
+        }
+      },
+      {
+        "chance": 0.1,
+        "feature": "minecraft:mega_jungle_tree_checked"
+      },
+      {
+        "chance": 0.1,
+        "feature": {
+          "feature": "biomeswevegone:woodlands_tree1",
+          "placement": []
+        }
+      },
+      {
+        "chance": 0.1,
+        "feature": {
+          "feature": "biomeswevegone:woodlands_tree_large2",
+          "placement": []
+        }
+      },
+      {
+        "chance": 0.1,
+        "feature": {
+          "feature": "biomeswevegone:woodlands_tree_large1",
+          "placement": []
+        }
+      },
+      {
+        "chance": 0.1,
+        "feature": {
+          "feature": "minecraft:tall_mangrove",
+          "placement": []
+        }
+      },
+      {
+        "chance": 0.0333,
+        "feature": {
+          "feature": "biomeswevegone:willow_tree1",
+          "placement": []
+        }
+      },
+      {
+        "chance": 0.0333,
+        "feature": {
+          "feature": "biomeswevegone:willow_tree2",
+          "placement": []
+        }
+      },
+      {
+        "chance": 0.0333,
+        "feature": {
+          "feature": "biomeswevegone:willow_tree3",
+          "placement": []
+        }
+      },
+      {
+        "chance": 0.1,
+        "feature": {
+          "feature": "biomeswevegone:white_sakura_trees",
+          "placement": []
+        }
+      },
+      {
+        "chance": 0.1,
+        "feature": {
+          "feature": "biomeswevegone:yellow_sakura_trees",
+          "placement": []
+        }
+      },
+      {
+        "chance": 0.1,
+        "feature": {
+          "feature": "minecraft:cherry_bees_005",
+          "placement": []
+        }
+      }
+    ]
+  }
+}

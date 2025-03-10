@@ -8,11 +8,11 @@
     "minecraft:rooted_dirt",
     "minecraft:moss_block",
     "minecraft:mud",
-    "minecraft:muddy_mangrove_roots",
-    "minecraft:mangrove_roots",
+//    "minecraft:muddy_mangrove_roots",
+//    "minecraft:mangrove_roots",
+    //    "#minecraft:leaves",
     "farmersdelight:rich_soil",
     "farmersdelight:rich_soil_farmland",
-    "minecraft:farmland",
-    "#minecraft:leaves"
+    "minecraft:farmland"
   ]
 }

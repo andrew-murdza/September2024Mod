@@ -245,10 +245,14 @@ dependencies {
     implementation fg.deobf("curse.maven:curios-309927:5680164")
 
     implementation fg.deobf("curse.maven:seafarer-forge-1098212:5880189")
+
 //    implementation fg.deobf("curse.maven:biome-makeover-forge-567709:4815822")
-//    implementation fg.deobf("curse.maven:oh-the-biomes-weve-gone-1070751:6263908")
+
+
+    implementation fg.deobf("curse.maven:oh-the-biomes-weve-gone-1070751:6263908")
+    implementation fg.deobf("curse.maven:corgilib-693313:5691268")
+    implementation fg.deobf("curse.maven:terrablender-563928:5378180")
     implementation fg.deobf("curse.maven:oh-the-trees-youll-grow-962544:6026960")
-    implementation fg.deobf("curse.maven:terrablender-563928:4629880")
 
     //TEST LATER
 //    implementation fg.deobf("curse.maven:kitteh6660s-morecraft-59648:4855867")

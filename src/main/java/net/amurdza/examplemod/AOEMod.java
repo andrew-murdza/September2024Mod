@@ -5,6 +5,7 @@ import net.amurdza.examplemod.block.ModBlocks;
 import net.amurdza.examplemod.item.ModItems;
 //import net.amurdza.examplemod.mixins.monoxide.RestoreXpOnRespawn;
 import net.amurdza.examplemod.util.ConfigHelper;
+import net.amurdza.examplemod.worldgen.biome.ModSurfaceRules;
 import net.amurdza.examplemod.worldgen.feature.ModFeatures;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.item.CreativeModeTabs;
@@ -21,7 +22,13 @@ import net.minecraftforge.fml.config.ModConfig;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
+import net.potionstudios.biomeswevegone.BiomesWeveGone;
+import net.potionstudios.biomeswevegone.forge.ForgePlatformHandler;
+import net.potionstudios.biomeswevegone.forge.VanillaCompatForge;
+import net.potionstudios.biomeswevegone.world.level.levelgen.biome.BWGOverworldSurfaceRules;
+import net.potionstudios.biomeswevegone.world.level.levelgen.biome.BWGTerraBlenderRegion;
 import org.slf4j.Logger;
+import terrablender.api.SurfaceRuleManager;
 
 // The value here should match an entry in the META-INF/mods.toml file
 @Mod(AOEMod.MOD_ID)
@@ -34,6 +41,7 @@ public class AOEMod
     {
         IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
 
+        modEventBus.addListener(this::onInitialize);
         modEventBus.addListener(this::commonSetup);
         // Register ourselves for server and other game events we are interested in
         MinecraftForge.EVENT_BUS.register(this);
@@ -53,9 +61,16 @@ public class AOEMod
         ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, ConfigHelper.SPEC);
     }
 
-    private void commonSetup(final FMLCommonSetupEvent event)
-    {
 
+    private void onInitialize(FMLCommonSetupEvent event) {
+        event.enqueueWork(() -> {
+//            VanillaCompatForge.init();
+//            BWGTerraBlenderRegion.registerTerrablenderRegions();
+            SurfaceRuleManager.addSurfaceRules(SurfaceRuleManager.RuleCategory.OVERWORLD, MOD_ID, ModSurfaceRules.makeRules());
+        });
+    }
+
+    private void commonSetup(final FMLCommonSetupEvent event) {
     }
 
     // Add the example block item to the building blocks tab

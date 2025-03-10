@@ -112,7 +112,8 @@
     "special_biome.safety.MobsDontTargetInSpecialBiome",
     "special_biome.safety.PiglinsDontAttackInSpecialBiome",
     "special_biome.trees.GiantSpruceDontConvertMoss",
-    "special_biome.trees.HugeMushroomsNotTooShort"
+    "special_biome.trees.HugeMushroomsNotTooShort",
+    "worldgen.RandomCollectionMixin"
   ],
   "minVersion": "0.8.5",
   "client": [
