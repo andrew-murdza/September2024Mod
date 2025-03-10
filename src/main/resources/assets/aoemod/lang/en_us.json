@@ -6,7 +6,9 @@
   "item.aoemod.blue_berries":"Blue Berries",
   "block.aoemod.blue_berry_bush":"Blue Berry Bush",
   "block.aoemod.sea_pickle":"Sea Pickles",
-  "block.aoemod.wildflower":"Wildflower"//,
+  "biome.aoemod.rainforest": "Rainforest",
+  "dimension.aoemod.aoedim": "AOE Dimension"
+//  "block.aoemod.wildflower":"Wildflower"//,
 //  "block.aoemod.lavender":"Lavender",
 //  "item.aoemod.wildflower":"Wildflower",
 //  "item.aoemod.lavender":"Lavender",

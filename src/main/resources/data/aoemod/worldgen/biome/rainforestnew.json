@@ -152,7 +152,8 @@
 //      "minecraft:patch_grass_normal",
 //      "minecraft:patch_dead_bush",
 //      "minecraft:patch_waterlily",
-      "aoemod:rainforest_trees"
+      "aoemod:rainforest_trees",
+      "bloomingnature:forest_grass_patch"
     ],
     [
       "minecraft:freeze_top_layer"

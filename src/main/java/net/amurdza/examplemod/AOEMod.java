@@ -1,6 +1,7 @@
 package net.amurdza.examplemod;
 
 import com.mojang.logging.LogUtils;
+import net.amurdza.examplemod.biome.ModTerrablender;
 import net.amurdza.examplemod.block.ModBlocks;
 import net.amurdza.examplemod.item.ModItems;
 //import net.amurdza.examplemod.mixins.monoxide.RestoreXpOnRespawn;
@@ -41,7 +42,6 @@ public class AOEMod
     {
         IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
 
-        modEventBus.addListener(this::onInitialize);
         modEventBus.addListener(this::commonSetup);
         // Register ourselves for server and other game events we are interested in
         MinecraftForge.EVENT_BUS.register(this);
@@ -57,20 +57,18 @@ public class AOEMod
 
         ModFeatures.register(modEventBus);
 
+        ModTerrablender.registerBiomes();
+
         // Register our mod's ForgeConfigSpec so that Forge can create and load the config file for us
         ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, ConfigHelper.SPEC);
     }
 
-
-    private void onInitialize(FMLCommonSetupEvent event) {
-        event.enqueueWork(() -> {
-//            VanillaCompatForge.init();
-//            BWGTerraBlenderRegion.registerTerrablenderRegions();
-            SurfaceRuleManager.addSurfaceRules(SurfaceRuleManager.RuleCategory.OVERWORLD, MOD_ID, ModSurfaceRules.makeRules());
-        });
-    }
-
     private void commonSetup(final FMLCommonSetupEvent event) {
+        event.enqueueWork(() -> {
+            SurfaceRuleManager.addToDefaultSurfaceRulesAtStage(SurfaceRuleManager.RuleCategory.OVERWORLD,
+                    SurfaceRuleManager.RuleStage.AFTER_BEDROCK,10000,ModSurfaceRules.makeRules());
+            //.addSurfaceRules(SurfaceRuleManager.RuleCategory.OVERWORLD, MOD_ID, ModSurfaceRules.makeRules());
+        });
     }
 
     // Add the example block item to the building blocks tab
