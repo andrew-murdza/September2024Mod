@@ -1,0 +1,5 @@
+{
+  "type": "aoemod:cave_vines",
+  "chance": 0.1,
+  "height_provider": 1
+}

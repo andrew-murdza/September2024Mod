@@ -1,0 +1,33 @@
+{
+  "type": "aoemod:all_surface",
+  "config": {
+    "feature": {
+      "feature": "aoemod:rainforest_water_plants_full",
+      "placement": [
+        {
+          "type":"biome"
+        }
+      ]
+    },
+    "water": true,
+    "all_layers": true,
+    "predicate": {
+      "type": "minecraft:any_of",
+      "predicates": [
+        {
+          "type": "minecraft:matching_blocks",
+          "blocks": [
+            "minecraft:moss_block",
+            "minecraft:wet_sponge",
+            "minecraft:dirt",
+            "minecraft:gravel"
+          ]
+        },
+        {
+          "type": "minecraft:matching_block_tag",
+          "tag": "minecraft:coral_blocks"
+        }
+      ]
+    }
+  }
+}

@@ -8,12 +8,10 @@ import net.amurdza.examplemod.item.ModItems;
 import net.amurdza.examplemod.util.ConfigHelper;
 import net.amurdza.examplemod.worldgen.biome.ModSurfaceRules;
 import net.amurdza.examplemod.worldgen.feature.ModFeatures;
-import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.BuildCreativeModeTabContentsEvent;
-import net.minecraftforge.event.entity.living.LivingDeathEvent;
 import net.minecraftforge.event.server.ServerStartingEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -23,11 +21,6 @@ import net.minecraftforge.fml.config.ModConfig;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
-import net.potionstudios.biomeswevegone.BiomesWeveGone;
-import net.potionstudios.biomeswevegone.forge.ForgePlatformHandler;
-import net.potionstudios.biomeswevegone.forge.VanillaCompatForge;
-import net.potionstudios.biomeswevegone.world.level.levelgen.biome.BWGOverworldSurfaceRules;
-import net.potionstudios.biomeswevegone.world.level.levelgen.biome.BWGTerraBlenderRegion;
 import org.slf4j.Logger;
 import terrablender.api.SurfaceRuleManager;
 
@@ -36,12 +29,13 @@ import terrablender.api.SurfaceRuleManager;
 public class AOEMod
 {
     public static final String MOD_ID = "aoemod";
-    private static final Logger LOGGER = LogUtils.getLogger();
+    public static final Logger LOGGER = LogUtils.getLogger();
 
     public AOEMod()
     {
         IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
 
+        ModTerrablender.registerBiomes();
         modEventBus.addListener(this::commonSetup);
         // Register ourselves for server and other game events we are interested in
         MinecraftForge.EVENT_BUS.register(this);
@@ -57,20 +51,18 @@ public class AOEMod
 
         ModFeatures.register(modEventBus);
 
-        ModTerrablender.registerBiomes();
-
         // Register our mod's ForgeConfigSpec so that Forge can create and load the config file for us
         ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, ConfigHelper.SPEC);
     }
 
     private void commonSetup(final FMLCommonSetupEvent event) {
         event.enqueueWork(() -> {
-            SurfaceRuleManager.addToDefaultSurfaceRulesAtStage(SurfaceRuleManager.RuleCategory.OVERWORLD,
-                    SurfaceRuleManager.RuleStage.AFTER_BEDROCK,10000,ModSurfaceRules.makeRules());
+            SurfaceRuleManager.setDefaultSurfaceRules(SurfaceRuleManager.RuleCategory.OVERWORLD, ModSurfaceRules.makeRules());
+//            SurfaceRuleManager.addToDefaultSurfaceRulesAtStage(SurfaceRuleManager.RuleCategory.OVERWORLD,
+//                    SurfaceRuleManager.RuleStage.AFTER_BEDROCK,100000,ModSurfaceRules.makeRules());
             //.addSurfaceRules(SurfaceRuleManager.RuleCategory.OVERWORLD, MOD_ID, ModSurfaceRules.makeRules());
         });
     }
-
     // Add the example block item to the building blocks tab
     private void addCreative(BuildCreativeModeTabContentsEvent event)
     {
@@ -79,7 +71,7 @@ public class AOEMod
             event.accept(ModItems.GLOW_BERRIES.get());
             event.accept(ModItems.BLUE_BERRIES.get());
             if(event.getTabKey()== CreativeModeTabs.NATURAL_BLOCKS){
-                event.accept(ModItems.SEA_PICKLE.get());
+                event.accept(ModBlocks.SEA_PICKLE.get());
                 event.accept(ModItems.LUSH_FRUIT_SEEDS.get());
 //                event.accept(ModBlocks.LAVENDER.get());
 //                event.accept(ModBlocks.WILDFLOWER.get());

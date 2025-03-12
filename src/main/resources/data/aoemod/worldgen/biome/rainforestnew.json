@@ -126,19 +126,9 @@
   },
   "features": [
     [],
-    [
-      "minecraft:lake_lava_underground",
-      "minecraft:lake_lava_surface"
-    ],
-    [
-      "minecraft:amethyst_geode"
-    ],
-    [
-      "minecraft:fossil_upper",
-      "minecraft:fossil_lower",
-      "minecraft:monster_room",
-      "minecraft:monster_room_deep"
-    ],
+    [],
+    [],
+    [],
     [],
     [],
     [],
@@ -147,13 +137,10 @@
       "minecraft:spring_water"
     ],
     [
-//      "minecraft:glow_lichen",
-//      "minecraft:trees_mangrove",
-//      "minecraft:patch_grass_normal",
-//      "minecraft:patch_dead_bush",
-//      "minecraft:patch_waterlily",
       "aoemod:rainforest_trees",
-      "bloomingnature:forest_grass_patch"
+      "aoemod:rainforest_forest_floor",
+      "aoemod:rainforest_forest_floor",
+      "aoemod:rainforest_seafloor"
     ],
     [
       "minecraft:freeze_top_layer"

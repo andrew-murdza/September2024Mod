@@ -60,6 +60,7 @@
     "othermods.alexsmobs.PlatypusNoPoison",
     "othermods.alexsmobs.ShunkNoSpray",
     "othermods.alexsmobs.SnappingTurtleNotDefensive",
+    "othermods.biomeswevegone.NoCactusDamage",
     "othermods.blueskies.BrewberryBushNoSlowOrHurtMobs",
     "othermods.dawnera.AlligatorGarNotBadToEat",
     "othermods.delightful.CantaloupeAwayFromWater",
@@ -113,6 +114,7 @@
     "special_biome.safety.PiglinsDontAttackInSpecialBiome",
     "special_biome.trees.GiantSpruceDontConvertMoss",
     "special_biome.trees.HugeMushroomsNotTooShort",
+    "worldgen.GlowLichenOnMoss",
     "worldgen.RandomCollectionMixin"
   ],
   "minVersion": "0.8.5",

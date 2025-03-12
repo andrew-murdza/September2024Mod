@@ -2,7 +2,7 @@
   "type": "aoemod:aoedim_type",
   "generator": {
     "type": "minecraft:noise",
-    "settings": "minecraft:overworld",
+    "settings": "aoemod:aoedim",
     "biome_source": {
       "type": "minecraft:multi_noise",
       "biomes": [

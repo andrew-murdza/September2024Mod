@@ -1,0 +1,45 @@
+{
+  "type": "aoemod:random_selector",
+  "config": {
+    "features": [
+      {
+        "chance": 0.3,
+        "feature": {
+          "feature": "aoemod:rainforest_water_plants",
+          "placement": []
+        }
+      },
+      {
+        "chance": 0.2,
+        "feature": {
+          "feature": {
+            "type": "minecraft:simple_block",
+            "config": {
+              "to_place": {
+                "type": "minecraft:simple_state_provider",
+                "state": {
+                  "Name": "minecraft:water"
+                }
+              }
+            }
+          },
+          "placement": []
+        }
+      },
+      {
+        "chance": 0.1,
+        "feature": {
+          "feature": "aoemod:rainforest_kelp",
+          "placement": []
+        }
+      },
+      {
+        "chance": 0.4,
+        "feature": {
+          "feature": "aoemod:rainforest_seagrass",
+          "placement": []
+        }
+      }
+    ]
+  }
+}

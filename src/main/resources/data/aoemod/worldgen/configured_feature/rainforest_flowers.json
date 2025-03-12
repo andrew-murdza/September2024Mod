@@ -1,0 +1,1093 @@
+{
+  "type": "minecraft:simple_block",
+  "config": {
+    "to_place": {
+      "type": "minecraft:weighted_state_provider",
+      "entries": [
+        {
+          "weight": 1,
+          "data": {
+            "Name": "bloomingnature:amaryllis"
+          }
+        },
+        {
+          "weight": 1,
+          "data": {
+            "Name": "bloomingnature:anenome"
+          }
+        },
+        {
+          "weight": 1,
+          "data": {
+            "Name": "bloomingnature:begonie"
+          }
+        },
+        {
+          "weight": 1,
+          "data": {
+            "Name": "bloomingnature:bird_of_paradise"
+          }
+        },
+        {
+          "weight": 1,
+          "data": {
+            "Name": "bloomingnature:bluebell"
+          }
+        },
+        {
+          "weight": 1,
+          "data": {
+            "Name": "bloomingnature:daphne"
+          }
+        },
+        {
+          "weight": 1,
+          "data": {
+            "Name": "bloomingnature:forsythia"
+          }
+        },
+        {
+          "weight": 1,
+          "data": {
+            "Name": "bloomingnature:foxglove_pink"
+          }
+        },
+        {
+          "weight": 1,
+          "data": {
+            "Name": "bloomingnature:foxglove_white"
+          }
+        },
+        {
+          "weight": 1,
+          "data": {
+            "Name": "bloomingnature:freesia_pink"
+          }
+        },
+        {
+          "weight": 1,
+          "data": {
+            "Name": "bloomingnature:freesia_yellow"
+          }
+        },
+        {
+          "weight": 1,
+          "data": {
+            "Name": "bloomingnature:genisteae"
+          }
+        },
+        {
+          "weight": 1,
+          "data": {
+            "Name": "bloomingnature:gladiolus"
+          }
+        },
+        {
+          "weight": 1,
+          "data": {
+            "Name": "bloomingnature:goatsbeard"
+          }
+        },
+        {
+          "weight": 1,
+          "data": {
+            "Name": "bloomingnature:golden_rod"
+          }
+        },
+        {
+          "weight": 1,
+          "data": {
+            "Name": "bloomingnature:hyssop"
+          }
+        },
+        {
+          "weight": 1,
+          "data": {
+            "Name": "bloomingnature:joe_pye"
+          }
+        },
+        {
+          "weight": 1,
+          "data": {
+            "Name": "bloomingnature:lupine_blue"
+          }
+        },
+        {
+          "weight": 1,
+          "data": {
+            "Name": "bloomingnature:lupine_purple"
+          }
+        },
+        {
+          "weight": 1,
+          "data": {
+            "Name": "bloomingnature:mountain_laurel"
+          }
+        },
+        {
+          "weight": 1,
+          "data": {
+            "Name": "bloomingnature:mountain_snowbell"
+          }
+        },
+        {
+          "weight": 1,
+          "data": {
+            "Name": "bloomingnature:myosotis"
+          }
+        },
+        {
+          "weight": 1,
+          "data": {
+            "Name": "bloomingnature:white_orchid"
+          }
+        },
+        {
+          "weight": 1,
+          "data": {
+            "Name": "bloomingnature:barrel_cactus"
+          }
+        },
+        {
+          "weight": 1,
+          "data": {
+            "Name": "bloomingnature:prickly_pear_cactus"
+          }
+        },
+        {
+          "weight": 1,
+          "data": {
+            "Name": "bloomingnature:silkgrass"
+          }
+        },
+        {
+          "weight": 1,
+          "data": {
+            "Name": "bloomingnature:small_catcus"
+          }
+        },
+        {
+          "weight": 1,
+          "data": {
+            "Name": "bloomingnature:cardinal",
+            "Properties": {
+              "half": "lower"
+            }
+          }
+        },
+        {
+          "weight": 1,
+          "data": {
+            "Name": "bloomingnature:tall_lupine_blue",
+            "Properties": {
+              "half": "lower"
+            }
+          }
+        },
+        {
+          "weight": 1,
+          "data": {
+            "Name": "bloomingnature:tall_lupine_purple",
+            "Properties": {
+              "half": "lower"
+            }
+          }
+        },
+        {
+          "weight": 1,
+          "data": {
+            "Name": "bloomingnature:tall_mountain_laurel",
+            "Properties": {
+              "half": "lower"
+            }
+          }
+        },
+        {
+          "weight": 1,
+          "data": {
+            "Name": "bloomingnature:tall_silkgrass",
+            "Properties": {
+              "half": "lower"
+            }
+          }
+        },
+        {
+          "weight": 1,
+          "data": {
+            "Name": "bloomingnature:wild_sunflower",
+            "Properties": {
+              "half": "lower"
+            }
+          }
+        },
+        {
+          "weight": 1,
+          "data": {
+            "Name": "biomeswevegone:allium_flower_bush"
+          }
+        },
+        {
+          "weight": 1,
+          "data": {
+            "Name": "biomeswevegone:aloe_vera"
+          }
+        },
+        {
+          "weight": 1,
+          "data": {
+            "Name": "biomeswevegone:alpine_bellflower"
+          }
+        },
+        {
+          "weight": 1,
+          "data": {
+            "Name": "biomeswevegone:amaranth"
+          }
+        },
+        {
+          "weight": 1,
+          "data": {
+            "Name": "biomeswevegone:angelica"
+          }
+        },
+        {
+          "weight": 1,
+          "data": {
+            "Name": "biomeswevegone:barrel_cactus"
+          }
+        },
+        {
+          "weight": 1,
+          "data": {
+            "Name": "biomeswevegone:begonia"
+          }
+        },
+        {
+          "weight": 1,
+          "data": {
+            "Name": "biomeswevegone:bistort"
+          }
+        },
+        {
+          "weight": 1,
+          "data": {
+            "Name": "biomeswevegone:blue_sage"
+          }
+        },
+        {
+          "weight": 1,
+          "data": {
+            "Name": "biomeswevegone:california_poppy"
+          }
+        },
+        {
+          "weight": 1,
+          "data": {
+            "Name": "biomeswevegone:crocus"
+          }
+        },
+        {
+          "weight": 1,
+          "data": {
+            "Name": "biomeswevegone:cyan_tulip"
+          }
+        },
+        {
+          "weight": 1,
+          "data": {
+            "Name": "biomeswevegone:daffpdil"
+          }
+        },
+        {
+          "weight": 1,
+          "data": {
+            "Name": "biomeswevegone:fairy_slipper"
+          }
+        },
+        {
+          "weight": 1,
+          "data": {
+            "Name": "biomeswevegone:flower_patch"
+          }
+        },
+        {
+          "weight": 1,
+          "data": {
+            "Name": "biomeswevegone:golden_spined_cactus"
+          }
+        },
+        {
+          "weight": 1,
+          "data": {
+            "Name": "biomeswevegone:green_mushroom"
+          }
+        },
+        {
+          "weight": 1,
+          "data": {
+            "Name": "biomeswevegone:green_tulip"
+          }
+        },
+        {
+          "weight": 1,
+          "data": {
+            "Name": "biomeswevegone:guzmania"
+          }
+        },
+        {
+          "weight": 1,
+          "data": {
+            "Name": "biomeswevegone:horseweed"
+          }
+        },
+        {
+          "weight": 1,
+          "data": {
+            "Name": "biomeswevegone:incan_lily"
+          }
+        },
+        {
+          "weight": 1,
+          "data": {
+            "Name": "biomeswevegone:iris"
+          }
+        },
+        {
+          "weight": 1,
+          "data": {
+            "Name": "biomeswevegone:japanese_orchid"
+          }
+        },
+        {
+          "weight": 1,
+          "data": {
+            "Name": "biomeswevegone:kovan_flower"
+          }
+        },
+        {
+          "weight": 1,
+          "data": {
+            "Name": "biomeswevegone:lazarus_bellflower"
+          }
+        },
+        {
+          "weight": 1,
+          "data": {
+            "Name": "biomeswevegone:lollipop_flower"
+          }
+        },
+        {
+          "weight": 1,
+          "data": {
+            "Name": "biomeswevegone:magenta_amaranth"
+          }
+        },
+        {
+          "weight": 1,
+          "data": {
+            "Name": "biomeswevegone:magenta_tulip"
+          }
+        },
+        {
+          "weight": 1,
+          "data": {
+            "Name": "biomeswevegone:mini_cactus"
+          }
+        },
+        {
+          "weight": 1,
+          "data": {
+            "Name": "biomeswevegone:orange_amaranth"
+          }
+        },
+        {
+          "weight": 1,
+          "data": {
+            "Name": "biomeswevegone:orange_daisy"
+          }
+        },
+        {
+          "weight": 1,
+          "data": {
+            "Name": "biomeswevegone:osiria_rose"
+          }
+        },
+        {
+          "weight": 1,
+          "data": {
+            "Name": "biomeswevegone:pink_allium"
+          }
+        },
+        {
+          "weight": 1,
+          "data": {
+            "Name": "biomeswevegone:pink_anenome"
+          }
+        },
+        {
+          "weight": 1,
+          "data": {
+            "Name": "biomeswevegone:pink_daffodil"
+          }
+        },
+        {
+          "weight": 1,
+          "data": {
+            "Name": "biomeswevegone:pink_orchid"
+          }
+        },
+        {
+          "weight": 1,
+          "data": {
+            "Name": "biomeswevegone:angelica"
+          }
+        },
+        {
+          "weight": 1,
+          "data": {
+            "Name": "biomeswevegone:prickly_pear_cactus"
+          }
+        },
+        {
+          "weight": 1,
+          "data": {
+            "Name": "biomeswevegone:protea_flower"
+          }
+        },
+        {
+          "weight": 1,
+          "data": {
+            "Name": "biomeswevegone:purple_amaranth"
+          }
+        },
+        {
+          "weight": 1,
+          "data": {
+            "Name": "biomeswevegone:purple_sage"
+          }
+        },
+        {
+          "weight": 1,
+          "data": {
+            "Name": "biomeswevegone:purple_tulip"
+          }
+        },
+        {
+          "weight": 1,
+          "data": {
+            "Name": "biomeswevegone:red_orchid"
+          }
+        },
+        {
+          "weight": 1,
+          "data": {
+            "Name": "biomeswevegone:richea"
+          }
+        },
+        {
+          "weight": 1,
+          "data": {
+            "Name": "biomeswevegone:snow_drops"
+          }
+        },
+        {
+          "weight": 1,
+          "data": {
+            "Name": "biomeswevegone:violet_leather_flower"
+          }
+        },
+        {
+          "weight": 1,
+          "data": {
+            "Name": "biomeswevegone:weeping_milkcap"
+          }
+        },
+        {
+          "weight": 1,
+          "data": {
+            "Name": "biomeswevegone:white_allium"
+          }
+        },
+        {
+          "weight": 1,
+          "data": {
+            "Name": "biomeswevegone:white_allium_flower_bush"
+          }
+        },
+        {
+          "weight": 1,
+          "data": {
+            "Name": "biomeswevegone:white_anenome"
+          }
+        },
+        {
+          "weight": 1,
+          "data": {
+            "Name": "biomeswevegone:white_sage"
+          }
+        },
+        {
+          "weight": 1,
+          "data": {
+            "Name": "biomeswevegone:white_sakura_petals",
+            "Properties": {
+              "flower_amount": "4"
+            }
+          }
+        },
+        {
+          "weight": 1,
+          "data": {
+            "Name": "biomeswevegone:winter_cyclamen"
+          }
+        },
+        {
+          "weight": 1,
+          "data": {
+            "Name": "biomeswevegone:winter_rose"
+          }
+        },
+        {
+          "weight": 1,
+          "data": {
+            "Name": "biomeswevegone:winter_scilla"
+          }
+        },
+        {
+          "weight": 1,
+          "data": {
+            "Name": "biomeswevegone:winter_succlent"
+          }
+        },
+        {
+          "weight": 1,
+          "data": {
+            "Name": "biomeswevegone:yellow_daffodil"
+          }
+        },
+        {
+          "weight": 1,
+          "data": {
+            "Name": "biomeswevegone:yellow_sakura_petals",
+            "Properties": {
+              "flower_amount": "4"
+            }
+          }
+        },
+        {
+          "weight": 1,
+          "data": {
+            "Name": "biomeswevegone:yellow_tulip"
+          }
+        },
+        {
+          "weight": 1,
+          "data": {
+            "Name": "biomeswevegone:blooming_aloe_vera",
+            "Properties": {
+              "half": "lower"
+            }
+          }
+        },
+        {
+          "weight": 1,
+          "data": {
+            "Name": "biomeswevegone:blue_rose_bush",
+            "Properties": {
+              "half": "lower"
+            }
+          }
+        },
+        {
+          "weight": 1,
+          "data": {
+            "Name": "biomeswevegone:delphinium",
+            "Properties": {
+              "half": "lower"
+            }
+          }
+        },
+        {
+          "weight": 1,
+          "data": {
+            "Name": "biomeswevegone:foxglove",
+            "Properties": {
+              "half": "lower"
+            }
+          }
+        },
+        {
+          "weight": 1,
+          "data": {
+            "Name": "biomeswevegone:japanese_orchid",
+            "Properties": {
+              "half": "lower"
+            }
+          }
+        },
+        {
+          "weight": 1,
+          "data": {
+            "Name": "biomeswevegone:tall_allium",
+            "Properties": {
+              "half": "lower"
+            }
+          }
+        },
+        {
+          "weight": 1,
+          "data": {
+            "Name": "biomeswevegone:tall_pink_allium",
+            "Properties": {
+              "half": "lower"
+            }
+          }
+        },
+        {
+          "weight": 1,
+          "data": {
+            "Name": "biomeswevegone:tall_white_allium",
+            "Properties": {
+              "half": "lower"
+            }
+          }
+        },
+        {
+          "weight": 1,
+          "data": {
+            "Name": "forest:wildflower"
+          }
+        },
+        {
+          "weight": 1,
+          "data": {
+            "Name": "forest:lavander"
+          }
+        },
+        {
+          "weight": 1,
+          "data": {
+            "Name": "blue_skies:blaze_bud"
+          }
+        },
+        {
+          "weight": 1,
+          "data": {
+            "Name": "blue_skies:brewberry_bush",
+            "Properties": {
+              "mature": "true",
+              "type": "red"
+            }
+          }
+        },
+        {
+          "weight": 1,
+          "data": {
+            "Name": "blue_skies:briskbloom"
+          }
+        },
+        {
+          "weight": 1,
+          "data": {
+            "Name": "blue_skies:brittlebush"
+          }
+        },
+        {
+          "weight": 1,
+          "data": {
+            "Name": "blue_skies:briskbloom"
+          }
+        },
+        {
+          "weight": 1,
+          "data": {
+            "Name": "blue_skies:camellia"
+          }
+        },
+        {
+          "weight": 1,
+          "data": {
+            "Name": "blue_skies:chillweed"
+          }
+        },
+        {
+          "weight": 1,
+          "data": {
+            "Name": "blue_skies:crystal_flower"
+          }
+        },
+        {
+          "weight": 1,
+          "data": {
+            "Name": "blue_skies:flare_floret"
+          }
+        },
+        {
+          "weight": 1,
+          "data": {
+            "Name": "blue_skies:frose"
+          }
+        },
+        {
+          "weight": 1,
+          "data": {
+            "Name": "blue_skies:midday_bayhop"
+          }
+        },
+        {
+          "weight": 1,
+          "data": {
+            "Name": "blue_skies:moonlit_bloom"
+          }
+        },
+        {
+          "weight": 1,
+          "data": {
+            "Name": "blue_skies:nightcress"
+          }
+        },
+        {
+          "weight": 1,
+          "data": {
+            "Name": "blue_skies:polar_posy"
+          }
+        },
+        {
+          "weight": 1,
+          "data": {
+            "Name": "blue_skies:snowbloom"
+          }
+        },
+        {
+          "weight": 1,
+          "data": {
+            "Name": "blue_skies:snowcap_pinhead"
+          }
+        },
+        {
+          "weight": 1,
+          "data": {
+            "Name": "blue_skies:turquoise_grass"
+          }
+        },
+        {
+          "weight": 1,
+          "data": {
+            "Name": "delightful:cantaloupe_plant",
+            "Properties": {
+              "age": "3"
+            }
+          }
+        },
+        {
+          "weight": 1,
+          "data": {
+            "Name": "delightful:salmonberry_bush",
+            "Properties": {
+              "age": "4"
+            }
+          }
+        },
+        {
+          "weight": 1,
+          "data": {
+            "Name": "farmersdelight:wild_beetroots"
+          }
+        },
+        {
+          "weight": 1,
+          "data": {
+            "Name": "farmersdelight:wild_cabbages"
+          }
+        },
+        {
+          "weight": 1,
+          "data": {
+            "Name": "farmersdelight:wild_carrots"
+          }
+        },
+        {
+          "weight": 1,
+          "data": {
+            "Name": "farmersdelight:wild_onions"
+          }
+        },
+        {
+          "weight": 1,
+          "data": {
+            "Name": "farmersdelight:wild_potatoes"
+          }
+        },
+        {
+          "weight": 1,
+          "data": {
+            "Name": "iceandfire:fire_lily"
+          }
+        },
+        {
+          "weight": 1,
+          "data": {
+            "Name": "iceandfire:frost_lily"
+          }
+        },
+        {
+          "weight": 1,
+          "data": {
+            "Name": "iceandfire:lightning_lily"
+          }
+        },
+        {
+          "weight": 1,
+          "data": {
+            "Name": "quark:glow_shroom"
+          }
+        },
+        {
+          "weight": 1,
+          "data": {
+            "Name": "seafarer:coastal_lavender"
+          }
+        },
+        {
+          "weight": 1,
+          "data": {
+            "Name": "seafarer:coastal_wildflower"
+          }
+        },
+        {
+          "weight": 1,
+          "data": {
+            "Name": "seafarer:sea_holly"
+          }
+        },
+        {
+          "weight": 1,
+          "data": {
+            "Name": "seafarer:sea_thrift"
+          }
+        },
+        {
+          "weight": 1,
+          "data": {
+            "Name": "trailsandtalesplus:lushshroom"
+          }
+        },
+        {
+          "weight": 1,
+          "data": {
+            "Name": "seafarer:sea_thrift"
+          }
+        },
+        {
+          "weight": 1,
+          "data": {
+            "Name": "aoemod:blue_berry_bush"
+          }
+        },
+        {
+          "weight": 1,
+          "data": {
+            "Name": "aoemod:lush_fruit_stem",
+            "Properties": {
+              "age": "3"
+            }
+          }
+        },
+        {
+          "weight": 1,
+          "data": {
+            "Name": "minecraft:red_mushroom"
+          }
+        },
+        {
+          "weight": 1,
+          "data": {
+            "Name": "minecraft:brown_mushroom"
+          }
+        },
+        {
+          "weight": 1,
+          "data": {
+            "Name": "bloomingnature:lilac",
+            "Properties": {
+              "half": "lower"
+            }
+          }
+        },
+        {
+          "weight": 1,
+          "data": {
+            "Name": "bloomingnature:rose_bush",
+            "Properties": {
+              "half": "lower"
+            }
+          }
+        },
+        {
+          "weight": 1,
+          "data": {
+            "Name": "bloomingnature:peony",
+            "Properties": {
+              "half": "lower"
+            }
+          }
+        },
+        {
+          "weight": 1,
+          "data": {
+            "Name": "bloomingnature:pitcher_plant",
+            "Properties": {
+              "half": "lower"
+            }
+          }
+        },
+        {
+          "weight": 1,
+          "data": {
+            "Name": "bloomingnature:sunflower",
+            "Properties": {
+              "half": "lower"
+            }
+          }
+        },
+        {
+          "weight": 1,
+          "data": {
+            "Name": "minecraft:cactus"
+          }
+        },
+        {
+          "weight": 1,
+          "data": {
+            "Name": "minecraft:poppy"
+          }
+        },
+        {
+          "weight": 1,
+          "data": {
+            "Name": "minecraft:dandelion"
+          }
+        },
+        {
+          "weight": 1,
+          "data": {
+            "Name": "minecraft:oxeye_daisy"
+          }
+        },
+        {
+          "weight": 1,
+          "data": {
+            "Name": "minecraft:cornflower"
+          }
+        },
+        {
+          "weight": 1,
+          "data": {
+            "Name": "minecraft:blue_orchid"
+          }
+        },
+        {
+          "weight": 1,
+          "data": {
+            "Name": "minecraft:allium"
+          }
+        },
+        {
+          "weight": 1,
+          "data": {
+            "Name": "minecraft:azure_bluet"
+          }
+        },
+        {
+          "weight": 1,
+          "data": {
+            "Name": "minecraft:red_tulip"
+          }
+        },
+        {
+          "weight": 1,
+          "data": {
+            "Name": "minecraft:orange_tulip"
+          }
+        },
+        {
+          "weight": 1,
+          "data": {
+            "Name": "minecraft:pink_tulip"
+          }
+        },
+        {
+          "weight": 1,
+          "data": {
+            "Name": "minecraft:white_tulip"
+          }
+        },
+        {
+          "weight": 1,
+          "data": {
+            "Name": "minecraft:lily_of_the_valley"
+          }
+        },
+        {
+          "weight": 10,
+          "data": {
+            "Name": "minecraft:azalea"
+          }
+        },
+        {
+          "weight": 10,
+          "data": {
+            "Name": "minecraft:flowering_azalea"
+          }
+        },
+        {
+          "weight": 1,
+          "data": {
+            "Name": "minecraft:dead_bush"
+          }
+        },
+        {
+          "weight": 1,
+          "data": {
+            "Name": "minecraft:big_dripleaf"
+          }
+        },
+        {
+          "weight": 1,
+          "data": {
+            "Name": "minecraft:small_dripleaf",
+            "Properties": {
+              "half": "lower"
+            }
+          }
+        },
+        {
+          "weight": 1,
+          "data": {
+            "Name": "trailsandtalesplus:glowing_torchflower"
+          }
+        },
+        {
+          "weight": 1,
+          "data": {
+            "Name": "minecraft:pink_petals",
+            "Properties": {
+              "flower_amount": "4"
+            }
+          }
+        },
+        {
+          "weight": 1,
+          "data": {
+            "Name": "minecraft:sweet_berry_bush",
+            "Properties": {
+              "age": "3"
+            }
+          }
+        }
+      ]
+    }
+  }
+}
+
+

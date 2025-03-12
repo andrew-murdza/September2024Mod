@@ -1,0 +1,333 @@
+{
+  "type": "minecraft:simple_block",
+  "config": {
+    "to_place": {
+      "type": "minecraft:weighted_state_provider",
+      "entries": [
+        {
+          "weight": 1,
+          "data": {
+            "Name": "minecraft:tube_coral",
+            "Properties": {
+              "waterlogged": "true"
+            }
+          }
+        },
+        {
+          "weight": 1,
+          "data": {
+            "Name": "minecraft:horn_coral",
+            "Properties": {
+              "waterlogged": "true"
+            }
+          }
+        },
+        {
+          "weight": 1,
+          "data": {
+            "Name": "minecraft:brain_coral",
+            "Properties": {
+              "waterlogged": "true"
+            }
+          }
+        },
+        {
+          "weight": 1,
+          "data": {
+            "Name": "minecraft:fire_coral",
+            "Properties": {
+              "waterlogged": "true"
+            }
+          }
+        },
+        {
+          "weight": 1,
+          "data": {
+            "Name": "minecraft:bubble_coral",
+            "Properties": {
+              "waterlogged": "true"
+            }
+          }
+        },
+        {
+          "weight": 1,
+          "data": {
+            "Name": "minecraft:tube_coral_fan",
+            "Properties": {
+              "waterlogged": "true"
+            }
+          }
+        },
+        {
+          "weight": 1,
+          "data": {
+            "Name": "minecraft:horn_coral_fan",
+            "Properties": {
+              "waterlogged": "true"
+            }
+          }
+        },
+        {
+          "weight": 1,
+          "data": {
+            "Name": "minecraft:brain_coral_fan",
+            "Properties": {
+              "waterlogged": "true"
+            }
+          }
+        },
+        {
+          "weight": 1,
+          "data": {
+            "Name": "minecraft:fire_coral_fan",
+            "Properties": {
+              "waterlogged": "true"
+            }
+          }
+        },
+        {
+          "weight": 1,
+          "data": {
+            "Name": "minecraft:bubble_coral_fan",
+            "Properties": {
+              "waterlogged": "true"
+            }
+          }
+        },
+        {
+          "weight": 1,
+          "data": {
+            "Name": "upgrade_aquatic:acan_coral",
+            "Properties": {
+              "waterlogged": "true"
+            }
+          }
+        },
+        {
+          "weight": 1,
+          "data": {
+            "Name": "upgrade_aquatic:branch_coral",
+            "Properties": {
+              "waterlogged": "true"
+            }
+          }
+        },
+        {
+          "weight": 1,
+          "data": {
+            "Name": "upgrade_aquatic:chrome_coral",
+            "Properties": {
+              "waterlogged": "true"
+            }
+          }
+        },
+        {
+          "weight": 1,
+          "data": {
+            "Name": "upgrade_aquatic:finger_coral",
+            "Properties": {
+              "waterlogged": "true"
+            }
+          }
+        },
+        {
+          "weight": 1,
+          "data": {
+            "Name": "upgrade_aquatic:moss_coral",
+            "Properties": {
+              "waterlogged": "true"
+            }
+          }
+        },
+        {
+          "weight": 1,
+          "data": {
+            "Name": "upgrade_aquatic:petal_coral",
+            "Properties": {
+              "waterlogged": "true"
+            }
+          }
+        },
+        {
+          "weight": 1,
+          "data": {
+            "Name": "upgrade_aquatic:pillow_coral",
+            "Properties": {
+              "waterlogged": "true"
+            }
+          }
+        },
+        {
+          "weight": 1,
+          "data": {
+            "Name": "upgrade_aquatic:rock_coral",
+            "Properties": {
+              "waterlogged": "true"
+            }
+          }
+        },
+        {
+          "weight": 1,
+          "data": {
+            "Name": "upgrade_aquatic:silk_coral",
+            "Properties": {
+              "waterlogged": "true"
+            }
+          }
+        },
+        {
+          "weight": 1,
+          "data": {
+            "Name": "upgrade_aquatic:star_coral",
+            "Properties": {
+              "waterlogged": "true"
+            }
+          }
+        },
+        {
+          "weight": 1,
+          "data": {
+            "Name": "upgrade_aquatic:acan_coral_fan",
+            "Properties": {
+              "waterlogged": "true"
+            }
+          }
+        },
+        {
+          "weight": 1,
+          "data": {
+            "Name": "upgrade_aquatic:branch_coral_fan",
+            "Properties": {
+              "waterlogged": "true"
+            }
+          }
+        },
+        {
+          "weight": 1,
+          "data": {
+            "Name": "upgrade_aquatic:chrome_coral_fan",
+            "Properties": {
+              "waterlogged": "true"
+            }
+          }
+        },
+        {
+          "weight": 1,
+          "data": {
+            "Name": "upgrade_aquatic:finger_coral_fan",
+            "Properties": {
+              "waterlogged": "true"
+            }
+          }
+        },
+        {
+          "weight": 1,
+          "data": {
+            "Name": "upgrade_aquatic:moss_coral_fan",
+            "Properties": {
+              "waterlogged": "true"
+            }
+          }
+        },
+        {
+          "weight": 1,
+          "data": {
+            "Name": "upgrade_aquatic:petal_coral_fan",
+            "Properties": {
+              "waterlogged": "true"
+            }
+          }
+        },
+        {
+          "weight": 1,
+          "data": {
+            "Name": "upgrade_aquatic:pillow_coral_fan",
+            "Properties": {
+              "waterlogged": "true"
+            }
+          }
+        },
+        {
+          "weight": 1,
+          "data": {
+            "Name": "upgrade_aquatic:rock_coral_fan",
+            "Properties": {
+              "waterlogged": "true"
+            }
+          }
+        },
+        {
+          "weight": 1,
+          "data": {
+            "Name": "upgrade_aquatic:silk_coral_fan",
+            "Properties": {
+              "waterlogged": "true"
+            }
+          }
+        },
+        {
+          "weight": 1,
+          "data": {
+            "Name": "upgrade_aquatic:star_coral_fan",
+            "Properties": {
+              "waterlogged": "true"
+            }
+          }
+        },
+        {
+          "weight": 1,
+          "data": {
+            "Name": "alexscaves:bone_worms",
+            "Properties": {
+              "facing": "up",
+              "waterlogged": "true"
+            }
+          }
+        },
+        {
+          "weight": 1,
+          "data": {
+            "Name": "alexscaves:ping_pong_sponge",
+            "Properties": {
+              "top": "true"
+            }
+          }
+        },
+        {
+          "weight": 1,
+          "data": {
+            "Name": "alexscaves:dusk_anemone"
+          }
+        },
+        {
+          "weight": 1,
+          "data": {
+            "Name": "alexscaves:midnight_anemone"
+          }
+        },
+        {
+          "weight": 1,
+          "data": {
+            "Name": "alexscaves:twilight_anemone"
+          }
+        },
+        {
+          "weight": 1,
+          "data": {
+            "Name": "minecraft:wet_sponge"
+          }
+        },
+        {
+          "weight": 10,
+          "data": {
+            "Name": "aoemod:sea_pickle",
+            "Properties": {
+              "pickles": "4",
+              "waterlogged": "true"
+            }
+          }
+        }
+      ]
+    }
+  }
+}

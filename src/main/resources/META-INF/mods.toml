@@ -85,12 +85,25 @@ ordering = "AFTER"
 side = "BOTH"
 
 [[dependencies."${mod_id}"]]
+modId = "alexscaves"
+mandatory = false
+versionRange = "[1.1.5,)"
+ordering = "AFTER"
+side = "BOTH"
+
+[[dependencies."${mod_id}"]]
 modId = "blue_skies"
 mandatory = false
 versionRange = "[v1.3.31,)"
 ordering = "AFTER"
 side = "BOTH"
 
+[[dependencies."${mod_id}"]]
+modId = "bloomingnature"
+mandatory = false
+versionRange = "[1.0.12,)"
+ordering = "AFTER"
+side = "BOTH"
 
 #[[dependencies."${mod_id}"]]
 #modId = "born_in_chaos_v1"

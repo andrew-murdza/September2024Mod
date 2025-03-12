@@ -20,9 +20,9 @@ public class ModBiomes {
     public static final ResourceKey<Biome> RAINFOREST_OLD=ResourceKey.create(Registries.BIOME,
             new ResourceLocation(AOEMod.MOD_ID,"rainforest"));
     public static final ResourceKey<Biome> RAINFOREST=ResourceKey.create(Registries.BIOME,
-            new ResourceLocation(AOEMod.MOD_ID,"rainforest_new"));
+            new ResourceLocation(AOEMod.MOD_ID,"rainforestnew"));
     public static void bootstrap(BootstapContext<Biome> context){
-        context.register(RAINFOREST, rainforestBiome(context));
+        context.register(RAINFOREST_OLD, rainforestBiome(context));
     }
 
     private static void globalOverworldGeneration(BiomeGenerationSettings.Builder builder) {
