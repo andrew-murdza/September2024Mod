@@ -1,9 +1,9 @@
 package net.amurdza.examplemod.worldgen.feature;
 
 import com.mojang.serialization.Codec;
+import net.amurdza.examplemod.AOEMod;
 import net.amurdza.examplemod.block.ModBlocks;
 import net.minecraft.core.BlockPos;
-import net.minecraft.tags.BlockTags;
 import net.minecraft.util.RandomSource;
 import net.minecraft.util.valueproviders.IntProvider;
 import net.minecraft.world.level.ChunkPos;
@@ -54,12 +54,12 @@ public class CaveVineColumn extends Feature<CaveVineConfig> {
         }
         return flag;
     }
-    private final Predicate<BlockState> tester= state->!state.is(Blocks.WATER)&&!state.is(Blocks.AIR)&&!state.is(Blocks.CAVE_AIR)
-            &&!state.is(Blocks.VOID_AIR);
+    private final Predicate<BlockState> tester= state->state.is(Blocks.WATER)||state.is(Blocks.AIR)||
+            state.is(Blocks.CAVE_AIR)||state.is(Blocks.VOID_AIR);
     private boolean helper(WorldGenLevel level, BlockPos pos, FeaturePlaceContext<CaveVineConfig> context,
                            BlockPredicate predicate, IntProvider heightProvider, boolean shouldRun){
         BlockState state=level.getBlockState(pos);
-        if(!tester.test(state)&&predicate.test(level,pos.above())&&shouldRun){
+        if(tester.test(state)&&predicate.test(level,pos.above())&&shouldRun){
             return placeHelper(level,context.chunkGenerator(),context.random(),pos,
                     heightProvider.sample(context.random()));
         }
@@ -71,13 +71,14 @@ public class CaveVineColumn extends Feature<CaveVineConfig> {
         boolean flag=false;
         for(int i=0;i<h;i++){
             BlockState state=level.getBlockState(pos1);
-            for(int j=1;j<4;j++){
-                if(tester.test(level.getBlockState(pos1.below(j)))){
+            for(int j=0;j<4;j++){
+                if(!tester.test(level.getBlockState(pos1.below(j)))){
                     break;
                 }
             }
-            level.setBlock(pos1,ModBlocks.CAVE_VINES.get().defaultBlockState().setValue(BlockStateProperties.BERRIES,true)
-                    .setValue(BlockStateProperties.WATERLOGGED,state.is(Blocks.WATER)).setValue(BlockStateProperties.AGE_25,25),2);
+            level.setBlock(pos1,ModBlocks.CAVE_VINES.get().defaultBlockState().setValue(BlockStateProperties.BERRIES,
+                            true).setValue(BlockStateProperties.WATERLOGGED,state.is(Blocks.WATER))
+                    .setValue(BlockStateProperties.AGE_25,25),2);
             pos1.move(0,-1,0);
             flag=true;
         }
