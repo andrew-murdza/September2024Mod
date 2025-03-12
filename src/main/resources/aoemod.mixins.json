@@ -50,6 +50,7 @@
     "mob_spawning.AxolotlDontNeedClay",
     "mob_spawning.MooshroomSpawnInDarkness",
     "monoxide.BottlesAndStewsStackTo64",
+    "monoxide.ReplaceSpawnDimension",
     "nether_in_overworld.WaterDoesntSpreadIntoNetherBiomes",
     "othermods.alexsmobs.AntChambersDropPupa",
     "othermods.alexsmobs.AntsDontGetAngryWithHarvest",
