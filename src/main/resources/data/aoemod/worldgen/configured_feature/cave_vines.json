@@ -1,5 +1,13 @@
 {
   "type": "aoemod:cave_vines",
-  "chance": 0.1,
-  "height_provider": 1
+  "config": {
+    "chance": 0.1,
+    "height_provider": {
+      "type": "minecraft:uniform",
+      "value": {
+        "max_inclusive": 25,
+        "min_inclusive": 5
+      }
+    }
+  }
 }

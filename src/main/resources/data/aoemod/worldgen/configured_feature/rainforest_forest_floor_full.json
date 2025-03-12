@@ -3,11 +3,7 @@
   "config": {
     "feature": {
       "feature": "aoemod:rainforest_forest_floor",
-      "placement": [
-        {
-        "type":"biome"
-        }
-      ]
+      "placement": []
     },
     "water": false,
     "all_layers": true,

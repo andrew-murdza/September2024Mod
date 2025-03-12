@@ -69,14 +69,13 @@ public class CaveVineColumn extends Feature<CaveVineConfig> {
                                 int h){
         BlockPos.MutableBlockPos pos1=pos.mutable();
         boolean flag=false;
-        h=1;
         for(int i=0;i<h;i++){
             BlockState state=level.getBlockState(pos1);
-//            for(int j=1;j<4;j++){
-//                if(tester.test(level.getBlockState(pos1.below(j)))){
-//                    break;
-//                }
-//            }
+            for(int j=1;j<4;j++){
+                if(tester.test(level.getBlockState(pos1.below(j)))){
+                    break;
+                }
+            }
             level.setBlock(pos1,ModBlocks.CAVE_VINES.get().defaultBlockState().setValue(BlockStateProperties.BERRIES,true)
                     .setValue(BlockStateProperties.WATERLOGGED,state.is(Blocks.WATER)).setValue(BlockStateProperties.AGE_25,25),2);
             pos1.move(0,-1,0);

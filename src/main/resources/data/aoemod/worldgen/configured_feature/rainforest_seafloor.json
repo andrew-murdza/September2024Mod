@@ -3,11 +3,7 @@
   "config": {
     "feature": {
       "feature": "aoemod:rainforest_water_plants_full",
-      "placement": [
-        {
-          "type":"biome"
-        }
-      ]
+      "placement": []
     },
     "water": true,
     "all_layers": true,

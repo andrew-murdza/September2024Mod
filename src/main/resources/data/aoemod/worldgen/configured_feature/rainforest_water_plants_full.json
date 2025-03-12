@@ -10,31 +10,14 @@
         }
       },
       {
-        "chance": 0.2,
-        "feature": {
-          "feature": {
-            "type": "minecraft:simple_block",
-            "config": {
-              "to_place": {
-                "type": "minecraft:simple_state_provider",
-                "state": {
-                  "Name": "minecraft:water"
-                }
-              }
-            }
-          },
-          "placement": []
-        }
-      },
-      {
-        "chance": 0.1,
+        "chance": 0.08,
         "feature": {
           "feature": "aoemod:rainforest_kelp",
           "placement": []
         }
       },
       {
-        "chance": 0.4,
+        "chance": 0.62,
         "feature": {
           "feature": "aoemod:rainforest_seagrass",
           "placement": []

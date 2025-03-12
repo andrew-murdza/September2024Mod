@@ -1,6 +1,6 @@
 {
   "type": "aoemod:seagrass",
   "config": {
-    "probability": 0.7
+    "probability": 0.5
   }
 }
