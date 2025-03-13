@@ -11,6 +11,9 @@ import net.minecraft.world.item.BoneMealItem;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.biome.Biome;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.state.BlockState;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Redirect;
@@ -21,15 +24,10 @@ import javax.annotation.Nullable;
 public class BoneMealWaterPlants {
     @Redirect(method = "growWaterPlant",
             at = @At(value = "INVOKE",
-                    target = "Lnet/minecraft/core/Holder;is(Lnet/minecraft/tags/TagKey;)Z"))
-    private static boolean useOnGround(Holder<Biome> instance, TagKey<Biome> key, ItemStack stack, Level world, BlockPos blockPos, @Nullable Direction facing){
-        return instance.is(key)|| Helper.isSpecialBiome(world,blockPos);
-    }
-    @Redirect(method = "growWaterPlant",
-            at = @At(value = "INVOKE",
-                    target = "Lnet/minecraft/util/RandomSource;nextInt(I)I",ordinal = 5))
-    private static int useOnGround1(RandomSource random, int n, ItemStack stack, Level world, BlockPos blockPos, @Nullable Direction facing){
-        return random.nextInt(Helper.isSpecialBiome(world,blockPos)? Config.CHANCE_OF_TALL_SEAGRASS_BONEMEAL :n);
+                    target = "Lnet/minecraft/world/level/block/state/BlockState;is(Lnet/minecraft/world/level/block/Block;)Z",ordinal = 0))
+    private static boolean useOnGround(BlockState instance, Block block,ItemStack pStack, Level pLevel, BlockPos pPos, @Nullable Direction pClickedSide){
+        BlockState state=pLevel.getBlockState(pPos.relative(Helper.reverseDirection(pClickedSide)));
+        return instance.is(block)&&!(Helper.isSpecialBiome(pLevel,pPos)&&state.is(Blocks.MOSS_BLOCK));
     }
 
     //Sponges in mountains

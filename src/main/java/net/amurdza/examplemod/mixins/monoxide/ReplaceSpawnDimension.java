@@ -10,8 +10,6 @@ import org.spongepowered.asm.mixin.injection.ModifyVariable;
 
 @Mixin(PlayerList.class)
 public class ReplaceSpawnDimension {
-  // Not needed since we adjust the actual cost below
-  // It would be ideal to modify the code that removes the lapis instead of doing this, but that code is inside of a lambda and seems impossible to target with a mixin
   @ModifyVariable(
     method = "placeNewPlayer(Lnet/minecraft/network/Connection;Lnet/minecraft/server/level/ServerPlayer;)V",
     name = "resourcekey",

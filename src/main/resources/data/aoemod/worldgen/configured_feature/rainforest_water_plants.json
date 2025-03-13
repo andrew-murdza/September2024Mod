@@ -115,6 +115,15 @@
         {
           "weight": 1,
           "data": {
+            "Name": "upgrade_aquatic:prismarine_coral",
+            "Properties": {
+              "waterlogged": "true"
+            }
+          }
+        },
+        {
+          "weight": 1,
+          "data": {
             "Name": "upgrade_aquatic:chrome_coral",
             "Properties": {
               "waterlogged": "true"
@@ -197,6 +206,15 @@
           "weight": 1,
           "data": {
             "Name": "upgrade_aquatic:branch_coral_fan",
+            "Properties": {
+              "waterlogged": "true"
+            }
+          }
+        },
+        {
+          "weight": 1,
+          "data": {
+            "Name": "upgrade_aquatic:prismarine_coral_fan",
             "Properties": {
               "waterlogged": "true"
             }

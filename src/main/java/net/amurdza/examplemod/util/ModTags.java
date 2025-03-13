@@ -14,8 +14,9 @@ public class ModTags {
     public static class Blocks{
         public static final TagKey<Block> netherFlowers=tag("nether_flowers");
         public static final TagKey<Block> netherRootsPlaceable=tag("nether_roots_placeable");
+        public static final TagKey<Block> netherWartPlaceable=tag("nether_roots_placeable");
+        public static final TagKey<Block> netherPlantsPlaceable=tag("nether_plants_placeable");
         public static final TagKey<Block> sugarCaneCactusLike=tag("sugarcane_cactus_like");
-        public static final TagKey<Block> crimsonRootsGroundBlocks=tag("crimson_roots_ground_blocks");
         public static final TagKey<Block> duplicatedByBonemeal=tag("bone_meal_duplicates");
 
         private static TagKey<Block> tag(String name){

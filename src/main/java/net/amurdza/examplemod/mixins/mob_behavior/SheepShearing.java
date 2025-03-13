@@ -1,4 +1,4 @@
-package net.amurdza.examplemod.mixins.special_biome;
+package net.amurdza.examplemod.mixins.mob_behavior;
 
 import net.amurdza.examplemod.Config;
 import net.amurdza.examplemod.util.Helper;

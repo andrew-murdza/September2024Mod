@@ -19,6 +19,55 @@
       {
         "chance": 0.1,
         "feature": {
+          "feature": "ecologics:walnut",
+          "placement": []
+        }
+      },
+      {
+        "chance": 0.1,
+        "feature": {
+          "feature": "ecologics:coconut",
+          "placement": []
+        }
+      },
+      {
+        "chance": 0.1,
+        "feature": {
+          "feature": "midnight:giant_bogshroom_large",
+          "placement": []
+        }
+      },
+      {
+        "chance": 0.1,
+        "feature": {
+          "feature": "midnight:giant_dewshroom_large",
+          "placement": []
+        }
+      },
+      {
+        "chance": 0.1,
+        "feature": {
+          "feature": "aoemod:giant_moonshroom_large",
+          "placement": []
+        }
+      },
+      {
+        "chance": 0.1,
+        "feature": {
+          "feature": "midnight:giant_nightshroom_large",
+          "placement": []
+        }
+      },
+      {
+        "chance": 0.1,
+        "feature": {
+          "feature": "midnight:giant_viridshroom_large",
+          "placement": []
+        }
+      },
+      {
+        "chance": 0.1,
+        "feature": {
           "feature": "minecraft:huge_brown_mushroom",
           "placement": []
         }

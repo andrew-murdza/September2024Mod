@@ -62,6 +62,8 @@ public class Config
     public static final float PLAYER_ATTACK_FACTOR = 1.05F;
     public static final float MONSTER_ATTACK_FACTOR = 1.05F;
     public static final int FARMLAND_DISTANCE = 14;
+    public static final float PROPEL_GROWTH_CHANCE = 0.5F;
+    public static final float PITAYA_GROWTH_CHANCE = 0.5F;
     public static List<Item> BLACKLISTED_USE_ITEMS=List.of();
     public static final int BLOOD_MOON_FREQUENCY = 7;
     public static final float BLOOD_MOON_SPAWN_CAP_MULTIPLIER = 3.0f;

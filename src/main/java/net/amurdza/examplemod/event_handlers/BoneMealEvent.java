@@ -3,21 +3,30 @@ package net.amurdza.examplemod.event_handlers;
 import com.teamabnormals.upgrade_aquatic.core.registry.UABlocks;
 import net.amurdza.examplemod.AOEMod;
 import net.amurdza.examplemod.Config;
+import net.amurdza.examplemod.block.ModBlocks;
 import net.amurdza.examplemod.util.Helper;
 import net.amurdza.examplemod.util.RandomCollection;
 import net.amurdza.examplemod.util.ModTags;
+import net.amurdza.examplemod.worldgen.dimension.ModDimensions;
+import net.amurdza.examplemod.worldgen.feature.ModConfiguredFeatures;
 import net.mcreator.nourishednether.init.NourishedNetherModBlocks;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.core.registries.Registries;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.WorldGenLevel;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.block.state.properties.DoubleBlockHalf;
+import net.minecraft.world.level.block.state.properties.Half;
+import net.minecraft.world.level.chunk.ChunkGenerator;
+import net.minecraft.world.level.dimension.LevelStem;
+import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
 import net.minecraftforge.event.entity.player.BonemealEvent;
 import net.minecraftforge.eventbus.api.Event;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -26,6 +35,7 @@ import org.violetmoon.quark.content.world.module.GlimmeringWealdModule;
 
 import java.util.function.BiFunction;
 import java.util.function.Function;
+import java.util.function.Predicate;
 
 @Mod.EventBusSubscriber(modid = AOEMod.MOD_ID, bus=Mod.EventBusSubscriber.Bus.FORGE)
 public class BoneMealEvent {
@@ -39,28 +49,28 @@ public class BoneMealEvent {
         placeBoneMeal(world, pos, blockState -> blockState.is(Blocks.SOUL_SAND)||blockState.is(Blocks.SOUL_SOIL), 10, func);
     }
 
-    static RandomCollection<BiFunction<Level, BlockPos, Boolean>> mossPlants = new RandomCollection<>();
+//    static RandomCollection<BiFunction<Level, BlockPos, Boolean>> mossPlants = new RandomCollection<>();
     static {
-        mossPlants.add(1, placeBlock(Blocks.RED_MUSHROOM));
-        mossPlants.add(1, placeBlock(Blocks.BROWN_MUSHROOM));
-        Block[] flowers = new Block[]{Blocks.POPPY, Blocks.DANDELION, Blocks.CORNFLOWER, Blocks.BLUE_ORCHID,
-                Blocks.AZURE_BLUET, Blocks.WHITE_TULIP, Blocks.PINK_TULIP, Blocks.ORANGE_TULIP, Blocks.RED_TULIP,
-                Blocks.OXEYE_DAISY, Blocks.LILY_OF_THE_VALLEY, Blocks.ALLIUM};
-        for(Block flower : flowers) {
-            mossPlants.add(1, placeBlock(flower));
-        }
-        mossPlants.add(100, placeBlock(Blocks.GRASS));
-        mossPlants.add(20, placeBlock(Blocks.FERN));
-        mossPlants.add(0.3, placeBlock(Blocks.DEAD_BUSH));
-        mossPlants.add(1, BoneMealEvent::createDripLeaf);
-        mossPlants.add(6, placeBlock(Blocks.AZALEA));
-        mossPlants.add(2, placeBlock(Blocks.FLOWERING_AZALEA));
-        mossPlants.add(20, placeDoubleBlock(Blocks.LARGE_FERN));
-        mossPlants.add(20, placeDoubleBlock(Blocks.TALL_GRASS));
-        mossPlants.add(1, placeDoubleBlock(Blocks.SUNFLOWER));
-        mossPlants.add(1, placeDoubleBlock(Blocks.LILAC));
-        mossPlants.add(1, placeDoubleBlock(Blocks.ROSE_BUSH));
-        mossPlants.add(1, placeDoubleBlock(Blocks.PEONY));
+//        mossPlants.add(1, placeBlock(Blocks.RED_MUSHROOM));
+//        mossPlants.add(1, placeBlock(Blocks.BROWN_MUSHROOM));
+//        Block[] flowers = new Block[]{Blocks.POPPY, Blocks.DANDELION, Blocks.CORNFLOWER, Blocks.BLUE_ORCHID,
+//                Blocks.AZURE_BLUET, Blocks.WHITE_TULIP, Blocks.PINK_TULIP, Blocks.ORANGE_TULIP, Blocks.RED_TULIP,
+//                Blocks.OXEYE_DAISY, Blocks.LILY_OF_THE_VALLEY, Blocks.ALLIUM};
+//        for(Block flower : flowers) {
+//            mossPlants.add(1, placeBlock(flower));
+//        }
+//        mossPlants.add(100, placeBlock(Blocks.GRASS));
+//        mossPlants.add(20, placeBlock(Blocks.FERN));
+//        mossPlants.add(0.3, placeBlock(Blocks.DEAD_BUSH));
+//        mossPlants.add(1, BoneMealEvent::createDripLeaf);
+//        mossPlants.add(6, placeBlock(Blocks.AZALEA));
+//        mossPlants.add(2, placeBlock(Blocks.FLOWERING_AZALEA));
+//        mossPlants.add(20, placeDoubleBlock(Blocks.LARGE_FERN));
+//        mossPlants.add(20, placeDoubleBlock(Blocks.TALL_GRASS));
+//        mossPlants.add(1, placeDoubleBlock(Blocks.SUNFLOWER));
+//        mossPlants.add(1, placeDoubleBlock(Blocks.LILAC));
+//        mossPlants.add(1, placeDoubleBlock(Blocks.ROSE_BUSH));
+//        mossPlants.add(1, placeDoubleBlock(Blocks.PEONY));
     }
 
 
@@ -83,6 +93,36 @@ public class BoneMealEvent {
             return level.isEmptyBlock(pos);
         }
         return level.getBlockState(pos).is(Blocks.WATER);
+    }
+    private static void growMoss(Level level, BlockPos pos){
+        ConfiguredFeature<?,?> feature=level.registryAccess().registryOrThrow(Registries.CONFIGURED_FEATURE)
+                .get(ModConfiguredFeatures.MOSS_FOREST_FLOOR_LOC);
+        ConfiguredFeature<?,?> featureWater=level.registryAccess().registryOrThrow(Registries.CONFIGURED_FEATURE)
+                .get(ModConfiguredFeatures.MOSS_SEAFLOOR_LOC);
+        ServerLevel level1=(ServerLevel) level;
+        ChunkGenerator chunkGenerator=(level1).getChunkSource().getGenerator();
+        int tries=128;
+        Predicate<BlockPos> tester= pos1->level.getBlockState(pos.below()).is(Blocks.MOSS_BLOCK)&&
+                isFluid(level,pos1.above(),true)&&isFluid(level,pos1,true)||
+                isFluid(level,pos1.above(),false)&&isFluid(level,pos1,false);
+        if(level instanceof ServerLevel&&!level.isClientSide) {
+            BlockPos blockPos = pos.above();
+            RandomSource random = level.random;
+            label48:
+            for(int i = 0; i < tries; ++i) {
+                BlockPos blockPos2 = blockPos;
+                for(int j = 0; j < i / 4; ++j) {
+                    blockPos2 = blockPos2.offset(random.nextInt(3) - 1, (random.nextInt(3) - 1) * random.nextInt(3) / 2, random.nextInt(3) - 1);
+                    if(!tester.test(blockPos2)) {
+                        continue label48;
+                    }
+                }
+                if(tester.test(blockPos2)) {
+                    (level.getBlockState(blockPos2).is(Blocks.WATER)?featureWater:feature).place(level1,
+                            chunkGenerator,level.random,blockPos2);
+                }
+            }
+        }
     }
     private static void placeBoneMeal(Level world, BlockPos pos, BiFunction<BlockState, BlockPos, Boolean> check, int tries, BiFunction<BlockPos, RandomSource, Boolean> run, boolean twoBlocks, boolean isWater) {
         if(world instanceof ServerLevel&&!world.isClientSide) {
@@ -115,10 +155,14 @@ public class BoneMealEvent {
             if(Config.BLACKLISTED_USE_ITEMS.contains(block.asItem())){
                 event.setCanceled(true);
             }
+            else if(state.is(ModTags.Blocks.duplicatedByBonemeal)) {
+                Block.popResource(level, pos, new ItemStack(block));
+            }
+            else if(block==Blocks.MOSS_BLOCK){
+                growMoss(level,pos);
+                event.setCanceled(true);
+            }
             else if(!isFluid(level,pos.above(),true)){
-//                if(block==Blocks.MOSS_BLOCK){
-//                    growMoss(level,pos);
-//                }
                 if(block==Blocks.RED_SAND||block==Blocks.SAND){//Assumes dead bushes can always grow on sand regardless of biome
                     growSand(level,pos);
                 }
@@ -134,12 +178,9 @@ public class BoneMealEvent {
                 else if(block==Blocks.NETHER_WART){
                     flag =growNetherWart(pos,level);
                 }
-                else if(state.is(ModTags.Blocks.duplicatedByBonemeal)) {
-                    Block.popResource(level, pos, new ItemStack(block));
-                }
-                else if(block==Blocks.ROOTED_DIRT){
-                    growRootedDirt(level,level.random,pos);
-                }
+//                else if(block==Blocks.ROOTED_DIRT){
+//                    growRootedDirt(level,level.random,pos);
+//                }
                 else if(block== UABlocks.TALL_PICKERELWEED.get()||block instanceof TallFlowerBlock){
                     event.setCanceled(true);
                 }
@@ -177,11 +218,6 @@ public class BoneMealEvent {
                 }
             }
         }
-    }
-
-    private static void growMoss(Level level, BlockPos pos){
-        Function<BlockPos, Boolean> func = (pos1) -> mossPlants.next(level.random).apply(level, pos1);
-        placeBoneMeal(level, pos, blockState -> blockState.is(Blocks.MOSS_BLOCK), 128, func);
     }
 
 

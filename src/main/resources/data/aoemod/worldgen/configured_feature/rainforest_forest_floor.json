@@ -3,7 +3,7 @@
   "config": {
     "features": [
       {
-        "chance": 0.2,
+        "chance": 0.1968,
         "feature": {
           "feature": "aoemod:rainforest_flowers",
           "placement": []
@@ -13,6 +13,41 @@
         "chance": 0.80,
         "feature": {
           "feature": "aoemod:rainforest_grass",
+          "placement": []
+        }
+      },
+      {
+        "chance": 0.0008,
+        "feature": {
+          "feature": "aoemod:cactus",
+          "placement": []
+        }
+      },
+      {
+        "chance": 0.0008,
+        "feature": {
+          "feature": "aoemod:sugar_cane",
+          "placement": []
+        }
+      },
+      {
+        "chance": 0.0008,
+        "feature": {
+          "feature": "aoemod:small_dripleaf",
+          "placement": []
+        }
+      },
+      {
+        "chance": 0.0008,
+        "feature": {
+          "feature": "aoemod:big_dripleaf",
+          "placement": []
+        }
+      },
+      {
+        "chance": 0.0008,
+        "feature": {
+          "feature": "aoemod:night_reed",
           "placement": []
         }
       }

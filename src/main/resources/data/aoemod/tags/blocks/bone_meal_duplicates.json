@@ -2,6 +2,7 @@
   "values": [
     "minecraft:lily_pad",
     "minecraft:spore_blossom",
+    "minecraft:wet_sponge",
     "trailsandtalesplus:wall_mushroom",
     "trailsandtalesplus:red_wall_mushroom",
     "trailsandtalesplus:glowing_torchflower",
@@ -26,11 +27,11 @@
     "minecraft:sculk_shrieker",
     "minecraft:sculk_sensor",
     "minecraft:sculk_catalyst",
-    "forest:wildflower",
-    "forest:lavender",
-    "alexscaves:midnight_anenome",
-    "alexscaves:twilight_anenome",
-    "alexscaves:dusk_anenome",
-    "upgrade_aquatic:tall_pickerelweed"
+    "alexscaves:midnight_anemone",
+    "alexscaves:twilight_anemone",
+    "alexscaves:dusk_anemone",
+    "upgrade_aquatic:tall_pickerelweed",
+    "upgrade_aquatic:prismarine_coral",
+    "upgrade_aquatic:prismarine_coral_fan"
   ]
 }

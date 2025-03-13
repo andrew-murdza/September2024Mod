@@ -9,6 +9,7 @@ import net.minecraft.world.entity.Mob;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.animal.Fox;
 import net.minecraft.world.entity.animal.FrogVariant;
+import net.minecraft.world.entity.animal.MushroomCow;
 import net.minecraft.world.entity.animal.Rabbit;
 import net.minecraft.world.entity.animal.axolotl.Axolotl;
 import net.minecraft.world.entity.animal.frog.Frog;
@@ -66,12 +67,11 @@ public class MobCharacteristics {
                 mob.getAttribute(Attributes.MOVEMENT_SPEED).setBaseValue(Config.DONKEY_SPEED);
                 mob.getAttribute(Attributes.JUMP_STRENGTH).setBaseValue(Config.DONKEY_JUMP_STRENGTH);
             }
-            //Handled by another mod
-//            if(mob instanceof MushroomCow){
-//                Method setMushroomType=MushroomCow.class.getDeclaredMethod("setVariant", MushroomCow.MushroomType.class);
-//                setMushroomType.setAccessible(true);
-//                setMushroomType.invoke(mob, Helper.select(level,MushroomCow.MushroomType.RED,MushroomCow.MushroomType.BROWN));
-//            }
+            if(mob instanceof MushroomCow){
+                Method setMushroomType=MushroomCow.class.getDeclaredMethod("setVariant", MushroomCow.MushroomType.class);
+                setMushroomType.setAccessible(true);
+                setMushroomType.invoke(mob, Helper.select(level,MushroomCow.MushroomType.RED,MushroomCow.MushroomType.BROWN));
+            }
         }
     }
 }

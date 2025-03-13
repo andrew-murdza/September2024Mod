@@ -337,12 +337,6 @@
         {
           "weight": 1,
           "data": {
-            "Name": "biomeswevegone:horseweed"
-          }
-        },
-        {
-          "weight": 1,
-          "data": {
             "Name": "biomeswevegone:incan_lily"
           }
         },
@@ -803,6 +797,138 @@
         {
           "weight": 1,
           "data": {
+            "Name": "vintagedelight:wild_oats"
+          }
+        },
+        {
+          "weight": 1,
+          "data": {
+            "Name": "nethersdelight:propelplant_berry_cane",
+            "Properties": {
+              "pearl": "true"
+            }
+          }
+        },
+        {
+          "weight": 1,
+          "data": {
+            "Name": "midnight:moonshroom"
+          }
+        },
+        {
+          "weight": 1,
+          "data": {
+            "Name": "midnight:bogshroom"
+          }
+        },
+        {
+          "weight": 1,
+          "data": {
+            "Name": "midnight:mistshroom"
+          }
+        },
+        {
+          "weight": 1,
+          "data": {
+            "Name": "midnight:dewshroom"
+          }
+        },
+        {
+          "weight": 1,
+          "data": {
+            "Name": "midnight:lumen_bud"
+          }
+        },
+        {
+          "weight": 1,
+          "data": {
+            "Name": "midnight:nightshroom"
+          }
+        },
+        {
+          "weight": 1,
+          "data": {
+            "Name": "midnight:tall_moonshroom",
+            "Properties": {
+              "half": "lower"
+            }
+          }
+        },
+        {
+          "weight": 1,
+          "data": {
+            "Name": "midnight:tall_bogshroom",
+            "Properties": {
+              "half": "lower"
+            }
+          }
+        },
+        {
+          "weight": 1,
+          "data": {
+            "Name": "midnight:tall_mistshroom",
+            "Properties": {
+              "half": "lower"
+            }
+          }
+        },
+        {
+          "weight": 1,
+          "data": {
+            "Name": "midnight:tall_dewshroom",
+            "Properties": {
+              "half": "lower"
+            }
+          }
+        },
+        {
+          "weight": 1,
+          "data": {
+            "Name": "midnight:tall_lumen_bud",
+            "Properties": {
+              "half": "lower"
+            }
+          }
+        },
+        {
+          "weight": 1,
+          "data": {
+            "Name": "midnight:tall_nightshroom",
+            "Properties": {
+              "half": "lower"
+            }
+          }
+        },
+        {
+          "weight": 1,
+          "data": {
+            "Name": "nethersdelight:mimicarnation",
+            "Properties": {
+              "waterlogged": "true"
+            }
+          }
+        },
+        {
+          "weight": 1,
+          "data": {
+            "Name": "midnight:fingered_grass"
+          }
+        },
+        {
+          "weight": 1,
+          "data": {
+            "Name": "midnight:ghost_plant"
+          }
+        },
+        {
+          "weight": 1,
+          "data": {
+            "Name": "vintagedelight:wild_peanuts"
+          }
+        },
+        {
+          "weight": 1,
+          "data": {
             "Name": "farmersdelight:wild_carrots"
           }
         },
@@ -896,6 +1022,57 @@
         {
           "weight": 1,
           "data": {
+            "Name": "minecraft:pumpkin"
+          }
+        },
+        {
+          "weight": 1,
+          "data": {
+            "Name": "minecraft:melon"
+          }
+        },
+        {
+          "weight": 1,
+          "data": {
+            "Name": "minecraft:warped_fungus"
+          }
+        },
+        {
+          "weight": 1,
+          "data": {
+            "Name": "minecraft:crimson_fungus"
+          }
+        },
+        {
+          "weight": 1,
+          "data": {
+            "Name": "minecraft:nether_wart",
+            "Properties": {
+              "age": 3
+            }
+          }
+        },
+        {
+          "weight": 1,
+          "data": {
+            "Name": "minecraft:warped_roots"
+          }
+        },
+        {
+          "weight": 1,
+          "data": {
+            "Name": "minecraft:crimson_roots"
+          }
+        },
+        {
+          "weight": 1,
+          "data": {
+            "Name": "minecraft:nether_sprouts"
+          }
+        },
+        {
+          "weight": 1,
+          "data": {
             "Name": "minecraft:red_mushroom"
           }
         },
@@ -948,12 +1125,6 @@
             "Properties": {
               "half": "lower"
             }
-          }
-        },
-        {
-          "weight": 1,
-          "data": {
-            "Name": "minecraft:cactus"
           }
         },
         {
@@ -1049,22 +1220,34 @@
         {
           "weight": 1,
           "data": {
-            "Name": "minecraft:big_dripleaf"
+            "Name": "trailsandtalesplus:glowing_torchflower"
           }
         },
         {
           "weight": 1,
           "data": {
-            "Name": "minecraft:small_dripleaf",
+            "Name": "netherific:ghoulflower"
+          }
+        },
+        {
+          "weight": 1,
+          "data": {
+            "Name": "nourished_nether:soul_weeds"
+          }
+        },
+        {
+          "weight": 1,
+          "data": {
+            "Name": "nethers_exoticism:pitaya_stem"
+          }
+        },
+        {
+          "weight": 1,
+          "data": {
+            "Name": "alexscaves:curly_fern",
             "Properties": {
               "half": "lower"
             }
-          }
-        },
-        {
-          "weight": 1,
-          "data": {
-            "Name": "trailsandtalesplus:glowing_torchflower"
           }
         },
         {

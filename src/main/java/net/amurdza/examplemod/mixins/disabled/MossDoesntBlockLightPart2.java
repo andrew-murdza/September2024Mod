@@ -1,6 +1,8 @@
 package net.amurdza.examplemod.mixins.disabled;
 
 import net.minecraft.world.level.block.MossBlock;
+import net.minecraft.world.level.material.FluidState;
+import net.minecraft.world.phys.shapes.VoxelShape;
 import org.spongepowered.asm.mixin.Mixin;
 
 @Mixin(MossBlock.class)

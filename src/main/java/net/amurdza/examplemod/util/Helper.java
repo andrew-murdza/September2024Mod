@@ -1,6 +1,7 @@
 package net.amurdza.examplemod.util;
 
 import net.amurdza.examplemod.Config;
+import net.amurdza.examplemod.worldgen.biome.ModBiomes;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.Holder;
@@ -66,6 +67,27 @@ public class Helper {
             }
         }
         return 1;
+    }
+    public static Direction reverseDirection(Direction direction){
+        if(direction==Direction.UP){
+            return Direction.DOWN;
+        }
+        if(direction==Direction.DOWN){
+            return Direction.UP;
+        }
+        if(direction==Direction.NORTH){
+            return Direction.SOUTH;
+        }
+        if(direction==Direction.SOUTH){
+            return Direction.NORTH;
+        }
+        if(direction==Direction.EAST){
+            return Direction.WEST;
+        }
+        if(direction==Direction.WEST){
+            return Direction.EAST;
+        }
+        return Direction.EAST;
     }
     public static int getDiffLevel(Level level, BlockPos pos){
         return getDiffLevel(level.getBiome(pos));
@@ -138,7 +160,7 @@ public class Helper {
     }
 
     public static boolean isSpecialBiome(LevelReader level, BlockPos pos){
-        return level.getBiome(pos).is(ModTags.Biomes.tropicalBiomes);//isBiomeNameAtPos(level,pos,Config.SPECIAL_BIOME);
+        return level.getBiome(pos).is(ModBiomes.RAINFOREST);//isBiomeNameAtPos(level,pos,Config.SPECIAL_BIOME);
     }
     public static boolean isSpecialBiome(Entity entity){
         return entity!=null&&isSpecialBiome(entity.level(),entity.getOnPos());
