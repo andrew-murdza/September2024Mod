@@ -3,7 +3,7 @@
   "config": {
     "features": [
       {
-        "chance": 0.1968,
+        "chance": 0.1960,
         "feature": {
           "feature": "aoemod:rainforest_flowers",
           "placement": []
@@ -48,6 +48,13 @@
         "chance": 0.0008,
         "feature": {
           "feature": "aoemod:night_reed",
+          "placement": []
+        }
+      },
+      {
+        "chance": 0.0008,
+        "feature": {
+          "feature": "aoemod:pitaya",
           "placement": []
         }
       }

@@ -8,6 +8,7 @@ import net.minecraft.core.Holder;
 import net.minecraft.network.chat.MutableComponent;
 import net.minecraft.network.chat.contents.LiteralContents;
 import net.minecraft.resources.ResourceKey;
+import net.minecraft.tags.BiomeTags;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.Entity;
@@ -160,7 +161,7 @@ public class Helper {
     }
 
     public static boolean isSpecialBiome(LevelReader level, BlockPos pos){
-        return level.getBiome(pos).is(ModBiomes.RAINFOREST);//isBiomeNameAtPos(level,pos,Config.SPECIAL_BIOME);
+        return level.getBiome(pos).is(ModTags.Biomes.tropicalBiomes);//isBiomeNameAtPos(level,pos,Config.SPECIAL_BIOME);
     }
     public static boolean isSpecialBiome(Entity entity){
         return entity!=null&&isSpecialBiome(entity.level(),entity.getOnPos());

@@ -1238,12 +1238,6 @@
         {
           "weight": 1,
           "data": {
-            "Name": "nethers_exoticism:pitaya_stem"
-          }
-        },
-        {
-          "weight": 1,
-          "data": {
             "Name": "alexscaves:curly_fern",
             "Properties": {
               "half": "lower"

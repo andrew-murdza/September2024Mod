@@ -11,6 +11,6 @@ import org.spongepowered.asm.mixin.injection.Redirect;
 public class GlowSquidCanSpawnInLight {
     @Redirect(method = "checkGlowSquideSpawnRules",at=@At(value = "INVOKE",target = "Lnet/minecraft/world/level/ServerLevelAccessor;getRawBrightness(Lnet/minecraft/core/BlockPos;I)I"))
     private static int hi(ServerLevelAccessor instance, BlockPos blockPos, int i){
-        return Helper.isSpecialBiome(instance,blockPos)?0:instance.getRawBrightness(blockPos,i);
+        return 0;//Helper.isSpecialBiome(instance,blockPos)?0:instance.getRawBrightness(blockPos,i);
     }
 }
