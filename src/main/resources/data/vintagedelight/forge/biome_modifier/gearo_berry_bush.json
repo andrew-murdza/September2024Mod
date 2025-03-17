@@ -1,6 +1,0 @@
-{
-  "type": "forge:add_features",
-  "biomes": [],
-  "features": "vintagedelight:patch_gearo_berry_bush",
-  "step": "vegetal_decoration"
-}

@@ -30,6 +30,8 @@ public class NoFloatingMobSpawns {
                 Animal::checkAnimalSpawnRules);
         SpawnPlacements.register(IafEntityRegistry.SEA_SERPENT.get(), SpawnPlacements.Type.IN_WATER, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
                 NoFloatingMobSpawns::checkSeaSerpentSpawnRules);
+        SpawnPlacements.register(IafEntityRegistry.HIPPOCAMPUS.get(), SpawnPlacements.Type.IN_WATER, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
+                NoFloatingMobSpawns::checkSeaSerpentSpawnRules);
     }
     public static boolean checkSeaSerpentSpawnRules(EntityType pWaterAnimal, LevelAccessor pLevel, MobSpawnType pSpawnType, BlockPos pPos, RandomSource pRandom) {
         int N=3;

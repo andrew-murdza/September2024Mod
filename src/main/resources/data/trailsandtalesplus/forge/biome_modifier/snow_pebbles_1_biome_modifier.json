@@ -1,6 +1,0 @@
-{
-    "type": "forge:add_features",
-    "biomes": [],
-    "features": "luminousworld:snow_pebbles_1",
-    "step": "vegetal_decoration"
-}

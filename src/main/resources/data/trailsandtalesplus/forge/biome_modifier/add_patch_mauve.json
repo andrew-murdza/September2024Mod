@@ -1,6 +1,0 @@
-{
-    "type": "forge:add_features",
-    "biomes": [],
-    "features": "trailsandtalesplus:patch_mauve_vegatation",
-    "step": "vegetal_decoration"
-}

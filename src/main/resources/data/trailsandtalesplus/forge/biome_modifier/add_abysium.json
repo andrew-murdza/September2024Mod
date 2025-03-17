@@ -1,6 +1,0 @@
-{
-    "type": "forge:add_features",
-    "biomes": [],
-    "features": "trailsandtalesplus:ore_abysium",
-    "step": "underground_ores"
-}

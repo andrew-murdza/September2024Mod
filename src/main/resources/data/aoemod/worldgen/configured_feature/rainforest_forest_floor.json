@@ -6,56 +6,160 @@
         "chance": 0.1960,
         "feature": {
           "feature": "aoemod:rainforest_flowers",
-          "placement": []
+          "placement": [
+            {
+              "type": "minecraft:block_predicate_filter",
+              "predicate": {
+                "type": "minecraft:has_sturdy_face",
+                "offset": [
+                  0,
+                  -1,
+                  0
+                ],
+                "direction": "up"
+              }
+            }
+          ]
         }
       },
       {
         "chance": 0.80,
         "feature": {
           "feature": "aoemod:rainforest_grass",
-          "placement": []
+          "placement": [
+            {
+              "type": "minecraft:block_predicate_filter",
+              "predicate": {
+                "type": "minecraft:has_sturdy_face",
+                "offset": [
+                  0,
+                  -1,
+                  0
+                ],
+                "direction": "up"
+              }
+            }
+          ]
         }
       },
       {
         "chance": 0.0008,
         "feature": {
           "feature": "aoemod:cactus",
-          "placement": []
+          "placement": [
+            {
+              "type": "minecraft:block_predicate_filter",
+              "predicate": {
+                "type": "minecraft:has_sturdy_face",
+                "offset": [
+                  0,
+                  -1,
+                  0
+                ],
+                "direction": "up"
+              }
+            }
+          ]
         }
       },
       {
         "chance": 0.0008,
         "feature": {
           "feature": "aoemod:sugar_cane",
-          "placement": []
+          "placement": [
+            {
+              "type": "minecraft:block_predicate_filter",
+              "predicate": {
+                "type": "minecraft:has_sturdy_face",
+                "offset": [
+                  0,
+                  -1,
+                  0
+                ],
+                "direction": "up"
+              }
+            }
+          ]
         }
       },
       {
         "chance": 0.0008,
         "feature": {
           "feature": "aoemod:small_dripleaf",
-          "placement": []
+          "placement": [
+            {
+              "type": "minecraft:block_predicate_filter",
+              "predicate": {
+                "type": "minecraft:has_sturdy_face",
+                "offset": [
+                  0,
+                  -1,
+                  0
+                ],
+                "direction": "up"
+              }
+            }
+          ]
         }
       },
       {
         "chance": 0.0008,
         "feature": {
           "feature": "aoemod:big_dripleaf",
-          "placement": []
+          "placement": [
+            {
+              "type": "minecraft:block_predicate_filter",
+              "predicate": {
+                "type": "minecraft:has_sturdy_face",
+                "offset": [
+                  0,
+                  -1,
+                  0
+                ],
+                "direction": "up"
+              }
+            }
+          ]
         }
       },
       {
         "chance": 0.0008,
         "feature": {
           "feature": "aoemod:night_reed",
-          "placement": []
+          "placement": [
+            {
+              "type": "minecraft:block_predicate_filter",
+              "predicate": {
+                "type": "minecraft:has_sturdy_face",
+                "offset": [
+                  0,
+                  -1,
+                  0
+                ],
+                "direction": "up"
+              }
+            }
+          ]
         }
       },
       {
         "chance": 0.0008,
         "feature": {
           "feature": "aoemod:pitaya",
-          "placement": []
+          "placement": [
+            {
+              "type": "minecraft:block_predicate_filter",
+              "predicate": {
+                "type": "minecraft:has_sturdy_face",
+                "offset": [
+                  0,
+                  -1,
+                  0
+                ],
+                "direction": "up"
+              }
+            }
+          ]
         }
       }
     ]

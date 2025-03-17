@@ -1,6 +1,0 @@
-{
-    "type": "forge:add_features",
-    "biomes": [],
-    "features": "luminousworld:large_sprucetree_feature",
-    "step": "vegetal_decoration"
-}

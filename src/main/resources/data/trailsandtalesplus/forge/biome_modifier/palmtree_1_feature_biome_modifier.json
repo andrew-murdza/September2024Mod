@@ -1,6 +1,0 @@
-{
-    "type": "forge:add_features",
-    "biomes": [],
-    "features": "luminousworld:palmtree_1_feature",
-    "step": "surface_structures"
-}

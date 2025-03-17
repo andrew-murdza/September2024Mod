@@ -1,6 +1,0 @@
-{
-    "type": "forge:add_features",
-    "biomes": [],
-    "features": "luminousworld:viper_egg_feature",
-    "step": "surface_structures"
-}

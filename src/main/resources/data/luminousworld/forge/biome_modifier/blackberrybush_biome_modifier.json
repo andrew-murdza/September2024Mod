@@ -1,6 +1,0 @@
-{
-    "type": "forge:add_features",
-    "biomes": [],
-    "features": "luminousworld:blackberrybush",
-    "step": "vegetal_decoration"
-}

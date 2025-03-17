@@ -681,14 +681,11 @@
       "minecraft:spring_water"
     ],
     [
-      "aoemod:glow_lichen",
       "aoemod:rainforest_trees",
       "aoemod:rainforest_forest_floor",
       "aoemod:rainforest_seafloor",
       "aoemod:cave_vines",
-      "aoemod:lilypads",
-      "aoemod:wild_rice",
-      "upgrade_aquatic:patch_pickerelweed"
+      "aoemod:lilypads"
     ],
     [
       "minecraft:freeze_top_layer"

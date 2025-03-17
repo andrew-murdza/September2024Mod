@@ -18,6 +18,7 @@ public class ModTags {
         public static final TagKey<Block> netherPlantsPlaceable=tag("nether_plants_placeable");
         public static final TagKey<Block> sugarCaneCactusLike=tag("sugarcane_cactus_like");
         public static final TagKey<Block> duplicatedByBonemeal=tag("bone_meal_duplicates");
+        public static final TagKey<Block> treesCanReplace=tag("trees_can_replace");
 
         private static TagKey<Block> tag(String name){
             return BlockTags.create(new ResourceLocation(AOEMod.MOD_ID,name));

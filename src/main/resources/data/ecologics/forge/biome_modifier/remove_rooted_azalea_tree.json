@@ -1,6 +1,0 @@
-{
-  "type": "forge:remove_features",
-  "biomes": [],
-  "features": "minecraft:rooted_azalea_tree",
-  "step": "vegetal_decoration"
-}

@@ -7,6 +7,24 @@
         {
           "weight": 1,
           "data": {
+            "Name": "upgradeaquatic:pickerelweed"
+          }
+        },
+        {
+          "weight": 1,
+          "data": {
+            "Name": "upgradeaquatic:tall_pickerelweed"
+          }
+        },
+        {
+          "weight": 1,
+          "data": {
+            "Name": "bloomingnature:white_orchid"
+          }
+        },
+        {
+          "weight": 1,
+          "data": {
             "Name": "bloomingnature:amaryllis"
           }
         },
@@ -786,6 +804,15 @@
           "weight": 1,
           "data": {
             "Name": "farmersdelight:wild_beetroots"
+          }
+        },
+        {
+          "weight": 1,
+          "data": {
+            "Name": "farmersdelight:wild_rice",
+            "Properties": {
+              "half": "lower"
+            }
           }
         },
         {

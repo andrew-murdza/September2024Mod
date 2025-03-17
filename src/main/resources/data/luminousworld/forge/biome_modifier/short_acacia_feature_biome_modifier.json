@@ -1,6 +1,0 @@
-{
-    "type": "forge:add_features",
-    "biomes": [],
-    "features": "luminousworld:short_acacia_feature",
-    "step": "surface_structures"
-}

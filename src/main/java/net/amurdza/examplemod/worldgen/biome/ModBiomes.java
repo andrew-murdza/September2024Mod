@@ -17,12 +17,14 @@ import net.minecraft.world.level.biome.MobSpawnSettings;
 import net.minecraft.world.entity.MobCategory;
 
 public class ModBiomes {
-    public static final ResourceKey<Biome> RAINFOREST_OLD=ResourceKey.create(Registries.BIOME,
+    public static final ResourceKey<Biome> RAINFOREST_OLD_KEY=ResourceKey.create(Registries.BIOME,
             new ResourceLocation(AOEMod.MOD_ID,"rainforest"));
+    public static Biome RAINFOREST_OLD;
     public static final ResourceKey<Biome> RAINFOREST=ResourceKey.create(Registries.BIOME,
             new ResourceLocation(AOEMod.MOD_ID,"rainforestnew"));
     public static void bootstrap(BootstapContext<Biome> context){
-        context.register(RAINFOREST_OLD, rainforestBiome(context));
+//        RAINFOREST_OLD=rainforestBiome(context);
+//        context.register(RAINFOREST_OLD_KEY, RAINFOREST_OLD);
     }
 
     private static void globalOverworldGeneration(BiomeGenerationSettings.Builder builder) {

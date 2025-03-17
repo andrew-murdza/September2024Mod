@@ -232,7 +232,7 @@ dependencies {
     runtimeOnly fg.deobf("curse.maven:notrample-914018:4764989")
     runtimeOnly fg.deobf("curse.maven:huge-structure-blocks-474114:4803547")
 
-    runtimeOnly fg.deobf("curse.maven:pandas-falling-trees-880630:4637709")
+//    runtimeOnly fg.deobf("curse.maven:pandas-falling-trees-880630:4637709")
     runtimeOnly fg.deobf("curse.maven:cloth-config-348521:5729105")
 
 
