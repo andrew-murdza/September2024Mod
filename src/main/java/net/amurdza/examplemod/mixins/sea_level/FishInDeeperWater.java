@@ -1,6 +1,7 @@
-package net.amurdza.examplemod.mixins.special_biome.mob_spawning;
+package net.amurdza.examplemod.mixins.sea_level;
 
 import net.amurdza.examplemod.util.Helper;
+import net.amurdza.examplemod.worldgen.WorldGenUtils;
 import net.minecraft.core.BlockPos;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.entity.EntityType;
@@ -20,6 +21,10 @@ public class FishInDeeperWater {
     @Redirect(method = "checkSurfaceWaterAnimalSpawnRules",at=@At(value = "INVOKE",target = "Lnet/minecraft/core/BlockPos;getY()I",ordinal = 1))
     private static int hi1(BlockPos instance, EntityType<? extends WaterAnimal> pWaterAnimal, LevelAccessor pLevel, MobSpawnType pSpawnType, BlockPos pPos, RandomSource pRandom){
         return -aOEMod1_20_1V2$findInt(pLevel,pPos, instance);
+    }
+    @Redirect(method = "checkSurfaceWaterAnimalSpawnRules",at=@At(value = "INVOKE",target = "Lnet/minecraft/world/level/LevelAccessor;getSeaLevel()I"))
+    private static int hi2(LevelAccessor instance, EntityType<? extends WaterAnimal> pWaterAnimal, LevelAccessor pLevel, MobSpawnType pSpawnType, BlockPos pPos, RandomSource pRandom){
+        return WorldGenUtils.getSeaLevelAtPos(pPos);
     }
 
     @Unique

@@ -1,8 +1,6 @@
 package net.amurdza.examplemod.mixins.othermods.alexscaves;
 
 import com.github.alexmodguy.alexscaves.server.entity.ACEntityRegistry;
-import com.github.alexmodguy.alexscaves.server.entity.living.LanternfishEntity;
-import net.amurdza.examplemod.mixins.special_biome.mob_spawning.FishInDeeperWater;
 import net.minecraft.core.BlockPos;
 import net.minecraft.tags.FluidTags;
 import net.minecraft.util.RandomSource;
@@ -10,7 +8,6 @@ import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.MobSpawnType;
 import net.minecraft.world.entity.SpawnPlacements;
-import net.minecraft.world.entity.animal.WaterAnimal;
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.levelgen.Heightmap;
