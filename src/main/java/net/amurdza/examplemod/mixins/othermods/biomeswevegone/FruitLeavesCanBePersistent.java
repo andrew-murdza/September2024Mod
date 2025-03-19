@@ -11,6 +11,6 @@ import org.spongepowered.asm.mixin.injection.Redirect;
 public class FruitLeavesCanBePersistent {
     @Redirect(method = "isRandomlyTicking",at= @At(value = "INVOKE", target = "Lnet/minecraft/world/level/block/state/BlockState;getValue(Lnet/minecraft/world/level/block/state/properties/Property;)Ljava/lang/Comparable;"))
     private Comparable hi(BlockState instance, Property property){
-        return true;
+        return false;
     }
 }

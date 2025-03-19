@@ -1,6 +1,6 @@
 package net.amurdza.examplemod;
 
-import com.belgieyt.trailsandtalesplus.Objects.TTBlockRegistry;
+//import com.belgieyt.trailsandtalesplus.Objects.TTBlockRegistry;
 import com.github.alexthe666.alexsmobs.entity.*;
 import com.github.alexthe666.alexsmobs.item.AMItemRegistry;
 import com.github.alexthe666.iceandfire.entity.EntityPixie;
@@ -169,7 +169,7 @@ public class Config
         addToMap(vectorwing.farmersdelight.common.registry.ModBlocks.TOMATO_CROP.get());
         addToMap(vectorwing.farmersdelight.common.registry.ModBlocks.CABBAGE_CROP.get());
         addToMap(vectorwing.farmersdelight.common.registry.ModBlocks.RICE_CROP.get());
-        addToMap(TTBlockRegistry.CHERRY_VINE.get());
+//        addToMap(TTBlockRegistry.CHERRY_VINE.get());
         addToMap(samebutdifferent.ecologics.registry.ModBlocks.PRICKLY_PEAR.get());
         addToMap(ModRegistry.CORN_BASE.get());
         addToMap(ModRegistry.CORN_MIDDLE.get());
@@ -178,7 +178,7 @@ public class Config
         addToMap(Blocks.POINTED_DRIPSTONE,0.1);
         addToMap(Blocks.RED_MUSHROOM,0);
         addToMap(Blocks.BROWN_MUSHROOM,0);
-        addToMap(TTBlockRegistry.LUSHROOM_MUSHROOM.get(),0);
+//        addToMap(TTBlockRegistry.LUSHROOM_MUSHROOM.get(),0);
         addToMap(Blocks.SMALL_AMETHYST_BUD,0.5);
         addToMap(Blocks.MEDIUM_AMETHYST_BUD,0.5);
         addToMap(Blocks.LARGE_AMETHYST_BUD,0.5);

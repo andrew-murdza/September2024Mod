@@ -1,6 +1,7 @@
 package net.amurdza.examplemod.worldgen.biome;
 
 import net.amurdza.examplemod.AOEMod;
+import net.amurdza.examplemod.worldgen.feature.ModPlacedFeatures;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.worldgen.BiomeDefaultFeatures;
 import net.minecraft.data.worldgen.BootstapContext;
@@ -23,8 +24,8 @@ public class ModBiomes {
     public static final ResourceKey<Biome> RAINFOREST=ResourceKey.create(Registries.BIOME,
             new ResourceLocation(AOEMod.MOD_ID,"rainforestnew"));
     public static void bootstrap(BootstapContext<Biome> context){
-//        RAINFOREST_OLD=rainforestBiome(context);
-//        context.register(RAINFOREST_OLD_KEY, RAINFOREST_OLD);
+        RAINFOREST_OLD=rainforestBiome(context);
+        context.register(RAINFOREST_OLD_KEY, RAINFOREST_OLD);
     }
 
     private static void globalOverworldGeneration(BiomeGenerationSettings.Builder builder) {
@@ -36,11 +37,15 @@ public class ModBiomes {
         BiomeGenerationSettings.Builder biomeBuilder =
                 new BiomeGenerationSettings.Builder(context.lookup(Registries.PLACED_FEATURE), context.lookup(Registries.CONFIGURED_CARVER));
         globalOverworldGeneration(biomeBuilder);
-        biomeBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, VegetationPlacements.TREES_PLAINS);
+        biomeBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, ModPlacedFeatures.RAINFOREST_TREES_KEY);
+        biomeBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, ModPlacedFeatures.RAINFOREST_FLOOR_KEY);
+        biomeBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, ModPlacedFeatures.RAINFOREST_SEAFLOOR_KEY);
+        biomeBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, ModPlacedFeatures.LILY_PADS_KEY);
 
         MobSpawnSettings.Builder spawnBuilder = new MobSpawnSettings.Builder();
-        spawnBuilder.addSpawn(MobCategory.CREATURE, new MobSpawnSettings.SpawnerData(EntityType.WOLF, 5, 4, 4));
-
+        spawnBuilder.addSpawn(MobCategory.CREATURE,
+                new MobSpawnSettings.SpawnerData(EntityType.WOLF, 5, 4, 4));
+        spawnBuilder=spawnBuilder.creatureGenerationProbability(0.4F);
 
         BiomeSpecialEffects effects = (new BiomeSpecialEffects.Builder()).waterColor(937679).waterFogColor(329011).skyColor(7907327).fogColor(12638463).ambientMoodSound(AmbientMoodSettings.LEGACY_CAVE_SETTINGS).build();
 

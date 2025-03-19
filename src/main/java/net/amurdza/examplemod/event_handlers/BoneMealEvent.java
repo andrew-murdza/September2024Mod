@@ -95,10 +95,8 @@ public class BoneMealEvent {
         return level.getBlockState(pos).is(Blocks.WATER);
     }
     private static void growMoss(Level level, BlockPos pos){
-        ConfiguredFeature<?,?> feature=level.registryAccess().registryOrThrow(Registries.CONFIGURED_FEATURE)
-                .get(ModConfiguredFeatures.MOSS_FOREST_FLOOR_LOC);
-        ConfiguredFeature<?,?> featureWater=level.registryAccess().registryOrThrow(Registries.CONFIGURED_FEATURE)
-                .get(ModConfiguredFeatures.MOSS_SEAFLOOR_LOC);
+        ConfiguredFeature<?,?> feature=ModConfiguredFeatures.rainforestFloor;
+        ConfiguredFeature<?,?> featureWater=ModConfiguredFeatures.rainforestWaterPlantsFull;
         ServerLevel level1=(ServerLevel) level;
         ChunkGenerator chunkGenerator=(level1).getChunkSource().getGenerator();
         int tries=128;

@@ -1,573 +1,593 @@
-[16Mar2025 22:13:57.073] [main/INFO] [cpw.mods.modlauncher.Launcher/MODLAUNCHER]: ModLauncher running: args [--launchTarget, forgedatauserdev, --assetIndex, 5, --assetsDir, C:\Users\andre\.gradle\caches\forge_gradle\assets, --gameDir, ., --fml.forgeVersion, 47.3.0, --fml.mcVersion, 1.20.1, --fml.forgeGroup, net.minecraftforge, --fml.mcpVersion, 20230612.114412, --mod, aoemod, --all, --output, C:\Users\andre\Downloads\Games\September2024Mod\src\generated\resources, --existing, C:\Users\andre\Downloads\Games\September2024Mod\src\main\resources, --mixin.config, aoemod.mixins.json]
-[16Mar2025 22:13:57.083] [main/INFO] [cpw.mods.modlauncher.Launcher/MODLAUNCHER]: ModLauncher 10.0.9+10.0.9+main.dcd20f30 starting: java version 17.0.9 by Eclipse Adoptium; OS Windows 11 arch amd64 version 10.0
-[16Mar2025 22:13:57.190] [main/INFO] [net.minecraftforge.fml.loading.ImmediateWindowHandler/]: ImmediateWindowProvider not loading because launch target is forgedatauserdev
-[16Mar2025 22:13:57.222] [main/INFO] [mixin/]: SpongePowered MIXIN Subsystem Version=0.8.5 Source=union:/C:/Users/andre/.gradle/caches/modules-2/files-2.1/org.spongepowered/mixin/0.8.5/9d1c0c3a304ae6697ecd477218fa61b850bf57fc/mixin-0.8.5.jar%23128!/ Service=ModLauncher Env=CLIENT
-[16Mar2025 22:13:57.444] [main/WARN] [net.minecraftforge.fml.loading.moddiscovery.ModFileParser/LOADING]: Mod file C:\Users\andre\.gradle\caches\modules-2\files-2.1\net.minecraftforge\javafmllanguage\1.20.1-47.3.0\d7ebc62120f202109e300e084ca1a31a7b946a62\javafmllanguage-1.20.1-47.3.0.jar is missing mods.toml file
-[16Mar2025 22:13:57.447] [main/WARN] [net.minecraftforge.fml.loading.moddiscovery.ModFileParser/LOADING]: Mod file C:\Users\andre\.gradle\caches\modules-2\files-2.1\net.minecraftforge\lowcodelanguage\1.20.1-47.3.0\1bf3e845ea0ce750096da8c71c8364b188ab74d4\lowcodelanguage-1.20.1-47.3.0.jar is missing mods.toml file
-[16Mar2025 22:13:57.451] [main/WARN] [net.minecraftforge.fml.loading.moddiscovery.ModFileParser/LOADING]: Mod file C:\Users\andre\.gradle\caches\modules-2\files-2.1\net.minecraftforge\mclanguage\1.20.1-47.3.0\6093682e943ddccbabf70539319d7f2fe64db2e7\mclanguage-1.20.1-47.3.0.jar is missing mods.toml file
-[16Mar2025 22:13:57.454] [main/WARN] [net.minecraftforge.fml.loading.moddiscovery.ModFileParser/LOADING]: Mod file C:\Users\andre\.gradle\caches\modules-2\files-2.1\net.minecraftforge\fmlcore\1.20.1-47.3.0\3b6be96aba3e323f3c918e8ef6a96312d82d76ad\fmlcore-1.20.1-47.3.0.jar is missing mods.toml file
-[16Mar2025 22:13:58.007] [main/WARN] [net.minecraftforge.jarjar.selection.JarSelector/]: Attempted to select a dependency jar for JarJar which was passed in as source: geckolib. Using Mod File: C:\Users\andre\.gradle\caches\forge_gradle\deobf_dependencies\curse\maven\geckolib-388172\6027567_mapped_parchment_2023.09.03-1.20.1\geckolib-388172-6027567_mapped_parchment_2023.09.03-1.20.1.jar
-[16Mar2025 22:13:58.008] [main/INFO] [net.minecraftforge.fml.loading.moddiscovery.JarInJarDependencyLocator/]: Found 7 dependencies adding them to mods collection
-[16Mar2025 22:14:01.582] [main/INFO] [mixin/]: Compatibility level set to JAVA_17
-[16Mar2025 22:14:01.734] [main/INFO] [mixin/]: Successfully loaded Mixin Connector [com.crypticmushroom.minecraft.registry.coremod.CrypticCoreMod]
-[16Mar2025 22:14:01.734] [main/INFO] [mixin/]: Successfully loaded Mixin Connector [com.crypticmushroom.minecraft.midnight.coremod.MidnightCoreMod]
-[16Mar2025 22:14:01.735] [main/WARN] [CrypticRegistry/]: Modlauncher has started userdev data generation. Datagen-only mixins will apply.
-[16Mar2025 22:14:01.737] [main/INFO] [cpw.mods.modlauncher.LaunchServiceHandler/MODLAUNCHER]: Launching target 'forgedatauserdev' with arguments [--gameDir, ., --assetsDir, C:\Users\andre\.gradle\caches\forge_gradle\assets, --assetIndex, 5, --mod, aoemod, --all, --output, C:\Users\andre\Downloads\Games\September2024Mod\src\generated\resources, --existing, C:\Users\andre\Downloads\Games\September2024Mod\src\main\resources]
-[16Mar2025 22:14:01.740] [main/WARN] [mixin/]: Reference map 'aoemod.refmap.json' for aoemod.mixins.json could not be read. If this is a development environment you can ignore this message
-[16Mar2025 22:14:01.832] [main/INFO] [mixin/]: Remapping refMap kiwi.refmap.json using C:\Users\andre\Downloads\Games\September2024Mod\build\createSrgToMcp\output.srg
-[16Mar2025 22:14:01.834] [main/INFO] [mixin/]: Remapping refMap blue_skies.refmap.json using C:\Users\andre\Downloads\Games\September2024Mod\build\createSrgToMcp\output.srg
-[16Mar2025 22:14:01.835] [main/INFO] [mixin/]: Remapping refMap fabric-renderer-api-v1-refmap.json using C:\Users\andre\Downloads\Games\September2024Mod\build\createSrgToMcp\output.srg
-[16Mar2025 22:14:01.836] [main/INFO] [mixin/]: Remapping refMap fabric-renderer-api-v1-refmap.json using C:\Users\andre\Downloads\Games\September2024Mod\build\createSrgToMcp\output.srg
-[16Mar2025 22:14:01.837] [main/INFO] [mixin/]: Remapping refMap geckolib.refmap.json using C:\Users\andre\Downloads\Games\September2024Mod\build\createSrgToMcp\output.srg
-[16Mar2025 22:14:01.837] [main/INFO] [mixin/]: Remapping refMap naturalist-common-refmap.json using C:\Users\andre\Downloads\Games\September2024Mod\build\createSrgToMcp\output.srg
-[16Mar2025 22:14:01.838] [main/WARN] [mixin/]: Reference map 'naturalist-forge-forge-refmap.json' for naturalist.mixins.json could not be read. If this is a development environment you can ignore this message
-[16Mar2025 22:14:01.840] [main/INFO] [mixin/]: Remapping refMap fabric-renderer-indigo-refmap.json using C:\Users\andre\Downloads\Games\September2024Mod\build\createSrgToMcp\output.srg
-[16Mar2025 22:14:01.841] [main/INFO] [mixin/]: Remapping refMap citadel.refmap.json using C:\Users\andre\Downloads\Games\September2024Mod\build\createSrgToMcp\output.srg
-[16Mar2025 22:14:01.842] [main/WARN] [mixin/]: Reference map 'EpheroLib-refmap.json' for epherolib.mixins.json could not be read. If this is a development environment you can ignore this message
-[16Mar2025 22:14:01.842] [main/INFO] [mixin/]: Remapping refMap badpackets.refmap.json using C:\Users\andre\Downloads\Games\September2024Mod\build\createSrgToMcp\output.srg
-[16Mar2025 22:14:01.879] [main/INFO] [mixin/]: Remapping refMap mixin.refmap.json using C:\Users\andre\Downloads\Games\September2024Mod\build\createSrgToMcp\output.srg
-[16Mar2025 22:14:01.881] [main/INFO] [mixin/]: Remapping refMap iceandfire.refmap.json using C:\Users\andre\Downloads\Games\September2024Mod\build\createSrgToMcp\output.srg
-[16Mar2025 22:14:01.882] [main/WARN] [mixin/]: Reference map 'netherdepthsupgrade.refmap.json' for netherdepthsupgrade.mixins.json could not be read. If this is a development environment you can ignore this message
-[16Mar2025 22:14:01.884] [main/INFO] [mixin/]: Remapping refMap snowrealmagic.refmap.json using C:\Users\andre\Downloads\Games\September2024Mod\build\createSrgToMcp\output.srg
-[16Mar2025 22:14:01.885] [main/INFO] [mixin/]: Remapping refMap blueprint.refmap.json using C:\Users\andre\Downloads\Games\September2024Mod\build\createSrgToMcp\output.srg
-[16Mar2025 22:14:01.886] [main/INFO] [mixin/]: Remapping refMap hauntedharvest-common-refmap.json using C:\Users\andre\Downloads\Games\September2024Mod\build\createSrgToMcp\output.srg
-[16Mar2025 22:14:01.889] [main/INFO] [mixin/]: Remapping refMap hauntedharvest-forge-refmap.json using C:\Users\andre\Downloads\Games\September2024Mod\build\createSrgToMcp\output.srg
-[16Mar2025 22:14:01.891] [main/INFO] [mixin/]: Remapping refMap structure_gel.refmap.json using C:\Users\andre\Downloads\Games\September2024Mod\build\createSrgToMcp\output.srg
-[16Mar2025 22:14:01.892] [main/INFO] [mixin/]: Remapping refMap astemirlib.refmap.json using C:\Users\andre\Downloads\Games\September2024Mod\build\createSrgToMcp\output.srg
-[16Mar2025 22:14:01.893] [main/INFO] [mixin/]: Remapping refMap farmersdelight.refmap.json using C:\Users\andre\Downloads\Games\September2024Mod\build\createSrgToMcp\output.srg
-[16Mar2025 22:14:01.894] [main/INFO] [mixin/]: Remapping refMap upgrade_aquatic.refmap.json using C:\Users\andre\Downloads\Games\September2024Mod\build\createSrgToMcp\output.srg
-[16Mar2025 22:14:01.895] [main/INFO] [mixin/]: Remapping refMap alexscaves.refmap.json using C:\Users\andre\Downloads\Games\September2024Mod\build\createSrgToMcp\output.srg
-[16Mar2025 22:14:01.897] [main/WARN] [mixin/]: Reference map 'mixins.forest.refmap.json' for mixins.forest.json could not be read. If this is a development environment you can ignore this message
-[16Mar2025 22:14:01.898] [main/INFO] [mixin/]: Remapping refMap vintagedelight.refmap.json using C:\Users\andre\Downloads\Games\September2024Mod\build\createSrgToMcp\output.srg
-[16Mar2025 22:14:01.899] [main/INFO] [mixin/]: Remapping refMap terrablender.refmap.json using C:\Users\andre\Downloads\Games\September2024Mod\build\createSrgToMcp\output.srg
-[16Mar2025 22:14:01.900] [main/INFO] [mixin/]: Remapping refMap terrablender.refmap.json using C:\Users\andre\Downloads\Games\September2024Mod\build\createSrgToMcp\output.srg
-[16Mar2025 22:14:01.902] [main/INFO] [mixin/]: Remapping refMap moonlight-common-refmap.json using C:\Users\andre\Downloads\Games\September2024Mod\build\createSrgToMcp\output.srg
-[16Mar2025 22:14:01.903] [main/INFO] [mixin/]: Remapping refMap moonlight-forge-refmap.json using C:\Users\andre\Downloads\Games\September2024Mod\build\createSrgToMcp\output.srg
-[16Mar2025 22:14:01.907] [main/INFO] [mixin/]: Remapping refMap mixin.refmap.json using C:\Users\andre\Downloads\Games\September2024Mod\build\createSrgToMcp\output.srg
-[16Mar2025 22:14:01.908] [main/INFO] [mixin/]: Remapping refMap mixin.refmap.json using C:\Users\andre\Downloads\Games\September2024Mod\build\createSrgToMcp\output.srg
-[16Mar2025 22:14:01.909] [main/INFO] [mixin/]: Remapping refMap mixin.refmap.json using C:\Users\andre\Downloads\Games\September2024Mod\build\createSrgToMcp\output.srg
-[16Mar2025 22:14:01.910] [main/INFO] [mixin/]: Remapping refMap mixin.refmap.json using C:\Users\andre\Downloads\Games\September2024Mod\build\createSrgToMcp\output.srg
-[16Mar2025 22:14:01.911] [main/INFO] [mixin/]: Remapping refMap nethersdelight.refmap.json using C:\Users\andre\Downloads\Games\September2024Mod\build\createSrgToMcp\output.srg
-[16Mar2025 22:14:01.912] [main/INFO] [mixin/]: Remapping refMap trailsandtalesplus.refmap.json using C:\Users\andre\Downloads\Games\September2024Mod\build\createSrgToMcp\output.srg
-[16Mar2025 22:14:01.913] [main/INFO] [mixin/]: Remapping refMap wthit.refmap.json using C:\Users\andre\Downloads\Games\September2024Mod\build\createSrgToMcp\output.srg
-[16Mar2025 22:14:01.914] [main/INFO] [mixin/]: Remapping refMap seafarer.refmap.json using C:\Users\andre\Downloads\Games\September2024Mod\build\createSrgToMcp\output.srg
-[16Mar2025 22:14:01.915] [main/INFO] [mixin/]: Remapping refMap curios.refmap.json using C:\Users\andre\Downloads\Games\September2024Mod\build\createSrgToMcp\output.srg
-[16Mar2025 22:14:01.916] [main/INFO] [mixin/]: Remapping refMap ecologics-common-refmap.json using C:\Users\andre\Downloads\Games\September2024Mod\build\createSrgToMcp\output.srg
-[16Mar2025 22:14:01.917] [main/INFO] [mixin/]: Remapping refMap ecologics-forge-forge-refmap.json using C:\Users\andre\Downloads\Games\September2024Mod\build\createSrgToMcp\output.srg
-[16Mar2025 22:14:01.919] [main/INFO] [mixin/]: Remapping refMap lucent.refmap.json using C:\Users\andre\Downloads\Games\September2024Mod\build\createSrgToMcp\output.srg
-[16Mar2025 22:14:01.920] [main/INFO] [mixin/]: Remapping refMap croptopia.refmap.json using C:\Users\andre\Downloads\Games\September2024Mod\build\createSrgToMcp\output.srg
-[16Mar2025 22:14:01.921] [main/INFO] [mixin/]: Remapping refMap zeta.mixins.refmap.json using C:\Users\andre\Downloads\Games\September2024Mod\build\createSrgToMcp\output.srg
-[16Mar2025 22:14:01.924] [main/INFO] [mixin/]: Remapping refMap zeta.mixins.refmap.json using C:\Users\andre\Downloads\Games\September2024Mod\build\createSrgToMcp\output.srg
-[16Mar2025 22:14:01.926] [main/INFO] [mixin/]: Remapping refMap architectury-forge-refmap.json using C:\Users\andre\Downloads\Games\September2024Mod\build\createSrgToMcp\output.srg
-[16Mar2025 22:14:01.927] [main/INFO] [mixin/]: Remapping refMap architectury-common-refmap.json using C:\Users\andre\Downloads\Games\September2024Mod\build\createSrgToMcp\output.srg
-[16Mar2025 22:14:01.928] [main/WARN] [mixin/]: Reference map 'wildernature.forge.mixins.refmap.json' for wildernature.forge.mixins.json could not be read. If this is a development environment you can ignore this message
-[16Mar2025 22:14:01.929] [main/INFO] [mixin/]: Remapping refMap notrample.refmap.json using C:\Users\andre\Downloads\Games\September2024Mod\build\createSrgToMcp\output.srg
-[16Mar2025 22:14:01.930] [main/INFO] [mixin/]: Remapping refMap mixin.refmap.json using C:\Users\andre\Downloads\Games\September2024Mod\build\createSrgToMcp\output.srg
-[16Mar2025 22:14:01.931] [main/INFO] [mixin/]: Remapping refMap dawnera.refmap.json using C:\Users\andre\Downloads\Games\September2024Mod\build\createSrgToMcp\output.srg
-[16Mar2025 22:14:01.932] [main/INFO] [mixin/]: Remapping refMap quark.mixins.refmap.json using C:\Users\andre\Downloads\Games\September2024Mod\build\createSrgToMcp\output.srg
-[16Mar2025 22:14:01.933] [main/INFO] [mixin/]: Remapping refMap quark.mixins.refmap.json using C:\Users\andre\Downloads\Games\September2024Mod\build\createSrgToMcp\output.srg
-[16Mar2025 22:14:01.934] [main/INFO] [mixin/]: Remapping refMap META-INF/mixin/cryptic_registry.refmap.json using C:\Users\andre\Downloads\Games\September2024Mod\build\createSrgToMcp\output.srg
-[16Mar2025 22:14:01.935] [main/INFO] [mixin/]: Remapping refMap META-INF/mixin/cryptic_registry.refmap.json using C:\Users\andre\Downloads\Games\September2024Mod\build\createSrgToMcp\output.srg
-[16Mar2025 22:14:01.936] [main/INFO] [mixin/]: Remapping refMap META-INF/mixin/midnight.refmap.json using C:\Users\andre\Downloads\Games\September2024Mod\build\createSrgToMcp\output.srg
-[16Mar2025 22:14:02.506] [main/WARN] [mixin/]: Error loading class: sereneseasons/season/RandomUpdateHandler (java.lang.ClassNotFoundException: sereneseasons.season.RandomUpdateHandler)
-[16Mar2025 22:14:02.507] [main/WARN] [mixin/]: @Mixin target sereneseasons.season.RandomUpdateHandler was not found snowrealmagic.mixins.json:sereneseasons.RandomUpdateHandlerMixin
-[16Mar2025 22:14:02.793] [main/WARN] [mixin/]: Error loading class: noobanidus/mods/lootr/config/ConfigManager (java.lang.ClassNotFoundException: noobanidus.mods.lootr.config.ConfigManager)
-[16Mar2025 22:14:03.273] [main/INFO] [net.minecraftforge.data.loading.DatagenModLoader/]: Initializing Data Gatherer for mods [aoemod]
-[16Mar2025 22:14:03.280] [main/INFO] [MixinExtras|Service/]: Initializing MixinExtras via com.llamalad7.mixinextras.service.MixinExtrasServiceImpl(version=0.3.6).
-[16Mar2025 22:14:04.622] [main/WARN] [mixin/]: @Redirect conflict. Skipping aoemod.mixins.json:special_biome.growth_rate.ChorusFlowerGrowth->@Redirect::hi2(Lnet/minecraft/world/level/block/state/BlockState;Lnet/minecraft/world/level/block/Block;)Z with priority 1000, already redirected by aoemod.mixins.json:block_placement.ChorusFlowerOnSculk->@Redirect::hi2(Lnet/minecraft/world/level/block/state/BlockState;Lnet/minecraft/world/level/block/Block;)Z with priority 1000
-[16Mar2025 22:14:06.496] [main/WARN] [mixin/]: Method overwrite conflict for scheduleRandomTick in corgilib-common.mixins.json:chunk.MixinChunkAccess, previously written by dev.corgitaco.ohthetreesyoullgrow.mixin.chunk.MixinChunkAccess. Skipping method.
-[16Mar2025 22:14:06.496] [main/WARN] [mixin/]: Method overwrite conflict for getScheduledRandomTicks in corgilib-common.mixins.json:chunk.MixinChunkAccess, previously written by dev.corgitaco.ohthetreesyoullgrow.mixin.chunk.MixinChunkAccess. Skipping method.
-[16Mar2025 22:14:07.494] [modloading-worker-0/INFO] [net.fabricmc.fabric.impl.client.indigo.Indigo/]: [Indigo] Registering Indigo renderer!
-[16Mar2025 22:14:07.511] [modloading-worker-0/INFO] [com.scouter.netherdepthsupgrade.modcompat.FarmersDelightCompat/]: Setting up compat for Farmers Delight
-[16Mar2025 22:14:07.601] [Modding Legacy/blue_skies/Supporters thread/INFO] [ModdingLegacy/blue_skies/Supporter/]: Attempting to load the Modding Legacy supporters list from https://moddinglegacy.com/supporters-changelogs/supporters.txt
-[16Mar2025 22:14:07.603] [modloading-worker-0/INFO] [net.minecraftforge.common.ForgeMod/FORGEMOD]: Forge mod loading, version 47.3.0, for MC 1.20.1 with MCP 20230612.114412
-[16Mar2025 22:14:07.605] [modloading-worker-0/INFO] [net.minecraftforge.common.MinecraftForge/FORGE]: MinecraftForge v47.3.0 Initialized
-[16Mar2025 22:14:07.917] [modloading-worker-0/INFO] [snownee.kiwi.Kiwi/INIT]: Processing 6 KiwiModule annotations
-[16Mar2025 22:14:08.033] [modloading-worker-0/WARN] [software.bernie.geckolib.GeckoLib/]: Minecraft.getInstance() was null, could not register reload listeners
-[16Mar2025 22:14:08.294] [Modding Legacy/blue_skies/Supporters thread/INFO] [ModdingLegacy/blue_skies/Supporter/]: Successfully loaded the Modding Legacy supporters list.
-[16Mar2025 22:14:08.348] [modloading-worker-0/WARN] [mixin/]: @Redirect conflict. Skipping aoemod.mixins.json:special_biome.growth_rate.LushroomGrowthRate->@Redirect::nextInt(Lnet/minecraft/util/RandomSource;ILnet/minecraft/world/level/block/state/BlockState;Lnet/minecraft/server/level/ServerLevel;Lnet/minecraft/core/BlockPos;Lnet/minecraft/util/RandomSource;)I with priority 1000, already redirected by aoemod.mixins.json:othermods.trailsandtalesplus.LushroomGrowthRate->@Redirect::nextInt(Lnet/minecraft/util/RandomSource;ILnet/minecraft/world/level/block/state/BlockState;Lnet/minecraft/server/level/ServerLevel;Lnet/minecraft/core/BlockPos;Lnet/minecraft/util/RandomSource;)I with priority 1000
-[16Mar2025 22:14:08.349] [modloading-worker-0/WARN] [mixin/]: @ModifyConstant conflict. Skipping aoemod.mixins.json:special_biome.growth_rate.LushroomGrowthRate->@ModifyConstant::injected(ILnet/minecraft/world/level/block/state/BlockState;Lnet/minecraft/server/level/ServerLevel;Lnet/minecraft/core/BlockPos;Lnet/minecraft/util/RandomSource;)I with priority 1000, already redirected by aoemod.mixins.json:othermods.trailsandtalesplus.LushroomGrowthRate->@ModifyConstant::injected(ILnet/minecraft/world/level/block/state/BlockState;Lnet/minecraft/server/level/ServerLevel;Lnet/minecraft/core/BlockPos;Lnet/minecraft/util/RandomSource;)I with priority 1000
-[16Mar2025 22:14:08.399] [modloading-worker-0/INFO] [net.potionstudios.biomeswevegone.BiomesWeveGone/]: Registering Oh The Biomes We've Gone items
-[16Mar2025 22:14:08.516] [modloading-worker-0/INFO] [Midnight/]: Welcome back to The Midnight. Shall we resume the spread of the malaise?
-[16Mar2025 22:14:08.826] [modloading-worker-0/WARN] [mixin/]: @Redirect conflict. Skipping aoemod.mixins.json:othermods.alexscaves.DeepWaterNotNeeded->@Redirect::hi4(Lnet/minecraftforge/event/entity/SpawnPlacementRegisterEvent;Lnet/minecraft/world/entity/EntityType;Lnet/minecraft/world/entity/SpawnPlacements$Type;Lnet/minecraft/world/level/levelgen/Heightmap$Types;Lnet/minecraft/world/entity/SpawnPlacements$SpawnPredicate;Lnet/minecraftforge/event/entity/SpawnPlacementRegisterEvent$Operation;)V with priority 1000, already redirected by aoemod.mixins.json:othermods.alexscaves.DeepWaterNotNeeded->@Redirect::hi3(Lnet/minecraftforge/event/entity/SpawnPlacementRegisterEvent;Lnet/minecraft/world/entity/EntityType;Lnet/minecraft/world/entity/SpawnPlacements$Type;Lnet/minecraft/world/level/levelgen/Heightmap$Types;Lnet/minecraft/world/entity/SpawnPlacements$SpawnPredicate;Lnet/minecraftforge/event/entity/SpawnPlacementRegisterEvent$Operation;)V with priority 1000
-[16Mar2025 22:14:08.844] [modloading-worker-0/INFO] [terrablender/]: Registered region minecraft:overworld to index 0 for type OVERWORLD
-[16Mar2025 22:14:08.845] [modloading-worker-0/INFO] [terrablender/]: Registered region minecraft:nether to index 0 for type NETHER
-[16Mar2025 22:14:08.845] [modloading-worker-0/INFO] [terrablender/]: Registered region aoemod:overworld to index 1 for type OVERWORLD
-[16Mar2025 22:14:08.855] [modloading-worker-0/INFO] [net.potionstudios.biomeswevegone.BiomesWeveGone/]: Registering Oh The Biomes We've Gone Blocks
-[16Mar2025 22:14:08.959] [modloading-worker-0/INFO] [net.potionstudios.biomeswevegone.BiomesWeveGone/]: Registering Oh The Biomes We've Gone Wood
-[16Mar2025 22:14:08.964] [modloading-worker-0/INFO] [net.potionstudios.biomeswevegone.BiomesWeveGone/]: Registering Oh The Biomes We've Gone Block Entities
-[16Mar2025 22:14:08.964] [modloading-worker-0/INFO] [net.potionstudios.biomeswevegone.BiomesWeveGone/]: Registering Oh The Biomes We've Gone Entities
-[16Mar2025 22:14:08.969] [modloading-worker-0/INFO] [net.potionstudios.biomeswevegone.BiomesWeveGone/]: Registering Oh The Biomes We've Gone Creative Tabs
-[16Mar2025 22:14:08.969] [modloading-worker-0/INFO] [net.potionstudios.biomeswevegone.BiomesWeveGone/]: Registering Oh The Biomes We've Gone Sounds
-[16Mar2025 22:14:08.973] [modloading-worker-0/INFO] [net.potionstudios.biomeswevegone.BiomesWeveGone/]: Registering Oh The Biomes We've Gone Block Predicate
-[16Mar2025 22:14:08.977] [modloading-worker-0/INFO] [dev.architectury.networking.forge.NetworkManagerImpl/]: Registering S2C receiver with id architectury:sync_ids
-[16Mar2025 22:14:08.981] [modloading-worker-0/INFO] [dev.architectury.networking.forge.NetworkManagerImpl/]: Registering C2S receiver with id architectury:sync_ids
-[16Mar2025 22:14:08.984] [modloading-worker-0/INFO] [net.potionstudios.biomeswevegone.BiomesWeveGone/]: Registering Oh The Biomes We've Gone State Providers
-[16Mar2025 22:14:08.994] [modloading-worker-0/INFO] [net.potionstudios.biomeswevegone.BiomesWeveGone/]: Registering Oh The Biomes We've Gone Tree Decorators
-[16Mar2025 22:14:09.012] [modloading-worker-0/INFO] [net.potionstudios.biomeswevegone.BiomesWeveGone/]: Registering Oh The Biomes We've Gone Custom Features
-[16Mar2025 22:14:09.016] [modloading-worker-0/INFO] [net.potionstudios.biomeswevegone.BiomesWeveGone/]: Registering Oh The Biomes We've Gone Structure Pieces
-[16Mar2025 22:14:09.021] [modloading-worker-0/INFO] [net.potionstudios.biomeswevegone.BiomesWeveGone/]: Registering Oh The Biomes We've Gone Custom Structure Types
-[16Mar2025 22:14:09.023] [modloading-worker-0/INFO] [dev.architectury.networking.forge.NetworkManagerImpl/]: Registering C2S receiver with id wildernature:screen_action
-[16Mar2025 22:14:09.030] [modloading-worker-0/INFO] [net.potionstudios.biomeswevegone.BiomesWeveGone/]: Registering Oh The Biomes We've Gone Configured Features
-[16Mar2025 22:14:09.078] [modloading-worker-0/INFO] [net.potionstudios.biomeswevegone.BiomesWeveGone/]: Creating and Registering Overworld Vegetation Configured Features
-[16Mar2025 22:14:09.096] [modloading-worker-0/INFO] [com.epherical.epherolib.config.CommonConfig/]: Creating default config file: croptopia_v3.conf
-[16Mar2025 22:14:09.196] [modloading-worker-0/INFO] [quark/]: Initializing TerraBlender underground biome compat
-[16Mar2025 22:14:09.287] [modloading-worker-0/INFO] [net.potionstudios.biomeswevegone.BiomesWeveGone/]: Registering Oh The Biomes We've Gone Tree Configured Features
-[16Mar2025 22:14:09.291] [modloading-worker-0/INFO] [net.potionstudios.biomeswevegone.BiomesWeveGone/]: Creating and Registering Vanilla Configured Features
-[16Mar2025 22:14:09.312] [modloading-worker-0/INFO] [net.potionstudios.biomeswevegone.BiomesWeveGone/]: Registering Oh The Biomes You'll Go Overworld Configured Features
-[16Mar2025 22:14:09.329] [modloading-worker-0/INFO] [net.potionstudios.biomeswevegone.BiomesWeveGone/]: Registering Oh The Biomes We've Gone Placed Features
-[16Mar2025 22:14:09.345] [modloading-worker-0/INFO] [net.potionstudios.biomeswevegone.BiomesWeveGone/]: Creating and Registering Overworld Tree Placed Features
-[16Mar2025 22:14:09.389] [modloading-worker-0/INFO] [net.potionstudios.biomeswevegone.BiomesWeveGone/]: Creating and Registering Overworld Vegetation Placed Features
-[16Mar2025 22:14:09.393] [modloading-worker-0/INFO] [net.potionstudios.biomeswevegone.BiomesWeveGone/]: Creating and Registering Vanilla Placed Features
-[16Mar2025 22:14:09.397] [modloading-worker-0/INFO] [net.potionstudios.biomeswevegone.BiomesWeveGone/]: Registering Oh The Biomes We've Gone Custom Surface Rules
-[16Mar2025 22:14:09.422] [modloading-worker-0/INFO] [net.potionstudios.biomeswevegone.BiomesWeveGone/]: Registering Oh The Biomes We've Gone Template Pools
-[16Mar2025 22:14:09.461] [modloading-worker-0/INFO] [net.potionstudios.biomeswevegone.BiomesWeveGone/]: Registering Oh The Biome's We've Gone Village Template Pools
-[16Mar2025 22:14:09.463] [modloading-worker-0/INFO] [net.potionstudios.biomeswevegone.BiomesWeveGone/]: Registering Oh The Biomes We've Gone Poi Types
-[16Mar2025 22:14:09.465] [modloading-worker-0/INFO] [net.potionstudios.biomeswevegone.BiomesWeveGone/]: Registering Oh The Biomes We've Gone Villager Professions
-[16Mar2025 22:14:09.484] [modloading-worker-0/INFO] [net.potionstudios.biomeswevegone.BiomesWeveGone/]: Registering Oh The Biomes We've Gone Custom Structure Processors
-[16Mar2025 22:14:09.688] [modloading-worker-0/INFO] [quark-zeta/]: Discovered 164 modules to load.
-[16Mar2025 22:14:09.688] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Abacus...
-[16Mar2025 22:14:09.713] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Adjustable Chat...
-[16Mar2025 22:14:09.714] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Ambient Discs...
-[16Mar2025 22:14:09.715] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Ancient Tomes...
-[16Mar2025 22:14:09.726] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Ancient Wood...
-[16Mar2025 22:14:09.733] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Armed Armor Stands...
-[16Mar2025 22:14:09.734] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Auto Walk Keybind...
-[16Mar2025 22:14:09.735] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Automatic Recipe Unlock...
-[16Mar2025 22:14:09.736] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Automatic Tool Restock...
-[16Mar2025 22:14:09.742] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Azalea Wood...
-[16Mar2025 22:14:09.743] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Back Button Keybind...
-[16Mar2025 22:14:09.743] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Backpack...
-[16Mar2025 22:14:09.748] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Beacon Redirection...
-[16Mar2025 22:14:09.749] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Better Elytra Rocket...
-[16Mar2025 22:14:09.750] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Big Stone Clusters...
-[16Mar2025 22:14:09.761] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Blossom Trees...
-[16Mar2025 22:14:09.764] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Bottled Cloud...
-[16Mar2025 22:14:09.767] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Buckets Show Inhabitants...
-[16Mar2025 22:14:09.768] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Camera...
-[16Mar2025 22:14:09.769] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Campfires Boost Elytra...
-[16Mar2025 22:14:09.770] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Celebratory Lamps...
-[16Mar2025 22:14:09.771] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Chains Connect Blocks...
-[16Mar2025 22:14:09.771] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Chest Searching...
-[16Mar2025 22:14:09.791] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Chorus Vegetation...
-[16Mar2025 22:14:09.793] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Chute...
-[16Mar2025 22:14:09.794] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Climate Control Remover...
-[16Mar2025 22:14:09.795] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Color Runes...
-[16Mar2025 22:14:09.797] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Compasses Work Everywhere...
-[16Mar2025 22:14:09.798] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Compressed Blocks...
-[16Mar2025 22:14:09.798] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Coral On Cactus...
-[16Mar2025 22:14:09.799] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Corundum...
-[16Mar2025 22:14:09.827] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Crabs...
-[16Mar2025 22:14:09.835] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Crafter...
-[16Mar2025 22:14:09.837] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Crate...
-[16Mar2025 22:14:09.838] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Diamond Repair...
-[16Mar2025 22:14:09.839] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Dispensers Place Blocks...
-[16Mar2025 22:14:09.840] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Double Door Opening...
-[16Mar2025 22:14:09.841] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Dragon Scales...
-[16Mar2025 22:14:09.842] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Duskbound Blocks...
-[16Mar2025 22:14:09.842] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Dyeable Item Frames...
-[16Mar2025 22:14:09.843] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Easy Transfering...
-[16Mar2025 22:14:09.844] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Elytra Indicator...
-[16Mar2025 22:14:09.845] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Emotes...
-[16Mar2025 22:14:09.851] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Enchantment Predicates...
-[16Mar2025 22:14:09.852] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Enchantments Begone...
-[16Mar2025 22:14:09.853] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Ender Watcher...
-[16Mar2025 22:14:09.855] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Endermosh Music Disc...
-[16Mar2025 22:14:09.857] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Enhanced Ladders...
-[16Mar2025 22:14:09.859] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Expanded Item Interactions...
-[16Mar2025 22:14:09.860] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Fairy Rings...
-[16Mar2025 22:14:09.862] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Fallen Logs...
-[16Mar2025 22:14:09.863] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Feeding Trough...
-[16Mar2025 22:14:09.865] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Forgotten...
-[16Mar2025 22:14:09.869] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Foxhound...
-[16Mar2025 22:14:09.875] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Framed Glass...
-[16Mar2025 22:14:09.875] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Game Nerfs...
-[16Mar2025 22:14:09.876] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Glass Item Frame...
-[16Mar2025 22:14:09.878] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Glass Shard...
-[16Mar2025 22:14:09.879] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Glimmering Weald...
-[16Mar2025 22:14:09.889] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Gold Bars...
-[16Mar2025 22:14:09.890] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Gold Tools Have Fortune...
-[16Mar2025 22:14:09.891] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Grab Chickens...
-[16Mar2025 22:14:09.892] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Grate...
-[16Mar2025 22:14:09.897] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Gravisand...
-[16Mar2025 22:14:09.900] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Greener Grass...
-[16Mar2025 22:14:09.903] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Hedges...
-[16Mar2025 22:14:09.908] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Hoe Harvesting...
-[16Mar2025 22:14:09.909] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Hollow Logs...
-[16Mar2025 22:14:09.910] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Horses Swim...
-[16Mar2025 22:14:09.911] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Hotbar Changer...
-[16Mar2025 22:14:09.912] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Improved Sponges...
-[16Mar2025 22:14:09.912] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Improved Tooltips...
-[16Mar2025 22:14:09.913] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Industrial Palette...
-[16Mar2025 22:14:09.915] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Inventory Sorting...
-[16Mar2025 22:14:09.915] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Iron Rod...
-[16Mar2025 22:14:09.922] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Item Sharing...
-[16Mar2025 22:14:09.923] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Japanese Palette...
-[16Mar2025 22:14:09.923] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Leaf Carpet...
-[16Mar2025 22:14:09.925] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Lock Rotation...
-[16Mar2025 22:14:09.926] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Long Range Pick Block...
-[16Mar2025 22:14:09.926] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Magma Keeps Concrete Powder...
-[16Mar2025 22:14:09.927] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Magnets...
-[16Mar2025 22:14:09.929] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Map Washing...
-[16Mar2025 22:14:09.930] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Matrix Enchanting...
-[16Mar2025 22:14:09.934] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Metal Buttons...
-[16Mar2025 22:14:09.935] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Microcrafting Helper...
-[16Mar2025 22:14:09.945] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Midori...
-[16Mar2025 22:14:09.945] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Monster Box...
-[16Mar2025 22:14:09.947] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module More Banner Layers...
-[16Mar2025 22:14:09.948] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module More Brick Types...
-[16Mar2025 22:14:09.948] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module More Mud Blocks...
-[16Mar2025 22:14:09.949] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module More Note Block Sounds...
-[16Mar2025 22:14:09.949] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module More Potted Plants...
-[16Mar2025 22:14:09.950] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module More Villagers...
-[16Mar2025 22:14:09.951] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Narrator Readout...
-[16Mar2025 22:14:09.952] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Nether Brick Fence Gate...
-[16Mar2025 22:14:09.952] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Nether Obsidian Spikes...
-[16Mar2025 22:14:09.953] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module New Stone Types...
-[16Mar2025 22:14:09.956] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module No Durability On Cosmetics...
-[16Mar2025 22:14:09.957] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module No More Lava Pockets...
-[16Mar2025 22:14:09.958] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Obsidian Plate...
-[16Mar2025 22:14:09.958] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Overlay Shader...
-[16Mar2025 22:14:09.958] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Parrot Eggs...
-[16Mar2025 22:14:09.961] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Pat The Dogs...
-[16Mar2025 22:14:09.965] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Pathfinder Maps...
-[16Mar2025 22:14:09.969] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Permafrost...
-[16Mar2025 22:14:09.970] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Petals On Water...
-[16Mar2025 22:14:09.971] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Pickarang...
-[16Mar2025 22:14:09.981] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Pig Litters...
-[16Mar2025 22:14:09.982] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Pipes...
-[16Mar2025 22:14:09.984] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Pistons Move Tile Entities...
-[16Mar2025 22:14:09.986] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Poison Potato Usage...
-[16Mar2025 22:14:09.986] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Quick Armor Swapping...
-[16Mar2025 22:14:09.987] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Rainbow Lamps...
-[16Mar2025 22:14:09.987] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Raw Metal Bricks...
-[16Mar2025 22:14:09.988] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Reacharound Placing...
-[16Mar2025 22:14:09.990] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Redstone Randomizer...
-[16Mar2025 22:14:09.991] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Renewable Spore Blossoms...
-[16Mar2025 22:14:09.992] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Replace Scaffolding...
-[16Mar2025 22:14:09.993] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Rope...
-[16Mar2025 22:14:09.994] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Safer Creatures...
-[16Mar2025 22:14:09.995] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Seed Pouch...
-[16Mar2025 22:14:10.000] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Shear Vines...
-[16Mar2025 22:14:10.007] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Shiba...
-[16Mar2025 22:14:10.011] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Shingles...
-[16Mar2025 22:14:10.012] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Shulker Packing...
-[16Mar2025 22:14:10.012] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Simple Harvest...
-[16Mar2025 22:14:10.015] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Skull Pikes...
-[16Mar2025 22:14:10.017] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Slabs To Blocks...
-[16Mar2025 22:14:10.017] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Slime In A Bucket...
-[16Mar2025 22:14:10.019] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Slimes To Magma Cubes...
-[16Mar2025 22:14:10.020] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Snow Golem Player Heads...
-[16Mar2025 22:14:10.021] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Soul Candles...
-[16Mar2025 22:14:10.021] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Soul Sandstone...
-[16Mar2025 22:14:10.022] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Spawner Replacer...
-[16Mar2025 22:14:10.023] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Spiral Spires...
-[16Mar2025 22:14:10.024] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Stonelings...
-[16Mar2025 22:14:10.030] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Stools...
-[16Mar2025 22:14:10.033] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Sturdy Stone...
-[16Mar2025 22:14:10.035] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Thatch...
-[16Mar2025 22:14:10.037] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Tiny Potato...
-[16Mar2025 22:14:10.039] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Torch Arrow...
-[16Mar2025 22:14:10.040] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Toretoise...
-[16Mar2025 22:14:10.045] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Totem Of Holding...
-[16Mar2025 22:14:10.047] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Trowel...
-[16Mar2025 22:14:10.047] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Usage Ticker...
-[16Mar2025 22:14:10.049] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Uses For Curses...
-[16Mar2025 22:14:10.050] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Utility Recipes...
-[16Mar2025 22:14:10.051] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Variant Animal Textures...
-[16Mar2025 22:14:10.052] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Variant Bookshelves...
-[16Mar2025 22:14:10.053] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Variant Chests...
-[16Mar2025 22:14:10.061] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Variant Furnaces...
-[16Mar2025 22:14:10.065] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Variant Ladders...
-[16Mar2025 22:14:10.066] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Variant Selector...
-[16Mar2025 22:14:10.071] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Vertical Planks...
-[16Mar2025 22:14:10.072] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Vertical Slabs...
-[16Mar2025 22:14:10.078] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Vexes Die With Their Masters...
-[16Mar2025 22:14:10.079] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Villager Rerolling Rework...
-[16Mar2025 22:14:10.085] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Villagers Follow Emeralds...
-[16Mar2025 22:14:10.086] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Wooden Posts...
-[16Mar2025 22:14:10.087] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Wool Shuts Up Minecarts...
-[16Mar2025 22:14:10.087] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Wraith...
-[16Mar2025 22:14:10.093] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Zombie Villagers On Normal...
-[16Mar2025 22:14:10.094] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module More Stone Variants...
-[16Mar2025 22:14:10.095] [modloading-worker-0/INFO] [quark-zeta/]: Constructed 164 modules.
-[16Mar2025 22:14:10.145] [modloading-worker-0/INFO] [mixin.audit/]: Force-loading class net.minecraft.world.item.alchemy.PotionUtils
-[16Mar2025 22:14:10.159] [modloading-worker-0/INFO] [mixin.audit/]: Force-loading class net.minecraft.client.renderer.entity.ParrotRenderer
-[16Mar2025 22:14:10.169] [modloading-worker-0/INFO] [mixin.audit/]: Force-loading class net.minecraft.data.recipes.SmithingTransformRecipeBuilder
-[16Mar2025 22:14:10.176] [modloading-worker-0/INFO] [mixin.audit/]: Force-loading class net.minecraft.client.renderer.entity.ItemFrameRenderer
-[16Mar2025 22:14:10.196] [modloading-worker-0/INFO] [mixin.audit/]: Force-loading class net.minecraft.world.entity.ai.behavior.SetWalkTargetFromBlockMemory
-[16Mar2025 22:14:10.197] [modloading-worker-0/INFO] [mixin.audit/]: Force-loading class org.violetmoon.quark.content.world.block.GlowShroomBlock
-[16Mar2025 22:14:10.202] [modloading-worker-0/INFO] [mixin.audit/]: Force-loading class net.minecraft.world.entity.SpawnPlacements
-[16Mar2025 22:14:10.232] [modloading-worker-0/INFO] [mixin.audit/]: Force-loading class net.mehvahdjukaar.moonlight.api.client.model.CustomBakedModel
-[16Mar2025 22:14:10.235] [modloading-worker-0/INFO] [mixin.audit/]: Force-loading class net.minecraft.world.level.levelgen.structure.structures.NetherFortressPieces
-[16Mar2025 22:14:10.238] [modloading-worker-0/INFO] [mixin.audit/]: Force-loading class net.minecraft.client.model.DrownedModel
-[16Mar2025 22:14:10.248] [modloading-worker-0/INFO] [mixin.audit/]: Force-loading class net.minecraft.client.resources.sounds.BiomeAmbientSoundsHandler$LoopSoundInstance
-[16Mar2025 22:14:10.253] [modloading-worker-0/INFO] [mixin.audit/]: Force-loading class net.minecraft.world.entity.animal.goat.GoatAi
-[16Mar2025 22:14:10.259] [modloading-worker-0/INFO] [mixin.audit/]: Force-loading class net.minecraft.client.gui.screens.worldselection.WorldOpenFlows
-[16Mar2025 22:14:10.280] [modloading-worker-0/INFO] [mixin.audit/]: Force-loading class net.minecraft.network.protocol.game.ClientboundMapItemDataPacket
-[16Mar2025 22:14:10.304] [modloading-worker-0/INFO] [mixin.audit/]: Force-loading class org.violetmoon.zeta.block.ZetaBlockWrapper
-[16Mar2025 22:14:10.308] [modloading-worker-0/INFO] [mixin.audit/]: Force-loading class net.minecraft.server.commands.PlaceCommand
-[16Mar2025 22:14:10.324] [modloading-worker-0/INFO] [mixin.audit/]: Force-loading class net.minecraft.client.renderer.entity.EntityRenderDispatcher
-[16Mar2025 22:14:10.355] [modloading-worker-0/INFO] [mixin.audit/]: Force-loading class com.legacy.blue_skies.blocks.natural.BrewberryBushBlock
-[16Mar2025 22:14:10.359] [modloading-worker-0/INFO] [mixin.audit/]: Force-loading class com.github.alexmodguy.alexscaves.server.level.structure.piece.DinoBowlStructurePiece
-[16Mar2025 22:14:10.365] [modloading-worker-0/INFO] [mixin.audit/]: Force-loading class net.minecraftforge.server.ServerLifecycleHooks
-[16Mar2025 22:14:10.372] [modloading-worker-0/INFO] [mixin.audit/]: Force-loading class net.minecraft.client.renderer.entity.RabbitRenderer
-[16Mar2025 22:14:10.380] [modloading-worker-0/INFO] [mixin.audit/]: Force-loading class net.minecraft.client.renderer.ItemBlockRenderTypes
-[16Mar2025 22:14:10.400] [modloading-worker-0/INFO] [mixin.audit/]: Force-loading class net.minecraft.world.level.saveddata.maps.MapDecoration
-[16Mar2025 22:14:10.404] [modloading-worker-0/INFO] [mixin.audit/]: Force-loading class net.minecraft.world.level.storage.DimensionDataStorage
-[16Mar2025 22:14:10.409] [modloading-worker-0/INFO] [mixin.audit/]: Force-loading class net.minecraft.resources.RegistryDataLoader
-[16Mar2025 22:14:10.443] [modloading-worker-0/INFO] [mixin.audit/]: Force-loading class net.minecraft.gametest.framework.GameTestServer
-[16Mar2025 22:14:10.496] [modloading-worker-0/INFO] [mixin.audit/]: Force-loading class net.minecraft.client.renderer.entity.DrownedRenderer
-[16Mar2025 22:14:10.540] [modloading-worker-0/INFO] [mixin.audit/]: Force-loading class net.minecraft.client.gui.components.PlayerTabOverlay
-[16Mar2025 22:14:10.548] [modloading-worker-0/INFO] [mixin.audit/]: Force-loading class net.minecraft.client.gui.components.BossHealthOverlay
-[16Mar2025 22:14:10.554] [modloading-worker-0/INFO] [mixin.audit/]: Force-loading class net.mehvahdjukaar.moonlight.api.block.IPistonMotionReact
-[16Mar2025 22:14:10.557] [modloading-worker-0/INFO] [mixin.audit/]: Force-loading class net.minecraft.client.renderer.entity.PigRenderer
-[16Mar2025 22:14:10.562] [modloading-worker-0/INFO] [mixin.audit/]: Force-loading class net.minecraft.client.gui.screens.controls.ControlsScreen
-[16Mar2025 22:14:10.570] [modloading-worker-0/INFO] [mixin.audit/]: Force-loading class net.minecraft.client.gui.components.toasts.AdvancementToast
-[16Mar2025 22:14:10.577] [modloading-worker-0/INFO] [mixin.audit/]: Force-loading class net.mehvahdjukaar.moonlight.api.fluids.ModFlowingFluid
-[16Mar2025 22:14:10.579] [modloading-worker-0/INFO] [mixin.audit/]: Force-loading class net.minecraft.client.resources.sounds.BiomeAmbientSoundsHandler
-[16Mar2025 22:14:10.584] [modloading-worker-0/INFO] [mixin.audit/]: Force-loading class net.minecraft.data.recipes.SimpleCookingRecipeBuilder
-[16Mar2025 22:14:10.590] [modloading-worker-0/INFO] [mixin.audit/]: Force-loading class net.minecraft.data.recipes.SpecialRecipeBuilder
-[16Mar2025 22:14:10.594] [modloading-worker-0/INFO] [mixin.audit/]: Force-loading class net.minecraft.world.level.levelgen.structure.StructureStart
-[16Mar2025 22:14:10.597] [modloading-worker-0/INFO] [mixin.audit/]: Force-loading class top.theillusivec4.curios.api.CuriosTriggers$EquipBuilder
-[16Mar2025 22:14:10.601] [modloading-worker-0/INFO] [mixin.audit/]: Force-loading class net.minecraft.core.RegistrySetBuilder$BuildState
-[16Mar2025 22:14:10.608] [modloading-worker-0/INFO] [mixin.audit/]: Force-loading class net.minecraft.world.level.levelgen.SurfaceSystem
-[16Mar2025 22:14:10.620] [modloading-worker-0/INFO] [mixin.audit/]: Force-loading class dev.architectury.extensions.network.EntitySpawnExtension
-[16Mar2025 22:14:10.621] [modloading-worker-0/INFO] [mixin.audit/]: Force-loading class net.minecraft.data.recipes.ShapedRecipeBuilder
-[16Mar2025 22:14:10.623] [modloading-worker-0/INFO] [mixin.audit/]: Force-loading class net.minecraft.client.gui.screens.inventory.CreativeModeInventoryScreen
-[16Mar2025 22:14:10.643] [modloading-worker-0/INFO] [mixin.audit/]: Force-loading class net.minecraft.client.renderer.entity.ThrownTridentRenderer
-[16Mar2025 22:14:10.649] [modloading-worker-0/INFO] [mixin.audit/]: Force-loading class net.minecraft.client.renderer.blockentity.StructureBlockRenderer
-[16Mar2025 22:14:10.656] [modloading-worker-0/INFO] [mixin.audit/]: Force-loading class net.minecraft.world.food.FoodData
-[16Mar2025 22:14:10.662] [modloading-worker-0/INFO] [mixin.audit/]: Force-loading class net.minecraft.client.renderer.entity.layers.ElytraLayer
-[16Mar2025 22:14:10.663] [modloading-worker-0/INFO] [mixin.audit/]: Force-loading class net.minecraft.data.tags.ItemTagsProvider
-[16Mar2025 22:14:10.670] [modloading-worker-0/INFO] [mixin.audit/]: Force-loading class net.minecraft.world.level.NaturalSpawner
-[16Mar2025 22:14:10.714] [modloading-worker-0/INFO] [mixin.audit/]: Force-loading class net.minecraft.world.entity.monster.piglin.PiglinAi
-[16Mar2025 22:14:10.721] [modloading-worker-0/INFO] [mixin.audit/]: Force-loading class net.minecraft.client.renderer.blockentity.PistonHeadRenderer
-[16Mar2025 22:14:10.727] [modloading-worker-0/INFO] [mixin.audit/]: Force-loading class com.legacy.lucent.api.data.objects.EntityLighting$Builder
-[16Mar2025 22:14:10.731] [modloading-worker-0/INFO] [mixin.audit/]: Force-loading class net.minecraft.client.GameNarrator
-[16Mar2025 22:14:10.735] [modloading-worker-0/INFO] [mixin.audit/]: Force-loading class net.minecraft.client.renderer.entity.LlamaRenderer
-[16Mar2025 22:14:10.740] [modloading-worker-0/INFO] [mixin.audit/]: Force-loading class net.minecraft.world.level.levelgen.structure.templatesystem.StructurePlaceSettings
-[16Mar2025 22:14:10.741] [modloading-worker-0/INFO] [mixin.audit/]: Force-loading class net.mehvahdjukaar.moonlight.api.entity.IExtraClientSpawnData
-[16Mar2025 22:14:10.742] [modloading-worker-0/INFO] [mixin.audit/]: Force-loading class net.minecraft.client.MouseHandler
-[16Mar2025 22:14:10.752] [modloading-worker-0/INFO] [mixin.audit/]: Force-loading class net.minecraft.world.item.enchantment.EnchantmentHelper
-[16Mar2025 22:14:10.759] [modloading-worker-0/INFO] [mixin.audit/]: Force-loading class net.minecraft.data.recipes.ShapelessRecipeBuilder
-[16Mar2025 22:14:10.761] [modloading-worker-0/INFO] [mixin.audit/]: Force-loading class net.minecraft.world.level.levelgen.structure.templatesystem.StructureTemplate
-[16Mar2025 22:14:10.800] [modloading-worker-0/INFO] [mixin.audit/]: Force-loading class net.minecraft.server.advancements.AdvancementVisibilityEvaluator
-[16Mar2025 22:14:10.805] [modloading-worker-0/INFO] [mixin.audit/]: Force-loading class net.minecraft.client.resources.model.WeightedBakedModel
-[16Mar2025 22:14:10.810] [modloading-worker-0/INFO] [mixin.audit/]: Force-loading class net.minecraft.client.renderer.entity.ChickenRenderer
-[16Mar2025 22:14:10.815] [modloading-worker-0/INFO] [mixin.audit/]: Force-loading class com.legacy.lucent.api.data.objects.ItemLighting$Builder
-[16Mar2025 22:14:10.817] [modloading-worker-0/INFO] [mixin.audit/]: Force-loading class net.minecraft.world.level.saveddata.maps.MapItemSavedData$HoldingPlayer
-[16Mar2025 22:14:10.829] [modloading-worker-0/INFO] [mixin.audit/]: Force-loading class net.minecraft.world.entity.npc.VillagerTrades$EnchantBookForEmeralds
-[16Mar2025 22:14:10.832] [modloading-worker-0/INFO] [mixin.audit/]: Force-loading class net.minecraft.client.gui.screens.inventory.HangingSignEditScreen
-[16Mar2025 22:14:10.837] [modloading-worker-0/INFO] [mixin.audit/]: Force-loading class com.github.alexthe666.alexsmobs.entity.EntitySkunk
-[16Mar2025 22:14:10.840] [modloading-worker-0/INFO] [mixin.audit/]: Force-loading class net.minecraftforge.common.crafting.StrictNBTIngredient
-[16Mar2025 22:14:10.843] [modloading-worker-0/INFO] [mixin.audit/]: Force-loading class net.minecraft.server.packs.resources.SimpleReloadInstance
-[16Mar2025 22:14:10.850] [modloading-worker-0/INFO] [mixin.audit/]: Force-loading class net.minecraft.advancements.critereon.NbtPredicate
-[16Mar2025 22:14:10.853] [modloading-worker-0/INFO] [mixin.audit/]: Force-loading class net.minecraft.client.renderer.chunk.ChunkRenderDispatcher$RenderChunk$RebuildTask
-[16Mar2025 22:14:10.877] [modloading-worker-0/INFO] [mixin.audit/]: Force-loading class net.minecraft.client.gui.screens.advancements.AdvancementTab
-[16Mar2025 22:14:10.891] [modloading-worker-0/INFO] [mixin.audit/]: Force-loading class net.minecraft.client.renderer.texture.TextureManager
-[16Mar2025 22:14:10.911] [modloading-worker-0/INFO] [mixin.audit/]: Force-loading class net.mcreator.nethersexoticism.procedures.PitayaStemDownUpdateTickProcedure
-[16Mar2025 22:14:10.912] [modloading-worker-0/INFO] [mixin.audit/]: Force-loading class net.minecraft.client.server.IntegratedServer
-[16Mar2025 22:14:10.918] [modloading-worker-0/INFO] [mixin.audit/]: Force-loading class top.theillusivec4.curios.api.CuriosDataProvider
-[16Mar2025 22:14:10.923] [modloading-worker-0/INFO] [mixin.audit/]: Force-loading class top.theillusivec4.curios.api.CuriosTriggers
-[16Mar2025 22:14:10.928] [modloading-worker-0/INFO] [mixin.audit/]: Force-loading class net.minecraft.client.gui.MapRenderer$MapInstance
-[16Mar2025 22:14:10.942] [modloading-worker-0/INFO] [mixin.audit/]: Force-loading class net.minecraft.client.gui.screens.inventory.LoomScreen
-[16Mar2025 22:14:10.945] [modloading-worker-0/INFO] [mixin.audit/]: Force-loading class net.minecraft.world.entity.ai.Brain
-[16Mar2025 22:14:10.952] [modloading-worker-0/INFO] [mixin.audit/]: Force-loading class net.mehvahdjukaar.moonlight.api.client.ModFluidRenderProperties
-[16Mar2025 22:14:10.953] [modloading-worker-0/INFO] [mixin.audit/]: Force-loading class net.minecraftforge.common.data.ForgeItemTagsProvider
-[16Mar2025 22:14:10.956] [modloading-worker-0/INFO] [mixin.audit/]: Force-loading class net.minecraft.world.entity.ai.behavior.HarvestFarmland
-[16Mar2025 22:14:10.963] [modloading-worker-0/INFO] [mixin.audit/]: Force-loading class net.minecraft.client.resources.model.ModelBakery$ModelBakerImpl
-[16Mar2025 22:14:10.970] [modloading-worker-0/INFO] [mixin.audit/]: Force-loading class net.minecraft.client.renderer.entity.BeeRenderer
-[16Mar2025 22:14:10.975] [modloading-worker-0/INFO] [mixin.audit/]: Force-loading class org.violetmoon.zeta.block.ZetaSlabBlock
-[16Mar2025 22:14:10.977] [modloading-worker-0/INFO] [mixin.audit/]: Force-loading class net.minecraft.client.multiplayer.ClientChunkCache$Storage
-[16Mar2025 22:14:10.981] [modloading-worker-0/INFO] [mixin.audit/]: Force-loading class net.minecraft.world.level.chunk.storage.ChunkSerializer
-[16Mar2025 22:14:11.011] [modloading-worker-0/INFO] [mixin.audit/]: Force-loading class net.minecraft.world.entity.monster.piglin.StartHuntingHoglin
-[16Mar2025 22:14:11.014] [modloading-worker-0/INFO] [mixin.audit/]: Force-loading class net.minecraft.world.entity.npc.VillagerTrades
-[16Mar2025 22:14:11.024] [modloading-worker-0/INFO] [mixin.audit/]: Force-loading class net.minecraft.data.recipes.SingleItemRecipeBuilder
-[16Mar2025 22:14:11.025] [modloading-worker-0/INFO] [mixin.audit/]: Force-loading class net.minecraft.world.level.saveddata.maps.MapItemSavedData
-[16Mar2025 22:14:11.046] [modloading-worker-0/INFO] [mixin.audit/]: Force-loading class net.minecraft.client.renderer.entity.layers.PlayerItemInHandLayer
-[16Mar2025 22:14:11.054] [modloading-worker-0/INFO] [mixin.audit/]: Force-loading class net.minecraft.client.resources.language.ClientLanguage
-[16Mar2025 22:14:11.062] [modloading-worker-0/INFO] [mixin.audit/]: Force-loading class net.minecraft.client.resources.sounds.MinecartSoundInstance
-[16Mar2025 22:14:11.067] [modloading-worker-0/INFO] [mixin.audit/]: Force-loading class net.minecraft.client.renderer.texture.atlas.SpriteResourceLoader
-[16Mar2025 22:14:11.080] [modloading-worker-0/INFO] [mixin.audit/]: Force-loading class net.minecraft.server.commands.GameRuleCommand
-[16Mar2025 22:14:11.085] [modloading-worker-0/INFO] [mixin.audit/]: Force-loading class net.minecraft.client.renderer.entity.SlimeRenderer
-[16Mar2025 22:14:11.088] [modloading-worker-0/INFO] [mixin.audit/]: Force-loading class twilightforest.block.entity.GrowingBeanstalkBlockEntity
-[16Mar2025 22:14:11.089] [modloading-worker-0/INFO] [mixin.audit/]: Force-loading class net.minecraft.client.telemetry.ClientTelemetryManager
-[16Mar2025 22:14:11.092] [modloading-worker-0/INFO] [mixin.audit/]: Force-loading class net.minecraft.advancements.Advancement$Builder
-[16Mar2025 22:14:11.096] [modloading-worker-0/INFO] [mixin.audit/]: Force-loading class net.minecraft.client.renderer.blockentity.BeaconRenderer
-[16Mar2025 22:14:11.100] [modloading-worker-0/INFO] [mixin.audit/]: Force-loading class net.minecraft.client.resources.sounds.RidingMinecartSoundInstance
-[16Mar2025 22:14:11.102] [modloading-worker-0/INFO] [mixin.audit/]: Force-loading class com.github.alexthe666.alexsmobs.entity.EntityPlatypus
-[16Mar2025 22:14:11.107] [modloading-worker-0/INFO] [mixin.audit/]: Force-loading class net.minecraft.world.level.storage.loot.LootPool$Builder
-[16Mar2025 22:14:11.109] [modloading-worker-0/INFO] [mixin.audit/]: Force-loading class dev.architectury.extensions.ItemExtension
-[16Mar2025 22:14:11.110] [modloading-worker-0/INFO] [mixin.audit/]: Force-loading class net.minecraft.server.dedicated.DedicatedServer
-[16Mar2025 22:14:11.115] [modloading-worker-0/INFO] [mixin.audit/]: Force-loading class net.minecraft.client.renderer.LightTexture
-[16Mar2025 22:14:11.131] [modloading-worker-0/INFO] [mixin.audit/]: Force-loading class org.violetmoon.zeta.block.ZetaWallBlock
-[16Mar2025 22:14:11.133] [modloading-worker-0/INFO] [mixin.audit/]: Force-loading class net.minecraft.client.gui.components.SplashRenderer
-[16Mar2025 22:14:11.140] [modloading-worker-0/INFO] [mixin.audit/]: Force-loading class com.mojang.blaze3d.vertex.SheetedDecalTextureGenerator
-[16Mar2025 22:14:11.145] [modloading-worker-0/INFO] [mixin.audit/]: Force-loading class net.minecraft.client.gui.screens.SkinCustomizationScreen
-[16Mar2025 22:14:11.152] [modloading-worker-0/INFO] [mixin.audit/]: Force-loading class net.minecraft.client.renderer.entity.DolphinRenderer
-[16Mar2025 22:14:11.156] [modloading-worker-0/INFO] [mixin.audit/]: Force-loading class net.minecraft.client.renderer.block.ModelBlockRenderer
-[16Mar2025 22:14:11.170] [modloading-worker-0/INFO] [mixin.audit/]: Force-loading class net.minecraft.client.gui.components.ChatComponent
-[16Mar2025 22:14:11.176] [modloading-worker-0/INFO] [mixin.audit/]: Force-loading class net.minecraft.world.level.storage.PrimaryLevelData
-[16Mar2025 22:14:11.183] [modloading-worker-0/INFO] [mixin.audit/]: Force-loading class net.minecraft.client.renderer.entity.VillagerRenderer
-[16Mar2025 22:14:11.188] [modloading-worker-0/INFO] [mixin.audit/]: Force-loading class org.violetmoon.zeta.block.ZetaInheritedPaneBlock
-[16Mar2025 22:14:11.192] [modloading-worker-0/INFO] [mixin.audit/]: Force-loading class org.violetmoon.zeta.block.ZetaStairsBlock
-[16Mar2025 22:14:11.195] [modloading-worker-0/INFO] [mixin.audit/]: Force-loading class net.minecraft.client.resources.model.MultiPartBakedModel
-[16Mar2025 22:14:11.199] [modloading-worker-0/INFO] [mixin.audit/]: Force-loading class net.minecraft.client.resources.SplashManager
-[16Mar2025 22:14:11.205] [modloading-worker-0/INFO] [mixin.audit/]: Force-loading class net.minecraftforge.common.data.LanguageProvider
-[16Mar2025 22:14:11.209] [modloading-worker-0/INFO] [mixin.audit/]: Force-loading class net.minecraft.world.entity.monster.hoglin.HoglinAi
-[16Mar2025 22:14:11.211] [modloading-worker-0/INFO] [mixin.audit/]: Force-loading class net.minecraft.network.protocol.game.ServerboundSetStructureBlockPacket
-[16Mar2025 22:14:11.216] [modloading-worker-0/INFO] [mixin.audit/]: Force-loading class net.minecraft.server.level.ServerEntity
-[16Mar2025 22:14:11.225] [modloading-worker-0/INFO] [mixin.audit/]: Force-loading class net.minecraft.client.renderer.texture.DynamicTexture
-[16Mar2025 22:14:11.226] [modloading-worker-0/INFO] [mixin.audit/]: Force-loading class net.minecraft.client.renderer.RenderBuffers
-[16Mar2025 22:14:11.229] [modloading-worker-0/INFO] [mixin.audit/]: Force-loading class net.minecraft.client.resources.sounds.UnderwaterAmbientSoundInstances$UnderwaterAmbientSoundInstance
-[16Mar2025 22:14:11.232] [modloading-worker-0/INFO] [mixin.audit/]: Force-loading class net.minecraft.client.renderer.PostPass
-[16Mar2025 22:14:11.233] [modloading-worker-0/INFO] [mixin.audit/]: Force-loading class top.theillusivec4.curios.api.CuriosApi
-[16Mar2025 22:14:11.260] [modloading-worker-0/INFO] [mixin.audit/]: Force-loading class org.violetmoon.zeta.block.ZetaPaneBlock
-[16Mar2025 22:14:11.260] [modloading-worker-0/INFO] [mixin.audit/]: Force-loading class net.mehvahdjukaar.moonlight.api.block.ItemDisplayTile
-[16Mar2025 22:14:11.263] [modloading-worker-0/INFO] [mixin.audit/]: Force-loading class net.minecraft.server.packs.resources.MultiPackResourceManager
-[16Mar2025 22:14:11.268] [modloading-worker-0/INFO] [mixin.audit/]: Force-loading class net.minecraft.client.multiplayer.ClientPacketListener
-[16Mar2025 22:14:11.308] [modloading-worker-0/INFO] [mixin.audit/]: Force-loading class net.minecraft.world.level.block.entity.BeehiveBlockEntity$BeeData
-[16Mar2025 22:14:11.310] [modloading-worker-0/INFO] [mixin.audit/]: Force-loading class net.minecraft.client.renderer.block.BlockRenderDispatcher
-[16Mar2025 22:14:11.315] [modloading-worker-0/INFO] [mixin.audit/]: Force-loading class net.minecraft.client.renderer.chunk.RenderChunkRegion
-[16Mar2025 22:14:11.316] [modloading-worker-0/INFO] [mixin.audit/]: Force-loading class net.minecraftforge.common.crafting.IntersectionIngredient
-[16Mar2025 22:14:11.319] [modloading-worker-0/INFO] [mixin.audit/]: Force-loading class org.violetmoon.zeta.block.ZetaFenceGateBlock
-[16Mar2025 22:14:11.321] [modloading-worker-0/INFO] [mixin.audit/]: Force-loading class com.github.alexmodguy.alexscaves.server.level.structure.DinoBowlStructure
-[16Mar2025 22:14:11.322] [modloading-worker-0/INFO] [mixin.audit/]: Force-loading class net.minecraft.client.model.ArmorStandModel
-[16Mar2025 22:14:11.326] [modloading-worker-0/INFO] [mixin.audit/]: Force-loading class net.minecraft.client.gui.screens.inventory.CreativeModeInventoryScreen$CustomCreativeSlot
-[16Mar2025 22:14:11.327] [modloading-worker-0/INFO] [mixin.audit/]: Force-loading class net.mehvahdjukaar.moonlight.api.client.model.IExtraModelDataProvider
-[16Mar2025 22:14:11.328] [modloading-worker-0/INFO] [mixin.audit/]: Force-loading class net.minecraft.client.renderer.ScreenEffectRenderer
-[16Mar2025 22:14:11.334] [modloading-worker-0/INFO] [mixin.audit/]: Force-loading class net.minecraft.world.item.armortrim.ArmorTrim
-[16Mar2025 22:14:11.343] [modloading-worker-0/INFO] [mixin.audit/]: Force-loading class net.minecraft.client.resources.sounds.UnderwaterAmbientSoundHandler
-[16Mar2025 22:14:11.347] [modloading-worker-0/INFO] [mixin.audit/]: Force-loading class net.minecraft.client.renderer.entity.layers.SnowGolemHeadLayer
-[16Mar2025 22:14:11.353] [modloading-worker-0/INFO] [mixin.audit/]: Force-loading class com.github.alexthe666.alexsmobs.entity.EntityEmu
-[16Mar2025 22:14:11.357] [modloading-worker-0/INFO] [mixin.audit/]: Force-loading class net.minecraft.client.renderer.block.LiquidBlockRenderer
-[16Mar2025 22:14:11.362] [modloading-worker-0/INFO] [mixin.audit/]: Force-loading class net.minecraft.client.renderer.entity.CowRenderer
-[16Mar2025 22:14:11.365] [modloading-worker-0/INFO] [mixin.audit/]: Force-loading class net.minecraft.client.gui.screens.advancements.AdvancementWidget
-[16Mar2025 22:14:11.373] [modloading-worker-0/INFO] [mixin.audit/]: Force-loading class net.minecraft.world.entity.ai.behavior.WorkAtComposter
-[16Mar2025 22:14:11.377] [modloading-worker-0/INFO] [mixin.audit/]: Force-loading class top.theillusivec4.curios.api.SlotAttribute
-[16Mar2025 22:14:11.379] [modloading-worker-0/INFO] [mixin.audit/]: Force-loading class net.minecraftforge.common.crafting.DifferenceIngredient
-[16Mar2025 22:14:11.383] [modloading-worker-0/INFO] [mixin.audit/]: Force-loading class com.github.alexthe666.alexsmobs.entity.EntityBananaSlug
-[16Mar2025 22:14:11.385] [modloading-worker-0/INFO] [mixin.audit/]: Force-loading class net.minecraft.client.multiplayer.ClientLevel$ClientLevelData
-[16Mar2025 22:14:11.388] [modloading-worker-0/INFO] [mixin.audit/]: Force-loading class net.minecraft.client.renderer.entity.layers.HumanoidArmorLayer
-[16Mar2025 22:14:11.388] [modloading-worker-0/INFO] [mixin.audit/]: Force-loading class com.github.alexthe666.alexsmobs.entity.EntityAlligatorSnappingTurtle
-[16Mar2025 22:14:11.392] [modloading-worker-0/INFO] [mixin.audit/]: Force-loading class net.minecraft.server.WorldLoader$PackConfig
-[16Mar2025 22:14:11.395] [modloading-worker-0/INFO] [mixin.audit/]: Force-loading class net.minecraftforge.common.crafting.PartialNBTIngredient
-[16Mar2025 22:14:11.398] [modloading-worker-0/INFO] [mixin.audit/]: Force-loading class net.minecraft.client.gui.components.DebugScreenOverlay
-[16Mar2025 22:14:11.403] [modloading-worker-0/INFO] [mixin.audit/]: Force-loading class net.minecraft.client.gui.MapRenderer
-[16Mar2025 22:14:11.542] [main/INFO] [snownee.kiwi.Kiwi/INIT]: Module [snowrealmagic:core] initialized
-[16Mar2025 22:14:11.543] [main/INFO] [snownee.kiwi.Kiwi/INIT]: 		block: 7, block_entity_type: 2, entity_type: 1, loot_pool_entry_type: 1
-[16Mar2025 22:14:11.543] [main/INFO] [snownee.kiwi.Kiwi/INIT]: Module [kiwi:block_templates] initialized
-[16Mar2025 22:14:11.543] [main/INFO] [snownee.kiwi.Kiwi/INIT]: Module [kiwi:data] initialized
-[16Mar2025 22:14:11.544] [main/INFO] [snownee.kiwi.Kiwi/INIT]: 		recipe_serializer: 3
-[16Mar2025 22:14:11.544] [main/INFO] [snownee.kiwi.Kiwi/INIT]: Module [kiwi:block_components] initialized
-[16Mar2025 22:14:11.544] [main/INFO] [snownee.kiwi.Kiwi/INIT]: Module [kiwi:item_templates] initialized
-[16Mar2025 22:14:11.601] [main/INFO] [dev.architectury.networking.forge.NetworkManagerImpl/]: Registering S2C receiver with id wildernature:screen_update
-[16Mar2025 22:14:12.821] [main/INFO] [dev.architectury.networking.forge.NetworkManagerImpl/]: Registering S2C receiver with id wildernature:screen_update
-[16Mar2025 22:14:14.354] [main/INFO] [dev.architectury.networking.forge.NetworkManagerImpl/]: Registering S2C receiver with id wildernature:screen_update
-[16Mar2025 22:14:14.498] [main/INFO] [Moonlight/]: Initialized block sets in 11ms
-[16Mar2025 22:14:14.498] [main/INFO] [dev.architectury.networking.forge.NetworkManagerImpl/]: Registering S2C receiver with id wildernature:screen_update
-[16Mar2025 22:14:14.506] [main/INFO] [dev.architectury.networking.forge.NetworkManagerImpl/]: Registering S2C receiver with id wildernature:screen_update
-[16Mar2025 22:14:14.512] [main/INFO] [dev.architectury.networking.forge.NetworkManagerImpl/]: Registering S2C receiver with id wildernature:screen_update
-[16Mar2025 22:14:14.716] [main/INFO] [dev.architectury.networking.forge.NetworkManagerImpl/]: Registering S2C receiver with id wildernature:screen_update
-[16Mar2025 22:14:15.219] [main/WARN] [dev.architectury.registry.registries.forge.RegistrarManagerImpl/]: Registry entry listened Registry Entry [minecraft:entity_type / wildernature:bison] was not realized!
-[16Mar2025 22:14:15.219] [main/WARN] [dev.architectury.registry.registries.forge.RegistrarManagerImpl/]: Registry entry listened Registry Entry [minecraft:entity_type / wildernature:turkey] was not realized!
-[16Mar2025 22:14:15.219] [main/WARN] [dev.architectury.registry.registries.forge.RegistrarManagerImpl/]: Registry entry listened Registry Entry [minecraft:entity_type / wildernature:raccoon] was not realized!
-[16Mar2025 22:14:15.219] [main/WARN] [dev.architectury.registry.registries.forge.RegistrarManagerImpl/]: Registry entry listened Registry Entry [minecraft:entity_type / wildernature:penguin] was not realized!
-[16Mar2025 22:14:15.219] [main/WARN] [dev.architectury.registry.registries.forge.RegistrarManagerImpl/]: Registry entry listened Registry Entry [minecraft:entity_type / wildernature:flamingo] was not realized!
-[16Mar2025 22:14:15.219] [main/WARN] [dev.architectury.registry.registries.forge.RegistrarManagerImpl/]: Registry entry listened Registry Entry [minecraft:entity_type / wildernature:hedgehog] was not realized!
-[16Mar2025 22:14:15.219] [main/WARN] [dev.architectury.registry.registries.forge.RegistrarManagerImpl/]: Registry entry listened Registry Entry [minecraft:entity_type / wildernature:squirrel] was not realized!
-[16Mar2025 22:14:15.219] [main/WARN] [dev.architectury.registry.registries.forge.RegistrarManagerImpl/]: Registry entry listened Registry Entry [minecraft:entity_type / wildernature:boar] was not realized!
-[16Mar2025 22:14:15.220] [main/WARN] [dev.architectury.registry.registries.forge.RegistrarManagerImpl/]: Registry entry listened Registry Entry [minecraft:entity_type / wildernature:cassowary] was not realized!
-[16Mar2025 22:14:15.220] [main/WARN] [dev.architectury.registry.registries.forge.RegistrarManagerImpl/]: Registry entry listened Registry Entry [minecraft:entity_type / wildernature:minisheep] was not realized!
-[16Mar2025 22:14:15.220] [main/WARN] [dev.architectury.registry.registries.forge.RegistrarManagerImpl/]: Registry entry listened Registry Entry [minecraft:entity_type / wildernature:owl] was not realized!
-[16Mar2025 22:14:15.220] [main/WARN] [dev.architectury.registry.registries.forge.RegistrarManagerImpl/]: Registry entry listened Registry Entry [minecraft:entity_type / wildernature:pelican] was not realized!
-[16Mar2025 22:14:15.220] [main/WARN] [dev.architectury.registry.registries.forge.RegistrarManagerImpl/]: Registry entry listened Registry Entry [minecraft:entity_type / wildernature:red_wolf] was not realized!
-[16Mar2025 22:14:15.220] [main/WARN] [dev.architectury.registry.registries.forge.RegistrarManagerImpl/]: Registry entry listened Registry Entry [minecraft:entity_type / wildernature:deer] was not realized!
-[16Mar2025 22:14:15.220] [main/WARN] [dev.architectury.registry.registries.forge.RegistrarManagerImpl/]: Registry entry listened Registry Entry [minecraft:entity_type / wildernature:dog] was not realized!
-[16Mar2025 22:14:15.223] [main/INFO] [dev.architectury.networking.forge.NetworkManagerImpl/]: Registering S2C receiver with id wildernature:screen_update
-[16Mar2025 22:14:15.227] [main/INFO] [dev.architectury.networking.forge.NetworkManagerImpl/]: Registering S2C receiver with id wildernature:screen_update
-[16Mar2025 22:14:15.229] [main/INFO] [dev.architectury.networking.forge.NetworkManagerImpl/]: Registering S2C receiver with id wildernature:screen_update
-[16Mar2025 22:14:15.230] [main/INFO] [dev.architectury.networking.forge.NetworkManagerImpl/]: Registering S2C receiver with id wildernature:screen_update
-[16Mar2025 22:14:15.232] [main/INFO] [dev.architectury.networking.forge.NetworkManagerImpl/]: Registering S2C receiver with id wildernature:screen_update
-[16Mar2025 22:14:15.233] [main/INFO] [dev.architectury.networking.forge.NetworkManagerImpl/]: Registering S2C receiver with id wildernature:screen_update
-[16Mar2025 22:14:15.292] [main/INFO] [dev.architectury.networking.forge.NetworkManagerImpl/]: Registering S2C receiver with id wildernature:screen_update
-[16Mar2025 22:14:15.297] [main/INFO] [dev.architectury.networking.forge.NetworkManagerImpl/]: Registering S2C receiver with id wildernature:screen_update
-[16Mar2025 22:14:15.298] [main/INFO] [dev.architectury.networking.forge.NetworkManagerImpl/]: Registering S2C receiver with id wildernature:screen_update
-[16Mar2025 22:14:15.300] [main/INFO] [dev.architectury.networking.forge.NetworkManagerImpl/]: Registering S2C receiver with id wildernature:screen_update
-[16Mar2025 22:14:15.302] [main/INFO] [dev.architectury.networking.forge.NetworkManagerImpl/]: Registering S2C receiver with id wildernature:screen_update
-[16Mar2025 22:14:15.303] [main/INFO] [dev.architectury.networking.forge.NetworkManagerImpl/]: Registering S2C receiver with id wildernature:screen_update
-[16Mar2025 22:14:15.304] [main/INFO] [dev.architectury.networking.forge.NetworkManagerImpl/]: Registering S2C receiver with id wildernature:screen_update
-[16Mar2025 22:14:15.305] [main/INFO] [dev.architectury.networking.forge.NetworkManagerImpl/]: Registering S2C receiver with id wildernature:screen_update
-[16Mar2025 22:14:15.339] [main/INFO] [dev.architectury.networking.forge.NetworkManagerImpl/]: Registering S2C receiver with id wildernature:screen_update
-[16Mar2025 22:14:15.343] [main/INFO] [dev.architectury.networking.forge.NetworkManagerImpl/]: Registering S2C receiver with id wildernature:screen_update
-[16Mar2025 22:14:15.357] [main/INFO] [dev.architectury.networking.forge.NetworkManagerImpl/]: Registering S2C receiver with id wildernature:screen_update
-[16Mar2025 22:14:15.361] [main/INFO] [dev.architectury.networking.forge.NetworkManagerImpl/]: Registering S2C receiver with id wildernature:screen_update
-[16Mar2025 22:14:15.364] [main/INFO] [dev.architectury.networking.forge.NetworkManagerImpl/]: Registering S2C receiver with id wildernature:screen_update
-[16Mar2025 22:14:15.366] [main/INFO] [dev.architectury.networking.forge.NetworkManagerImpl/]: Registering S2C receiver with id wildernature:screen_update
-[16Mar2025 22:14:15.375] [main/INFO] [dev.architectury.networking.forge.NetworkManagerImpl/]: Registering S2C receiver with id wildernature:screen_update
-[16Mar2025 22:14:15.379] [main/INFO] [dev.architectury.networking.forge.NetworkManagerImpl/]: Registering S2C receiver with id wildernature:screen_update
-[16Mar2025 22:14:15.381] [main/INFO] [dev.architectury.networking.forge.NetworkManagerImpl/]: Registering S2C receiver with id wildernature:screen_update
-[16Mar2025 22:14:15.383] [main/INFO] [dev.architectury.networking.forge.NetworkManagerImpl/]: Registering S2C receiver with id wildernature:screen_update
-[16Mar2025 22:14:15.386] [main/INFO] [dev.architectury.networking.forge.NetworkManagerImpl/]: Registering S2C receiver with id wildernature:screen_update
-[16Mar2025 22:14:15.390] [main/INFO] [dev.architectury.networking.forge.NetworkManagerImpl/]: Registering S2C receiver with id wildernature:screen_update
-[16Mar2025 22:14:15.397] [main/INFO] [dev.architectury.networking.forge.NetworkManagerImpl/]: Registering S2C receiver with id wildernature:screen_update
-[16Mar2025 22:14:15.400] [main/INFO] [dev.architectury.networking.forge.NetworkManagerImpl/]: Registering S2C receiver with id wildernature:screen_update
-[16Mar2025 22:14:15.402] [main/INFO] [dev.architectury.networking.forge.NetworkManagerImpl/]: Registering S2C receiver with id wildernature:screen_update
-[16Mar2025 22:14:15.404] [main/INFO] [dev.architectury.networking.forge.NetworkManagerImpl/]: Registering S2C receiver with id wildernature:screen_update
-[16Mar2025 22:14:15.405] [main/INFO] [dev.architectury.networking.forge.NetworkManagerImpl/]: Registering S2C receiver with id wildernature:screen_update
-[16Mar2025 22:14:15.406] [main/INFO] [dev.architectury.networking.forge.NetworkManagerImpl/]: Registering S2C receiver with id wildernature:screen_update
-[16Mar2025 22:14:15.407] [main/INFO] [dev.architectury.networking.forge.NetworkManagerImpl/]: Registering S2C receiver with id wildernature:screen_update
-[16Mar2025 22:14:15.409] [main/INFO] [dev.architectury.networking.forge.NetworkManagerImpl/]: Registering S2C receiver with id wildernature:screen_update
-[16Mar2025 22:14:15.418] [main/INFO] [dev.architectury.networking.forge.NetworkManagerImpl/]: Registering S2C receiver with id wildernature:screen_update
-[16Mar2025 22:14:15.471] [main/INFO] [dev.architectury.networking.forge.NetworkManagerImpl/]: Registering S2C receiver with id wildernature:screen_update
-[16Mar2025 22:14:15.481] [main/INFO] [dev.architectury.networking.forge.NetworkManagerImpl/]: Registering S2C receiver with id wildernature:screen_update
-[16Mar2025 22:14:15.483] [main/INFO] [dev.architectury.networking.forge.NetworkManagerImpl/]: Registering S2C receiver with id wildernature:screen_update
-[16Mar2025 22:14:15.498] [main/INFO] [dev.architectury.networking.forge.NetworkManagerImpl/]: Registering S2C receiver with id wildernature:screen_update
-[16Mar2025 22:14:15.502] [main/INFO] [dev.architectury.networking.forge.NetworkManagerImpl/]: Registering S2C receiver with id wildernature:screen_update
-[16Mar2025 22:14:15.505] [main/INFO] [dev.architectury.networking.forge.NetworkManagerImpl/]: Registering S2C receiver with id wildernature:screen_update
-[16Mar2025 22:14:15.506] [main/INFO] [dev.architectury.networking.forge.NetworkManagerImpl/]: Registering S2C receiver with id wildernature:screen_update
-[16Mar2025 22:14:15.513] [main/INFO] [dev.architectury.networking.forge.NetworkManagerImpl/]: Registering S2C receiver with id wildernature:screen_update
-[16Mar2025 22:14:15.520] [main/INFO] [dev.architectury.networking.forge.NetworkManagerImpl/]: Registering S2C receiver with id wildernature:screen_update
-[16Mar2025 22:14:15.522] [main/INFO] [dev.architectury.networking.forge.NetworkManagerImpl/]: Registering S2C receiver with id wildernature:screen_update
-[16Mar2025 22:14:15.528] [main/INFO] [dev.architectury.networking.forge.NetworkManagerImpl/]: Registering S2C receiver with id wildernature:screen_update
-[16Mar2025 22:14:15.530] [main/INFO] [dev.architectury.networking.forge.NetworkManagerImpl/]: Registering S2C receiver with id wildernature:screen_update
-[16Mar2025 22:14:15.540] [main/INFO] [dev.architectury.networking.forge.NetworkManagerImpl/]: Registering S2C receiver with id wildernature:screen_update
-[16Mar2025 22:14:15.546] [main/INFO] [dev.architectury.networking.forge.NetworkManagerImpl/]: Registering S2C receiver with id wildernature:screen_update
-[16Mar2025 22:14:15.549] [main/INFO] [dev.architectury.networking.forge.NetworkManagerImpl/]: Registering S2C receiver with id wildernature:screen_update
-[16Mar2025 22:14:15.550] [main/INFO] [dev.architectury.networking.forge.NetworkManagerImpl/]: Registering S2C receiver with id wildernature:screen_update
-[16Mar2025 22:14:15.552] [main/INFO] [dev.architectury.networking.forge.NetworkManagerImpl/]: Registering S2C receiver with id wildernature:screen_update
-[16Mar2025 22:14:15.554] [main/INFO] [dev.architectury.networking.forge.NetworkManagerImpl/]: Registering S2C receiver with id wildernature:screen_update
-[16Mar2025 22:14:15.555] [main/INFO] [dev.architectury.networking.forge.NetworkManagerImpl/]: Registering S2C receiver with id wildernature:screen_update
-[16Mar2025 22:14:15.556] [main/INFO] [dev.architectury.networking.forge.NetworkManagerImpl/]: Registering S2C receiver with id wildernature:screen_update
-[16Mar2025 22:14:15.557] [main/INFO] [dev.architectury.networking.forge.NetworkManagerImpl/]: Registering S2C receiver with id wildernature:screen_update
-[16Mar2025 22:14:15.558] [main/INFO] [dev.architectury.networking.forge.NetworkManagerImpl/]: Registering S2C receiver with id wildernature:screen_update
-[16Mar2025 22:14:15.559] [main/INFO] [dev.architectury.networking.forge.NetworkManagerImpl/]: Registering S2C receiver with id wildernature:screen_update
-[16Mar2025 22:14:15.563] [main/INFO] [dev.architectury.networking.forge.NetworkManagerImpl/]: Registering S2C receiver with id wildernature:screen_update
-[16Mar2025 22:14:15.564] [main/INFO] [dev.architectury.networking.forge.NetworkManagerImpl/]: Registering S2C receiver with id wildernature:screen_update
-[16Mar2025 22:14:15.565] [main/INFO] [dev.architectury.networking.forge.NetworkManagerImpl/]: Registering S2C receiver with id wildernature:screen_update
-[16Mar2025 22:14:15.566] [main/INFO] [dev.architectury.networking.forge.NetworkManagerImpl/]: Registering S2C receiver with id wildernature:screen_update
-[16Mar2025 22:14:15.567] [main/INFO] [dev.architectury.networking.forge.NetworkManagerImpl/]: Registering S2C receiver with id wildernature:screen_update
-[16Mar2025 22:14:15.573] [main/INFO] [ModdingLegacy/StructureGel/]: [structure_gel] Registering data for structure_gel:loot_table_alias
-[16Mar2025 22:14:15.579] [main/INFO] [ModdingLegacy/StructureGel/]: [structure_gel] Registering data for structure_gel:data_handler_type
-[16Mar2025 22:14:15.580] [main/INFO] [ModdingLegacy/StructureGel/]: [structure_gel] Registering data for structure_gel:dynamic_spawner
-[16Mar2025 22:14:15.581] [main/INFO] [ModdingLegacy/StructureGel/]: [structure_gel] Registering data for structure_gel:jigsaw_type
-[16Mar2025 22:14:15.585] [main/INFO] [dev.architectury.networking.forge.NetworkManagerImpl/]: Registering S2C receiver with id wildernature:screen_update
-[16Mar2025 22:14:15.587] [main/INFO] [dev.architectury.networking.forge.NetworkManagerImpl/]: Registering S2C receiver with id wildernature:screen_update
-[16Mar2025 22:14:15.589] [main/INFO] [dev.architectury.networking.forge.NetworkManagerImpl/]: Registering S2C receiver with id wildernature:screen_update
-[16Mar2025 22:14:15.593] [main/INFO] [dev.architectury.networking.forge.NetworkManagerImpl/]: Registering S2C receiver with id wildernature:screen_update
-[16Mar2025 22:14:15.598] [main/INFO] [dev.architectury.networking.forge.NetworkManagerImpl/]: Registering S2C receiver with id wildernature:screen_update
-[16Mar2025 22:14:15.604] [main/INFO] [dev.architectury.networking.forge.NetworkManagerImpl/]: Registering S2C receiver with id wildernature:screen_update
-[16Mar2025 22:14:15.605] [main/INFO] [dev.architectury.networking.forge.NetworkManagerImpl/]: Registering S2C receiver with id wildernature:screen_update
-[16Mar2025 22:14:15.607] [main/INFO] [dev.architectury.networking.forge.NetworkManagerImpl/]: Registering S2C receiver with id wildernature:screen_update
-[16Mar2025 22:14:15.608] [main/INFO] [dev.architectury.networking.forge.NetworkManagerImpl/]: Registering S2C receiver with id wildernature:screen_update
-[16Mar2025 22:14:15.609] [main/INFO] [dev.architectury.networking.forge.NetworkManagerImpl/]: Registering S2C receiver with id wildernature:screen_update
-[16Mar2025 22:14:15.611] [main/INFO] [dev.architectury.networking.forge.NetworkManagerImpl/]: Registering S2C receiver with id wildernature:screen_update
-[16Mar2025 22:14:15.612] [main/INFO] [dev.architectury.networking.forge.NetworkManagerImpl/]: Registering S2C receiver with id wildernature:screen_update
-[16Mar2025 22:14:15.667] [main/WARN] [net.minecraft.network.syncher.SynchedEntityData/]: defineId called for: class com.belgieyt.trailsandtalesplus.Objects.entity.EndSpellCastingEntity from class com.belgieyt.trailsandtalesplus.Objects.entity.EndersentEntity
-[16Mar2025 22:14:15.668] [main/WARN] [net.minecraft.network.syncher.SynchedEntityData/]: defineId called for: class net.dylanvhs.bountiful_critters.entity.custom.StingrayEntity from class net.dylanvhs.bountiful_critters.entity.custom.KrillEntity
-[16Mar2025 22:14:15.668] [main/WARN] [net.minecraft.network.syncher.SynchedEntityData/]: defineId called for: class net.dylanvhs.bountiful_critters.entity.custom.StingrayEntity from class net.dylanvhs.bountiful_critters.entity.custom.MarineIguanaEntity
-[16Mar2025 22:14:15.669] [main/WARN] [net.minecraft.network.syncher.SynchedEntityData/]: defineId called for: class net.minecraft.world.entity.animal.Wolf from class net.dylanvhs.bountiful_critters.entity.custom.LonghornEntity
-[16Mar2025 22:14:15.727] [main/WARN] [net.minecraft.server.packs.VanillaPackResourcesBuilder/]: Assets URL 'union:/C:/Users/andre/Downloads/Games/September2024Mod/build/fg_cache/net/minecraftforge/forge/1.20.1-47.3.0_mapped_parchment_2023.09.03-1.20.1/forge-1.20.1-47.3.0_mapped_parchment_2023.09.03-1.20.1-recomp.jar%23191!/assets/.mcassetsroot' uses unexpected schema
-[16Mar2025 22:14:15.728] [main/WARN] [net.minecraft.server.packs.VanillaPackResourcesBuilder/]: Assets URL 'union:/C:/Users/andre/Downloads/Games/September2024Mod/build/fg_cache/net/minecraftforge/forge/1.20.1-47.3.0_mapped_parchment_2023.09.03-1.20.1/forge-1.20.1-47.3.0_mapped_parchment_2023.09.03-1.20.1-recomp.jar%23191!/data/.mcassetsroot' uses unexpected schema
-[16Mar2025 22:14:15.917] [main/INFO] [net.minecraft.data.DataGenerator/]: Starting provider: Registries
+[18Mar2025 23:13:49.378] [main/INFO] [cpw.mods.modlauncher.Launcher/MODLAUNCHER]: ModLauncher running: args [--launchTarget, forgedatauserdev, --assetIndex, 5, --assetsDir, C:\Users\andre\.gradle\caches\forge_gradle\assets, --gameDir, ., --fml.forgeVersion, 47.3.0, --fml.mcVersion, 1.20.1, --fml.forgeGroup, net.minecraftforge, --fml.mcpVersion, 20230612.114412, --mod, aoemod, --all, --output, C:\Users\andre\Downloads\Games\September2024Mod\src\generated\resources, --existing, C:\Users\andre\Downloads\Games\September2024Mod\src\main\resources, --mixin.config, aoemod.mixins.json]
+[18Mar2025 23:13:49.382] [main/INFO] [cpw.mods.modlauncher.Launcher/MODLAUNCHER]: ModLauncher 10.0.9+10.0.9+main.dcd20f30 starting: java version 17.0.9 by Eclipse Adoptium; OS Windows 11 arch amd64 version 10.0
+[18Mar2025 23:13:49.498] [main/INFO] [net.minecraftforge.fml.loading.ImmediateWindowHandler/]: ImmediateWindowProvider not loading because launch target is forgedatauserdev
+[18Mar2025 23:13:49.535] [main/INFO] [mixin/]: SpongePowered MIXIN Subsystem Version=0.8.5 Source=union:/C:/Users/andre/.gradle/caches/modules-2/files-2.1/org.spongepowered/mixin/0.8.5/9d1c0c3a304ae6697ecd477218fa61b850bf57fc/mixin-0.8.5.jar%23128!/ Service=ModLauncher Env=CLIENT
+[18Mar2025 23:13:49.810] [main/WARN] [net.minecraftforge.fml.loading.moddiscovery.ModFileParser/LOADING]: Mod file C:\Users\andre\.gradle\caches\modules-2\files-2.1\net.minecraftforge\javafmllanguage\1.20.1-47.3.0\d7ebc62120f202109e300e084ca1a31a7b946a62\javafmllanguage-1.20.1-47.3.0.jar is missing mods.toml file
+[18Mar2025 23:13:49.813] [main/WARN] [net.minecraftforge.fml.loading.moddiscovery.ModFileParser/LOADING]: Mod file C:\Users\andre\.gradle\caches\modules-2\files-2.1\net.minecraftforge\lowcodelanguage\1.20.1-47.3.0\1bf3e845ea0ce750096da8c71c8364b188ab74d4\lowcodelanguage-1.20.1-47.3.0.jar is missing mods.toml file
+[18Mar2025 23:13:49.817] [main/WARN] [net.minecraftforge.fml.loading.moddiscovery.ModFileParser/LOADING]: Mod file C:\Users\andre\.gradle\caches\modules-2\files-2.1\net.minecraftforge\mclanguage\1.20.1-47.3.0\6093682e943ddccbabf70539319d7f2fe64db2e7\mclanguage-1.20.1-47.3.0.jar is missing mods.toml file
+[18Mar2025 23:13:49.821] [main/WARN] [net.minecraftforge.fml.loading.moddiscovery.ModFileParser/LOADING]: Mod file C:\Users\andre\.gradle\caches\modules-2\files-2.1\net.minecraftforge\fmlcore\1.20.1-47.3.0\3b6be96aba3e323f3c918e8ef6a96312d82d76ad\fmlcore-1.20.1-47.3.0.jar is missing mods.toml file
+[18Mar2025 23:13:50.404] [main/WARN] [net.minecraftforge.jarjar.selection.JarSelector/]: Attempted to select a dependency jar for JarJar which was passed in as source: geckolib. Using Mod File: C:\Users\andre\.gradle\caches\forge_gradle\deobf_dependencies\curse\maven\geckolib-388172\6027567_mapped_parchment_2023.09.03-1.20.1\geckolib-388172-6027567_mapped_parchment_2023.09.03-1.20.1.jar
+[18Mar2025 23:13:50.404] [main/INFO] [net.minecraftforge.fml.loading.moddiscovery.JarInJarDependencyLocator/]: Found 7 dependencies adding them to mods collection
+[18Mar2025 23:13:54.053] [main/INFO] [mixin/]: Compatibility level set to JAVA_17
+[18Mar2025 23:13:54.208] [main/INFO] [mixin/]: Successfully loaded Mixin Connector [com.crypticmushroom.minecraft.registry.coremod.CrypticCoreMod]
+[18Mar2025 23:13:54.210] [main/INFO] [mixin/]: Successfully loaded Mixin Connector [com.crypticmushroom.minecraft.midnight.coremod.MidnightCoreMod]
+[18Mar2025 23:13:54.210] [main/WARN] [CrypticRegistry/]: Modlauncher has started userdev data generation. Datagen-only mixins will apply.
+[18Mar2025 23:13:54.213] [main/INFO] [cpw.mods.modlauncher.LaunchServiceHandler/MODLAUNCHER]: Launching target 'forgedatauserdev' with arguments [--gameDir, ., --assetsDir, C:\Users\andre\.gradle\caches\forge_gradle\assets, --assetIndex, 5, --mod, aoemod, --all, --output, C:\Users\andre\Downloads\Games\September2024Mod\src\generated\resources, --existing, C:\Users\andre\Downloads\Games\September2024Mod\src\main\resources]
+[18Mar2025 23:13:54.217] [main/WARN] [mixin/]: Reference map 'aoemod.refmap.json' for aoemod.mixins.json could not be read. If this is a development environment you can ignore this message
+[18Mar2025 23:13:54.337] [main/INFO] [mixin/]: Remapping refMap kiwi.refmap.json using C:\Users\andre\Downloads\Games\September2024Mod\build\createSrgToMcp\output.srg
+[18Mar2025 23:13:54.339] [main/INFO] [mixin/]: Remapping refMap blue_skies.refmap.json using C:\Users\andre\Downloads\Games\September2024Mod\build\createSrgToMcp\output.srg
+[18Mar2025 23:13:54.340] [main/INFO] [mixin/]: Remapping refMap fabric-renderer-api-v1-refmap.json using C:\Users\andre\Downloads\Games\September2024Mod\build\createSrgToMcp\output.srg
+[18Mar2025 23:13:54.341] [main/INFO] [mixin/]: Remapping refMap fabric-renderer-api-v1-refmap.json using C:\Users\andre\Downloads\Games\September2024Mod\build\createSrgToMcp\output.srg
+[18Mar2025 23:13:54.342] [main/INFO] [mixin/]: Remapping refMap geckolib.refmap.json using C:\Users\andre\Downloads\Games\September2024Mod\build\createSrgToMcp\output.srg
+[18Mar2025 23:13:54.343] [main/INFO] [mixin/]: Remapping refMap naturalist-common-refmap.json using C:\Users\andre\Downloads\Games\September2024Mod\build\createSrgToMcp\output.srg
+[18Mar2025 23:13:54.344] [main/WARN] [mixin/]: Reference map 'naturalist-forge-forge-refmap.json' for naturalist.mixins.json could not be read. If this is a development environment you can ignore this message
+[18Mar2025 23:13:54.346] [main/INFO] [mixin/]: Remapping refMap fabric-renderer-indigo-refmap.json using C:\Users\andre\Downloads\Games\September2024Mod\build\createSrgToMcp\output.srg
+[18Mar2025 23:13:54.347] [main/INFO] [mixin/]: Remapping refMap citadel.refmap.json using C:\Users\andre\Downloads\Games\September2024Mod\build\createSrgToMcp\output.srg
+[18Mar2025 23:13:54.348] [main/WARN] [mixin/]: Reference map 'EpheroLib-refmap.json' for epherolib.mixins.json could not be read. If this is a development environment you can ignore this message
+[18Mar2025 23:13:54.351] [main/INFO] [mixin/]: Remapping refMap badpackets.refmap.json using C:\Users\andre\Downloads\Games\September2024Mod\build\createSrgToMcp\output.srg
+[18Mar2025 23:13:54.395] [main/INFO] [mixin/]: Remapping refMap mixin.refmap.json using C:\Users\andre\Downloads\Games\September2024Mod\build\createSrgToMcp\output.srg
+[18Mar2025 23:13:54.396] [main/INFO] [mixin/]: Remapping refMap iceandfire.refmap.json using C:\Users\andre\Downloads\Games\September2024Mod\build\createSrgToMcp\output.srg
+[18Mar2025 23:13:54.397] [main/WARN] [mixin/]: Reference map 'netherdepthsupgrade.refmap.json' for netherdepthsupgrade.mixins.json could not be read. If this is a development environment you can ignore this message
+[18Mar2025 23:13:54.400] [main/INFO] [mixin/]: Remapping refMap snowrealmagic.refmap.json using C:\Users\andre\Downloads\Games\September2024Mod\build\createSrgToMcp\output.srg
+[18Mar2025 23:13:54.401] [main/INFO] [mixin/]: Remapping refMap blueprint.refmap.json using C:\Users\andre\Downloads\Games\September2024Mod\build\createSrgToMcp\output.srg
+[18Mar2025 23:13:54.402] [main/INFO] [mixin/]: Remapping refMap hauntedharvest-common-refmap.json using C:\Users\andre\Downloads\Games\September2024Mod\build\createSrgToMcp\output.srg
+[18Mar2025 23:13:54.405] [main/INFO] [mixin/]: Remapping refMap hauntedharvest-forge-refmap.json using C:\Users\andre\Downloads\Games\September2024Mod\build\createSrgToMcp\output.srg
+[18Mar2025 23:13:54.407] [main/INFO] [mixin/]: Remapping refMap structure_gel.refmap.json using C:\Users\andre\Downloads\Games\September2024Mod\build\createSrgToMcp\output.srg
+[18Mar2025 23:13:54.408] [main/INFO] [mixin/]: Remapping refMap astemirlib.refmap.json using C:\Users\andre\Downloads\Games\September2024Mod\build\createSrgToMcp\output.srg
+[18Mar2025 23:13:54.408] [main/INFO] [mixin/]: Remapping refMap farmersdelight.refmap.json using C:\Users\andre\Downloads\Games\September2024Mod\build\createSrgToMcp\output.srg
+[18Mar2025 23:13:54.410] [main/INFO] [mixin/]: Remapping refMap upgrade_aquatic.refmap.json using C:\Users\andre\Downloads\Games\September2024Mod\build\createSrgToMcp\output.srg
+[18Mar2025 23:13:54.411] [main/INFO] [mixin/]: Remapping refMap alexscaves.refmap.json using C:\Users\andre\Downloads\Games\September2024Mod\build\createSrgToMcp\output.srg
+[18Mar2025 23:13:54.413] [main/WARN] [mixin/]: Reference map 'mixins.forest.refmap.json' for mixins.forest.json could not be read. If this is a development environment you can ignore this message
+[18Mar2025 23:13:54.415] [main/INFO] [mixin/]: Remapping refMap vintagedelight.refmap.json using C:\Users\andre\Downloads\Games\September2024Mod\build\createSrgToMcp\output.srg
+[18Mar2025 23:13:54.416] [main/INFO] [mixin/]: Remapping refMap terrablender.refmap.json using C:\Users\andre\Downloads\Games\September2024Mod\build\createSrgToMcp\output.srg
+[18Mar2025 23:13:54.417] [main/INFO] [mixin/]: Remapping refMap terrablender.refmap.json using C:\Users\andre\Downloads\Games\September2024Mod\build\createSrgToMcp\output.srg
+[18Mar2025 23:13:54.418] [main/INFO] [mixin/]: Remapping refMap moonlight-common-refmap.json using C:\Users\andre\Downloads\Games\September2024Mod\build\createSrgToMcp\output.srg
+[18Mar2025 23:13:54.420] [main/INFO] [mixin/]: Remapping refMap moonlight-forge-refmap.json using C:\Users\andre\Downloads\Games\September2024Mod\build\createSrgToMcp\output.srg
+[18Mar2025 23:13:54.423] [main/INFO] [mixin/]: Remapping refMap mixin.refmap.json using C:\Users\andre\Downloads\Games\September2024Mod\build\createSrgToMcp\output.srg
+[18Mar2025 23:13:54.424] [main/INFO] [mixin/]: Remapping refMap mixin.refmap.json using C:\Users\andre\Downloads\Games\September2024Mod\build\createSrgToMcp\output.srg
+[18Mar2025 23:13:54.425] [main/INFO] [mixin/]: Remapping refMap mixin.refmap.json using C:\Users\andre\Downloads\Games\September2024Mod\build\createSrgToMcp\output.srg
+[18Mar2025 23:13:54.426] [main/INFO] [mixin/]: Remapping refMap mixin.refmap.json using C:\Users\andre\Downloads\Games\September2024Mod\build\createSrgToMcp\output.srg
+[18Mar2025 23:13:54.427] [main/INFO] [mixin/]: Remapping refMap nethersdelight.refmap.json using C:\Users\andre\Downloads\Games\September2024Mod\build\createSrgToMcp\output.srg
+[18Mar2025 23:13:54.428] [main/INFO] [mixin/]: Remapping refMap wthit.refmap.json using C:\Users\andre\Downloads\Games\September2024Mod\build\createSrgToMcp\output.srg
+[18Mar2025 23:13:54.430] [main/INFO] [mixin/]: Remapping refMap seafarer.refmap.json using C:\Users\andre\Downloads\Games\September2024Mod\build\createSrgToMcp\output.srg
+[18Mar2025 23:13:54.431] [main/INFO] [mixin/]: Remapping refMap curios.refmap.json using C:\Users\andre\Downloads\Games\September2024Mod\build\createSrgToMcp\output.srg
+[18Mar2025 23:13:54.432] [main/INFO] [mixin/]: Remapping refMap ecologics-common-refmap.json using C:\Users\andre\Downloads\Games\September2024Mod\build\createSrgToMcp\output.srg
+[18Mar2025 23:13:54.433] [main/INFO] [mixin/]: Remapping refMap ecologics-forge-forge-refmap.json using C:\Users\andre\Downloads\Games\September2024Mod\build\createSrgToMcp\output.srg
+[18Mar2025 23:13:54.435] [main/INFO] [mixin/]: Remapping refMap lucent.refmap.json using C:\Users\andre\Downloads\Games\September2024Mod\build\createSrgToMcp\output.srg
+[18Mar2025 23:13:54.437] [main/INFO] [mixin/]: Remapping refMap croptopia.refmap.json using C:\Users\andre\Downloads\Games\September2024Mod\build\createSrgToMcp\output.srg
+[18Mar2025 23:13:54.438] [main/INFO] [mixin/]: Remapping refMap zeta.mixins.refmap.json using C:\Users\andre\Downloads\Games\September2024Mod\build\createSrgToMcp\output.srg
+[18Mar2025 23:13:54.440] [main/INFO] [mixin/]: Remapping refMap zeta.mixins.refmap.json using C:\Users\andre\Downloads\Games\September2024Mod\build\createSrgToMcp\output.srg
+[18Mar2025 23:13:54.442] [main/INFO] [mixin/]: Remapping refMap architectury-forge-refmap.json using C:\Users\andre\Downloads\Games\September2024Mod\build\createSrgToMcp\output.srg
+[18Mar2025 23:13:54.442] [main/INFO] [mixin/]: Remapping refMap architectury-common-refmap.json using C:\Users\andre\Downloads\Games\September2024Mod\build\createSrgToMcp\output.srg
+[18Mar2025 23:13:54.444] [main/WARN] [mixin/]: Reference map 'wildernature.forge.mixins.refmap.json' for wildernature.forge.mixins.json could not be read. If this is a development environment you can ignore this message
+[18Mar2025 23:13:54.444] [main/INFO] [mixin/]: Remapping refMap notrample.refmap.json using C:\Users\andre\Downloads\Games\September2024Mod\build\createSrgToMcp\output.srg
+[18Mar2025 23:13:54.445] [main/INFO] [mixin/]: Remapping refMap mixin.refmap.json using C:\Users\andre\Downloads\Games\September2024Mod\build\createSrgToMcp\output.srg
+[18Mar2025 23:13:54.447] [main/INFO] [mixin/]: Remapping refMap dawnera.refmap.json using C:\Users\andre\Downloads\Games\September2024Mod\build\createSrgToMcp\output.srg
+[18Mar2025 23:13:54.448] [main/INFO] [mixin/]: Remapping refMap quark.mixins.refmap.json using C:\Users\andre\Downloads\Games\September2024Mod\build\createSrgToMcp\output.srg
+[18Mar2025 23:13:54.450] [main/INFO] [mixin/]: Remapping refMap quark.mixins.refmap.json using C:\Users\andre\Downloads\Games\September2024Mod\build\createSrgToMcp\output.srg
+[18Mar2025 23:13:54.451] [main/INFO] [mixin/]: Remapping refMap META-INF/mixin/cryptic_registry.refmap.json using C:\Users\andre\Downloads\Games\September2024Mod\build\createSrgToMcp\output.srg
+[18Mar2025 23:13:54.452] [main/INFO] [mixin/]: Remapping refMap META-INF/mixin/cryptic_registry.refmap.json using C:\Users\andre\Downloads\Games\September2024Mod\build\createSrgToMcp\output.srg
+[18Mar2025 23:13:54.452] [main/INFO] [mixin/]: Remapping refMap META-INF/mixin/midnight.refmap.json using C:\Users\andre\Downloads\Games\September2024Mod\build\createSrgToMcp\output.srg
+[18Mar2025 23:13:55.077] [main/WARN] [mixin/]: Error loading class: sereneseasons/season/RandomUpdateHandler (java.lang.ClassNotFoundException: sereneseasons.season.RandomUpdateHandler)
+[18Mar2025 23:13:55.078] [main/WARN] [mixin/]: @Mixin target sereneseasons.season.RandomUpdateHandler was not found snowrealmagic.mixins.json:sereneseasons.RandomUpdateHandlerMixin
+[18Mar2025 23:13:55.418] [main/WARN] [mixin/]: Error loading class: noobanidus/mods/lootr/config/ConfigManager (java.lang.ClassNotFoundException: noobanidus.mods.lootr.config.ConfigManager)
+[18Mar2025 23:13:55.895] [main/INFO] [net.minecraftforge.data.loading.DatagenModLoader/]: Initializing Data Gatherer for mods [aoemod]
+[18Mar2025 23:13:55.900] [main/INFO] [MixinExtras|Service/]: Initializing MixinExtras via com.llamalad7.mixinextras.service.MixinExtrasServiceImpl(version=0.3.6).
+[18Mar2025 23:13:57.356] [main/WARN] [mixin/]: @Redirect conflict. Skipping aoemod.mixins.json:special_biome.growth_rate.ChorusFlowerGrowth->@Redirect::hi2(Lnet/minecraft/world/level/block/state/BlockState;Lnet/minecraft/world/level/block/Block;)Z with priority 1000, already redirected by aoemod.mixins.json:block_placement.ChorusFlowerOnSculk->@Redirect::hi2(Lnet/minecraft/world/level/block/state/BlockState;Lnet/minecraft/world/level/block/Block;)Z with priority 1000
+[18Mar2025 23:13:59.122] [main/WARN] [mixin/]: @Redirect conflict. Skipping aoemod.mixins.json:sea_level.GlowSquid1->@Redirect::hi1(Lnet/minecraft/world/level/ServerLevelAccessor;Lnet/minecraft/world/entity/EntityType;Lnet/minecraft/world/level/ServerLevelAccessor;Lnet/minecraft/world/entity/MobSpawnType;Lnet/minecraft/core/BlockPos;Lnet/minecraft/util/RandomSource;)I with priority 1000, already redirected by aoemod.mixins.json:mob_spawning.GlowSquidCanSpawnInLight->@Redirect::hi1(Lnet/minecraft/world/level/ServerLevelAccessor;Lnet/minecraft/world/entity/EntityType;Lnet/minecraft/world/level/ServerLevelAccessor;Lnet/minecraft/world/entity/MobSpawnType;Lnet/minecraft/core/BlockPos;Lnet/minecraft/util/RandomSource;)I with priority 1000
+[18Mar2025 23:13:59.302] [main/WARN] [mixin/]: Method overwrite conflict for scheduleRandomTick in corgilib-common.mixins.json:chunk.MixinChunkAccess, previously written by dev.corgitaco.ohthetreesyoullgrow.mixin.chunk.MixinChunkAccess. Skipping method.
+[18Mar2025 23:13:59.303] [main/WARN] [mixin/]: Method overwrite conflict for getScheduledRandomTicks in corgilib-common.mixins.json:chunk.MixinChunkAccess, previously written by dev.corgitaco.ohthetreesyoullgrow.mixin.chunk.MixinChunkAccess. Skipping method.
+[18Mar2025 23:14:00.274] [modloading-worker-0/INFO] [net.fabricmc.fabric.impl.client.indigo.Indigo/]: [Indigo] Registering Indigo renderer!
+[18Mar2025 23:14:00.346] [modloading-worker-0/INFO] [com.scouter.netherdepthsupgrade.modcompat.FarmersDelightCompat/]: Setting up compat for Farmers Delight
+[18Mar2025 23:14:00.367] [modloading-worker-0/INFO] [net.minecraftforge.common.ForgeMod/FORGEMOD]: Forge mod loading, version 47.3.0, for MC 1.20.1 with MCP 20230612.114412
+[18Mar2025 23:14:00.369] [modloading-worker-0/INFO] [net.minecraftforge.common.MinecraftForge/FORGE]: MinecraftForge v47.3.0 Initialized
+[18Mar2025 23:14:00.393] [Modding Legacy/blue_skies/Supporters thread/INFO] [ModdingLegacy/blue_skies/Supporter/]: Attempting to load the Modding Legacy supporters list from https://moddinglegacy.com/supporters-changelogs/supporters.txt
+[18Mar2025 23:14:00.628] [modloading-worker-0/WARN] [software.bernie.geckolib.GeckoLib/]: Minecraft.getInstance() was null, could not register reload listeners
+[18Mar2025 23:14:00.670] [modloading-worker-0/INFO] [snownee.kiwi.Kiwi/INIT]: Processing 6 KiwiModule annotations
+[18Mar2025 23:14:01.134] [Modding Legacy/blue_skies/Supporters thread/INFO] [ModdingLegacy/blue_skies/Supporter/]: Successfully loaded the Modding Legacy supporters list.
+[18Mar2025 23:14:01.146] [modloading-worker-0/INFO] [net.potionstudios.biomeswevegone.BiomesWeveGone/]: Registering Oh The Biomes We've Gone items
+[18Mar2025 23:14:01.247] [modloading-worker-0/INFO] [Midnight/]: Welcome back to The Midnight. Shall we resume the spread of the malaise?
+[18Mar2025 23:14:01.445] [modloading-worker-0/INFO] [terrablender/]: Registered region minecraft:overworld to index 0 for type OVERWORLD
+[18Mar2025 23:14:01.446] [modloading-worker-0/INFO] [terrablender/]: Registered region minecraft:nether to index 0 for type NETHER
+[18Mar2025 23:14:01.447] [modloading-worker-0/INFO] [terrablender/]: Registered region aoemod:overworld to index 1 for type OVERWORLD
+[18Mar2025 23:14:01.574] [modloading-worker-0/INFO] [net.potionstudios.biomeswevegone.BiomesWeveGone/]: Registering Oh The Biomes We've Gone Blocks
+[18Mar2025 23:14:01.576] [modloading-worker-0/WARN] [mixin/]: @Redirect conflict. Skipping aoemod.mixins.json:othermods.alexscaves.DeepWaterNotNeeded->@Redirect::hi4(Lnet/minecraftforge/event/entity/SpawnPlacementRegisterEvent;Lnet/minecraft/world/entity/EntityType;Lnet/minecraft/world/entity/SpawnPlacements$Type;Lnet/minecraft/world/level/levelgen/Heightmap$Types;Lnet/minecraft/world/entity/SpawnPlacements$SpawnPredicate;Lnet/minecraftforge/event/entity/SpawnPlacementRegisterEvent$Operation;)V with priority 1000, already redirected by aoemod.mixins.json:othermods.alexscaves.DeepWaterNotNeeded->@Redirect::hi3(Lnet/minecraftforge/event/entity/SpawnPlacementRegisterEvent;Lnet/minecraft/world/entity/EntityType;Lnet/minecraft/world/entity/SpawnPlacements$Type;Lnet/minecraft/world/level/levelgen/Heightmap$Types;Lnet/minecraft/world/entity/SpawnPlacements$SpawnPredicate;Lnet/minecraftforge/event/entity/SpawnPlacementRegisterEvent$Operation;)V with priority 1000
+[18Mar2025 23:14:01.666] [modloading-worker-0/INFO] [dev.architectury.networking.forge.NetworkManagerImpl/]: Registering S2C receiver with id architectury:sync_ids
+[18Mar2025 23:14:01.670] [modloading-worker-0/INFO] [dev.architectury.networking.forge.NetworkManagerImpl/]: Registering C2S receiver with id architectury:sync_ids
+[18Mar2025 23:14:01.685] [modloading-worker-0/INFO] [net.potionstudios.biomeswevegone.BiomesWeveGone/]: Registering Oh The Biomes We've Gone Wood
+[18Mar2025 23:14:01.690] [modloading-worker-0/INFO] [net.potionstudios.biomeswevegone.BiomesWeveGone/]: Registering Oh The Biomes We've Gone Block Entities
+[18Mar2025 23:14:01.690] [modloading-worker-0/INFO] [net.potionstudios.biomeswevegone.BiomesWeveGone/]: Registering Oh The Biomes We've Gone Entities
+[18Mar2025 23:14:01.695] [modloading-worker-0/INFO] [net.potionstudios.biomeswevegone.BiomesWeveGone/]: Registering Oh The Biomes We've Gone Creative Tabs
+[18Mar2025 23:14:01.695] [modloading-worker-0/INFO] [net.potionstudios.biomeswevegone.BiomesWeveGone/]: Registering Oh The Biomes We've Gone Sounds
+[18Mar2025 23:14:01.698] [modloading-worker-0/INFO] [net.potionstudios.biomeswevegone.BiomesWeveGone/]: Registering Oh The Biomes We've Gone Block Predicate
+[18Mar2025 23:14:01.708] [modloading-worker-0/INFO] [dev.architectury.networking.forge.NetworkManagerImpl/]: Registering C2S receiver with id wildernature:screen_action
+[18Mar2025 23:14:01.710] [modloading-worker-0/INFO] [net.potionstudios.biomeswevegone.BiomesWeveGone/]: Registering Oh The Biomes We've Gone State Providers
+[18Mar2025 23:14:01.720] [modloading-worker-0/INFO] [net.potionstudios.biomeswevegone.BiomesWeveGone/]: Registering Oh The Biomes We've Gone Tree Decorators
+[18Mar2025 23:14:01.737] [modloading-worker-0/INFO] [net.potionstudios.biomeswevegone.BiomesWeveGone/]: Registering Oh The Biomes We've Gone Custom Features
+[18Mar2025 23:14:01.741] [modloading-worker-0/INFO] [net.potionstudios.biomeswevegone.BiomesWeveGone/]: Registering Oh The Biomes We've Gone Structure Pieces
+[18Mar2025 23:14:01.745] [modloading-worker-0/INFO] [net.potionstudios.biomeswevegone.BiomesWeveGone/]: Registering Oh The Biomes We've Gone Custom Structure Types
+[18Mar2025 23:14:01.753] [modloading-worker-0/INFO] [net.potionstudios.biomeswevegone.BiomesWeveGone/]: Registering Oh The Biomes We've Gone Configured Features
+[18Mar2025 23:14:01.797] [modloading-worker-0/INFO] [net.potionstudios.biomeswevegone.BiomesWeveGone/]: Creating and Registering Overworld Vegetation Configured Features
+[18Mar2025 23:14:01.822] [modloading-worker-0/INFO] [com.epherical.epherolib.config.CommonConfig/]: Creating default config file: croptopia_v3.conf
+[18Mar2025 23:14:01.916] [modloading-worker-0/INFO] [quark/]: Initializing TerraBlender underground biome compat
+[18Mar2025 23:14:02.026] [modloading-worker-0/INFO] [net.potionstudios.biomeswevegone.BiomesWeveGone/]: Registering Oh The Biomes We've Gone Tree Configured Features
+[18Mar2025 23:14:02.028] [modloading-worker-0/INFO] [net.potionstudios.biomeswevegone.BiomesWeveGone/]: Creating and Registering Vanilla Configured Features
+[18Mar2025 23:14:02.049] [modloading-worker-0/INFO] [net.potionstudios.biomeswevegone.BiomesWeveGone/]: Registering Oh The Biomes You'll Go Overworld Configured Features
+[18Mar2025 23:14:02.065] [modloading-worker-0/INFO] [net.potionstudios.biomeswevegone.BiomesWeveGone/]: Registering Oh The Biomes We've Gone Placed Features
+[18Mar2025 23:14:02.082] [modloading-worker-0/INFO] [net.potionstudios.biomeswevegone.BiomesWeveGone/]: Creating and Registering Overworld Tree Placed Features
+[18Mar2025 23:14:02.102] [modloading-worker-0/INFO] [net.potionstudios.biomeswevegone.BiomesWeveGone/]: Creating and Registering Overworld Vegetation Placed Features
+[18Mar2025 23:14:02.105] [modloading-worker-0/INFO] [net.potionstudios.biomeswevegone.BiomesWeveGone/]: Creating and Registering Vanilla Placed Features
+[18Mar2025 23:14:02.107] [modloading-worker-0/INFO] [net.potionstudios.biomeswevegone.BiomesWeveGone/]: Registering Oh The Biomes We've Gone Custom Surface Rules
+[18Mar2025 23:14:02.137] [modloading-worker-0/INFO] [net.potionstudios.biomeswevegone.BiomesWeveGone/]: Registering Oh The Biomes We've Gone Template Pools
+[18Mar2025 23:14:02.165] [modloading-worker-0/INFO] [net.potionstudios.biomeswevegone.BiomesWeveGone/]: Registering Oh The Biome's We've Gone Village Template Pools
+[18Mar2025 23:14:02.172] [modloading-worker-0/INFO] [net.potionstudios.biomeswevegone.BiomesWeveGone/]: Registering Oh The Biomes We've Gone Poi Types
+[18Mar2025 23:14:02.174] [modloading-worker-0/INFO] [net.potionstudios.biomeswevegone.BiomesWeveGone/]: Registering Oh The Biomes We've Gone Villager Professions
+[18Mar2025 23:14:02.177] [modloading-worker-0/INFO] [net.potionstudios.biomeswevegone.BiomesWeveGone/]: Registering Oh The Biomes We've Gone Custom Structure Processors
+[18Mar2025 23:14:02.401] [modloading-worker-0/INFO] [quark-zeta/]: Discovered 164 modules to load.
+[18Mar2025 23:14:02.401] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Abacus...
+[18Mar2025 23:14:02.425] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Adjustable Chat...
+[18Mar2025 23:14:02.426] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Ambient Discs...
+[18Mar2025 23:14:02.428] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Ancient Tomes...
+[18Mar2025 23:14:02.440] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Ancient Wood...
+[18Mar2025 23:14:02.448] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Armed Armor Stands...
+[18Mar2025 23:14:02.448] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Auto Walk Keybind...
+[18Mar2025 23:14:02.450] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Automatic Recipe Unlock...
+[18Mar2025 23:14:02.451] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Automatic Tool Restock...
+[18Mar2025 23:14:02.458] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Azalea Wood...
+[18Mar2025 23:14:02.459] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Back Button Keybind...
+[18Mar2025 23:14:02.460] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Backpack...
+[18Mar2025 23:14:02.464] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Beacon Redirection...
+[18Mar2025 23:14:02.465] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Better Elytra Rocket...
+[18Mar2025 23:14:02.466] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Big Stone Clusters...
+[18Mar2025 23:14:02.480] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Blossom Trees...
+[18Mar2025 23:14:02.482] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Bottled Cloud...
+[18Mar2025 23:14:02.485] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Buckets Show Inhabitants...
+[18Mar2025 23:14:02.485] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Camera...
+[18Mar2025 23:14:02.487] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Campfires Boost Elytra...
+[18Mar2025 23:14:02.487] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Celebratory Lamps...
+[18Mar2025 23:14:02.488] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Chains Connect Blocks...
+[18Mar2025 23:14:02.488] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Chest Searching...
+[18Mar2025 23:14:02.507] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Chorus Vegetation...
+[18Mar2025 23:14:02.508] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Chute...
+[18Mar2025 23:14:02.510] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Climate Control Remover...
+[18Mar2025 23:14:02.511] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Color Runes...
+[18Mar2025 23:14:02.513] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Compasses Work Everywhere...
+[18Mar2025 23:14:02.514] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Compressed Blocks...
+[18Mar2025 23:14:02.515] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Coral On Cactus...
+[18Mar2025 23:14:02.516] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Corundum...
+[18Mar2025 23:14:02.545] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Crabs...
+[18Mar2025 23:14:02.553] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Crafter...
+[18Mar2025 23:14:02.554] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Crate...
+[18Mar2025 23:14:02.556] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Diamond Repair...
+[18Mar2025 23:14:02.557] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Dispensers Place Blocks...
+[18Mar2025 23:14:02.559] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Double Door Opening...
+[18Mar2025 23:14:02.560] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Dragon Scales...
+[18Mar2025 23:14:02.560] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Duskbound Blocks...
+[18Mar2025 23:14:02.561] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Dyeable Item Frames...
+[18Mar2025 23:14:02.562] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Easy Transfering...
+[18Mar2025 23:14:02.562] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Elytra Indicator...
+[18Mar2025 23:14:02.563] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Emotes...
+[18Mar2025 23:14:02.570] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Enchantment Predicates...
+[18Mar2025 23:14:02.571] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Enchantments Begone...
+[18Mar2025 23:14:02.572] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Ender Watcher...
+[18Mar2025 23:14:02.574] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Endermosh Music Disc...
+[18Mar2025 23:14:02.577] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Enhanced Ladders...
+[18Mar2025 23:14:02.578] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Expanded Item Interactions...
+[18Mar2025 23:14:02.579] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Fairy Rings...
+[18Mar2025 23:14:02.580] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Fallen Logs...
+[18Mar2025 23:14:02.581] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Feeding Trough...
+[18Mar2025 23:14:02.583] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Forgotten...
+[18Mar2025 23:14:02.588] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Foxhound...
+[18Mar2025 23:14:02.593] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Framed Glass...
+[18Mar2025 23:14:02.594] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Game Nerfs...
+[18Mar2025 23:14:02.595] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Glass Item Frame...
+[18Mar2025 23:14:02.597] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Glass Shard...
+[18Mar2025 23:14:02.598] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Glimmering Weald...
+[18Mar2025 23:14:02.607] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Gold Bars...
+[18Mar2025 23:14:02.609] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Gold Tools Have Fortune...
+[18Mar2025 23:14:02.610] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Grab Chickens...
+[18Mar2025 23:14:02.610] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Grate...
+[18Mar2025 23:14:02.615] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Gravisand...
+[18Mar2025 23:14:02.618] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Greener Grass...
+[18Mar2025 23:14:02.621] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Hedges...
+[18Mar2025 23:14:02.626] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Hoe Harvesting...
+[18Mar2025 23:14:02.626] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Hollow Logs...
+[18Mar2025 23:14:02.627] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Horses Swim...
+[18Mar2025 23:14:02.628] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Hotbar Changer...
+[18Mar2025 23:14:02.628] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Improved Sponges...
+[18Mar2025 23:14:02.629] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Improved Tooltips...
+[18Mar2025 23:14:02.630] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Industrial Palette...
+[18Mar2025 23:14:02.631] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Inventory Sorting...
+[18Mar2025 23:14:02.632] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Iron Rod...
+[18Mar2025 23:14:02.640] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Item Sharing...
+[18Mar2025 23:14:02.640] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Japanese Palette...
+[18Mar2025 23:14:02.641] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Leaf Carpet...
+[18Mar2025 23:14:02.642] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Lock Rotation...
+[18Mar2025 23:14:02.643] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Long Range Pick Block...
+[18Mar2025 23:14:02.644] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Magma Keeps Concrete Powder...
+[18Mar2025 23:14:02.644] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Magnets...
+[18Mar2025 23:14:02.646] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Map Washing...
+[18Mar2025 23:14:02.647] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Matrix Enchanting...
+[18Mar2025 23:14:02.653] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Metal Buttons...
+[18Mar2025 23:14:02.654] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Microcrafting Helper...
+[18Mar2025 23:14:02.662] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Midori...
+[18Mar2025 23:14:02.663] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Monster Box...
+[18Mar2025 23:14:02.665] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module More Banner Layers...
+[18Mar2025 23:14:02.665] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module More Brick Types...
+[18Mar2025 23:14:02.666] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module More Mud Blocks...
+[18Mar2025 23:14:02.666] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module More Note Block Sounds...
+[18Mar2025 23:14:02.667] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module More Potted Plants...
+[18Mar2025 23:14:02.668] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module More Villagers...
+[18Mar2025 23:14:02.668] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Narrator Readout...
+[18Mar2025 23:14:02.669] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Nether Brick Fence Gate...
+[18Mar2025 23:14:02.670] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Nether Obsidian Spikes...
+[18Mar2025 23:14:02.670] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module New Stone Types...
+[18Mar2025 23:14:02.673] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module No Durability On Cosmetics...
+[18Mar2025 23:14:02.674] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module No More Lava Pockets...
+[18Mar2025 23:14:02.674] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Obsidian Plate...
+[18Mar2025 23:14:02.675] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Overlay Shader...
+[18Mar2025 23:14:02.675] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Parrot Eggs...
+[18Mar2025 23:14:02.679] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Pat The Dogs...
+[18Mar2025 23:14:02.681] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Pathfinder Maps...
+[18Mar2025 23:14:02.685] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Permafrost...
+[18Mar2025 23:14:02.686] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Petals On Water...
+[18Mar2025 23:14:02.687] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Pickarang...
+[18Mar2025 23:14:02.698] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Pig Litters...
+[18Mar2025 23:14:02.700] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Pipes...
+[18Mar2025 23:14:02.702] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Pistons Move Tile Entities...
+[18Mar2025 23:14:02.704] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Poison Potato Usage...
+[18Mar2025 23:14:02.704] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Quick Armor Swapping...
+[18Mar2025 23:14:02.705] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Rainbow Lamps...
+[18Mar2025 23:14:02.705] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Raw Metal Bricks...
+[18Mar2025 23:14:02.706] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Reacharound Placing...
+[18Mar2025 23:14:02.708] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Redstone Randomizer...
+[18Mar2025 23:14:02.709] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Renewable Spore Blossoms...
+[18Mar2025 23:14:02.709] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Replace Scaffolding...
+[18Mar2025 23:14:02.710] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Rope...
+[18Mar2025 23:14:02.712] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Safer Creatures...
+[18Mar2025 23:14:02.712] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Seed Pouch...
+[18Mar2025 23:14:02.717] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Shear Vines...
+[18Mar2025 23:14:02.726] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Shiba...
+[18Mar2025 23:14:02.730] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Shingles...
+[18Mar2025 23:14:02.730] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Shulker Packing...
+[18Mar2025 23:14:02.731] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Simple Harvest...
+[18Mar2025 23:14:02.734] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Skull Pikes...
+[18Mar2025 23:14:02.735] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Slabs To Blocks...
+[18Mar2025 23:14:02.736] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Slime In A Bucket...
+[18Mar2025 23:14:02.738] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Slimes To Magma Cubes...
+[18Mar2025 23:14:02.738] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Snow Golem Player Heads...
+[18Mar2025 23:14:02.739] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Soul Candles...
+[18Mar2025 23:14:02.739] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Soul Sandstone...
+[18Mar2025 23:14:02.740] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Spawner Replacer...
+[18Mar2025 23:14:02.740] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Spiral Spires...
+[18Mar2025 23:14:02.742] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Stonelings...
+[18Mar2025 23:14:02.749] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Stools...
+[18Mar2025 23:14:02.751] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Sturdy Stone...
+[18Mar2025 23:14:02.752] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Thatch...
+[18Mar2025 23:14:02.753] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Tiny Potato...
+[18Mar2025 23:14:02.755] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Torch Arrow...
+[18Mar2025 23:14:02.756] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Toretoise...
+[18Mar2025 23:14:02.762] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Totem Of Holding...
+[18Mar2025 23:14:02.764] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Trowel...
+[18Mar2025 23:14:02.764] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Usage Ticker...
+[18Mar2025 23:14:02.765] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Uses For Curses...
+[18Mar2025 23:14:02.766] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Utility Recipes...
+[18Mar2025 23:14:02.767] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Variant Animal Textures...
+[18Mar2025 23:14:02.769] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Variant Bookshelves...
+[18Mar2025 23:14:02.770] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Variant Chests...
+[18Mar2025 23:14:02.778] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Variant Furnaces...
+[18Mar2025 23:14:02.783] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Variant Ladders...
+[18Mar2025 23:14:02.784] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Variant Selector...
+[18Mar2025 23:14:02.789] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Vertical Planks...
+[18Mar2025 23:14:02.790] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Vertical Slabs...
+[18Mar2025 23:14:02.795] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Vexes Die With Their Masters...
+[18Mar2025 23:14:02.796] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Villager Rerolling Rework...
+[18Mar2025 23:14:02.802] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Villagers Follow Emeralds...
+[18Mar2025 23:14:02.803] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Wooden Posts...
+[18Mar2025 23:14:02.804] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Wool Shuts Up Minecarts...
+[18Mar2025 23:14:02.804] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Wraith...
+[18Mar2025 23:14:02.810] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Zombie Villagers On Normal...
+[18Mar2025 23:14:02.811] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module More Stone Variants...
+[18Mar2025 23:14:02.812] [modloading-worker-0/INFO] [quark-zeta/]: Constructed 164 modules.
+[18Mar2025 23:14:02.844] [modloading-worker-0/WARN] [net.minecraftforge.common.ForgeConfigSpec/CORE]: Configuration file C:\Users\andre\Downloads\Games\September2024Mod\run-data\config\quark-common.toml is not correct. Correcting
+[18Mar2025 23:14:02.860] [modloading-worker-0/INFO] [mixin.audit/]: Force-loading class net.minecraft.world.item.alchemy.PotionUtils
+[18Mar2025 23:14:02.874] [modloading-worker-0/INFO] [mixin.audit/]: Force-loading class net.minecraft.client.renderer.entity.ParrotRenderer
+[18Mar2025 23:14:02.883] [modloading-worker-0/INFO] [mixin.audit/]: Force-loading class net.minecraft.data.recipes.SmithingTransformRecipeBuilder
+[18Mar2025 23:14:02.889] [modloading-worker-0/INFO] [mixin.audit/]: Force-loading class net.minecraft.client.renderer.entity.ItemFrameRenderer
+[18Mar2025 23:14:02.903] [modloading-worker-0/INFO] [mixin.audit/]: Force-loading class net.minecraft.world.entity.ai.behavior.SetWalkTargetFromBlockMemory
+[18Mar2025 23:14:02.904] [modloading-worker-0/INFO] [mixin.audit/]: Force-loading class org.violetmoon.quark.content.world.block.GlowShroomBlock
+[18Mar2025 23:14:02.909] [modloading-worker-0/INFO] [mixin.audit/]: Force-loading class net.minecraft.world.entity.SpawnPlacements
+[18Mar2025 23:14:02.943] [modloading-worker-0/INFO] [mixin.audit/]: Force-loading class net.mehvahdjukaar.moonlight.api.client.model.CustomBakedModel
+[18Mar2025 23:14:02.946] [modloading-worker-0/INFO] [mixin.audit/]: Force-loading class net.minecraft.world.level.levelgen.structure.structures.NetherFortressPieces
+[18Mar2025 23:14:02.950] [modloading-worker-0/INFO] [mixin.audit/]: Force-loading class net.minecraft.client.model.DrownedModel
+[18Mar2025 23:14:02.958] [modloading-worker-0/INFO] [mixin.audit/]: Force-loading class net.minecraft.client.resources.sounds.BiomeAmbientSoundsHandler$LoopSoundInstance
+[18Mar2025 23:14:02.965] [modloading-worker-0/INFO] [mixin.audit/]: Force-loading class net.minecraft.world.entity.animal.goat.GoatAi
+[18Mar2025 23:14:02.970] [modloading-worker-0/INFO] [mixin.audit/]: Force-loading class net.minecraft.client.gui.screens.worldselection.WorldOpenFlows
+[18Mar2025 23:14:03.000] [modloading-worker-0/INFO] [mixin.audit/]: Force-loading class net.minecraft.network.protocol.game.ClientboundMapItemDataPacket
+[18Mar2025 23:14:03.030] [modloading-worker-0/INFO] [mixin.audit/]: Force-loading class org.violetmoon.zeta.block.ZetaBlockWrapper
+[18Mar2025 23:14:03.035] [modloading-worker-0/INFO] [mixin.audit/]: Force-loading class net.minecraft.server.commands.PlaceCommand
+[18Mar2025 23:14:03.052] [modloading-worker-0/INFO] [mixin.audit/]: Force-loading class net.minecraft.client.renderer.entity.EntityRenderDispatcher
+[18Mar2025 23:14:03.080] [modloading-worker-0/INFO] [mixin.audit/]: Force-loading class com.legacy.blue_skies.blocks.natural.BrewberryBushBlock
+[18Mar2025 23:14:03.085] [modloading-worker-0/INFO] [mixin.audit/]: Force-loading class com.github.alexmodguy.alexscaves.server.level.structure.piece.DinoBowlStructurePiece
+[18Mar2025 23:14:03.090] [modloading-worker-0/INFO] [mixin.audit/]: Force-loading class net.minecraftforge.server.ServerLifecycleHooks
+[18Mar2025 23:14:03.095] [modloading-worker-0/INFO] [mixin.audit/]: Force-loading class net.minecraft.client.renderer.entity.RabbitRenderer
+[18Mar2025 23:14:03.103] [modloading-worker-0/INFO] [mixin.audit/]: Force-loading class net.minecraft.client.renderer.ItemBlockRenderTypes
+[18Mar2025 23:14:03.123] [modloading-worker-0/INFO] [mixin.audit/]: Force-loading class net.minecraft.world.level.saveddata.maps.MapDecoration
+[18Mar2025 23:14:03.127] [modloading-worker-0/INFO] [mixin.audit/]: Force-loading class net.minecraft.world.level.storage.DimensionDataStorage
+[18Mar2025 23:14:03.132] [modloading-worker-0/INFO] [mixin.audit/]: Force-loading class net.minecraft.resources.RegistryDataLoader
+[18Mar2025 23:14:03.171] [modloading-worker-0/INFO] [mixin.audit/]: Force-loading class net.minecraft.gametest.framework.GameTestServer
+[18Mar2025 23:14:03.224] [modloading-worker-0/INFO] [mixin.audit/]: Force-loading class net.minecraft.client.renderer.entity.DrownedRenderer
+[18Mar2025 23:14:03.271] [modloading-worker-0/INFO] [mixin.audit/]: Force-loading class net.minecraft.client.gui.components.PlayerTabOverlay
+[18Mar2025 23:14:03.276] [modloading-worker-0/INFO] [mixin.audit/]: Force-loading class net.minecraft.client.gui.components.BossHealthOverlay
+[18Mar2025 23:14:03.285] [modloading-worker-0/INFO] [mixin.audit/]: Force-loading class net.mehvahdjukaar.moonlight.api.block.IPistonMotionReact
+[18Mar2025 23:14:03.286] [modloading-worker-0/INFO] [mixin.audit/]: Force-loading class net.minecraft.client.renderer.entity.PigRenderer
+[18Mar2025 23:14:03.290] [modloading-worker-0/INFO] [mixin.audit/]: Force-loading class net.minecraft.client.gui.components.toasts.AdvancementToast
+[18Mar2025 23:14:03.297] [modloading-worker-0/INFO] [mixin.audit/]: Force-loading class net.mehvahdjukaar.moonlight.api.fluids.ModFlowingFluid
+[18Mar2025 23:14:03.299] [modloading-worker-0/INFO] [mixin.audit/]: Force-loading class net.minecraft.client.resources.sounds.BiomeAmbientSoundsHandler
+[18Mar2025 23:14:03.304] [modloading-worker-0/INFO] [mixin.audit/]: Force-loading class net.minecraft.data.recipes.SimpleCookingRecipeBuilder
+[18Mar2025 23:14:03.308] [modloading-worker-0/INFO] [mixin.audit/]: Force-loading class net.minecraft.data.recipes.SpecialRecipeBuilder
+[18Mar2025 23:14:03.312] [modloading-worker-0/INFO] [mixin.audit/]: Force-loading class net.minecraft.world.level.levelgen.structure.StructureStart
+[18Mar2025 23:14:03.314] [modloading-worker-0/INFO] [mixin.audit/]: Force-loading class top.theillusivec4.curios.api.CuriosTriggers$EquipBuilder
+[18Mar2025 23:14:03.317] [modloading-worker-0/INFO] [mixin.audit/]: Force-loading class net.minecraft.core.RegistrySetBuilder$BuildState
+[18Mar2025 23:14:03.323] [modloading-worker-0/INFO] [mixin.audit/]: Force-loading class net.minecraft.world.level.levelgen.SurfaceSystem
+[18Mar2025 23:14:03.334] [modloading-worker-0/INFO] [mixin.audit/]: Force-loading class dev.architectury.extensions.network.EntitySpawnExtension
+[18Mar2025 23:14:03.336] [modloading-worker-0/INFO] [mixin.audit/]: Force-loading class net.minecraft.data.recipes.ShapedRecipeBuilder
+[18Mar2025 23:14:03.338] [modloading-worker-0/INFO] [mixin.audit/]: Force-loading class net.minecraft.client.gui.screens.inventory.CreativeModeInventoryScreen
+[18Mar2025 23:14:03.361] [modloading-worker-0/INFO] [mixin.audit/]: Force-loading class net.minecraft.client.renderer.entity.ThrownTridentRenderer
+[18Mar2025 23:14:03.367] [modloading-worker-0/INFO] [mixin.audit/]: Force-loading class net.minecraft.client.renderer.blockentity.StructureBlockRenderer
+[18Mar2025 23:14:03.374] [modloading-worker-0/INFO] [mixin.audit/]: Force-loading class net.minecraft.world.food.FoodData
+[18Mar2025 23:14:03.379] [modloading-worker-0/INFO] [mixin.audit/]: Force-loading class net.minecraft.client.renderer.entity.layers.ElytraLayer
+[18Mar2025 23:14:03.380] [modloading-worker-0/INFO] [mixin.audit/]: Force-loading class net.minecraft.data.tags.ItemTagsProvider
+[18Mar2025 23:14:03.386] [modloading-worker-0/INFO] [mixin.audit/]: Force-loading class net.minecraft.world.level.NaturalSpawner
+[18Mar2025 23:14:03.418] [modloading-worker-0/INFO] [mixin.audit/]: Force-loading class net.minecraft.world.entity.monster.piglin.PiglinAi
+[18Mar2025 23:14:03.426] [modloading-worker-0/INFO] [mixin.audit/]: Force-loading class net.minecraft.client.renderer.blockentity.PistonHeadRenderer
+[18Mar2025 23:14:03.432] [modloading-worker-0/INFO] [mixin.audit/]: Force-loading class com.legacy.lucent.api.data.objects.EntityLighting$Builder
+[18Mar2025 23:14:03.435] [modloading-worker-0/INFO] [mixin.audit/]: Force-loading class net.minecraft.client.GameNarrator
+[18Mar2025 23:14:03.441] [modloading-worker-0/INFO] [mixin.audit/]: Force-loading class net.minecraft.client.renderer.entity.LlamaRenderer
+[18Mar2025 23:14:03.446] [modloading-worker-0/INFO] [mixin.audit/]: Force-loading class net.minecraft.world.level.levelgen.structure.templatesystem.StructurePlaceSettings
+[18Mar2025 23:14:03.448] [modloading-worker-0/INFO] [mixin.audit/]: Force-loading class net.mehvahdjukaar.moonlight.api.entity.IExtraClientSpawnData
+[18Mar2025 23:14:03.448] [modloading-worker-0/INFO] [mixin.audit/]: Force-loading class net.minecraft.world.level.dimension.end.EndDragonFight
+[18Mar2025 23:14:03.452] [modloading-worker-0/INFO] [mixin.audit/]: Force-loading class net.minecraft.client.MouseHandler
+[18Mar2025 23:14:03.461] [modloading-worker-0/INFO] [mixin.audit/]: Force-loading class net.minecraft.world.item.enchantment.EnchantmentHelper
+[18Mar2025 23:14:03.468] [modloading-worker-0/INFO] [mixin.audit/]: Force-loading class net.minecraft.data.recipes.ShapelessRecipeBuilder
+[18Mar2025 23:14:03.470] [modloading-worker-0/INFO] [mixin.audit/]: Force-loading class net.minecraft.world.level.levelgen.structure.templatesystem.StructureTemplate
+[18Mar2025 23:14:03.510] [modloading-worker-0/INFO] [mixin.audit/]: Force-loading class net.minecraft.server.advancements.AdvancementVisibilityEvaluator
+[18Mar2025 23:14:03.515] [modloading-worker-0/INFO] [mixin.audit/]: Force-loading class net.minecraft.client.resources.model.WeightedBakedModel
+[18Mar2025 23:14:03.520] [modloading-worker-0/INFO] [mixin.audit/]: Force-loading class net.minecraft.client.renderer.entity.ChickenRenderer
+[18Mar2025 23:14:03.525] [modloading-worker-0/INFO] [mixin.audit/]: Force-loading class com.legacy.lucent.api.data.objects.ItemLighting$Builder
+[18Mar2025 23:14:03.528] [modloading-worker-0/INFO] [mixin.audit/]: Force-loading class net.minecraft.world.level.saveddata.maps.MapItemSavedData$HoldingPlayer
+[18Mar2025 23:14:03.538] [modloading-worker-0/INFO] [mixin.audit/]: Force-loading class net.minecraft.world.entity.npc.VillagerTrades$EnchantBookForEmeralds
+[18Mar2025 23:14:03.542] [modloading-worker-0/INFO] [mixin.audit/]: Force-loading class net.minecraft.client.gui.screens.inventory.HangingSignEditScreen
+[18Mar2025 23:14:03.546] [modloading-worker-0/INFO] [mixin.audit/]: Force-loading class com.github.alexthe666.alexsmobs.entity.EntitySkunk
+[18Mar2025 23:14:03.549] [modloading-worker-0/INFO] [mixin.audit/]: Force-loading class net.minecraftforge.common.crafting.StrictNBTIngredient
+[18Mar2025 23:14:03.551] [modloading-worker-0/INFO] [mixin.audit/]: Force-loading class net.minecraft.server.packs.resources.SimpleReloadInstance
+[18Mar2025 23:14:03.556] [modloading-worker-0/INFO] [mixin.audit/]: Force-loading class net.minecraft.advancements.critereon.NbtPredicate
+[18Mar2025 23:14:03.560] [modloading-worker-0/INFO] [mixin.audit/]: Force-loading class net.minecraft.client.renderer.chunk.ChunkRenderDispatcher$RenderChunk$RebuildTask
+[18Mar2025 23:14:03.583] [modloading-worker-0/INFO] [mixin.audit/]: Force-loading class net.minecraft.client.gui.screens.advancements.AdvancementTab
+[18Mar2025 23:14:03.594] [modloading-worker-0/INFO] [mixin.audit/]: Force-loading class net.minecraft.client.renderer.texture.TextureManager
+[18Mar2025 23:14:03.612] [modloading-worker-0/INFO] [mixin.audit/]: Force-loading class net.mcreator.nethersexoticism.procedures.PitayaStemDownUpdateTickProcedure
+[18Mar2025 23:14:03.614] [modloading-worker-0/INFO] [mixin.audit/]: Force-loading class net.minecraft.client.server.IntegratedServer
+[18Mar2025 23:14:03.618] [modloading-worker-0/INFO] [mixin.audit/]: Force-loading class top.theillusivec4.curios.api.CuriosDataProvider
+[18Mar2025 23:14:03.623] [modloading-worker-0/INFO] [mixin.audit/]: Force-loading class top.theillusivec4.curios.api.CuriosTriggers
+[18Mar2025 23:14:03.628] [modloading-worker-0/INFO] [mixin.audit/]: Force-loading class net.minecraft.client.gui.MapRenderer$MapInstance
+[18Mar2025 23:14:03.641] [modloading-worker-0/INFO] [mixin.audit/]: Force-loading class net.minecraft.client.gui.screens.inventory.LoomScreen
+[18Mar2025 23:14:03.644] [modloading-worker-0/INFO] [mixin.audit/]: Force-loading class net.minecraft.world.entity.ai.Brain
+[18Mar2025 23:14:03.649] [modloading-worker-0/INFO] [mixin.audit/]: Force-loading class net.mehvahdjukaar.moonlight.api.client.ModFluidRenderProperties
+[18Mar2025 23:14:03.650] [modloading-worker-0/INFO] [mixin.audit/]: Force-loading class net.minecraftforge.common.data.ForgeItemTagsProvider
+[18Mar2025 23:14:03.653] [modloading-worker-0/INFO] [mixin.audit/]: Force-loading class net.minecraft.world.entity.ai.behavior.HarvestFarmland
+[18Mar2025 23:14:03.660] [modloading-worker-0/INFO] [mixin.audit/]: Force-loading class net.minecraft.world.level.pathfinder.AmphibiousNodeEvaluator
+[18Mar2025 23:14:03.663] [modloading-worker-0/INFO] [mixin.audit/]: Force-loading class net.minecraft.client.resources.model.ModelBakery$ModelBakerImpl
+[18Mar2025 23:14:03.670] [modloading-worker-0/INFO] [mixin.audit/]: Force-loading class net.minecraft.client.renderer.entity.BeeRenderer
+[18Mar2025 23:14:03.674] [modloading-worker-0/INFO] [mixin.audit/]: Force-loading class org.violetmoon.zeta.block.ZetaSlabBlock
+[18Mar2025 23:14:03.676] [modloading-worker-0/INFO] [mixin.audit/]: Force-loading class net.minecraft.client.multiplayer.ClientChunkCache$Storage
+[18Mar2025 23:14:03.680] [modloading-worker-0/INFO] [mixin.audit/]: Force-loading class net.minecraft.world.level.chunk.storage.ChunkSerializer
+[18Mar2025 23:14:03.710] [modloading-worker-0/INFO] [mixin.audit/]: Force-loading class net.minecraft.world.entity.monster.piglin.StartHuntingHoglin
+[18Mar2025 23:14:03.712] [modloading-worker-0/INFO] [mixin.audit/]: Force-loading class net.minecraft.world.entity.npc.VillagerTrades
+[18Mar2025 23:14:03.722] [modloading-worker-0/INFO] [mixin.audit/]: Force-loading class net.minecraft.data.recipes.SingleItemRecipeBuilder
+[18Mar2025 23:14:03.723] [modloading-worker-0/INFO] [mixin.audit/]: Force-loading class net.minecraft.world.level.saveddata.maps.MapItemSavedData
+[18Mar2025 23:14:03.743] [modloading-worker-0/INFO] [mixin.audit/]: Force-loading class net.minecraft.client.renderer.entity.layers.PlayerItemInHandLayer
+[18Mar2025 23:14:03.751] [modloading-worker-0/INFO] [mixin.audit/]: Force-loading class net.minecraft.client.resources.language.ClientLanguage
+[18Mar2025 23:14:03.758] [modloading-worker-0/INFO] [mixin.audit/]: Force-loading class net.minecraft.client.resources.sounds.MinecartSoundInstance
+[18Mar2025 23:14:03.763] [modloading-worker-0/INFO] [mixin.audit/]: Force-loading class net.minecraft.client.renderer.texture.atlas.SpriteResourceLoader
+[18Mar2025 23:14:03.777] [modloading-worker-0/INFO] [mixin.audit/]: Force-loading class net.minecraft.server.commands.GameRuleCommand
+[18Mar2025 23:14:03.783] [modloading-worker-0/INFO] [mixin.audit/]: Force-loading class net.minecraft.client.renderer.entity.SlimeRenderer
+[18Mar2025 23:14:03.786] [modloading-worker-0/INFO] [mixin.audit/]: Force-loading class twilightforest.block.entity.GrowingBeanstalkBlockEntity
+[18Mar2025 23:14:03.787] [modloading-worker-0/INFO] [mixin.audit/]: Force-loading class net.minecraft.client.telemetry.ClientTelemetryManager
+[18Mar2025 23:14:03.791] [modloading-worker-0/INFO] [mixin.audit/]: Force-loading class net.minecraft.advancements.Advancement$Builder
+[18Mar2025 23:14:03.796] [modloading-worker-0/INFO] [mixin.audit/]: Force-loading class net.minecraft.client.renderer.blockentity.BeaconRenderer
+[18Mar2025 23:14:03.800] [modloading-worker-0/INFO] [mixin.audit/]: Force-loading class net.minecraft.client.resources.sounds.RidingMinecartSoundInstance
+[18Mar2025 23:14:03.803] [modloading-worker-0/INFO] [mixin.audit/]: Force-loading class com.github.alexthe666.alexsmobs.entity.EntityPlatypus
+[18Mar2025 23:14:03.808] [modloading-worker-0/INFO] [mixin.audit/]: Force-loading class net.minecraft.world.level.storage.loot.LootPool$Builder
+[18Mar2025 23:14:03.812] [modloading-worker-0/INFO] [mixin.audit/]: Force-loading class dev.architectury.extensions.ItemExtension
+[18Mar2025 23:14:03.812] [modloading-worker-0/INFO] [mixin.audit/]: Force-loading class net.minecraft.server.dedicated.DedicatedServer
+[18Mar2025 23:14:03.819] [modloading-worker-0/INFO] [mixin.audit/]: Force-loading class net.minecraft.client.renderer.LightTexture
+[18Mar2025 23:14:03.838] [modloading-worker-0/INFO] [mixin.audit/]: Force-loading class org.violetmoon.zeta.block.ZetaWallBlock
+[18Mar2025 23:14:03.840] [modloading-worker-0/INFO] [mixin.audit/]: Force-loading class net.minecraft.client.gui.components.SplashRenderer
+[18Mar2025 23:14:03.848] [modloading-worker-0/INFO] [mixin.audit/]: Force-loading class com.mojang.blaze3d.vertex.SheetedDecalTextureGenerator
+[18Mar2025 23:14:03.854] [modloading-worker-0/INFO] [mixin.audit/]: Force-loading class net.minecraft.client.gui.screens.SkinCustomizationScreen
+[18Mar2025 23:14:03.862] [modloading-worker-0/INFO] [mixin.audit/]: Force-loading class net.minecraft.client.renderer.entity.DolphinRenderer
+[18Mar2025 23:14:03.866] [modloading-worker-0/INFO] [mixin.audit/]: Force-loading class net.minecraft.client.renderer.block.ModelBlockRenderer
+[18Mar2025 23:14:03.878] [modloading-worker-0/INFO] [mixin.audit/]: Force-loading class net.minecraft.client.gui.components.ChatComponent
+[18Mar2025 23:14:03.886] [modloading-worker-0/INFO] [mixin.audit/]: Force-loading class net.minecraft.world.level.storage.PrimaryLevelData
+[18Mar2025 23:14:03.893] [modloading-worker-0/INFO] [mixin.audit/]: Force-loading class net.minecraft.client.renderer.entity.VillagerRenderer
+[18Mar2025 23:14:03.899] [modloading-worker-0/INFO] [mixin.audit/]: Force-loading class net.minecraft.world.level.levelgen.PhantomSpawner
+[18Mar2025 23:14:03.905] [modloading-worker-0/INFO] [mixin.audit/]: Force-loading class org.violetmoon.zeta.block.ZetaInheritedPaneBlock
+[18Mar2025 23:14:03.908] [modloading-worker-0/INFO] [mixin.audit/]: Force-loading class org.violetmoon.zeta.block.ZetaStairsBlock
+[18Mar2025 23:14:03.911] [modloading-worker-0/INFO] [mixin.audit/]: Force-loading class net.minecraft.client.resources.model.MultiPartBakedModel
+[18Mar2025 23:14:03.914] [modloading-worker-0/INFO] [mixin.audit/]: Force-loading class net.minecraft.client.resources.SplashManager
+[18Mar2025 23:14:03.921] [modloading-worker-0/INFO] [mixin.audit/]: Force-loading class net.minecraftforge.common.data.LanguageProvider
+[18Mar2025 23:14:03.925] [modloading-worker-0/INFO] [mixin.audit/]: Force-loading class net.minecraft.world.entity.monster.hoglin.HoglinAi
+[18Mar2025 23:14:03.927] [modloading-worker-0/INFO] [mixin.audit/]: Force-loading class net.minecraft.network.protocol.game.ServerboundSetStructureBlockPacket
+[18Mar2025 23:14:03.932] [modloading-worker-0/INFO] [mixin.audit/]: Force-loading class net.minecraft.server.level.ServerEntity
+[18Mar2025 23:14:03.942] [modloading-worker-0/INFO] [mixin.audit/]: Force-loading class net.minecraft.client.renderer.texture.DynamicTexture
+[18Mar2025 23:14:03.942] [modloading-worker-0/INFO] [mixin.audit/]: Force-loading class net.minecraft.client.renderer.RenderBuffers
+[18Mar2025 23:14:03.947] [modloading-worker-0/INFO] [mixin.audit/]: Force-loading class net.minecraft.client.resources.sounds.UnderwaterAmbientSoundInstances$UnderwaterAmbientSoundInstance
+[18Mar2025 23:14:03.950] [modloading-worker-0/INFO] [mixin.audit/]: Force-loading class net.minecraft.client.renderer.PostPass
+[18Mar2025 23:14:03.951] [modloading-worker-0/INFO] [mixin.audit/]: Force-loading class top.theillusivec4.curios.api.CuriosApi
+[18Mar2025 23:14:03.979] [modloading-worker-0/INFO] [mixin.audit/]: Force-loading class org.violetmoon.zeta.block.ZetaPaneBlock
+[18Mar2025 23:14:03.979] [modloading-worker-0/INFO] [mixin.audit/]: Force-loading class net.mehvahdjukaar.moonlight.api.block.ItemDisplayTile
+[18Mar2025 23:14:03.982] [modloading-worker-0/INFO] [mixin.audit/]: Force-loading class net.minecraft.server.packs.resources.MultiPackResourceManager
+[18Mar2025 23:14:03.986] [modloading-worker-0/INFO] [mixin.audit/]: Force-loading class net.minecraft.client.multiplayer.ClientPacketListener
+[18Mar2025 23:14:04.026] [modloading-worker-0/INFO] [mixin.audit/]: Force-loading class net.minecraft.world.level.block.entity.BeehiveBlockEntity$BeeData
+[18Mar2025 23:14:04.029] [modloading-worker-0/INFO] [mixin.audit/]: Force-loading class net.minecraft.client.renderer.block.BlockRenderDispatcher
+[18Mar2025 23:14:04.033] [modloading-worker-0/INFO] [mixin.audit/]: Force-loading class net.minecraft.client.renderer.chunk.RenderChunkRegion
+[18Mar2025 23:14:04.033] [modloading-worker-0/INFO] [mixin.audit/]: Force-loading class net.minecraftforge.common.crafting.IntersectionIngredient
+[18Mar2025 23:14:04.036] [modloading-worker-0/INFO] [mixin.audit/]: Force-loading class org.violetmoon.zeta.block.ZetaFenceGateBlock
+[18Mar2025 23:14:04.038] [modloading-worker-0/INFO] [mixin.audit/]: Force-loading class com.github.alexmodguy.alexscaves.server.level.structure.DinoBowlStructure
+[18Mar2025 23:14:04.040] [modloading-worker-0/INFO] [mixin.audit/]: Force-loading class net.minecraft.client.model.ArmorStandModel
+[18Mar2025 23:14:04.043] [modloading-worker-0/INFO] [mixin.audit/]: Force-loading class net.minecraft.client.gui.screens.inventory.CreativeModeInventoryScreen$CustomCreativeSlot
+[18Mar2025 23:14:04.044] [modloading-worker-0/INFO] [mixin.audit/]: Force-loading class net.mehvahdjukaar.moonlight.api.client.model.IExtraModelDataProvider
+[18Mar2025 23:14:04.045] [modloading-worker-0/INFO] [mixin.audit/]: Force-loading class net.minecraft.client.renderer.ScreenEffectRenderer
+[18Mar2025 23:14:04.051] [modloading-worker-0/INFO] [mixin.audit/]: Force-loading class net.minecraft.world.item.armortrim.ArmorTrim
+[18Mar2025 23:14:04.060] [modloading-worker-0/INFO] [mixin.audit/]: Force-loading class net.minecraft.client.resources.sounds.UnderwaterAmbientSoundHandler
+[18Mar2025 23:14:04.062] [modloading-worker-0/INFO] [mixin.audit/]: Force-loading class net.minecraft.client.renderer.entity.layers.SnowGolemHeadLayer
+[18Mar2025 23:14:04.068] [modloading-worker-0/INFO] [mixin.audit/]: Force-loading class com.github.alexthe666.alexsmobs.entity.EntityEmu
+[18Mar2025 23:14:04.071] [modloading-worker-0/INFO] [mixin.audit/]: Force-loading class net.minecraft.client.renderer.block.LiquidBlockRenderer
+[18Mar2025 23:14:04.075] [modloading-worker-0/INFO] [mixin.audit/]: Force-loading class net.minecraft.client.renderer.entity.CowRenderer
+[18Mar2025 23:14:04.078] [modloading-worker-0/INFO] [mixin.audit/]: Force-loading class net.minecraft.client.gui.screens.advancements.AdvancementWidget
+[18Mar2025 23:14:04.085] [modloading-worker-0/INFO] [mixin.audit/]: Force-loading class net.minecraft.world.entity.ai.behavior.WorkAtComposter
+[18Mar2025 23:14:04.088] [modloading-worker-0/INFO] [mixin.audit/]: Force-loading class top.theillusivec4.curios.api.SlotAttribute
+[18Mar2025 23:14:04.090] [modloading-worker-0/INFO] [mixin.audit/]: Force-loading class net.minecraftforge.common.crafting.DifferenceIngredient
+[18Mar2025 23:14:04.093] [modloading-worker-0/INFO] [mixin.audit/]: Force-loading class com.github.alexthe666.alexsmobs.entity.EntityBananaSlug
+[18Mar2025 23:14:04.095] [modloading-worker-0/INFO] [mixin.audit/]: Force-loading class net.minecraft.client.multiplayer.ClientLevel$ClientLevelData
+[18Mar2025 23:14:04.098] [modloading-worker-0/INFO] [mixin.audit/]: Force-loading class net.minecraft.client.renderer.entity.layers.HumanoidArmorLayer
+[18Mar2025 23:14:04.098] [modloading-worker-0/INFO] [mixin.audit/]: Force-loading class com.github.alexthe666.alexsmobs.entity.EntityAlligatorSnappingTurtle
+[18Mar2025 23:14:04.103] [modloading-worker-0/INFO] [mixin.audit/]: Force-loading class net.minecraft.server.WorldLoader$PackConfig
+[18Mar2025 23:14:04.105] [modloading-worker-0/INFO] [mixin.audit/]: Force-loading class net.minecraftforge.common.crafting.PartialNBTIngredient
+[18Mar2025 23:14:04.108] [modloading-worker-0/INFO] [mixin.audit/]: Force-loading class net.minecraft.client.OptionInstance
+[18Mar2025 23:14:04.112] [modloading-worker-0/INFO] [mixin.audit/]: Force-loading class net.minecraft.client.gui.components.DebugScreenOverlay
+[18Mar2025 23:14:04.118] [modloading-worker-0/INFO] [mixin.audit/]: Force-loading class net.minecraft.client.gui.MapRenderer
+[18Mar2025 23:14:04.278] [main/INFO] [snownee.kiwi.Kiwi/INIT]: Module [snowrealmagic:core] initialized
+[18Mar2025 23:14:04.278] [main/INFO] [snownee.kiwi.Kiwi/INIT]: 		block: 7, block_entity_type: 2, entity_type: 1, loot_pool_entry_type: 1
+[18Mar2025 23:14:04.280] [main/INFO] [snownee.kiwi.Kiwi/INIT]: Module [kiwi:block_templates] initialized
+[18Mar2025 23:14:04.280] [main/INFO] [snownee.kiwi.Kiwi/INIT]: Module [kiwi:data] initialized
+[18Mar2025 23:14:04.281] [main/INFO] [snownee.kiwi.Kiwi/INIT]: 		recipe_serializer: 3
+[18Mar2025 23:14:04.281] [main/INFO] [snownee.kiwi.Kiwi/INIT]: Module [kiwi:block_components] initialized
+[18Mar2025 23:14:04.281] [main/INFO] [snownee.kiwi.Kiwi/INIT]: Module [kiwi:item_templates] initialized
+[18Mar2025 23:14:04.324] [main/INFO] [dev.architectury.networking.forge.NetworkManagerImpl/]: Registering S2C receiver with id wildernature:screen_update
+[18Mar2025 23:14:05.575] [main/INFO] [dev.architectury.networking.forge.NetworkManagerImpl/]: Registering S2C receiver with id wildernature:screen_update
+[18Mar2025 23:14:07.070] [main/INFO] [dev.architectury.networking.forge.NetworkManagerImpl/]: Registering S2C receiver with id wildernature:screen_update
+[18Mar2025 23:14:07.199] [main/INFO] [Moonlight/]: Initialized block sets in 12ms
+[18Mar2025 23:14:07.199] [main/INFO] [dev.architectury.networking.forge.NetworkManagerImpl/]: Registering S2C receiver with id wildernature:screen_update
+[18Mar2025 23:14:07.206] [main/INFO] [dev.architectury.networking.forge.NetworkManagerImpl/]: Registering S2C receiver with id wildernature:screen_update
+[18Mar2025 23:14:07.214] [main/INFO] [dev.architectury.networking.forge.NetworkManagerImpl/]: Registering S2C receiver with id wildernature:screen_update
+[18Mar2025 23:14:07.371] [main/INFO] [dev.architectury.networking.forge.NetworkManagerImpl/]: Registering S2C receiver with id wildernature:screen_update
+[18Mar2025 23:14:07.871] [main/WARN] [dev.architectury.registry.registries.forge.RegistrarManagerImpl/]: Registry entry listened Registry Entry [minecraft:entity_type / wildernature:cassowary] was not realized!
+[18Mar2025 23:14:07.871] [main/WARN] [dev.architectury.registry.registries.forge.RegistrarManagerImpl/]: Registry entry listened Registry Entry [minecraft:entity_type / wildernature:turkey] was not realized!
+[18Mar2025 23:14:07.871] [main/WARN] [dev.architectury.registry.registries.forge.RegistrarManagerImpl/]: Registry entry listened Registry Entry [minecraft:entity_type / wildernature:owl] was not realized!
+[18Mar2025 23:14:07.871] [main/WARN] [dev.architectury.registry.registries.forge.RegistrarManagerImpl/]: Registry entry listened Registry Entry [minecraft:entity_type / wildernature:minisheep] was not realized!
+[18Mar2025 23:14:07.871] [main/WARN] [dev.architectury.registry.registries.forge.RegistrarManagerImpl/]: Registry entry listened Registry Entry [minecraft:entity_type / wildernature:bison] was not realized!
+[18Mar2025 23:14:07.871] [main/WARN] [dev.architectury.registry.registries.forge.RegistrarManagerImpl/]: Registry entry listened Registry Entry [minecraft:entity_type / wildernature:penguin] was not realized!
+[18Mar2025 23:14:07.871] [main/WARN] [dev.architectury.registry.registries.forge.RegistrarManagerImpl/]: Registry entry listened Registry Entry [minecraft:entity_type / wildernature:deer] was not realized!
+[18Mar2025 23:14:07.872] [main/WARN] [dev.architectury.registry.registries.forge.RegistrarManagerImpl/]: Registry entry listened Registry Entry [minecraft:entity_type / wildernature:dog] was not realized!
+[18Mar2025 23:14:07.872] [main/WARN] [dev.architectury.registry.registries.forge.RegistrarManagerImpl/]: Registry entry listened Registry Entry [minecraft:entity_type / wildernature:hedgehog] was not realized!
+[18Mar2025 23:14:07.872] [main/WARN] [dev.architectury.registry.registries.forge.RegistrarManagerImpl/]: Registry entry listened Registry Entry [minecraft:entity_type / wildernature:red_wolf] was not realized!
+[18Mar2025 23:14:07.872] [main/WARN] [dev.architectury.registry.registries.forge.RegistrarManagerImpl/]: Registry entry listened Registry Entry [minecraft:entity_type / wildernature:pelican] was not realized!
+[18Mar2025 23:14:07.872] [main/WARN] [dev.architectury.registry.registries.forge.RegistrarManagerImpl/]: Registry entry listened Registry Entry [minecraft:entity_type / wildernature:squirrel] was not realized!
+[18Mar2025 23:14:07.872] [main/WARN] [dev.architectury.registry.registries.forge.RegistrarManagerImpl/]: Registry entry listened Registry Entry [minecraft:entity_type / wildernature:boar] was not realized!
+[18Mar2025 23:14:07.872] [main/WARN] [dev.architectury.registry.registries.forge.RegistrarManagerImpl/]: Registry entry listened Registry Entry [minecraft:entity_type / wildernature:flamingo] was not realized!
+[18Mar2025 23:14:07.872] [main/WARN] [dev.architectury.registry.registries.forge.RegistrarManagerImpl/]: Registry entry listened Registry Entry [minecraft:entity_type / wildernature:raccoon] was not realized!
+[18Mar2025 23:14:07.875] [main/INFO] [dev.architectury.networking.forge.NetworkManagerImpl/]: Registering S2C receiver with id wildernature:screen_update
+[18Mar2025 23:14:07.878] [main/INFO] [dev.architectury.networking.forge.NetworkManagerImpl/]: Registering S2C receiver with id wildernature:screen_update
+[18Mar2025 23:14:07.880] [main/INFO] [dev.architectury.networking.forge.NetworkManagerImpl/]: Registering S2C receiver with id wildernature:screen_update
+[18Mar2025 23:14:07.881] [main/INFO] [dev.architectury.networking.forge.NetworkManagerImpl/]: Registering S2C receiver with id wildernature:screen_update
+[18Mar2025 23:14:07.883] [main/INFO] [dev.architectury.networking.forge.NetworkManagerImpl/]: Registering S2C receiver with id wildernature:screen_update
+[18Mar2025 23:14:07.885] [main/INFO] [dev.architectury.networking.forge.NetworkManagerImpl/]: Registering S2C receiver with id wildernature:screen_update
+[18Mar2025 23:14:07.931] [main/INFO] [dev.architectury.networking.forge.NetworkManagerImpl/]: Registering S2C receiver with id wildernature:screen_update
+[18Mar2025 23:14:07.934] [main/INFO] [dev.architectury.networking.forge.NetworkManagerImpl/]: Registering S2C receiver with id wildernature:screen_update
+[18Mar2025 23:14:07.936] [main/INFO] [dev.architectury.networking.forge.NetworkManagerImpl/]: Registering S2C receiver with id wildernature:screen_update
+[18Mar2025 23:14:07.937] [main/INFO] [dev.architectury.networking.forge.NetworkManagerImpl/]: Registering S2C receiver with id wildernature:screen_update
+[18Mar2025 23:14:07.938] [main/INFO] [dev.architectury.networking.forge.NetworkManagerImpl/]: Registering S2C receiver with id wildernature:screen_update
+[18Mar2025 23:14:07.939] [main/INFO] [dev.architectury.networking.forge.NetworkManagerImpl/]: Registering S2C receiver with id wildernature:screen_update
+[18Mar2025 23:14:07.939] [main/INFO] [dev.architectury.networking.forge.NetworkManagerImpl/]: Registering S2C receiver with id wildernature:screen_update
+[18Mar2025 23:14:07.940] [main/INFO] [dev.architectury.networking.forge.NetworkManagerImpl/]: Registering S2C receiver with id wildernature:screen_update
+[18Mar2025 23:14:07.983] [main/INFO] [dev.architectury.networking.forge.NetworkManagerImpl/]: Registering S2C receiver with id wildernature:screen_update
+[18Mar2025 23:14:07.986] [main/INFO] [dev.architectury.networking.forge.NetworkManagerImpl/]: Registering S2C receiver with id wildernature:screen_update
+[18Mar2025 23:14:07.998] [main/INFO] [dev.architectury.networking.forge.NetworkManagerImpl/]: Registering S2C receiver with id wildernature:screen_update
+[18Mar2025 23:14:08.001] [main/INFO] [dev.architectury.networking.forge.NetworkManagerImpl/]: Registering S2C receiver with id wildernature:screen_update
+[18Mar2025 23:14:08.004] [main/INFO] [dev.architectury.networking.forge.NetworkManagerImpl/]: Registering S2C receiver with id wildernature:screen_update
+[18Mar2025 23:14:08.004] [main/INFO] [dev.architectury.networking.forge.NetworkManagerImpl/]: Registering S2C receiver with id wildernature:screen_update
+[18Mar2025 23:14:08.012] [main/INFO] [dev.architectury.networking.forge.NetworkManagerImpl/]: Registering S2C receiver with id wildernature:screen_update
+[18Mar2025 23:14:08.016] [main/INFO] [dev.architectury.networking.forge.NetworkManagerImpl/]: Registering S2C receiver with id wildernature:screen_update
+[18Mar2025 23:14:08.018] [main/INFO] [dev.architectury.networking.forge.NetworkManagerImpl/]: Registering S2C receiver with id wildernature:screen_update
+[18Mar2025 23:14:08.019] [main/INFO] [dev.architectury.networking.forge.NetworkManagerImpl/]: Registering S2C receiver with id wildernature:screen_update
+[18Mar2025 23:14:08.021] [main/INFO] [dev.architectury.networking.forge.NetworkManagerImpl/]: Registering S2C receiver with id wildernature:screen_update
+[18Mar2025 23:14:08.024] [main/INFO] [dev.architectury.networking.forge.NetworkManagerImpl/]: Registering S2C receiver with id wildernature:screen_update
+[18Mar2025 23:14:08.029] [main/INFO] [dev.architectury.networking.forge.NetworkManagerImpl/]: Registering S2C receiver with id wildernature:screen_update
+[18Mar2025 23:14:08.030] [main/INFO] [dev.architectury.networking.forge.NetworkManagerImpl/]: Registering S2C receiver with id wildernature:screen_update
+[18Mar2025 23:14:08.031] [main/INFO] [dev.architectury.networking.forge.NetworkManagerImpl/]: Registering S2C receiver with id wildernature:screen_update
+[18Mar2025 23:14:08.032] [main/INFO] [dev.architectury.networking.forge.NetworkManagerImpl/]: Registering S2C receiver with id wildernature:screen_update
+[18Mar2025 23:14:08.033] [main/INFO] [dev.architectury.networking.forge.NetworkManagerImpl/]: Registering S2C receiver with id wildernature:screen_update
+[18Mar2025 23:14:08.034] [main/INFO] [dev.architectury.networking.forge.NetworkManagerImpl/]: Registering S2C receiver with id wildernature:screen_update
+[18Mar2025 23:14:08.035] [main/INFO] [dev.architectury.networking.forge.NetworkManagerImpl/]: Registering S2C receiver with id wildernature:screen_update
+[18Mar2025 23:14:08.036] [main/INFO] [dev.architectury.networking.forge.NetworkManagerImpl/]: Registering S2C receiver with id wildernature:screen_update
+[18Mar2025 23:14:08.041] [main/INFO] [dev.architectury.networking.forge.NetworkManagerImpl/]: Registering S2C receiver with id wildernature:screen_update
+[18Mar2025 23:14:08.108] [main/INFO] [dev.architectury.networking.forge.NetworkManagerImpl/]: Registering S2C receiver with id wildernature:screen_update
+[18Mar2025 23:14:08.116] [main/INFO] [dev.architectury.networking.forge.NetworkManagerImpl/]: Registering S2C receiver with id wildernature:screen_update
+[18Mar2025 23:14:08.118] [main/INFO] [dev.architectury.networking.forge.NetworkManagerImpl/]: Registering S2C receiver with id wildernature:screen_update
+[18Mar2025 23:14:08.136] [main/INFO] [dev.architectury.networking.forge.NetworkManagerImpl/]: Registering S2C receiver with id wildernature:screen_update
+[18Mar2025 23:14:08.141] [main/INFO] [dev.architectury.networking.forge.NetworkManagerImpl/]: Registering S2C receiver with id wildernature:screen_update
+[18Mar2025 23:14:08.144] [main/INFO] [dev.architectury.networking.forge.NetworkManagerImpl/]: Registering S2C receiver with id wildernature:screen_update
+[18Mar2025 23:14:08.146] [main/INFO] [dev.architectury.networking.forge.NetworkManagerImpl/]: Registering S2C receiver with id wildernature:screen_update
+[18Mar2025 23:14:08.155] [main/INFO] [dev.architectury.networking.forge.NetworkManagerImpl/]: Registering S2C receiver with id wildernature:screen_update
+[18Mar2025 23:14:08.165] [main/INFO] [dev.architectury.networking.forge.NetworkManagerImpl/]: Registering S2C receiver with id wildernature:screen_update
+[18Mar2025 23:14:08.168] [main/INFO] [dev.architectury.networking.forge.NetworkManagerImpl/]: Registering S2C receiver with id wildernature:screen_update
+[18Mar2025 23:14:08.174] [main/INFO] [dev.architectury.networking.forge.NetworkManagerImpl/]: Registering S2C receiver with id wildernature:screen_update
+[18Mar2025 23:14:08.176] [main/INFO] [dev.architectury.networking.forge.NetworkManagerImpl/]: Registering S2C receiver with id wildernature:screen_update
+[18Mar2025 23:14:08.189] [main/INFO] [dev.architectury.networking.forge.NetworkManagerImpl/]: Registering S2C receiver with id wildernature:screen_update
+[18Mar2025 23:14:08.201] [main/INFO] [dev.architectury.networking.forge.NetworkManagerImpl/]: Registering S2C receiver with id wildernature:screen_update
+[18Mar2025 23:14:08.204] [main/INFO] [dev.architectury.networking.forge.NetworkManagerImpl/]: Registering S2C receiver with id wildernature:screen_update
+[18Mar2025 23:14:08.206] [main/INFO] [dev.architectury.networking.forge.NetworkManagerImpl/]: Registering S2C receiver with id wildernature:screen_update
+[18Mar2025 23:14:08.208] [main/INFO] [dev.architectury.networking.forge.NetworkManagerImpl/]: Registering S2C receiver with id wildernature:screen_update
+[18Mar2025 23:14:08.210] [main/INFO] [dev.architectury.networking.forge.NetworkManagerImpl/]: Registering S2C receiver with id wildernature:screen_update
+[18Mar2025 23:14:08.213] [main/INFO] [dev.architectury.networking.forge.NetworkManagerImpl/]: Registering S2C receiver with id wildernature:screen_update
+[18Mar2025 23:14:08.214] [main/INFO] [dev.architectury.networking.forge.NetworkManagerImpl/]: Registering S2C receiver with id wildernature:screen_update
+[18Mar2025 23:14:08.215] [main/INFO] [dev.architectury.networking.forge.NetworkManagerImpl/]: Registering S2C receiver with id wildernature:screen_update
+[18Mar2025 23:14:08.216] [main/INFO] [dev.architectury.networking.forge.NetworkManagerImpl/]: Registering S2C receiver with id wildernature:screen_update
+[18Mar2025 23:14:08.217] [main/INFO] [dev.architectury.networking.forge.NetworkManagerImpl/]: Registering S2C receiver with id wildernature:screen_update
+[18Mar2025 23:14:08.221] [main/INFO] [dev.architectury.networking.forge.NetworkManagerImpl/]: Registering S2C receiver with id wildernature:screen_update
+[18Mar2025 23:14:08.223] [main/INFO] [dev.architectury.networking.forge.NetworkManagerImpl/]: Registering S2C receiver with id wildernature:screen_update
+[18Mar2025 23:14:08.224] [main/INFO] [dev.architectury.networking.forge.NetworkManagerImpl/]: Registering S2C receiver with id wildernature:screen_update
+[18Mar2025 23:14:08.224] [main/INFO] [dev.architectury.networking.forge.NetworkManagerImpl/]: Registering S2C receiver with id wildernature:screen_update
+[18Mar2025 23:14:08.225] [main/INFO] [dev.architectury.networking.forge.NetworkManagerImpl/]: Registering S2C receiver with id wildernature:screen_update
+[18Mar2025 23:14:08.233] [main/INFO] [ModdingLegacy/StructureGel/]: [structure_gel] Registering data for structure_gel:loot_table_alias
+[18Mar2025 23:14:08.238] [main/INFO] [ModdingLegacy/StructureGel/]: [structure_gel] Registering data for structure_gel:data_handler_type
+[18Mar2025 23:14:08.241] [main/INFO] [ModdingLegacy/StructureGel/]: [structure_gel] Registering data for structure_gel:dynamic_spawner
+[18Mar2025 23:14:08.242] [main/INFO] [ModdingLegacy/StructureGel/]: [structure_gel] Registering data for structure_gel:jigsaw_type
+[18Mar2025 23:14:08.247] [main/INFO] [dev.architectury.networking.forge.NetworkManagerImpl/]: Registering S2C receiver with id wildernature:screen_update
+[18Mar2025 23:14:08.251] [main/INFO] [dev.architectury.networking.forge.NetworkManagerImpl/]: Registering S2C receiver with id wildernature:screen_update
+[18Mar2025 23:14:08.252] [main/INFO] [dev.architectury.networking.forge.NetworkManagerImpl/]: Registering S2C receiver with id wildernature:screen_update
+[18Mar2025 23:14:08.258] [main/INFO] [dev.architectury.networking.forge.NetworkManagerImpl/]: Registering S2C receiver with id wildernature:screen_update
+[18Mar2025 23:14:08.264] [main/INFO] [dev.architectury.networking.forge.NetworkManagerImpl/]: Registering S2C receiver with id wildernature:screen_update
+[18Mar2025 23:14:08.273] [main/INFO] [dev.architectury.networking.forge.NetworkManagerImpl/]: Registering S2C receiver with id wildernature:screen_update
+[18Mar2025 23:14:08.276] [main/INFO] [dev.architectury.networking.forge.NetworkManagerImpl/]: Registering S2C receiver with id wildernature:screen_update
+[18Mar2025 23:14:08.277] [main/INFO] [dev.architectury.networking.forge.NetworkManagerImpl/]: Registering S2C receiver with id wildernature:screen_update
+[18Mar2025 23:14:08.279] [main/INFO] [dev.architectury.networking.forge.NetworkManagerImpl/]: Registering S2C receiver with id wildernature:screen_update
+[18Mar2025 23:14:08.281] [main/INFO] [dev.architectury.networking.forge.NetworkManagerImpl/]: Registering S2C receiver with id wildernature:screen_update
+[18Mar2025 23:14:08.283] [main/INFO] [dev.architectury.networking.forge.NetworkManagerImpl/]: Registering S2C receiver with id wildernature:screen_update
+[18Mar2025 23:14:08.285] [main/INFO] [dev.architectury.networking.forge.NetworkManagerImpl/]: Registering S2C receiver with id wildernature:screen_update
+[18Mar2025 23:14:08.344] [main/WARN] [net.minecraft.network.syncher.SynchedEntityData/]: defineId called for: class net.dylanvhs.bountiful_critters.entity.custom.StingrayEntity from class net.dylanvhs.bountiful_critters.entity.custom.KrillEntity
+[18Mar2025 23:14:08.344] [main/WARN] [net.minecraft.network.syncher.SynchedEntityData/]: defineId called for: class net.dylanvhs.bountiful_critters.entity.custom.StingrayEntity from class net.dylanvhs.bountiful_critters.entity.custom.MarineIguanaEntity
+[18Mar2025 23:14:08.345] [main/WARN] [net.minecraft.network.syncher.SynchedEntityData/]: defineId called for: class net.minecraft.world.entity.animal.Wolf from class net.dylanvhs.bountiful_critters.entity.custom.LonghornEntity
+[18Mar2025 23:14:08.402] [main/WARN] [net.minecraft.server.packs.VanillaPackResourcesBuilder/]: Assets URL 'union:/C:/Users/andre/Downloads/Games/September2024Mod/build/fg_cache/net/minecraftforge/forge/1.20.1-47.3.0_mapped_parchment_2023.09.03-1.20.1/forge-1.20.1-47.3.0_mapped_parchment_2023.09.03-1.20.1-recomp.jar%23191!/assets/.mcassetsroot' uses unexpected schema
+[18Mar2025 23:14:08.402] [main/WARN] [net.minecraft.server.packs.VanillaPackResourcesBuilder/]: Assets URL 'union:/C:/Users/andre/Downloads/Games/September2024Mod/build/fg_cache/net/minecraftforge/forge/1.20.1-47.3.0_mapped_parchment_2023.09.03-1.20.1/forge-1.20.1-47.3.0_mapped_parchment_2023.09.03-1.20.1-recomp.jar%23191!/data/.mcassetsroot' uses unexpected schema
+[18Mar2025 23:14:08.677] [Worker-Main-2/INFO] [ModdingLegacy/StructureGel/]: [structure_gel] Generating ResourceKey[minecraft:root / minecraft:worldgen/processor_list]
+[18Mar2025 23:14:08.679] [Worker-Main-2/INFO] [ModdingLegacy/StructureGel/]: [structure_gel] Generating ResourceKey[minecraft:root / minecraft:trim_material]
+[18Mar2025 23:14:08.680] [Worker-Main-2/INFO] [ModdingLegacy/StructureGel/]: [structure_gel] Generating ResourceKey[minecraft:root / minecraft:worldgen/structure]
+[18Mar2025 23:14:08.701] [Worker-Main-2/INFO] [ModdingLegacy/StructureGel/]: [structure_gel] Generating ResourceKey[minecraft:root / forge:biome_modifier_serializers]
+[18Mar2025 23:14:08.701] [Worker-Main-4/INFO] [ModdingLegacy/StructureGel/]: [structure_gel] Generating ResourceKey[minecraft:root / forge:structure_modifier]
+[18Mar2025 23:14:08.701] [Worker-Main-2/INFO] [ModdingLegacy/StructureGel/]: [structure_gel] Generating ResourceKey[minecraft:root / minecraft:worldgen/noise_settings]
+[18Mar2025 23:14:08.702] [Worker-Main-4/INFO] [ModdingLegacy/StructureGel/]: [structure_gel] Generating ResourceKey[minecraft:root / forge:holder_set_type]
+[18Mar2025 23:14:08.702] [Worker-Main-4/INFO] [ModdingLegacy/StructureGel/]: [structure_gel] Generating ResourceKey[minecraft:root / forge:structure_modifier_serializers]
+[18Mar2025 23:14:08.706] [Worker-Main-2/INFO] [ModdingLegacy/StructureGel/]: [structure_gel] Generating ResourceKey[minecraft:root / minecraft:trim_pattern]
+[18Mar2025 23:14:08.706] [Worker-Main-2/INFO] [ModdingLegacy/StructureGel/]: [structure_gel] Generating ResourceKey[minecraft:root / minecraft:worldgen/configured_carver]
+[18Mar2025 23:14:08.706] [Worker-Main-2/INFO] [ModdingLegacy/StructureGel/]: [structure_gel] Generating ResourceKey[minecraft:root / minecraft:worldgen/biome]
+[18Mar2025 23:14:08.707] [Worker-Main-2/INFO] [ModdingLegacy/StructureGel/]: [structure_gel] Generating ResourceKey[minecraft:root / forge:biome_modifier]
+[18Mar2025 23:14:08.707] [Worker-Main-2/INFO] [ModdingLegacy/StructureGel/]: [structure_gel] Generating ResourceKey[minecraft:root / minecraft:dimension_type]
+[18Mar2025 23:14:08.710] [Worker-Main-2/INFO] [ModdingLegacy/StructureGel/]: [structure_gel] Generating ResourceKey[minecraft:root / minecraft:worldgen/structure_set]
+[18Mar2025 23:14:08.718] [Worker-Main-2/INFO] [ModdingLegacy/StructureGel/]: [structure_gel] Generating ResourceKey[minecraft:root / minecraft:damage_type]
+[18Mar2025 23:14:08.718] [Worker-Main-2/INFO] [ModdingLegacy/StructureGel/]: [structure_gel] Generating ResourceKey[minecraft:root / minecraft:worldgen/template_pool]
+[18Mar2025 23:14:08.735] [Worker-Main-2/INFO] [ModdingLegacy/StructureGel/]: [structure_gel] Generating ResourceKey[minecraft:root / minecraft:dimension]
+[18Mar2025 23:14:08.756] [Worker-Main-2/INFO] [ModdingLegacy/StructureGel/]: [structure_gel] Generating ResourceKey[minecraft:root / minecraft:worldgen/configured_feature]
+[18Mar2025 23:14:08.757] [Worker-Main-2/INFO] [ModdingLegacy/StructureGel/]: [structure_gel] Generating ResourceKey[minecraft:root / minecraft:worldgen/placed_feature]
+[18Mar2025 23:14:08.791] [main/INFO] [net.minecraft.data.DataGenerator/]: Starting provider: Registries

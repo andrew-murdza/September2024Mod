@@ -173,7 +173,7 @@ dependencies {
 //
     implementation fg.deobf("curse.maven:luminous-909107:5699118")
 //
-    implementation fg.deobf("curse.maven:trails-and-tales-878476:5045548")
+//    implementation fg.deobf("curse.maven:trails-and-tales-878476:5045548")
 //
     implementation fg.deobf("curse.maven:iceandfire-264231:5633453")
 //

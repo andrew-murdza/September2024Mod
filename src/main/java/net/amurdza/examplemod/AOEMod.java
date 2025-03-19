@@ -49,8 +49,6 @@ public class AOEMod
         //custom blocks
         ModBlocks.register(modEventBus);
 
-        ModFeatures.register(modEventBus);
-
         // Register our mod's ForgeConfigSpec so that Forge can create and load the config file for us
         ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, ConfigHelper.SPEC);
     }
