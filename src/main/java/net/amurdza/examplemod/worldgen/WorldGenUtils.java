@@ -2,7 +2,6 @@ package net.amurdza.examplemod.worldgen;
 
 import net.amurdza.examplemod.worldgen.biome.ModBiomes;
 import net.minecraft.core.BlockPos;
-import net.minecraft.core.Holder;
 import net.minecraft.core.SectionPos;
 import net.minecraft.core.Vec3i;
 import net.minecraft.core.registries.Registries;
@@ -39,13 +38,13 @@ public class WorldGenUtils {
     public static Vec3i genColumnStructureOffset(int chunkX, int chunkY, int chunkZ){
         return Vec3i.ZERO;
     }
-    public static Holder<Biome> getBiomeAtChunk(int chunkX, int chunkY, int chunkZ){
-        return Holder.direct(ModBiomes.RAINFOREST_OLD);
+    public static ResourceKey<Biome> getBiomeAtChunk(int chunkX, int chunkY, int chunkZ){
+        return ModBiomes.RAINFOREST;
     }
-    public static Holder<Biome> getBiomeAtPos(int x, int y, int z){
+    public static ResourceKey<Biome> getBiomeAtPos(int x, int y, int z){
         return getBiomeAtChunk(getChunk(x), getChunk(y), getChunk(z));
     }
-    public static Holder<Biome> getBiomeAtPos(BlockPos pos){
+    public static ResourceKey<Biome> getBiomeAtPos(BlockPos pos){
         return getBiomeAtChunk(pos.getX(),pos.getY(),pos.getZ());
     }
     public static int getSeaLevelAtChunk(int chunkX, int chunkY, int chunkZ){

@@ -13,6 +13,7 @@ import net.mcreator.nourishednether.init.NourishedNetherModBlocks;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.registries.Registries;
+import net.minecraft.resources.ResourceKey;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.util.RandomSource;
@@ -95,8 +96,10 @@ public class BoneMealEvent {
         return level.getBlockState(pos).is(Blocks.WATER);
     }
     private static void growMoss(Level level, BlockPos pos){
-        ConfiguredFeature<?,?> feature=ModConfiguredFeatures.rainforestFloor;
-        ConfiguredFeature<?,?> featureWater=ModConfiguredFeatures.rainforestWaterPlantsFull;
+        ConfiguredFeature<?,?> feature=level.registryAccess().registryOrThrow(Registries.CONFIGURED_FEATURE)
+                .getOrThrow(ModConfiguredFeatures.RAINFOREST_FLOOR_KEY);
+        ConfiguredFeature<?,?> featureWater=level.registryAccess().registryOrThrow(Registries.CONFIGURED_FEATURE)
+                .getOrThrow(ModConfiguredFeatures.RAINFOREST_FLOOR_KEY);
         ServerLevel level1=(ServerLevel) level;
         ChunkGenerator chunkGenerator=(level1).getChunkSource().getGenerator();
         int tries=128;
