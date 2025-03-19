@@ -94,11 +94,11 @@ public class ModConfiguredFeatures {
         cactus=buildCactus(context);
         lilypad=buildLilyPad(context);
         nightreed=buildNightReed(context);
-        pitaya=register(context, PITAYA_KEY, ModFeatures.PITAYA_FEATURE, new NoneFeatureConfiguration());
+        pitaya=register(context, PITAYA_KEY, ModFeatures.PITAYA.get(), new NoneFeatureConfiguration());
         rainforestFlowers=buildRainforestFlowers(context);
         rainforestGrass=buildRainforestGrass(context);
-        kelp=register(context, KELP_KEY, ModFeatures.KELP_FEATURE, new NoneFeatureConfiguration());
-        seagrass=register(context, SEAGRASS_KEY, ModFeatures.SEAGRASS_FEATURE, new ProbabilityFeatureConfiguration(0.5F));
+        kelp=register(context, KELP_KEY, ModFeatures.KELP.get(), new NoneFeatureConfiguration());
+        seagrass=register(context, SEAGRASS_KEY, ModFeatures.SEAGRASS.get(), new ProbabilityFeatureConfiguration(0.5F));
         rainforestWaterPlants=buildRainforestWaterPlants(context);
         smallDripLeaf=buildSmallDripLeaf(context);
         sugarCane=buildSugarCane(context);
@@ -110,7 +110,7 @@ public class ModConfiguredFeatures {
     }
 
     private static ConfiguredFeature<?,?> buildRainforestSeafloor(BootstapContext<ConfiguredFeature<?,?>> context) {
-        return register(context, RAINFOREST_SEAFLOOR_KEY, ModFeatures.ALL_SURFACE_FEATURE,
+        return register(context, RAINFOREST_SEAFLOOR_KEY, ModFeatures.ALL_SURFACE.get(),
                 new AllSurfacesFeatureConfig(Holder.direct(simplePlacedFeature(rainforestWaterPlantsFull)),
                         true,mossOrCoralBelow,true));
     }
@@ -120,7 +120,7 @@ public class ModConfiguredFeatures {
         for(ConfiguredFeature<?,?> tree:treesList.get()){
             addWeightedFeature(list,simplePlacedFeature(tree),1);
         }
-        return register(context, RAINFOREST_TREES_KEY, ModFeatures.RANDOM_SELECTION_FEATURE,
+        return register(context, RAINFOREST_TREES_KEY, ModFeatures.RANDOM_SELECTION.get(),
                 new RandomSelectionFeatureConfig(list));
     }
 
@@ -129,12 +129,12 @@ public class ModConfiguredFeatures {
         addWeightedFeature(list,simplePlacedFeature(rainforestWaterPlants,mossBelowFilter),0.3F);
         addWeightedFeature(list,simplePlacedFeature(seagrass,mossBelowFilter),0.62F);
         addWeightedFeature(list,simplePlacedFeature(kelp,mossBelowFilter),0.08F);
-        return register(context, RAINFOREST_WATER_PLANTS_FULL_KEY, ModFeatures.RANDOM_SELECTION_FEATURE,
+        return register(context, RAINFOREST_WATER_PLANTS_FULL_KEY, ModFeatures.RANDOM_SELECTION.get(),
                 new RandomSelectionFeatureConfig(list));
     }
 
     private static ConfiguredFeature<?,?> buildFullRainforestFloor(BootstapContext<ConfiguredFeature<?,?>> context) {
-        return register(context, RAINFOREST_FLOOR_FULL_KEY, ModFeatures.ALL_SURFACE_FEATURE,
+        return register(context, RAINFOREST_FLOOR_FULL_KEY, ModFeatures.ALL_SURFACE.get(),
                 new AllSurfacesFeatureConfig(Holder.direct(simplePlacedFeature(rainforestFloor)),
                         false,mossBelow,true));
     }
@@ -152,7 +152,7 @@ public class ModConfiguredFeatures {
         for(ConfiguredFeature<?,?> feature:otherFeatures){
             addWeightedFeature(list,simplePlacedFeature(feature,mossBelowFilter),0.2F/(length+otherFeatures.size()));
         }
-        return register(context, RAINFOREST_FLOOR_KEY, ModFeatures.RANDOM_SELECTION_FEATURE, new RandomSelectionFeatureConfig(list));
+        return register(context, RAINFOREST_FLOOR_KEY, ModFeatures.RANDOM_SELECTION.get(), new RandomSelectionFeatureConfig(list));
     }
 
     public static ConfiguredFeature<?,?> buildSugarCane(BootstapContext<ConfiguredFeature<?,?>> context) {
@@ -222,7 +222,7 @@ public class ModConfiguredFeatures {
         addWeightedFeature(list,createLilyPadFeature(BWGBlocks.TINY_LILY_PADS.get()),2);
         addWeightedFeature(list,createLilyPadFeature(BWGBlocks.FLOWERING_TINY_LILY_PADS.get()),2);
         addWeightedFeature(list,createLilyPadFeature(Blocks.LILY_PAD),1);
-        return register(context, LILY_PAD_KEY, ModFeatures.RANDOM_SELECTION_FEATURE, new RandomSelectionFeatureConfig(list));
+        return register(context, LILY_PAD_KEY, ModFeatures.RANDOM_SELECTION.get(), new RandomSelectionFeatureConfig(list));
     }
     private static void addWeightedFeature(List<WeightedPlacedFeature> list, PlacedFeature feature, float weight){
         list.add(new WeightedPlacedFeature(Holder.direct(feature),weight));
