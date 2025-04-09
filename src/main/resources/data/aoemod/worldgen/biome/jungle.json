@@ -1,0 +1,63 @@
+{
+  "creature_spawn_probability": 0.4,
+  "temperature": 1.0,
+  "downfall": 1.0,
+  "has_precipitation": true,
+  "effects": {
+    "sky_color": 7907327,
+    "fog_color": 12638463,
+    "water_color": 937679,
+    "water_fog_color": 329011,
+    //    "water_color": 3832426,
+    //    "water_fog_color": 5077600,
+    //    "foliage_color": 9285927,
+    "mood_sound": {
+      "sound": "minecraft:ambient.cave",
+      "tick_delay": 6000,
+      "block_search_extent": 8,
+      "offset": 2
+    },
+    "music": {
+      "sound": "minecraft:music.overworld.swamp",
+      "min_delay": 12000,
+      "max_delay": 24000,
+      "replace_current_music": false
+    }
+  },
+  "spawners": {
+    "ambient": [],
+    "creature": [],
+    "misc": [],
+    "monster": [],
+    "underground_water_creature": [],
+    "water_ambient": [],
+    "water_creature": []
+  },
+  "spawn_costs": {},
+  "carvers": {
+    "air": []
+  },
+  "features": [
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [
+      "minecraft:spring_water"
+    ],
+    [
+      //      "aoemod:rainforest_trees",
+      //      "aoemod:rainforest_forest_floor",
+      //      "aoemod:rainforest_seafloor",
+      //      "aoemod:cave_vines",
+      //      "aoemod:lilypads"
+    ],
+    [
+      "minecraft:freeze_top_layer"
+    ]
+  ]
+}

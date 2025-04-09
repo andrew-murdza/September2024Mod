@@ -1,11 +1,10 @@
 package net.amurdza.examplemod;
 
 import com.mojang.logging.LogUtils;
-import net.amurdza.examplemod.biome.ModTerrablender;
 import net.amurdza.examplemod.block.ModBlocks;
 import net.amurdza.examplemod.item.ModItems;
-//import net.amurdza.examplemod.mixins.monoxide.RestoreXpOnRespawn;
 import net.amurdza.examplemod.util.ConfigHelper;
+import net.amurdza.examplemod.worldgen.AOEDensityFunctions;
 import net.amurdza.examplemod.worldgen.biome.ModSurfaceRules;
 import net.amurdza.examplemod.worldgen.feature.ModFeatures;
 import net.minecraft.world.item.CreativeModeTabs;
@@ -35,10 +34,11 @@ public class AOEMod
     {
         IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
 
-        ModTerrablender.registerBiomes();
         modEventBus.addListener(this::commonSetup);
         // Register ourselves for server and other game events we are interested in
         MinecraftForge.EVENT_BUS.register(this);
+
+        AOEDensityFunctions.register(modEventBus);
 
         // Register the item to a creative tab
         modEventBus.addListener(this::addCreative);
