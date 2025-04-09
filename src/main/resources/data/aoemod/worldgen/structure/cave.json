@@ -1,6 +1,6 @@
 {
   "type": "alexscaves:dino_bowl",
-  "biomes": "minecraft:plains",
+  "biomes": [],//"aoemod:jungle",
   "step": "raw_generation",
   "start_height": {
     "absolute": 0

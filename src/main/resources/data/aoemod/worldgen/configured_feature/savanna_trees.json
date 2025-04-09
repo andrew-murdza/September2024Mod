@@ -1,0 +1,90 @@
+{
+  "type": "aoemod:random_selector",
+  "config": {
+    "features": [
+      {
+        "chance": 0.01,
+        "feature": {
+          "feature": "culturaldelights:avocado_tree",
+          "placement": []
+        }
+      },
+      {
+        "chance": 0.005,
+        "feature": {
+          "feature": "biomeswevegone:orchard_tree1",
+          "placement": []
+        }
+      },      {
+        "chance": 0.005,
+        "feature": {
+          "feature": "biomeswevegone:orchard_tree2",
+          "placement": []
+        }
+      },
+      {
+        "chance": 0.01,
+        "feature": {
+          "feature": "quark:orange_blossom",
+          "placement": []
+        }
+      },
+      {
+        "chance": 0.01,
+        "feature": {
+          "feature": "quark:red_blossom",
+          "placement": []
+        }
+      },
+      {
+        "chance": 0.01,
+        "feature": {
+          "feature": "quark:yellow_blossom",
+          "placement": []
+        }
+      },
+      {
+        "chance": 0.60,
+        "feature": {
+          "feature": "minecraft:acacia",
+          "placement": []
+        }
+      },
+      {
+        "chance": 0.05,
+        "feature": {
+          "feature": "ecologics:walnut",
+          "placement": []
+        }
+      },
+      {
+        "chance": 0.02,
+        "feature": {
+          "feature": "minecraft:oak_bees_005",
+          "placement": []
+        }
+      },
+      {
+        "chance": 0.05,
+        "feature": {
+          "feature": "minecraft:fancy_oak_bees_005",
+          "placement": []
+        }
+      },
+      {
+        "chance": 0.03,
+        "feature": {
+          "feature": "minecraft:birch_bees_005",
+          "placement": []
+        }
+      },
+      {
+        "chance": 0.20,
+        "feature": {
+          "feature": "biomeswevegone:baobab_trees",
+          "placement": []
+        }
+      }
+    ]
+  }
+}

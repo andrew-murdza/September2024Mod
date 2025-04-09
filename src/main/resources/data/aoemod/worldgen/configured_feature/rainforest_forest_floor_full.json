@@ -9,7 +9,7 @@
     "all_layers": true,
     "predicate": {
       "type": "minecraft:matching_blocks",
-      "blocks": ["minecraft:moss_block","minecraft:grass_block","minecraft:dirt"]
+      "blocks": ["minecraft:moss_block"]
     }
   }
 }

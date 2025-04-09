@@ -18,6 +18,7 @@ public class GlowSquid1 {
     @Redirect(method = "checkGlowSquideSpawnRules",at=@At(value = "INVOKE",target = "Lnet/minecraft/world/level/ServerLevelAccessor;getSeaLevel()I"))
     private static int hi1(ServerLevelAccessor instance, EntityType<? extends LivingEntity> pType,
                            ServerLevelAccessor pLevel, MobSpawnType pSpawnType, BlockPos pPos, RandomSource pRandom){
-        return Helper.isSpecialBiome(instance,pPos)?1000: WorldGenUtils.getSeaLevelAtPos(pPos);
+        int h=WorldGenUtils.getTotalWaterAbove(pPos,pLevel);
+        return h>=10?10000:-10000;
     }
 }

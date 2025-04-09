@@ -16,39 +16,20 @@ import net.minecraft.world.level.biome.BiomeSpecialEffects;
 import net.minecraft.world.level.levelgen.GenerationStep;
 import net.minecraft.world.level.biome.MobSpawnSettings;
 import net.minecraft.world.entity.MobCategory;
-
+import net.minecraftforge.event.server.ServerAboutToStartEvent;
+import net.minecraftforge.eventbus.api.EventPriority;
+import net.minecraftforge.eventbus.api.SubscribeEvent;
+import net.minecraftforge.fml.common.Mod;
+import terrablender.util.LevelUtils;
+@Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.FORGE)
 public class ModBiomes {
     public static final ResourceKey<Biome> RAINFOREST_OLD=ResourceKey.create(Registries.BIOME,
             new ResourceLocation(AOEMod.MOD_ID,"rainforest"));
-    public static final ResourceKey<Biome> RAINFOREST=ResourceKey.create(Registries.BIOME,
-            new ResourceLocation(AOEMod.MOD_ID,"rainforestnew"));
-    public static void bootstrap(BootstapContext<Biome> context){
-//        RAINFOREST_OLD=rainforestBiome(context);
-//        context.register(RAINFOREST_OLD_KEY, RAINFOREST_OLD);
+    public static final ResourceKey<Biome> RAINFOREST_KEY=ResourceKey.create(Registries.BIOME,
+            new ResourceLocation(AOEMod.MOD_ID,"jungle"));
+    public static Biome RAINFOREST;
+    @SubscribeEvent
+    public static void onServerAboutToStart(ServerAboutToStartEvent event) {
+        RAINFOREST=event.getServer().registryAccess().registryOrThrow(Registries.BIOME).getOrThrow(RAINFOREST_KEY);
     }
-
-    private static void globalOverworldGeneration(BiomeGenerationSettings.Builder builder) {
-        BiomeDefaultFeatures.addSurfaceFreezing(builder);
-    }
-
-
-//    private static Biome rainforestBiome(BootstapContext<Biome> context) {
-//        BiomeGenerationSettings.Builder biomeBuilder =
-//                new BiomeGenerationSettings.Builder(context.lookup(Registries.PLACED_FEATURE), context.lookup(Registries.CONFIGURED_CARVER));
-//        globalOverworldGeneration(biomeBuilder);
-//        biomeBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, ModPlacedFeatures.RAINFOREST_TREES_KEY);
-//        biomeBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, ModPlacedFeatures.RAINFOREST_FLOOR_KEY);
-//        biomeBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, ModPlacedFeatures.RAINFOREST_SEAFLOOR_KEY);
-//        biomeBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, ModPlacedFeatures.LILY_PADS_KEY);
-//
-//        MobSpawnSettings.Builder spawnBuilder = new MobSpawnSettings.Builder();
-//        spawnBuilder.addSpawn(MobCategory.CREATURE,
-//                new MobSpawnSettings.SpawnerData(EntityType.WOLF, 5, 4, 4));
-//        spawnBuilder=spawnBuilder.creatureGenerationProbability(0.4F);
-//
-//        BiomeSpecialEffects effects = (new BiomeSpecialEffects.Builder()).waterColor(937679).waterFogColor(329011).skyColor(7907327).fogColor(12638463).ambientMoodSound(AmbientMoodSettings.LEGACY_CAVE_SETTINGS).build();
-//
-//        return new Biome.BiomeBuilder().hasPrecipitation(true).downfall(1.0F)
-//                .temperature(1.0F).generationSettings(biomeBuilder.build()).mobSpawnSettings(spawnBuilder.build()).specialEffects(effects).build();
-//    }
 }

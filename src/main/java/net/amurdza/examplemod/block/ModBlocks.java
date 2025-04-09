@@ -27,6 +27,7 @@ public class ModBlocks {
     public static final RegistryObject<Block> CAVE_VINES=registerBlock("cave_vines", ()->new CaveVinesHeadNew(BlockBehaviour.Properties.of().mapColor(MapColor.PLANT).randomTicks().noCollission().lightLevel(CaveVines.emission(15)).instabreak().sound(SoundType.CAVE_VINES).pushReaction(PushReaction.DESTROY).noOcclusion()));
     public static final RegistryObject<Block> CAVE_VINES_PLANT=registerBlock("cave_vines_plant", ()->new CaveVinesPlantNew(BlockBehaviour.Properties.of().mapColor(MapColor.PLANT).noCollission().lightLevel(CaveVines.emission(15)).instabreak().sound(SoundType.CAVE_VINES).pushReaction(PushReaction.DESTROY).noOcclusion()));
     public static final RegistryObject<Block> SEA_PICKLE=registerBlock("sea_pickle",()->new SeaPickleNew(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_GREEN).lightLevel((p_152680_) -> SeaPickleBlock.isDead(p_152680_) ? 0 : 3 + 3 * p_152680_.getValue(SeaPickleBlock.PICKLES)).sound(SoundType.SLIME_BLOCK).noOcclusion().pushReaction(PushReaction.DESTROY)));
+    public static final RegistryObject<Block> TORCHBERRY_PLANT=registerBlock("torchberry_plant",()->new TorchBerryPlantBlock(BlockBehaviour.Properties.of().ignitedByLava().instabreak().noCollission().mapColor(MapColor.PLANT).pushReaction(PushReaction.DESTROY).sound(SoundType.HANGING_ROOTS)));
 //    public static final RegistryObject<Block> LAVENDER=registerFlower("lavender",MobEffects.NIGHT_VISION,7);
 //    public static final RegistryObject<Block> WILDFLOWER=registerFlower("wildflower",MobEffects.DAMAGE_RESISTANCE,7);
 

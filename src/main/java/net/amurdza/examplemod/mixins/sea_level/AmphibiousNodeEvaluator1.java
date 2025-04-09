@@ -12,6 +12,6 @@ import org.spongepowered.asm.mixin.injection.Redirect;
 public abstract class AmphibiousNodeEvaluator1 extends NodeEvaluator {
     @Redirect(method = "getNeighbors",at= @At(value = "INVOKE", target = "Lnet/minecraft/world/level/Level;getSeaLevel()I"))
     private int hi(Level instance){
-        return WorldGenUtils.getSeaLevelAtPos(mob.blockPosition());
+        return WorldGenUtils.getSeaLevelWorldGen(mob.blockPosition(),instance);
     }
 }

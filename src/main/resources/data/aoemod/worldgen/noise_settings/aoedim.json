@@ -18,12 +18,7 @@
     "size_vertical": 2
   },
   "noise_router": {
-    "barrier": {
-      "type": "minecraft:noise",
-      "noise": "minecraft:aquifer_barrier",
-      "xz_scale": 1,
-      "y_scale": 0.5
-    },
+    "barrier": 0,
     "continents": "aoemod:base_continents",
     "depth": "minecraft:overworld/depth",
     "erosion": "minecraft:overworld/erosion",

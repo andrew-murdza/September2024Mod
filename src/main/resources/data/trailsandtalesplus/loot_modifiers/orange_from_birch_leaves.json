@@ -1,1 +1,14 @@
-{}
+{
+  "type": "trailsandtalesplus:add_item",
+  "conditions": [
+    {
+      "block": "minecraft:jungle_leaves",
+      "condition": "minecraft:block_state_property"
+    },
+    {
+      "chance": 0.025,
+      "condition": "minecraft:random_chance"
+    }
+  ],
+  "item": "trailsandtalesplus:orange"
+}

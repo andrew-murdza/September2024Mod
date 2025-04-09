@@ -3,9 +3,337 @@
   "config": {
     "features": [
       {
+        "chance": 0.01,
+        "feature": {
+          "feature": "blue_skies:bluebright_tree",
+          "placement": []
+        }
+      },
+      {
+        "chance": 0.01,
+        "feature": {
+          "feature": "blue_skies:comet_tree",
+          "placement": []
+        }
+      },
+      {
+        "chance": 0.01,
+        "feature": {
+          "feature": "blue_skies:crescent_fruit_tree",
+          "placement": []
+        }
+      },
+      {
+        "chance": 0.01,
+        "feature": {
+          "feature": "blue_skies:dusk_tree",
+          "placement": []
+        }
+      },
+      {
+        "chance": 0.01,
+        "feature": {
+          "feature": "blue_skies:frostbright_tree",
+          "placement": []
+        }
+      },
+      {
         "chance": 0.1,
         "feature": {
-          "feature": "biomeswevegone:baobab_trees",
+          "feature": "blue_skies:giant_snowcap_mushroom",
+          "placement": []
+        }
+      },
+      {
+        "chance": 0.01,
+        "feature": {
+          "feature": "blue_skies:lunar_tree",
+          "placement": []
+        }
+      },
+      {
+        "chance": 0.01,
+        "feature": {
+          "feature": "blue_skies:maple_tree",
+          "placement": []
+        }
+      },
+      {
+        "chance": 0.01,
+        "feature": {
+          "feature": "blue_skies:starlit_tree",
+          "placement": []
+        }
+      },
+      {
+        "chance": 0.01,
+        "feature": {
+          "feature": "culturaldelights:avocado_tree",
+          "placement": []
+        }
+      },
+      {
+        "chance": 0.01,
+        "feature": {
+          "feature": "environmental:blue_wisteria_bees_005",
+          "placement": []
+        }
+      },
+      {
+        "chance": 0.01,
+        "feature": {
+          "feature": "environmental:pink_wisteria_bees_005",
+          "placement": []
+        }
+      },
+      {
+        "chance": 0.01,
+        "feature": {
+          "feature": "environmental:weeping_willow",
+          "placement": []
+        }
+      },
+      {
+        "chance": 0.1,
+        "feature": {
+          "feature": "biomeswevegone:araucaria_trees",
+          "placement": []
+        }
+      },
+      {
+        "chance": 0.01,
+        "feature": {
+          "feature": "biomeswevegone:aspen_tree3",
+          "placement": []
+        }
+      },
+      {
+        "chance": 0.005,
+        "feature": {
+          "feature": "biomeswevegone:blue_enchanted_sapling_tree1",
+          "placement": []
+        }
+      },
+      {
+        "chance": 0.005,
+        "feature": {
+          "feature": "biomeswevegone:blue_enchanted_sapling_tree2",
+          "placement": []
+        }
+      },
+      {
+        "chance": 0.01,
+        "feature": {
+          "feature": "biomeswevegone:cika_tree1",
+          "placement": []
+        }
+      },
+      {
+        "chance": 0.1,
+        "feature": {
+          "feature": "biomeswevegone:conifer_tree2",
+          "placement": []
+        }
+      },
+      {
+        "chance": 0.1,
+        "feature": {
+          "feature": "biomeswevegone:cypress_tree1",
+          "placement": []
+        }
+      },
+      {
+        "chance": 0.005,
+        "feature": {
+          "feature": "biomeswevegone:florus_rose_1",
+          "placement": []
+        }
+      },
+      {
+        "chance": 0.01,
+        "feature": {
+          "feature": "biomeswevegone:flowering_ironwood_tree1",
+          "placement": []
+        }
+      },
+      {
+        "chance": 0.005,
+        "feature": {
+          "feature": "biomeswevegone:giant_allium_3",
+          "placement": []
+        }
+      },
+      {
+        "chance": 0.005,
+        "feature": {
+          "feature": "biomeswevegone:giant_pink_allium_3",
+          "placement": []
+        }
+      },
+      {
+        "chance": 0.005,
+        "feature": {
+          "feature": "biomeswevegone:giant_white_allium_3",
+          "placement": []
+        }
+      },
+      {
+        "chance": 0.005,
+        "feature": {
+          "feature": "biomeswevegone:green_enchanted_sapling_tree1",
+          "placement": []
+        }
+      },
+      {
+        "chance": 0.005,
+        "feature": {
+          "feature": "biomeswevegone:green_enchanted_sapling_tree2",
+          "placement": []
+        }
+      },
+      {
+        "chance": 0.1,
+        "feature": {
+          "feature": "biomeswevegone:huge_wood_blewit1",
+          "placement": []
+        }
+      },
+      {
+        "chance": 0.01,
+        "feature": {
+          "feature": "biomeswevegone:indigo_jacaranda_tree4",
+          "placement": []
+        }
+      },
+      {
+        "chance": 0.01,
+        "feature": {
+          "feature": "biomeswevegone:jacaranda_tree4",
+          "placement": []
+        }
+      },
+      {
+        "chance": 0.005,
+        "feature": {
+          "feature": "biomeswevegone:red_maple_tree4",
+          "placement": []
+        }
+      },
+      {
+        "chance": 0.005,
+        "feature": {
+          "feature": "biomeswevegone:red_maple_tree5",
+          "placement": []
+        }
+      },
+      {
+        "chance": 0.005,
+        "feature": {
+          "feature": "biomeswevegone:orchard_tree1",
+          "placement": []
+        }
+      },      {
+        "chance": 0.005,
+        "feature": {
+          "feature": "biomeswevegone:orchard_tree2",
+          "placement": []
+        }
+      },
+      {
+        "chance": 0.01,
+        "feature": {
+          "feature": "biomeswevegone:palo_verde_tree1",
+          "placement": []
+        }
+      },
+      {
+        "chance": 0.1,
+        "feature": {
+          "feature": "biomeswevegone:redwood_tree2",
+          "placement": []
+        }
+      },
+      {
+        "chance": 0.01,
+        "feature": {
+          "feature": "biomeswevegone:skyris_tree6",
+          "placement": []
+        }
+      },
+      {
+        "chance": 0.01,
+        "feature": {
+          "feature": "biomeswevegone:yucca_tree1",
+          "placement": []
+        }
+      },
+      {
+        "chance": 0.01,
+        "feature": {
+          "feature": "biomeswevegone:zelkova_tree1",
+          "placement": []
+        }
+      },
+      {
+        "chance": 0.01,
+        "feature": {
+          "feature": "quark:blue_blossom",
+          "placement": []
+        }
+      },
+      {
+        "chance": 0.01,
+        "feature": {
+          "feature": "quark:lavender_blossom",
+          "placement": []
+        }
+      },
+      {
+        "chance": 0.01,
+        "feature": {
+          "feature": "quark:orange_blossom",
+          "placement": []
+        }
+      },
+      {
+        "chance": 0.01,
+        "feature": {
+          "feature": "quark:red_blossom",
+          "placement": []
+        }
+      },
+      {
+        "chance": 0.01,
+        "feature": {
+          "feature": "quark:yellow_blossom",
+          "placement": []
+        }
+      },
+      {
+        "chance": 0.05,
+        "feature": {
+          "feature": "twilightforest:tree/canopy_tree",
+          "placement": []
+        }
+      },
+      {
+        "chance": 0.05,
+        "feature": {
+          "feature": "twilightforest:tree/homegrown_darkwood_tree",
+          "placement": []
+        }
+      },
+      {
+        "chance": 0.05,
+        "feature": {
+          "feature": "twilightforest:tree/savannah_canopy_oak_tree",
+          "placement": []
+        }
+      },
+      {
+        "chance": 0.01,
+        "feature": {
+          "feature": "upgrade_aquatic:river_tree",
           "placement": []
         }
       },
@@ -82,14 +410,21 @@
       {
         "chance": 0.1,
         "feature": {
-          "feature": "biomeswevegone:aspen_trees",
+          "feature": "biomeswevegone:aspen_tree3",
           "placement": []
         }
       },
       {
         "chance": 0.1,
         "feature": {
-          "feature": "biomeswevegone:rainbow_eucalyptus_trees",
+          "feature": "biomeswevegone:baobab_tree3",
+          "placement": []
+        }
+      },
+      {
+        "chance": 0.1,
+        "feature": {
+          "feature": "biomeswevegone:rainbow_eucalyptus_large_tree1",
           "placement": []
         }
       },
@@ -145,35 +480,42 @@
       {
         "chance": 0.1,
         "feature": {
-          "feature": "biomeswevegone:white_mangrove_trees",
+          "feature": "biomeswevegone:white_mangrove_tree3",
+          "placement": []
+        }
+      },
+      {
+        "chance": 0.05,
+        "feature": {
+          "feature": "biomeswevegone:witch_hazel1",
+          "placement": []
+        }
+      },
+      {
+        "chance": 0.05,
+        "feature": {
+          "feature": "biomeswevegone:witch_hazel2",
           "placement": []
         }
       },
       {
         "chance": 0.1,
         "feature": {
-          "feature": "biomeswevegone:witch_hazel_trees",
+          "feature": "biomeswevegone:mahogany_tree4",
           "placement": []
         }
       },
       {
-        "chance": 0.1,
+        "chance": 0.05,
         "feature": {
-          "feature": "biomeswevegone:witch_hazel_trees",
+          "feature": "biomeswevegone:holly_tree2",
           "placement": []
         }
       },
       {
-        "chance": 0.1,
+        "chance": 0.05,
         "feature": {
-          "feature": "biomeswevegone:mahogany_trees",
-          "placement": []
-        }
-      },
-      {
-        "chance": 0.1,
-        "feature": {
-          "feature": "biomeswevegone:holly_trees",
+          "feature": "biomeswevegone:holly_tree4",
           "placement": []
         }
       },
@@ -224,6 +566,27 @@
         }
       },
       {
+        "chance": 0.1,
+        "feature": {
+          "feature": "aoemod:giant_warped_fungus_on_moss",
+          "placement": []
+        }
+      },
+      {
+        "chance": 0.1,
+        "feature": {
+          "feature": "aoemod:giant_crimson_fungus_on_moss",
+          "placement": []
+        }
+      },
+      {
+        "chance": 0.1,
+        "feature": {
+          "feature": "minecraft:tall_mangrove",
+          "placement": []
+        }
+      },
+      {
         "chance": 0.0333,
         "feature": {
           "feature": "biomeswevegone:willow_tree1",
@@ -247,14 +610,14 @@
       {
         "chance": 0.1,
         "feature": {
-          "feature": "biomeswevegone:white_sakura_trees",
+          "feature": "biomeswevegone:white_sakura_tree4",
           "placement": []
         }
       },
       {
         "chance": 0.1,
         "feature": {
-          "feature": "biomeswevegone:yellow_sakura_trees",
+          "feature": "biomeswevegone:yellow_sakura_tree4",
           "placement": []
         }
       },

@@ -2,6 +2,7 @@ package net.amurdza.examplemod.event_handlers;
 
 import com.github.alexthe666.iceandfire.entity.IafEntityRegistry;
 import net.amurdza.examplemod.AOEMod;
+import net.amurdza.examplemod.worldgen.WorldGenUtils;
 import net.minecraft.core.BlockPos;
 import net.minecraft.tags.FluidTags;
 import net.minecraft.util.RandomSource;
@@ -34,15 +35,7 @@ public class NoFloatingMobSpawns {
                 NoFloatingMobSpawns::checkSeaSerpentSpawnRules);
     }
     public static boolean checkSeaSerpentSpawnRules(EntityType pWaterAnimal, LevelAccessor pLevel, MobSpawnType pSpawnType, BlockPos pPos, RandomSource pRandom) {
-        int N=3;
-        for(int i=-N;i<=N;i++){
-            for(int j=-N;j<=N;j++){
-                if(!pLevel.getFluidState(pPos.below()).is(FluidTags.WATER)||!pLevel.getBlockState(pPos.below()).is(Blocks.WATER)){
-                    return false;
-                }
-            }
-        }
-        return true;
+        return WorldGenUtils.getTotalWaterInColumn(pPos,0,pLevel)>=6;//3, >=4
     }
 
 }

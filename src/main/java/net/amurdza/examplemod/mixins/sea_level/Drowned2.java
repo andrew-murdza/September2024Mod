@@ -16,6 +16,6 @@ public class Drowned2 {
 
     @Redirect(method = "canUse",at= @At(value = "INVOKE", target = "Lnet/minecraft/world/level/Level;getSeaLevel()I"))
     private int hi(Level instance){
-        return WorldGenUtils.getSeaLevelAtPos(drowned.blockPosition());
+        return WorldGenUtils.getTotalWaterAbove(drowned.blockPosition(),instance)>=3?300:-300;
     }
 }

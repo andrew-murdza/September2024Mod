@@ -18,6 +18,6 @@ public class EndDragonFight1 {
     @Redirect(method = "spawnExitPortal",at= @At(value = "INVOKE", target = "Lnet/minecraft/server/level/ServerLevel;getSeaLevel()I"))
     private int hi(ServerLevel instance){
         assert portalLocation != null;
-        return WorldGenUtils.getSeaLevelAtPos(portalLocation);
+        return WorldGenUtils.getSeaLevelWorldGen(portalLocation,instance);
     }
 }

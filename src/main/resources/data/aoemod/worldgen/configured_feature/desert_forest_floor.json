@@ -1,0 +1,54 @@
+{
+  "type": "aoemod:random_selector",
+  "config": {
+    "features": [
+      {
+        "chance": 0.0598,
+        "feature": {
+          "feature": "aoemod:desert_flowers",
+          "placement": [
+            {
+              "type": "minecraft:block_predicate_filter",
+              "predicate": {
+                "type": "minecraft:has_sturdy_face",
+                "offset": [
+                  0,
+                  -1,
+                  0
+                ],
+                "direction": "up"
+              }
+            }
+          ]
+        }
+      },
+      {
+        "chance": 0.002,
+        "feature": {
+          "feature": "aoemod:cactus",
+          "placement": [
+            {
+              "type": "minecraft:block_predicate_filter",
+              "predicate": {
+                "type": "minecraft:has_sturdy_face",
+                "offset": [
+                  0,
+                  -1,
+                  0
+                ],
+                "direction": "up"
+              }
+            }
+          ]
+        }
+      },
+      {
+        "chance": 0.94,
+        "feature": {
+          "feature": "aoemod:nothing",
+          "placement": []
+        }
+      }
+    ]
+  }
+}

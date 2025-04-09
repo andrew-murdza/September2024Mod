@@ -23,7 +23,7 @@ public abstract class Ocelot1 extends Entity {
 
     @Redirect(method = "checkSpawnObstruction",at= @At(value = "INVOKE", target = "Lnet/minecraft/world/level/LevelReader;getSeaLevel()I"))
     private int hi2(LevelReader instance){
-        return WorldGenUtils.getSeaLevelAtPos(blockPosition());
+        return WorldGenUtils.getSeaLevelWorldGen(blockPosition(),level());
     }
 
 }
