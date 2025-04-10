@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "has_torchberries=false": {
+      "model": "aoemod:block/torchberry_plant_no_berries"
+    },
+    "has_torchberries=true": {
+      "model": "aoemod:block/torchberry_plant"
+    }
+  }
+}

@@ -24,11 +24,12 @@ public class FishInDeeperWater {
     }
     @Redirect(method = "checkSurfaceWaterAnimalSpawnRules",at=@At(value = "INVOKE",target = "Lnet/minecraft/world/level/LevelAccessor;getSeaLevel()I"))
     private static int hi2(LevelAccessor instance, EntityType<? extends WaterAnimal> pWaterAnimal, LevelAccessor pLevel, MobSpawnType pSpawnType, BlockPos pPos, RandomSource pRandom){
-        return WorldGenUtils.getSeaLevelAtPos(pPos);
+        return 0;
     }
 
     @Unique
     private static int aOEMod1_20_1V2$findInt(LevelAccessor pLevel, BlockPos pPos, BlockPos instance){
-        return Helper.isSpecialBiome(pLevel,pPos)?10000:instance.getY();
+        int h=WorldGenUtils.getTotalWaterAbove(pPos,pLevel);
+        return h>=0&&h<=13?10000:-10000;
     }
 }

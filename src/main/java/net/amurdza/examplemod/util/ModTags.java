@@ -14,7 +14,6 @@ public class ModTags {
     public static class Blocks{
         public static final TagKey<Block> netherFlowers=tag("nether_flowers");
         public static final TagKey<Block> netherRootsPlaceable=tag("nether_roots_placeable");
-        public static final TagKey<Block> netherWartPlaceable=tag("nether_roots_placeable");
         public static final TagKey<Block> netherPlantsPlaceable=tag("nether_plants_placeable");
         public static final TagKey<Block> sugarCaneCactusLike=tag("sugarcane_cactus_like");
         public static final TagKey<Block> duplicatedByBonemeal=tag("bone_meal_duplicates");
@@ -36,6 +35,10 @@ public class ModTags {
     }
     public static class Biomes{
         public static final TagKey<Biome> tropicalBiomes=tag("tropical_biomes");
+        public static final TagKey<Biome> mountainBiomes=tag("mountain_biomes");
+        public static final TagKey<Biome> netherBiomes=tag("nether_biomes");
+        public static final TagKey<Biome> desertBiomes=tag("desert_biomes");
+
 
         private static TagKey<Biome> tag(String name){
             return TagKey.create(Registries.BIOME,new ResourceLocation(AOEMod.MOD_ID,name));

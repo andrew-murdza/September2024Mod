@@ -1,0 +1,74 @@
+{
+  "type": "aoemod:random_selector",
+  "config": {
+    "features": [
+      {
+        "chance": 0.1992,
+        "feature": {
+          "feature": "aoemod:savanna_flowers",
+          "placement": [
+            {
+              "type": "minecraft:block_predicate_filter",
+              "predicate": {
+                "type": "minecraft:has_sturdy_face",
+                "offset": [
+                  0,
+                  -1,
+                  0
+                ],
+                "direction": "up"
+              }
+            }
+          ]
+        }
+      },
+      {
+        "chance": 0.80,
+        "feature": {
+          "feature": "aoemod:savanna_grass",
+          "placement": [
+            {
+              "type": "minecraft:block_predicate_filter",
+              "predicate": {
+                "type": "minecraft:has_sturdy_face",
+                "offset": [
+                  0,
+                  -1,
+                  0
+                ],
+                "direction": "up"
+              }
+            }
+          ]
+        }
+      },
+      {
+        "chance": 0.0008,
+        "feature": {
+          "feature": "aoemod:sugar_cane",
+          "placement": [
+            {
+              "type": "minecraft:block_predicate_filter",
+              "predicate": {
+                "type": "minecraft:has_sturdy_face",
+                "offset": [
+                  0,
+                  -1,
+                  0
+                ],
+                "direction": "up"
+              }
+            }
+          ]
+        }
+      },
+      {
+        "chance": 0.25,
+        "feature": {
+          "feature": "aoemod:nothing",
+          "placement": []
+        }
+      }
+    ]
+  }
+}

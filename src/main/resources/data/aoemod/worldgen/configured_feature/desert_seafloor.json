@@ -1,0 +1,23 @@
+{
+  "type": "aoemod:all_surface",
+  "config": {
+    "feature": {
+      "feature": "aoemod:desert_water_plants_full",
+      "placement": []
+    },
+    "water": true,
+    "all_layers": true,
+    "predicate": {
+      "type": "minecraft:any_of",
+      "predicates": [
+        {
+          "type": "minecraft:matching_blocks",
+          "blocks": [
+            "minecraft:sand",
+            "minecraft:red_sand"
+          ]
+        }
+      ]
+    }
+  }
+}

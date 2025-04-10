@@ -1,0 +1,15 @@
+{
+  "type": "aoemod:all_surface",
+  "config": {
+    "feature": {
+      "feature": "aoemod:snowy_taiga_forest_floor",
+      "placement": []
+    },
+    "water": false,
+    "all_layers": true,
+    "predicate": {
+      "type": "minecraft:matching_blocks",
+      "blocks": ["minecraft:grass_block","minecraft:snow_block"]
+    }
+  }
+}

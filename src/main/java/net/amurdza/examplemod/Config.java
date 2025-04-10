@@ -1,12 +1,13 @@
 package net.amurdza.examplemod;
 
-//import com.belgieyt.trailsandtalesplus.Objects.TTBlockRegistry;
+import com.belgieyt.trailsandtalesplus.Objects.TTBlockRegistry;
 import com.github.alexthe666.alexsmobs.entity.*;
 import com.github.alexthe666.alexsmobs.item.AMItemRegistry;
 import com.github.alexthe666.iceandfire.entity.EntityPixie;
 import com.github.alexthe666.iceandfire.entity.EntitySeaSerpent;
 import com.github.alexthe666.iceandfire.entity.EntitySiren;
 import com.github.alexthe666.iceandfire.item.IafItemRegistry;
+import com.legacy.blue_skies.registries.SkiesBlocks;
 import com.teamabnormals.upgrade_aquatic.core.registry.UABlocks;
 import net.amurdza.examplemod.block.ModBlocks;
 import net.brnbrd.delightful.common.block.DelightfulBlocks;
@@ -18,7 +19,6 @@ import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.animal.Chicken;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
-import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
@@ -29,9 +29,7 @@ import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-import java.util.function.BiFunction;
 import java.util.function.Function;
-import java.util.function.Supplier;
 
 @Mod.EventBusSubscriber(modid = AOEMod.MOD_ID, bus = Mod.EventBusSubscriber.Bus.MOD)
 public class Config
@@ -68,6 +66,7 @@ public class Config
     public static final double GLOW_LICHEN_TRUNK_CHANCE = 0.1;
     public static final double VINE_TRUNK_CHANCE = 0.5;
     public static final double FRUIT_LEAVES_CHANCE = 0.5;
+    public static final float PRICKLY_PEAR_CHANCE = 1F;
     public static List<Item> BLACKLISTED_USE_ITEMS=List.of();
     public static final int BLOOD_MOON_FREQUENCY = 7;
     public static final float BLOOD_MOON_SPAWN_CAP_MULTIPLIER = 3.0f;
@@ -169,16 +168,27 @@ public class Config
         addToMap(vectorwing.farmersdelight.common.registry.ModBlocks.TOMATO_CROP.get());
         addToMap(vectorwing.farmersdelight.common.registry.ModBlocks.CABBAGE_CROP.get());
         addToMap(vectorwing.farmersdelight.common.registry.ModBlocks.RICE_CROP.get());
-//        addToMap(TTBlockRegistry.CHERRY_VINE.get());
+        addToMap(TTBlockRegistry.CHERRY_VINE.get());
         addToMap(samebutdifferent.ecologics.registry.ModBlocks.PRICKLY_PEAR.get());
         addToMap(ModRegistry.CORN_BASE.get());
         addToMap(ModRegistry.CORN_MIDDLE.get());
         addToMap(ModRegistry.CORN_TOP.get());
 
+
+        addToMap(SkiesBlocks.cryo_roots);
+        addToMap(SkiesBlocks.crescent_fruit_leaves);
+        addToMap(SkiesBlocks.pine_fruits);
+        addToMap(SkiesBlocks.scalefruits);
+        addToMap(SkiesBlocks.cryo_roots);
+        addToMap(SkiesBlocks.brewberry_bush);
+        addToMap(SkiesBlocks.fiery_beans);
+        addToMap(SkiesBlocks.winter_leaves);
+        addToMap(SkiesBlocks.comet_leaves);
+
         addToMap(Blocks.POINTED_DRIPSTONE,0.1);
         addToMap(Blocks.RED_MUSHROOM,0);
         addToMap(Blocks.BROWN_MUSHROOM,0);
-//        addToMap(TTBlockRegistry.LUSHROOM_MUSHROOM.get(),0);
+        addToMap(TTBlockRegistry.LUSHROOM_MUSHROOM.get(),0);
         addToMap(Blocks.SMALL_AMETHYST_BUD,0.5);
         addToMap(Blocks.MEDIUM_AMETHYST_BUD,0.5);
         addToMap(Blocks.LARGE_AMETHYST_BUD,0.5);

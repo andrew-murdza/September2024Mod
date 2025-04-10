@@ -1,0 +1,8 @@
+{
+  "feature": "aoemod:snowy_taiga_seafloor",
+  "placement": [
+    {
+      "type": "minecraft:biome"
+    }
+  ]
+}

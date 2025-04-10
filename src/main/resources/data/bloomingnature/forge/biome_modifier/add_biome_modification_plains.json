@@ -1,0 +1,10 @@
+{
+  "type": "forge:add_features",
+  "biomes": ["minecraft:plains","aoemod:savanna"],
+  "features": [
+    "bloomingnature:plains_flowers",
+    "bloomingnature:plains_grass_patch"
+  ],
+  "step": "vegetal_decoration"
+}
+

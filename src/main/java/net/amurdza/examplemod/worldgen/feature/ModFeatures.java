@@ -2,6 +2,7 @@ package net.amurdza.examplemod.worldgen.feature;
 
 import net.amurdza.examplemod.AOEMod;
 import net.minecraft.world.level.levelgen.feature.Feature;
+import net.minecraft.world.level.levelgen.feature.configurations.BlockColumnConfiguration;
 import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConfiguration;
 import net.minecraft.world.level.levelgen.feature.configurations.ProbabilityFeatureConfiguration;
 
@@ -23,7 +24,7 @@ public class ModFeatures {
     public static final RegistryObject<Feature<RandomSelectionFeatureConfig>> RANDOM_SELECTION=FEATURES.register("random_selector",()->new RandomSelectionFeature(RandomSelectionFeatureConfig.CODEC));
     public static final RegistryObject<Feature<CaveVineConfig>> CAVE_VINES=FEATURES.register("cave_vines",()->new CaveVineColumn(CaveVineConfig.CODEC));
     public static final RegistryObject<Feature<NoneFeatureConfiguration>> PITAYA=FEATURES.register("pitaya",()->new PitayaFeature(NoneFeatureConfiguration.CODEC));
-
+    public static final RegistryObject<Feature<BlockColumnConfiguration>> BLOCK_COLUMN=FEATURES.register("block_column",()->new BlockColumn(BlockColumnConfiguration.CODEC));
 }
 
 //public class ModFeatures {

@@ -56,7 +56,7 @@ public class PhantomSpawner1 {
                             var event = new net.minecraftforge.event.entity.player.PlayerSpawnPhantomsEvent(serverplayer, 1 + randomsource.nextInt(difficultyinstance.getDifficulty().getId() + 1));
                             net.minecraftforge.common.MinecraftForge.EVENT_BUS.post(event);
                             if (event.getResult() == net.minecraftforge.eventbus.api.Event.Result.DENY) continue;
-                            if (event.getResult() == net.minecraftforge.eventbus.api.Event.Result.ALLOW || !p_64576_.dimensionType().hasSkyLight() || blockpos.getY() >= WorldGenUtils.getSeaLevelAtPos(blockpos) && p_64576_.canSeeSky(blockpos)) {
+                            if (event.getResult() == net.minecraftforge.eventbus.api.Event.Result.ALLOW || !p_64576_.dimensionType().hasSkyLight() || blockpos.getY() >= WorldGenUtils.getSeaLevelWorldGen(blockpos,p_64576_) && p_64576_.canSeeSky(blockpos)) {
                                 if (difficultyinstance.isHarderThan(randomsource.nextFloat() * 3.0F)) {
                                     ServerStatsCounter serverstatscounter = serverplayer.getStats();
                                     int j = Mth.clamp(serverstatscounter.getValue(Stats.CUSTOM.get(Stats.TIME_SINCE_REST)), 1, Integer.MAX_VALUE);

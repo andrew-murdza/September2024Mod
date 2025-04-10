@@ -17,6 +17,6 @@ public abstract class EnderDragon1 extends Entity {
 
     @Redirect(method = "findClosestNode()I",at= @At(value = "INVOKE", target = "Lnet/minecraft/world/level/Level;getSeaLevel()I"))
     private int hi(Level instance){
-        return WorldGenUtils.getSeaLevelAtPos(blockPosition());
+        return WorldGenUtils.getSeaLevelWorldGen(blockPosition(),instance);
     }
 }

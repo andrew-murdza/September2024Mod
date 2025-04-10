@@ -173,7 +173,7 @@ dependencies {
 //
     implementation fg.deobf("curse.maven:luminous-909107:5699118")
 //
-//    implementation fg.deobf("curse.maven:trails-and-tales-878476:5045548")
+    implementation fg.deobf("curse.maven:trails-and-tales-878476:5045548")
 //
     implementation fg.deobf("curse.maven:iceandfire-264231:5633453")
 //
@@ -185,6 +185,16 @@ dependencies {
 //
     implementation fg.deobf("curse.maven:alexsmobs-426558:5698791")
     implementation fg.deobf("curse.maven:citadelforalexsmobs-331936:5633260")//NO TOML
+
+//    implementation fg.deobf("curse.maven:forgified-fabric-api-889079:6289136")
+//    implementation fg.deobf("curse.maven:sinytra-connector-890127:5605667")
+//    implementation fg.deobf("curse.maven:connector-extras-913445:5490637")
+//    implementation fg.deobf("curse.maven:betterend-413596:4971487")
+//    implementation fg.deobf("curse.maven:bclib-495191:4971470")
+
+    //new
+    implementation fg.deobf("curse.maven:environmental-388992:6060255")
+    implementation fg.deobf("curse.maven:fins-and-tails-427471:5547163")
 
     //Cherry Shrimp
     implementation fg.deobf("curse.maven:cherry-shrimp-1018833:5357995")

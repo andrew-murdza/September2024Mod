@@ -1,18 +1,18 @@
 package net.amurdza.examplemod.mixins.othermods.alexscaves;
 
 import com.github.alexmodguy.alexscaves.server.entity.ACEntityRegistry;
+import net.amurdza.examplemod.worldgen.WorldGenUtils;
 import net.minecraft.core.BlockPos;
-import net.minecraft.tags.FluidTags;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.MobSpawnType;
 import net.minecraft.world.entity.SpawnPlacements;
 import net.minecraft.world.level.LevelAccessor;
-import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.levelgen.Heightmap;
 import net.minecraftforge.event.entity.SpawnPlacementRegisterEvent;
 import org.spongepowered.asm.mixin.Mixin;
+import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Redirect;
 
@@ -53,11 +53,12 @@ public class DeepWaterNotNeeded {
                                                SpawnPlacementRegisterEvent.Operation operation){
         helper(instance,ACEntityRegistry.TRIPODFISH.get(),0);
     }
+    @Unique
     private static void helper(SpawnPlacementRegisterEvent instance, EntityType type, int k){
         instance.register(type, SpawnPlacements.Type.IN_WATER, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, (p,q,r,s,t)->checkSurfaceWaterAnimalSpawnRules1(p,q,r,s,t,k), SpawnPlacementRegisterEvent.Operation.AND);
     }
+    @Unique
     private static boolean checkSurfaceWaterAnimalSpawnRules1(EntityType<?> pWaterAnimal, LevelAccessor pLevel, MobSpawnType pSpawnType, BlockPos pPos, RandomSource pRandom, int k) {
-        int i = pLevel.getSeaLevel() - k;
-        return pPos.getY() <= i && pLevel.getFluidState(pPos.below()).is(FluidTags.WATER) && pLevel.getBlockState(pPos.above()).is(Blocks.WATER);
+        return WorldGenUtils.getTotalWaterAbove(pPos,pLevel)>=Math.max(k,0);//k-10//WorldGenUtils.getTotalWaterInColumn(pPos,5,pLevel)>=k&&
     }
 }

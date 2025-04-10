@@ -1,5 +1,5 @@
 {
-  "type": "minecraft:block_column",
+  "type": "aoemod:block_column",
   "config": {
     "allowed_placement": {
       "type": "minecraft:matching_blocks",

@@ -12,7 +12,7 @@ public class ModSurfaceRules {
     public static SurfaceRules.RuleSource makeRules() {
         SurfaceRules.RuleSource MOSS_BLOCK = makeStateRule(Blocks.MOSS_BLOCK);
         SurfaceRules.RuleSource BEDROCK = makeStateRule(Blocks.BEDROCK);
-        SurfaceRules.RuleSource mossInRainForest=SurfaceRules.ifTrue(SurfaceRules.isBiome(ModBiomes.RAINFOREST),MOSS_BLOCK);
+        SurfaceRules.RuleSource mossInRainForest=SurfaceRules.ifTrue(SurfaceRules.isBiome(ModBiomes.RAINFOREST_KEY),MOSS_BLOCK);
         SurfaceRules.RuleSource bedRockRule=SurfaceRules.ifTrue(SurfaceRules.verticalGradient
                 ("bedrock_floor",VerticalAnchor.bottom(),VerticalAnchor.bottom()),BEDROCK);
         return SurfaceRules.sequence(bedRockRule,mossInRainForest);

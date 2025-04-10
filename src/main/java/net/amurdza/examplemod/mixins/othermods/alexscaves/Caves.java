@@ -13,6 +13,6 @@ import org.spongepowered.asm.mixin.injection.Redirect;
 public class Caves {
     @Redirect(method = "<init>",at= @At(value = "FIELD", target = "Lcom/github/alexmodguy/alexscaves/server/level/biome/ACBiomeRegistry;PRIMORDIAL_CAVES:Lnet/minecraft/resources/ResourceKey;"),remap = false)
     private static ResourceKey<Biome> hi(){
-        return ModBiomes.RAINFOREST;
+        return ModBiomes.RAINFOREST_KEY;
     }
 }

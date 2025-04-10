@@ -17,6 +17,6 @@ public class Turtle1 {
     @Redirect(method = "checkTurtleSpawnRules",at=@At(value = "INVOKE",target = "Lnet/minecraft/world/level/LevelAccessor;getSeaLevel()I"))
     private static int hi(LevelAccessor instance, EntityType<Bat> pBat, LevelAccessor pLevel, MobSpawnType pSpawnType,
                           BlockPos pPos, RandomSource pRandom){
-        return WorldGenUtils.getSeaLevelAtPos(pPos);
+        return WorldGenUtils.getTotalWaterInColumn(pPos,0,instance)>=6?10000:pPos.getY();//2, >=3
     }
 }

@@ -7,19 +7,7 @@
         {
           "weight": 1,
           "data": {
-            "Name": "upgradeaquatic:pickerelweed"
-          }
-        },
-        {
-          "weight": 1,
-          "data": {
-            "Name": "upgradeaquatic:tall_pickerelweed"
-          }
-        },
-        {
-          "weight": 1,
-          "data": {
-            "Name": "bloomingnature:white_orchid"
+            "Name": "environmental:bluebell"
           }
         },
         {
@@ -31,7 +19,7 @@
         {
           "weight": 1,
           "data": {
-            "Name": "bloomingnature:anenome"
+            "Name": "bloomingnature:anemone"
           }
         },
         {
@@ -169,6 +157,12 @@
         {
           "weight": 1,
           "data": {
+            "Name": "biomeswevegone:flowering_barrel_cactus"
+          }
+        },
+        {
+          "weight": 1,
+          "data": {
             "Name": "bloomingnature:prickly_pear_cactus"
           }
         },
@@ -176,6 +170,12 @@
           "weight": 1,
           "data": {
             "Name": "bloomingnature:silkgrass"
+          }
+        },
+        {
+          "weight": 1,
+          "data": {
+            "Name": "bloomingnature:bottlebrushes"
           }
         },
         {
@@ -241,6 +241,27 @@
         {
           "weight": 1,
           "data": {
+            "Name": "cavesanddepths:tallmossybush",
+            "Properties": {
+              "half": "lower"
+            }
+          }
+        },
+        {
+          "weight": 1,
+          "data": {
+            "Name": "cavesanddepths:mossybush"
+          }
+        },
+        {
+          "weight": 1,
+          "data": {
+            "Name": "cavesanddepths:azalea_flower"
+          }
+        },
+        {
+          "weight": 1,
+          "data": {
             "Name": "biomeswevegone:allium_flower_bush"
           }
         },
@@ -248,6 +269,12 @@
           "weight": 1,
           "data": {
             "Name": "biomeswevegone:aloe_vera"
+          }
+        },
+        {
+          "weight": 1,
+          "data": {
+            "Name": "biomeswevegone:silver_vase_flower"
           }
         },
         {
@@ -313,7 +340,7 @@
         {
           "weight": 1,
           "data": {
-            "Name": "biomeswevegone:daffpdil"
+            "Name": "biomeswevegone:daffodil"
           }
         },
         {
@@ -338,6 +365,12 @@
           "weight": 1,
           "data": {
             "Name": "biomeswevegone:green_mushroom"
+          }
+        },
+        {
+          "weight": 1,
+          "data": {
+            "Name": "biomeswevegone:wood_blewit"
           }
         },
         {
@@ -427,13 +460,19 @@
         {
           "weight": 1,
           "data": {
+            "Name": "biomeswevegone:rose"
+          }
+        },
+        {
+          "weight": 1,
+          "data": {
             "Name": "biomeswevegone:pink_allium"
           }
         },
         {
           "weight": 1,
           "data": {
-            "Name": "biomeswevegone:pink_anenome"
+            "Name": "biomeswevegone:pink_anemone"
           }
         },
         {
@@ -446,12 +485,6 @@
           "weight": 1,
           "data": {
             "Name": "biomeswevegone:pink_orchid"
-          }
-        },
-        {
-          "weight": 1,
-          "data": {
-            "Name": "biomeswevegone:angelica"
           }
         },
         {
@@ -511,6 +544,12 @@
         {
           "weight": 1,
           "data": {
+            "Name": "biomeswevegone:peach_leather_flower"
+          }
+        },
+        {
+          "weight": 1,
+          "data": {
             "Name": "biomeswevegone:weeping_milkcap"
           }
         },
@@ -529,7 +568,7 @@
         {
           "weight": 1,
           "data": {
-            "Name": "biomeswevegone:white_anenome"
+            "Name": "biomeswevegone:white_anemone"
           }
         },
         {
@@ -695,6 +734,12 @@
         {
           "weight": 1,
           "data": {
+            "Name": "blue_skies:baneful_mushroom"
+          }
+        },
+        {
+          "weight": 1,
+          "data": {
             "Name": "blue_skies:briskbloom"
           }
         },
@@ -702,12 +747,6 @@
           "weight": 1,
           "data": {
             "Name": "blue_skies:brittlebush"
-          }
-        },
-        {
-          "weight": 1,
-          "data": {
-            "Name": "blue_skies:briskbloom"
           }
         },
         {
@@ -755,6 +794,21 @@
         {
           "weight": 1,
           "data": {
+            "Name": "blue_skies:lunar_grass"
+          }
+        },
+        {
+          "weight": 1,
+          "data": {
+            "Name": "blue_skies:tall_lunar_grass",
+            "Properties": {
+              "half": "lower"
+            }
+          }
+        },
+        {
+          "weight": 1,
+          "data": {
             "Name": "blue_skies:nightcress"
           }
         },
@@ -768,6 +822,12 @@
           "weight": 1,
           "data": {
             "Name": "blue_skies:snowbloom"
+          }
+        },
+        {
+          "weight": 1,
+          "data": {
+            "Name": "blue_skies:lucent_root"
           }
         },
         {
@@ -809,15 +869,6 @@
         {
           "weight": 1,
           "data": {
-            "Name": "farmersdelight:wild_rice",
-            "Properties": {
-              "half": "lower"
-            }
-          }
-        },
-        {
-          "weight": 1,
-          "data": {
             "Name": "farmersdelight:wild_cabbages"
           }
         },
@@ -825,6 +876,24 @@
           "weight": 1,
           "data": {
             "Name": "vintagedelight:wild_oats"
+          }
+        },
+        {
+          "weight": 1,
+          "data": {
+            "Name": "vintagedelight:wild_ghost_peppers"
+          }
+        },
+        {
+          "weight": 1,
+          "data": {
+            "Name": "culturaldelights:wild_cucumbers"
+          }
+        },
+        {
+          "weight": 1,
+          "data": {
+            "Name": "vintagedelight:wild_eggplants"
           }
         },
         {
@@ -1028,12 +1097,6 @@
         {
           "weight": 1,
           "data": {
-            "Name": "seafarer:sea_thrift"
-          }
-        },
-        {
-          "weight": 1,
-          "data": {
             "Name": "aoemod:blue_berry_bush"
           }
         },
@@ -1075,7 +1138,7 @@
           "data": {
             "Name": "minecraft:nether_wart",
             "Properties": {
-              "age": 3
+              "age": "3"
             }
           }
         },
@@ -1089,6 +1152,24 @@
           "weight": 1,
           "data": {
             "Name": "minecraft:crimson_roots"
+          }
+        },
+        {
+          "weight": 1,
+          "data": {
+            "Name": "environmental:pink_delphinium"
+          }
+        },
+        {
+          "weight": 1,
+          "data": {
+            "Name": "environmental:blue_delphinium"
+          }
+        },
+        {
+          "weight": 1,
+          "data": {
+            "Name": "environmental:purple_delphinium"
           }
         },
         {
@@ -1112,7 +1193,7 @@
         {
           "weight": 1,
           "data": {
-            "Name": "bloomingnature:lilac",
+            "Name": "minecraft:lilac",
             "Properties": {
               "half": "lower"
             }
@@ -1121,7 +1202,7 @@
         {
           "weight": 1,
           "data": {
-            "Name": "bloomingnature:rose_bush",
+            "Name": "minecraft:rose_bush",
             "Properties": {
               "half": "lower"
             }
@@ -1130,7 +1211,7 @@
         {
           "weight": 1,
           "data": {
-            "Name": "bloomingnature:peony",
+            "Name": "minecraft:peony",
             "Properties": {
               "half": "lower"
             }
@@ -1139,7 +1220,7 @@
         {
           "weight": 1,
           "data": {
-            "Name": "bloomingnature:pitcher_plant",
+            "Name": "minecraft:pitcher_plant",
             "Properties": {
               "half": "lower"
             }
@@ -1148,7 +1229,7 @@
         {
           "weight": 1,
           "data": {
-            "Name": "bloomingnature:sunflower",
+            "Name": "minecraft:sunflower",
             "Properties": {
               "half": "lower"
             }

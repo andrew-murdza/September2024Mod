@@ -15,6 +15,6 @@ public class Turtle2 {
 
     @Redirect(method = "start",at= @At(value = "INVOKE", target = "Lnet/minecraft/world/level/Level;getSeaLevel()I"))
     private int hi(Level instance){
-        return WorldGenUtils.getSeaLevelAtPos(turtle.blockPosition());
+        return WorldGenUtils.getTotalWaterAbove(turtle.blockPosition(),instance)>=1?1000:-1000;
     }
 }
