@@ -73,7 +73,7 @@
             "humidity": 0,
             "continentalness": [
               -0.01,
-              0.12
+              0.11
             ],
             "erosion": 0,
             "weirdness": 0,
@@ -87,7 +87,7 @@
             "temperature": 0,
             "humidity": 0,
             "continentalness": [
-              0.12,
+              0.11,
               0.14
             ],
             "erosion": 0,
