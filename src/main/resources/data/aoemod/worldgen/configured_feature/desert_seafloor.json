@@ -15,6 +15,11 @@
           "blocks": [
             "minecraft:sand",
             "minecraft:red_sand"
+          ],
+          "offset": [
+            0,
+            -1,
+            0
           ]
         }
       ]

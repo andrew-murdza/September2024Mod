@@ -264,6 +264,11 @@ dependencies {
     implementation fg.deobf("curse.maven:terrablender-563928:5378180")
     implementation fg.deobf("curse.maven:oh-the-trees-youll-grow-962544:6026960")
 
+
+//    implementation fg.deobf("curse.maven:shineals-prehistoric-expansion-909176:6078158") (CAN'T FIND)
+    implementation fg.deobf("curse.maven:autumnity-365045:6151402")
+    implementation fg.deobf("curse.maven:luminous-nether-1078098:6310313")
+
     //TEST LATER
 //    implementation fg.deobf("curse.maven:kitteh6660s-morecraft-59648:4855867")
 

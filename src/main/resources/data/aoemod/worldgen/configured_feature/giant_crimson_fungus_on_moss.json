@@ -5,7 +5,7 @@
       "Name": "minecraft:shroomlight"
     },
     "hat_state": {
-      "Name": "minecraft:warped_wart_block"
+      "Name": "minecraft:nether_wart_block"
     },
     "planted": false,
     "replaceable_blocks": {
@@ -71,7 +71,7 @@
       ]
     },
     "stem_state": {
-      "Name": "minecraft:warped_stem",
+      "Name": "minecraft:crimson_stem",
       "Properties": {
         "axis": "y"
       }

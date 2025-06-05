@@ -52,55 +52,169 @@
         "maxCount": 8,
         "minCount": 8,
         "weight": 10
+      },
+      {
+        "type": "alexsmobs:cockroach",
+        "weight": 10,
+        "minCount": 8,
+        "maxCount": 8
       }
     ],
     "axolotls": [],
     "creature": [
       {
-        "type": "minecraft:sheep",
-        "maxCount": 4,
-        "minCount": 4,
-        "weight": 12
-      },
-      {
-        "type": "minecraft:pig",
-        "maxCount": 4,
-        "minCount": 4,
-        "weight": 10
-      },
-      {
-        "type": "minecraft:chicken",
-        "maxCount": 4,
-        "minCount": 4,
-        "weight": 10
-      },
-      {
-        "type": "minecraft:cow",
-        "maxCount": 4,
-        "minCount": 4,
-        "weight": 8
-      },
-      {
-        "type": "minecraft:wolf",
-        "maxCount": 4,
-        "minCount": 4,
-        "weight": 8
-      },
-      {
         "type": "minecraft:rabbit",
-        "maxCount": 3,
+        "weight": 10,
         "minCount": 2,
-        "weight": 4
+        "maxCount": 5
       },
       {
         "type": "minecraft:fox",
-        "maxCount": 4,
+        "weight": 10,
         "minCount": 2,
-        "weight": 8
+        "maxCount": 5
+      },
+      {
+        "type": "minecraft:goat",
+        "weight": 10,
+        "minCount": 2,
+        "maxCount": 5
+      },
+      {
+        "type": "minecraft:llama",
+        "weight": 10,
+        "minCount": 2,
+        "maxCount": 5
+      },
+      {
+        "type": "minecraft:polar_bear",
+        "weight": 10,
+        "minCount": 2,
+        "maxCount": 5
+      },
+      {
+        "type": "minecraft:wolf",
+        "weight": 10,
+        "minCount": 2,
+        "maxCount": 5
+      },
+      {
+        "type": "alexsmobs:blue_jay",
+        "weight": 10,
+        "minCount": 2,
+        "maxCount": 5
+      },
+      {
+        "type": "alexsmobs:seal",
+        "weight": 10,
+        "minCount": 2,
+        "maxCount": 5
+      },
+      {
+        "type": "alexsmobs:bald_eagle",
+        "weight": 10,
+        "minCount": 2,
+        "maxCount": 5
+      },
+      {
+        "type": "alexsmobs:snow_leopard",
+        "weight": 10,
+        "minCount": 2,
+        "maxCount": 5
+      },
+      {
+        "type": "alexsmobs:tusklin",
+        "weight": 10,
+        "minCount": 2,
+        "maxCount": 5
+      },
+      {
+        "type": "iceandfire:siren",
+        "weight": 10,
+        "minCount": 2,
+        "maxCount": 5
+      },
+      {
+        "type": "iceandfire:hippocampus",
+        "weight": 10,
+        "minCount": 2,
+        "maxCount": 5
+      },
+      {
+        "type": "iceandfire:sea_serpent",
+        "weight": 10,
+        "minCount": 2,
+        "maxCount": 5
+      },
+      {
+        "type": "blue_skies:azulfo",
+        "weight": 10,
+        "minCount": 2,
+        "maxCount": 5
+      },
+      {
+        "type": "blue_skies:cosmic_fox",
+        "weight": 10,
+        "minCount": 2,
+        "maxCount": 5
+      },
+      {
+        "type": "blue_skies:horizofin_tunid",
+        "weight": 10,
+        "minCount": 2,
+        "maxCount": 5
+      },
+      {
+        "type": "blue_skies:reindeer",
+        "weight": 10,
+        "minCount": 2,
+        "maxCount": 5
+      },
+      {
+        "type": "blue_skies:stardust_ram",
+        "weight": 10,
+        "minCount": 2,
+        "maxCount": 5
+      },
+      {
+        "type": "blue_skies:snow_owl",
+        "weight": 10,
+        "minCount": 2,
+        "maxCount": 5
+      },
+      {
+        "type": "minecraft:mooshroom",
+        "weight": 10,
+        "minCount": 2,
+        "maxCount": 5
+      },
+      {
+        "type": "trailsandtalesplus:cluckshroom",
+        "weight": 10,
+        "minCount": 2,
+        "maxCount": 5
+      },
+      {
+        "type": "alexsmobs:potoo",
+        "weight": 10,
+        "minCount": 2,
+        "maxCount": 5
+      },
+      {
+        "type": "alexsmobs:moose",
+        "weight": 10,
+        "minCount": 2,
+        "maxCount": 5
       }
     ],
     "misc": [],
     "monster": [
+      {
+        "type": "blue_skies:diophyde_prowler",
+        "weight": 10,
+        "minCount": 2,
+        "maxCount": 5
+      },
       {
         "type": "minecraft:spider",
         "maxCount": 4,
@@ -158,8 +272,96 @@
         "weight": 10
       }
     ],
-    "water_ambient": [],
-    "water_creature": []
+    "water_ambient": [
+      {
+        "type": "bountiful_critters:krill",
+        "weight": 10,
+        "minCount": 2,
+        "maxCount": 5
+      },
+      {
+        "type": "cherry_shrimp:cherry_shrimp",
+        "weight": 5,
+        "minCount": 2,
+        "maxCount": 5
+      },
+      {
+        "type": "minecraft:salmon",
+        "weight": 15,
+        "minCount": 8,
+        "maxCount": 8
+      },
+      {
+        "type": "alexscaves:trilocaris",
+        "weight": 5,
+        "minCount": 8,
+        "maxCount": 8
+      },
+      {
+        "type": "alexscaves:lanternfish",
+        "weight": 25,
+        "minCount": 8,
+        "maxCount": 8
+      },
+      {
+        "type": "alexsmobs:devils_hole_pupfish",
+        "weight": 5,
+        "minCount": 4,
+        "maxCount": 6
+      },
+      {
+        "type": "alexsmobs:flying_fish",
+        "weight": 5,
+        "minCount": 4,
+        "maxCount": 6
+      }
+    ],
+    "water_creature": [
+      {
+        "type": "alexsmobs:cachalot_whale",
+        "weight": 5,
+        "minCount": 4,
+        "maxCount": 6
+      },
+      {
+        "type": "alexsmobs:orca",
+        "weight": 5,
+        "minCount": 4,
+        "maxCount": 6
+      },
+      {
+        "type": "minecraft:dolphin",
+        "weight": 10,
+        "minCount": 4,
+        "maxCount": 6
+      },
+      {
+        "type": "minecraft:squid",
+        "weight": 10,
+        "minCount": 4,
+        "maxCount": 6
+      }
+    ],
+    "alexscaves:deep_sea_creature": [
+      {
+        "type": "alexscaves:sea_pig",
+        "weight": 10,
+        "minCount": 4,
+        "maxCount": 6
+      },
+      {
+        "type": "alexscaves:gossamer_worm",
+        "weight": 10,
+        "minCount": 4,
+        "maxCount": 6
+      },
+      {
+        "type": "alexscaves:tripodfish",
+        "weight": 10,
+        "minCount": 4,
+        "maxCount": 6
+      }
+    ]
   },
   "temperature": -0.2
 }

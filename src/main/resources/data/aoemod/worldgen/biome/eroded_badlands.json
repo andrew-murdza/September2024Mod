@@ -53,6 +53,18 @@
         "maxCount": 8,
         "minCount": 8,
         "weight": 10
+      },
+      {
+        "type": "alexsmobs:cockroach",
+        "weight": 10,
+        "minCount": 8,
+        "maxCount": 8
+      },
+      {
+        "type": "alexsmobs:jerboa",
+        "weight": 10,
+        "minCount": 2,
+        "maxCount": 5
       }
     ],
     "axolotls": [],
@@ -62,10 +74,28 @@
         "maxCount": 3,
         "minCount": 2,
         "weight": 4
+      },
+      {
+        "type": "alexsmobs:tarantula_hawk",
+        "weight": 10,
+        "minCount": 2,
+        "maxCount": 5
+      },
+      {
+        "type": "alexsmobs:komodo_dragon",
+        "weight": 10,
+        "minCount": 2,
+        "maxCount": 5
       }
     ],
     "misc": [],
     "monster": [
+      {
+        "type": "alexsmobs:centipede_head",
+        "weight": 10,
+        "minCount": 2,
+        "maxCount": 5
+      },
       {
         "type": "minecraft:spider",
         "maxCount": 4,
@@ -129,7 +159,22 @@
         "weight": 10
       }
     ],
-    "water_ambient": [],
+    "water_ambient": [
+      {
+        "type": "alexsmobs:triops",
+        "weight": 5,
+        "minCount": 4,
+        "maxCount": 6
+      }
+    ],
+    "alexscaves:deep_sea_creature": [
+      {
+        "type": "alexscaves:sea_pig",
+        "weight": 10,
+        "minCount": 4,
+        "maxCount": 6
+      }
+    ],
     "water_creature": []
   },
   "temperature": 2

@@ -3,7 +3,7 @@
   "config": {
     "features": [
       {
-        "chance": 0.60,
+        "chance": 0.40,
         "feature": {
           "feature": "aoemod:plains_seagrass",
           "placement": [
@@ -23,7 +23,7 @@
         }
       },
       {
-        "chance": 0.40,
+        "chance": 0.60,
         "feature": {
           "feature": "aoemod:nothing",
           "placement": []

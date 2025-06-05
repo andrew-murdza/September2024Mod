@@ -265,12 +265,6 @@
         "maxCount": 5
       },
       {
-        "type": "alexsmobs:seal",
-        "weight": 10,
-        "minCount": 2,
-        "maxCount": 5
-      },
-      {
         "type": "alexsmobs:sugar_glider",
         "weight": 10,
         "minCount": 2,
@@ -296,12 +290,6 @@
       },
       {
         "type": "alexsmobs:bison",
-        "weight": 10,
-        "minCount": 2,
-        "maxCount": 5
-      },
-      {
-        "type": "alexsmobs:caiman",
         "weight": 10,
         "minCount": 2,
         "maxCount": 5
@@ -379,12 +367,6 @@
         "maxCount": 5
       },
       {
-        "type": "alexsmobs:crocodile",
-        "weight": 10,
-        "minCount": 2,
-        "maxCount": 5
-      },
-      {
         "type": "alexsmobs:komodo_dragon",
         "weight": 10,
         "minCount": 2,
@@ -397,31 +379,13 @@
         "maxCount": 5
       },
       {
-        "type": "minecraft:turtle",
-        "weight": 10,
-        "minCount": 4,
-        "maxCount": 6
-      },
-      {
         "type": "alexsmobs:mudskipper",
         "weight": 5,
         "minCount": 4,
         "maxCount": 6
       },
       {
-        "type": "alexsmobs:alligator_snapping_turtle",
-        "weight": 5,
-        "minCount": 4,
-        "maxCount": 6
-      },
-      {
         "type": "alexsmobs:tusklin",
-        "weight": 10,
-        "minCount": 2,
-        "maxCount": 5
-      },
-      {
-        "type": "ecologics:coconut_crab",
         "weight": 10,
         "minCount": 2,
         "maxCount": 5
@@ -531,23 +495,11 @@
         "weight": 10,
         "minCount": 4,
         "maxCount": 6
-      },
-      {
-        "type": "alexscaves:hullbreaker",
-        "weight": 4,
-        "minCount": 4,
-        "maxCount": 6
       }
     ],
     "water_ambient": [
       {
         "type": "bountiful_critters:krill",
-        "weight": 10,
-        "minCount": 2,
-        "maxCount": 5
-      },
-      {
-        "type": "",
         "weight": 10,
         "minCount": 2,
         "maxCount": 5
@@ -601,12 +553,6 @@
         "maxCount": 6
       },
       {
-        "type": "alexsmobs:flying_fish",
-        "weight": 5,
-        "minCount": 4,
-        "maxCount": 6
-      },
-      {
         "type": "alexsmobs:triops",
         "weight": 5,
         "minCount": 4,
@@ -615,20 +561,8 @@
     ],
     "water_creature": [
       {
-        "type": "alexsmobs:cachalot_whale",
-        "weight": 5,
-        "minCount": 4,
-        "maxCount": 6
-      },
-      {
         "type": "alexsmobs:hammerhead_shark",
         "weight": 5,
-        "minCount": 4,
-        "maxCount": 6
-      },
-      {
-        "type": "minecraft:dolphin",
-        "weight": 10,
         "minCount": 4,
         "maxCount": 6
       },
@@ -694,6 +628,7 @@
       "aoemod:rainforest_trees",
       "aoemod:rainforest_forest_floor",
       "aoemod:rainforest_seafloor",
+      "aoemod:savanna_seafloor",
       "aoemod:cave_vines",
       "aoemod:patch_wild_rice",
       "upgrade_aquatic:patch_pickerelweed_extra",

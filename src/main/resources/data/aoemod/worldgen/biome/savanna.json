@@ -26,8 +26,9 @@
       "minecraft:spring_water"
     ],
     [
-//      "aoemod:savanna_trees",
-//      "aoemod:savanna_seafloor",
+      "aoemod:savanna_trees",
+      "aoemod:rainforest_seafloor",
+      "aoemod:savanna_seafloor"//,
 //      "upgrade_aquatic:patch_pickerelweed"
     ],
     [
@@ -43,45 +44,159 @@
         "maxCount": 8,
         "minCount": 8,
         "weight": 10
+      },
+      {
+        "type": "alexsmobs:cockroach",
+        "weight": 10,
+        "minCount": 8,
+        "maxCount": 8
+      },
+      {
+        "type": "alexsmobs:jerboa",
+        "weight": 10,
+        "minCount": 2,
+        "maxCount": 5
       }
     ],
     "axolotls": [],
     "creature": [
       {
-        "type": "minecraft:sheep",
-        "maxCount": 4,
-        "minCount": 4,
-        "weight": 12
-      },
-      {
-        "type": "minecraft:pig",
-        "maxCount": 4,
-        "minCount": 4,
-        "weight": 10
+        "type": "minecraft:cat",
+        "weight": 10,
+        "minCount": 2,
+        "maxCount": 5
       },
       {
         "type": "minecraft:chicken",
-        "maxCount": 4,
-        "minCount": 4,
-        "weight": 10
+        "weight": 10,
+        "minCount": 2,
+        "maxCount": 5
       },
       {
         "type": "minecraft:cow",
-        "maxCount": 4,
-        "minCount": 4,
-        "weight": 8
-      },
-      {
-        "type": "minecraft:horse",
-        "maxCount": 6,
+        "weight": 10,
         "minCount": 2,
-        "weight": 1
+        "maxCount": 5
       },
       {
         "type": "minecraft:donkey",
-        "maxCount": 1,
-        "minCount": 1,
-        "weight": 1
+        "weight": 10,
+        "minCount": 2,
+        "maxCount": 5
+      },
+      {
+        "type": "minecraft:horse",
+        "weight": 10,
+        "minCount": 2,
+        "maxCount": 5
+      },
+      {
+        "type": "minecraft:pig",
+        "weight": 10,
+        "minCount": 2,
+        "maxCount": 5
+      },
+      {
+        "type": "minecraft:rabbit",
+        "weight": 10,
+        "minCount": 2,
+        "maxCount": 5
+      },
+      {
+        "type": "minecraft:sheep",
+        "weight": 10,
+        "minCount": 2,
+        "maxCount": 5
+      },
+      {
+        "type": "minecraft:fox",
+        "weight": 10,
+        "minCount": 2,
+        "maxCount": 5
+      },
+      {
+        "type": "minecraft:goat",
+        "weight": 10,
+        "minCount": 2,
+        "maxCount": 5
+      },
+      {
+        "type": "minecraft:llama",
+        "weight": 10,
+        "minCount": 2,
+        "maxCount": 5
+      },
+      {
+        "type": "minecraft:wolf",
+        "weight": 10,
+        "minCount": 2,
+        "maxCount": 5
+      },
+      {
+        "type": "alexsmobs:blue_jay",
+        "weight": 10,
+        "minCount": 2,
+        "maxCount": 5
+      },
+      {
+        "type": "alexsmobs:gazelle",
+        "weight": 10,
+        "minCount": 2,
+        "maxCount": 5
+      },
+      {
+        "type": "alexsmobs:potoo",
+        "weight": 10,
+        "minCount": 2,
+        "maxCount": 5
+      },
+      {
+        "type": "alexsmobs:roadrunner",
+        "weight": 10,
+        "minCount": 2,
+        "maxCount": 5
+      },
+      {
+        "type": "alexsmobs:anteater",
+        "weight": 10,
+        "minCount": 2,
+        "maxCount": 5
+      },
+      {
+        "type": "alexsmobs:bison",
+        "weight": 10,
+        "minCount": 2,
+        "maxCount": 5
+      },
+      {
+        "type": "alexsmobs:elephant",
+        "weight": 10,
+        "minCount": 2,
+        "maxCount": 5
+      },
+      {
+        "type": "alexsmobs:emu",
+        "weight": 10,
+        "minCount": 2,
+        "maxCount": 5
+      },
+      {
+        "type": "alexsmobs:kangaroo",
+        "weight": 10,
+        "minCount": 2,
+        "maxCount": 5
+      },
+      {
+        "type": "alexsmobs:moose",
+        "weight": 10,
+        "minCount": 2,
+        "maxCount": 5
+      },
+      {
+        "type": "alexsmobs:rhinoceros",
+        "weight": 10,
+        "minCount": 2,
+        "maxCount": 5
       }
     ],
     "misc": [],
@@ -133,6 +248,36 @@
         "maxCount": 1,
         "minCount": 1,
         "weight": 5
+      },
+      {
+        "type": "alexsmobs:komodo_dragon",
+        "weight": 10,
+        "minCount": 2,
+        "maxCount": 5
+      },
+      {
+        "type": "alexsmobs:tiger",
+        "weight": 10,
+        "minCount": 2,
+        "maxCount": 5
+      },
+      {
+        "type": "alexsmobs:mudskipper",
+        "weight": 5,
+        "minCount": 4,
+        "maxCount": 6
+      },
+      {
+        "type": "alexsmobs:tusklin",
+        "weight": 10,
+        "minCount": 2,
+        "maxCount": 5
+      },
+      {
+        "type": "naturalist:deer",
+        "weight": 10,
+        "minCount": 2,
+        "maxCount": 5
       }
     ],
     "underground_water_creature": [
@@ -143,8 +288,70 @@
         "weight": 10
       }
     ],
-    "water_ambient": [],
-    "water_creature": []
+    "water_ambient": [
+      {
+        "type": "bountiful_critters:krill",
+        "weight": 10,
+        "minCount": 2,
+        "maxCount": 5
+      },
+      {
+        "type": "minecraft:tropical_fish",
+        "weight": 25,
+        "minCount": 8,
+        "maxCount": 8
+      },
+      {
+        "type": "cherry_shrimp:cherry_shrimp",
+        "weight": 5,
+        "minCount": 2,
+        "maxCount": 5
+      },
+      {
+        "type": "alexsmobs:terrapin",
+        "weight": 5,
+        "minCount": 2,
+        "maxCount": 5
+      },
+      {
+        "type": "minecraft:salmon",
+        "weight": 15,
+        "minCount": 8,
+        "maxCount": 8
+      },
+      {
+        "type": "minecraft:pufferfish",
+        "weight": 5,
+        "minCount": 8,
+        "maxCount": 8
+      },
+      {
+        "type": "alexscaves:trilocaris",
+        "weight": 5,
+        "minCount": 8,
+        "maxCount": 8
+      },
+      {
+        "type": "alexsmobs:devils_hole_pupfish",
+        "weight": 5,
+        "minCount": 4,
+        "maxCount": 6
+      }
+    ],
+    "water_creature": [
+      {
+        "type": "alexsmobs:hammerhead_shark",
+        "weight": 5,
+        "minCount": 4,
+        "maxCount": 6
+      },
+      {
+        "type": "minecraft:squid",
+        "weight": 10,
+        "minCount": 4,
+        "maxCount": 6
+      }
+    ]
   },
   "temperature": 2
 }

@@ -3,7 +3,7 @@
   "config": {
     "features": [
       {
-        "chance": 0.10,
+        "chance": 0.075,
         "feature": {
           "feature": "aoemod:savanna_water_plants",
           "placement": [
@@ -23,7 +23,7 @@
         }
       },
       {
-        "chance": 0.05,
+        "chance": 0.0375,
         "feature": {
           "feature": "aoemod:rainforest_kelp",
           "placement": [
@@ -43,7 +43,7 @@
         }
       },
       {
-        "chance": 0.65,
+        "chance": 0.4875,
         "feature": {
           "feature": "aoemod:savanna_seagrass",
           "placement": [
@@ -63,7 +63,7 @@
         }
       },
       {
-        "chance": 0.20,
+        "chance": 0.40,
         "feature": {
           "feature": "aoemod:nothing",
           "placement": []
