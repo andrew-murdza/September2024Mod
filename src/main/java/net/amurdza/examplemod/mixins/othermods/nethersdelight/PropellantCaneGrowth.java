@@ -11,8 +11,9 @@ import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Redirect;
 import umpaz.nethersdelight.common.block.PropelplantBerryCaneBlock;
+import umpaz.nethersdelight.common.block.PropelplantBerryStemBlock;
 
-@Mixin(PropelplantBerryCaneBlock.class)
+@Mixin(PropelplantBerryStemBlock.class)
 public class PropellantCaneGrowth {
     @Redirect(method = "randomTick",at = @At(value = "INVOKE", target = "Lnet/minecraft/util/RandomSource;nextInt(I)I",ordinal = 1))
     private int hi(RandomSource instance, int i){
@@ -20,10 +21,6 @@ public class PropellantCaneGrowth {
     }
     @Redirect(method = "randomTick",at = @At(value = "INVOKE", target = "Lnet/minecraft/util/RandomSource;nextInt(I)I",ordinal = 0))
     private int hi1(RandomSource instance, int i, BlockState state, ServerLevel level, BlockPos pos, RandomSource random){
-        return growthChance(level,pos,instance);
-    }
-    @Redirect(method = "randomTick",at = @At(value = "INVOKE", target = "Lnet/minecraft/util/RandomSource;nextInt(I)I",ordinal = 2))
-    private int hi2(RandomSource instance, int i,BlockState state, ServerLevel level, BlockPos pos, RandomSource random){
         return growthChance(level,pos,instance);
     }
     @Unique
