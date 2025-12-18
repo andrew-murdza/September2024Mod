@@ -122,7 +122,7 @@
             ],
             "erosion": 0,
             "weirdness": 0,
-            "depth": 0,
+            "depth": 0.1,
             "offset": 0
           }
         },
@@ -140,7 +140,39 @@
             "depth": 0,
             "offset": 0
           }
+        },
+        {
+          "biome": "aoemod:badlands",
+          "parameters": {
+            "temperature": 0,
+            "humidity": 0,
+            "continentalness": [
+              0.27,
+              1
+            ],
+            "erosion": 0,
+            "weirdness": 0,
+            "depth": 0,
+            "offset": 0
+          }
+        },
+        {
+          "biome": "aoemod:crimson_forest",
+          "parameters": { "temperature": 0, "humidity": 0, "continentalness": [-2.0, -1.9], "erosion": 0, "weirdness": 0, "depth": 0, "offset": 0 }
+        },
+        {
+          "biome": "aoemod:warped_forest",
+          "parameters": { "temperature": 0, "humidity": 0, "continentalness": [-2.0, -1.9], "erosion": 0, "weirdness": 0, "depth": 0, "offset": 0 }
+        },
+        {
+          "biome": "aoemod:soul_sand_valley",
+          "parameters": { "temperature": 0, "humidity": 0, "continentalness": [-2.0, -1.9], "erosion": 0, "weirdness": 0, "depth": 0, "offset": 0 }
+        },
+        {
+          "biome": "aoemod:basalt_deltas",
+          "parameters": { "temperature": 0, "humidity": 0, "continentalness": [-2.0, -1.9], "erosion": 0, "weirdness": 0, "depth": 0, "offset": 0 }
         }
+
       ]
     }
   }
