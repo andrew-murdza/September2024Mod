@@ -269,6 +269,9 @@ public class MountainLakePiece extends StructurePiece {
                 pos.set(x, waterY +1, z);
                 if (!box.isInside(pos) || !level.getBlockState(pos).isAir()) continue;
 
+                pos.set(x, waterY +2, z);
+                if (!box.isInside(pos) || !level.getBlockState(pos).isAir()) continue;
+
                 pos.set(x, waterY, z);
                 if (!box.isInside(pos) || !level.getBlockState(pos).isAir()) continue;
 

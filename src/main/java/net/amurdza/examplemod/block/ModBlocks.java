@@ -29,6 +29,7 @@ public class ModBlocks {
     public static final RegistryObject<Block> LUSHROOM = registerBlock("lush_mushroom",()->new MushroomBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_GREEN).noCollission().randomTicks().instabreak().sound(SoundType.GRASS).pushReaction(PushReaction.DESTROY), ModFeatures.HUGE_LUSHROOM));
     public static final RegistryObject<Block> LUSHROOM_BLOCK = registerBlock("lush_mushroom_block", () -> new HugeMushroomBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_GREEN).instrument(NoteBlockInstrument.BASS).strength(0.2F).sound(SoundType.WOOD).ignitedByLava()));
     public static final RegistryObject<Block> CHERRY_VINE = registerBlock("cherry_vine", () -> new HugeMushroomBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_GREEN).instrument(NoteBlockInstrument.BASS).strength(0.2F).sound(SoundType.WOOD).ignitedByLava()));
+    public static final RegistryObject<Block> GLOW_SHROOM= registerBlock("glow_shroom",()->new GlowShroomBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_RED).lightLevel(p->10).noCollission().randomTicks().instabreak().sound(SoundType.GRASS).pushReaction(PushReaction.DESTROY), ModFeatures.HUGE_GLOW_SHROOM));
 //    public static final RegistryObject<Block> LAVENDER=registerFlower("lavender",MobEffects.NIGHT_VISION,7);
 //    public static final RegistryObject<Block> WILDFLOWER=registerFlower("wildflower",MobEffects.DAMAGE_RESISTANCE,7);
 
@@ -49,7 +50,7 @@ public class ModBlocks {
     private static <T extends Block> RegistryObject<T> registerBlock(String name, Supplier<T> block) {
         return registerBlock(name, block, t->t);
     }
-    private static <T extends Block> RegistryObject<Item> registerBlockItem(String name, RegistryObject<T> block, Function<Item.Properties, Item.Properties> func){
-        return ModItems.ITEMS.register(name, ()-> new BlockItem(block.get(), func.apply(new Item.Properties())));
+    private static <T extends Block> void registerBlockItem(String name, RegistryObject<T> block, Function<Item.Properties, Item.Properties> func){
+        ModItems.ITEMS.register(name, () -> new BlockItem(block.get(), func.apply(new Item.Properties())));
     }
 }

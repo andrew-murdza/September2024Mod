@@ -69,12 +69,6 @@
       "maxCount": 5
     },
     {
-      "type": "blue_skies:azulfo",
-      "weight": 10,
-      "minCount": 2,
-      "maxCount": 5
-    },
-    {
       "type": "blue_skies:diophyde_prowler",
       "weight": 10,
       "minCount": 2,

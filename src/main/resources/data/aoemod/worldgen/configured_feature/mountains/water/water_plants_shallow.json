@@ -9,6 +9,12 @@
           "data": {
             "Name": "alexscaves:bone_worms"
           }
+        },
+        {
+          "weight": 1,
+          "data": {
+            "Name": "minecraft:seagrass"
+          }
         }
       ]
     }

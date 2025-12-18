@@ -11,9 +11,15 @@
           }
         },
         {
-          "weight": 69,
+          "weight": 30,
           "data": {
             "Name": "alexscaves:bone_worms"
+          }
+        },
+        {
+          "weight": 39,
+          "data": {
+            "Name": "minecraft:seagrass"
           }
         },
         {

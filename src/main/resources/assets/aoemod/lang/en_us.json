@@ -11,6 +11,8 @@
   "item.aoemod.lushroom":"Lush Mushroom",
   "block.aoemod.cherry_vine":"Cherry Vine",
   "item.aoemod.cherry_vine":"Cherry Vine",
+  "block.aoemod.glow_shroom": "Glow Shroom",
+  "item.aoemod.glow_shroom": "Glow Shroom",
 //  "biome.aoemod.rainforestnew": "Rainforest",
   "dimension.aoemod.aoedim": "AOE Dimension"
 }

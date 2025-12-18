@@ -18,6 +18,7 @@ import net.minecraftforge.registries.RegistryObject;
 
 public class ModFeatures {
     public static final DeferredRegister<Feature<?>> FEATURES=DeferredRegister.create(ForgeRegistries.FEATURES, AOEMod.MOD_ID);
+
     public static void register(IEventBus eventBus){
         FEATURES.register(eventBus);
     }
@@ -35,6 +36,7 @@ public class ModFeatures {
 
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> HUGE_LUSHROOM = createKey("huge_lush_mushroom");
+    public static final ResourceKey<ConfiguredFeature<?,?>> HUGE_GLOW_SHROOM = createKey("huge_glow_shroom");
 
     public static ResourceKey<ConfiguredFeature<?, ?>> createKey(String p_255643_) {
         return ResourceKey.create(Registries.CONFIGURED_FEATURE, new ResourceLocation("aoemod", p_255643_));
