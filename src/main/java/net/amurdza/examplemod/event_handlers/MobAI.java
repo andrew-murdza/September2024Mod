@@ -32,8 +32,6 @@ import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraftforge.event.entity.EntityJoinLevelEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
-import org.violetmoon.quark.content.world.module.GlimmeringWealdModule;
-import superlord.cherry_shrimp.common.entity.CherryShrimp;
 
 import java.lang.reflect.Field;
 import java.util.ArrayList;
@@ -136,11 +134,11 @@ public class MobAI {
                     removeAI(mob,
                             Class.forName("com.teamabnormals.upgrade_aquatic.common.entity.animal.Lionfish$LionfishAttackGoal"));
                 }
-                if (entity instanceof CherryShrimp){
-                    removeAI(mob,
-                            Class.forName("superlord.cherry_shrimp.common.entity.CherryShrimp$ShrimpAvoidEntityGoal"),
-                            Class.forName("superlord.cherry_shrimp.common.entity.CherryShrimp$ShrimpPanicGoal"));
-                }
+//                if (entity instanceof CherryShrimp){
+//                    removeAI(mob,
+//                            Class.forName("superlord.cherry_shrimp.common.entity.CherryShrimp$ShrimpAvoidEntityGoal"),
+//                            Class.forName("superlord.cherry_shrimp.common.entity.CherryShrimp$ShrimpPanicGoal"));
+//                }
                 else if(entity instanceof EntityGiantSquid){
                     removeAI(mob, Class.forName("com.github.alexthe666.alexsmobs.entity.EntityGiantSquid$AIAvoidWhales"));
                 }

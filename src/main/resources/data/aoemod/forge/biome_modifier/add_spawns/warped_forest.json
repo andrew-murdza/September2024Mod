@@ -1,0 +1,36 @@
+{
+  "type": "forge:add_spawns",
+  "biomes": "aoemod:warped_forest",
+  "spawners": [
+    {
+      "type": "alexsmobs:warped_toad",
+      "weight": 15,
+      "minCount": 4,
+      "maxCount": 4
+    },
+    {
+      "type": "netherdepthsupgrade:bonefish",
+      "weight": 5,
+      "minCount": 2,
+      "maxCount": 4
+    },
+    {
+      "type": "netherdepthsupgrade:glowdine",
+      "weight": 5,
+      "minCount": 3,
+      "maxCount": 6
+    },
+    {
+      "type": "netherdepthsupgrade:lava_pufferfish",
+      "weight": 10,
+      "minCount": 1,
+      "maxCount": 3
+    },
+    {
+      "type": "netherdepthsupgrade:searing_cod",
+      "weight": 15,
+      "minCount": 3,
+      "maxCount": 6
+    }
+  ]
+}

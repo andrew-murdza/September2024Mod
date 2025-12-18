@@ -1,6 +1,0 @@
-{
-  "type": "forge:add_features",
-  "biomes": ["minecraft:plains"],
-  "features": ["twilightforest:torch_berries","twilightforest:troll_roots"],
-  "step": "vegetal_decoration"
-}

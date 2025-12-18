@@ -1,5 +1,11 @@
 {
-  "carvers": {},
+  "carvers": {
+    "air": [
+      "minecraft:cave",
+      "minecraft:cave_extra_underground",
+      "minecraft:canyon"
+    ]
+  },
   "downfall": 0,
   "effects": {
     "additions_sound": {
@@ -41,11 +47,21 @@
     [],
     [],
     [
-      "minecraft:brown_mushroom_normal",
-      "minecraft:red_mushroom_normal",
-      "minecraft:warped_fungi",
-      "minecraft:warped_forest_vegetation",
-      "minecraft:nether_sprouts",
+      "aoemod:nether_sugar_cane",
+      "minecraft:warped_fungus",
+      "aoemod:warped_carrots",
+      "aoemod:ashen_wheat",
+      "aoemod:pitaya",
+      "aoemod:warped_forest/mushrooms",
+      "aoemod:crimson_forest/forest_floor",
+      "aoemod:warped_forest/forest_floor",
+      "aoemod:soul_sand_valley/forest_floor",
+      "aoemod:crimson_forest/seafloor",
+      "aoemod:warped_forest/seafloor",
+      "aoemod:soul_sand_valley/seafloor",
+      "aoemod:crimson_forest/seafloor_shallow",
+      "aoemod:warped_forest/seafloor_shallow",
+      "aoemod:soul_sand_valley/seafloor_shallow",
       "minecraft:twisting_vines"
     ]
   ],
@@ -65,7 +81,13 @@
         "maxCount": 2,
         "minCount": 1,
         "weight": 60
-      }
+      }//,
+//      {
+//        "type": "aoemod:warped_critter",
+//        "maxCount": 2,
+//        "minCount": 1,
+//        "weight": 10
+//      }
     ],
     "misc": [],
     "monster": [
@@ -73,7 +95,25 @@
         "type": "minecraft:enderman",
         "maxCount": 4,
         "minCount": 4,
-        "weight": 1
+        "weight": 10
+      },
+      {
+        "type": "minecraft:creeper",
+        "maxCount": 4,
+        "minCount": 4,
+        "weight": 100
+      },
+      {
+        "type": "minecraft:zoglin",
+        "maxCount": 4,
+        "minCount": 4,
+        "weight": 50
+      },
+      {
+        "type": "minecraft:zombified_piglin",
+        "maxCount": 4,
+        "minCount": 4,
+        "weight": 100
       }
     ],
     "underground_water_creature": [],

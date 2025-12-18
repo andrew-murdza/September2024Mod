@@ -128,6 +128,12 @@ repositories {
 }
 
 dependencies {
+
+    compileOnly(annotationProcessor("io.github.llamalad7:mixinextras-common:0.5.0"))
+    implementation(jarJar("io.github.llamalad7:mixinextras-forge:0.5.0")) {
+        jarJar.ranged(it, "[0.5.0,)")
+    }
+
     // Specify the version of Minecraft to use.
     // Any artifact can be supplied so long as it has a "userdev" classifier artifact and is a compatible patcher artifact.
     // The "userdev" classifier will be requested and setup by ForgeGradle.
@@ -159,7 +165,7 @@ dependencies {
     implementation fg.deobf("curse.maven:blueprint-382216:6267669")//NO TOML
 
     implementation fg.deobf("curse.maven:farmersdelight-398521:5051242")
-    implementation fg.deobf("curse.maven:delightful-637529:5654704")
+//    implementation fg.deobf("curse.maven:delightful-637529:5654704")
     implementation fg.deobf("curse.maven:vintagedelight-949719:5626428")
     implementation fg.deobf("curse.maven:cultural-delights-574622:6029441")
     implementation fg.deobf("curse.maven:ecologics-570463:4857272")
@@ -167,13 +173,13 @@ dependencies {
     implementation fg.deobf("curse.maven:hauntedharvest-541753:5212692")
     implementation fg.deobf("curse.maven:moonlightforhauntedharvest-499980:5702363")//NO TOML
 
-    implementation fg.deobf("curse.maven:geckolib-388172:6027567")//NO TOML
+    implementation fg.deobf("curse.maven:geckolib-388172:6920925")//NO TOML
 
 
 //
-    implementation fg.deobf("curse.maven:luminous-909107:5699118")
+//    implementation fg.deobf("curse.maven:luminous-909107:5699118")
 //
-    implementation fg.deobf("curse.maven:trails-and-tales-878476:5045548")
+//    implementation fg.deobf("curse.maven:trails-and-tales-878476:5045548")
 //
     implementation fg.deobf("curse.maven:iceandfire-264231:5633453")
 //
@@ -181,6 +187,12 @@ dependencies {
     implementation fg.deobf("curse.maven:forestxreborn-689955:5516564")
 
 
+    implementation fg.deobf("curse.maven:unusual-fish-mod-568300:7127544")
+    implementation fg.deobf("curse.maven:faunify-1123041:7285646")
+//
+    implementation fg.deobf("curse.maven:lithostitched-936015:6742615")
+    implementation fg.deobf("curse.maven:kotlin-for-forge-351264:7291067")
+    implementation fg.deobf("curse.maven:hybrid-aquatic-834427:7204568")
 
 //
     implementation fg.deobf("curse.maven:alexsmobs-426558:5698791")
@@ -197,10 +209,10 @@ dependencies {
     implementation fg.deobf("curse.maven:fins-and-tails-427471:5547163")
 
     //Cherry Shrimp
-    implementation fg.deobf("curse.maven:cherry-shrimp-1018833:5357995")
+//    implementation fg.deobf("curse.maven:cherry-shrimp-1018833:5357995")
 
-    implementation fg.deobf("curse.maven:croptopia-415438:4997459")
-    implementation fg.deobf("curse.maven:epherolib-885449:4889101")//NO TOML
+//    implementation fg.deobf("curse.maven:croptopia-415438:4997459")
+//    implementation fg.deobf("curse.maven:epherolib-885449:4889101")//NO TOML
 //
 
     implementation fg.deobf("curse.maven:wthit-forge-455982:5681116")//NO TOML
@@ -227,14 +239,14 @@ dependencies {
     implementation fg.deobf("curse.maven:kiwi-303657:5603816")
 
     implementation fg.deobf("curse.maven:nethers-exoticism-486029:5338643")
-    implementation fg.deobf("curse.maven:nethers-delight-496394:4736227")
+//    implementation fg.deobf("curse.maven:nethers-delight-496394:4736227")
 
     implementation fg.deobf("curse.maven:blue-skies-312918:5010316")
     implementation fg.deobf("curse.maven:structure-gel-api-378802:5278429")
 
     //For the midnight
-    implementation fg.deobf("curse.maven:smartbrainlib-661293:5654964")
-    implementation fg.deobf("curse.maven:lucent-493280:4951434")
+//    implementation fg.deobf("curse.maven:smartbrainlib-661293:5654964")
+//    implementation fg.deobf("curse.maven:lucent-493280:4951434")
 
 
     runtimeOnly fg.deobf("curse.maven:worldedit-225608:4586218")
@@ -243,18 +255,19 @@ dependencies {
     runtimeOnly fg.deobf("curse.maven:huge-structure-blocks-474114:4803547")
 
 //    runtimeOnly fg.deobf("curse.maven:pandas-falling-trees-880630:4637709")
-    runtimeOnly fg.deobf("curse.maven:cloth-config-348521:5729105")
+//    runtimeOnly fg.deobf("curse.maven:cloth-config-348521:5729105")
 
 
     implementation fg.deobf("blank:bountiful_critters:1.2.2")
-    implementation fg.deobf("blank:DeeperCaves:1.20.1-1.2.7")
-    implementation fg.deobf("blank:midnight:1.20.1-0.6.3")
+//    implementation fg.deobf("blank:unearthed_journey:2.2.3")
+//    implementation fg.deobf("blank:DeeperCaves:1.20.1-1.2.7")
+//    implementation fg.deobf("blank:midnight:1.20.1-0.6.3")
 
 
     implementation fg.deobf("curse.maven:lets-do-bloomingnature-962885:6172650")
     implementation fg.deobf("curse.maven:curios-309927:5680164")
 
-    implementation fg.deobf("curse.maven:seafarer-forge-1098212:5880189")
+//    implementation fg.deobf("curse.maven:seafarer-forge-1098212:5880189")
 
 //    implementation fg.deobf("curse.maven:biome-makeover-forge-567709:4815822")
 
@@ -265,9 +278,11 @@ dependencies {
     implementation fg.deobf("curse.maven:oh-the-trees-youll-grow-962544:6026960")
 
 
+    implementation fg.deobf("curse.maven:ambient-additions-531946:7014665")
+
 //    implementation fg.deobf("curse.maven:shineals-prehistoric-expansion-909176:6078158") (CAN'T FIND)
-    implementation fg.deobf("curse.maven:autumnity-365045:6151402")
-    implementation fg.deobf("curse.maven:luminous-nether-1078098:6310313")
+//    implementation fg.deobf("curse.maven:autumnity-365045:6151402")
+//    implementation fg.deobf("curse.maven:luminous-nether-1078098:6310313")
 
     //TEST LATER
 //    implementation fg.deobf("curse.maven:kitteh6660s-morecraft-59648:4855867")
@@ -375,6 +390,7 @@ publishing {
         maven {
             url "file://${project.projectDir}/mcmodsrepo"
         }
+        maven { url = "https://api.modrinth.com/maven" }
     }
 }
 

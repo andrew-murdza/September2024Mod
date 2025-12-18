@@ -1,0 +1,168 @@
+{
+  "type": "forge:add_spawns",
+  "biomes": "aoemod:savanna",
+  "spawners": [
+    {
+      "type": "alexscaves:trilocaris",
+      "weight": 5,
+      "minCount": 8,
+      "maxCount": 8
+    },
+    {
+      "type": "alexsmobs:anteater",
+      "weight": 5,
+      "minCount": 2,
+      "maxCount": 5
+    },
+    {
+      "type": "alexsmobs:bison",
+      "weight": 10,
+      "minCount": 2,
+      "maxCount": 5
+    },
+    {
+      "type": "alexsmobs:blue_jay",
+      "weight": 10,
+      "minCount": 2,
+      "maxCount": 5
+    },
+    {
+      "type": "alexsmobs:cockroach",
+      "weight": 5,
+      "minCount": 8,
+      "maxCount": 8
+    },
+    {
+      "type": "alexsmobs:devils_hole_pupfish",
+      "weight": 5,
+      "minCount": 4,
+      "maxCount": 6
+    },
+    {
+      "type": "alexsmobs:elephant",
+      "weight": 5,
+      "minCount": 2,
+      "maxCount": 5
+    },
+    {
+      "type": "alexsmobs:emu",
+      "weight": 20,
+      "minCount": 2,
+      "maxCount": 5
+    },
+    {
+      "type": "alexsmobs:gazelle",
+      "weight": 10,
+      "minCount": 2,
+      "maxCount": 5
+    },
+    {
+      "type": "alexsmobs:hammerhead_shark",
+      "weight": 5,
+      "minCount": 4,
+      "maxCount": 6
+    },
+    {
+      "type": "alexsmobs:jerboa",
+      "weight": 10,
+      "minCount": 2,
+      "maxCount": 5
+    },
+    {
+      "type": "alexsmobs:kangaroo",
+      "weight": 5,
+      "minCount": 2,
+      "maxCount": 5
+    },
+    {
+      "type": "alexsmobs:komodo_dragon",
+      "weight": 5,
+      "minCount": 2,
+      "maxCount": 5
+    },
+    {
+      "type": "alexsmobs:moose",
+      "weight": 10,
+      "minCount": 2,
+      "maxCount": 5
+    },
+    {
+      "type": "alexsmobs:mudskipper",
+      "weight": 5,
+      "minCount": 4,
+      "maxCount": 6
+    },
+    {
+      "type": "alexsmobs:potoo",
+      "weight": 5,
+      "minCount": 2,
+      "maxCount": 5
+    },
+    {
+      "type": "alexsmobs:rhinoceros",
+      "weight": 5,
+      "minCount": 2,
+      "maxCount": 5
+    },
+    {
+      "type": "alexsmobs:roadrunner",
+      "weight": 10,
+      "minCount": 2,
+      "maxCount": 5
+    },
+    {
+      "type": "alexsmobs:terrapin",
+      "weight": 5,
+      "minCount": 2,
+      "maxCount": 5
+    },
+    {
+      "type": "alexsmobs:tiger",
+      "weight": 5,
+      "minCount": 2,
+      "maxCount": 5
+    },
+    {
+      "type": "bountiful_critters:krill",
+      "weight": 10,
+      "minCount": 2,
+      "maxCount": 5
+    },
+    {
+      "type": "cherry_shrimp:cherry_shrimp",
+      "weight": 5,
+      "minCount": 2,
+      "maxCount": 5
+    },
+    {
+      "type": "naturalist:deer",
+      "weight": 20,
+      "minCount": 2,
+      "maxCount": 5
+    },
+    {
+      "type": "ambientadditions:blue_spotted_stingray",
+      "weight": 5,
+      "minCount": 4,
+      "maxCount": 6
+    },
+    {
+      "type": "finsandtails:golden_river_ray",
+      "weight": 5,
+      "minCount": 4,
+      "maxCount": 6
+    },
+    {
+      "type": "finsandtails:swamp_mucker",
+      "weight": 15,
+      "minCount": 3,
+      "maxCount": 4
+    },
+    {
+      "type": "finsandtails:rubber_belly_glider",
+      "weight": 5,
+      "minCount": 3,
+      "maxCount": 4
+    }
+  ]
+}

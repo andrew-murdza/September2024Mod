@@ -1,0 +1,35 @@
+{
+  "type": "aoemod:random_selector",
+  "config": {
+    "features": [
+      {
+        "chance": 0.05,
+        "feature": {
+          "feature": "ecologics:walnut",
+          "placement": []
+        }
+      },
+      {
+        "chance": 0.75,
+        "feature": {
+          "feature": "minecraft:oak_bees_005",
+          "placement": []
+        }
+      },
+      {
+        "chance": 0.10,
+        "feature": {
+          "feature": "minecraft:fancy_oak_bees_005",
+          "placement": []
+        }
+      },
+      {
+        "chance": 0.10,
+        "feature": {
+          "feature": "minecraft:birch_bees_005",
+          "placement": []
+        }
+      }
+    ]
+  }
+}

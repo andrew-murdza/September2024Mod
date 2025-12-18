@@ -1,0 +1,8 @@
+{
+  "feature": "aoemod:mountains/water/seafloor_shallow",
+  "placement": [
+    {
+      "type": "minecraft:biome"
+    }
+  ]
+}

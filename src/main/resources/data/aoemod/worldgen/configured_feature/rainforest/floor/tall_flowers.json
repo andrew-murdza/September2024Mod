@@ -1,0 +1,138 @@
+{
+  "type": "minecraft:simple_block",
+  "config": {
+    "to_place": {
+      "type": "minecraft:weighted_state_provider",
+      "entries": [
+        {
+          "weight": 1,
+          "data": {
+            "Name": "alexscaves:curly_fern",
+            "Properties": {
+              "half": "lower"
+            }
+          }
+        },
+//        {
+//          "weight": 1,
+//          "data": {
+//            "Name": "environmental:blue_delphinium"
+//          }
+//        },
+//        {
+//          "weight": 1,
+//          "data": {
+//            "Name": "environmental:pink_delphinium"
+//          }
+//        },
+//        {
+//          "weight": 1,
+//          "data": {
+//            "Name": "environmental:purple_delphinium"
+//          }
+//        },
+        {
+          "weight": 1,
+          "data": {
+            "Name": "bloomingnature:tall_silkgrass",
+            "Properties": {
+              "half": "lower"
+            }
+          }
+        },
+        //        {
+        //          "weight": 1,
+        //          "data": {
+        //            "Name": "bloomingnature:wild_sunflower",
+        //            "Properties": {
+        //              "half": "lower"
+        //            }
+        //          }
+        //        },
+        {
+          "weight": 1,
+          "data": {
+            "Name": "biomeswevegone:delphinium",
+            "Properties": {
+              "half": "lower"
+            }
+          }
+        },
+        {
+          "weight": 1,
+          "data": {
+            "Name": "biomeswevegone:foxglove",
+            "Properties": {
+              "half": "lower"
+            }
+          }
+        },
+        {
+          "weight": 1,
+          "data": {
+            "Name": "biomeswevegone:japanese_orchid",
+            "Properties": {
+              "half": "lower"
+            }
+          }
+        },
+        {
+          "weight": 1,
+          "data": {
+            "Name": "biomeswevegone:tall_white_allium",
+            "Properties": {
+              "half": "lower"
+            }
+          }
+        },
+        {
+          "weight": 1,
+          "data": {
+            "Name": "minecraft:lilac",
+            "Properties": {
+              "half": "lower"
+            }
+          }
+        },
+        {
+          "weight": 1,
+          "data": {
+            "Name": "minecraft:rose_bush",
+            "Properties": {
+              "half": "lower"
+            }
+          }
+        },
+        {
+          "weight": 1,
+          "data": {
+            "Name": "minecraft:peony",
+            "Properties": {
+              "half": "lower"
+            }
+          }
+        },
+        {
+          "weight": 1,
+          "data": {
+            "Name": "minecraft:pitcher_plant",
+            "Properties": {
+              "half": "lower"
+            }
+          }
+        },
+        {
+          "weight": 1,
+          "data": {
+            "Name": "minecraft:sunflower",
+            "Properties": {
+              "half": "lower"
+            }
+          }
+        }
+      ]
+    }
+  }
+}
+
+

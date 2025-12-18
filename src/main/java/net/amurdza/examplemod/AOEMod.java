@@ -5,8 +5,10 @@ import net.amurdza.examplemod.block.ModBlocks;
 import net.amurdza.examplemod.item.ModItems;
 import net.amurdza.examplemod.util.ConfigHelper;
 import net.amurdza.examplemod.worldgen.AOEDensityFunctions;
-import net.amurdza.examplemod.worldgen.biome.ModSurfaceRules;
+import net.amurdza.examplemod.worldgen.surface_rule.ModSurfaceRules;
 import net.amurdza.examplemod.worldgen.feature.ModFeatures;
+import net.amurdza.examplemod.worldgen.structure.ModStructures;
+import net.amurdza.examplemod.worldgen.surface_rule.SurfaceRuleRegistry;
 import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.MinecraftForge;
@@ -53,9 +55,14 @@ public class AOEMod
 
         // Register our mod's ForgeConfigSpec so that Forge can create and load the config file for us
         ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, ConfigHelper.SPEC);
+
+        ModStructures.register(modEventBus);
+
+        ModSurfaceRules.register(modEventBus);
     }
 
     private void commonSetup(final FMLCommonSetupEvent event) {
+//        ModSurfaceRuleConditions.bootstrap();
         event.enqueueWork(() -> {
             SurfaceRuleManager.setDefaultSurfaceRules(SurfaceRuleManager.RuleCategory.OVERWORLD, ModSurfaceRules.makeRules());
 //            SurfaceRuleManager.addToDefaultSurfaceRulesAtStage(SurfaceRuleManager.RuleCategory.OVERWORLD,
@@ -72,12 +79,15 @@ public class AOEMod
             event.accept(ModItems.BLUE_BERRIES.get());
             if(event.getTabKey()== CreativeModeTabs.NATURAL_BLOCKS){
                 event.accept(ModBlocks.SEA_PICKLE.get());
-                event.accept(ModItems.LUSH_FRUIT_SEEDS.get());
+                event.accept(ModBlocks.LUSHROOM.get());
+                event.accept(ModBlocks.LUSHROOM_BLOCK.get());
+                event.accept(ModBlocks.CHERRY_VINE.get());
 //                event.accept(ModBlocks.LAVENDER.get());
 //                event.accept(ModBlocks.WILDFLOWER.get());
             }
             if(event.getTabKey()== CreativeModeTabs.FOOD_AND_DRINKS){
-                event.accept(ModItems.LUSH_FRUIT.get());
+                event.accept(ModItems.GLOW_BERRIES.get());
+                event.accept(ModItems.BLUE_BERRIES.get());
             }
         }
     }

@@ -1,5 +1,11 @@
 {
-  "carvers": {},
+  "carvers": {
+    "air": [
+      "minecraft:cave",
+      "minecraft:cave_extra_underground",
+      "minecraft:canyon"
+    ]
+  },
   "downfall": 0.8,
   "effects": {
     "fog_color": 12638463,
@@ -34,10 +40,15 @@
       "minecraft:spring_water"
     ],
     [
-      "minecraft:glow_lichen",
-      "minecraft:trees_grove",
-      "minecraft:patch_sugar_cane",
-      "minecraft:patch_pumpkin"
+      "aoemod:mountains/trees",
+      "aoemod:mountains/mushrooms",
+      "aoemod:mountains/forest_floor",
+      "aoemod:plains/seafloor",
+      "aoemod:mountains/seafloor",
+      "aoemod:desert/seafloor",
+      "aoemod:plains/seafloor_shallow",
+      "aoemod:mountains/seafloor_shallow",
+      "aoemod:desert/seafloor_shallow"
     ],
     [
       "minecraft:freeze_top_layer"
@@ -52,12 +63,6 @@
         "maxCount": 8,
         "minCount": 8,
         "weight": 10
-      },
-      {
-        "type": "alexsmobs:cockroach",
-        "weight": 10,
-        "minCount": 8,
-        "maxCount": 8
       }
     ],
     "axolotls": [],
@@ -98,123 +103,15 @@
         "minCount": 2,
         "maxCount": 5
       },
-      {
-        "type": "alexsmobs:blue_jay",
-        "weight": 10,
-        "minCount": 2,
-        "maxCount": 5
-      },
-      {
-        "type": "alexsmobs:seal",
-        "weight": 10,
-        "minCount": 2,
-        "maxCount": 5
-      },
-      {
-        "type": "alexsmobs:bald_eagle",
-        "weight": 10,
-        "minCount": 2,
-        "maxCount": 5
-      },
-      {
-        "type": "alexsmobs:snow_leopard",
-        "weight": 10,
-        "minCount": 2,
-        "maxCount": 5
-      },
-      {
-        "type": "alexsmobs:tusklin",
-        "weight": 10,
-        "minCount": 2,
-        "maxCount": 5
-      },
-      {
-        "type": "iceandfire:siren",
-        "weight": 10,
-        "minCount": 2,
-        "maxCount": 5
-      },
-      {
-        "type": "iceandfire:hippocampus",
-        "weight": 10,
-        "minCount": 2,
-        "maxCount": 5
-      },
-      {
-        "type": "iceandfire:sea_serpent",
-        "weight": 10,
-        "minCount": 2,
-        "maxCount": 5
-      },
-      {
-        "type": "blue_skies:azulfo",
-        "weight": 10,
-        "minCount": 2,
-        "maxCount": 5
-      },
-      {
-        "type": "blue_skies:cosmic_fox",
-        "weight": 10,
-        "minCount": 2,
-        "maxCount": 5
-      },
-      {
-        "type": "blue_skies:horizofin_tunid",
-        "weight": 10,
-        "minCount": 2,
-        "maxCount": 5
-      },
-      {
-        "type": "blue_skies:reindeer",
-        "weight": 10,
-        "minCount": 2,
-        "maxCount": 5
-      },
-      {
-        "type": "blue_skies:stardust_ram",
-        "weight": 10,
-        "minCount": 2,
-        "maxCount": 5
-      },
-      {
-        "type": "blue_skies:snow_owl",
-        "weight": 10,
-        "minCount": 2,
-        "maxCount": 5
-      },
-      {
-        "type": "minecraft:mooshroom",
-        "weight": 10,
-        "minCount": 2,
-        "maxCount": 5
-      },
-      {
-        "type": "trailsandtalesplus:cluckshroom",
-        "weight": 10,
-        "minCount": 2,
-        "maxCount": 5
-      },
-      {
-        "type": "alexsmobs:potoo",
-        "weight": 10,
-        "minCount": 2,
-        "maxCount": 5
-      },
-      {
-        "type": "alexsmobs:moose",
-        "weight": 10,
-        "minCount": 2,
-        "maxCount": 5
-      }
+//      {
+//        "type": "minecraft:mooshroom",
+//        "weight": 10,
+//        "minCount": 2,
+//        "maxCount": 5
+//      }
     ],
     "misc": [],
     "monster": [
-      {
-        "type": "blue_skies:diophyde_prowler",
-        "weight": 10,
-        "minCount": 2,
-        "maxCount": 5
-      },
       {
         "type": "minecraft:spider",
         "maxCount": 4,
@@ -234,19 +131,7 @@
         "weight": 5
       },
       {
-        "type": "minecraft:skeleton",
-        "maxCount": 4,
-        "minCount": 4,
-        "weight": 100
-      },
-      {
-        "type": "minecraft:creeper",
-        "maxCount": 4,
-        "minCount": 4,
-        "weight": 100
-      },
-      {
-        "type": "minecraft:slime",
+        "type": "minecraft:stray",
         "maxCount": 4,
         "minCount": 4,
         "weight": 100
@@ -274,61 +159,49 @@
     ],
     "water_ambient": [
       {
-        "type": "bountiful_critters:krill",
-        "weight": 10,
-        "minCount": 2,
-        "maxCount": 5
-      },
-      {
-        "type": "cherry_shrimp:cherry_shrimp",
-        "weight": 5,
-        "minCount": 2,
-        "maxCount": 5
-      },
-      {
         "type": "minecraft:salmon",
         "weight": 15,
         "minCount": 8,
         "maxCount": 8
       },
       {
-        "type": "alexscaves:trilocaris",
-        "weight": 5,
+        "type": "minecraft:cod",
+        "weight": 15,
         "minCount": 8,
         "maxCount": 8
-      },
-      {
-        "type": "alexscaves:lanternfish",
-        "weight": 25,
-        "minCount": 8,
-        "maxCount": 8
-      },
-      {
-        "type": "alexsmobs:devils_hole_pupfish",
-        "weight": 5,
-        "minCount": 4,
-        "maxCount": 6
-      },
-      {
-        "type": "alexsmobs:flying_fish",
-        "weight": 5,
-        "minCount": 4,
-        "maxCount": 6
-      }
+      }//,
+//      {
+//        "type": "aoemod:end_fish",
+//        "weight": 20,
+//        "minCount": 2,
+//        "maxCount": 5
+//      },
+//      {
+//        "type": "aoemod:cubozoa",
+//        "weight": 20,
+//        "minCount": 2,
+//        "maxCount": 5
+//      },
+//      {
+//        "type": "aoemod:shrimp",
+//        "weight": 10,
+//        "minCount": 2,
+//        "maxCount": 5
+//      },
+//      {
+//        "type": "aoemod:squat_lobster",
+//        "weight": 20,
+//        "minCount": 2,
+//        "maxCount": 5
+//      },
+//      {
+//        "type": "aoemod:isopod",
+//        "weight": 20,
+//        "minCount": 2,
+//        "maxCount": 5
+//      }
     ],
     "water_creature": [
-      {
-        "type": "alexsmobs:cachalot_whale",
-        "weight": 5,
-        "minCount": 4,
-        "maxCount": 6
-      },
-      {
-        "type": "alexsmobs:orca",
-        "weight": 5,
-        "minCount": 4,
-        "maxCount": 6
-      },
       {
         "type": "minecraft:dolphin",
         "weight": 10,
@@ -340,28 +213,21 @@
         "weight": 10,
         "minCount": 4,
         "maxCount": 6
-      }
+      }//,
+//      {
+//        "type": "aoemod:giant_spider_crab",
+//        "weight": 20,
+//        "minCount": 2,
+//        "maxCount": 5
+//      },
+//      {
+//        "type": "aoemod:nautilus",
+//        "weight": 20,
+//        "minCount": 2,
+//        "maxCount": 5
+//      },
     ],
-    "alexscaves:deep_sea_creature": [
-      {
-        "type": "alexscaves:sea_pig",
-        "weight": 10,
-        "minCount": 4,
-        "maxCount": 6
-      },
-      {
-        "type": "alexscaves:gossamer_worm",
-        "weight": 10,
-        "minCount": 4,
-        "maxCount": 6
-      },
-      {
-        "type": "alexscaves:tripodfish",
-        "weight": 10,
-        "minCount": 4,
-        "maxCount": 6
-      }
-    ]
+    "alexscaves:deep_sea_creature": []
   },
   "temperature": -0.2
 }

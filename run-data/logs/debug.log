@@ -2860,7 +2860,7 @@ The Midnight Debug Build Information
 [18Mar2025 23:43:02.211] [modloading-worker-0/DEBUG] [net.minecraftforge.fml.javafmlmod.AutomaticEventSubscriber/LOADING]: Auto-subscribing net.amurdza.examplemod.event_handlers.NoFloatingMobSpawns to MOD
 [18Mar2025 23:43:02.212] [modloading-worker-0/DEBUG] [net.minecraftforge.fml.javafmlmod.AutomaticEventSubscriber/LOADING]: Auto-subscribing dev.architectury.registry.forge.CreativeTabRegistryImpl to MOD
 [18Mar2025 23:43:02.214] [modloading-worker-0/DEBUG] [net.minecraftforge.fml.javafmlmod.AutomaticEventSubscriber/LOADING]: Auto-subscribing net.amurdza.examplemod.event_handlers.PreventTeleportFromChorus to FORGE
-[18Mar2025 23:43:02.234] [modloading-worker-0/DEBUG] [net.minecraftforge.fml.javafmlmod.AutomaticEventSubscriber/LOADING]: Auto-subscribing net.amurdza.examplemod.event_handlers.RemoveBlackBackground to FORGE
+[18Mar2025 23:43:02.234] [modloading-worker-0/DEBUG] [net.minecraftforge.fml.javafmlmod.AutomaticEventSubscriber/LOADING]: Auto-subscribing net.amurdza.examplemod.event_handlers.RemoveBlackBackgroundForNewPlants to FORGE
 [18Mar2025 23:43:02.237] [modloading-worker-0/DEBUG] [net.minecraftforge.fml.javafmlmod.AutomaticEventSubscriber/LOADING]: Auto-subscribing net.amurdza.examplemod.event_handlers.ShearingMobs to FORGE
 [18Mar2025 23:43:02.238] [modloading-worker-0/DEBUG] [net.minecraftforge.fml.javafmlmod.AutomaticEventSubscriber/LOADING]: Auto-subscribing net.amurdza.examplemod.event_handlers.ShearsOnCaveVinesWithBerries to FORGE
 [18Mar2025 23:43:02.250] [modloading-worker-0/DEBUG] [net.minecraftforge.fml.javafmlmod.AutomaticEventSubscriber/LOADING]: Auto-subscribing net.amurdza.examplemod.event_handlers.SpawnConditions to FORGE

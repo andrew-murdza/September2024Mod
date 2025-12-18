@@ -42,26 +42,26 @@ authors="${mod_authors}" #optional
 description='''${mod_description}'''
 # A dependency - use the . to indicate dependency for a specific modid. Dependencies are optional.
 [[dependencies."${mod_id}"]] #optional
-    # the modid of the dependency
-    modId="forge" #mandatory
-    # Does this dependency have to exist - if not, ordering below must be specified
-    mandatory=true #mandatory
-    # The version range of the dependency
-    versionRange="${forge_version_range}" #mandatory
-    # An ordering relationship for the dependency - BEFORE or AFTER required if the dependency is not mandatory
-    # BEFORE - This mod is loaded BEFORE the dependency
-    # AFTER - This mod is loaded AFTER the dependency
-    ordering="NONE"
-    # Side this dependency is applied on - BOTH, CLIENT, or SERVER
-    side="BOTH"
+# the modid of the dependency
+modId="forge" #mandatory
+# Does this dependency have to exist - if not, ordering below must be specified
+mandatory=true #mandatory
+# The version range of the dependency
+versionRange="${forge_version_range}" #mandatory
+# An ordering relationship for the dependency - BEFORE or AFTER required if the dependency is not mandatory
+# BEFORE - This mod is loaded BEFORE the dependency
+# AFTER - This mod is loaded AFTER the dependency
+ordering="NONE"
+# Side this dependency is applied on - BOTH, CLIENT, or SERVER
+side="BOTH"
 # Here's another dependency
 [[dependencies."${mod_id}"]]
-    modId="minecraft"
-    mandatory=true
-    # This version range declares a minimum of the current minecraft version up to but not including the next major version
-    versionRange="${minecraft_version_range}"
-    ordering="NONE"
-    side="BOTH"
+modId="minecraft"
+mandatory=true
+# This version range declares a minimum of the current minecraft version up to but not including the next major version
+versionRange="${minecraft_version_range}"
+ordering="NONE"
+side="BOTH"
 
 [[dependencies."${mod_id}"]]
 modId = "terrablender"
@@ -98,13 +98,6 @@ versionRange = "[v1.3.31,)"
 ordering = "AFTER"
 side = "BOTH"
 
-[[dependencies."${mod_id}"]]
-modId = "bloomingnature"
-mandatory = false
-versionRange = "[1.0.12,)"
-ordering = "AFTER"
-side = "BOTH"
-
 #[[dependencies."${mod_id}"]]
 #modId = "born_in_chaos_v1"
 #mandatory = false
@@ -119,26 +112,26 @@ versionRange = "[0.16.1,)"
 ordering = "AFTER"
 side = "BOTH"
 
-[[dependencies."${mod_id}"]]
-modId = "dawnera"
-mandatory = false
-versionRange = "[0.58.94,)"
-ordering = "AFTER"
-side = "BOTH"
+#[[dependencies."${mod_id}"]]
+#modId = "dawnera"
+#mandatory = false
+#versionRange = "[0.58.94,)"
+#ordering = "AFTER"
+#side = "BOTH"
+#
+#[[dependencies."${mod_id}"]]
+#modId = "croptopia"
+#mandatory = false
+#versionRange = "[1.20.4-FORGE-3.0.4,)"
+#ordering = "AFTER"
+#side = "BOTH"
 
-[[dependencies."${mod_id}"]]
-modId = "croptopia"
-mandatory = false
-versionRange = "[1.20.4-FORGE-3.0.4,)"
-ordering = "AFTER"
-side = "BOTH"
-
-[[dependencies."${mod_id}"]]
-modId = "delightful"
-mandatory = false
-versionRange = "[3.6,)"
-ordering = "AFTER"
-side = "BOTH"
+#[[dependencies."${mod_id}"]]
+#modId = "delightful"
+#mandatory = false
+#versionRange = "[3.6,)"
+#ordering = "AFTER"
+#side = "BOTH"
 
 [[dependencies."${mod_id}"]]
 modId = "ecologics"
@@ -151,13 +144,6 @@ side = "BOTH"
 modId = "farmersdelight"
 mandatory = false
 versionRange = "[1.20.1-1.2.4,)"
-ordering = "AFTER"
-side = "BOTH"
-
-[[dependencies."${mod_id}"]]
-modId = "forest"
-mandatory = false
-versionRange = "[1.4.6,)"
 ordering = "AFTER"
 side = "BOTH"
 
@@ -231,12 +217,19 @@ versionRange = "[4.0.1,)"
 ordering = "AFTER"
 side = "BOTH"
 
+#[[dependencies."${mod_id}"]]
+#modId = "bloomingnature"
+#mandatory = false
+#versionRange = "[1.0.12,)"
+#ordering = "AFTER"
+#side = "BOTH"
+
 [[dependencies."${mod_id}"]]
-modId = "bloomingnature"
-mandatory = false
-versionRange = "[1.0.12,)"
-ordering = "AFTER"
-side = "BOTH"
+modId="hybrid_aquatic"
+mandatory=false
+versionRange="[0,)"
+ordering="AFTER"
+side="BOTH"
 
 # Features are specific properties of the game environment, that you may want to declare you require. This example declares
 # that your mod requires GL version 3.2 or higher. Other features will be added. They are side aware so declaring this won't

@@ -1,0 +1,17 @@
+{
+  "type": "aoemod:all_surface",
+  "config": {
+    "feature": {
+      "feature": "aoemod:crimson_forest/floor/forest_floor",
+      "placement": []
+    },
+     "target": "air",
+    "deep": false,
+    "all_layers": true,
+    "predicate": {
+      "type": "minecraft:matching_blocks",
+      "blocks": ["minecraft:crimson_nylium"]
+    },
+    "biomes": "aoemod:crimson_forest"
+  }
+}

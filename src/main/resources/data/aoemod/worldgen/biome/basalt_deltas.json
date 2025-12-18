@@ -1,5 +1,11 @@
 {
-  "carvers": {},
+  "carvers": {
+    "air": [
+      "minecraft:cave",
+      "minecraft:cave_extra_underground",
+      "minecraft:canyon"
+    ]
+  },
   "downfall": 0,
   "effects": {
     "additions_sound": {
@@ -38,7 +44,16 @@
     [],
     [],
     [],
-    []
+    [
+      "aoemod:nether_sugar_cane",
+      "aoemod:basalt_deltas/mushrooms",
+      "aoemod:basalt_deltas/forest_floor",
+      "aoemod:soul_sand_valley/forest_floor",
+      "aoemod:basalt_deltas/seafloor",
+      "aoemod:soul_sand_valley/seafloor",
+      "aoemod:basalt_deltas/seafloor_shallow",
+      "aoemod:warped_forest/seafloor_shallow"
+    ]
   ],
   "has_precipitation": false,
   "spawn_costs": {},
@@ -48,29 +63,54 @@
     "creature": [
       {
         "type": "minecraft:strider",
-        "maxCount": 2,
-        "minCount": 1,
-        "weight": 60
+        "maxCount": 4,
+        "minCount": 3,
+        "weight": 30
+      },
+      {
+        "type": "aoemod:nether_crab",
+        "maxCount": 4,
+        "minCount": 4,
+        "weight": 10
+      },
+      {
+        "type": "aoemod:nether_snail",
+        "maxCount": 3,
+        "minCount": 2,
+        "weight": 10
       }
     ],
     "misc": [],
     "monster": [
       {
-        "type": "minecraft:ghast",
-        "maxCount": 1,
-        "minCount": 1,
-        "weight": 40
-      },
-      {
         "type": "minecraft:magma_cube",
         "maxCount": 5,
+        "minCount": 2,
+        "weight": 100
+      },
+      {
+        "type": "minecraft:blaze",
+        "maxCount": 3,
         "minCount": 2,
         "weight": 100
       }
     ],
     "underground_water_creature": [],
     "water_ambient": [],
-    "water_creature": []
+    "water_creature": [
+//      {
+//        "type": "aoemod:warped_squid",
+//        "weight": 10,
+//        "minCount": 4,
+//        "maxCount": 6
+//      },
+      {
+        "type": "unusualfishmod:crimsonshell",
+        "weight": 4,
+        "minCount": 4,
+        "maxCount": 6
+      }
+    ]
   },
   "temperature": 2
 }

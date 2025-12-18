@@ -1,6 +1,5 @@
 package net.amurdza.examplemod;
 
-import com.belgieyt.trailsandtalesplus.Objects.TTBlockRegistry;
 import com.github.alexthe666.alexsmobs.entity.*;
 import com.github.alexthe666.alexsmobs.item.AMItemRegistry;
 import com.github.alexthe666.iceandfire.entity.EntityPixie;
@@ -10,7 +9,6 @@ import com.github.alexthe666.iceandfire.item.IafItemRegistry;
 import com.legacy.blue_skies.registries.SkiesBlocks;
 import com.teamabnormals.upgrade_aquatic.core.registry.UABlocks;
 import net.amurdza.examplemod.block.ModBlocks;
-import net.brnbrd.delightful.common.block.DelightfulBlocks;
 import net.mehvahdjukaar.hauntedharvest.reg.ModRegistry;
 import net.minecraft.core.NonNullList;
 import net.minecraft.resources.ResourceKey;
@@ -157,18 +155,16 @@ public class Config
         addToMap(UABlocks.MULBERRY_VINE.get());
         addToMap(ModBlocks.BLUE_BERRY_BUSH.get());
         addToMap(ModBlocks.GRAPE_VINE.get());
-        addToMap(ModBlocks.LUSH_FRUIT.get());
         addToMap(ModBlocks.SEA_PICKLE.get());
         addToMap(ModBlocks.CAVE_VINES.get());
         addToMap(ModBlocks.CAVE_VINES_PLANT.get());
-        addToMap(DelightfulBlocks.CANTALOUPE_PLANT.get(), 0.25D);
+//        addToMap(DelightfulBlocks.CANTALOUPE_PLANT.get(), 0.25D);
         addToMap(net.ribs.vintagedelight.block.ModBlocks.OAT_CROP.get());
         addToMap(net.ribs.vintagedelight.block.ModBlocks.PEANUT_CROP.get());
         addToMap(vectorwing.farmersdelight.common.registry.ModBlocks.ONION_CROP.get());
         addToMap(vectorwing.farmersdelight.common.registry.ModBlocks.TOMATO_CROP.get());
         addToMap(vectorwing.farmersdelight.common.registry.ModBlocks.CABBAGE_CROP.get());
         addToMap(vectorwing.farmersdelight.common.registry.ModBlocks.RICE_CROP.get());
-        addToMap(TTBlockRegistry.CHERRY_VINE.get());
         addToMap(samebutdifferent.ecologics.registry.ModBlocks.PRICKLY_PEAR.get());
         addToMap(ModRegistry.CORN_BASE.get());
         addToMap(ModRegistry.CORN_MIDDLE.get());
@@ -188,7 +184,13 @@ public class Config
         addToMap(Blocks.POINTED_DRIPSTONE,0.1);
         addToMap(Blocks.RED_MUSHROOM,0);
         addToMap(Blocks.BROWN_MUSHROOM,0);
-        addToMap(TTBlockRegistry.LUSHROOM_MUSHROOM.get(),0);
+
+        //Temporary:
+        addToMap(ModBlocks.CHERRY_VINE.get());
+        addToMap(ModBlocks.LUSHROOM.get(),0);
+//        addToMap(TTBlockRegistry.LUSHROOM_MUSHROOM.get(),0);
+//        addToMap(TTBlockRegistry.CHERRY_VINE.get());
+
         addToMap(Blocks.SMALL_AMETHYST_BUD,0.5);
         addToMap(Blocks.MEDIUM_AMETHYST_BUD,0.5);
         addToMap(Blocks.LARGE_AMETHYST_BUD,0.5);

@@ -1,5 +1,11 @@
 {
-  "carvers": {},
+  "carvers": {
+    "air": [
+      "minecraft:cave",
+      "minecraft:cave_extra_underground",
+      "minecraft:canyon"
+    ]
+  },
   "downfall": 0,
   "effects": {
     "fog_color": 12638463,
@@ -35,10 +41,14 @@
     [
       "minecraft:glow_lichen",
       "minecraft:patch_dead_bush_2",
-      "minecraft:brown_mushroom_normal",
-      "minecraft:red_mushroom_normal",
       "minecraft:patch_sugar_cane_desert",
-      "minecraft:patch_cactus_desert"
+      "aoemod:desert/patch_cactus",
+      "aoemod:desert/mushrooms",
+      "aoemod:mountains/forest_floor",
+      "aoemod:mountains/seafloor",
+      "aoemod:desert/seafloor",
+      "aoemod:mountains/seafloor_shallow",
+      "aoemod:desert/seafloor_shallow"
     ],
     [
       "minecraft:freeze_top_layer"
@@ -53,18 +63,6 @@
         "maxCount": 8,
         "minCount": 8,
         "weight": 10
-      },
-      {
-        "type": "alexsmobs:cockroach",
-        "weight": 10,
-        "minCount": 8,
-        "maxCount": 8
-      },
-      {
-        "type": "alexsmobs:jerboa",
-        "weight": 10,
-        "minCount": 2,
-        "maxCount": 5
       }
     ],
     "axolotls": [],
@@ -76,26 +74,14 @@
         "weight": 4
       },
       {
-        "type": "alexsmobs:tarantula_hawk",
-        "weight": 10,
+        "type": "minecraft:camel",
+        "maxCount": 3,
         "minCount": 2,
-        "maxCount": 5
-      },
-      {
-        "type": "alexsmobs:komodo_dragon",
-        "weight": 10,
-        "minCount": 2,
-        "maxCount": 5
+        "weight": 4
       }
     ],
     "misc": [],
     "monster": [
-      {
-        "type": "alexsmobs:centipede_head",
-        "weight": 10,
-        "minCount": 2,
-        "maxCount": 5
-      },
       {
         "type": "minecraft:spider",
         "maxCount": 4,
@@ -116,18 +102,6 @@
       },
       {
         "type": "minecraft:skeleton",
-        "maxCount": 4,
-        "minCount": 4,
-        "weight": 100
-      },
-      {
-        "type": "minecraft:creeper",
-        "maxCount": 4,
-        "minCount": 4,
-        "weight": 100
-      },
-      {
-        "type": "minecraft:slime",
         "maxCount": 4,
         "minCount": 4,
         "weight": 100
@@ -160,20 +134,12 @@
       }
     ],
     "water_ambient": [
-      {
-        "type": "alexsmobs:triops",
-        "weight": 5,
-        "minCount": 4,
-        "maxCount": 6
-      }
-    ],
-    "alexscaves:deep_sea_creature": [
-      {
-        "type": "alexscaves:sea_pig",
-        "weight": 10,
-        "minCount": 4,
-        "maxCount": 6
-      }
+//      {
+//        "type": "aoemod:cuttlefish",
+//        "weight": 5,
+//        "minCount": 4,
+//        "maxCount": 6
+//      }
     ],
     "water_creature": []
   },

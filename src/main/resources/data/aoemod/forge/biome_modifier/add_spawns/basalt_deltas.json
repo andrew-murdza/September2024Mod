@@ -1,0 +1,60 @@
+{
+  "type": "forge:add_spawns",
+  "biomes": "aoemod:basalt_deltas",
+  "spawners": [
+    {
+      "type": "netherdepthsupgrade:blazefish",
+      "weight": 10,
+      "minCount": 3,
+      "maxCount": 6
+    },
+    {
+      "type": "netherdepthsupgrade:bonefish",
+      "weight": 10,
+      "minCount": 2,
+      "maxCount": 4
+    },
+    {
+      "type": "netherdepthsupgrade:fortress_grouper",
+      "weight": 10,
+      "minCount": 2,
+      "maxCount": 1
+    },
+    {
+      "type": "netherdepthsupgrade:glowdine",
+      "weight": 10,
+      "minCount": 3,
+      "maxCount": 6
+    },
+    {
+      "type": "netherdepthsupgrade:magma_cube_fish",
+      "weight": 10,
+      "minCount": 2,
+      "maxCount": 4
+    },
+    {
+      "type": "netherdepthsupgrade:obsidian_fish",
+      "weight": 15,
+      "minCount": 2,
+      "maxCount": 3
+    },
+    {
+      "type": "netherdepthsupgrade:soul_sucker",
+      "weight": 3,
+      "minCount": 2,
+      "maxCount": 3
+    },
+    {
+      "type": "netherdepthsupgrade:wither_bonefish",
+      "weight": 5,
+      "minCount": 2,
+      "maxCount": 4
+    },
+    {
+      "type": "quark:foxhound",
+      "weight": 4,
+      "minCount": 4,
+      "maxCount": 6
+    }
+  ]
+}

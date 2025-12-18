@@ -1,0 +1,28 @@
+{
+  "type": "aoemod:random_selector",
+  "config": {
+    "features": [
+      {
+        "chance": 0.08,
+        "feature": {
+          "feature": "aoemod:desert/water/seagrass",
+          "placement": []
+        }
+      },
+      {
+        "chance": 0.02,
+        "feature": {
+          "feature": "aoemod:desert/water/water_plants",
+          "placement": []
+        }
+      },
+      {
+        "chance": 0.90,
+        "feature": {
+          "feature": "aoemod:nothing",
+          "placement": []
+        }
+      }
+    ]
+  }
+}

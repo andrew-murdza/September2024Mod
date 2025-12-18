@@ -1,0 +1,25 @@
+{
+  "type": "aoemod:mountain_lake",
+  "biomes": "aoemod:grove",
+  "step": "surface_structures",
+  "terrain_adaptation": "none",
+  "spawn_overrides": {},
+  "lake": {
+    "min_water_y": 0,
+    "max_water_y": 250,
+    "radius_min": 40,
+    "radius_max": 60,
+    "depth_min": 30,
+    "depth_max": 60,
+    "ramp_w": 16,
+    "seafloor_blocks": {
+      "layers": [
+        { "Name": "minecraft:gravel" },
+        { "Name": "minecraft:gravel" },
+        { "Name": "minecraft:stone" },
+        { "Name": "minecraft:stone" }
+      ]
+    },
+    "ramp_fill": { "Name": "minecraft:stone" }
+  }
+}

@@ -1,0 +1,54 @@
+{
+  "type": "forge:add_spawns",
+  "biomes": "aoemod:badlands",
+  "spawners": [
+    {
+      "type": "alexsmobs:jerboa",
+      "weight": 10,
+      "minCount": 2,
+      "maxCount": 5
+    },
+    {
+      "type": "alexsmobs:komodo_dragon",
+      "weight": 2,
+      "minCount": 2,
+      "maxCount": 5
+    },
+    {
+      "type": "alexsmobs:tarantula_hawk",
+      "weight": 2,
+      "minCount": 2,
+      "maxCount": 5
+    },
+    {
+      "type": "faunify:fennec_fox",
+      "weight": 2,
+      "minCount": 2,
+      "maxCount": 5
+    },
+    {
+      "type": "alexsmobs:triops",
+      "weight": 5,
+      "minCount": 4,
+      "maxCount": 6
+    },
+    {
+      "type": "ambientadditions:blue_spotted_stingray",
+      "weight": 5,
+      "minCount": 4,
+      "maxCount": 6
+    },
+    {
+      "type": "finsandtails:golden_river_ray",
+      "weight": 5,
+      "minCount": 4,
+      "maxCount": 6
+    },
+    {
+      "type": "hybrid-aquatic:hound_shark",
+      "weight": 5,
+      "minCount": 4,
+      "maxCount": 6
+    }
+  ]
+}

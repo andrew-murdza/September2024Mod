@@ -14,10 +14,10 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 @Mixin(LavaFluid.class)
 public class LavaDoesntSpreadToSpecialBiome {
-    @Inject(at = @At("HEAD"), method = "spreadTo(Lnet/minecraft/world/level/LevelAccessor;Lnet/minecraft/core/BlockPos;Lnet/minecraft/world/level/block/state/BlockState;Lnet/minecraft/core/Direction;Lnet/minecraft/world/level/material/FluidState;)V", cancellable = true)
-    private void spreadTo(LevelAccessor pLevel, BlockPos pPos, BlockState pBlockState, Direction pDirection, FluidState pFluidState, CallbackInfo callback) {
-        if(Helper.isSpecialBiome(pLevel,pPos)) {
-            callback.cancel();
-        }
-    }
+//    @Inject(at = @At("HEAD"), method = "spreadTo(Lnet/minecraft/world/level/LevelAccessor;Lnet/minecraft/core/BlockPos;Lnet/minecraft/world/level/block/state/BlockState;Lnet/minecraft/core/Direction;Lnet/minecraft/world/level/material/FluidState;)V", cancellable = true)
+//    private void spreadTo(LevelAccessor pLevel, BlockPos pPos, BlockState pBlockState, Direction pDirection, FluidState pFluidState, CallbackInfo callback) {
+//        if(Helper.isSpecialBiome(pLevel,pPos)) {
+//            callback.cancel();
+//        }
+//    }
 }

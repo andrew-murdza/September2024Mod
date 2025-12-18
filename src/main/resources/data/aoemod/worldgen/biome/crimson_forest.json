@@ -1,5 +1,11 @@
 {
-  "carvers": {},
+  "carvers": {
+    "air": [
+      "minecraft:cave",
+      "minecraft:cave_extra_underground",
+      "minecraft:canyon"
+    ]
+  },
   "downfall": 0,
   "effects": {
     "additions_sound": {
@@ -41,11 +47,17 @@
     [],
     [],
     [
-      "minecraft:brown_mushroom_normal",
-      "minecraft:red_mushroom_normal",
-      "minecraft:weeping_vines",
-      "minecraft:crimson_fungi",
-      "minecraft:crimson_forest_vegetation"
+      "aoemod:nether_sugar_cane",
+      "minecraft:crimson_fungus",
+      "aoemod:crimson_potatoes",
+      "aoemod:ashen_wheat",
+      "aoemod:crimson_forest/mushrooms",
+      "aoemod:crimson_forest/forest_floor",
+      "aoemod:warped_forest/forest_floor",
+      "aoemod:crimson_forest/seafloor",
+      "aoemod:warped_forest/seafloor",
+      "aoemod:crimson_forest/seafloor_shallow",
+      "aoemod:warped_forest/seafloor_shallow"
     ]
   ],
   "has_precipitation": false,
@@ -59,16 +71,22 @@
         "maxCount": 2,
         "minCount": 1,
         "weight": 60
-      }
-    ],
-    "misc": [],
-    "monster": [
+      },
       {
         "type": "minecraft:hoglin",
         "maxCount": 4,
         "minCount": 3,
-        "weight": 9
+        "weight": 10
       },
+      {
+        "type": "aoemod:crimson_critter",
+        "maxCount": 4,
+        "minCount": 3,
+        "weight": 10
+      }
+    ],
+    "misc": [],
+    "monster": [
       {
         "type": "minecraft:piglin",
         "maxCount": 4,

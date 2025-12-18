@@ -1,0 +1,26 @@
+{
+  "type": "minecraft:simple_block",
+  "config": {
+    "to_place": {
+      "type": "minecraft:weighted_state_provider",
+      "entries": [
+        {
+          "weight": 2,
+          "data": {
+            "Name": "minecraft:wet_sponge"
+          }
+        },
+        {
+          "weight": 10,
+          "data": {
+            "Name": "aoemod:sea_pickle",
+            "Properties": {
+              "pickles": "4",
+              "waterlogged": "true"
+            }
+          }
+        }
+      ]
+    }
+  }
+}

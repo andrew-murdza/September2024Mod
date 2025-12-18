@@ -1,0 +1,207 @@
+{
+  "type": "aoemod:random_selector",
+  "config": {
+    "features": [
+      {
+        "chance": 0.12,
+        "feature": {
+          "feature": "aoemod:rainforest/floor/flowers",
+          "placement": [
+            {
+              "type": "minecraft:block_predicate_filter",
+              "predicate": {
+                "type": "minecraft:matching_blocks",
+                "offset": [
+                  0,
+                  -1,
+                  0
+                ],
+                "blocks": "minecraft:moss_block"
+              }
+            }
+          ]
+        }
+      },
+      {
+        "chance": 0.03,
+        "feature": {
+          "feature": "aoemod:rainforest/floor/tall_flowers",
+          "placement": [
+            {
+              "type": "minecraft:block_predicate_filter",
+              "predicate": {
+                "type": "minecraft:matching_blocks",
+                "offset": [
+                  0,
+                  -1,
+                  0
+                ],
+                "blocks": "minecraft:moss_block"
+              }
+            }
+          ]
+        }
+      },
+      {
+        "chance": 0.03,
+        "feature": {
+          "feature": "aoemod:rainforest/floor/mushrooms",
+          "placement": [
+            {
+              "type": "minecraft:block_predicate_filter",
+              "predicate": {
+                "type": "minecraft:matching_blocks",
+                "offset": [
+                  0,
+                  -1,
+                  0
+                ],
+                "blocks": "minecraft:moss_block"
+              }
+            }
+          ]
+        }
+      },
+      {
+        "chance": 0.013,
+        "feature": {
+          "feature": "aoemod:rainforest/floor/crops",
+          "placement": [
+            {
+              "type": "minecraft:block_predicate_filter",
+              "predicate": {
+                "type": "minecraft:matching_blocks",
+                "offset": [
+                  0,
+                  -1,
+                  0
+                ],
+                "blocks": "minecraft:moss_block"
+              }
+            }
+          ]
+        }
+      },
+      {
+        "chance": 0.79,
+        "feature": {
+          "feature": "aoemod:rainforest/floor/grass",
+          "placement": [
+            {
+              "type": "minecraft:block_predicate_filter",
+              "predicate": {
+                "type": "minecraft:matching_blocks",
+                "offset": [
+                  0,
+                  -1,
+                  0
+                ],
+                "blocks": "minecraft:moss_block"
+              }
+            }
+          ]
+        }
+      },
+      {
+        "chance": 0.002,
+        "feature": {
+          "feature": "aoemod:rainforest/floor/cactus",
+          "placement": [
+            {
+              "type": "minecraft:block_predicate_filter",
+              "predicate": {
+                "type": "minecraft:matching_blocks",
+                "offset": [
+                  0,
+                  -1,
+                  0
+                ],
+                "blocks": "minecraft:moss_block"
+              }
+            }
+          ]
+        }
+      },
+      {
+        "chance": 0.003,
+        "feature": {
+          "feature": "aoemod:sugar_cane",
+          "placement": [
+            {
+              "type": "minecraft:block_predicate_filter",
+              "predicate": {
+                "type": "minecraft:matching_blocks",
+                "offset": [
+                  0,
+                  -1,
+                  0
+                ],
+                "blocks": "minecraft:moss_block"
+              }
+            }
+          ]
+        }
+      },
+      {
+        "chance": 0.001,
+        "feature": {
+          "feature": "aoemod:rainforest/floor/small_dripleaf",
+          "placement": [
+            {
+              "type": "minecraft:block_predicate_filter",
+              "predicate": {
+                "type": "minecraft:matching_blocks",
+                "offset": [
+                  0,
+                  -1,
+                  0
+                ],
+                "blocks": "minecraft:moss_block"
+              }
+            }
+          ]
+        }
+      },
+      {
+        "chance": 0.001,
+        "feature": {
+          "feature": "aoemod:rainforest/floor/big_dripleaf",
+          "placement": [
+            {
+              "type": "minecraft:block_predicate_filter",
+              "predicate": {
+                "type": "minecraft:matching_blocks",
+                "offset": [
+                  0,
+                  -1,
+                  0
+                ],
+                "blocks": "minecraft:moss_block"
+              }
+            }
+          ]
+        }
+      },
+      {
+        "chance": 0.01,
+        "feature": {
+          "feature": "minecraft:bamboo_no_podzol",
+          "placement": [
+            {
+              "type": "minecraft:block_predicate_filter",
+              "predicate": {
+                "type": "minecraft:matching_blocks",
+                "offset": [
+                  0,
+                  -1,
+                  0
+                ],
+                "blocks": "minecraft:moss_block"
+              }
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

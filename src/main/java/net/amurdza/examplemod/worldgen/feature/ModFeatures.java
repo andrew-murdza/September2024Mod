@@ -1,6 +1,11 @@
 package net.amurdza.examplemod.worldgen.feature;
 
 import net.amurdza.examplemod.AOEMod;
+import net.amurdza.examplemod.worldgen.structure.MountainLakeConfig;
+import net.minecraft.core.registries.Registries;
+import net.minecraft.resources.ResourceKey;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
 import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.configurations.BlockColumnConfiguration;
 import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConfiguration;
@@ -25,6 +30,14 @@ public class ModFeatures {
     public static final RegistryObject<Feature<CaveVineConfig>> CAVE_VINES=FEATURES.register("cave_vines",()->new CaveVineColumn(CaveVineConfig.CODEC));
     public static final RegistryObject<Feature<NoneFeatureConfiguration>> PITAYA=FEATURES.register("pitaya",()->new PitayaFeature(NoneFeatureConfiguration.CODEC));
     public static final RegistryObject<Feature<BlockColumnConfiguration>> BLOCK_COLUMN=FEATURES.register("block_column",()->new BlockColumn(BlockColumnConfiguration.CODEC));
+    public static final RegistryObject<Feature<NoneFeatureConfiguration>> GLOW_LICHEN=FEATURES.register("glow_lichen",()->new GlowLichenFeature(NoneFeatureConfiguration.CODEC));
+
+
+    public static final ResourceKey<ConfiguredFeature<?, ?>> HUGE_LUSHROOM = createKey("huge_lush_mushroom");
+
+    public static ResourceKey<ConfiguredFeature<?, ?>> createKey(String p_255643_) {
+        return ResourceKey.create(Registries.CONFIGURED_FEATURE, new ResourceLocation("aoemod", p_255643_));
+    }
 }
 
 //public class ModFeatures {

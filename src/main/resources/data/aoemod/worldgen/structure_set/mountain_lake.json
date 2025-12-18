@@ -1,0 +1,11 @@
+{
+  "structures": [
+    { "structure": "aoemod:mountain_lake", "weight": 1 }
+  ],
+  "placement": {
+    "type": "minecraft:random_spread",
+    "spacing": 20,
+    "separation": 16,
+    "salt": 123456789
+  }
+}

@@ -1,0 +1,126 @@
+{
+  "type": "forge:add_spawns",
+  "biomes": "aoemod:beach",
+  "spawners": [
+    {
+      "type": "alexscaves:lanternfish",
+      "weight": 25,
+      "minCount": 8,
+      "maxCount": 8
+    },
+    {
+      "type": "alexsmobs:anaconda",
+      "weight": 10,
+      "minCount": 2,
+      "maxCount": 5
+    },
+    {
+      "type": "alexsmobs:centipede_head",
+      "weight": 10,
+      "minCount": 2,
+      "maxCount": 5
+    },
+    {
+      "type": "alexsmobs:crocodile",
+      "weight": 10,
+      "minCount": 2,
+      "maxCount": 5
+    },
+    {
+      "type": "alexsmobs:devils_hole_pupfish",
+      "weight": 5,
+      "minCount": 4,
+      "maxCount": 6
+    },
+    {
+      "type": "alexsmobs:hammerhead_shark",
+      "weight": 5,
+      "minCount": 4,
+      "maxCount": 6
+    },
+    {
+      "type": "alexsmobs:mimic_octopus",
+      "weight": 5,
+      "minCount": 4,
+      "maxCount": 6
+    },
+    {
+      "type": "bountiful_critters:krill",
+      "weight": 10,
+      "minCount": 2,
+      "maxCount": 5
+    },
+    {
+      "type": "iceandfire:hippocampus",
+      "weight": 10,
+      "minCount": 2,
+      "maxCount": 5
+    },
+    {
+      "type": "iceandfire:siren",
+      "weight": 10,
+      "minCount": 2,
+      "maxCount": 5
+    },
+    {
+      "type": "quark:crab",
+      "weight": 10,
+      "minCount": 2,
+      "maxCount": 5
+    },
+    {
+      "type": "hybrid-aquatic:firework_jellyfish",
+      "weight": 5,
+      "minCount": 2,
+      "maxCount": 3
+    },
+    {
+      "type": "unusualfishmod:wizard_jelly",
+      "weight": 5,
+      "minCount": 2,
+      "maxCount": 3
+    },
+    {
+      "type": "finsandtails:phantom_nudibranch",
+      "weight": 5,
+      "minCount": 2,
+      "maxCount": 3
+    },
+    {
+      "type": "hybrid-aquatic:arrow_squid",
+      "weight": 20,
+      "minCount": 2,
+      "maxCount": 5
+    },
+    {
+      "type": "hybrid-aquatic:cuttlefish",
+      "weight": 20,
+      "minCount": 2,
+      "maxCount": 5
+    },
+    {
+      "type": "ambientadditions:blue_spotted_stingray",
+      "weight": 5,
+      "minCount": 4,
+      "maxCount": 6
+    },
+    {
+      "type": "finsandtails:golden_river_ray",
+      "weight": 5,
+      "minCount": 4,
+      "maxCount": 6
+    },
+    {
+      "type": "finsandtails:swamp_mucker",
+      "weight": 5,
+      "minCount": 3,
+      "maxCount": 4
+    },
+    {
+      "type": "finsandtails:rubber_belly_glider",
+      "weight": 5,
+      "minCount": 3,
+      "maxCount": 4
+    }
+  ]
+}

@@ -1,0 +1,60 @@
+{
+  "type": "forge:add_spawns",
+  "biomes": "aoemod:soul_sand_valley",
+  "spawners": [
+    {
+      "type": "alexsmobs:guster",
+      "weight": 10,
+      "minCount": 4,
+      "maxCount": 4
+    },
+    {
+      "type": "alexsmobs:murmur",
+      "weight": 20,
+      "minCount": 4,
+      "maxCount": 4
+    },
+    {
+      "type": "alexsmobs:soul_vulture",
+      "weight": 10,
+      "minCount": 4,
+      "maxCount": 4
+    },
+    {
+      "type": "alexsmobs:spectre",
+      "weight": 15,
+      "minCount": 4,
+      "maxCount": 4
+    },
+    {
+      "type": "netherdepthsupgrade:bonefish",
+      "weight": 15,
+      "minCount": 2,
+      "maxCount": 4
+    },
+    {
+      "type": "netherdepthsupgrade:glowdine",
+      "weight": 5,
+      "minCount": 3,
+      "maxCount": 6
+    },
+    {
+      "type": "netherdepthsupgrade:obsidian_fish",
+      "weight": 5,
+      "minCount": 2,
+      "maxCount": 3
+    },
+    {
+      "type": "netherdepthsupgrade:soul_sucker",
+      "weight": 10,
+      "minCount": 2,
+      "maxCount": 3
+    },
+    {
+      "type": "netherdepthsupgrade:wither_bonefish",
+      "weight": 10,
+      "minCount": 2,
+      "maxCount": 4
+    }
+  ]
+}

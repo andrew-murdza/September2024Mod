@@ -1,0 +1,112 @@
+{
+  "type": "minecraft:simple_block",
+  "config": {
+    "to_place": {
+      "type": "minecraft:weighted_state_provider",
+      "entries": [
+        //        {
+        //          "weight": 1,
+        //          "data": {
+        //            "Name": "blue_skies:brewberry_bush",
+        //            "Properties": {
+        //              "mature": "true",
+        //              "type": "red"
+        //            }
+        //          }
+        //        },
+        {
+          "weight": 1,
+          "data": {
+            "Name": "minecraft:nether_wart",
+            "Properties": {
+              "age": "3"
+            }
+          }
+        },
+        {
+          "weight": 1,
+          "data": {
+            "Name": "farmersdelight:wild_beetroots"
+          }
+        },
+        {
+          "weight": 1,
+          "data": {
+            "Name": "farmersdelight:wild_cabbages"
+          }
+        },
+        {
+          "weight": 1,
+          "data": {
+            "Name": "farmersdelight:wild_carrots"
+          }
+        },
+        {
+          "weight": 1,
+          "data": {
+            "Name": "farmersdelight:wild_onions"
+          }
+        },
+        {
+          "weight": 1,
+          "data": {
+            "Name": "farmersdelight:wild_potatoes"
+          }
+        },
+        {
+          "weight": 1,
+          "data": {
+            "Name": "culturaldelights:wild_cucumbers"
+          }
+        },
+        {
+          "weight": 1,
+          "data": {
+            "Name": "vintagedelight:wild_eggplants"
+          }
+        },
+        {
+          "weight": 1,
+          "data": {
+            "Name": "vintagedelight:wild_oats"
+          }
+        },
+        {
+          "weight": 1,
+          "data": {
+            "Name": "vintagedelight:wild_peanuts"
+          }
+        },
+        {
+          "weight": 1,
+          "data": {
+            "Name": "aoemod:blue_berry_bush"
+          }
+        },
+        {
+          "weight": 1,
+          "data": {
+            "Name": "minecraft:pumpkin"
+          }
+        },
+        {
+          "weight": 1,
+          "data": {
+            "Name": "minecraft:melon"
+          }
+        },
+        {
+          "weight": 1,
+          "data": {
+            "Name": "minecraft:sweet_berry_bush",
+            "Properties": {
+              "age": "3"
+            }
+          }
+        }
+      ]
+    }
+  }
+}
+
+

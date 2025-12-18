@@ -1,5 +1,11 @@
 {
-  "carvers": {},
+  "carvers": {
+    "air": [
+      "minecraft:cave",
+      "minecraft:cave_extra_underground",
+      "minecraft:canyon"
+    ]
+  },
   "downfall": 0,
   "effects": {
     "additions_sound": {
@@ -38,12 +44,25 @@
     [],
     [],
     [],
-    [
-      "minecraft:patch_crimson_roots"
-    ],
+    [],
     [],
     [
-      "minecraft:spring_lava"
+      "aoemod:nether_sugar_cane",
+      "nethers_exoticism:bouddhas_hand_spawner",
+      "aoemod:soul_beets",
+      "aoemod:soul_berries",
+      "aoemod:nether_wart",
+      "aoemod:soul_sand_valley/mushrooms",
+      "aoemod:soul_sand_valley/ghoulflower",
+      "aoemod:warped_forest/forest_floor",
+      "aoemod:soul_sand_valley/forest_floor",
+      "aoemod:basalt_deltas/forest_floor",
+      "aoemod:warped_forest/seafloor",
+      "aoemod:soul_sand_valley/seafloor",
+      "aoemod:basalt_deltas/seafloor",
+      "aoemod:warped_forest/seafloor_shallow",
+      "aoemod:soul_sand_valley/seafloor_shallow",
+      "aoemod:basalt_deltas/seafloor_shallow"
     ]
   ],
   "has_precipitation": false,
@@ -63,19 +82,32 @@
     "minecraft:strider": {
       "charge": 0.7,
       "energy_budget": 0.15
+    },
+    "alexsmobs:soul_vulture": {
+      "charge": 0.15,
+      "energy_budget": 1.2
+    },
+    "alexsmobs:spectre": {
+      "charge": 0.3,
+      "energy_budget": 0.9
+    },
+    "alexsmobs:guster": {
+      "charge": 0.2,
+      "energy_budget": 1.0
+    },
+    "alexsmobs:murmur": {
+      "charge": 0.25,
+      "energy_budget": 1.0
+    },
+    "minecraft:wither_skeleton": {
+      "charge": 0.35,
+      "energy_budget": 0.8
     }
   },
   "spawners": {
     "ambient": [],
     "axolotls": [],
-    "creature": [
-      {
-        "type": "minecraft:strider",
-        "maxCount": 2,
-        "minCount": 1,
-        "weight": 60
-      }
-    ],
+    "creature": [],
     "misc": [],
     "monster": [
       {
@@ -83,6 +115,12 @@
         "maxCount": 5,
         "minCount": 5,
         "weight": 20
+      },
+      {
+        "type": "minecraft:wither_skeleton",
+        "maxCount": 4,
+        "minCount": 4,
+        "weight": 10
       },
       {
         "type": "minecraft:ghast",

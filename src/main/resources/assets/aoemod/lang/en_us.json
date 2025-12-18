@@ -7,11 +7,10 @@
   "block.aoemod.blue_berry_bush":"Blue Berry Bush",
   "block.aoemod.sea_pickle":"Sea Pickles",
   "item.aoemod.sea_pickle":"Sea Pickle",
+  "block.aoemod.lushroom":"Lush Mushroom",
+  "item.aoemod.lushroom":"Lush Mushroom",
+  "block.aoemod.cherry_vine":"Cherry Vine",
+  "item.aoemod.cherry_vine":"Cherry Vine",
 //  "biome.aoemod.rainforestnew": "Rainforest",
   "dimension.aoemod.aoedim": "AOE Dimension"
-//  "block.aoemod.wildflower":"Wildflower"//,
-//  "block.aoemod.lavender":"Lavender",
-//  "item.aoemod.wildflower":"Wildflower",
-//  "item.aoemod.lavender":"Lavender",
-//  "item.aoemod.sea_pickle":"Sea Pickle"
 }

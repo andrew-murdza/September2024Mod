@@ -1,0 +1,159 @@
+{
+  "type": "minecraft:simple_block",
+  "config": {
+    "to_place": {
+      "type": "minecraft:weighted_state_provider",
+      "entries": [
+        {
+          "weight": 1,
+          "data": {
+            "Name": "twilightforest:mushgloom"
+          }
+        },
+//        {
+//          "weight": 1,
+//          "data": {
+//            "Name": "trailsandtalesplus:lushshroom"
+//          }
+//        },
+        {
+          "weight": 1,
+          "data": {
+            "Name": "quark:glow_shroom"
+          }
+        },
+        {
+          "weight": 1,
+          "data": {
+            "Name": "biomeswevegone:green_mushroom"
+          }
+        },
+        {
+          "weight": 1,
+          "data": {
+            "Name": "biomeswevegone:weeping_milkcap"
+          }
+        },
+        {
+          "weight": 1,
+          "data": {
+            "Name": "biomeswevegone:wood_blewit"
+          }
+        },
+        //        {
+        //          "weight": 1,
+        //          "data": {
+        //            "Name": "blue_skies:nightcress"
+        //          }
+        //        },
+        {
+          "weight": 1,
+          "data": {
+            "Name": "blue_skies:snowcap_pinhead"
+          }
+        },
+//        {
+//          "weight": 1,
+//          "data": {
+//            "Name": "midnight:bogshroom"
+//          }
+//        },
+//        {
+//          "weight": 1,
+//          "data": {
+//            "Name": "midnight:dewshroom"
+//          }
+//        },
+//        {
+//          "weight": 1,
+//          "data": {
+//            "Name": "midnight:mistshroom"
+//          }
+//        },
+//        {
+//          "weight": 1,
+//          "data": {
+//            "Name": "midnight:moonshroom"
+//          }
+//        },
+//        {
+//          "weight": 1,
+//          "data": {
+//            "Name": "midnight:nightshroom"
+//          }
+//        },
+//        {
+//          "weight": 1,
+//          "data": {
+//            "Name": "midnight:tall_bogshroom",
+//            "Properties": {
+//              "half": "lower"
+//            }
+//          }
+//        },
+//        {
+//          "weight": 1,
+//          "data": {
+//            "Name": "midnight:tall_dewshroom",
+//            "Properties": {
+//              "half": "lower"
+//            }
+//          }
+//        },
+//        {
+//          "weight": 1,
+//          "data": {
+//            "Name": "midnight:tall_mistshroom",
+//            "Properties": {
+//              "half": "lower"
+//            }
+//          }
+//        },
+//        {
+//          "weight": 1,
+//          "data": {
+//            "Name": "midnight:tall_moonshroom",
+//            "Properties": {
+//              "half": "lower"
+//            }
+//          }
+//        },
+//        {
+//          "weight": 1,
+//          "data": {
+//            "Name": "midnight:tall_nightshroom",
+//            "Properties": {
+//              "half": "lower"
+//            }
+//          }
+//        },
+        {
+          "weight": 1,
+          "data": {
+            "Name": "minecraft:warped_fungus"
+          }
+        },
+        {
+          "weight": 1,
+          "data": {
+            "Name": "minecraft:crimson_fungus"
+          }
+        },
+        {
+          "weight": 1,
+          "data": {
+            "Name": "minecraft:red_mushroom"
+          }
+        },
+        {
+          "weight": 1,
+          "data": {
+            "Name": "minecraft:brown_mushroom"
+          }
+        }
+      ]
+    }
+  }
+}
+
+

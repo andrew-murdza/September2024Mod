@@ -1,0 +1,38 @@
+{
+  "type": "aoemod:all_surface",
+  "config": {
+    "feature": {
+      "feature": "aoemod:basalt_deltas/water/water_plants_shallow_full",
+      "placement": []
+    },
+    "target": "lava",
+    "deep": true,
+    "all_layers": true,
+    "predicate": {
+      "type": "minecraft:any_of",
+      "predicates": [
+        {
+          "type": "minecraft:matching_blocks",
+          "blocks": [
+            "minecraft:gravel",
+            "minecraft:soul_sand",
+            "minecraft:soul_soil",
+            "minecraft:netherrack",
+            "minecraft:blackstone",
+            "minecraft:glowstone",
+            "minecraft:magma_block",
+            "minecraft:basalt",
+            "minecraft:smooth_basalt"
+          ],
+          "offset": [
+            0,
+            -1,
+            0
+          ]
+        }
+      ]
+    },
+    "biomes": "aoemod:basalt_deltas"
+  }
+}
+

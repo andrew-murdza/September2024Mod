@@ -27,14 +27,21 @@
     ],
     [
       "minecraft:glow_lichen",
-      "minecraft:patch_tall_grass_2",
-      "minecraft:flower_plains",
-      "minecraft:patch_grass_plain",
-      "minecraft:brown_mushroom_normal",
-      "minecraft:red_mushroom_normal",
+      "aoemod:plains/trees",
+      "aoemod:plains/flowers",
+      "aoemod:plains/mushrooms",
+      "aoemod:plains/patch_tall_grass_2",
+      "aoemod:plains/patch_grass_plain",
       "minecraft:patch_sugar_cane",
       "minecraft:patch_pumpkin",
-      "aoemod:plains_seafloor"
+      "aoemod:savanna/forest_floor",
+      "aoemod:mountains/forest_floor",
+      "aoemod:savanna/seafloor",
+      "aoemod:plains/seafloor",
+      "aoemod:mountains/seafloor",
+      "aoemod:savanna/seafloor_shallow",
+      "aoemod:plains/seafloor_shallow",
+      "aoemod:mountains/seafloor_shallow"
     ],
     [
       "minecraft:freeze_top_layer"
@@ -57,25 +64,37 @@
         "type": "minecraft:sheep",
         "maxCount": 4,
         "minCount": 4,
-        "weight": 12
+        "weight": 15
+      },
+      {
+        "type": "minecraft:fox",
+        "weight": 5,
+        "minCount": 2,
+        "maxCount": 5
+      },
+      {
+        "type": "minecraft:goat",
+        "weight": 5,
+        "minCount": 2,
+        "maxCount": 10
       },
       {
         "type": "minecraft:pig",
         "maxCount": 4,
         "minCount": 4,
-        "weight": 10
+        "weight": 15
       },
       {
         "type": "minecraft:chicken",
         "maxCount": 4,
         "minCount": 4,
-        "weight": 10
+        "weight": 15
       },
       {
         "type": "minecraft:cow",
         "maxCount": 4,
         "minCount": 4,
-        "weight": 8
+        "weight": 15
       },
       {
         "type": "minecraft:horse",
@@ -88,6 +107,12 @@
         "maxCount": 3,
         "minCount": 1,
         "weight": 1
+      },
+      {
+        "type": "minecraft:wolf",
+        "weight": 5,
+        "minCount": 2,
+        "maxCount": 5
       }
     ],
     "misc": [],
@@ -150,7 +175,20 @@
       }
     ],
     "water_ambient": [],
-    "water_creature": []
+    "water_creature": [
+      {
+        "type": "minecraft:squid",
+        "weight": 10,
+        "minCount": 4,
+        "maxCount": 6
+      },
+      {
+        "type": "minecraft:cod",
+        "weight": 10,
+        "minCount": 8,
+        "maxCount": 8
+      }
+    ]
   },
   "temperature": 0.8
 }

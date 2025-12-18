@@ -1,0 +1,8 @@
+{
+  "feature": "aoemod:desert/water/seafloor",
+  "placement": [
+    {
+      "type": "minecraft:biome"
+    }
+  ]
+}

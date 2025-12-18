@@ -1,0 +1,42 @@
+{
+  "type": "aoemod:random_selector",
+  "config": {
+    "features": [
+      {
+        "chance": 0.33333,
+        "feature": {
+          "feature": "aoemod:brown_mushroom_patch",
+          "placement": []
+        }
+      },
+      {
+        "chance": 0.33333,
+        "feature": {
+          "feature": "aoemod:red_mushroom_patch",
+          "placement": []
+        }
+      },
+      {
+        "chance": 0.16667,
+        "feature": {
+          "feature": "aoemod:green_mushroom_patch",
+          "placement": []
+        }
+      },
+      {
+        "chance": 0.16667,
+        "feature": {
+          "feature": "aoemod:wood_blewit_patch",
+          "placement": []
+        }
+      },
+      {
+        "chance": 0.16667,
+        "feature": {
+          "feature": "aoemod:weeping_milkcap_patch",
+          "placement": []
+        }
+      }
+    ]
+  }
+}
