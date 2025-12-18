@@ -31,6 +31,7 @@ public class ModFeatures {
     public static final RegistryObject<Feature<NoneFeatureConfiguration>> PITAYA=FEATURES.register("pitaya",()->new PitayaFeature(NoneFeatureConfiguration.CODEC));
     public static final RegistryObject<Feature<BlockColumnConfiguration>> BLOCK_COLUMN=FEATURES.register("block_column",()->new BlockColumn(BlockColumnConfiguration.CODEC));
     public static final RegistryObject<Feature<NoneFeatureConfiguration>> GLOW_LICHEN=FEATURES.register("glow_lichen",()->new GlowLichenFeature(NoneFeatureConfiguration.CODEC));
+    public static final RegistryObject<Feature<NoneFeatureConfiguration>> GIANT_GLOW_SHROOM=FEATURES.register("huge_glow_shroom",()->new GiantGlowshroomFeature(NoneFeatureConfiguration.CODEC));
 
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> HUGE_LUSHROOM = createKey("huge_lush_mushroom");

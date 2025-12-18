@@ -1,6 +1,6 @@
 {
   "type": "forge:add_spawns",
-  "biomes": "aoemod:grove",
+  "biomes": ["aoemod:grove","aoemod:snowy_taiga"],
   "spawners": [
     {
       "type": "alexscaves:gossamer_worm",
@@ -19,12 +19,6 @@
       "weight": 10,
       "minCount": 4,
       "maxCount": 6
-    },
-    {
-      "type": "alexscaves:trilocaris",
-      "weight": 5,
-      "minCount": 8,
-      "maxCount": 8
     },
     {
       "type": "alexscaves:tripodfish",
@@ -181,12 +175,6 @@
       "weight": 4,
       "minCount": 4,
       "maxCount": 6
-    },
-//    {
-//      "type": "trailsandtalesplus:cluckshroom",
-//      "weight": 10,
-//      "minCount": 2,
-//      "maxCount": 5
-//    }
+    }
   ]
 }

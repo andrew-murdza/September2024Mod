@@ -37,7 +37,7 @@
       {
         "chance": 1,
         "feature": {
-          "feature": "aoemod:green_mushrom_patch",
+          "feature": "aoemod:green_mushroom_patch",
           "placement": [
             {
               "type": "minecraft:block_predicate_filter",

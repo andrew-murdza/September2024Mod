@@ -158,13 +158,25 @@
         "weight": 5,
         "minCount": 2,
         "maxCount": 5
-      },
-      {
-        "type": "minecraft:hoglin",
-        "weight": 5,
-        "minCount": 2,
-        "maxCount": 5
-      }
+      }//,
+//      {
+//        "type": "aoemod:zebra",
+//        "weight": 10,
+//        "minCount": 2,
+//        "maxCount": 5
+//      },
+//      {
+//        "type": "aoemod:giraffe",
+//        "weight": 10,
+//        "minCount": 2,
+//        "maxCount": 5
+//      },
+//      {
+//        "type": "aoemod:rhino",
+//        "weight": 10,
+//        "minCount": 2,
+//        "maxCount": 5
+//      }
     ],
     "misc": [],
     "monster": [],

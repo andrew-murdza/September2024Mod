@@ -68,7 +68,7 @@
       {
         "chance": 0.1,
         "feature": {
-          "feature": "quark:huge_glow_shroom",
+          "feature": "aoemod:huge_glow_shroom",
           "placement": []
         }
       },

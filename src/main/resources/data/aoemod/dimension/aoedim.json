@@ -112,13 +112,13 @@
           }
         },
         {
-          "biome": "aoemod:eroded_badlands",
+          "biome": "aoemod:mushroom_caves",
           "parameters": {
             "temperature": 0,
             "humidity": 0,
             "continentalness": [
-              0.26,
-              0.27
+              0.15,
+              0.26
             ],
             "erosion": 0,
             "weirdness": 0,
@@ -127,13 +127,13 @@
           }
         },
         {
-          "biome": "aoemod:badlands",
+          "biome": "aoemod:eroded_badlands",
           "parameters": {
             "temperature": 0,
             "humidity": 0,
             "continentalness": [
-              0.27,
-              1
+              0.26,
+              0.27
             ],
             "erosion": 0,
             "weirdness": 0,

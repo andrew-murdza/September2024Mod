@@ -2,6 +2,12 @@
   "type": "forge:add_spawns",
   "biomes": "aoemod:jungle",
   "spawners": [
+//    {
+//      "type": "fossil:arthropleura",
+//      "weight": 25,
+//      "minCount": 2,
+//      "maxCount": 2
+//    },
     {
       "type": "alexscaves:atlatitan",
       "weight": 5,

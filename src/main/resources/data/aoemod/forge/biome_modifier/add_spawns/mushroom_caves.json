@@ -1,0 +1,78 @@
+{
+  "type": "forge:add_spawns",
+  "biomes": "aoemod:mushroom_caves",
+  "spawners": [
+    {
+      "type": "alexscaves:gossamer_worm",
+      "weight": 10,
+      "minCount": 4,
+      "maxCount": 6
+    },
+    {
+      "type": "alexscaves:lanternfish",
+      "weight": 25,
+      "minCount": 8,
+      "maxCount": 8
+    },
+    {
+      "type": "alexscaves:sea_pig",
+      "weight": 10,
+      "minCount": 4,
+      "maxCount": 6
+    },
+    {
+      "type": "alexscaves:tripodfish",
+      "weight": 10,
+      "minCount": 4,
+      "maxCount": 6
+    },
+    {
+      "type": "hybrid-aquatic:firework_jellyfish",
+      "weight": 5,
+      "minCount": 2,
+      "maxCount": 3
+    },
+    {
+      "type": "unusualfishmod:wizard_jelly",
+      "weight": 5,
+      "minCount": 2,
+      "maxCount": 3
+    },
+    {
+      "type": "finsandtails:phantom_nudibranch",
+      "weight": 5,
+      "minCount": 2,
+      "maxCount": 3
+    },
+    {
+      "type": "unusualfishmod:shockcat",
+      "weight": 5,
+      "minCount": 2,
+      "maxCount": 3
+    },
+    {
+      "type": "hybrid-aquatic:dragonfish",
+      "weight": 5,
+      "minCount": 2,
+      "maxCount": 3
+    },
+    {
+      "type": "hybrid-aquatic:frilled_shark",
+      "weight": 5,
+      "minCount": 2,
+      "maxCount": 3
+    },
+    {
+      "type": "hybrid-aquatic:vampire_squid",
+      "weight": 5,
+      "minCount": 2,
+      "maxCount": 3
+    },
+    {
+      "type": "trailsandtalesplus:cluckshroom",
+      "weight": 10,
+      "minCount": 2,
+      "maxCount": 5
+    }
+  ]
+}

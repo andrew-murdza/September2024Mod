@@ -1,6 +1,6 @@
 {
   "type": "forge:add_spawns",
-  "biomes": "aoemod:badlands",
+  "biomes": ["aoemod:badlands","aoemod:eroded_badlands"],
   "spawners": [
     {
       "type": "alexsmobs:jerboa",

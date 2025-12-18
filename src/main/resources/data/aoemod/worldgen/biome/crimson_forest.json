@@ -48,8 +48,8 @@
     [],
     [
       "aoemod:nether_sugar_cane",
-      "minecraft:crimson_fungus",
-      "aoemod:crimson_potatoes",
+      "aoemod:crimson_forest/trees",
+      "aoemod:crimson_forest/crimson_potato",
       "aoemod:ashen_wheat",
       "aoemod:crimson_forest/mushrooms",
       "aoemod:crimson_forest/forest_floor",

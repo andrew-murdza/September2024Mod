@@ -135,10 +135,10 @@
       "maxCount": 6
     },
     {
-      "type": "finsandtails:golden_river_ray",
+      "type": "dawnera:sabertooth_salmon",
       "weight": 5,
-      "minCount": 4,
-      "maxCount": 6
+      "minCount": 1,
+      "maxCount": 1
     }
   ]
 }

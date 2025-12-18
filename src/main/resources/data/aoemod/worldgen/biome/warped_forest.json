@@ -48,10 +48,10 @@
     [],
     [
       "aoemod:nether_sugar_cane",
-      "minecraft:warped_fungus",
-      "aoemod:warped_carrots",
+      "aoemod:warped_forest/trees",
+      "aoemod:warped_forest/warped_carrot",
       "aoemod:ashen_wheat",
-      "aoemod:pitaya",
+      "aoemod:warped_forest/pitaya",
       "aoemod:warped_forest/mushrooms",
       "aoemod:crimson_forest/forest_floor",
       "aoemod:warped_forest/forest_floor",

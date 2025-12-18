@@ -17,8 +17,8 @@
     {
       "type": "netherdepthsupgrade:fortress_grouper",
       "weight": 10,
-      "minCount": 2,
-      "maxCount": 1
+      "minCount": 1,
+      "maxCount": 2
     },
     {
       "type": "netherdepthsupgrade:glowdine",
