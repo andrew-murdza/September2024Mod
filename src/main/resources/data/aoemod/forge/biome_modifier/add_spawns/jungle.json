@@ -277,6 +277,12 @@
       "weight": 5,
       "minCount": 3,
       "maxCount": 4
+    },
+    {
+      "type": "environmental:koi",
+      "weight": 5,
+      "minCount": 3,
+      "maxCount": 4
     }
   ]
 }

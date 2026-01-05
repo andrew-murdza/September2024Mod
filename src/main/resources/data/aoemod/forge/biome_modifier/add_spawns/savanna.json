@@ -3,12 +3,6 @@
   "biomes": "aoemod:savanna",
   "spawners": [
     {
-      "type": "alexscaves:trilocaris",
-      "weight": 5,
-      "minCount": 8,
-      "maxCount": 8
-    },
-    {
       "type": "alexsmobs:anteater",
       "weight": 5,
       "minCount": 2,
@@ -19,18 +13,6 @@
       "weight": 10,
       "minCount": 2,
       "maxCount": 5
-    },
-    {
-      "type": "alexsmobs:blue_jay",
-      "weight": 10,
-      "minCount": 2,
-      "maxCount": 5
-    },
-    {
-      "type": "alexsmobs:cockroach",
-      "weight": 5,
-      "minCount": 8,
-      "maxCount": 8
     },
     {
       "type": "alexsmobs:devils_hole_pupfish",
@@ -87,18 +69,6 @@
       "maxCount": 5
     },
     {
-      "type": "alexsmobs:mudskipper",
-      "weight": 5,
-      "minCount": 4,
-      "maxCount": 6
-    },
-    {
-      "type": "alexsmobs:potoo",
-      "weight": 5,
-      "minCount": 2,
-      "maxCount": 5
-    },
-    {
       "type": "alexsmobs:rhinoceros",
       "weight": 5,
       "minCount": 2,
@@ -111,12 +81,6 @@
       "maxCount": 5
     },
     {
-      "type": "alexsmobs:terrapin",
-      "weight": 5,
-      "minCount": 2,
-      "maxCount": 5
-    },
-    {
       "type": "alexsmobs:tiger",
       "weight": 5,
       "minCount": 2,
@@ -125,12 +89,6 @@
     {
       "type": "bountiful_critters:krill",
       "weight": 10,
-      "minCount": 2,
-      "maxCount": 5
-    },
-    {
-      "type": "cherry_shrimp:cherry_shrimp",
-      "weight": 5,
       "minCount": 2,
       "maxCount": 5
     },

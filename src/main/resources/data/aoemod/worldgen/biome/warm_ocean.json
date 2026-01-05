@@ -137,6 +137,12 @@
       //        "minCount": 2,
       //        "maxCount": 5
       //      }
+//      {
+//        "type": "aoemod:sea_serpent",
+//        "weight": 5,
+//        "minCount": 1,
+//        "maxCount": 1
+//      }
     ],
     "alexscaves:deep_sea_creature": []
   },

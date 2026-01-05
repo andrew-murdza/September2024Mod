@@ -1,0 +1,259 @@
+{
+  "type": "minecraft:entity",
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:alternatives",
+          "children": [
+            {
+              "type": "minecraft:item",
+              "name": "fossil:arthropleura",
+              "conditions": [
+                {
+                  "condition": "minecraft:location_check",
+                  "predicate": {
+                    "biome": "#aoemod:basalt_deltas_biomes"
+                  }
+                }
+              ]
+            },
+            {
+              "type": "minecraft:item",
+              "name": "fossil:arthropleura",
+              "conditions": [
+                {
+                  "condition": "minecraft:location_check",
+                  "predicate": {
+                    "biome": "#aoemod:soul_sand_valley_biomes"
+                  }
+                }
+              ]
+            },
+            {
+              "type": "minecraft:item",
+              "name": "fossil:arthropleura",
+              "conditions": [
+                {
+                  "condition": "minecraft:location_check",
+                  "predicate": {
+                    "biome": "#aoemod:desert_biomes"
+                  }
+                }
+              ]
+            },
+            {
+              "type": "minecraft:item",
+              "name": "fossil:arthropleura",
+              "conditions": [
+                {
+                  "condition": "minecraft:location_check",
+                  "predicate": {
+                    "biome": "#aoemod:nether_biomes"
+                  }
+                }
+              ]
+            },
+            {
+              "type": "minecraft:item",
+              "name": "fossil:arthropleura",
+              "conditions": [
+                {
+                  "condition": "minecraft:location_check",
+                  "predicate": {
+                    "biome": "#aoemod:mountain_biomes"
+                  }
+                }
+              ]
+            },
+            {
+              "type": "minecraft:item",
+              "name": "fossil:arthropleura",
+              "functions": [
+                {
+                  "function": "minecraft:set_count",
+                  "count": 3
+                }
+              ],
+              "conditions": [
+                {
+                  "condition": "minecraft:location_check",
+                  "predicate": {
+                    "biome": "#aoemod:savanna_biomes"
+                  }
+                }
+              ]
+            },
+            {
+              "type": "minecraft:item",
+              "name": "fossil:arthropleura",
+              "functions": [
+                {
+                  "function": "minecraft:set_count",
+                  "count": 2
+                }
+              ],
+              "conditions": [
+                {
+                  "condition": "minecraft:location_check",
+                  "predicate": {
+                    "biome": "#aoemod:tropical_biomes"
+                  }
+                }
+              ]
+            },
+            {
+              "type": "minecraft:item",
+              "name": "fossil:arthropleura",
+              "conditions": []
+            }
+          ]
+        }
+      ],
+      "functions": [
+        {
+          "function": "minecraft:set_count",
+          "count": 1
+        }
+      ],
+      "conditions": [
+        {
+          "condition": "minecraft:location_check",
+          "predicate": {
+            "biome": "#aoemod:tropical_biomes"
+          }
+        }
+      ]
+    },
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:alternatives",
+          "children": [
+            {
+              "type": "minecraft:item",
+              "name": "fossil:arthropleura",
+              "conditions": [
+                {
+                  "condition": "minecraft:location_check",
+                  "predicate": {
+                    "biome": "#aoemod:basalt_deltas_biomes"
+                  }
+                }
+              ]
+            },
+            {
+              "type": "minecraft:item",
+              "name": "fossil:arthropleura",
+              "conditions": [
+                {
+                  "condition": "minecraft:location_check",
+                  "predicate": {
+                    "biome": "#aoemod:soul_sand_valley_biomes"
+                  }
+                }
+              ]
+            },
+            {
+              "type": "minecraft:item",
+              "name": "fossil:arthropleura",
+              "conditions": [
+                {
+                  "condition": "minecraft:location_check",
+                  "predicate": {
+                    "biome": "#aoemod:desert_biomes"
+                  }
+                }
+              ]
+            },
+            {
+              "type": "minecraft:item",
+              "name": "fossil:arthropleura",
+              "conditions": [
+                {
+                  "condition": "minecraft:location_check",
+                  "predicate": {
+                    "biome": "#aoemod:nether_biomes"
+                  }
+                }
+              ]
+            },
+            {
+              "type": "minecraft:item",
+              "name": "fossil:arthropleura",
+              "conditions": [
+                {
+                  "condition": "minecraft:location_check",
+                  "predicate": {
+                    "biome": "#aoemod:mountain_biomes"
+                  }
+                }
+              ]
+            },
+            {
+              "type": "minecraft:item",
+              "name": "fossil:arthropleura",
+              "functions": [
+                {
+                  "function": "minecraft:set_count",
+                  "count": 3
+                }
+              ],
+              "conditions": [
+                {
+                  "condition": "minecraft:location_check",
+                  "predicate": {
+                    "biome": "#aoemod:savanna_biomes"
+                  }
+                }
+              ]
+            },
+            {
+              "type": "minecraft:item",
+              "name": "fossil:arthropleura",
+              "functions": [
+                {
+                  "function": "minecraft:set_count",
+                  "count": 2
+                }
+              ],
+              "conditions": [
+                {
+                  "condition": "minecraft:location_check",
+                  "predicate": {
+                    "biome": "#aoemod:tropical_biomes"
+                  }
+                }
+              ]
+            },
+            {
+              "type": "minecraft:item",
+              "name": "fossil:arthropleura",
+              "conditions": []
+            }
+          ]
+        }
+      ],
+      "functions": [
+        {
+          "function": "minecraft:set_count",
+          "count": 1
+        }
+      ],
+      "conditions": [
+        {
+          "condition": "minecraft:random_chance",
+          "chance": 0.5
+        },
+        {
+          "condition": "minecraft:location_check",
+          "predicate": {
+            "biome": "#aoemod:tropical_biomes"
+          }
+        }
+      ]
+    }
+  ]
+}

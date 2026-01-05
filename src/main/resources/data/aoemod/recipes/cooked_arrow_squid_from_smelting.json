@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:smelting",
+  "category": "food",
+  "ingredient": {
+    "item": "aoemod:arrow_squid"
+  },
+  "result": "aoemod:cooked_arrow_squid",
+  "experience": 0.35,
+  "cookingtime": 200
+}

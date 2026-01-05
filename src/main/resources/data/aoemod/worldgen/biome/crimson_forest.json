@@ -43,11 +43,19 @@
     [],
     [],
     [],
-    [],
+    [
+      "aoemod:crimson_forest/blobs/blackstone_blobs",
+      "aoemod:crimson_forest/blobs/glowstone_blobs",
+      "aoemod:crimson_forest/blobs/gravel_blobs",
+      "aoemod:crimson_forest/blobs/magma_blobs",
+      "aoemod:crimson_forest/ores/ancient_debris",
+      "aoemod:crimson_forest/ores/nether_gold",
+      "aoemod:crimson_forest/ores/nether_quartz"
+    ],
     [],
     [],
     [
-      "aoemod:nether_sugar_cane",
+      "aoemod:nether_cane",
       "aoemod:crimson_forest/trees",
       "aoemod:crimson_forest/crimson_potato",
       "aoemod:ashen_wheat",

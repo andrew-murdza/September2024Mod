@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:smelting",
+  "category": "food",
+  "ingredient": {
+    "item": "aoemod:nether_crab_claw"
+  },
+  "result": "aoemod:cooked_nether_crab_claw",
+  "experience": 0.35,
+  "cookingtime": 200
+}

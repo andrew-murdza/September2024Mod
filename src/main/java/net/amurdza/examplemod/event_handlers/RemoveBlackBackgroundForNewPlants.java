@@ -14,18 +14,18 @@ import java.util.function.Supplier;
 
 @Mod.EventBusSubscriber(modid = AOEMod.MOD_ID, bus=Mod.EventBusSubscriber.Bus.FORGE, value = Dist.CLIENT)
 public class RemoveBlackBackgroundForNewPlants {
-    @SubscribeEvent
-    public static void clientSetup(FMLClientSetupEvent event){
-        for(Supplier<Block> block:new Supplier[]{ModBlocks.CAVE_VINES, ModBlocks.CAVE_VINES_PLANT,ModBlocks.GRAPE_VINE,ModBlocks.BLUE_BERRY_BUSH}){
-            setRenderLayer(block, RenderType.cutout());
-        }
-    }
-    private static void setRenderLayer(Supplier<? extends Block> supplier, RenderType... types) {
-        ItemBlockRenderTypes.setRenderLayer(supplier.get(), t -> {
-            for(RenderType allowed : types)
-                if(t==allowed)
-                    return true;
-            return false;
-        });
-    }
+//    @SubscribeEvent
+//    public static void clientSetup(FMLClientSetupEvent event){
+//        for(Supplier<Block> block:new Supplier[]{ModBlocks.CAVE_VINES, ModBlocks.CAVE_VINES_PLANT,ModBlocks.GRAPE_VINE}){
+//            setRenderLayer(block, RenderType.cutout());
+//        }
+//    }
+//    private static void setRenderLayer(Supplier<? extends Block> supplier, RenderType... types) {
+//        ItemBlockRenderTypes.setRenderLayer(supplier.get(), t -> {
+//            for(RenderType allowed : types)
+//                if(t==allowed)
+//                    return true;
+//            return false;
+//        });
+//    }
 }

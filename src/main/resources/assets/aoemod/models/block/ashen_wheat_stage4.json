@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/crop",
+  "textures": {
+    "crop": "aoemod:block/ashen_wheat_stage4"
+  },
+  "render_type": "cutout"
+}

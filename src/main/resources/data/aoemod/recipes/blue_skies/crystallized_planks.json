@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "ingredients": [
+    {
+      "tag": "blue_skies:logs/crystallized"
+    }
+  ],
+  "result": {
+    "count": 4,
+    "item": "blue_skies:crystallized_planks"
+  }
+}

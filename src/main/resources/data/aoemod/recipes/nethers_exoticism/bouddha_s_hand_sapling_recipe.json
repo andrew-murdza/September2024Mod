@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "aa",
+    "a "
+  ],
+  "key": {
+    "a": {
+      "item": "nethers_exoticism:bone_column"
+    }
+  },
+  "result": {
+    "item": "nethers_exoticism:bouddha_s_hand_sapling",
+    "count": 1
+  }
+}

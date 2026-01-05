@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:smelting",
+  "category": "food",
+  "ingredient": {
+    "item": "aoemod:cubozoa"
+  },
+  "result": "aoemod:cooked_cubozoa",
+  "experience": 0.35,
+  "cookingtime": 200
+}

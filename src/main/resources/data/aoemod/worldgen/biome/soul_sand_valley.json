@@ -43,11 +43,20 @@
     [],
     [],
     [],
-    [],
+    [
+      "aoemod:soul_sand_valley/blobs/blackstone_blobs",
+      "aoemod:soul_sand_valley/blobs/glowstone_blobs",
+      "aoemod:soul_sand_valley/blobs/gravel_blobs",
+      "aoemod:soul_sand_valley/blobs/magma_blobs",
+      "aoemod:soul_sand_valley/ores/ancient_debris",
+      "aoemod:soul_sand_valley/ores/soul_quartz",
+      "aoemod:soul_sand_valley/ores/soul_soil_gold_ore",
+      "aoemod:soul_sand_valley/ores/soul_soil_quartz_ore"
+    ],
     [],
     [],
     [
-      "aoemod:nether_sugar_cane",
+      "aoemod:nether_cane",
       "aoemod:soul_sand_valley/trees",
       "aoemod:soul_sand_valley/soul_beet",
       "aoemod:soul_sand_valley/soul_berries",

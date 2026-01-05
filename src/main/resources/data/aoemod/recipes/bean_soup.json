@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "food",
+  "ingredients": [
+    "minecraft:bowl",
+    "aoemod:beans",
+    "aoemod:beans",
+    "aoemod:beans",
+    "aoemod:beans",
+    "aoemod:beans",
+    "aoemod:beans"
+  ],
+  "result": {
+    "count": 1,
+    "id": "aoemod:bean_soup"
+  }
+}

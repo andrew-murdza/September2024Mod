@@ -71,6 +71,16 @@
           "probability": 0.3,
           "required_empty_blocks": 2
         }
+      },
+      {
+        "type": "aoemod:trunk_vine_decorator",
+        "probability": 1.0,
+        "grape_weight": 2,
+        "lichen_weight": 1,
+        "cocoa_weight": 10,
+        "vine_weight": 7,
+        "max_log_y_delta": 2,
+        "per_side_chance": 1.0
       }
     ],
     "height": {

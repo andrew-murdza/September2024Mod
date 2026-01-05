@@ -1,0 +1,208 @@
+{
+  "pools": [
+    {
+      "name": "rattlesnake",
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "item",
+          "name": "dawnera:sturgeon",
+          "weight": 1,
+          "functions": [
+            {
+              "function": "set_count",
+              "count": {
+                "min": 0,
+                "max": 1
+              }
+            }
+          ]
+        }
+      ],
+      "functions": [
+        {
+          "function": "minecraft:set_count",
+          "count": 1
+        }
+      ],
+      "conditions": [
+        {
+          "condition": "minecraft:random_chance",
+          "chance": 0.5
+        },
+        {
+          "condition": "minecraft:location_check",
+          "predicate": {
+            "biome": "#aoemod:desert_biomes"
+          }
+        }
+      ]
+    },
+    {
+      "name": "rattlesnake",
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "item",
+          "name": "dawnera:sturgeon",
+          "weight": 1,
+          "functions": [
+            {
+              "function": "set_count",
+              "count": {
+                "min": 0,
+                "max": 1
+              }
+            }
+          ]
+        }
+      ],
+      "conditions": [
+        {
+          "condition": "minecraft:location_check",
+          "predicate": {
+            "biome": "#aoemod:savanna_biomes"
+          }
+        }
+      ],
+      "functions": [
+        {
+          "function": "minecraft:set_count",
+          "count": 3
+        }
+      ]
+    },
+    {
+      "name": "rattlesnake",
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "item",
+          "name": "dawnera:sturgeon",
+          "weight": 1,
+          "functions": [
+            {
+              "function": "set_count",
+              "count": {
+                "min": 0,
+                "max": 1
+              }
+            }
+          ]
+        }
+      ],
+      "conditions": [
+        {
+          "condition": "minecraft:location_check",
+          "predicate": {
+            "biome": "#aoemod:tropical_biomes"
+          }
+        }
+      ]
+    },
+    {
+      "name": "rattlesnake",
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "item",
+          "name": "dawnera:sturgeon",
+          "weight": 1,
+          "functions": [
+            {
+              "function": "set_count",
+              "count": {
+                "min": 0,
+                "max": 1
+              }
+            }
+          ]
+        }
+      ],
+      "functions": [
+        {
+          "function": "minecraft:set_count",
+          "count": 1
+        }
+      ],
+      "conditions": [
+        {
+          "condition": "minecraft:random_chance",
+          "chance": 0.5
+        },
+        {
+          "condition": "minecraft:location_check",
+          "predicate": {
+            "biome": "#aoemod:tropical_biomes"
+          }
+        }
+      ]
+    },
+    {
+      "rolls": 1.0,
+      "bonus_rolls": 0.0,
+      "conditions": [
+        {
+          "condition": "minecraft:random_chance",
+          "chance": 0.0625
+        },
+        {
+          "condition": "minecraft:location_check",
+          "predicate": {
+            "biome": "#aoemod:desert_biomes"
+          }
+        }
+      ],
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:bone"
+        }
+      ]
+    },
+    {
+      "rolls": 1.0,
+      "bonus_rolls": 0.0,
+      "conditions": [
+        {
+          "condition": "minecraft:random_chance",
+          "chance": 0.375
+        },
+        {
+          "condition": "minecraft:location_check",
+          "predicate": {
+            "biome": "#aoemod:savanna_biomes"
+          }
+        }
+      ],
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:bone"
+        }
+      ]
+    },
+    {
+      "rolls": 1.0,
+      "bonus_rolls": 0.0,
+      "conditions": [
+        {
+          "condition": "minecraft:random_chance",
+          "chance": 0.1875
+        },
+        {
+          "condition": "minecraft:location_check",
+          "predicate": {
+            "biome": "#aoemod:tropical_biomes"
+          }
+        }
+      ],
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:bone"
+        }
+      ]
+    }
+  ]
+}

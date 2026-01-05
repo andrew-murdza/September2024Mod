@@ -43,11 +43,19 @@
     [],
     [],
     [],
-    [],
+    [
+      "aoemod:warped_forest/blobs/blackstone_blobs",
+      "aoemod:warped_forest/blobs/glowstone_blobs",
+      "aoemod:warped_forest/blobs/gravel_blobs",
+      "aoemod:warped_forest/blobs/magma_blobs",
+      "aoemod:warped_forest/ores/ancient_debris",
+      "aoemod:warped_forest/ores/nether_gold",
+      "aoemod:warped_forest/ores/nether_quartz"
+    ],
     [],
     [],
     [
-      "aoemod:nether_sugar_cane",
+      "aoemod:nether_cane",
       "aoemod:warped_forest/trees",
       "aoemod:warped_forest/warped_carrot",
       "aoemod:ashen_wheat",
@@ -81,13 +89,7 @@
         "maxCount": 2,
         "minCount": 1,
         "weight": 60
-      }//,
-//      {
-//        "type": "aoemod:warped_critter",
-//        "maxCount": 2,
-//        "minCount": 1,
-//        "weight": 10
-//      }
+      }
     ],
     "misc": [],
     "monster": [

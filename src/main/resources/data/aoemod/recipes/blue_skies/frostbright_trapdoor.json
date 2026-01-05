@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "group": "wooden_trapdoor",
+  "key": {
+    "#": {
+      "item": "blue_skies:frostbright_planks"
+    }
+  },
+  "pattern": [
+    "###",
+    "###"
+  ],
+  "result": {
+    "count": 2,
+    "item": "blue_skies:frostbright_trapdoor"
+  },
+  "show_notification": true
+}

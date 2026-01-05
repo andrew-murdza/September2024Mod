@@ -1,0 +1,28 @@
+{
+  "type": "aoemod:random_selector",
+  "config": {
+    "features": [
+      {
+        "chance": 0.33333,
+        "feature": {
+          "feature": "aoemod:wild_carrots_patch",
+          "placement": []
+        }
+      },
+      {
+        "chance": 0.33333,
+        "feature": {
+          "feature": "aoemod:wild_beetroots_patch",
+          "placement": []
+        }
+      },
+      {
+        "chance": 0.33333,
+        "feature": {
+          "feature": "aoemod:wild_potatoes_patch",
+          "placement": []
+        }
+      }
+    ]
+  }
+}

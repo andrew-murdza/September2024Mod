@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:smelting",
+  "category": "food",
+  "ingredient": {
+    "item": "aoemod:frilled_shark"
+  },
+  "result": "aoemod:cooked_frilled_shark",
+  "experience": 0.35,
+  "cookingtime": 200
+}

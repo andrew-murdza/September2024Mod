@@ -1,0 +1,516 @@
+{
+  "pools": [
+    {
+      "name": "crimson_mosquito",
+      "conditions": [
+        {
+          "condition": "random_chance_with_looting",
+          "chance": 0.3,
+          "looting_multiplier": 0.03
+        },
+        {
+          "condition": "minecraft:location_check",
+          "predicate": {
+            "biome": "#aoemod:basalt_deltas_biomes"
+          }
+        }
+      ],
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "item",
+          "name": "alexsmobs:mosquito_proboscis",
+          "weight": 1
+        }
+      ],
+      "functions": [
+        {
+          "function": "minecraft:set_count",
+          "count": 2
+        }
+      ]
+    },
+    {
+      "name": "crimson_mosquito",
+      "conditions": [
+        {
+          "condition": "random_chance_with_looting",
+          "chance": 0.3,
+          "looting_multiplier": 0.03
+        },
+        {
+          "condition": "minecraft:location_check",
+          "predicate": {
+            "biome": "#aoemod:soul_sand_valley_biomes"
+          }
+        }
+      ],
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "item",
+          "name": "alexsmobs:mosquito_proboscis",
+          "weight": 1
+        }
+      ],
+      "functions": [
+        {
+          "function": "minecraft:set_count",
+          "count": 2
+        }
+      ]
+    },
+    {
+      "name": "crimson_mosquito",
+      "conditions": [
+        {
+          "condition": "random_chance_with_looting",
+          "chance": 0.3,
+          "looting_multiplier": 0.03
+        },
+        {
+          "condition": "minecraft:location_check",
+          "predicate": {
+            "biome": "#aoemod:crimson_forest_biomes"
+          }
+        }
+      ],
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "item",
+          "name": "alexsmobs:mosquito_proboscis",
+          "weight": 1
+        }
+      ],
+      "functions": [
+        {
+          "function": "minecraft:set_count",
+          "count": 3
+        }
+      ]
+    },
+    {
+      "name": "crimson_mosquito",
+      "conditions": [
+        {
+          "condition": "random_chance_with_looting",
+          "chance": 0.3,
+          "looting_multiplier": 0.03
+        },
+        {
+          "condition": "minecraft:location_check",
+          "predicate": {
+            "biome": "#aoemod:warped_forest_biomes"
+          }
+        }
+      ],
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "item",
+          "name": "alexsmobs:mosquito_proboscis",
+          "weight": 1
+        }
+      ],
+      "functions": [
+        {
+          "function": "minecraft:set_count",
+          "count": 2
+        }
+      ]
+    },
+    {
+      "name": "crimson_mosquito",
+      "conditions": [
+        {
+          "condition": "random_chance_with_looting",
+          "chance": 0.3,
+          "looting_multiplier": 0.03
+        },
+        {
+          "condition": "minecraft:location_check",
+          "predicate": {
+            "biome": "#aoemod:nether_biomes"
+          }
+        }
+      ],
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "item",
+          "name": "alexsmobs:mosquito_proboscis",
+          "weight": 1
+        }
+      ]
+    },
+    {
+      "name": "crimson_mosquito",
+      "conditions": [
+        {
+          "condition": "random_chance_with_looting",
+          "chance": 0.3,
+          "looting_multiplier": 0.03
+        },
+        {
+          "condition": "minecraft:location_check",
+          "predicate": {
+            "biome": "#aoemod:nether_biomes"
+          }
+        },
+        {
+          "condition": "minecraft:inverted",
+          "term": {
+            "condition": "minecraft:location_check",
+            "predicate": {
+              "biome": "#aoemod:basalt_deltas_biomes"
+            }
+          }
+        },
+        {
+          "condition": "minecraft:inverted",
+          "term": {
+            "condition": "minecraft:location_check",
+            "predicate": {
+              "biome": "#aoemod:crimson_forest_biomes"
+            }
+          }
+        },
+        {
+          "condition": "minecraft:inverted",
+          "term": {
+            "condition": "minecraft:location_check",
+            "predicate": {
+              "biome": "#aoemod:warped_forest_biomes"
+            }
+          }
+        },
+        {
+          "condition": "minecraft:inverted",
+          "term": {
+            "condition": "minecraft:location_check",
+            "predicate": {
+              "biome": "#aoemod:soul_sand_valley_biomes"
+            }
+          }
+        }
+      ],
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "item",
+          "name": "alexsmobs:mosquito_proboscis",
+          "weight": 1
+        }
+      ],
+      "functions": [
+        {
+          "function": "minecraft:set_count",
+          "count": 2
+        }
+      ]
+    },
+    {
+      "name": "crimson_mosquito",
+      "conditions": [
+        {
+          "condition": "random_chance_with_looting",
+          "chance": 0.3,
+          "looting_multiplier": 0.03
+        },
+        {
+          "condition": "minecraft:location_check",
+          "predicate": {
+            "biome": "#aoemod:desert_biomes"
+          }
+        }
+      ],
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "item",
+          "name": "alexsmobs:mosquito_proboscis",
+          "weight": 1
+        }
+      ]
+    },
+    {
+      "name": "crimson_mosquito",
+      "conditions": [
+        {
+          "condition": "random_chance_with_looting",
+          "chance": 0.3,
+          "looting_multiplier": 0.03
+        },
+        {
+          "condition": "minecraft:random_chance",
+          "chance": 0.5
+        },
+        {
+          "condition": "minecraft:location_check",
+          "predicate": {
+            "biome": "#aoemod:desert_biomes"
+          }
+        }
+      ],
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "item",
+          "name": "alexsmobs:mosquito_proboscis",
+          "weight": 1
+        }
+      ],
+      "functions": [
+        {
+          "function": "minecraft:set_count",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "crimson_mosquito",
+      "conditions": [
+        {
+          "condition": "random_chance_with_looting",
+          "chance": 0.1,
+          "looting_multiplier": 0.01
+        },
+        {
+          "condition": "minecraft:location_check",
+          "predicate": {
+            "biome": "#aoemod:basalt_deltas_biomes"
+          }
+        }
+      ],
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "item",
+          "name": "alexsmobs:blood_sac",
+          "weight": 1
+        }
+      ],
+      "functions": [
+        {
+          "function": "minecraft:set_count",
+          "count": 3
+        }
+      ]
+    },
+    {
+      "name": "crimson_mosquito",
+      "conditions": [
+        {
+          "condition": "random_chance_with_looting",
+          "chance": 0.1,
+          "looting_multiplier": 0.01
+        },
+        {
+          "condition": "minecraft:location_check",
+          "predicate": {
+            "biome": "#aoemod:soul_sand_valley_biomes"
+          }
+        }
+      ],
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "item",
+          "name": "alexsmobs:blood_sac",
+          "weight": 1
+        }
+      ],
+      "functions": [
+        {
+          "function": "minecraft:set_count",
+          "count": 3
+        }
+      ]
+    },
+    {
+      "name": "crimson_mosquito",
+      "conditions": [
+        {
+          "condition": "random_chance_with_looting",
+          "chance": 0.1,
+          "looting_multiplier": 0.01
+        },
+        {
+          "condition": "minecraft:location_check",
+          "predicate": {
+            "biome": "#aoemod:crimson_forest_biomes"
+          }
+        }
+      ],
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "item",
+          "name": "alexsmobs:blood_sac",
+          "weight": 1
+        }
+      ],
+      "functions": [
+        {
+          "function": "minecraft:set_count",
+          "count": 4
+        }
+      ]
+    },
+    {
+      "name": "crimson_mosquito",
+      "conditions": [
+        {
+          "condition": "random_chance_with_looting",
+          "chance": 0.1,
+          "looting_multiplier": 0.01
+        },
+        {
+          "condition": "minecraft:location_check",
+          "predicate": {
+            "biome": "#aoemod:warped_forest_biomes"
+          }
+        }
+      ],
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "item",
+          "name": "alexsmobs:blood_sac",
+          "weight": 1
+        }
+      ],
+      "functions": [
+        {
+          "function": "minecraft:set_count",
+          "count": 3
+        }
+      ]
+    },
+    {
+      "name": "crimson_mosquito",
+      "conditions": [
+        {
+          "condition": "random_chance_with_looting",
+          "chance": 0.1,
+          "looting_multiplier": 0.01
+        },
+        {
+          "condition": "minecraft:location_check",
+          "predicate": {
+            "biome": "#aoemod:nether_biomes"
+          }
+        },
+        {
+          "condition": "minecraft:inverted",
+          "term": {
+            "condition": "minecraft:location_check",
+            "predicate": {
+              "biome": "#aoemod:basalt_deltas_biomes"
+            }
+          }
+        },
+        {
+          "condition": "minecraft:inverted",
+          "term": {
+            "condition": "minecraft:location_check",
+            "predicate": {
+              "biome": "#aoemod:crimson_forest_biomes"
+            }
+          }
+        },
+        {
+          "condition": "minecraft:inverted",
+          "term": {
+            "condition": "minecraft:location_check",
+            "predicate": {
+              "biome": "#aoemod:warped_forest_biomes"
+            }
+          }
+        },
+        {
+          "condition": "minecraft:inverted",
+          "term": {
+            "condition": "minecraft:location_check",
+            "predicate": {
+              "biome": "#aoemod:soul_sand_valley_biomes"
+            }
+          }
+        }
+      ],
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "item",
+          "name": "alexsmobs:blood_sac",
+          "weight": 1
+        }
+      ],
+      "functions": [
+        {
+          "function": "minecraft:set_count",
+          "count": 3
+        }
+      ]
+    },
+    {
+      "name": "crimson_mosquito",
+      "conditions": [
+        {
+          "condition": "random_chance_with_looting",
+          "chance": 0.1,
+          "looting_multiplier": 0.01
+        },
+        {
+          "condition": "minecraft:location_check",
+          "predicate": {
+            "biome": "#aoemod:desert_biomes"
+          }
+        }
+      ],
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "item",
+          "name": "alexsmobs:blood_sac",
+          "weight": 1
+        }
+      ]
+    },
+    {
+      "name": "crimson_mosquito",
+      "conditions": [
+        {
+          "condition": "random_chance_with_looting",
+          "chance": 0.1,
+          "looting_multiplier": 0.01
+        },
+        {
+          "condition": "minecraft:random_chance",
+          "chance": 0.5
+        },
+        {
+          "condition": "minecraft:location_check",
+          "predicate": {
+            "biome": "#aoemod:desert_biomes"
+          }
+        }
+      ],
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "item",
+          "name": "alexsmobs:blood_sac",
+          "weight": 1
+        }
+      ],
+      "functions": [
+        {
+          "function": "minecraft:set_count",
+          "count": 1
+        }
+      ]
+    }
+  ]
+}

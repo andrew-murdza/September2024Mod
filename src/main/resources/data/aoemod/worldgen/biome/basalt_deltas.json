@@ -43,9 +43,19 @@
     [],
     [],
     [],
-    [],
     [
-      "aoemod:nether_sugar_cane",
+      "aoemod:basalt_deltas/blobs/blackstone_blobs",
+      "aoemod:basalt_deltas/blobs/glowstone_blobs",
+      "aoemod:basalt_deltas/blobs/gravel_blobs",
+      "aoemod:basalt_deltas/blobs/magma_blobs",
+      "aoemod:basalt_deltas/ores/ancient_debris",
+      "aoemod:basalt_deltas/ores/basalt_gold_ore",
+      "aoemod:basalt_deltas/ores/basalt_quartz_ore",
+      "aoemod:basalt_deltas/ores/blackstone_gold_ore",
+      "aoemod:basalt_deltas/ores/blackstone_quartz_ore"
+    ],
+    [
+      "aoemod:nether_cane",
       "aoemod:basalt_deltas/mushrooms",
       "aoemod:soul_sand_valley/forest_floor",
       "aoemod:basalt_deltas/seafloor",
@@ -97,12 +107,6 @@
     "underground_water_creature": [],
     "water_ambient": [],
     "water_creature": [
-//      {
-//        "type": "aoemod:warped_squid",
-//        "weight": 10,
-//        "minCount": 4,
-//        "maxCount": 6
-//      },
       {
         "type": "unusualfishmod:crimsonshell",
         "weight": 4,

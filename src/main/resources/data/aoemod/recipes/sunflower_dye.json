@@ -1,0 +1,5 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [{ "item": "aoemod:sunflower" }],
+  "result": { "item": "minecraft:yellow_dye", "count": 2 }
+}

@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "aaa",
+    "aaa",
+    "aaa"
+  ],
+  "key": {
+    "a": {
+      "item": "nethers_exoticism:bouddha_s_hand"
+    }
+  },
+  "result": {
+    "item": "nethers_exoticism:bouddha_s_hand_crate",
+    "count": 1
+  }
+}

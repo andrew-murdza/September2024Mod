@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:smelting",
+  "category": "misc",
+  "cookingtime": 200,
+  "experience": 0.9,
+  "group": "charoite",
+  "ingredient": {
+    "item": "blue_skies:everbright_charoite_ore"
+  },
+  "result": "blue_skies:charoite"
+}

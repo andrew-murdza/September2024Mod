@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smelting",
+  "ingredient": {
+    "item": "aoemod:crimson_potatoes"
+  },
+  "result": "aoemod:baked_crimson_potato",
+  "experience": 0.35,
+  "cookingtime": 200
+}

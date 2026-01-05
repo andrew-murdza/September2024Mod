@@ -2,7 +2,7 @@
   "type": "aoemod:all_surface",
   "config": {
     "feature": {
-      "feature": "aoemod:crimson_forest/floor/forest_floor",
+      "feature": "aoemod:mountains/floor/forest_floor",
       "placement": []
     },
      "target": "air",
@@ -10,8 +10,8 @@
     "all_layers": true,
     "predicate": {
       "type": "minecraft:matching_blocks",
-      "blocks": ["minecraft:crimson_nylium"]
+      "blocks": ["minecraft:grass_block"]
     },
-    "biomes": "aoemod:crimson_forest"
+    "biomes": ["aoemod:snowy_taiga","aoemod:grove"]
   }
 }

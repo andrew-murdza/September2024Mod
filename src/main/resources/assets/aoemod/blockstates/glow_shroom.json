@@ -1,9 +1,7 @@
 {
 	"variants": {
-		"": [
-				{ "model": "quark:block/glow_shroom" },
-				{ "model": "quark:block/glow_shroom_big" },
-				{ "model": "quark:block/glow_shroom_small" }
-			]
+		"": {
+			"model": "aoemod:block/glow_shroom"
+		}
 	}
 }

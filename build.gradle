@@ -176,10 +176,14 @@ dependencies {
     implementation fg.deobf("curse.maven:geckolib-388172:6920925")//NO TOML
 
 
+    implementation fg.deobf("curse.maven:drop-the-meat-404141:6564010")
+    implementation fg.deobf("curse.maven:miners-delight-plus-689630:5038950")
+    implementation fg.deobf("curse.maven:frog-legs-633365:4722479")
+
 //
 //    implementation fg.deobf("curse.maven:luminous-909107:5699118")
 //
-//    implementation fg.deobf("curse.maven:trails-and-tales-878476:5045548")
+    implementation fg.deobf("curse.maven:trails-and-tales-878476:5045548")
 //
     implementation fg.deobf("curse.maven:iceandfire-264231:5633453")
 //
@@ -221,7 +225,6 @@ dependencies {
 
     //New
     implementation fg.deobf("curse.maven:naturalist-627986:4847009")
-//    implementation fg.deobf("curse.maven:architectury-api-419699:5137938")
     implementation fg.deobf("curse.maven:architectury-api-419699:4663010")
 
     implementation fg.deobf("curse.maven:lets-do-wildernature-1071657:5623675")
@@ -244,13 +247,16 @@ dependencies {
     implementation fg.deobf("curse.maven:blue-skies-312918:5010316")
     implementation fg.deobf("curse.maven:structure-gel-api-378802:5278429")
 
+    implementation fg.deobf("curse.maven:pineapple-delight-687974:7339657")
+    implementation fg.deobf("curse.maven:rustic-delight-1106612:6341145")
+
     //For the midnight
 //    implementation fg.deobf("curse.maven:smartbrainlib-661293:5654964")
 //    implementation fg.deobf("curse.maven:lucent-493280:4951434")
 
 
     runtimeOnly fg.deobf("curse.maven:worldedit-225608:4586218")
-    runtimeOnly fg.deobf("curse.maven:snow-under-trees-353942:5801187")
+//    runtimeOnly fg.deobf("curse.maven:snow-under-trees-353942:5801187")
     runtimeOnly fg.deobf("curse.maven:notrample-914018:4764989")
     runtimeOnly fg.deobf("curse.maven:huge-structure-blocks-474114:4803547")
 
@@ -258,7 +264,8 @@ dependencies {
 //    runtimeOnly fg.deobf("curse.maven:cloth-config-348521:5729105")
 
 
-    implementation fg.deobf("blank:bountiful_critters:1.2.2")
+    implementation fg.deobf("blank:bountiful_critters:1.4.4")
+    runtimeOnly fg.deobf("blank:CamelMeat_mod:1.0.0")
 //    implementation fg.deobf("blank:unearthed_journey:2.2.3")
 //    implementation fg.deobf("blank:DeeperCaves:1.20.1-1.2.7")
 //    implementation fg.deobf("blank:midnight:1.20.1-0.6.3")

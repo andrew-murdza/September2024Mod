@@ -1,15 +1,40 @@
 {
-  "render_type": "minecraft:cutout",
+  "render_type": "cutout",
   "textures": {
     "particle": "forest:block/grape_vine0",
     "grape_vine": "forest:block/grape_vine1"
   },
   "elements": [
-    {   "from": [ 0, 0, 0.1 ],
-      "to": [ 16, 16, 0.1 ],
+    {
+      "from": [
+        0,
+        0,
+        0.1
+      ],
+      "to": [
+        16,
+        16,
+        0.1
+      ],
       "faces": {
-        "north": { "uv": [ 16, 0, 0, 16 ], "texture": "#grape_vine" },
-        "south": { "uv": [ 0, 0, 16, 16 ], "texture": "#grape_vine" }
+        "north": {
+          "uv": [
+            16,
+            0,
+            0,
+            16
+          ],
+          "texture": "#grape_vine"
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": "#grape_vine"
+        }
       }
     }
   ]

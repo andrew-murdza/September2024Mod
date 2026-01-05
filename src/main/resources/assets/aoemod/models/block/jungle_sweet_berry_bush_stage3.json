@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cross",
+  "textures": {
+    "cross": "aoemod:block/jungle_sweet_berry_bush_stage3"
+  },
+  "render_type": "cutout"
+}

@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "group": "planks",
+  "ingredients": [
+    {
+      "tag": "blue_skies:logs/dusk"
+    }
+  ],
+  "result": {
+    "count": 4,
+    "item": "blue_skies:dusk_planks"
+  }
+}

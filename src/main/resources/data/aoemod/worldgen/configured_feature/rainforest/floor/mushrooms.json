@@ -10,12 +10,12 @@
             "Name": "twilightforest:mushgloom"
           }
         },
-//        {
-//          "weight": 1,
-//          "data": {
-//            "Name": "trailsandtalesplus:lushshroom"
-//          }
-//        },
+        {
+          "weight": 1,
+          "data": {
+            "Name": "aoemod:lush_mushroom"
+          }
+        },
         {
           "weight": 1,
           "data": {

@@ -1,0 +1,30 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "aoemod:soul_beets"
+    },
+    {
+      "item": "aoemod:soul_beets"
+    },
+    {
+      "item": "aoemod:soul_beets"
+    },
+    {
+      "item": "aoemod:soul_beets"
+    },
+    {
+      "item": "aoemod:soul_beets"
+    },
+    {
+      "item": "aoemod:soul_beets"
+    },
+    {
+      "item": "minecraft:bowl"
+    }
+  ],
+  "result": {
+    "item": "aoemod:soul_beet_soup",
+    "count": 1
+  }
+}

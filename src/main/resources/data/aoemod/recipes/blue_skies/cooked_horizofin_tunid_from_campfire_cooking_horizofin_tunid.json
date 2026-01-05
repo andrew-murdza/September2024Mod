@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:campfire_cooking",
+  "category": "food",
+  "cookingtime": 600,
+  "experience": 0.35,
+  "ingredient": {
+    "item": "blue_skies:horizofin_tunid"
+  },
+  "result": "blue_skies:cooked_horizofin_tunid"
+}

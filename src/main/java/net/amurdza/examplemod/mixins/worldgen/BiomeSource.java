@@ -34,7 +34,7 @@ public abstract class BiomeSource {
     @Unique
     private static final ResourceKey<Biome> september2024Mod$GROVE = ResourceKey.create(Registries.BIOME, new ResourceLocation("aoemod", "grove"));
     @Unique
-    private static final ResourceKey<Biome> MUSHROOM_CAVES   = ResourceKey.create(Registries.BIOME, new ResourceLocation("aoemod", "mushroom_caves"));
+    private static final ResourceKey<Biome> september2024Mod$MUSHROOM_CAVES   = ResourceKey.create(Registries.BIOME, new ResourceLocation("aoemod", "mushroom_caves"));
 
     @Unique
     private Holder<Biome> september2024Mod$biome(ResourceKey<Biome> key) {
@@ -48,19 +48,20 @@ public abstract class BiomeSource {
     private Holder<Biome> aoemod$stackNetherUnderBadlands(int x, int y, int z, Climate.Sampler sampler) {
         Holder<Biome> base = parameters().findValue(sampler.sample(x, y, z));
 
-        // Only stack when the climate picked your "surface" biome
-        if(base.is(september2024Mod$GROVE)&&y>16&&y<20){
-            return september2024Mod$biome(MUSHROOM_CAVES);
-        }
-
-        if (!base.is(september2024Mod$BADLANDS)) return base;
-
-        // thresholds: 16, 8, 0, -8  => 5 layers
-        if (y > 16)  return base;            // badlands
-        if (y > 8)   return september2024Mod$biome(september2024Mod$CRIMSON);  // crimson_forest
-        if (y > 0)   return september2024Mod$biome(september2024Mod$WARPED);   // warped_forest
-        if (y > -8)  return september2024Mod$biome(september2024Mod$SOUL);     // soul_sand_valley
-        return september2024Mod$biome(september2024Mod$BASALT);                // basalt_deltas
+        return Holder.direct(parameters().values().get(0).getSecond().get());
+//        // Only stack when the climate picked your "surface" biome
+//        if(base.is(september2024Mod$GROVE)&&y>16&&y<20){
+//            return september2024Mod$biome(september2024Mod$MUSHROOM_CAVES);
+//        }
+//
+//        if (!base.is(september2024Mod$BADLANDS)) return base;
+//
+//        // thresholds: 16, 8, 0, -8  => 5 layers
+//        if (y > 16)  return base;            // badlands
+//        if (y > 8)   return september2024Mod$biome(september2024Mod$CRIMSON);  // crimson_forest
+//        if (y > 0)   return september2024Mod$biome(september2024Mod$WARPED);   // warped_forest
+//        if (y > -8)  return september2024Mod$biome(september2024Mod$SOUL);     // soul_sand_valley
+//        return september2024Mod$biome(september2024Mod$BASALT);                // basalt_deltas
     }
 
     @Inject(

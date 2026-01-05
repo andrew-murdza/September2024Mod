@@ -1,6 +1,11 @@
 {
   "replace": false,
   "values": [
+    "aoemod:basalt_gold_ore",
+    "aoemod:blackstone_gold_ore",
+    "aoemod:basalt_quartz_ore",
+    "aoemod:blackstone_quartz_ore",
+    "aoemod:soul_soil_gold_ore",
     "minecraft:stone",
     "minecraft:granite",
     "minecraft:polished_granite",

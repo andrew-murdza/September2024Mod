@@ -39,7 +39,7 @@
                 "Name": "minecraft:white_tulip"
               },
               {
-                "Name": "minecraft:sunflower",
+                "Name": "aoemod:sunflower",
                 "Properties": {
                   "half": "lower"
                 }

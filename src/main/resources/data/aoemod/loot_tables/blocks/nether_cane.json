@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:block",
+  "pools": [
+    {
+      "bonus_rolls": 0.0,
+      "conditions": [
+        {
+          "condition": "minecraft:survives_explosion"
+        }
+      ],
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "aoemod:nether_cane"
+        }
+      ],
+      "rolls": 1.0
+    }
+  ],
+  "random_sequence": "aoemod:blocks/nether_cane"
+}

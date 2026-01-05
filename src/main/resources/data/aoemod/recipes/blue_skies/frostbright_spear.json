@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "M": {
+      "item": "blue_skies:moonstone_shard"
+    },
+    "S": {
+      "item": "blue_skies:frostbright_stick"
+    }
+  },
+  "pattern": [
+    "  M",
+    " S ",
+    "S  "
+  ],
+  "result": {
+    "item": "blue_skies:frostbright_spear"
+  },
+  "show_notification": true
+}

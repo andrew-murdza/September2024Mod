@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "group": "planks",
+  "ingredients": [
+    {
+      "tag": "blue_skies:logs/lunar"
+    }
+  ],
+  "result": {
+    "count": 4,
+    "item": "blue_skies:lunar_planks"
+  }
+}

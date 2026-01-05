@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:smelting",
+  "category": "food",
+  "cookingtime": 200,
+  "experience": 0.35,
+  "ingredient": {
+    "item": "dawnera:psittacosaurus_meat"
+  },
+  "result": "dawnera:cooked_psittacosaurus_meat"
+}

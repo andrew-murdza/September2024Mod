@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "quartz_brick_deco",
+  "category": "misc",
+  "pattern": [
+    "012"
+  ],
+  "key": {
+    "0": {
+      "item": "minecraft:quartz_bricks"
+    },
+    "1": {
+      "item": "minecraft:quartz_bricks"
+    },
+    "2": {
+      "item": "minecraft:quartz_bricks"
+    }
+  },
+  "result": {
+    "item": "nourished_nether:quartz_brick_slab",
+    "count": 6
+  }
+}

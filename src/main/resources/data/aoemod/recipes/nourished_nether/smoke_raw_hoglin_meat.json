@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:smoking",
+  "group": "cookedhoglinmeat",
+  "category": "food",
+  "experience": 1,
+  "cookingtime": 100,
+  "ingredient": {
+    "item": "nourished_nether:raw_hoglin"
+  },
+  "result": "nourished_nether:cooked_hoglin"
+}

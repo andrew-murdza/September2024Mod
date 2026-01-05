@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "blue_skies:moonlit_bloom"
+    }
+  ],
+  "result": {
+    "item": "minecraft:blue_dye"
+  }
+}

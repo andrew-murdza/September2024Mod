@@ -32,7 +32,37 @@
     [],
     [],
     [],
-    [],
+    [
+      "aoemod:desert/blobs/andesite_lower",
+      "aoemod:desert/blobs/andesite_upper",
+      "aoemod:desert/blobs/basalt",
+      "aoemod:desert/blobs/calcite_lower",
+      "aoemod:desert/blobs/calcite_upper",
+      "aoemod:desert/blobs/diorite_lower",
+      "aoemod:desert/blobs/diorite_upper",
+      "aoemod:desert/blobs/granite_lower",
+      "aoemod:desert/blobs/granite_upper",
+      "aoemod:desert/blobs/gravel",
+      "aoemod:desert/blobs/red_sand",
+      "aoemod:desert/blobs/red_sandstone_lower",
+      "aoemod:desert/blobs/red_sandstone_upper",
+      "aoemod:desert/blobs/sand_lower",
+      "aoemod:desert/blobs/sand_upper",
+      "aoemod:desert/blobs/sandstone_lower",
+      "aoemod:desert/blobs/sandstone_upper",
+      "aoemod:desert/blobs/tuff",
+      "aoemod:desert/ores/ore_coal_lower",
+      "aoemod:desert/ores/ore_coal_upper",
+      "aoemod:desert/ores/ore_copper",
+      "aoemod:desert/ores/ore_copper_large",
+      "aoemod:desert/ores/ore_gold",
+      "aoemod:desert/ores/ore_gold_extra",
+      "aoemod:desert/ores/ore_iron_middle",
+      "aoemod:desert/ores/ore_iron_small",
+      "aoemod:desert/ores/ore_iron_upper",
+      "aoemod:desert/ores/ore_redstone",
+      "aoemod:desert/ores/ore_redstone_lower"
+    ],
     [],
     [
       "minecraft:spring_water",
@@ -133,14 +163,7 @@
         "weight": 10
       }
     ],
-    "water_ambient": [
-//      {
-//        "type": "aoemod:cuttlefish",
-//        "weight": 5,
-//        "minCount": 4,
-//        "maxCount": 6
-//      }
-    ],
+    "water_ambient": [],
     "water_creature": []
   },
   "temperature": 2

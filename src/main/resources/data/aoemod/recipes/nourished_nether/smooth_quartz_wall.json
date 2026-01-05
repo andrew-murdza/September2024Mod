@@ -1,0 +1,33 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "smooth_quartz_deco",
+  "category": "misc",
+  "pattern": [
+    "012",
+    "345"
+  ],
+  "key": {
+    "0": {
+      "item": "minecraft:smooth_quartz"
+    },
+    "1": {
+      "item": "minecraft:smooth_quartz"
+    },
+    "2": {
+      "item": "minecraft:smooth_quartz"
+    },
+    "3": {
+      "item": "minecraft:smooth_quartz"
+    },
+    "4": {
+      "item": "minecraft:smooth_quartz"
+    },
+    "5": {
+      "item": "minecraft:smooth_quartz"
+    }
+  },
+  "result": {
+    "item": "nourished_nether:smooth_quartz_wall",
+    "count": 6
+  }
+}

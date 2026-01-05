@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "aoemod:block/desert_tallgrass_top"
+  }
+}

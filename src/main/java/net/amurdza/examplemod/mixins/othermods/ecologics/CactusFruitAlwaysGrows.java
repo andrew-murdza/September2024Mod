@@ -10,6 +10,7 @@ import net.minecraft.world.level.block.state.BlockState;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.Constant;
 import org.spongepowered.asm.mixin.injection.ModifyConstant;
+import samebutdifferent.ecologics.registry.ModBlocks;
 
 @Mixin(CactusBlock.class)
 public class CactusFruitAlwaysGrows {
@@ -21,8 +22,8 @@ public class CactusFruitAlwaysGrows {
         }
         if(i>=3){
             if(net.minecraftforge.common.ForgeHooks.onCropsGrowPre(pLevel, pPos.above(), pState,
-                    pRandom.nextFloat()<Config.PRICKLY_PEAR_CHANCE)) {
-                pLevel.setBlockAndUpdate(pPos.above(), Blocks.CACTUS.defaultBlockState());
+                    pRandom.nextFloat()<Config.PRICKLY_PEAR_CHANCE)&&pLevel.isEmptyBlock(pPos.above())) {
+                pLevel.setBlockAndUpdate(pPos.above(), ModBlocks.PRICKLY_PEAR.get().defaultBlockState());
                 net.minecraftforge.common.ForgeHooks.onCropsGrowPost(pLevel, pPos, pState);
             }
         }

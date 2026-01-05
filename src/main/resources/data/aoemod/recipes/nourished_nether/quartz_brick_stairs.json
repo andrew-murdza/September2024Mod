@@ -1,0 +1,34 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "quartz_brick_deco",
+  "category": "misc",
+  "pattern": [
+    "0  ",
+    "34 ",
+    "678"
+  ],
+  "key": {
+    "0": {
+      "item": "minecraft:quartz_bricks"
+    },
+    "3": {
+      "item": "minecraft:quartz_bricks"
+    },
+    "4": {
+      "item": "minecraft:quartz_bricks"
+    },
+    "6": {
+      "item": "minecraft:quartz_bricks"
+    },
+    "7": {
+      "item": "minecraft:quartz_bricks"
+    },
+    "8": {
+      "item": "minecraft:quartz_bricks"
+    }
+  },
+  "result": {
+    "item": "nourished_nether:quartz_brick_stairs",
+    "count": 4
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:smelting",
+  "category": "food",
+  "ingredient": {
+    "item": "aoemod:wizard_jellyfish"
+  },
+  "result": "aoemod:cooked_wizard_jellyfish",
+  "experience": 0.35,
+  "cookingtime": 200
+}

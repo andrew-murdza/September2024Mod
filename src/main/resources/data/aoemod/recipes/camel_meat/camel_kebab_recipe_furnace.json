@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:smelting",
+  "category": "misc",
+  "experience": 0.4,
+  "cookingtime": 200,
+  "ingredient": {
+    "item": "camel_meat:raw_camel_kebab"
+  },
+  "result": "camel_meat:camel_kebab"
+}

@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:campfire_cooking",
+  "category": "misc",
+  "experience": 0.4,
+  "cookingtime": 150,
+  "ingredient": {
+    "item": "camel_meat:raw_camel_kebab"
+  },
+  "result": "camel_meat:camel_kebab"
+}

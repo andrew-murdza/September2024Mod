@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "aoemod:ashen_wheat"
+    }
+  },
+  "result": {
+    "item": "aoemod:ashen_bread",
+    "count": 1
+  }
+}

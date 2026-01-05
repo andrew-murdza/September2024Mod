@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "camel_meat:camel_meat"
+    },
+    {
+      "item": "camel_meat:camel_meat"
+    },
+    {
+      "item": "minecraft:stick"
+    },
+    {
+      "item": "camel_meat:camel_meat"
+    }
+  ],
+  "result": {
+    "item": "camel_meat:raw_camel_kebab",
+    "count": 1
+  }
+}

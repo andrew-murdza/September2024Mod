@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "group": "stripped_bark",
+  "key": {
+    "#": {
+      "item": "blue_skies:stripped_dusk_log"
+    }
+  },
+  "pattern": [
+    "##",
+    "##"
+  ],
+  "result": {
+    "count": 3,
+    "item": "blue_skies:stripped_dusk_wood"
+  },
+  "show_notification": true
+}

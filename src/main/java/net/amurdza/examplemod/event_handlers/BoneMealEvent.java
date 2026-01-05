@@ -1,35 +1,36 @@
 package net.amurdza.examplemod.event_handlers;
 
-import com.teamabnormals.upgrade_aquatic.core.registry.UABlocks;
+import com.legacy.blue_skies.blocks.natural.SkyMushroomBlock;
 import net.amurdza.examplemod.AOEMod;
 import net.amurdza.examplemod.Config;
-import net.amurdza.examplemod.block.ModBlocks;
 import net.amurdza.examplemod.util.Helper;
-import net.amurdza.examplemod.util.RandomCollection;
 import net.amurdza.examplemod.util.ModTags;
-import net.amurdza.examplemod.worldgen.dimension.ModDimensions;
+import net.amurdza.examplemod.util.RandomCollection;
 import net.amurdza.examplemod.worldgen.feature.ModConfiguredFeatures;
 import net.mcreator.nourishednether.init.NourishedNetherModBlocks;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.core.Holder;
 import net.minecraft.core.registries.Registries;
-import net.minecraft.resources.ResourceKey;
 import net.minecraft.server.level.ServerLevel;
+import net.minecraft.sounds.SoundEvents;
+import net.minecraft.sounds.SoundSource;
 import net.minecraft.tags.BlockTags;
+import net.minecraft.tags.TagKey;
+import net.minecraft.util.Mth;
 import net.minecraft.util.RandomSource;
+import net.minecraft.world.InteractionResult;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.level.WorldGenLevel;
+import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
-import net.minecraft.world.level.block.state.properties.DoubleBlockHalf;
-import net.minecraft.world.level.block.state.properties.Half;
 import net.minecraft.world.level.chunk.ChunkGenerator;
-import net.minecraft.world.level.dimension.LevelStem;
+import net.minecraft.world.level.gameevent.GameEvent;
 import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
-import net.minecraftforge.event.entity.player.BonemealEvent;
-import net.minecraftforge.eventbus.api.Event;
+import net.minecraftforge.event.entity.player.PlayerInteractEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import org.violetmoon.quark.content.world.module.GlimmeringWealdModule;
@@ -51,7 +52,7 @@ public class BoneMealEvent {
     }
 
 //    static RandomCollection<BiFunction<Level, BlockPos, Boolean>> mossPlants = new RandomCollection<>();
-    static {
+//    static {
 //        mossPlants.add(1, placeBlock(Blocks.RED_MUSHROOM));
 //        mossPlants.add(1, placeBlock(Blocks.BROWN_MUSHROOM));
 //        Block[] flowers = new Block[]{Blocks.POPPY, Blocks.DANDELION, Blocks.CORNFLOWER, Blocks.BLUE_ORCHID,
@@ -72,7 +73,246 @@ public class BoneMealEvent {
 //        mossPlants.add(1, placeDoubleBlock(Blocks.LILAC));
 //        mossPlants.add(1, placeDoubleBlock(Blocks.ROSE_BUSH));
 //        mossPlants.add(1, placeDoubleBlock(Blocks.PEONY));
+//    }
+
+
+
+    @SubscribeEvent
+    public static void onRightClickBlock(PlayerInteractEvent.RightClickBlock event) {
+        Level level0 = event.getLevel();
+        if (!(level0 instanceof ServerLevel level)) return;
+
+        ItemStack stack = event.getItemStack();
+        if (!stack.is(Items.BONE_MEAL)) return;
+
+        BlockPos pos = event.getPos();
+        BlockState state = level.getBlockState(pos);
+        Block block = state.getBlock();
+
+        // If vanilla would not even consider this a bonemeal target and it's not one of your custom targets,
+        // let vanilla handle it (we don't cancel).
+        if (isNotEligibleBonemealTarget(level, pos, state)) return;
+
+        // Blacklist: you said cancel outright.
+        if (Config.BLACKLISTED_USE_ITEMS.contains(block.asItem())) {
+            event.setCanceled(true);
+            event.setCancellationResult(InteractionResult.FAIL);
+            return;
+        }
+
+        // We will handle everything ourselves, but we still want the ONE sound + ONE particle burst.
+        // Cancel vanilla bonemeal behavior so we don't double-trigger or consume twice.
+        event.setCanceled(true);
+        event.setCancellationResult(InteractionResult.SUCCESS);
+
+        // Consume exactly 1 bonemeal (even if our multiplier says "fail to work"),
+        // since the player "used" it and you explicitly want effects even on failure.
+        if (event.getEntity() != null && !event.getEntity().getAbilities().instabuild) {
+            stack.shrink(1);
+        }
+
+        // Play the bone meal sound + particles ONCE.
+        playBonemealEffectsOnce(level, pos, event);
+
+        // Compute number of "attempts" this click produces, based on biome multiplier.
+        float mult = getBiomeMultiplier(level, pos);
+
+        int attempts = computeAttempts(mult, level.random);
+        if (attempts <= 0) {
+            // "Fail" case: effects already played; nothing else happens.
+            return;
+        }
+
+        // Apply bonemeal logic up to 'attempts' times, but only keep going while:
+        // - vanilla says isValidBonemealTarget is true, OR
+        // - it matches one of your custom if-branches that should keep allowing repeats
+        //   (duplicatedByBonemeal / moss / sand / mycelium / soul sand / sugarcaneCactusLike / nether wart / tall flowers).
+        for (int i = 0; i < attempts; i++) {
+
+            // If we did nothing this iteration, stop early.
+            if (!applyOnce(level,pos)) break;
+
+            // Re-check continuation condition based on UPDATED state.
+            BlockState newState = level.getBlockState(pos);
+            if (isNotEligibleBonemealTarget(level, pos, newState)) break;
+        }
     }
+
+// ----------------------------
+    // Attempts logic (your rules)
+    // ----------------------------
+
+    /**
+     * Rules:
+     * - if mult < 1: there is (1 - mult) chance of "no work" (attempts=0), else attempts=1
+     * - if mult > 1: base = 1 + floor(mult - 1) = floor(mult)
+     *               then +1 more with probability frac(mult)
+     * - if mult == 1: attempts=1
+     */
+    private static int computeAttempts(float mult, RandomSource rand) {
+        if (mult <= 0.0f) return 0;
+
+        if (mult < 1.0f) {
+            return (rand.nextFloat() < mult) ? 1 : 0;
+        }
+
+        int base = Mth.floor(mult); // works for 1.0 => 1, 2.3 => 2, etc.
+        float frac = mult - base;
+        if (frac > 0.0f && rand.nextFloat() < frac) base += 1;
+        return base;
+    }
+
+    // ----------------------------
+    // Biome multiplier lookup
+    // ----------------------------
+
+    /**
+     * Gets the configured multiplier by checking which biome tags match at (pos).
+     * If multiple tags match, this returns the MAX value among matches (usually what you want for "best match wins").
+     * If none match, returns 1.0f.
+     */
+    private static float getBiomeMultiplier(ServerLevel level, BlockPos pos) {
+        Holder<Biome> biomeHolder = level.getBiome(pos);
+        Block block=level.getBlockState(pos).getBlock();
+        boolean mushroom=block instanceof MushroomBlock || block instanceof FungusBlock || block instanceof SkyMushroomBlock;
+        float best = -1f;
+        for (var entry : Config.BIOME_TAG_TO_BONEMEAL_MULTIPLIERS.entrySet()) {
+            TagKey<Biome> tag = entry.getKey();
+            float v = mushroom ? entry.getValue().mushroom():entry.getValue().plant();
+            if (biomeHolder.is(tag)) {
+                if (v > best) best = v;
+            }
+        }
+        return best<0?1f:best;
+    }
+
+    // ----------------------------
+    // Effects once
+    // ----------------------------
+
+    private static void playBonemealEffectsOnce(ServerLevel level, BlockPos pos, PlayerInteractEvent.RightClickBlock event) {
+        // Particle burst (same event id vanilla uses for bone meal particles)
+        level.levelEvent(1505, pos, 0);
+
+        // Sound once
+        level.playSound(
+                null,
+                pos,
+                SoundEvents.BONE_MEAL_USE,
+                SoundSource.BLOCKS,
+                1.0f,
+                1.0f
+        );
+
+        // Optional: game event (helps sculk sensors etc.)
+        if (event.getEntity() != null) {
+            level.gameEvent(event.getEntity(), GameEvent.ITEM_INTERACT_FINISH, pos);
+        }
+    }
+    // ----------------------------
+    // Eligibility / repetition rules
+    // ----------------------------
+
+    /**
+     * We only intercept bonemeal if:
+     * - vanilla would treat it as bonemealable, OR
+     * - it's one of your explicit special cases.
+     */
+    private static boolean isNotEligibleBonemealTarget(ServerLevel level, BlockPos pos, BlockState state) {
+        Block block = state.getBlock();
+
+        // Your explicit "specials" that should be eligible even if not BonemealableBlock.
+        if (state.is(ModTags.Blocks.duplicatedByBonemeal)) return false;
+        if (block == Blocks.MOSS_BLOCK) return false;
+        if (block == Blocks.RED_SAND || block == Blocks.SAND) return false;
+        if (block == Blocks.MYCELIUM) return false;
+        if (block == Blocks.SOUL_SAND) return false;
+        if (state.is(ModTags.Blocks.sugarCaneCactusLike)) return false;
+        if (block == Blocks.NETHER_WART) return false;
+        // If you have Upgrade Aquatic etc:
+        if (isYourTallCancelCase(block)) return false;
+
+        // Vanilla bonemeal target check:
+        if (block instanceof BonemealableBlock b) {
+            // isClientSide=false because we are server-side here
+            return !b.isValidBonemealTarget(level, pos, state, false);
+        }
+
+        return true;
+    }
+
+    private static boolean isYourTallCancelCase(Block block) {
+        // Replace UABlocks.TALL_PICKERELWEED.get() with your actual reference if needed.
+        // Example:
+        // return block == UABlocks.TALL_PICKERELWEED.get() || block instanceof TallFlowerBlock;
+
+        return block instanceof TallFlowerBlock;
+    }
+
+    // ----------------------------
+    // Apply once (your existing logic + vanilla fallback)
+    // ----------------------------
+
+    private static boolean applyOnce(ServerLevel level, BlockPos pos) {
+        BlockState state = level.getBlockState(pos);
+        Block block = state.getBlock();
+
+        // 1) duplicateByBonemeal: just drop an item, do not change the block
+        if (state.is(ModTags.Blocks.duplicatedByBonemeal)) {
+            Block.popResource(level, pos, new ItemStack(block));
+            return true;
+        }
+
+        // 2) Moss special
+        if (block == Blocks.MOSS_BLOCK) {
+            growMoss(level, pos);
+            return true;
+        }
+
+        // 3) If fluid above is NOT allowed (matches your original guard)
+        if (!isFluid(level, pos.above(), true)) {
+
+            if (block == Blocks.RED_SAND || block == Blocks.SAND) {
+                growSand(level, pos);
+                return true;
+            }
+
+            if (block == Blocks.MYCELIUM) {
+                growMycelium(level, pos);
+                return true;
+            }
+
+            if (block == Blocks.SOUL_SAND) {
+                growSoulSand(level, pos);
+                return true;
+            }
+
+            if (state.is(ModTags.Blocks.sugarCaneCactusLike)) {
+                return growSugarcaneCactus(level, pos, block);
+            }
+
+            if (block == Blocks.NETHER_WART) {
+                return growNetherWart(pos, level);
+            }
+
+            // 4) Vanilla fallback: if it is bonemealable, try to bonemeal it once
+            if (block instanceof BonemealableBlock b) {
+                // Mirror vanilla: must be valid + success roll, then perform
+                if (b.isValidBonemealTarget(level, pos, state, false)
+                        && b.isBonemealSuccess(level, level.random, pos, state)) {
+                    b.performBonemeal(level, level.random, pos, state);
+                    return true;
+                }
+            }
+        }
+
+        return false;
+    }
+
+
+
+
+
 
 
 
@@ -83,10 +323,10 @@ public class BoneMealEvent {
         placeBoneMeal(world, pos, (state1, pos1) -> check.apply(state1), tries, run, false, false);
     }
 
-
-    private static void placeBoneMeal(Level world, BlockPos pos, Function<BlockState, Boolean> check, int tries, Function<BlockPos, Boolean> run, boolean twoBlocks) {
-        placeBoneMeal(world, pos, (state1, pos1) -> check.apply(state1), tries, (a,b)->run.apply(a), twoBlocks, false);
-    }
+//
+//    private static void placeBoneMeal(Level world, BlockPos pos, Function<BlockState, Boolean> check, int tries, Function<BlockPos, Boolean> run, boolean twoBlocks) {
+//        placeBoneMeal(world, pos, (state1, pos1) -> check.apply(state1), tries, (a,b)->run.apply(a), twoBlocks, false);
+//    }
 
 
     private static boolean isFluid(Level level, BlockPos pos, boolean isWater) {
@@ -146,80 +386,80 @@ public class BoneMealEvent {
         }
     }
 
-    @SubscribeEvent
-    public static void boneMealEvent(BonemealEvent event) {
-        if(event.getLevel() instanceof ServerLevel level){
-            BlockPos pos=event.getPos();
-            BlockState state = level.getBlockState(pos);
-            Block block = state.getBlock();
-            boolean flag = true;
-            if(Config.BLACKLISTED_USE_ITEMS.contains(block.asItem())){
-                event.setCanceled(true);
-            }
-            else if(state.is(ModTags.Blocks.duplicatedByBonemeal)) {
-                Block.popResource(level, pos, new ItemStack(block));
-            }
-            else if(block==Blocks.MOSS_BLOCK){
-                growMoss(level,pos);
-                event.setCanceled(true);
-            }
-            else if(!isFluid(level,pos.above(),true)){
-                if(block==Blocks.RED_SAND||block==Blocks.SAND){//Assumes dead bushes can always grow on sand regardless of biome
-                    growSand(level,pos);
-                }
-                else if(block==Blocks.MYCELIUM){
-                    growMycelium(level,pos);
-                }
-                else if(block==Blocks.SOUL_SAND){
-                    growSoulSand(level,pos);
-                }
-                else if(state.is(ModTags.Blocks.sugarCaneCactusLike)){
-                    flag = growSugarcaneCactus(level, pos, block);
-                }
-                else if(block==Blocks.NETHER_WART){
-                    flag =growNetherWart(pos,level);
-                }
-//                else if(block==Blocks.ROOTED_DIRT){
-//                    growRootedDirt(level,level.random,pos);
+//    @SubscribeEvent
+//    public static void boneMealEvent(BonemealEvent event) {
+//        if(event.getLevel() instanceof ServerLevel level){
+//            BlockPos pos=event.getPos();
+//            BlockState state = level.getBlockState(pos);
+//            Block block = state.getBlock();
+//            boolean flag = true;
+//            if(Config.BLACKLISTED_USE_ITEMS.contains(block.asItem())){
+//                event.setCanceled(true);
+//            }
+//            else if(state.is(ModTags.Blocks.duplicatedByBonemeal)) {
+//                Block.popResource(level, pos, new ItemStack(block));
+//            }
+//            else if(block==Blocks.MOSS_BLOCK){
+//                growMoss(level,pos);
+//                event.setCanceled(true);
+//            }
+//            else if(!isFluid(level,pos.above(),true)){
+//                if(block==Blocks.RED_SAND||block==Blocks.SAND){//Assumes dead bushes can always grow on sand regardless of biome
+//                    growSand(level,pos);
 //                }
-                else if(block== UABlocks.TALL_PICKERELWEED.get()||block instanceof TallFlowerBlock){
-                    event.setCanceled(true);
-                }
-//                else if((block instanceof FlowerBlock || block instanceof DoublePlantBlock
-//                        || block==Blocks.DEAD_BUSH || block instanceof TallGrassBlock)&&
-//                        !(block instanceof TallSeagrassBlock|| block instanceof SmallDripleafBlock||
-//                                block instanceof WildRiceBlock)){
-//                    //state.is(BlockTags.FLOWERS), Helper.isBlock(block, Blocks.TALL_GRASS, Blocks.LARGE_FERN, Blocks.DEAD_BUSH)
-//                    growFlowers(level, pos);
+//                else if(block==Blocks.MYCELIUM){
+//                    growMycelium(level,pos);
 //                }
-//                else if(block==Blocks.WET_SPONGE){
-//                    growSponge(level,pos);
+//                else if(block==Blocks.SOUL_SAND){
+//                    growSoulSand(level,pos);
 //                }
-//                else if(state.is(ModTags.Blocks.netherFlowers)){
-//                    List<Block> blocks= new ArrayList<>(List.of(Blocks.WARPED_NYLIUM, Blocks.CRIMSON_NYLIUM, Blocks.SOUL_SOIL));
-//                    if(block==Blocks.CRIMSON_ROOTS)
-//                        blocks.addAll(List.of(Blocks.BLACKSTONE,Blocks.BASALT,Blocks.POLISHED_BASALT));
-//                    Function<BlockState, Boolean> func = state1 -> blocks.contains(state1.getBlock());
-//                    growFlowers(level, pos, func);
+//                else if(state.is(ModTags.Blocks.sugarCaneCactusLike)){
+//                    flag = growSugarcaneCactus(level, pos, block);
 //                }
-//                else if(state.is(ModTags.Blocks.crimsonRootsGroundBlocks)){
-//                    growCrimsonRoots(level,pos);
+//                else if(block==Blocks.NETHER_WART){
+//                    flag =growNetherWart(pos,level);
 //                }
-//                else if(block == Blocks.GRASS_BLOCK){
-//                    ((GrassBlock)block).performBonemeal(level, level.random, pos, Blocks.GRASS.defaultBlockState());
+////                else if(block==Blocks.ROOTED_DIRT){
+////                    growRootedDirt(level,level.random,pos);
+////                }
+//                else if(block== UABlocks.TALL_PICKERELWEED.get()||block instanceof TallFlowerBlock){
+//                    event.setCanceled(true);
 //                }
-//                else if(block==Blocks.SMALL_DRIPLEAF){
-//                    growSmallDripLeaf(level, level.random, pos);
+////                else if((block instanceof FlowerBlock || block instanceof DoublePlantBlock
+////                        || block==Blocks.DEAD_BUSH || block instanceof TallGrassBlock)&&
+////                        !(block instanceof TallSeagrassBlock|| block instanceof SmallDripleafBlock||
+////                                block instanceof WildRiceBlock)){
+////                    //state.is(BlockTags.FLOWERS), Helper.isBlock(block, Blocks.TALL_GRASS, Blocks.LARGE_FERN, Blocks.DEAD_BUSH)
+////                    growFlowers(level, pos);
+////                }
+////                else if(block==Blocks.WET_SPONGE){
+////                    growSponge(level,pos);
+////                }
+////                else if(state.is(ModTags.Blocks.netherFlowers)){
+////                    List<Block> blocks= new ArrayList<>(List.of(Blocks.WARPED_NYLIUM, Blocks.CRIMSON_NYLIUM, Blocks.SOUL_SOIL));
+////                    if(block==Blocks.CRIMSON_ROOTS)
+////                        blocks.addAll(List.of(Blocks.BLACKSTONE,Blocks.BASALT,Blocks.POLISHED_BASALT));
+////                    Function<BlockState, Boolean> func = state1 -> blocks.contains(state1.getBlock());
+////                    growFlowers(level, pos, func);
+////                }
+////                else if(state.is(ModTags.Blocks.crimsonRootsGroundBlocks)){
+////                    growCrimsonRoots(level,pos);
+////                }
+////                else if(block == Blocks.GRASS_BLOCK){
+////                    ((GrassBlock)block).performBonemeal(level, level.random, pos, Blocks.GRASS.defaultBlockState());
+////                }
+////                else if(block==Blocks.SMALL_DRIPLEAF){
+////                    growSmallDripLeaf(level, level.random, pos);
+////                }
+//                else {
+//                    flag = false;
 //                }
-                else {
-                    flag = false;
-                }
-                if(flag) {
-                    event.setResult(Event.Result.DENY);
-                }
-            }
-        }
-    }
+//                if(flag) {
+//                    event.setResult(Event.Result.DENY);
+//                }
+//            }
+//        }
+//    }
 
 
     //Cause block to increase in age
@@ -277,60 +517,60 @@ public class BoneMealEvent {
         placeBoneMeal(world, pos, blockState -> blockState.is(Blocks.MYCELIUM), 10, func);
     }
 
-    private static void growRootedDirt(Level world, RandomSource random, BlockPos pos) {
-        if(world instanceof ServerLevel&&!world.isClientSide) {
-            BlockPos blockPos = pos.below();
-            label48:
-            for(int i = 0; i < 20; ++i) {
-                BlockPos blockPos2 = blockPos;
-                for(int j = 0; j < i / 4; ++j) {
-                    blockPos2 = blockPos2.offset(random.nextInt(3) - 1, (random.nextInt(3) - 1) * random.nextInt(3) / 2, random.nextInt(3) - 1);
-                    if(!world.getBlockState(blockPos2.above()).is(Blocks.ROOTED_DIRT) || world.getBlockState(blockPos2).isFaceSturdy(world, blockPos2, Direction.UP)) {//UP Might be a problem
-                        continue label48;
-                    }
-                }
-                if(world.isEmptyBlock(blockPos2)&&Helper.isOkToPlace(world,blockPos2,Blocks.HANGING_ROOTS)) {
-                    world.setBlockAndUpdate(blockPos2, Blocks.HANGING_ROOTS.defaultBlockState());
-                }
-            }
-        }
-    }
+//    private static void growRootedDirt(Level world, RandomSource random, BlockPos pos) {
+//        if(world instanceof ServerLevel&&!world.isClientSide) {
+//            BlockPos blockPos = pos.below();
+//            label48:
+//            for(int i = 0; i < 20; ++i) {
+//                BlockPos blockPos2 = blockPos;
+//                for(int j = 0; j < i / 4; ++j) {
+//                    blockPos2 = blockPos2.offset(random.nextInt(3) - 1, (random.nextInt(3) - 1) * random.nextInt(3) / 2, random.nextInt(3) - 1);
+//                    if(!world.getBlockState(blockPos2.above()).is(Blocks.ROOTED_DIRT) || world.getBlockState(blockPos2).isFaceSturdy(world, blockPos2, Direction.UP)) {//UP Might be a problem
+//                        continue label48;
+//                    }
+//                }
+//                if(world.isEmptyBlock(blockPos2)&&Helper.isOkToPlace(world,blockPos2,Blocks.HANGING_ROOTS)) {
+//                    world.setBlockAndUpdate(blockPos2, Blocks.HANGING_ROOTS.defaultBlockState());
+//                }
+//            }
+//        }
+//    }
 
-    // Block placer methods
-    private static BiFunction<Level, BlockPos, Boolean> placeBlock(BlockState state) {
-        return (level, pos) -> {
-            boolean successful=Helper.isOkToPlace(level,pos,state);
-            if(successful&&!level.isClientSide){
-                level.setBlockAndUpdate(pos, state);
-            }
-            return successful;
-        };
-    }
+//    // Block placer methods
+//    private static BiFunction<Level, BlockPos, Boolean> placeBlock(BlockState state) {
+//        return (level, pos) -> {
+//            boolean successful=Helper.isOkToPlace(level,pos,state);
+//            if(successful&&!level.isClientSide){
+//                level.setBlockAndUpdate(pos, state);
+//            }
+//            return successful;
+//        };
+//    }
 
-    private static BiFunction<Level, BlockPos, Boolean> placeDoubleBlock(Block block) {
-        return (level, pos) -> {
-            boolean successful=Helper.isOkToPlace(level,pos,block)&&Helper.isOkToPlace(level,pos.above(),block);
-            if(successful&&!level.isClientSide){
-                DoublePlantBlock.placeAt(level, block.defaultBlockState(), pos, 2);
-            }
-            return successful;
-        };
-    }
+//    private static BiFunction<Level, BlockPos, Boolean> placeDoubleBlock(Block block) {
+//        return (level, pos) -> {
+//            boolean successful=Helper.isOkToPlace(level,pos,block)&&Helper.isOkToPlace(level,pos.above(),block);
+//            if(successful&&!level.isClientSide){
+//                DoublePlantBlock.placeAt(level, block.defaultBlockState(), pos, 2);
+//            }
+//            return successful;
+//        };
+//    }
 
-    private static BiFunction<Level, BlockPos, Boolean> placeBlock(Block block) {
-        return placeBlock(block.defaultBlockState());
-    }
+//    private static BiFunction<Level, BlockPos, Boolean> placeBlock(Block block) {
+//        return placeBlock(block.defaultBlockState());
+//    }
 
-    private static boolean createDripLeaf(Level level, BlockPos pos) {
-        Direction direction = Helper.select(level,Helper.HORIZONTAL_DIRECTIONS);
-        BlockState dripLeaf = Blocks.SMALL_DRIPLEAF.defaultBlockState().setValue(BlockStateProperties.HORIZONTAL_FACING, direction);
-        boolean successful=Helper.isOkToPlace(level,pos,dripLeaf)&&Helper.isOkToPlace(level,pos.above(),dripLeaf);
-        if(successful&&!level.isClientSide){
-            level.setBlockAndUpdate(pos, dripLeaf);
-            level.setBlockAndUpdate(pos.above(), dripLeaf.setValue(BlockStateProperties.DOUBLE_BLOCK_HALF, DoubleBlockHalf.UPPER));
-        }
-        return successful;
-    }
+//    private static boolean createDripLeaf(Level level, BlockPos pos) {
+//        Direction direction = Helper.select(level,Helper.HORIZONTAL_DIRECTIONS);
+//        BlockState dripLeaf = Blocks.SMALL_DRIPLEAF.defaultBlockState().setValue(BlockStateProperties.HORIZONTAL_FACING, direction);
+//        boolean successful=Helper.isOkToPlace(level,pos,dripLeaf)&&Helper.isOkToPlace(level,pos.above(),dripLeaf);
+//        if(successful&&!level.isClientSide){
+//            level.setBlockAndUpdate(pos, dripLeaf);
+//            level.setBlockAndUpdate(pos.above(), dripLeaf.setValue(BlockStateProperties.DOUBLE_BLOCK_HALF, DoubleBlockHalf.UPPER));
+//        }
+//        return successful;
+//    }
 
 
 //    private static void growFlowers(Level world, BlockPos pos, Function<BlockState, Boolean> check) {

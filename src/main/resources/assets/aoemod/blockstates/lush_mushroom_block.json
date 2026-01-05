@@ -1,7 +1,7 @@
 {
   "variants": {
     "": {
-      "model": "aoemod:block/lushroom_block"
+      "model": "aoemod:block/lush_mushroom_block"
     }
   }
 }

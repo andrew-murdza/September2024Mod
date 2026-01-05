@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:smelting",
+  "category": "food",
+  "ingredient": {
+    "item": "aoemod:squat_lobster"
+  },
+  "result": "aoemod:cooked_squat_lobster",
+  "experience": 0.35,
+  "cookingtime": 200
+}

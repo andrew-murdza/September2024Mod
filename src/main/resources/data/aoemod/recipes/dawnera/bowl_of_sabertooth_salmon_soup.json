@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "minecraft:bowl"
+    },
+    {
+      "item": "minecraft:potato"
+    },
+    {
+      "item": "minecraft:carrot"
+    },
+    {
+      "item": "dawnera:sabertooth_salmon"
+    },
+    {
+      "item": "dawnera:sabertooth_salmon"
+    }
+  ],
+  "result": {
+    "item": "dawnera:bowl_of_sabertooth_salmon_soup"
+  }
+}

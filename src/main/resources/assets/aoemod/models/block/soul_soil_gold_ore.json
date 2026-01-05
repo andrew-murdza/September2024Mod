@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_all",
+  "textures": {
+    "all": "aoemod:block/soul_soil_gold_ore"
+  },
+  "render_type": "cutout"
+}

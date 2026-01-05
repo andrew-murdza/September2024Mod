@@ -34,13 +34,50 @@
     [],
     [],
     [],
-    [],
+    [
+      "aoemod:mountains/blobs/andesite_lower",
+      "aoemod:mountains/blobs/andesite_upper",
+      "aoemod:mountains/blobs/basalt",
+      "aoemod:mountains/blobs/calcite_lower",
+      "aoemod:mountains/blobs/calcite_upper",
+      "aoemod:mountains/blobs/clay",
+      "aoemod:mountains/blobs/diorite_lower",
+      "aoemod:mountains/blobs/diorite_upper",
+      "aoemod:mountains/blobs/dirt",
+      "aoemod:mountains/blobs/granite_lower",
+      "aoemod:mountains/blobs/granite_upper",
+      "aoemod:mountains/blobs/gravel",
+      "aoemod:mountains/blobs/sand_lower",
+      "aoemod:mountains/blobs/sand_upper",
+      "aoemod:mountains/blobs/sandstone_lower",
+      "aoemod:mountains/blobs/sandstone_upper",
+      "aoemod:mountains/blobs/tuff",
+      "aoemod:mountains/ores/ancient_debris",
+      "aoemod:mountains/ores/ore_coal_lower",
+      "aoemod:mountains/ores/ore_coal_upper",
+      "aoemod:mountains/ores/ore_copper",
+      "aoemod:mountains/ores/ore_copper_large",
+      "aoemod:mountains/ores/ore_diamond",
+      "aoemod:mountains/ores/ore_diamond_buried",
+      "aoemod:mountains/ores/ore_diamond_large",
+      "aoemod:mountains/ores/ore_diamond_medium",
+      "aoemod:mountains/ores/ore_emerald",
+      "aoemod:mountains/ores/ore_gold",
+      "aoemod:mountains/ores/ore_iron_middle",
+      "aoemod:mountains/ores/ore_iron_small",
+      "aoemod:mountains/ores/ore_iron_upper",
+      "aoemod:mountains/ores/ore_lapis",
+      "aoemod:mountains/ores/ore_lapis_buried",
+      "aoemod:mountains/ores/ore_redstone",
+      "aoemod:mountains/ores/ore_redstone_lower"
+    ],
     [],
     [
       "minecraft:spring_water"
     ],
     [
       "aoemod:mountains/trees",
+      "aoemod:mountains/berries",
       "aoemod:mountains/mushrooms",
       "aoemod:mountains/forest_floor",
       "aoemod:plains/seafloor",
@@ -102,13 +139,7 @@
         "weight": 10,
         "minCount": 2,
         "maxCount": 5
-      },
-//      {
-//        "type": "minecraft:mooshroom",
-//        "weight": 10,
-//        "minCount": 2,
-//        "maxCount": 5
-//      }
+      }
     ],
     "misc": [],
     "monster": [
@@ -169,37 +200,7 @@
         "weight": 15,
         "minCount": 8,
         "maxCount": 8
-      }//,
-//      {
-//        "type": "aoemod:end_fish",
-//        "weight": 20,
-//        "minCount": 2,
-//        "maxCount": 5
-//      },
-//      {
-//        "type": "aoemod:cubozoa",
-//        "weight": 20,
-//        "minCount": 2,
-//        "maxCount": 5
-//      },
-//      {
-//        "type": "aoemod:shrimp",
-//        "weight": 10,
-//        "minCount": 2,
-//        "maxCount": 5
-//      },
-//      {
-//        "type": "aoemod:squat_lobster",
-//        "weight": 20,
-//        "minCount": 2,
-//        "maxCount": 5
-//      },
-//      {
-//        "type": "aoemod:isopod",
-//        "weight": 20,
-//        "minCount": 2,
-//        "maxCount": 5
-//      }
+      }
     ],
     "water_creature": [
       {
@@ -213,19 +214,7 @@
         "weight": 10,
         "minCount": 4,
         "maxCount": 6
-      }//,
-//      {
-//        "type": "aoemod:giant_spider_crab",
-//        "weight": 20,
-//        "minCount": 2,
-//        "maxCount": 5
-//      },
-//      {
-//        "type": "aoemod:nautilus",
-//        "weight": 20,
-//        "minCount": 2,
-//        "maxCount": 5
-//      },
+      }
     ],
     "alexscaves:deep_sea_creature": []
   },

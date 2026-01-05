@@ -13,7 +13,7 @@ import java.util.function.Supplier;
 
 @Mixin(AMItemRegistry.class)
 public class EdibleLostTentacles {
-    @Redirect(method = "<clinit>",at= @At(value = "INVOKE", target = "Lnet/minecraftforge/registries/DeferredRegister;register(Ljava/lang/String;Ljava/util/function/Supplier;)Lnet/minecraftforge/registries/RegistryObject;"))
+    @Redirect(method = "<clinit>",at= @At(value = "INVOKE", target = "Lnet/minecraftforge/registries/DeferredRegister;register(Ljava/lang/String;Ljava/util/function/Supplier;)Lnet/minecraftforge/registries/RegistryObject;"),remap = false)
     private static RegistryObject<Item> hi(DeferredRegister<Item> instance, String s, Supplier<Item> itemSupplier){
         if(s.equals("lost_tentacle")){
             return  instance.register(s,()-> new Item((new Item.Properties()).food((new FoodProperties.Builder()).nutrition(5).saturationMod(0.5F).meat().build())));

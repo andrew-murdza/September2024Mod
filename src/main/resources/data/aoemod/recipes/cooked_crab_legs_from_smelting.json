@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:smelting",
+  "category": "food",
+  "ingredient": {
+    "item": "aoemod:crab_legs"
+  },
+  "result": "aoemod:cooked_crab_legs",
+  "experience": 0.35,
+  "cookingtime": 200
+}

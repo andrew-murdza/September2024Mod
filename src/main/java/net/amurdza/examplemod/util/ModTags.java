@@ -38,7 +38,13 @@ public class ModTags {
         public static final TagKey<Biome> mountainBiomes=tag("mountain_biomes");
         public static final TagKey<Biome> netherBiomes=tag("nether_biomes");
         public static final TagKey<Biome> desertBiomes=tag("desert_biomes");
+        public static final TagKey<Biome> savannaBiomes=tag("savanna_biomes");
 
+        public static final TagKey<Biome> mushroomCaves=tag("mushroom_caves");
+        public static final TagKey<Biome> basaltDeltasBiomes  = tag("basalt_deltas_biomes");
+        public static final TagKey<Biome> crimsonForestBiomes = tag("crimson_forest_biomes");
+        public static final TagKey<Biome> warpedForestBiomes  = tag("warped_forest_biomes");
+        public static final TagKey<Biome> soulSandValleyBiomes= tag("soul_sand_valley_biomes");
 
         private static TagKey<Biome> tag(String name){
             return TagKey.create(Registries.BIOME,new ResourceLocation(AOEMod.MOD_ID,name));

@@ -2,33 +2,54 @@
   "type": "minecraft:block",
   "pools": [
     {
-      "bonus_rolls": 0.0,
+      "name": "guaranteed_seed",
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "aoemod:glow_berries",
+          "functions": [
+            {
+              "function": "minecraft:explosion_decay"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "tropical_extra",
+      "rolls": 2,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "aoemod:glow_berries",
+          "functions": [
+            {
+              "function": "minecraft:explosion_decay"
+            }
+          ]
+        }
+      ],
       "conditions": [
         {
-          "block": "aoemod:cave_vines",
           "condition": "minecraft:block_state_property",
+          "block": "aoemod:cave_vines",
           "properties": {
             "berries": "true"
           }
-        }
-      ],
-      "entries": [
+        },
         {
-          "type": "minecraft:item",
-          "name": "aoemod:glow_berries"
+          "condition": "minecraft:location_check",
+          "predicate": {
+            "biome": "#aoemod:tropical_biomes"
+          }
         }
-      ],
-      "rolls": 1.0
-    },
+      ]
+    }
+  ],
+  "functions": [
     {
-      "bonus_rolls": 0.0,
-      "entries": [
-        {
-          "type": "minecraft:item",
-          "name": "aoemod:glow_berries"
-        }
-      ],
-      "rolls": 1.0
+      "function": "minecraft:explosion_decay"
     }
   ]
 }

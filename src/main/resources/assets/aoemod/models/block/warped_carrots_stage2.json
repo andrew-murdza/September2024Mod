@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/crop",
+  "textures": {
+    "crop": "aoemod:block/warped_carrots_stage2"
+  },
+  "render_type": "cutout"
+}

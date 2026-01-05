@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "blue_skies:flare_floret"
+    }
+  ],
+  "result": {
+    "item": "minecraft:red_dye"
+  }
+}
