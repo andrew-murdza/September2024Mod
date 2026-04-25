@@ -1,4 +1,4 @@
-package net.amurdza.examplemod.mixins.special_biome.safety;
+package net.amurdza.examplemod.mixins.disabled;
 
 import net.amurdza.examplemod.util.Helper;
 import net.minecraft.world.entity.LivingEntity;

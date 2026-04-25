@@ -581,7 +581,7 @@ public final class BlockGrowthConfig {
         );
 
         // These 12 crops: copy from wheat (i.e. your crop rules)
-        addOverworldCrops(com.phantomwing.rusticdelight.block.ModBlocks.BELL_PEPPER_CROP.get(), true);
+//        addOverworldCrops(com.phantomwing.rusticdelight.block.ModBlocks.BELL_PEPPER_CROP.get(), true);
         addOverworldCrops(net.ribs.vintagedelight.block.ModBlocks.OAT_CROP.get(), true);
         addOverworldCrops(vectorwing.farmersdelight.common.registry.ModBlocks.ONION_CROP.get(), true);
         addOverworldCrops(vectorwing.farmersdelight.common.registry.ModBlocks.TOMATO_CROP.get(), true);

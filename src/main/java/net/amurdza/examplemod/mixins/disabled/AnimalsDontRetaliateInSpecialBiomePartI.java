@@ -1,4 +1,4 @@
-package net.amurdza.examplemod.mixins.special_biome.safety;
+package net.amurdza.examplemod.mixins.disabled;
 
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.damagesource.DamageSource;

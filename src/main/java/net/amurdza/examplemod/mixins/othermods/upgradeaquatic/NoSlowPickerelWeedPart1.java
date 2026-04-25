@@ -1,4 +1,4 @@
-package net.amurdza.examplemod.mixins.block_behavior.entity_inside;
+package net.amurdza.examplemod.mixins.othermods.upgradeaquatic;
 
 import com.teamabnormals.upgrade_aquatic.common.block.PickerelweedPlantBlock;
 import net.minecraft.world.entity.Entity;

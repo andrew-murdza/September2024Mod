@@ -1,4 +1,4 @@
-package net.amurdza.examplemod.mixins.othermods.alexscaves;
+package net.amurdza.examplemod.mixins.othermods.alexsmobs;
 
 import com.github.alexthe666.alexsmobs.entity.EntityLobster;
 import org.spongepowered.asm.mixin.Mixin;

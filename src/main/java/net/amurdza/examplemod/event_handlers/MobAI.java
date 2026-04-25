@@ -50,7 +50,7 @@ public class MobAI {
                 }
                 mob.addTag("aoe.checkedAI");
 
-                //Breeding and Food
+                //Breeding and Tempting
                 if (entity instanceof Fox) {
                     addTempt(mob, Items.CHICKEN,Items.RABBIT);
                     addTempt(mob, ModTags.Items.rawFish);

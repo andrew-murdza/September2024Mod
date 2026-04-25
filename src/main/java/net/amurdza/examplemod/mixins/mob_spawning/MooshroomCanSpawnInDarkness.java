@@ -8,7 +8,7 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Redirect;
 
 @Mixin(MushroomCow.class)
-public class MooshroomSpawnInDarkness {
+public class MooshroomCanSpawnInDarkness {
     @Redirect(method = "checkMushroomSpawnRules",at=@At(value = "INVOKE",target = "Lnet/minecraft/world/entity/animal/MushroomCow;isBrightEnoughToSpawn(Lnet/minecraft/world/level/BlockAndTintGetter;Lnet/minecraft/core/BlockPos;)Z"))
     private static boolean hi(BlockAndTintGetter blockAndTintGetter, BlockPos blockPos){
         return true;

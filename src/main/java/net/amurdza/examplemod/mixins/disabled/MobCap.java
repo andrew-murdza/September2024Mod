@@ -1,9 +1,7 @@
-package net.amurdza.examplemod.mixins.mob_spawning;
+package net.amurdza.examplemod.mixins.disabled;
 
 import net.minecraft.world.entity.MobCategory;
 import org.spongepowered.asm.mixin.Mixin;
-import org.spongepowered.asm.mixin.injection.Constant;
-import org.spongepowered.asm.mixin.injection.ModifyConstant;
 
 @Mixin(MobCategory.class)
 public class MobCap {

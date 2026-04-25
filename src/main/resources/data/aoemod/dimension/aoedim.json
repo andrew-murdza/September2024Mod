@@ -9,7 +9,7 @@
         {
           "biome": "aoemod:warm_ocean",
           "parameters": {
-            "temperature": 0,
+             "temperature": [-0.6,0.6],
             "humidity": 0,
             "continentalness": [
               -1,
@@ -22,24 +22,9 @@
           }
         },
         {
-          "biome": "aoemod:beach",
-          "parameters": {
-            "temperature": 0,
-            "humidity": 0,
-            "continentalness": [
-              -0.28,
-              -0.26
-            ],
-            "erosion": 0,
-            "weirdness": 0,
-            "depth": 0,
-            "offset": 0
-          }
-        },
-        {
           "biome": "aoemod:jungle",
           "parameters": {
-            "temperature": 0,
+             "temperature": [-0.6,0.6],
             "humidity": 0,
             "continentalness": [
               -0.26,
@@ -54,7 +39,7 @@
         {
           "biome": "aoemod:savanna",
           "parameters": {
-            "temperature": 0,
+             "temperature": [-0.6,0.6],
             "humidity": 0,
             "continentalness": [
               -0.15,
@@ -69,26 +54,11 @@
         {
           "biome": "aoemod:plains",
           "parameters": {
-            "temperature": 0,
+             "temperature": [-0.6,0.6],
             "humidity": 0,
             "continentalness": [
               -0.01,
-              0.115
-            ],
-            "erosion": 0,
-            "weirdness": 0,
-            "depth": 0,
-            "offset": 0
-          }
-        },
-        {
-          "biome": "aoemod:snowy_taiga",
-          "parameters": {
-            "temperature": 0,
-            "humidity": 0,
-            "continentalness": [
-              0.115,
-              0.15
+              0.12
             ],
             "erosion": 0,
             "weirdness": 0,
@@ -99,10 +69,10 @@
         {
           "biome": "aoemod:grove",
           "parameters": {
-            "temperature": 0,
+             "temperature": [-0.6,-0.1],
             "humidity": 0,
             "continentalness": [
-              0.15,
+              0.12,
               0.26
             ],
             "erosion": 0,
@@ -112,9 +82,61 @@
           }
         },
         {
-          "biome": "aoemod:eroded_badlands",
+          "biome": "aoemod:grove",
           "parameters": {
-            "temperature": 0,
+            "temperature": [-0.1,-0],
+            "humidity": 0,
+            "continentalness": [
+              0.12,
+              0.14
+            ],
+            "erosion": 0,
+            "weirdness": 0,
+            "depth": 0,
+            "offset": 0
+          }
+        },
+        {
+          "biome": "aoemod:grove",
+          "parameters": {
+            "temperature": [-0.1,-0],
+            "humidity": 0,
+            "continentalness": [
+              0.24,
+              0.26
+            ],
+            "erosion": 0,
+            "weirdness": 0,
+            "depth": 0,
+            "offset": 0
+          }
+        },
+        {
+          "biome": "aoemod:mushroom_caves",
+          "parameters": {  "temperature": [-0.1,0], "humidity": 0, "continentalness": [
+            0.14,
+            0.24
+          ], "erosion": 0, "weirdness": 0, "depth": 0, "offset": 0 }
+        },
+        {
+          "biome": "aoemod:grove",
+          "parameters": {
+            "temperature": [0,0.6],
+            "humidity": 0,
+            "continentalness": [
+              0.12,
+              0.26
+            ],
+            "erosion": 0,
+            "weirdness": 0,
+            "depth": 0,
+            "offset": 0
+          }
+        },
+        {
+          "biome": "aoemod:badlands",
+          "parameters": {
+            "temperature": [-0.6,0.6],
             "humidity": 0,
             "continentalness": [
               0.26,
@@ -129,7 +151,7 @@
         {
           "biome": "aoemod:badlands",
           "parameters": {
-            "temperature": 0,
+            "temperature": [-0.15,0.6],
             "humidity": 0,
             "continentalness": [
               0.27,
@@ -142,24 +164,39 @@
           }
         },
         {
+          "biome": "aoemod:deep_dark",
+          "parameters": { "temperature": [-0.2,-0.15], "humidity": 0, "continentalness": [
+            0.27,
+            1
+          ], "erosion": 0, "weirdness": 0, "depth": 0, "offset": 0 }
+        },
+        {
           "biome": "aoemod:crimson_forest",
-          "parameters": { "temperature": 0, "humidity": 0, "continentalness": [-2.0, -1.9], "erosion": 0, "weirdness": 0, "depth": 0, "offset": 0 }
+          "parameters": { "temperature": [-0.3,-0.2], "humidity": 0, "continentalness": [
+            0.27,
+            1
+          ], "erosion": 0, "weirdness": 0, "depth": 0, "offset": 0 }
         },
         {
           "biome": "aoemod:warped_forest",
-          "parameters": { "temperature": 0, "humidity": 0, "continentalness": [-2.0, -1.9], "erosion": 0, "weirdness": 0, "depth": 0, "offset": 0 }
+          "parameters": { "temperature": [-0.4,-0.3], "humidity": 0, "continentalness": [
+            0.27,
+            1
+          ], "erosion": 0, "weirdness": 0, "depth": 0, "offset": 0 }
         },
         {
           "biome": "aoemod:soul_sand_valley",
-          "parameters": { "temperature": 0, "humidity": 0, "continentalness": [-2.0, -1.9], "erosion": 0, "weirdness": 0, "depth": 0, "offset": 0 }
+          "parameters": { "temperature": [-0.5,-0.4], "humidity": 0, "continentalness": [
+            0.27,
+            1
+          ], "erosion": 0, "weirdness": 0, "depth": 0, "offset": 0 }
         },
         {
           "biome": "aoemod:basalt_deltas",
-          "parameters": { "temperature": 0, "humidity": 0, "continentalness": [-2.0, -1.9], "erosion": 0, "weirdness": 0, "depth": 0, "offset": 0 }
-        },
-        {
-          "biome": "aoemod:mushroom_caves",
-          "parameters": { "temperature": 0, "humidity": 0, "continentalness": [-2.0, -1.9], "erosion": 0, "weirdness": 0, "depth": 0, "offset": 0 }
+          "parameters": { "temperature": [-0.6,-0.5], "humidity": 0, "continentalness": [
+            0.27,
+            1
+          ], "erosion": 0, "weirdness": 0, "depth": 0, "offset": 0 }
         }
       ]
     }

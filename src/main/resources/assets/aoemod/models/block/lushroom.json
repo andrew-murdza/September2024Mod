@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cross",
+  "textures": {
+    "cross": "trailsandtalesplus:block/lushroom"
+  },
+  "render_type": "cutout"
+}

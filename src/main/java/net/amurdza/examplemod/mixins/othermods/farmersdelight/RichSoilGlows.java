@@ -1,4 +1,4 @@
-package net.amurdza.examplemod.mixins.block_behavior.light;
+package net.amurdza.examplemod.mixins.othermods.farmersdelight;
 
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import org.spongepowered.asm.mixin.Mixin;

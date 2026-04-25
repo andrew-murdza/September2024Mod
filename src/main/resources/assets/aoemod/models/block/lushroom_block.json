@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cube_all",
+  "textures": {
+    "all": "trailsandtalesplus:block/lushroom_block"
+  }
+}

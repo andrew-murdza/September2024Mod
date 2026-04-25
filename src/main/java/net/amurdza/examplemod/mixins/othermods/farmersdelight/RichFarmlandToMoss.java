@@ -1,4 +1,4 @@
-package net.amurdza.examplemod.mixins.block_behavior;
+package net.amurdza.examplemod.mixins.othermods.farmersdelight;
 
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;

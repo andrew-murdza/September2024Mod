@@ -1,4 +1,4 @@
-package net.amurdza.examplemod.mixins.difficulty;
+package net.amurdza.examplemod.mixins.disabled;
 
 import net.amurdza.examplemod.Config;
 import net.amurdza.examplemod.util.Helper;

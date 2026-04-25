@@ -1,4 +1,4 @@
-package net.amurdza.examplemod.mixins.block_placement;
+package net.amurdza.examplemod.mixins.othermods.farmersdelight;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.tags.FluidTags;

@@ -1,7 +1,6 @@
 {
   "ambientocclusion": false,
   "textures": {
-    "particle": "trailsandtalesplus:block/cherry_vines",
     "vine": "trailsandtalesplus:block/cherry_vines"
   },
   "elements": [

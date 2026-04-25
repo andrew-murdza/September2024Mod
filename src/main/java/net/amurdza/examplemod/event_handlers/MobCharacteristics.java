@@ -43,14 +43,14 @@ public class MobCharacteristics {
             else if(mob instanceof Frog){
                 ((Frog) mob).setVariant(Helper.select(level,FrogVariant.COLD,FrogVariant.TEMPERATE,FrogVariant.WARM));
             }
-            else if(mob instanceof Rabbit){
-                ((Rabbit)mob).setVariant(Rabbit.Variant.byId(level.random.nextInt(5)));
-            }
-            else if(mob instanceof Fox){
-                Method setFoxType=Fox.class.getDeclaredMethod("setVariant", Fox.Type.class);
-                setFoxType.setAccessible(true);
-                setFoxType.invoke(mob,Helper.select(level,Fox.Type.RED,Fox.Type.SNOW));
-            }
+//            else if(mob instanceof Rabbit){
+//                ((Rabbit)mob).setVariant(Rabbit.Variant.byId(level.random.nextInt(5)));
+//            }
+//            else if(mob instanceof Fox){
+//                Method setFoxType=Fox.class.getDeclaredMethod("setVariant", Fox.Type.class);
+//                setFoxType.setAccessible(true);
+//                setFoxType.invoke(mob,Helper.select(level,Fox.Type.RED,Fox.Type.SNOW));
+//            }
             else if(mob instanceof Llama){
                 Method setStrength=Llama.class.getDeclaredMethod("setStrength",int.class);
                 setStrength.setAccessible(true);

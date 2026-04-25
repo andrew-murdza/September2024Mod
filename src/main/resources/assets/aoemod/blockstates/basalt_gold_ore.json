@@ -1,7 +1,17 @@
 {
   "variants": {
-    "": {
+    "axis=x": {
+      "model": "aoemod:block/basalt_gold_ore",
+      "x": 90,
+      "y": 90
+    },
+    "axis=y": {
       "model": "aoemod:block/basalt_gold_ore"
+    },
+    "axis=z": {
+      "model": "aoemod:block/basalt_gold_ore",
+      "x": 90
     }
   }
 }
+
