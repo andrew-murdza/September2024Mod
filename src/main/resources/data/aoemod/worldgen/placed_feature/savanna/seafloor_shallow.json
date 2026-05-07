@@ -1,8 +1,4 @@
 {
   "feature": "aoemod:savanna/water/seafloor_shallow",
-  "placement": [
-    {
-      "type": "minecraft:biome"
-    }
-  ]
+  "placement": []
 }

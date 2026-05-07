@@ -1,0 +1,12 @@
+{
+  "type": "aoemod:kelp",
+  "config": {
+    "kelp": {
+      "Name": "netherdepthsupgrade:warped_kelp"
+    },
+    "kelp_plant": {
+      "Name": "netherdepthsupgrade:warped_kelp_plant"
+    },
+    "lava": true
+  }
+}

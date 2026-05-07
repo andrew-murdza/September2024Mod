@@ -3,14 +3,52 @@
   "placement": [
     {
       "type": "minecraft:rarity_filter",
-      "chance": 40
+      "chance": 6
     },
     {
       "type": "minecraft:in_square"
     },
     {
-      "type": "minecraft:heightmap",
-      "heightmap": "MOTION_BLOCKING"
+      "type": "minecraft:count_on_every_layer",
+      "count": 1
+    },
+    {
+      "type": "minecraft:block_predicate_filter",
+      "predicate": {
+        "type": "minecraft:not",
+        "predicate": {
+          "type": "minecraft:matching_blocks",
+          "offset": [0, -1, 0],
+          "blocks": [
+            "minecraft:grass_block",
+            "minecraft:dirt",
+            "minecraft:blue_ice",
+            "minecraft:rooted_dirt",
+            "minecraft:sand",
+            "minecraft:sandstone",
+            "minecraft:red_sand",
+            "minecraft:red_sandstone",
+
+            "minecraft:terracotta",
+            "minecraft:white_terracotta",
+            "minecraft:orange_terracotta",
+            "minecraft:magenta_terracotta",
+            "minecraft:light_blue_terracotta",
+            "minecraft:yellow_terracotta",
+            "minecraft:lime_terracotta",
+            "minecraft:pink_terracotta",
+            "minecraft:gray_terracotta",
+            "minecraft:light_gray_terracotta",
+            "minecraft:cyan_terracotta",
+            "minecraft:purple_terracotta",
+            "minecraft:blue_terracotta",
+            "minecraft:brown_terracotta",
+            "minecraft:green_terracotta",
+            "minecraft:red_terracotta",
+            "minecraft:black_terracotta"
+          ]
+        }
+      }
     },
     {
       "type": "minecraft:biome"

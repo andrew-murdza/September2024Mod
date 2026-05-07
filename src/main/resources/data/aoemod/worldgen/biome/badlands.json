@@ -65,16 +65,14 @@
     ],
     [],
     [
-      "minecraft:spring_water",
       "minecraft:spring_lava"
     ],
     [
       "minecraft:glow_lichen",
-      "minecraft:patch_dead_bush_2",
       "minecraft:patch_sugar_cane_desert",
-      "aoemod:desert/patch_cactus",
       "aoemod:desert/mushrooms",
       "aoemod:mountains/forest_floor",
+      "aoemod:desert/forest_floor",
       "aoemod:mountains/seafloor",
       "aoemod:desert/seafloor",
       "aoemod:mountains/seafloor_shallow",
@@ -96,51 +94,14 @@
       }
     ],
     "axolotls": [],
-    "creature": [
-      {
-        "type": "minecraft:rabbit",
-        "maxCount": 3,
-        "minCount": 2,
-        "weight": 4
-      },
-      {
-        "type": "minecraft:camel",
-        "maxCount": 3,
-        "minCount": 2,
-        "weight": 4
-      }
-    ],
+    "creature": [],
     "misc": [],
     "monster": [
-      {
-        "type": "minecraft:spider",
-        "maxCount": 4,
-        "minCount": 4,
-        "weight": 100
-      },
-      {
-        "type": "minecraft:zombie",
-        "maxCount": 4,
-        "minCount": 4,
-        "weight": 19
-      },
-      {
-        "type": "minecraft:zombie_villager",
-        "maxCount": 1,
-        "minCount": 1,
-        "weight": 1
-      },
       {
         "type": "minecraft:skeleton",
         "maxCount": 4,
         "minCount": 4,
         "weight": 100
-      },
-      {
-        "type": "minecraft:enderman",
-        "maxCount": 4,
-        "minCount": 1,
-        "weight": 10
       },
       {
         "type": "minecraft:witch",
@@ -153,16 +114,15 @@
         "maxCount": 4,
         "minCount": 4,
         "weight": 80
-      }
-    ],
-    "underground_water_creature": [
+      },
       {
-        "type": "minecraft:glow_squid",
-        "maxCount": 6,
+        "type": "minecraft:creeper",
+        "maxCount": 4,
         "minCount": 4,
-        "weight": 10
+        "weight": 200
       }
     ],
+    "underground_water_creature": [],
     "water_ambient": [],
     "water_creature": []
   },

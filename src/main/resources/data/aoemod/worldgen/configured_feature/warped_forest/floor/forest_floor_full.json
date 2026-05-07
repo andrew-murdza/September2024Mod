@@ -12,6 +12,6 @@
       "type": "minecraft:matching_blocks",
       "blocks": ["minecraft:warped_nylium"]
     },
-    "biomes": "aoemod:warped_forest"
+    "biomes": "aoemod:warped_forest_biomes"
   }
 }

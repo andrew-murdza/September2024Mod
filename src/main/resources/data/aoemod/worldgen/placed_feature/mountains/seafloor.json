@@ -1,8 +1,4 @@
 {
   "feature": "aoemod:mountains/water/seafloor",
-  "placement": [
-    {
-      "type": "minecraft:biome"
-    }
-  ]
+  "placement": []
 }

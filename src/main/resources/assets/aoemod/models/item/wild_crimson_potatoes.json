@@ -1,3 +1,6 @@
 {
-  "parent": "aoemod:block/wild_crimson_potatoes"
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "aoemod:block/wild_crimson_potatoes"
+  }
 }

@@ -23,7 +23,14 @@
         }
       },
       {
-        "chance": 0.40,
+        "chance": 0.008,
+        "feature":{
+          "feature": "aoemod:warped_fungus_tree",
+          "placement": []
+        }
+      },
+      {
+        "chance": 0.392,
         "feature": {
           "feature": "aoemod:nothing",
           "placement": []

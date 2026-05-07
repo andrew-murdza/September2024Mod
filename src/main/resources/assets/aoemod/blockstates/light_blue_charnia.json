@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "": [
+      { "model": "aoemod:block/light_blue_charnia" },
+      { "model": "aoemod:block/light_blue_charnia", "y": 90 },
+      { "model": "aoemod:block/light_blue_charnia", "y": 180 },
+      { "model": "aoemod:block/light_blue_charnia", "y": 270 }
+    ]
+  }
+}

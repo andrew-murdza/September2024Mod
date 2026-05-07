@@ -3,10 +3,30 @@
   "placement": [
     {
       "type": "minecraft:rarity_filter",
-      "chance": 15
+      "chance": 4
     },
     {
       "type": "minecraft:in_square"
+    },
+    {
+      "type": "minecraft:block_predicate_filter",
+      "predicate": {
+        "type": "minecraft:not",
+        "predicate": {
+          "type": "minecraft:matching_blocks",
+          "offset": [
+            0,
+            -1,
+            0
+          ],
+          "blocks": [
+            "minecraft:grass_block",
+            "minecraft:dirt",
+            "minecraft:blue_ice",
+            "minecraft:rooted_dirt"
+          ]
+        }
+      }
     },
     {
       "type": "minecraft:heightmap",

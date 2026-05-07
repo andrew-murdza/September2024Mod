@@ -136,35 +136,52 @@ public class CaveVineColumn extends Feature<CaveVineConfig> {
         return false;
     }
     private boolean placeHelper(WorldGenLevel level, BlockPos pos, int h, boolean weepingVines, boolean sporeblossom){
-        BlockPos.MutableBlockPos pos1=pos.mutable();
-        boolean flag=false;
-        if(sporeblossom){
-            h=1;
+        if (sporeblossom) {
+            h = 1;
         }
-        outer:for(int i=0;i<h;i++){
-            BlockState state=level.getBlockState(pos1);
-            for(int j=0;j<4;j++){
-                if(!tester.apply(level.getBlockState(pos1.below(j)),weepingVines)){
-                    break outer;
-                }
+
+        List<BlockPos> positions = new ArrayList<>();
+        BlockPos.MutableBlockPos pos1 = pos.mutable();
+
+        for (int i = 0; i < h; i++) {
+            BlockState state = level.getBlockState(pos1);
+
+            // Stop at mushroom cap, logs, leaves, moss, stone, etc.
+            // Do NOT replace it, and do NOT keep checking below it.
+            if (!tester.apply(state, weepingVines || sporeblossom)) {
+                break;
             }
-            BlockState blockState=ModBlocks.CAVE_VINES.get().defaultBlockState().setValue(BlockStateProperties.BERRIES,
-                    true).setValue(BlockStateProperties.WATERLOGGED,state.is(Blocks.WATER))
-                    .setValue(BlockStateProperties.AGE_25,25);
-            if(weepingVines&&!tester.apply(level.getBlockState(pos1.below(4)),true)){
-                blockState=Blocks.WEEPING_VINES.defaultBlockState().setValue(BlockStateProperties.AGE_25,25);
-            }
-            else if(weepingVines){
-                blockState=Blocks.WEEPING_VINES_PLANT.defaultBlockState();
-            }
-            if(sporeblossom){
-                blockState=Blocks.SPORE_BLOSSOM.defaultBlockState();
-            }
-            level.setBlock(pos1,blockState
-                    ,2);
-            pos1.move(0,-1,0);
-            flag=true;
+
+            positions.add(pos1.immutable());
+            pos1.move(0, -1, 0);
         }
+
+        boolean flag = false;
+
+        for (int i = 0; i < positions.size(); i++) {
+            BlockPos placePos = positions.get(i);
+            BlockState state = level.getBlockState(placePos);
+
+            BlockState blockState = ModBlocks.CAVE_VINES.get().defaultBlockState()
+                    .setValue(BlockStateProperties.BERRIES, true)
+                    .setValue(BlockStateProperties.WATERLOGGED, state.is(Blocks.WATER))
+                    .setValue(BlockStateProperties.AGE_25, 25);
+
+            if (weepingVines) {
+                boolean isLast = i == positions.size() - 1;
+                blockState = isLast
+                        ? Blocks.WEEPING_VINES.defaultBlockState().setValue(BlockStateProperties.AGE_25, 25)
+                        : Blocks.WEEPING_VINES_PLANT.defaultBlockState();
+            }
+
+            if (sporeblossom) {
+                blockState = Blocks.SPORE_BLOSSOM.defaultBlockState();
+            }
+
+            level.setBlock(placePos, blockState, 2);
+            flag = true;
+        }
+
         return flag;
     }
 }

@@ -14,15 +14,7 @@
         {
           "type": "minecraft:matching_blocks",
           "blocks": [
-            "minecraft:gravel",
-            "minecraft:soul_sand",
-            "minecraft:soul_soil",
-            "minecraft:netherrack",
-            "minecraft:blackstone",
-            "minecraft:glowstone",
-            "minecraft:magma_block",
-            "minecraft:basalt",
-            "minecraft:smooth_basalt"
+            "minecraft:sculk"
           ],
           "offset": [
             0,
@@ -32,6 +24,6 @@
         }
       ]
     },
-    "biomes": "aoemod:crimson_forest"
+    "biomes": "aoemod:deep_dark_biomes"
   }
 }

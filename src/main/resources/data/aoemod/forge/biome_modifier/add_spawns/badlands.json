@@ -1,54 +1,96 @@
 {
   "type": "forge:add_spawns",
-  "biomes": ["aoemod:badlands","aoemod:eroded_badlands"],
+  "biomes": ["aoemod:badlands"],
   "spawners": [
-    {
-      "type": "alexsmobs:jerboa",
-      "weight": 10,
-      "minCount": 2,
-      "maxCount": 5
-    },
-    {
-      "type": "alexsmobs:komodo_dragon",
-      "weight": 2,
-      "minCount": 2,
-      "maxCount": 5
-    },
-    {
-      "type": "alexsmobs:tarantula_hawk",
-      "weight": 2,
-      "minCount": 2,
-      "maxCount": 5
-    },
-    {
-      "type": "faunify:fennec_fox",
-      "weight": 2,
-      "minCount": 2,
-      "maxCount": 5
-    },
-    {
-      "type": "alexsmobs:triops",
-      "weight": 5,
-      "minCount": 4,
-      "maxCount": 6
-    },
-    {
-      "type": "ambientadditions:blue_spotted_stingray",
-      "weight": 5,
-      "minCount": 4,
-      "maxCount": 6
-    },
-    {
-      "type": "finsandtails:golden_river_ray",
-      "weight": 5,
-      "minCount": 4,
-      "maxCount": 6
-    },
-    {
-      "type": "hybrid-aquatic:hound_shark",
-      "weight": 5,
-      "minCount": 4,
-      "maxCount": 6
-    }
+//    {
+//      "type": "alexsmobs:jerboa",
+//      "weight": 10,
+//      "minCount": 2,
+//      "maxCount": 5
+//    },
+//    {
+//      "type": "faunify:fennec_fox",
+//      "weight": 5,
+//      "minCount": 4,
+//      "maxCount": 4
+//    },
+////    {
+////      "type": "alexsmobs:komodo_dragon",
+////      "weight": 2,
+////      "minCount": 2,
+////      "maxCount": 5
+////    },
+//    {
+//      "type": "twilight_forest:pinch_beetle",
+//      "weight": 8,
+//      "minCount": 2,
+//      "maxCount": 5
+//    },
+//    {
+//      "type": "alexsmobs:tarantula_hawk",
+//      "weight": 2,
+//      "minCount": 2,
+//      "maxCount": 5
+//    },
+//    {
+//      "type": "faunify:fennec_fox",
+//      "weight": 2,
+//      "minCount": 2,
+//      "maxCount": 5
+//    },
+//    {
+//      "type": "alexsmobs:triops",
+//      "weight": 5,
+//      "minCount": 4,
+//      "maxCount": 6
+//    },
+//    {
+//      "type": "alexsmobs:sunbird",
+//      "weight": 10,
+//      "minCount": 1,
+//      "maxCount": 1
+//    },
+//    {
+//      "type": "ambientadditions:blue_spotted_stingray",
+//      "weight": 5,
+//      "minCount": 4,
+//      "maxCount": 6
+//    },
+//    {
+//      "type": "finsandtails:golden_river_ray",
+//      "weight": 5,
+//      "minCount": 4,
+//      "maxCount": 6
+//    },
+//    {
+//      "type": "hybrid-aquatic:hound_shark",
+//      "weight": 5,
+//      "minCount": 4,
+//      "maxCount": 6
+//    },
+//    {
+//      "type": "ambientadditions:shame_faced_crab",
+//      "weight": 5,
+//      "minCount": 2,
+//      "maxCount": 2
+//    },
+//    {
+//      "type": "minecraft:glow_squid",
+//      "maxCount": 6,
+//      "minCount": 4,
+//      "weight": 10
+//    },
+//    {
+//      "type": "minecraft:rabbit",
+//      "maxCount": 3,
+//      "minCount": 2,
+//      "weight": 4
+//    },
+//    {
+//      "type": "minecraft:camel",
+//      "maxCount": 3,
+//      "minCount": 2,
+//      "weight": 4
+//    }
   ]
 }

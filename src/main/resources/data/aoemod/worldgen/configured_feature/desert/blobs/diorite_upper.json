@@ -25,15 +25,6 @@
       {
         "target": {
           "predicate_type": "minecraft:block_match",
-          "block": "minecraft:diorite"
-        },
-        "state": {
-          "Name": "minecraft:diorite"
-        }
-      },
-      {
-        "target": {
-          "predicate_type": "minecraft:block_match",
           "block": "minecraft:granite"
         },
         "state": {
@@ -44,24 +35,6 @@
         "target": {
           "predicate_type": "minecraft:block_match",
           "block": "minecraft:calcite"
-        },
-        "state": {
-          "Name": "minecraft:diorite"
-        }
-      },
-      {
-        "target": {
-          "predicate_type": "minecraft:block_match",
-          "block": "minecraft:sand"
-        },
-        "state": {
-          "Name": "minecraft:diorite"
-        }
-      },
-      {
-        "target": {
-          "predicate_type": "minecraft:block_match",
-          "block": "minecraft:sandstone"
         },
         "state": {
           "Name": "minecraft:diorite"
@@ -80,96 +53,6 @@
         "target": {
           "predicate_type": "minecraft:block_match",
           "block": "minecraft:dirt"
-        },
-        "state": {
-          "Name": "minecraft:diorite"
-        }
-      },
-      {
-        "target": {
-          "predicate_type": "minecraft:block_match",
-          "block": "minecraft:red_sand"
-        },
-        "state": {
-          "Name": "minecraft:diorite"
-        }
-      },
-      {
-        "target": {
-          "predicate_type": "minecraft:block_match",
-          "block": "minecraft:red_sandstone"
-        },
-        "state": {
-          "Name": "minecraft:diorite"
-        }
-      },
-      {
-        "target": {
-          "predicate_type": "minecraft:block_match",
-          "block": "minecraft:andesite"
-        },
-        "state": {
-          "Name": "minecraft:diorite"
-        }
-      },
-      {
-        "target": {
-          "predicate_type": "minecraft:block_match",
-          "block": "minecraft:diorite"
-        },
-        "state": {
-          "Name": "minecraft:diorite"
-        }
-      },
-      {
-        "target": {
-          "predicate_type": "minecraft:block_match",
-          "block": "minecraft:granite"
-        },
-        "state": {
-          "Name": "minecraft:diorite"
-        }
-      },
-      {
-        "target": {
-          "predicate_type": "minecraft:block_match",
-          "block": "minecraft:calcite"
-        },
-        "state": {
-          "Name": "minecraft:diorite"
-        }
-      },
-      {
-        "target": {
-          "predicate_type": "minecraft:block_match",
-          "block": "minecraft:sand"
-        },
-        "state": {
-          "Name": "minecraft:diorite"
-        }
-      },
-      {
-        "target": {
-          "predicate_type": "minecraft:block_match",
-          "block": "minecraft:sandstone"
-        },
-        "state": {
-          "Name": "minecraft:diorite"
-        }
-      },
-      {
-        "target": {
-          "predicate_type": "minecraft:block_match",
-          "block": "minecraft:red_sand"
-        },
-        "state": {
-          "Name": "minecraft:diorite"
-        }
-      },
-      {
-        "target": {
-          "predicate_type": "minecraft:block_match",
-          "block": "minecraft:red_sandstone"
         },
         "state": {
           "Name": "minecraft:diorite"

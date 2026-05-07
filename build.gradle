@@ -124,6 +124,9 @@ repositories {
      }
     maven {
         url "https://cursemaven.com"
+        content {
+            includeGroup "curse.maven"
+        }
     }
 }
 
@@ -212,12 +215,7 @@ dependencies {
     implementation fg.deobf("curse.maven:environmental-388992:6060255")
     implementation fg.deobf("curse.maven:fins-and-tails-427471:5547163")
 
-    //Cherry Shrimp
-//    implementation fg.deobf("curse.maven:cherry-shrimp-1018833:5357995")
 
-//    implementation fg.deobf("curse.maven:croptopia-415438:4997459")
-//    implementation fg.deobf("curse.maven:epherolib-885449:4889101")//NO TOML
-//
 
     implementation fg.deobf("curse.maven:wthit-forge-455982:5681116")//NO TOML
     implementation fg.deobf("curse.maven:badpackets-615134:4784395")//NO TOML
@@ -264,8 +262,8 @@ dependencies {
 //    runtimeOnly fg.deobf("curse.maven:cloth-config-348521:5729105")
 
 
-    implementation fg.deobf("blank:bountiful_critters:1.4.4")
-    runtimeOnly fg.deobf("blank:CamelMeat_mod:1.0.0")
+    implementation fg.deobf("blank:bountiful_critters:1.2.2")
+//    runtimeOnly fg.deobf("blank:CamelMeat_mod:1.0.0")
 //    implementation fg.deobf("blank:unearthed_journey:2.2.3")
 //    implementation fg.deobf("blank:DeeperCaves:1.20.1-1.2.7")
 //    implementation fg.deobf("blank:midnight:1.20.1-0.6.3")
@@ -274,9 +272,7 @@ dependencies {
     implementation fg.deobf("curse.maven:lets-do-bloomingnature-962885:6172650")
     implementation fg.deobf("curse.maven:curios-309927:5680164")
 
-//    implementation fg.deobf("curse.maven:seafarer-forge-1098212:5880189")
 
-//    implementation fg.deobf("curse.maven:biome-makeover-forge-567709:4815822")
 
 
     implementation fg.deobf("curse.maven:oh-the-biomes-weve-gone-1070751:6263908")
@@ -286,6 +282,18 @@ dependencies {
 
 
     implementation fg.deobf("curse.maven:ambient-additions-531946:7014665")
+
+//    implementation fg.deobf("curse.maven:seafarer-forge-1098212:5880189")
+
+//    implementation fg.deobf("curse.maven:biome-makeover-forge-567709:4815822")
+
+
+    //Cherry Shrimp
+//    implementation fg.deobf("curse.maven:cherry-shrimp-1018833:5357995")
+
+//    implementation fg.deobf("curse.maven:croptopia-415438:4997459")
+//    implementation fg.deobf("curse.maven:epherolib-885449:4889101")//NO TOML
+//
 
 //    implementation fg.deobf("curse.maven:shineals-prehistoric-expansion-909176:6078158") (CAN'T FIND)
 //    implementation fg.deobf("curse.maven:autumnity-365045:6151402")

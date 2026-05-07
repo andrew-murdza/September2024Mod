@@ -1,0 +1,7 @@
+{
+  "parent": "aoemod:block/charnia",
+  "textures": {
+    "texture": "betterend:block/charnia_light_blue"
+  },
+  "render_type": "cutout"
+}

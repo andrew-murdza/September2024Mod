@@ -1,5 +1,126 @@
 {
   "type": "forge:add_spawns",
-  "biomes": ["aoemod:deep_dark","aoemod:eroded_badlands"],
-  "spawners": []
+  "biomes": ["aoemod:deep_dark"],
+  "spawners": [
+    {
+      "type": "unusualfishmod:shockcat",
+      "weight": 15,
+      "minCount": 2,
+      "maxCount": 3
+    },
+    {
+      "type": "minecraft:glow_squid",
+      "weight": 5,
+      "minCount": 2,
+      "maxCount": 3
+    },
+    {
+      "type": "blue_skies:municipal_monkfish",
+      "weight": 5,
+      "minCount": 2,
+      "maxCount": 3
+    },
+    {
+      "type": "blue_skies:grittle_flatfish",
+      "weight": 5,
+      "minCount": 2,
+      "maxCount": 3
+    },
+    {
+      "type": "trailsandtalesplus:traverser",
+      "weight": 5,
+      "minCount": 2,
+      "maxCount": 3
+    },
+    {
+      "type": "trailsandtalesplus:endersent",
+      "weight": 5,
+      "minCount": 2,
+      "maxCount": 3
+    },
+    {
+      "type": "trailsandtalesplus:enderman",
+      "weight": 10,
+      "minCount": 2,
+      "maxCount": 3
+    },
+    {
+      "type": "trailsandtalesplus:endermite",
+      "weight": 10,
+      "minCount": 2,
+      "maxCount": 3
+    },
+    {
+      "type": "trailsandtalesplus:blastling",
+      "weight": 5,
+      "minCount": 2,
+      "maxCount": 3
+    },
+    {
+      "type": "blue_skies:nested_spider",
+      "weight": 5,
+      "minCount": 2,
+      "maxCount": 3
+    },
+    {
+      "type": "unusualfishmod:spindlefish",
+      "weight": 5,
+      "minCount": 2,
+      "maxCount": 3
+    },
+    {
+      "type": "unusualfishmod:deep_crawler",
+      "weight": 5,
+      "minCount": 2,
+      "maxCount": 3
+    },
+    {
+      "type": "unusualfishmod:copperflame_anthias",
+      "weight": 5,
+      "minCount": 2,
+      "maxCount": 3
+    },
+    {
+      "type": "unusualfishmod:gnasher",
+      "weight": 5,
+      "minCount": 2,
+      "maxCount": 3
+    },
+    {
+      "type": "unusualfishmod:prawn",
+      "weight": 5,
+      "minCount": 2,
+      "maxCount": 3
+    },
+    {
+      "type": "alexsmobs:endergrade",
+      "weight": 10,
+      "minCount": 2,
+      "maxCount": 3
+    },
+    {
+      "type": "alexsmobs:mimicube",
+      "weight": 5,
+      "minCount": 2,
+      "maxCount": 3
+    },
+    {
+      "type": "alexsmobs:cosmaw",
+      "weight": 10,
+      "minCount": 2,
+      "maxCount": 3
+    },
+    {
+      "type": "alexsmobs:cosmic_cod",
+      "weight": 10,
+      "minCount": 2,
+      "maxCount": 3
+    },
+    {
+      "type": "alexsmobs:skreecher",
+      "weight": 10,
+      "minCount": 2,
+      "maxCount": 3
+    }
+  ]
 }

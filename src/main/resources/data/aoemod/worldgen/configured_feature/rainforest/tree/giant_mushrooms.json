@@ -71,20 +71,6 @@
           "feature": "aoemod:huge_glow_shroom",
           "placement": []
         }
-      },
-      {
-        "chance": 0.1,
-        "feature": {
-          "feature": "aoemod:rainforest/tree/crimson_tree",
-          "placement": []
-        }
-      },
-      {
-        "chance": 0.1,
-        "feature": {
-          "feature": "aoemod:rainforest/tree/warped_tree",
-          "placement": []
-        }
       }
     ]
   }

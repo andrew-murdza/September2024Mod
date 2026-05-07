@@ -1,8 +1,4 @@
 {
   "feature": "aoemod:soul_sand_valley/floor/forest_floor_full",
-  "placement": [
-    {
-      "type": "minecraft:biome"
-    }
-  ]
+  "placement": []
 }

@@ -22,128 +22,14 @@
     }
   },
   "spawners": {
-    "ambient": [
-      {
-        "type": "minecraft:bat",
-        "weight": 10,
-        "minCount": 8,
-        "maxCount": 8
-      }
-    ],
-    "axolotls": [
-      {
-        "type": "minecraft:axolotl",
-        "maxCount": 6,
-        "minCount": 4,
-        "weight": 10
-      }
-    ],
-    "creature": [
-      {
-        "type": "minecraft:turtle",
-        "weight": 10,
-        "minCount": 4,
-        "maxCount": 6
-      }
-    ],
+    "ambient": [],
+    "axolotls": [],
+    "creature": [],
     "misc": [],
     "monster": [],
-    "underground_water_creature": [
-      {
-        "type": "minecraft:glow_squid",
-        "weight": 10,
-        "minCount": 4,
-        "maxCount": 6
-      }
-    ],
-    "water_ambient": [
-      {
-        "type": "",
-        "weight": 10,
-        "minCount": 2,
-        "maxCount": 5
-      },
-      {
-        "type": "minecraft:tropical_fish",
-        "weight": 25,
-        "minCount": 8,
-        "maxCount": 8
-      },
-      {
-        "type": "minecraft:salmon",
-        "weight": 15,
-        "minCount": 8,
-        "maxCount": 8
-      },
-      {
-        "type": "minecraft:pufferfish",
-        "weight": 5,
-        "minCount": 8,
-        "maxCount": 8
-      }//,
-      //      {
-      //        "type": "aoemod:end_fish",
-      //        "weight": 20,
-      //        "minCount": 2,
-      //        "maxCount": 5
-      //      },
-      //      {
-      //        "type": "aoemod:cubozoa",
-      //        "weight": 20,
-      //        "minCount": 2,
-      //        "maxCount": 5
-      //      },
-      //      {
-      //        "type": "aoemod:shrimp",
-      //        "weight": 10,
-      //        "minCount": 2,
-      //        "maxCount": 5
-      //      },
-      //      {
-      //        "type": "aoemod:squat_lobster",
-      //        "weight": 20,
-      //        "minCount": 2,
-      //        "maxCount": 5
-      //      },
-      //      {
-      //        "type": "aoemod:isopod",
-      //        "weight": 20,
-      //        "minCount": 2,
-      //        "maxCount": 5
-      //      }
-    ],
-    "water_creature": [
-      {
-        "type": "minecraft:dolphin",
-        "weight": 10,
-        "minCount": 4,
-        "maxCount": 6
-      },
-      {
-        "type": "minecraft:squid",
-        "weight": 10,
-        "minCount": 4,
-        "maxCount": 6
-      }
-      //      {
-      //        "type": "aoemod:giant_spider_crab",
-      //        "weight": 20,
-      //        "minCount": 2,
-      //        "maxCount": 5
-      //      },
-      //      {
-      //        "type": "aoemod:nautilus",
-      //        "weight": 20,
-      //        "minCount": 2,
-      //        "maxCount": 5
-      //      }
-//      {
-//        "type": "aoemod:sea_serpent",
-//        "weight": 5,
-//        "minCount": 1,
-//        "maxCount": 1
-//      }
-    ],
+    "underground_water_creature": [],
+    "water_ambient": [],
+    "water_creature": [],
     "alexscaves:deep_sea_creature": []
   },
   "spawn_costs": {},

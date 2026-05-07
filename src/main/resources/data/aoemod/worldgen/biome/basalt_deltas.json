@@ -58,6 +58,7 @@
       "aoemod:nether_cane",
       "aoemod:basalt_deltas/mushrooms",
       "aoemod:soul_sand_valley/forest_floor",
+      "aoemod:basalt_deltas/forest_floor",
       "aoemod:basalt_deltas/seafloor",
       "aoemod:soul_sand_valley/seafloor",
       "aoemod:basalt_deltas/seafloor_shallow",
@@ -102,18 +103,17 @@
         "maxCount": 3,
         "minCount": 2,
         "weight": 100
+      },
+      {
+        "type": "minecraft:blaze",
+        "maxCount": 4,
+        "minCount": 4,
+        "weight": 50
       }
     ],
     "underground_water_creature": [],
     "water_ambient": [],
-    "water_creature": [
-      {
-        "type": "unusualfishmod:crimsonshell",
-        "weight": 4,
-        "minCount": 4,
-        "maxCount": 6
-      }
-    ]
+    "water_creature": []
   },
   "temperature": 2
 }

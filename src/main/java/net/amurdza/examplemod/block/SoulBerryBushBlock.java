@@ -2,9 +2,11 @@ package net.amurdza.examplemod.block;
 
 import net.amurdza.examplemod.item.ModItems;
 import net.minecraft.core.BlockPos;
+import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.tags.BlockTags;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.player.Player;
@@ -44,5 +46,17 @@ public class SoulBerryBushBlock extends SweetBerryBushBlock {
         } else {
             return super.use(pState, pLevel, pPos, pPlayer, pHand, pHit);
         }
+    }
+
+    @Override
+    public void randomTick(BlockState pState, ServerLevel pLevel, BlockPos pPos, RandomSource pRandom) {
+        int i = pState.getValue(AGE);
+        if (i < 3 && net.minecraftforge.common.ForgeHooks.onCropsGrowPre(pLevel, pPos, pState, pRandom.nextInt(5) == 0)) {
+            BlockState blockstate = pState.setValue(AGE, Integer.valueOf(i + 1));
+            pLevel.setBlock(pPos, blockstate, 2);
+            pLevel.gameEvent(GameEvent.BLOCK_CHANGE, pPos, GameEvent.Context.of(blockstate));
+            net.minecraftforge.common.ForgeHooks.onCropsGrowPost(pLevel, pPos, pState);
+        }
+
     }
 }

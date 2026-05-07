@@ -79,15 +79,6 @@
       {
         "target": {
           "predicate_type": "minecraft:block_match",
-          "block": "minecraft:dirt"
-        },
-        "state": {
-          "Name": "minecraft:andesite"
-        }
-      },
-      {
-        "target": {
-          "predicate_type": "minecraft:block_match",
           "block": "minecraft:andesite"
         },
         "state": {

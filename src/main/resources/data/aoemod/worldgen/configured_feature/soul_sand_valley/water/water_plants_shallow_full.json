@@ -3,19 +3,9 @@
   "config": {
     "features": [
       {
-        "chance": 0.36,
+        "chance": 0.485,
         "feature": {
-          "feature": {
-            "type": "minecraft:simple_block",
-            "config": {
-              "to_place": {
-                "type": "minecraft:simple_state_provider",
-                "state": {
-                  "Name": "netherdepthsupgrade:crimson_seagrass"
-                }
-              }
-            }
-          },
+          "feature": "aoemod:soul_sand_valley/water/warped_seagrass",
           "placement": [
             {
               "type": "minecraft:block_predicate_filter",
@@ -29,19 +19,9 @@
         }
       },
       {
-        "chance": 0.36,
+        "chance": 0.485,
         "feature": {
-          "feature": {
-            "type": "minecraft:simple_block",
-            "config": {
-              "to_place": {
-                "type": "minecraft:simple_state_provider",
-                "state": {
-                  "Name": "netherdepthsupgrade:warped_seagrass"
-                }
-              }
-            }
-          },
+          "feature": "aoemod:soul_sand_valley/water/crimson_seagrass",
           "placement": [
             {
               "type": "minecraft:block_predicate_filter",
@@ -55,9 +35,9 @@
         }
       },
       {
-        "chance": 0.04,
+        "chance": 0.015,
         "feature": {
-          "feature": "netherdepthsupgrade:crimson_kelp_feature",
+          "feature": "aoemod:crimson_kelp",
           "placement": [
             {
               "type": "minecraft:block_predicate_filter",
@@ -75,9 +55,9 @@
         }
       },
       {
-        "chance": 0.04,
+        "chance": 0.015,
         "feature": {
-          "feature": "netherdepthsupgrade:warped_kelp_feature",
+          "feature": "aoemod:warped_kelp",
           "placement": [
             {
               "type": "minecraft:block_predicate_filter",
@@ -92,13 +72,6 @@
               }
             }
           ]
-        }
-      },
-      {
-        "chance": 0.20,
-        "feature": {
-          "feature": "aoemod:nothing",
-          "placement": []
         }
       }
     ]

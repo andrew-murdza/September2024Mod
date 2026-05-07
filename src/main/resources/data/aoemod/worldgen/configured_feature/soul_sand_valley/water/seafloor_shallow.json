@@ -6,7 +6,7 @@
       "placement": []
     },
     "target": "lava",
-    "deep": true,
+    "deep": false,
     "all_layers": true,
     "predicate": {
       "type": "minecraft:any_of",
@@ -22,7 +22,8 @@
             "minecraft:glowstone",
             "minecraft:magma_block",
             "minecraft:basalt",
-            "minecraft:smooth_basalt"
+            "minecraft:smooth_basalt",
+            "nourished_nether:soul_sludge"
           ],
           "offset": [
             0,
@@ -32,7 +33,7 @@
         }
       ]
     },
-    "biomes": "aoemod:soul_sand_valley"
+    "biomes": "aoemod:soul_sand_valley_biomes"
   }
 }
 

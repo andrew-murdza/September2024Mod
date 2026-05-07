@@ -3,33 +3,9 @@
   "config": {
     "features": [
       {
-        "chance": 0.09,
+        "chance": 0.125,
         "feature": {
-          "feature": {
-            "type": "minecraft:simple_block",
-            "config": {
-              "to_place": {
-                "type": "minecraft:weighted_state_provider",
-                "entries": [
-                  {
-                    "weight": 1,
-                    "data": {
-                      "Name": "netherdepthsupgrade:crimson_seagrass"
-                    }
-                  },
-                  {
-                    "weight": 1,
-                    "data": {
-                      "Name": "netherdepthsupgrade:tall_crimson_seagrass",
-                      "Properties": {
-                        "half": "lower"
-                      }
-                    }
-                  }
-                ]
-              }
-            }
-          },
+          "feature": "aoemod:warped_forest/water/crimson_seagrass",
           "placement": [
             {
               "type": "minecraft:block_predicate_filter",
@@ -43,33 +19,9 @@
         }
       },
       {
-        "chance": 0.61,
+        "chance": 0.835,
         "feature": {
-          "feature": {
-            "type": "minecraft:simple_block",
-            "config": {
-              "to_place": {
-                "type": "minecraft:weighted_state_provider",
-                "entries": [
-                  {
-                    "weight": 1,
-                    "data": {
-                      "Name": "netherdepthsupgrade:warped_seagrass"
-                    }
-                  },
-                  {
-                    "weight": 1,
-                    "data": {
-                      "Name": "netherdepthsupgrade:tall_warped_seagrass",
-                      "Properties": {
-                        "half": "lower"
-                      }
-                    }
-                  }
-                ]
-              }
-            }
-          },
+          "feature": "aoemod:warped_forest/water/warped_seagrass",
           "placement": [
             {
               "type": "minecraft:block_predicate_filter",
@@ -83,35 +35,9 @@
         }
       },
       {
-        "chance": 0.02,
+        "chance": 0.005,
         "feature": {
-          "feature": {
-            "type": "minecraft:simple_block",
-            "config": {
-              "to_place": {
-                "type": "minecraft:simple_state_provider",
-                "state": {
-                  "Name": "netherdepthsupgrade:wet_lava_sponge"
-                }
-              }
-            }
-          },
-          "placement": [
-            {
-              "type": "minecraft:block_predicate_filter",
-              "predicate": {
-                "type": "minecraft:has_sturdy_face",
-                "offset": [0, -1, 0],
-                "direction": "up"
-              }
-            }
-          ]
-        }
-      },
-      {
-        "chance": 0.01,
-        "feature": {
-          "feature": "netherdepthsupgrade:crimson_kelp_feature",
+          "feature": "aoemod:crimson_kelp",
           "placement": [
             {
               "type": "minecraft:block_predicate_filter",
@@ -129,9 +55,9 @@
         }
       },
       {
-        "chance": 0.07,
+        "chance": 0.035,
         "feature": {
-          "feature": "netherdepthsupgrade:warped_kelp_feature",
+          "feature": "aoemod:warped_kelp",
           "placement": [
             {
               "type": "minecraft:block_predicate_filter",
@@ -146,13 +72,6 @@
               }
             }
           ]
-        }
-      },
-      {
-        "chance": 0.20,
-        "feature": {
-          "feature": "aoemod:nothing",
-          "placement": []
         }
       }
     ]

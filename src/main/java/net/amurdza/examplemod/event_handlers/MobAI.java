@@ -7,6 +7,8 @@ import com.github.alexthe666.iceandfire.entity.EntityPixie;
 import com.github.alexthe666.iceandfire.entity.EntitySiren;
 import com.github.alexthe666.iceandfire.entity.ai.PixieAIFlee;
 import com.github.alexthe666.iceandfire.entity.ai.PixieAISteal;
+import com.teamabnormals.upgrade_aquatic.common.entity.ai.goal.pike.PikeAttackGoal;
+import com.teamabnormals.upgrade_aquatic.common.entity.ai.goal.pike.PikeSwimToItemsGoal;
 import com.teamabnormals.upgrade_aquatic.common.entity.animal.Lionfish;
 import net.amurdza.examplemod.AOEMod;
 import net.amurdza.examplemod.util.ModTags;
@@ -32,6 +34,8 @@ import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraftforge.event.entity.EntityJoinLevelEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
+import org.violetmoon.quark.content.mobs.ai.RaveGoal;
+import org.violetmoon.quark.content.mobs.entity.Crab;
 
 import java.lang.reflect.Field;
 import java.util.ArrayList;
@@ -129,6 +133,10 @@ public class MobAI {
                     removeAI(mob, EntityAINearestTarget3D.class, AnimalAIFleeAdult.class,
                             AnimalAIHurtByTargetNotBaby.class, AnimalAIHerdPanic.class, AnimalAIPanicBaby.class,
                             TameableAIDestroyTurtleEggs.class,CreatureAITargetItems.class);
+                    //Quark
+                    removeAI(mob, RaveGoal.class);
+                    //Upgrade Aquatic
+                    removeAI(mob, PikeAttackGoal.class, PikeSwimToItemsGoal.class);
                 }
                 if (entity instanceof Lionfish){
                     removeAI(mob,
@@ -139,6 +147,9 @@ public class MobAI {
 //                            Class.forName("superlord.cherry_shrimp.common.entity.CherryShrimp$ShrimpAvoidEntityGoal"),
 //                            Class.forName("superlord.cherry_shrimp.common.entity.CherryShrimp$ShrimpPanicGoal"));
 //                }
+                else if(entity instanceof EntitySkelewag){
+                    removeAI(MobAI::removeDolphinAttack,mob);
+                }
                 else if(entity instanceof EntityGiantSquid){
                     removeAI(mob, Class.forName("com.github.alexthe666.alexsmobs.entity.EntityGiantSquid$AIAvoidWhales"));
                 }
@@ -216,6 +227,23 @@ public class MobAI {
         }
         return false;
     }
+
+    private static boolean removeDolphinAttack(Goal goal) {
+        Field getTargetType;
+        if(goal instanceof NearestAttackableTargetGoal){
+            try {
+                getTargetType=NearestAttackableTargetGoal.class.getDeclaredField("targetType");
+                getTargetType.setAccessible(true);
+                return getTargetType.get(goal)== Dolphin.class;
+            } catch (NoSuchFieldException e) {
+                e.printStackTrace();
+            } catch (IllegalAccessException e) {
+                throw new RuntimeException(e);
+            }
+        }
+        return false;
+    }
+
     private static void makeHostileToPlayers(PathfinderMob mob){
         new NearestAttackableTargetGoal<>(mob, Player.class, true);
     }

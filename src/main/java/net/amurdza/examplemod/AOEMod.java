@@ -7,13 +7,11 @@ import net.amurdza.examplemod.event_handlers.BlockGrowthConfig;
 import net.amurdza.examplemod.item.ModItems;
 import net.amurdza.examplemod.item.ModToolTiers;
 import net.amurdza.examplemod.util.ConfigHelper;
-import net.amurdza.examplemod.worldgen.AOEDensityFunctions;
+import net.amurdza.examplemod.worldgen.density_function.AOEDensityFunctions;
 import net.amurdza.examplemod.worldgen.feature.ModFeatures;
 import net.amurdza.examplemod.worldgen.feature.ModTreeDecorators;
 import net.amurdza.examplemod.worldgen.structure.ModStructures;
 import net.amurdza.examplemod.worldgen.surface_rule.ModSurfaceRules;
-import net.minecraft.client.renderer.ItemBlockRenderTypes;
-import net.minecraft.client.renderer.RenderType;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraft.world.level.block.ComposterBlock;
@@ -117,7 +115,7 @@ public class AOEMod
             event.accept(ModItems.ASHEN_WHEAT_SEEDS.get());
             event.accept(ModItems.SOUL_BERRIES.get());
             event.accept(ModItems.SOUL_BEET_SEEDS.get());
-            event.accept(ModItems.BEAN_SEEDS.get());
+            event.accept(ModItems.BEANS.get());
 
             // remaining registerBlockAndItem blocks (from your list)
             event.accept(ModBlocks.JUNGLE_GLOW_LICHEN.get());
@@ -131,9 +129,17 @@ public class AOEMod
             event.accept(ModBlocks.WILD_CRIMSON_POTATOES.get());
             event.accept(ModBlocks.WILD_SOUL_BEETS.get());
             event.accept(ModBlocks.WILD_BEANS.get());
+            event.accept(ModBlocks.WILD_ASHEN_WHEAT.get());
 
             event.accept(ModBlocks.GLOW_SHROOM.get());
             event.accept(ModBlocks.SUNFLOWER.get());
+
+            event.accept(ModBlocks.PURPLE_CHARNIA.get());
+            event.accept(ModBlocks.GREEN_CHARNIA.get());
+            event.accept(ModBlocks.CYAN_CHARNIA.get());
+            event.accept(ModBlocks.LIGHT_BLUE_CHARNIA.get());
+            event.accept(ModBlocks.RED_CHARNIA.get());
+            event.accept(ModBlocks.ORANGE_CHARNIA.get());
 
             // ores: vanilla puts ores under NATURAL_BLOCKS
             event.accept(ModBlocks.BASALT_QUARTZ_ORE.get());

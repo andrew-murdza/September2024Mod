@@ -1,12 +1,10 @@
 package net.amurdza.examplemod.block;
 
 import net.minecraft.core.BlockPos;
-import net.minecraft.tags.BlockTags;
 import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
-import vectorwing.farmersdelight.common.block.WildCropBlock;
 
 public class WildSoulBeets extends WildCropBlock {
 

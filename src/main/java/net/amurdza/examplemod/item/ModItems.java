@@ -107,11 +107,8 @@ public class ModItems {
     public static final RegistryObject<Item> COOKED_LOST_TENTACLE = ITEMS.register("cooked_lost_tentacle",
             () -> new Item((new Item.Properties()).food((new FoodProperties.Builder()).nutrition(6).saturationMod(0.7F).build())));
 
-    public static final RegistryObject<Item> BEANS = ITEMS.register("beans",
-            () -> new Item((new Item.Properties()).food((new FoodProperties.Builder()).nutrition(1).saturationMod(0.2F).build())));
-
-    public static final RegistryObject<Item> BEAN_SEEDS = ITEMS.register("bean_seeds",
-            () -> new Item(new Item.Properties()));
+    public static final  RegistryObject<Item> BEANS= ITEMS.register("beans",()->new ItemNameBlockItem(ModBlocks.BEAN_CROP.get(),
+            (new Item.Properties()).food((new FoodProperties.Builder()).nutrition(6).saturationMod(0.7F).build())));
 
     public static final RegistryObject<Item> BEAN_SOUP = ITEMS.register("bean_soup",
             () -> new Item((new Item.Properties()).food((new FoodProperties.Builder()).nutrition(6).saturationMod(0.6F).build())));

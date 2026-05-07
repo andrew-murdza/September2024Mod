@@ -21,6 +21,12 @@
       "maxCount": 4
     },
     {
+      "type": "blueskies:charscale_moki",
+      "weight": 3,
+      "minCount": 2,
+      "maxCount": 4
+    },
+    {
       "type": "netherdepthsupgrade:lava_pufferfish",
       "weight": 5,
       "minCount": 1,
@@ -31,6 +37,42 @@
       "weight": 15,
       "minCount": 3,
       "maxCount": 6
+    },
+    {
+      "type": "netherdepthsupgrade:glowdine",
+      "weight": 5,
+      "minCount": 3,
+      "maxCount": 6
+    },
+    {
+      "type": "minecraft:strider",
+      "maxCount": 2,
+      "minCount": 1,
+      "weight": 60
+    },
+    {
+      "type": "minecraft:hoglin",
+      "maxCount": 4,
+      "minCount": 3,
+      "weight": 10
+    },
+    {
+      "type": "minecraft:piglin",
+      "maxCount": 4,
+      "minCount": 3,
+      "weight": 5
+    },
+    {
+      "type": "minecraft:piglin_brute",
+      "maxCount": 4,
+      "minCount": 3,
+      "weight": 5
     }
+//    {
+//      "type": "aoemod:crimson_critter",
+//      "maxCount": 4,
+//      "minCount": 3,
+//      "weight": 10
+//    }
   ]
 }

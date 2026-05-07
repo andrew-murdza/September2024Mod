@@ -3,7 +3,7 @@
   "config": {
     "features": [
       {
-        "chance": 0.63,
+        "chance": 0.835,
         "feature": {
           "feature": {
             "type": "minecraft:simple_block",
@@ -29,7 +29,7 @@
         }
       },
       {
-        "chance": 0.09,
+        "chance": 0.125,
         "feature": {
           "feature": {
             "type": "minecraft:simple_block",
@@ -55,9 +55,9 @@
         }
       },
       {
-        "chance": 0.07,
+        "chance": 0.035,
         "feature": {
-          "feature": "netherdepthsupgrade:crimson_kelp_feature",
+          "feature": "aoemod:crimson_kelp",
           "placement": [
             {
               "type": "minecraft:block_predicate_filter",
@@ -75,9 +75,9 @@
         }
       },
       {
-        "chance": 0.01,
+        "chance": 0.005,
         "feature": {
-          "feature": "netherdepthsupgrade:warped_kelp_feature",
+          "feature": "aoemod:warped_kelp",
           "placement": [
             {
               "type": "minecraft:block_predicate_filter",
@@ -92,13 +92,6 @@
               }
             }
           ]
-        }
-      },
-      {
-        "chance": 0.20,
-        "feature": {
-          "feature": "aoemod:nothing",
-          "placement": []
         }
       }
     ]

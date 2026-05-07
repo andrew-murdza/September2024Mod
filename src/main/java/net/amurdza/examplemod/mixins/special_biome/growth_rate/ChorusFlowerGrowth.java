@@ -46,38 +46,4 @@ public class ChorusFlowerGrowth {
 
         // Otherwise let vanilla run (or you can fully replicate chorus logic here if needed)
     }
-
-
-    @Redirect(
-            method = "randomTick",
-            at = @At(
-                    value = "INVOKE",
-                    target = "Lnet/minecraft/world/level/block/state/BlockState;is(Lnet/minecraft/world/level/block/Block;)Z"
-            ),
-            slice = @Slice(
-                    from = @At(value = "FIELD", target = "Lnet/minecraft/world/level/block/ChorusFlowerBlock;AGE:Lnet/minecraft/world/level/block/state/properties/IntegerProperty;", opcode = Opcodes.GETSTATIC)
-            ),
-            require = 0
-    )
-    private boolean aoe$soilOverride(BlockState state, Block block) {
-        return aOEMod1_20_1V2$isSoil(state, block);
-    }
-
-    @ModifyExpressionValue(
-            method = "canSurvive",
-            at = @At(
-                    value = "INVOKE",
-                    target = "Lnet/minecraft/world/level/block/state/BlockState;is(Lnet/minecraft/world/level/block/Block;)Z",
-                    ordinal = 1
-            ),
-            require = 0
-    )
-    private boolean aoe$allowExtraSoil(boolean original, BlockState blockstate) {
-        return aOEMod1_20_1V2$isSoil(blockstate, Blocks.END_STONE);
-    }
-
-    @Unique
-    private boolean aOEMod1_20_1V2$isSoil(BlockState instance, Block block){
-        return instance.is(block)||instance.is(Blocks.SCULK)||instance.is(Blocks.SCULK_CATALYST);
-    }
 }

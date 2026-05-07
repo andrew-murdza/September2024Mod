@@ -1,59 +1,80 @@
 package net.amurdza.examplemod.worldgen.feature;
 
-//
-// Source code recreated from a .class file by IntelliJ IDEA
-// (powered by FernFlower decompiler)
-//
-
 import com.mojang.serialization.Codec;
 import net.minecraft.core.BlockPos;
+import net.minecraft.tags.FluidTags;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.WorldGenLevel;
-import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.KelpBlock;
 import net.minecraft.world.level.block.state.BlockState;
-import net.minecraft.world.level.levelgen.Heightmap.Types;
 import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
-import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConfiguration;
 
-public class KelpFeature extends Feature<NoneFeatureConfiguration> {
-    public KelpFeature(Codec<NoneFeatureConfiguration> p_66219_) {
-        super(p_66219_);
+public class KelpFeature extends Feature<KelpFeatureConfiguration> {
+
+    public KelpFeature(Codec<KelpFeatureConfiguration> codec) {
+        super(codec);
     }
 
-    public boolean place(FeaturePlaceContext<NoneFeatureConfiguration> p_159956_) {
-        int i = 0;
-        WorldGenLevel worldgenlevel = p_159956_.level();
-        BlockPos blockpos1 = p_159956_.origin();
-        RandomSource randomsource = p_159956_.random();
-        if (worldgenlevel.getBlockState(blockpos1).is(Blocks.WATER)) {
-            BlockState blockstate = Blocks.KELP.defaultBlockState();
-            BlockState blockstate1 = Blocks.KELP_PLANT.defaultBlockState();
-            int k = 1 + randomsource.nextInt(10);
+    @Override
+    public boolean place(FeaturePlaceContext<KelpFeatureConfiguration> context) {
+        int placed = 0;
 
-            for(int l = 0; l <= k; ++l) {
-                if (worldgenlevel.getBlockState(blockpos1).is(Blocks.WATER) && worldgenlevel.getBlockState(blockpos1.above()).is(Blocks.WATER) && blockstate1.canSurvive(worldgenlevel, blockpos1)) {
-                    if (l == k) {
-                        worldgenlevel.setBlock(blockpos1, (BlockState)blockstate.setValue(KelpBlock.AGE, randomsource.nextInt(4) + 20), 2);
-                        ++i;
+        WorldGenLevel level = context.level();
+        BlockPos pos = context.origin();
+        RandomSource random = context.random();
+        KelpFeatureConfiguration config = context.config();
+
+        BlockState kelp = config.kelp;
+        BlockState kelpPlant = config.kelpPlant;
+
+        if (matchesFluid(level, pos, config.lava)) {
+            int height = 1 + random.nextInt(10);
+
+            for (int i = 0; i <= height; ++i) {
+                if (
+                        matchesFluid(level, pos, config.lava)
+                                && matchesFluid(level, pos.above(), config.lava)
+                                && kelpPlant.canSurvive(level, pos)
+                ) {
+                    if (i == height) {
+                        level.setBlock(pos, withAgeIfPossible(kelp, random), 2);
+                        placed++;
                     } else {
-                        worldgenlevel.setBlock(blockpos1, blockstate1, 2);
+                        level.setBlock(pos, kelpPlant, 2);
                     }
-                } else if (l > 0) {
-                    BlockPos blockpos2 = blockpos1.below();
-                    if (blockstate.canSurvive(worldgenlevel, blockpos2) && !worldgenlevel.getBlockState(blockpos2.below()).is(Blocks.KELP)) {
-                        worldgenlevel.setBlock(blockpos2, (BlockState)blockstate.setValue(KelpBlock.AGE, randomsource.nextInt(4) + 20), 2);
-                        ++i;
+                } else if (i > 0) {
+                    BlockPos topPos = pos.below();
+
+                    if (
+                            kelp.canSurvive(level, topPos)
+                                    && !level.getBlockState(topPos.below()).is(kelp.getBlock())
+                    ) {
+                        level.setBlock(topPos, withAgeIfPossible(kelp, random), 2);
+                        placed++;
                     }
+
                     break;
                 }
 
-                blockpos1 = blockpos1.above();
+                pos = pos.above();
             }
         }
 
-        return i > 0;
+        return placed > 0;
+    }
+
+    private static boolean matchesFluid(WorldGenLevel level, BlockPos pos, boolean lava) {
+        return lava
+                ? level.getBlockState(pos).getFluidState().is(FluidTags.LAVA)
+                : level.getBlockState(pos).getFluidState().is(FluidTags.WATER);
+    }
+
+    private static BlockState withAgeIfPossible(BlockState state, RandomSource random) {
+        if (state.hasProperty(KelpBlock.AGE)) {
+            return state.setValue(KelpBlock.AGE, random.nextInt(4) + 20);
+        }
+
+        return state;
     }
 }
-

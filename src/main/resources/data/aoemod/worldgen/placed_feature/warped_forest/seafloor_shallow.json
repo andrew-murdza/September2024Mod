@@ -1,8 +1,4 @@
 {
   "feature": "aoemod:warped_forest/water/seafloor_shallow",
-  "placement": [
-    {
-      "type": "minecraft:biome"
-    }
-  ]
+  "placement": []
 }

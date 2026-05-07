@@ -2,19 +2,16 @@ package net.amurdza.examplemod.worldgen.feature;
 
 import com.mojang.serialization.Codec;
 import net.minecraft.core.BlockPos;
-import net.minecraft.core.Holder;
-import net.minecraft.core.registries.Registries;
-import net.minecraft.tags.TagKey;
 import net.minecraft.world.level.ChunkPos;
 import net.minecraft.world.level.WorldGenLevel;
-import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.chunk.ChunkAccess;
-import net.minecraft.world.level.levelgen.blockpredicates.BlockPredicate;
 import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
 import net.minecraft.world.level.levelgen.placement.PlacedFeature;
+
+import static net.amurdza.examplemod.worldgen.feature.AllSurfacesFeatureConfig.Target.AIR;
 
 public class AllSurfacesFeature extends Feature<AllSurfacesFeatureConfig> {
 
@@ -38,35 +35,29 @@ public class AllSurfacesFeature extends Feature<AllSurfacesFeatureConfig> {
 
         for (int dx = 0; dx < 16; dx++) {
             int x = minX + dx;
+
             for (int dz = 0; dz < 16; dz++) {
                 int z = minZ + dz;
 
-                int maxY = chunk.getMaxBuildHeight();
+                int maxY = chunk.getMaxBuildHeight() - 1;
+                int minY = chunk.getMinBuildHeight();
+
                 BlockPos.MutableBlockPos pos = new BlockPos.MutableBlockPos(x, maxY, z);
 
-                for (int y = maxY; y >= chunk.getMinBuildHeight() + 1; y--) {
-                    boolean placed = tryPlace(
-                            level, pos, context,
-                            cfg, feature
-                    );
+                for (int y = maxY; y >= minY + 1; y--) {
+                    pos.set(x, y, z);
+
+                    boolean placed = tryPlace(level, pos, context, cfg, feature);
                     placedAnything |= placed;
 
                     if (placed && !cfg.allLayers) {
                         break;
                     }
-                    pos.move(0, -1, 0);
                 }
             }
         }
-        return placedAnything;
-    }
-    private static boolean isFullFluid(BlockState state, net.minecraft.world.level.material.Fluid fluid) {
-        var fs = state.getFluidState();
-        return fs.getType() == fluid && fs.isSource(); // ✅ “level is full”
-    }
 
-    private static boolean isSameFluid(BlockState state, net.minecraft.world.level.material.Fluid fluid) {
-        return state.getFluidState().getType() == fluid;
+        return placedAnything;
     }
 
     private boolean tryPlace(
@@ -76,7 +67,6 @@ public class AllSurfacesFeature extends Feature<AllSurfacesFeatureConfig> {
             AllSurfacesFeatureConfig cfg,
             PlacedFeature feature
     ) {
-        // ✅ Biome restriction from config
         if (cfg.biomes != null && !level.getBiome(pos).is(cfg.biomes)) {
             return false;
         }
@@ -87,37 +77,53 @@ public class AllSurfacesFeature extends Feature<AllSurfacesFeatureConfig> {
         boolean validTarget;
 
         switch (cfg.target) {
-            case AIR -> {
-                validTarget = state.isAir() || state.is(Blocks.CAVE_AIR) || state.is(Blocks.VOID_AIR);
-            }
+            case AIR -> validTarget =
+                    state.isAir()
+                            && level.getFluidState(pos).isEmpty()
+                            && level.getFluidState(pos.above()).isEmpty();
+
             case WATER -> {
-                // ✅ only place in FULL water blocks (source)
-                boolean hereFull = isFullFluid(state, net.minecraft.world.level.material.Fluids.WATER);
-                boolean aboveIsWater = isSameFluid(above, net.minecraft.world.level.material.Fluids.WATER);
+                boolean hereWater = state.is(Blocks.WATER);
+                boolean aboveWater = above.is(Blocks.WATER);
 
-                validTarget = hereFull && (
-                        (cfg.deep && aboveIsWater) ||
-                                (!cfg.deep && !aboveIsWater)
+                validTarget = hereWater && (
+                        (cfg.deep && aboveWater) ||
+                                (!cfg.deep && !aboveWater)
                 );
             }
+
             case LAVA -> {
-                // ✅ only place in FULL lava blocks (source)
-                boolean hereFull = isFullFluid(state, net.minecraft.world.level.material.Fluids.LAVA);
-                boolean aboveIsLava = isSameFluid(above, net.minecraft.world.level.material.Fluids.LAVA);
+                boolean hereLava = state.is(Blocks.LAVA);
+                boolean aboveLava = above.is(Blocks.LAVA);
 
-                validTarget = hereFull && (
-                        (cfg.deep && aboveIsLava) ||
-                                (!cfg.deep && !aboveIsLava)
+                validTarget = hereLava && (
+                        (cfg.deep && aboveLava) ||
+                                (!cfg.deep && !aboveLava)
                 );
             }
+
             default -> validTarget = false;
         }
 
-        if (validTarget && cfg.predicate.test(level, pos.below())) {
-            feature.place(level, context.chunkGenerator(), context.random(), pos);
-            return true;
+        if (!validTarget) {
+            return false;
         }
-        return false;
+
+        if (!cfg.predicate.test(level, pos.below())) {
+            return false;
+        }
+
+        if (cfg.target == AIR) {
+            if (!isSafeAirOrigin(level, pos)) {
+                return false;
+            }
+        }
+
+        return feature.place(level, context.chunkGenerator(), context.random(), pos);
     }
 
+    private boolean isSafeAirOrigin(WorldGenLevel level, BlockPos pos) {
+        return level.getBlockState(pos).isAir()
+                && level.getFluidState(pos).isEmpty();
+    }
 }

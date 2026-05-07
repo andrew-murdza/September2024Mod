@@ -12,6 +12,6 @@
       "type": "minecraft:matching_blocks",
       "blocks": ["minecraft:grass_block"]
     },
-    "biomes": ["aoemod:snowy_taiga","aoemod:grove"]
+    "biomes": "aoemod:mountain_biomes"
   }
 }

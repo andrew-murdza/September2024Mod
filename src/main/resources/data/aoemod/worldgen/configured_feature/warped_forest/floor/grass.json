@@ -8,31 +8,19 @@
           "data": {
             "Name": "minecraft:warped_roots"
           },
-          "weight": 50
+          "weight": 35
         },
         {
           "data": {
             "Name": "minecraft:nether_sprouts"
           },
-          "weight": 35
-        },
-        {
-          "data": {
-            "Name": "minecraft:crimson_roots"
-          },
-          "weight": 1
+          "weight": 63
         },
         {
           "data": {
             "Name": "minecraft:warped_fungus"
           },
-          "weight": 13
-        },
-        {
-          "data": {
-            "Name": "minecraft:crimson_fungus"
-          },
-          "weight": 1
+          "weight": 2
         }
       ]
     }

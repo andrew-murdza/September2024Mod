@@ -61,7 +61,7 @@
       "aoemod:soul_sand_valley/soul_beet",
       "aoemod:soul_sand_valley/soul_berries",
       "aoemod:soul_sand_valley/nether_wart",
-      "aoemod:soul_sand_valley/ghoulflower",
+      "aoemod:soul_sand_valley/flowers",
       "aoemod:warped_forest/forest_floor",
       "aoemod:soul_sand_valley/forest_floor",
       "aoemod:warped_forest/seafloor",
@@ -116,32 +116,7 @@
     "axolotls": [],
     "creature": [],
     "misc": [],
-    "monster": [
-      {
-        "type": "minecraft:skeleton",
-        "maxCount": 5,
-        "minCount": 5,
-        "weight": 20
-      },
-      {
-        "type": "minecraft:wither_skeleton",
-        "maxCount": 4,
-        "minCount": 4,
-        "weight": 10
-      },
-      {
-        "type": "minecraft:ghast",
-        "maxCount": 4,
-        "minCount": 4,
-        "weight": 50
-      },
-      {
-        "type": "minecraft:enderman",
-        "maxCount": 4,
-        "minCount": 4,
-        "weight": 1
-      }
-    ],
+    "monster": [],
     "underground_water_creature": [],
     "water_ambient": [],
     "water_creature": []

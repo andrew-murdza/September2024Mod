@@ -1,3 +1,6 @@
 {
-  "parent": "aoemod:block/desert_grass"
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "aoemod:block/desert_grass"
+  }
 }

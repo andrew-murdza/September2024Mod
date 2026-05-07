@@ -9,6 +9,7 @@ import com.github.alexthe666.iceandfire.item.IafItemRegistry;
 import net.amurdza.examplemod.util.ModTags;
 import net.minecraft.core.NonNullList;
 import net.minecraft.resources.ResourceKey;
+import net.minecraft.tags.BiomeTags;
 import net.minecraft.tags.TagKey;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.entity.LivingEntity;
@@ -83,6 +84,10 @@ public class Config
      */
     private static final Map<TagKey<Biome>, BiomeBonemealMultipliers> DEFAULTS = new HashMap<>();
 
+    public static Map<TagKey<Biome>, Float> FEATHER_RATES = new HashMap<>();
+
+
+
     public static final Map<TagKey<Biome>, BiomeBonemealMultipliers> BIOME_TAG_TO_BONEMEAL_MULTIPLIERS = new LinkedHashMap<>();
 
     // Backing config values (so Forge can serialize them)
@@ -90,6 +95,9 @@ public class Config
     private static final Map<TagKey<Biome>, ForgeConfigSpec.DoubleValue> MUSHROOM_MULT_VALUES = new LinkedHashMap<>();
 
     static {
+        FEATHER_RATES.put(ModTags.Biomes.tropicalBiomes, 2f);
+        FEATHER_RATES.put(ModTags.Biomes.savannaBiomes, 4f);
+
         ForgeConfigSpec.Builder builder = new ForgeConfigSpec.Builder();
 
         builder.push("bonemeal");

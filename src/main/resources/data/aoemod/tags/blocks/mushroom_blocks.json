@@ -1,0 +1,18 @@
+{
+  "values": [
+    "minecraft:mushroom_stem",
+    "quark:glow_shroom_stem",
+    "blue_skies:snowcap_mushroom_stem",
+    "biomeswevegone:white_mushroom_stem",
+    "biomeswevegone:brown_mushroom_stem",
+    "minecraft:brown_mushroom_block",
+    "minecraft:red_mushroom_block",
+    "aoemod:lush_mushroom_block",
+    "blue_skies:snowcap_mushroom_block",
+    "biomeswevegone:green_mushroom_block",
+    "biomeswevegone:weeping_milkcap_mushroom_block",
+    "biomeswevegone:wood_blewit_mushroom_block",
+    "quark:glow_shroom_block",
+    "quark:glow_shroom_ring"
+  ]
+}

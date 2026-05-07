@@ -6,7 +6,7 @@
       "placement": []
     },
     "target": "lava",
-    "deep": true,
+    "deep": false,
     "all_layers": true,
     "predicate": {
       "type": "minecraft:any_of",
@@ -32,7 +32,7 @@
         }
       ]
     },
-    "biomes": "aoemod:warped_forest"
+    "biomes": "aoemod:warped_forest_biomes"
   }
 }
 

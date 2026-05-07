@@ -3,7 +3,7 @@
   "config": {
     "features": [
       {
-        "chance": 0.60,
+        "chance": 0.45,
         "feature": {
           "feature": "aoemod:crimson_forest/floor/grass",
           "placement": [
@@ -23,7 +23,14 @@
         }
       },
       {
-        "chance": 0.40,
+        "chance": 0.008,
+        "feature":{
+          "feature": "aoemod:crimson_fungus_tree",
+          "placement": []
+        }
+      },
+      {
+        "chance": 0.542,
         "feature": {
           "feature": "aoemod:nothing",
           "placement": []

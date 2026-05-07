@@ -15,10 +15,10 @@ public class DesertGrassBlock extends TallGrassBlock {
         super(pProperties);
     }
     public void performBonemeal(ServerLevel pLevel, RandomSource pRandom, BlockPos pPos, BlockState pState) {
-        DoublePlantBlock doubleplantblock = (DoublePlantBlock)ModBlocks.DESERT_TALL_GRASS.get();
-        if (doubleplantblock.defaultBlockState().canSurvive(pLevel, pPos) && pLevel.isEmptyBlock(pPos.above())) {
-            DoublePlantBlock.placeAt(pLevel, doubleplantblock.defaultBlockState(), pPos, 2);
-        }
+//        DoublePlantBlock doubleplantblock = (DoublePlantBlock)ModBlocks.DESERT_TALL_GRASS.get();
+//        if (doubleplantblock.defaultBlockState().canSurvive(pLevel, pPos) && pLevel.isEmptyBlock(pPos.above())) {
+//            DoublePlantBlock.placeAt(pLevel, doubleplantblock.defaultBlockState(), pPos, 2);
+//        }
     }
     protected boolean mayPlaceOn(BlockState pState, BlockGetter pLevel, BlockPos pPos) {
         return pState.is(Blocks.SAND) || pState.is(BlockTags.DIRT)

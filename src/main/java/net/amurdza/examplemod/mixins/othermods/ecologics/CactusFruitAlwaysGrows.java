@@ -22,8 +22,8 @@ public class CactusFruitAlwaysGrows {
         }
         if(i>=3){
             if(net.minecraftforge.common.ForgeHooks.onCropsGrowPre(pLevel, pPos.above(), pState,
-                    pRandom.nextFloat()<Config.PRICKLY_PEAR_CHANCE)&&pLevel.isEmptyBlock(pPos.above())) {
-                pLevel.setBlockAndUpdate(pPos.above(), ModBlocks.PRICKLY_PEAR.get().defaultBlockState());
+                    pRandom.nextFloat()<Config.PRICKLY_PEAR_CHANCE)&&pLevel.isEmptyBlock(pPos)) {
+                pLevel.setBlockAndUpdate(pPos, ModBlocks.PRICKLY_PEAR.get().defaultBlockState());
                 net.minecraftforge.common.ForgeHooks.onCropsGrowPost(pLevel, pPos, pState);
             }
         }

@@ -12,6 +12,7 @@ import net.minecraft.client.renderer.entity.MobRenderer;
 import net.minecraft.client.renderer.entity.layers.EyesLayer;
 import net.minecraft.client.renderer.texture.OverlayTexture;
 import net.minecraft.resources.ResourceLocation;
+import org.jetbrains.annotations.NotNull;
 
 public class RendererEntityCubozoa extends MobRenderer<CubozoaEntity, CubozoaEntityModel> {
     private static final ResourceLocation[] TEXTURE = new ResourceLocation[2];
@@ -19,9 +20,9 @@ public class RendererEntityCubozoa extends MobRenderer<CubozoaEntity, CubozoaEnt
 
     public RendererEntityCubozoa(EntityRendererProvider.Context ctx) {
         super(ctx, new CubozoaEntityModel(ctx.bakeLayer(EntityRenders.CUBOZOA_MODEL)), 0.5f);
-        this.addLayer(new EyesLayer<CubozoaEntity, CubozoaEntityModel>(this) {
+        this.addLayer(new EyesLayer<>(this) {
             @Override
-            public RenderType renderType() {
+            public @NotNull RenderType renderType() {
                 return GLOW[0];
             }
 

@@ -17,7 +17,10 @@ public class ModTags {
         public static final TagKey<Block> netherPlantsPlaceable=tag("nether_plants_placeable");
         public static final TagKey<Block> sugarCaneCactusLike=tag("sugarcane_cactus_like");
         public static final TagKey<Block> duplicatedByBonemeal=tag("bone_meal_duplicates");
-        public static final TagKey<Block> treesCanReplace=tag("trees_can_replace");
+        public static final TagKey<Block> mushroomBlocks=tag("mushroom_blocks");
+        public static final TagKey<Block> needsDeepWater = tag("needs_deep_water");
+        public static final TagKey<Block> basaltStones = tag("basalt_stones");
+        public static final TagKey<Block> charnia = tag("charnia");
 
         private static TagKey<Block> tag(String name){
             return BlockTags.create(new ResourceLocation(AOEMod.MOD_ID,name));
@@ -39,12 +42,15 @@ public class ModTags {
         public static final TagKey<Biome> netherBiomes=tag("nether_biomes");
         public static final TagKey<Biome> desertBiomes=tag("desert_biomes");
         public static final TagKey<Biome> savannaBiomes=tag("savanna_biomes");
+        public static final TagKey<Biome> plainsBiomes=tag("plains_biomes");
 
-        public static final TagKey<Biome> mushroomCaves=tag("mushroom_caves");
+        public static final TagKey<Biome> mushroomCaves=tag("mushroom_caves_biomes");
         public static final TagKey<Biome> basaltDeltasBiomes  = tag("basalt_deltas_biomes");
         public static final TagKey<Biome> crimsonForestBiomes = tag("crimson_forest_biomes");
         public static final TagKey<Biome> warpedForestBiomes  = tag("warped_forest_biomes");
         public static final TagKey<Biome> soulSandValleyBiomes= tag("soul_sand_valley_biomes");
+
+        public static final TagKey<Biome> deepDarkBiomes= tag("deep_dark_biomes");
 
         private static TagKey<Biome> tag(String name){
             return TagKey.create(Registries.BIOME,new ResourceLocation(AOEMod.MOD_ID,name));

@@ -1,0 +1,12 @@
+{
+  "type": "aoemod:kelp",
+  "config": {
+    "kelp": {
+      "Name": "netherdepthsupgrade:crimson_kelp"
+    },
+    "kelp_plant": {
+      "Name": "netherdepthsupgrade:crimson_kelp_plant"
+    },
+    "lava": true
+  }
+}

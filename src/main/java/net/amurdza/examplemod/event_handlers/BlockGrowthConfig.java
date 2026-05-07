@@ -2,6 +2,7 @@ package net.amurdza.examplemod.event_handlers;
 
 import com.legacy.blue_skies.registries.SkiesBlocks;
 import com.teamabnormals.upgrade_aquatic.core.registry.UABlocks;
+import dev.hybridlabs.aquatic.block.HybridAquaticBlocks;
 import net.amurdza.examplemod.block.ModBlocks;
 import net.amurdza.examplemod.util.ModTags;
 import net.mehvahdjukaar.hauntedharvest.reg.ModRegistry;
@@ -14,6 +15,7 @@ import net.potionstudios.biomeswevegone.world.level.block.wood.BWGWood;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Objects;
 
 public final class BlockGrowthConfig {
     private BlockGrowthConfig() {}
@@ -118,6 +120,23 @@ public final class BlockGrowthConfig {
         );
     }
 
+    private static void addDesertPlant(Block block) {
+        // kelp: 0.7 mountains/tropical, 0.28 savanna, 0 desert/nether, 0.14 other
+        addToMap(block,
+                0.7f,   // tropical
+                0.0f,  // savanna
+                0.0f,   // mountains
+                0.0f,   // mountain caves
+                0.0f,   // desert
+                0.0f,   // nether generic
+                0.0f,   // basalt deltas
+                0.0f,   // crimson forest
+                0.0f,   // warped forest
+                0.0f,   // soul sand valley
+                0.14f   // other
+        );
+    }
+
     private static void addWeepingTwistingWart(Block block, float crimson, float warped, float soul) {
         // weeping/twisting/nether wart:
         // 0.7 tropical, 0 desert, 0.05 basalt deltas,
@@ -210,15 +229,15 @@ public final class BlockGrowthConfig {
         // cactus: 16 in tropical (equivalent to 1), 0 mountains, 4 all other biomes
         addToMap(block,
                 16.0f, // tropical
-                4.0f,  // savanna
+                0.0f,  // savanna
                 0.0f,  // mountains
                 0.0f,  // mountain caves
                 4.0f,  // desert
-                1.0f,  // nether generic
-                1.0f,  // basalt deltas
-                1.0f,  // crimson forest
-                1.0f,  // warped forest
-                1.0f,  // soul sand valley
+                0.0f,  // nether generic
+                0.0f,  // basalt deltas
+                0.0f,  // crimson forest
+                0.0f,  // warped forest
+                0.0f,  // soul sand valley
                 4.0f   // other
         );
     }
@@ -227,7 +246,7 @@ public final class BlockGrowthConfig {
         // sugarcane:
         // 16 tropical, 2 desert, 0 nether, 0 mountains, 6 savanna, 4 other
         addToMap(Blocks.SUGAR_CANE,
-                16.0f, // tropical
+                15.0f, // tropical
                 6.0f,  // savanna
                 0.0f,  // mountains
                 0.0f,  // mountain caves
@@ -443,6 +462,13 @@ public final class BlockGrowthConfig {
                 0.0f,0.0f,0.0f,0.0f,0.0f,
                 0.0f
         );
+
+        // Jungle sapling: 1 in tropical, 0 other  (since jungle -> tropical)
+        addToMap(Objects.requireNonNull(BWGWood.WITCH_HAZEL.sapling()).getBlock(),
+                0.0f,0.0f,0.0f,0.0f,0.0f,
+                0.0f,0.13f,0.08f,0.08f,0.04f,
+                0.0f
+        );
     }
 
     // ------------------------------------------------------------
@@ -455,6 +481,10 @@ public final class BlockGrowthConfig {
         // Kelp
         addKelp(Blocks.KELP);
         addKelp(Blocks.KELP_PLANT);
+        addKelp(HybridAquaticBlocks.INSTANCE.getSARGASSUM().get());
+        addKelp(HybridAquaticBlocks.INSTANCE.getSARGASSUM_PLANT().get());
+        addKelp(HybridAquaticBlocks.INSTANCE.getBULL_KELP_PLANT().get());
+        addKelp(HybridAquaticBlocks.INSTANCE.getBULL_KELP().get());
 
         // Weeping / twisting / wart
         addWeepingTwistingWart(Blocks.WEEPING_VINES, 0.1f, 0.0f, 0.0f);
@@ -502,6 +532,7 @@ public final class BlockGrowthConfig {
         addOverworldCrops(Blocks.CARROTS, false);
         addOverworldCrops(Blocks.POTATOES, false);
         addOverworldCrops(Blocks.BEETROOTS, false); // your global ÷3 is applied in the event
+        addOverworldCrops(ModBlocks.BEAN_CROP.get(), true);
 
         // Cave vines: you said 1 jungle, 0 otherwise
         addCaveTropicalOnly(ModBlocks.CAVE_VINES.get());
@@ -645,7 +676,19 @@ public final class BlockGrowthConfig {
         addMushroom(SkiesBlocks.snowcap_pinhead);
 
         // Prickly pear: same as cactus
-        addCactus(samebutdifferent.ecologics.registry.ModBlocks.PRICKLY_PEAR.get());
+        addToMap(samebutdifferent.ecologics.registry.ModBlocks.PRICKLY_PEAR.get(),
+                1.0f, // tropical
+                0.0f,  // savanna
+                0.0f,  // mountains
+                0.0f,  // mountain caves
+                0.4f,  // desert
+                0.0f,  // nether generic
+                0.0f,  // basalt deltas
+                0.0f,  // crimson forest
+                0.0f,  // warped forest
+                0.0f,  // soul sand valley
+                0.0f   // other
+        );
     }
 
 }

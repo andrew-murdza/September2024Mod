@@ -2,7 +2,7 @@
   "type": "aoemod:all_surface",
   "config": {
     "feature": {
-      "feature": "aoemod:rainforest/floor/forest_floor",
+      "feature": "aoemod:crimson_forest/floor/forest_floor",
       "placement": []
     },
      "target": "air",
@@ -10,8 +10,8 @@
     "all_layers": true,
     "predicate": {
       "type": "minecraft:matching_blocks",
-      "blocks": ["minecraft:moss_block"]
+      "blocks": ["minecraft:crimson_nylium"]
     },
-    "biomes": "aoemod:tropical_biomes"
+    "biomes": "aoemod:crimson_forest_biomes"
   }
 }

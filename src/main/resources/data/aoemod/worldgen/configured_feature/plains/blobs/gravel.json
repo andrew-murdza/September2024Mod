@@ -61,15 +61,6 @@
       {
         "target": {
           "predicate_type": "minecraft:block_match",
-          "block": "minecraft:dirt"
-        },
-        "state": {
-          "Name": "minecraft:gravel"
-        }
-      },
-      {
-        "target": {
-          "predicate_type": "minecraft:block_match",
           "block": "minecraft:granite"
         },
         "state": {

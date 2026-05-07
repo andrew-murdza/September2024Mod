@@ -49,15 +49,15 @@
         //            }
         //          }
         //        },
-        {
-          "weight": 1,
-          "data": {
-            "Name": "biomeswevegone:delphinium",
-            "Properties": {
-              "half": "lower"
-            }
-          }
-        },
+//        {
+//          "weight": 1,
+//          "data": {
+//            "Name": "biomeswevegone:delphinium",
+//            "Properties": {
+//              "half": "lower"
+//            }
+//          }
+//        },
         {
           "weight": 1,
           "data": {
@@ -76,15 +76,15 @@
             }
           }
         },
-        {
-          "weight": 1,
-          "data": {
-            "Name": "biomeswevegone:tall_white_allium",
-            "Properties": {
-              "half": "lower"
-            }
-          }
-        },
+//        {
+//          "weight": 1,
+//          "data": {
+//            "Name": "biomeswevegone:tall_white_allium",
+//            "Properties": {
+//              "half": "lower"
+//            }
+//          }
+//        },
         {
           "weight": 1,
           "data": {

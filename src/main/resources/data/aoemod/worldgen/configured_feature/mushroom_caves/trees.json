@@ -3,23 +3,16 @@
   "config": {
     "features": [
       {
-        "chance": 0.02,
+        "chance": 0.1,
         "feature": {
-          "feature": "environmental:blue_wisteria_bees_005",
-          "placement": []
-        }
-      },
-      {
-        "chance": 0.02,
-        "feature": {
-          "feature": "environmental:pink_wisteria_bees_005",
+          "feature": "blue_skies:giant_snowcap_mushroom",
           "placement": []
         }
       },
       {
         "chance": 0.1,
         "feature": {
-          "feature": "blue_skies:giant_snowcap_mushroom",
+          "feature": "aoemod:huge_glow_shroom",
           "placement": []
         }
       },

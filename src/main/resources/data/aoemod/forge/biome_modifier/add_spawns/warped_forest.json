@@ -8,6 +8,12 @@
       "minCount": 4,
       "maxCount": 4
     },
+//    {
+//      "type": "alexsmobs:endergrade",
+//      "weight": 5,
+//      "minCount": 4,
+//      "maxCount": 4
+//    },
     {
       "type": "netherdepthsupgrade:bonefish",
       "weight": 5,
@@ -31,6 +37,42 @@
       "weight": 15,
       "minCount": 3,
       "maxCount": 6
+    },
+    {
+      "type": "minecraft:strider",
+      "maxCount": 2,
+      "minCount": 1,
+      "weight": 60
+    },
+    {
+      "type": "minecraft:enderman",
+      "maxCount": 4,
+      "minCount": 4,
+      "weight": 10
+    },
+    {
+      "type": "minecraft:creeper",
+      "maxCount": 4,
+      "minCount": 4,
+      "weight": 100
+    },
+    {
+      "type": "minecraft:zoglin",
+      "maxCount": 4,
+      "minCount": 4,
+      "weight": 50
+    },
+    {
+      "type": "minecraft:zombified_piglin",
+      "maxCount": 4,
+      "minCount": 4,
+      "weight": 100
     }
+    //    {
+    //      "type": "aoemod:crimson_critter",
+    //      "maxCount": 4,
+    //      "minCount": 3,
+    //      "weight": 15
+    //    }
   ]
 }

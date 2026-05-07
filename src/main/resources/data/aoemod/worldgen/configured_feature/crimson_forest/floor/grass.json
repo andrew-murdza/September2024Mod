@@ -8,19 +8,13 @@
           "data": {
             "Name": "minecraft:crimson_roots"
           },
-          "weight": 86
+          "weight": 96
         },
         {
           "data": {
             "Name": "minecraft:crimson_fungus"
           },
-          "weight": 13
-        },
-        {
-          "data": {
-            "Name": "minecraft:warped_fungus"
-          },
-          "weight": 1
+          "weight": 4
         }
       ]
     }

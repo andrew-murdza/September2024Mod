@@ -1,4 +1,11 @@
 {
   "type": "aoemod:kelp",
-  "config": {}
+  "config": {
+    "kelp": {
+      "Name": "minecraft:kelp"
+    },
+    "kelp_plant": {
+      "Name": "minecraft:kelp_plant"
+    }
+  }
 }

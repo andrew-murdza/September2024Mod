@@ -1,8 +1,4 @@
 {
   "feature": "aoemod:savanna/floor/forest_floor_full",
-  "placement": [
-    {
-      "type": "minecraft:biome"
-    }
-  ]
+  "placement": []
 }

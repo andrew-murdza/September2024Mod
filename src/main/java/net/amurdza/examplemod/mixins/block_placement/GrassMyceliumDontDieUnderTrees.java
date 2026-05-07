@@ -17,7 +17,8 @@ public class GrassMyceliumDontDieUnderTrees {
             at = @At(value = "INVOKE",
                     target = "Lnet/minecraft/world/level/lighting/LightEngine;getLightBlockInto(Lnet/minecraft/world/level/BlockGetter;Lnet/minecraft/world/level/block/state/BlockState;Lnet/minecraft/core/BlockPos;Lnet/minecraft/world/level/block/state/BlockState;Lnet/minecraft/core/BlockPos;Lnet/minecraft/core/Direction;I)I"))
     private static int stayAlive(BlockGetter world, BlockState state1, BlockPos pos1, BlockState state2, BlockPos pos2, Direction direction, int blockLight) {
-        boolean b=state2.is(BlockTags.LOGS_THAT_BURN)|| state2.is(Blocks.MUSHROOM_STEM);
+        BlockState state=world.getBlockState(pos1.above());
+        boolean b=state.is(BlockTags.LOGS_THAT_BURN)|| state.is(Blocks.MUSHROOM_STEM);
         return b?0: LightEngine.getLightBlockInto(world, state1, pos1, state2, pos2, direction, blockLight);
     }
 }

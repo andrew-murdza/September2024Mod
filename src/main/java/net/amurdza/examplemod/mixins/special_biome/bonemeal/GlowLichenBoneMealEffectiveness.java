@@ -14,12 +14,12 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 @Mixin(GlowLichenBlock.class)
 public class GlowLichenBoneMealEffectiveness {
-    @Inject(method = "performBonemeal", at=@At("HEAD"))
-    public void grow(ServerLevel world, RandomSource random, BlockPos pos, BlockState state, CallbackInfo info) {
-        GlowLichenBlock block=(GlowLichenBlock) (Object) this;
-        int numTries= Helper.isSpecialBiome(world,pos)? Config.GLOW_LICHEN_TRIES:1;
-        for(int i=0;i<numTries;i++){
-            block.getSpreader().spreadFromRandomFaceTowardRandomDirection(state, world, pos, random);
-        }
-    }
+//    @Inject(method = "performBonemeal", at=@At("HEAD"))
+//    public void grow(ServerLevel world, RandomSource random, BlockPos pos, BlockState state, CallbackInfo info) {
+//        GlowLichenBlock block=(GlowLichenBlock) (Object) this;
+//        int numTries= Helper.isSpecialBiome(world,pos)? Config.GLOW_LICHEN_TRIES:1;
+//        for(int i=0;i<numTries;i++){
+//            block.getSpreader().spreadFromRandomFaceTowardRandomDirection(state, world, pos, random);
+//        }
+//    }
 }

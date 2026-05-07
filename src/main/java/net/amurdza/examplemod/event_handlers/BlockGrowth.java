@@ -11,10 +11,7 @@ import net.minecraft.tags.TagKey;
 import net.minecraft.util.Mth;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.biome.Biome;
-import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.Blocks;
-import net.minecraft.world.level.block.CropBlock;
-import net.minecraft.world.level.block.StemBlock;
+import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.block.state.properties.IntegerProperty;
@@ -52,11 +49,19 @@ public class BlockGrowth {
 
         // Only handle blocks we know about:
         float mult = getMultiplier(level, pos, block);
+
         if (mult < 0f) return; // not tracked, let vanilla/mods handle it
 
         // Beetroot global /3
-        if (block == Blocks.BEETROOTS) {
+        if (block == Blocks.BEETROOTS || block==ModBlocks.SOUL_BEETS.get()) {
             mult = mult / 3.0f;
+        }
+
+        if(block instanceof  NetherCropBlock){
+            BlockState state1=level.getBlockState(pos.below());
+            if (!state1.is(ModBlocks.NETHER_FARMLAND.get())||state1.getValue(FarmBlock.MOISTURE) == 0){
+                mult *= 0.5f;
+            }
         }
 
         // Optional: keep your "not fertile halves chance" rule for CropBlock / StemBlock
@@ -134,13 +139,34 @@ public class BlockGrowth {
             // Special case you had: sugar cane uses pos.above() in your old system
             // (but sugar cane doesn't use AGE properties; this is mostly harmless)
 
-            if (newAge > max) {
-                // Wrap-around behavior you used before:
-                // reset this block to age 0 and "replant" default above/below logic.
-                // For ordinary crops this rarely matters; for stems it can.
-                level.setBlockAndUpdate(pos, state.setValue(prop, 0));
-            } else {
-                level.setBlock(pos, state.setValue(prop, newAge), 4);
+            boolean columnPlant=state.is(Blocks.CACTUS)||state.is(ModBlocks.NETHER_CANE.get())||state.is(Blocks.SUGAR_CANE);
+
+            if(columnPlant){
+                if(state.is(Blocks.SUGAR_CANE)||state.is(Blocks.SUGAR_CANE)){
+                    pos=pos.above();
+                }
+                int k;
+                for(k = 1; level.getBlockState(pos.below(k+1)).is(state.getBlock()); ++k) {
+
+                }
+                if(k<3){
+                    if (newAge > max) {
+                        // Wrap-around behavior you used before:
+                        // reset this block to age 0 and "replant" default above/below logic.
+                        // For ordinary crops this rarely matters; for stems it can.
+                        level.setBlockAndUpdate(pos.below(), state.setValue(prop, 0));
+                        level.setBlockAndUpdate(pos, state.setValue(prop, 0));
+                    }
+                    else {
+                        level.setBlockAndUpdate(pos.below(), state.setValue(prop, newAge));
+                    }
+                }
+                if(k>=3&&state.is(Blocks.CACTUS)&&level.isEmptyBlock(pos)){
+                    level.setBlockAndUpdate(pos, samebutdifferent.ecologics.registry.ModBlocks.PRICKLY_PEAR.get().defaultBlockState());
+                }
+            }
+            else {
+                level.setBlock(pos, state.setValue(prop, Math.min(newAge,max)), 4);
             }
             return;
         }
@@ -161,6 +187,8 @@ public class BlockGrowth {
 
         // Determine which bucket/tag to use (priority order)
         TagKey<Biome> tag = pickBucket(biome);
+
+        assert tag != null;
 
         // Look up value
         Float v = null;

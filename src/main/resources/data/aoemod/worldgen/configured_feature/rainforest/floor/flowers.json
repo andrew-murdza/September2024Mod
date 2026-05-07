@@ -10,42 +10,30 @@
             "Name": "iceandfire:fire_lily"
           }
         },
-        {
-          "weight": 1,
-          "data": {
-            "Name": "iceandfire:frost_lily"
-          }
-        },
 //        {
 //          "weight": 1,
 //          "data": {
 //            "Name": "seafarer:sea_thrift"
 //          }
 //        },
-        {
-          "weight": 1,
-          "data": {
-            "Name": "nourished_nether:soul_weeds"
-          }
-        },
-        {
-          "weight": 1,
-          "data": {
-            "Name": "environmental:white_lotus_flower"
-          }
-        },
+//        {
+//          "weight": 1,
+//          "data": {
+//            "Name": "environmental:white_lotus_flower"
+//          }
+//        },
         {
           "weight": 1,
           "data": {
             "Name": "bloomingnature:amaryllis"
           }
         },
-        {
-          "weight": 1,
-          "data": {
-            "Name": "bloomingnature:foxglove_pink"
-          }
-        },
+//        {
+//          "weight": 1,
+//          "data": {
+//            "Name": "bloomingnature:foxglove_pink"
+//          }
+//        },
         {
           "weight": 1,
           "data": {
@@ -70,18 +58,12 @@
             "Name": "bloomingnature:silkgrass"
           }
         },
-        {
-          "weight": 1,
-          "data": {
-            "Name": "biomeswevegone:amaranth"
-          }
-        },
-        {
-          "weight": 1,
-          "data": {
-            "Name": "biomeswevegone:crocus"
-          }
-        },
+//        {
+//          "weight": 1,
+//          "data": {
+//            "Name": "biomeswevegone:amaranth"
+//          }
+//        },
         {
           "weight": 1,
           "data": {
@@ -136,18 +118,18 @@
             "Name": "biomeswevegone:white_allium"
           }
         },
-        {
-          "weight": 1,
-          "data": {
-            "Name": "biomeswevegone:white_allium_flower_bush"
-          }
-        },
-        {
-          "weight": 1,
-          "data": {
-            "Name": "biomeswevegone:yellow_daffodil"
-          }
-        },
+//        {
+//          "weight": 1,
+//          "data": {
+//            "Name": "biomeswevegone:white_allium_flower_bush"
+//          }
+//        },
+//        {
+//          "weight": 1,
+//          "data": {
+//            "Name": "biomeswevegone:yellow_daffodil"
+//          }
+//        },
         {
           "weight": 1,
           "data": {
@@ -164,12 +146,6 @@
           "weight": 1,
           "data": {
             "Name": "forest:lavander"
-          }
-        },
-        {
-          "weight": 1,
-          "data": {
-            "Name": "blue_skies:polar_posy"
           }
         },
         {
@@ -268,31 +244,7 @@
         {
           "weight": 1,
           "data": {
-            "Name": "minecraft:dead_bush"
-          }
-        },
-        {
-          "weight": 1,
-          "data": {
             "Name": "trailsandtalesplus:glowing_torchflower"
-          }
-        },
-        {
-          "weight": 1,
-          "data": {
-            "Name": "minecraft:warped_roots"
-          }
-        },
-        {
-          "weight": 1,
-          "data": {
-            "Name": "minecraft:crimson_roots"
-          }
-        },
-        {
-          "weight": 1,
-          "data": {
-            "Name": "minecraft:nether_sprouts"
           }
         }
       ]

@@ -56,7 +56,6 @@
     [],
     [
       "aoemod:nether_cane",
-      "aoemod:crimson_forest/trees",
       "aoemod:crimson_forest/crimson_potato",
       "aoemod:ashen_wheat",
       "aoemod:crimson_forest/mushrooms",
@@ -74,33 +73,11 @@
     "ambient": [],
     "axolotls": [],
     "creature": [
-      {
-        "type": "minecraft:strider",
-        "maxCount": 2,
-        "minCount": 1,
-        "weight": 60
-      },
-      {
-        "type": "minecraft:hoglin",
-        "maxCount": 4,
-        "minCount": 3,
-        "weight": 10
-      },
-      {
-        "type": "aoemod:crimson_critter",
-        "maxCount": 4,
-        "minCount": 3,
-        "weight": 10
-      }
+
     ],
     "misc": [],
     "monster": [
-      {
-        "type": "minecraft:piglin",
-        "maxCount": 4,
-        "minCount": 3,
-        "weight": 5
-      }
+
     ],
     "underground_water_creature": [],
     "water_ambient": [],

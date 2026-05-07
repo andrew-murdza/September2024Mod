@@ -35,41 +35,40 @@
     [],
     [],
     [
-      "aoemod:mountains/blobs/andesite_lower",
-      "aoemod:mountains/blobs/andesite_upper",
-      "aoemod:mountains/blobs/basalt",
-      "aoemod:mountains/blobs/calcite_lower",
-      "aoemod:mountains/blobs/calcite_upper",
-      "aoemod:mountains/blobs/clay",
-      "aoemod:mountains/blobs/diorite_lower",
-      "aoemod:mountains/blobs/diorite_upper",
-      "aoemod:mountains/blobs/dirt",
-      "aoemod:mountains/blobs/granite_lower",
-      "aoemod:mountains/blobs/granite_upper",
-      "aoemod:mountains/blobs/gravel",
-      "aoemod:mountains/blobs/sand_lower",
-      "aoemod:mountains/blobs/sand_upper",
-      "aoemod:mountains/blobs/sandstone_lower",
-      "aoemod:mountains/blobs/sandstone_upper",
-      "aoemod:mountains/blobs/tuff",
-      "aoemod:mountains/ores/ancient_debris",
-      "aoemod:mountains/ores/ore_coal_lower",
-      "aoemod:mountains/ores/ore_coal_upper",
-      "aoemod:mountains/ores/ore_copper",
-      "aoemod:mountains/ores/ore_copper_large",
-      "aoemod:mountains/ores/ore_diamond",
-      "aoemod:mountains/ores/ore_diamond_buried",
-      "aoemod:mountains/ores/ore_diamond_large",
-      "aoemod:mountains/ores/ore_diamond_medium",
-      "aoemod:mountains/ores/ore_emerald",
-      "aoemod:mountains/ores/ore_gold",
-      "aoemod:mountains/ores/ore_iron_middle",
-      "aoemod:mountains/ores/ore_iron_small",
-      "aoemod:mountains/ores/ore_iron_upper",
-      "aoemod:mountains/ores/ore_lapis",
-      "aoemod:mountains/ores/ore_lapis_buried",
-      "aoemod:mountains/ores/ore_redstone",
-      "aoemod:mountains/ores/ore_redstone_lower"
+      "aoemod:mountains_edge/blobs/andesite_lower",
+      "aoemod:mountains_edge/blobs/andesite_upper",
+      "aoemod:mountains_edge/blobs/basalt",
+      "aoemod:mountains_edge/blobs/calcite_lower",
+      "aoemod:mountains_edge/blobs/calcite_upper",
+      "aoemod:mountains_edge/blobs/clay",
+      "aoemod:mountains_edge/blobs/diorite_lower",
+      "aoemod:mountains_edge/blobs/diorite_upper",
+      "aoemod:mountains_edge/blobs/dirt",
+      "aoemod:mountains_edge/blobs/granite_lower",
+      "aoemod:mountains_edge/blobs/granite_upper",
+      "aoemod:mountains_edge/blobs/gravel",
+      "aoemod:mountains_edge/blobs/sand_lower",
+      "aoemod:mountains_edge/blobs/sand_upper",
+      "aoemod:mountains_edge/blobs/sandstone_lower",
+      "aoemod:mountains_edge/blobs/sandstone_upper",
+      "aoemod:mountains_edge/blobs/tuff",
+      "aoemod:mountains_edge/ores/ore_coal_lower",
+      "aoemod:mountains_edge/ores/ore_coal_upper",
+      "aoemod:mountains_edge/ores/ore_copper",
+      "aoemod:mountains_edge/ores/ore_copper_large",
+      "aoemod:mountains_edge/ores/ore_diamond",
+      "aoemod:mountains_edge/ores/ore_diamond_buried",
+      "aoemod:mountains_edge/ores/ore_diamond_large",
+      "aoemod:mountains_edge/ores/ore_diamond_medium",
+      "aoemod:mountains_edge/ores/ore_emerald",
+      "aoemod:mountains_edge/ores/ore_gold",
+      "aoemod:mountains_edge/ores/ore_iron_middle",
+      "aoemod:mountains_edge/ores/ore_iron_small",
+      "aoemod:mountains_edge/ores/ore_iron_upper",
+      "aoemod:mountains_edge/ores/ore_lapis",
+      "aoemod:mountains_edge/ores/ore_lapis_buried",
+      "aoemod:mountains_edge/ores/ore_redstone",
+      "aoemod:mountains_edge/ores/ore_redstone_lower"
     ],
     [],
     [
@@ -79,13 +78,18 @@
       "aoemod:mountains/trees",
       "aoemod:mountains/berries",
       "aoemod:mountains/mushrooms",
+      "aoemod:plains/forest_floor",
       "aoemod:mountains/forest_floor",
+      "aoemod:desert/forest_floor",
+      "aoemod:deep_dark/forest_floor",
       "aoemod:plains/seafloor",
       "aoemod:mountains/seafloor",
       "aoemod:desert/seafloor",
+      "aoemod:deep_dark/seafloor",
       "aoemod:plains/seafloor_shallow",
       "aoemod:mountains/seafloor_shallow",
-      "aoemod:desert/seafloor_shallow"
+      "aoemod:desert/seafloor_shallow",
+      "aoemod:deep_dark/seafloor_shallow"
     ],
     [
       "minecraft:freeze_top_layer"
@@ -94,140 +98,14 @@
   "has_precipitation": true,
   "spawn_costs": {},
   "spawners": {
-    "ambient": [
-      {
-        "type": "minecraft:bat",
-        "maxCount": 8,
-        "minCount": 8,
-        "weight": 10
-      }
-    ],
+    "ambient": [],
     "axolotls": [],
-    "creature": [
-      {
-        "type": "minecraft:rabbit",
-        "weight": 10,
-        "minCount": 2,
-        "maxCount": 5
-      },
-      {
-        "type": "minecraft:fox",
-        "weight": 10,
-        "minCount": 2,
-        "maxCount": 5
-      },
-      {
-        "type": "minecraft:goat",
-        "weight": 10,
-        "minCount": 2,
-        "maxCount": 5
-      },
-      {
-        "type": "minecraft:llama",
-        "weight": 10,
-        "minCount": 2,
-        "maxCount": 5
-      },
-      {
-        "type": "minecraft:polar_bear",
-        "weight": 10,
-        "minCount": 2,
-        "maxCount": 5
-      },
-      {
-        "type": "minecraft:wolf",
-        "weight": 10,
-        "minCount": 2,
-        "maxCount": 5
-      },
-      {
-        "type": "minecraft:mooshroom",
-        "weight": 10,
-        "minCount": 2,
-        "maxCount": 5
-      }
-    ],
+    "creature": [],
     "misc": [],
-    "monster": [
-      {
-        "type": "minecraft:spider",
-        "maxCount": 4,
-        "minCount": 4,
-        "weight": 100
-      },
-      {
-        "type": "minecraft:zombie",
-        "maxCount": 4,
-        "minCount": 4,
-        "weight": 95
-      },
-      {
-        "type": "minecraft:zombie_villager",
-        "maxCount": 1,
-        "minCount": 1,
-        "weight": 5
-      },
-      {
-        "type": "minecraft:skeleton",
-        "maxCount": 4,
-        "minCount": 4,
-        "weight": 100
-      },
-      {
-        "type": "minecraft:creeper",
-        "maxCount": 4,
-        "minCount": 4,
-        "weight": 100
-      },
-      {
-        "type": "minecraft:slime",
-        "maxCount": 4,
-        "minCount": 4,
-        "weight": 100
-      },
-      {
-        "type": "minecraft:enderman",
-        "maxCount": 4,
-        "minCount": 1,
-        "weight": 10
-      },
-      {
-        "type": "minecraft:witch",
-        "maxCount": 1,
-        "minCount": 1,
-        "weight": 5
-      }
-    ],
-    "underground_water_creature": [
-      {
-        "type": "minecraft:glow_squid",
-        "maxCount": 6,
-        "minCount": 4,
-        "weight": 10
-      }
-    ],
-    "water_ambient": [
-      {
-        "type": "minecraft:salmon",
-        "weight": 15,
-        "minCount": 8,
-        "maxCount": 8
-      }
-    ],
-    "water_creature": [
-      {
-        "type": "minecraft:dolphin",
-        "weight": 10,
-        "minCount": 4,
-        "maxCount": 6
-      },
-      {
-        "type": "minecraft:squid",
-        "weight": 10,
-        "minCount": 4,
-        "maxCount": 6
-      }
-    ],
+    "monster": [],
+    "underground_water_creature": [],
+    "water_ambient": [],
+    "water_creature": [],
     "alexscaves:deep_sea_creature": []
   },
   "temperature": -0.2

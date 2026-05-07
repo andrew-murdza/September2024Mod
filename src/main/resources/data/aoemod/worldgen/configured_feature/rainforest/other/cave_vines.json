@@ -2,8 +2,8 @@
   "type": "aoemod:cave_vines",
   "config": {
     "chance": 0.03,
-    "weeping_vines_chance": 0.08,
-    "spore_blossom_chance": 0.1,
+    "weeping_vines_chance": 0.0,
+    "spore_blossom_chance": 0.18,
     "height_provider": {
       "type": "minecraft:uniform",
       "value": {

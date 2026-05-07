@@ -3,9 +3,29 @@
   "config": {
     "features": [
       {
-        "chance": 0.30,
+        "chance": 0.28,
         "feature": {
           "feature": "aoemod:mountains/water/water_plants",
+          "placement": [
+            {
+              "type": "minecraft:block_predicate_filter",
+              "predicate": {
+                "type": "minecraft:has_sturdy_face",
+                "offset": [
+                  0,
+                  -1,
+                  0
+                ],
+                "direction": "up"
+              }
+            }
+          ]
+        }
+      },
+      {
+        "chance": 0.02,
+        "feature": {
+          "feature": "aoemod:glow_lichen",
           "placement": [
             {
               "type": "minecraft:block_predicate_filter",

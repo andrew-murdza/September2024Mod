@@ -1,6 +1,6 @@
 {
   "carvers": {},
-  "downfall": 0.4,
+  "downfall": 0.8,
   "effects": {
     "fog_color": 12638463,
     "mood_sound": {
@@ -33,6 +33,7 @@
       "aoemod:savanna/flowers",
       "aoemod:rainforest/forest_floor",
       "aoemod:savanna/forest_floor",
+      "aoemod:plains/forest_floor",
       "aoemod:rainforest/seafloor",
       "aoemod:savanna/seafloor",
       "aoemod:rainforest/seafloor_shallow",
@@ -42,185 +43,17 @@
       "minecraft:freeze_top_layer"
     ]
   ],
-  "has_precipitation": false,
+  "has_precipitation": true,
   "spawn_costs": {},
   "spawners": {
-    "ambient": [
-      {
-        "type": "minecraft:bat",
-        "maxCount": 8,
-        "minCount": 8,
-        "weight": 10
-      }
-    ],
+    "ambient": [],
     "axolotls": [],
-    "creature": [
-      {
-        "type": "minecraft:cat",
-        "weight": 5,
-        "minCount": 2,
-        "maxCount": 5
-      },
-      {
-        "type": "minecraft:chicken",
-        "weight": 20,
-        "minCount": 2,
-        "maxCount": 5
-      },
-      {
-        "type": "minecraft:cow",
-        "weight": 20,
-        "minCount": 2,
-        "maxCount": 5
-      },
-      {
-        "type": "minecraft:donkey",
-        "weight": 5,
-        "minCount": 2,
-        "maxCount": 5
-      },
-      {
-        "type": "minecraft:horse",
-        "weight": 20,
-        "minCount": 2,
-        "maxCount": 5
-      },
-      {
-        "type": "minecraft:pig",
-        "weight": 10,
-        "minCount": 2,
-        "maxCount": 5
-      },
-      {
-        "type": "minecraft:rabbit",
-        "weight": 20,
-        "minCount": 2,
-        "maxCount": 5
-      },
-      {
-        "type": "minecraft:sheep",
-        "weight": 20,
-        "minCount": 2,
-        "maxCount": 5
-      },
-      {
-        "type": "minecraft:fox",
-        "weight": 5,
-        "minCount": 2,
-        "maxCount": 5
-      },
-      {
-        "type": "minecraft:goat",
-        "weight": 5,
-        "minCount": 2,
-        "maxCount": 5
-      },
-      {
-        "type": "minecraft:llama",
-        "weight": 5,
-        "minCount": 2,
-        "maxCount": 5
-      },
-      {
-        "type": "minecraft:wolf",
-        "weight": 5,
-        "minCount": 2,
-        "maxCount": 5
-      },
-//      {
-//        "type": "aoemod:zebra",
-//        "weight": 10,
-//        "minCount": 2,
-//        "maxCount": 5
-//      },
-//      {
-//        "type": "aoemod:giraffe",
-//        "weight": 10,
-//        "minCount": 2,
-//        "maxCount": 5
-//      },
-//      {
-//        "type": "aoemod:rhino",
-//        "weight": 10,
-//        "minCount": 2,
-//        "maxCount": 5
-//      }
-    ],
+    "creature": [],
     "misc": [],
-    "monster": [
-      {
-        "type": "minecraft:spider",
-        "maxCount": 4,
-        "minCount": 4,
-        "weight": 100
-      },
-      {
-        "type": "minecraft:zombie",
-        "maxCount": 4,
-        "minCount": 4,
-        "weight": 95
-      },
-      {
-        "type": "minecraft:zombie_villager",
-        "maxCount": 1,
-        "minCount": 1,
-        "weight": 5
-      },
-      {
-        "type": "minecraft:skeleton",
-        "maxCount": 4,
-        "minCount": 4,
-        "weight": 100
-      },
-      {
-        "type": "minecraft:witch",
-        "maxCount": 1,
-        "minCount": 1,
-        "weight": 5
-      }
-    ],
-    "underground_water_creature": [
-      {
-        "type": "minecraft:glow_squid",
-        "maxCount": 6,
-        "minCount": 4,
-        "weight": 10
-      }
-    ],
-    "water_ambient": [
-      {
-        "type": "minecraft:tropical_fish",
-        "weight": 25,
-        "minCount": 8,
-        "maxCount": 8
-      },
-      {
-        "type": "minecraft:salmon",
-        "weight": 15,
-        "minCount": 8,
-        "maxCount": 8
-      },
-      {
-        "type": "minecraft:pufferfish",
-        "weight": 5,
-        "minCount": 8,
-        "maxCount": 8
-      }
-      //      {
-      //        "type": "aoemod:shrimp",
-      //        "weight": 10,
-      //        "minCount": 2,
-      //        "maxCount": 5
-      //      },
-    ],
-    "water_creature": [
-      {
-        "type": "minecraft:squid",
-        "weight": 10,
-        "minCount": 4,
-        "maxCount": 6
-      }
-    ]
+    "monster": [],
+    "underground_water_creature": [],
+    "water_ambient": [],
+    "water_creature": []
   },
-  "temperature": 0.8
+  "temperature": 0.80
 }

@@ -16,24 +16,15 @@ public class NetherSugarCane extends SugarCaneBlock {
     }
 
     public boolean canSurvive(BlockState pState, LevelReader pLevel, BlockPos pPos) {
-        BlockState soil = pLevel.getBlockState(pPos.below());
-        if (soil.canSustainPlant(pLevel, pPos.below(), Direction.UP, this)) return true;
-        BlockState blockstate = pLevel.getBlockState(pPos.below());
+        BlockPos blockpos = pPos.below();
+        BlockState blockstate = pLevel.getBlockState(blockpos);
         if (blockstate.is(this)) {
             return true;
         } else {
             if (blockstate.is(BlockTags.NYLIUM) || blockstate.is(Blocks.SOUL_SOIL) || blockstate.is(Blocks.NETHERRACK)|| blockstate.is(Blocks.BLACKSTONE) || blockstate.is(Blocks.BASALT) || blockstate.is(Blocks.GRAVEL)) {
-                BlockPos blockpos = pPos.below();
                 for(Direction direction : Direction.Plane.HORIZONTAL) {
-                    pLevel.getBlockState(blockpos.relative(direction));
                     FluidState fluidstate = pLevel.getFluidState(blockpos.relative(direction));
-                    if(fluidstate==Fluids.LAVA.defaultFluidState()){
-                        fluidstate=Fluids.WATER.defaultFluidState();
-                    }
-                    else {
-                        fluidstate=Fluids.LAVA.defaultFluidState();
-                    }
-                    if (pState.canBeHydrated(pLevel, pPos, fluidstate, blockpos.relative(direction))) {
+                    if(fluidstate.is(Fluids.LAVA)){
                         return true;
                     }
                 }

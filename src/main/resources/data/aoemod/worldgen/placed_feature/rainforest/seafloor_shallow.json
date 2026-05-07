@@ -1,8 +1,4 @@
 {
   "feature": "aoemod:rainforest/water/seafloor_shallow",
-  "placement": [
-    {
-      "type": "minecraft:biome"
-    }
-  ]
+  "placement": []
 }

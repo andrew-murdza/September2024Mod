@@ -18,7 +18,7 @@
     "minecraft:mangrove_roots",
     "minecraft:pitcher_plant",
     "minecraft:small_dripleaf",
-    "minecraft:nether_sprouts",
+    "#aoemod:nether_sprouts",
     "minecraft:crimson_roots",
     "minecraft:warped_roots",
     "minecraft:shroomlight",
@@ -30,8 +30,12 @@
     "alexscaves:midnight_anemone",
     "alexscaves:twilight_anemone",
     "alexscaves:dusk_anemone",
+    "alexscaves:ping_pong_sponge",
+    "alexscaves:bone_worms",
     "upgrade_aquatic:tall_pickerelweed",
     "upgrade_aquatic:prismarine_coral",
-    "upgrade_aquatic:prismarine_coral_fan"
+    "upgrade_aquatic:prismarine_coral_fan",
+    "aoemod:desert_grass",
+    "#aoemod:charnia"
   ]
 }

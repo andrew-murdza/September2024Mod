@@ -33,52 +33,49 @@
     [],
     [],
     [
-      "aoemod:desert/blobs/andesite_lower",
-      "aoemod:desert/blobs/andesite_upper",
-      "aoemod:desert/blobs/basalt",
-      "aoemod:desert/blobs/calcite_lower",
-      "aoemod:desert/blobs/calcite_upper",
-      "aoemod:desert/blobs/diorite_lower",
-      "aoemod:desert/blobs/diorite_upper",
-      "aoemod:desert/blobs/granite_lower",
-      "aoemod:desert/blobs/granite_upper",
-      "aoemod:desert/blobs/gravel",
-      "aoemod:desert/blobs/red_sand",
-      "aoemod:desert/blobs/red_sandstone_lower",
-      "aoemod:desert/blobs/red_sandstone_upper",
-      "aoemod:desert/blobs/sand_lower",
-      "aoemod:desert/blobs/sand_upper",
-      "aoemod:desert/blobs/sandstone_lower",
-      "aoemod:desert/blobs/sandstone_upper",
-      "aoemod:desert/blobs/tuff",
-      "aoemod:desert/ores/ore_coal_lower",
-      "aoemod:desert/ores/ore_coal_upper",
-      "aoemod:desert/ores/ore_copper",
-      "aoemod:desert/ores/ore_copper_large",
-      "aoemod:desert/ores/ore_gold",
-      "aoemod:desert/ores/ore_gold_extra",
-      "aoemod:desert/ores/ore_iron_middle",
-      "aoemod:desert/ores/ore_iron_small",
-      "aoemod:desert/ores/ore_iron_upper",
-      "aoemod:desert/ores/ore_redstone",
-      "aoemod:desert/ores/ore_redstone_lower"
+      "aoemod:deep_dark/blobs/andesite_lower",
+      "aoemod:deep_dark/blobs/andesite_upper",
+      "aoemod:deep_dark/blobs/basalt",
+      "aoemod:deep_dark/blobs/calcite_lower",
+      "aoemod:deep_dark/blobs/calcite_upper",
+      "aoemod:deep_dark/blobs/diorite_lower",
+      "aoemod:deep_dark/blobs/diorite_upper",
+      "aoemod:deep_dark/blobs/granite_lower",
+      "aoemod:deep_dark/blobs/granite_upper",
+      "aoemod:deep_dark/blobs/gravel",
+      "aoemod:deep_dark/blobs/red_sand",
+      "aoemod:deep_dark/blobs/red_sandstone_lower",
+      "aoemod:deep_dark/blobs/red_sandstone_upper",
+      "aoemod:deep_dark/blobs/sand_lower",
+      "aoemod:deep_dark/blobs/sand_upper",
+      "aoemod:deep_dark/blobs/sandstone_lower",
+      "aoemod:deep_dark/blobs/sandstone_upper",
+      "aoemod:deep_dark/blobs/tuff",
+      "aoemod:deep_dark/ores/ore_coal_lower",
+      "aoemod:deep_dark/ores/ore_coal_upper",
+      "aoemod:deep_dark/ores/ore_copper",
+      "aoemod:deep_dark/ores/ore_copper_large",
+      "aoemod:deep_dark/ores/ore_gold",
+      "aoemod:deep_dark/ores/ore_gold_extra",
+      "aoemod:deep_dark/ores/ore_iron_middle",
+      "aoemod:deep_dark/ores/ore_iron_small",
+      "aoemod:deep_dark/ores/ore_iron_upper",
+      "aoemod:deep_dark/ores/ore_redstone",
+      "aoemod:deep_dark/ores/ore_redstone_lower",
+      "aoemod:deep_dark/ores/ore_lapis",
+      "aoemod:deep_dark/ores/ore_lapis_buried"
     ],
     [
-      "minecraft:sculk_vein",
-      "minecraft:sculk_patch_deep_dark"
+      "aoemod:deep_dark/sculk_wall_scan"
     ],
     [],
     [
-      "minecraft:glow_lichen",
-      "minecraft:patch_dead_bush_2",
-      "minecraft:patch_sugar_cane_desert",
-      "aoemod:desert/patch_cactus",
-      "aoemod:desert/mushrooms",
       "aoemod:mountains/forest_floor",
+      "aoemod:deep_dark/forest_floor",
       "aoemod:mountains/seafloor",
-      "aoemod:desert/seafloor",
+      "aoemod:deep_dark/seafloor",
       "aoemod:mountains/seafloor_shallow",
-      "aoemod:desert/seafloor_shallow"
+      "aoemod:deep_dark/seafloor_shallow"
     ],
     [
       "minecraft:freeze_top_layer"
@@ -98,44 +95,7 @@
     "axolotls": [],
     "creature": [],
     "misc": [],
-    "monster": [
-      {
-        "type": "minecraft:spider",
-        "maxCount": 4,
-        "minCount": 4,
-        "weight": 100
-      },
-      {
-        "type": "minecraft:zombie",
-        "maxCount": 4,
-        "minCount": 4,
-        "weight": 19
-      },
-      {
-        "type": "minecraft:zombie_villager",
-        "maxCount": 1,
-        "minCount": 1,
-        "weight": 1
-      },
-      {
-        "type": "minecraft:skeleton",
-        "maxCount": 4,
-        "minCount": 4,
-        "weight": 100
-      },
-      {
-        "type": "minecraft:enderman",
-        "maxCount": 4,
-        "minCount": 1,
-        "weight": 10
-      },
-      {
-        "type": "minecraft:witch",
-        "maxCount": 1,
-        "minCount": 1,
-        "weight": 5
-      }
-    ],
+    "monster": [],
     "underground_water_creature": [
       {
         "type": "minecraft:glow_squid",
