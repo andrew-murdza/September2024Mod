@@ -8,7 +8,13 @@
     "direction": "up",
     "layers": [
       {
-        "height": 2,
+        "height": {
+          "type": "minecraft:uniform",
+          "value": {
+            "max_inclusive": 3,
+            "min_inclusive": 1
+          }
+        },
         "provider": {
           "type": "minecraft:simple_state_provider",
           "state": {
