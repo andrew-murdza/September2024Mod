@@ -1,0 +1,28 @@
+{
+  "type": "minecraft:simple_block",
+  "config": {
+    "to_place": {
+      "type": "minecraft:weighted_state_provider",
+      "entries": [
+        {
+          "data": {
+            "Name": "minecraft:sculk_sensor"
+          },
+          "weight": 12
+        },
+        {
+          "data": {
+            "Name": "minecraft:sculk_catalyst"
+          },
+          "weight": 5
+        },
+        {
+          "data": {
+            "Name": "minecraft:sculk_shrieker"
+          },
+          "weight": 1
+        }
+      ]
+    }
+  }
+}

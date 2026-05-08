@@ -23,7 +23,7 @@ public class BouddhasHandFeature extends Feature<NoneFeatureConfiguration> {
     @Override
     public boolean place(FeaturePlaceContext<NoneFeatureConfiguration> context) {
         WorldGenLevel level = context.level();
-        BlockPos basePos = context.origin();
+        BlockPos basePos = context.origin().below();
 
         if (!level.getBlockState(basePos).is(Blocks.SOUL_SOIL)) {
             return false;

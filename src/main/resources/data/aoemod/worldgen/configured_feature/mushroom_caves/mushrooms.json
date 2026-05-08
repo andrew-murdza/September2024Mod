@@ -3,7 +3,7 @@
   "config": {
     "features": [
       {
-        "chance": 0.365,
+        "chance": 0.20,
         "feature": {
           "feature": "aoemod:brown_mushroom_patch",
           "placement": [
@@ -19,7 +19,7 @@
         }
       },
       {
-        "chance": 0.365,
+        "chance": 0.20,
         "feature": {
           "feature": "aoemod:red_mushroom_patch",
           "placement": [
@@ -35,7 +35,7 @@
         }
       },
       {
-        "chance": 0.09,
+        "chance": 0.20,
         "feature": {
           "feature": "aoemod:snowcap_pinhead_patch",
           "placement": [
@@ -51,7 +51,7 @@
         }
       },
       {
-        "chance": 0.09,
+        "chance": 0.20,
         "feature": {
           "feature": "aoemod:mushgloom_patch",
           "placement": [
@@ -67,7 +67,7 @@
         }
       },
       {
-        "chance": 0.09,
+        "chance": 0.20,
         "feature": {
           "feature": "aoemod:glow_shroom_patch",
           "placement": [

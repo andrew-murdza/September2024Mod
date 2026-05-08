@@ -1,12 +1,16 @@
 {
-  "feature": "aoemod:mountains/mushrooms",
+  "feature": "aoemod:plains/mushrooms",
   "placement": [
     {
       "type": "minecraft:rarity_filter",
-      "chance": 4
+      "chance": 5
     },
     {
       "type": "minecraft:in_square"
+    },
+    {
+      "type": "minecraft:count_on_every_layer",
+      "count": 1
     },
     {
       "type": "minecraft:block_predicate_filter",
@@ -22,15 +26,10 @@
           "blocks": [
             "minecraft:grass_block",
             "minecraft:dirt",
-            "minecraft:blue_ice",
-            "minecraft:rooted_dirt"
+            "minecraft:blue_ice"
           ]
         }
       }
-    },
-    {
-      "type": "minecraft:heightmap",
-      "heightmap": "MOTION_BLOCKING"
     },
     {
       "type": "minecraft:biome"

@@ -3,7 +3,7 @@
   "config": {
     "features": [
       {
-        "chance": 0.20,
+        "chance": 0.03,
         "feature": {
           "feature": "aoemod:basalt_deltas/floor/grass",
           "placement": [
@@ -16,14 +16,14 @@
                   -1,
                   0
                 ],
-                "tag": "aoemod:nether_roots_placeable"
+                "tag": "aoemod:basalt_stones"
               }
             }
           ]
         }
       },
       {
-        "chance": 0.80,
+        "chance": 0.94,
         "feature": {
           "feature": "aoemod:nothing",
           "placement": []

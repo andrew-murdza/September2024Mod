@@ -3,6 +3,18 @@
   "biomes": ["aoemod:grove","aoemod:snowy_taiga"],
   "spawners": [
     {
+      "type": "iceandfire:troll",
+      "weight": 10,
+      "minCount": 2,
+      "maxCount": 2
+    },
+    {
+      "type": "unusualfishmod:frosty_fin",
+      "weight": 10,
+      "minCount": 2,
+      "maxCount": 5
+    },
+    {
       "type": "alexsmobs:bald_eagle",
       "weight": 10,
       "minCount": 2,

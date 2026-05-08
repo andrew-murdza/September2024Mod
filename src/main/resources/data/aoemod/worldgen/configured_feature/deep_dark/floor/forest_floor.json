@@ -3,9 +3,9 @@
   "config": {
     "features": [
       {
-        "chance": 0.08,
+        "chance": 0.036,
         "feature": {
-          "feature": "aoemod:deep_dark/floor/forest_floor",
+          "feature": "aoemod:deep_dark/floor/grass",
           "placement": [
             {
               "type": "minecraft:block_predicate_filter",
@@ -25,7 +25,29 @@
         }
       },
       {
-        "chance": 0.92,
+        "chance": 0.01,
+        "feature": {
+          "feature": "minecraft:chorus_plant",
+          "placement": [
+            {
+              "type": "minecraft:block_predicate_filter",
+              "predicate": {
+                "type": "minecraft:matching_blocks",
+                "offset": [
+                  0,
+                  -1,
+                  0
+                ],
+                "blocks": [
+                  "minecraft:sculk"
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "chance": 0.954,
         "feature": {
           "feature": "aoemod:nothing",
           "placement": []

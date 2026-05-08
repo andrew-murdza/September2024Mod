@@ -3,7 +3,7 @@
   "config": {
     "features": [
       {
-        "chance": 0.7,
+        "chance": 0.4,
         "feature": {
           "feature": "aoemod:plains/floor/grass",
           "placement": [
@@ -23,7 +23,7 @@
         }
       },
       {
-        "chance": 0.30,
+        "chance": 0.60,
         "feature": {
           "feature": "aoemod:nothing",
           "placement": []

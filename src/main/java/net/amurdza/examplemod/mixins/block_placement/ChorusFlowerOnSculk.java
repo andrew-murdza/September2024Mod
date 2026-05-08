@@ -1,6 +1,7 @@
 package net.amurdza.examplemod.mixins.block_placement;
 
-import com.llamalad7.mixinextras.injector.ModifyExpressionValue;
+import net.minecraft.core.BlockPos;
+import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.ChorusFlowerBlock;
@@ -9,8 +10,10 @@ import org.objectweb.asm.Opcodes;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
+import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.Redirect;
 import org.spongepowered.asm.mixin.injection.Slice;
+import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 @Mixin(ChorusFlowerBlock.class)
 public class ChorusFlowerOnSculk {
@@ -18,28 +21,52 @@ public class ChorusFlowerOnSculk {
             method = "randomTick",
             at = @At(
                     value = "INVOKE",
-                    target = "Lnet/minecraft/world/level/block/state/BlockState;is(Lnet/minecraft/world/level/block/Block;)Z"
-            ),
-            slice = @Slice(
-                    from = @At(value = "FIELD", target = "Lnet/minecraft/world/level/block/ChorusFlowerBlock;AGE:Lnet/minecraft/world/level/block/state/properties/IntegerProperty;", opcode = Opcodes.GETSTATIC)
-            ),
-            require = 0
+                    target = "Lnet/minecraft/world/level/block/state/BlockState;is(Lnet/minecraft/world/level/block/Block;)Z",
+                    ordinal = 0
+            )
     )
-    private boolean aoe$soilOverride(BlockState state, Block block) {
-        return aOEMod1_20_1V2$isSoil(state, block);
+    private boolean aoe$randomTickTreatSculkAsEndStone(BlockState state, Block block) {
+        if (block == Blocks.END_STONE) {
+            return state.is(Blocks.END_STONE)
+                    || state.is(Blocks.SCULK)
+                    || state.is(Blocks.SCULK_CATALYST);
+        }
+
+        return state.is(block);
     }
 
-    @ModifyExpressionValue(
-            method = "canSurvive",
+    @Redirect(
+            method = "randomTick",
             at = @At(
                     value = "INVOKE",
                     target = "Lnet/minecraft/world/level/block/state/BlockState;is(Lnet/minecraft/world/level/block/Block;)Z",
-                    ordinal = 1
-            ),
-            require = 0
+                    ordinal = 3
+            )
     )
-    private boolean aoe$allowExtraSoil(boolean original, BlockState blockstate) {
-        return aOEMod1_20_1V2$isSoil(blockstate, Blocks.END_STONE);
+    private boolean aoe$columnRootEndStoneCheck(BlockState state, Block block) {
+        return state.is(block)
+                || state.is(Blocks.SCULK)
+                || state.is(Blocks.SCULK_CATALYST);
+    }
+
+    @Inject(method = "canSurvive", at = @At("HEAD"), cancellable = true)
+    private void aoe$canSurviveOnSculk(
+            BlockState state,
+            LevelReader level,
+            BlockPos pos,
+            CallbackInfoReturnable<Boolean> cir
+    ) {
+        BlockState below = level.getBlockState(pos.below());
+
+        if (aoe$isExtraSoil(below)) {
+            cir.setReturnValue(true);
+        }
+    }
+
+    @Unique
+    private static boolean aoe$isExtraSoil(BlockState state) {
+        return state.is(Blocks.SCULK)
+                || state.is(Blocks.SCULK_CATALYST);
     }
 
     @Unique

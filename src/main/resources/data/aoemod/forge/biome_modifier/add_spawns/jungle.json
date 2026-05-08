@@ -12,6 +12,18 @@
 //      "minCount": 2,
 //      "maxCount": 2
 //    },
+    //    {
+    //      "type": "twilight_forest:pinch_beetle",
+    //      "weight": 8,
+    //      "minCount": 2,
+    //      "maxCount": 5
+    //    },
+    //    {
+    //      "type": "alexsmobs:tarantula_hawk",
+    //      "weight": 2,
+    //      "minCount": 2,
+    //      "maxCount": 5
+    //    }
     {
       "type": "alexscaves:grottoceratops",
       "weight": 5,

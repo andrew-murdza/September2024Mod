@@ -9,6 +9,12 @@
       "maxCount": 6
     },
     {
+      "type": "alexscaves:demon_herring",
+      "weight": 10,
+      "minCount": 4,
+      "maxCount": 6
+    },
+    {
       "type": "alexsmobs:bunfungus",
       "weight": 10,
       "minCount": 4,

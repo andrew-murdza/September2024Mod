@@ -12,6 +12,6 @@
       "type": "minecraft:matching_blocks",
       "blocks": ["minecraft:sculk"]
     },
-    "biomes": "aoemod:deep_dark_biomes"
+    "biomes": "aoemod:nether_and_sculk_biomes"
   }
 }

@@ -19,35 +19,7 @@
       {
         "chance": 0.1,
         "feature": {
-          "feature": "biomeswevegone:huge_weeping_milkcap1",
-          "placement": []
-        }
-      },
-      {
-        "chance": 0.1,
-        "feature": {
-          "feature": "biomeswevegone:huge_wood_blewit1",
-          "placement": []
-        }
-      },
-      {
-        "chance": 0.1,
-        "feature": {
-          "feature": "biomeswevegone:huge_green_mushroom1",
-          "placement": []
-        }
-      },
-      {
-        "chance": 0.1,
-        "feature": {
           "feature": "minecraft:huge_brown_mushroom",
-          "placement": []
-        }
-      },
-      {
-        "chance": 0.1,
-        "feature": {
-          "feature": "minecraft:huge_red_mushroom",
           "placement": []
         }
       },

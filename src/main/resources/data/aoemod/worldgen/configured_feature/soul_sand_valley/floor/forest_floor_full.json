@@ -12,6 +12,6 @@
       "type": "minecraft:matching_blocks",
       "blocks": ["minecraft:soul_sand","minecraft:soul_soil"]
     },
-    "biomes": "aoemod:soul_sand_valley_biomes"
+    "biomes": "aoemod:nether_and_sculk_biomes"
   }
 }

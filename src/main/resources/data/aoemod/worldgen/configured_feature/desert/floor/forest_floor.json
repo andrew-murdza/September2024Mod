@@ -25,7 +25,7 @@
         }
       },
       {
-        "chance": 0.004,
+        "chance": 0.003,
         "feature": {
           "feature": "aoemod:desert/floor/cactus",
           "placement": [
@@ -47,7 +47,7 @@
         }
       },
       {
-        "chance": 0.025,
+        "chance": 0.008,
         "feature": {
           "feature": "aoemod:desert/floor/red_sand_grass",
           "placement": [
@@ -69,7 +69,7 @@
         }
       },
       {
-        "chance": 0.871,
+        "chance": 0.8889,
         "feature": {
           "feature": "aoemod:nothing",
           "placement": []
