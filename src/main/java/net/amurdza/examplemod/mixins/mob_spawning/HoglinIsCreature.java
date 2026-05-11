@@ -14,6 +14,7 @@ public class HoglinIsCreature {
             at = @At(
                     value = "INVOKE",
                     target = "Lnet/minecraft/world/entity/EntityType$Builder;of(Lnet/minecraft/world/entity/EntityType$EntityFactory;Lnet/minecraft/world/entity/MobCategory;)Lnet/minecraft/world/entity/EntityType$Builder;"
+                    ,ordinal = 0
             ),
             index = 1,
             slice = @Slice(

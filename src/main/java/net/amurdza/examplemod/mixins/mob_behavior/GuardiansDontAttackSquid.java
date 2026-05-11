@@ -18,9 +18,8 @@ public class GuardiansDontAttackSquid {
     private Guardian guardian;
 
     /**
-     * Original:
-     * return (pEntity instanceof Player || pEntity instanceof Squid || pEntity instanceof Axolotl)
-     *        && pEntity.distanceToSqr(this.guardian) > 9.0D;
+     * @author amurdza
+     * @reason easiest way to do what I want
      */
     @Overwrite
     public boolean test(@Nullable LivingEntity pEntity) {

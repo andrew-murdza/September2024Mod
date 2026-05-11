@@ -12,7 +12,7 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Redirect;
 @Mixin(SugarCaneBlock.class)
     public class SugarcaneCanGrowWithoutWater {
-    @Redirect(method = "canSurvive",at=@At(value = "INVOKE",target = "Lnet/minecraft/world/level/block/state/BlockState;canBeHydrated(Lnet/minecraft/world/level/BlockGetter;Lnet/minecraft/core/BlockPos;Lnet/minecraft/world/level/material/FluidState;Lnet/minecraft/core/BlockPos;)Z"))
+    @Redirect(method = "canSurvive",at=@At(value = "INVOKE",target = "Lnet/minecraft/world/level/block/state/BlockState;canBeHydrated(Lnet/minecraft/world/level/BlockGetter;Lnet/minecraft/core/BlockPos;Lnet/minecraft/world/level/material/FluidState;Lnet/minecraft/core/BlockPos;)Z",remap = false))
     private boolean growWithoutWater(BlockState instance, BlockGetter blockGetter, BlockPos blockPos, FluidState fluidState, BlockPos blockPos1){
         if(blockGetter instanceof LevelAccessor level&&level.getBlockState(blockPos.below()).is(Blocks.MOSS_BLOCK)){
             return true;

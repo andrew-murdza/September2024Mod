@@ -23,7 +23,27 @@
         }
       },
       {
-        "chance": 0.94,
+        "chance": 0.001,
+        "feature": {
+          "feature": "biomeswevegone:witch_hazel3",
+          "placement": [
+            {
+              "type": "minecraft:block_predicate_filter",
+              "predicate": {
+                "type": "minecraft:matching_block_tag",
+                "offset": [
+                  0,
+                  -1,
+                  0
+                ],
+                "tag": "aoemod:basalt_stones"
+              }
+            }
+          ]
+        }
+      },
+      {
+        "chance": 0.969,
         "feature": {
           "feature": "aoemod:nothing",
           "placement": []

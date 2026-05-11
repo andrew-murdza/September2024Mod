@@ -117,6 +117,12 @@ public class Config
                 2.0   // mushroom
         );
 
+        defineBiomeTagMultipliers(builder,
+                ModTags.Biomes.deepDarkBiomes,
+                0.5,  // plant
+                1   // mushroom
+        );
+
         // Mountains: plant *0.5, but "mushroom category" (MYCELIUM + MushroomBlock) *1.5
         defineBiomeTagMultipliers(builder,
                 ModTags.Biomes.mountainBiomes,

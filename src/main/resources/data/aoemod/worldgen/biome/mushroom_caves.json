@@ -61,7 +61,6 @@
       "minecraft:spring_water"
     ],
     [
-//      "minecraft:glow_lichen",
       "aoemod:mushroom_caves/trees",
       "aoemod:mushroom_caves/mushrooms",
       "aoemod:mushroom_caves/seafloor",
@@ -74,14 +73,134 @@
   "has_precipitation": true,
   "spawn_costs": {},
   "spawners": {
-    "ambient": [],
+    "ambient": [
+      {
+        "type": "minecraft:bat",
+        "maxCount": 8,
+        "minCount": 8,
+        "weight": 10
+      }
+    ],
     "axolotls": [],
-    "creature": [],
+    "creature": [
+      {
+        "type": "alexsmobs:bunfungus",
+        "weight": 10,
+        "minCount": 4,
+        "maxCount": 6
+      },
+      {
+        "type": "trailsandtalesplus:cluckshroom",
+        "weight": 10,
+        "minCount": 2,
+        "maxCount": 5
+      },
+      {
+        "type": "minecraft:mooshroom",
+        "weight": 5,
+        "minCount": 2,
+        "maxCount": 5
+      }
+    ],
     "misc": [],
-    "monster": [],
-    "underground_water_creature": [],
-    "water_ambient": [],
-    "water_creature": []
+    "monster": [
+      {
+        "type": "twilight_forest:troll",
+        "weight": 10,
+        "minCount": 2,
+        "maxCount": 3
+      },
+      {
+        "type": "alexsmobs:skelewag",
+        "weight": 10,
+        "minCount": 4,
+        "maxCount": 4
+      },
+      {
+        "type": "upgrade_aquatic:thrasher",
+        "maxCount": 6,
+        "minCount": 4,
+        "weight": 10
+      },
+      {
+        "type": "minecraft:guardian",
+        "weight": 15,
+        "minCount": 4,
+        "maxCount": 4
+      }
+    ],
+    "underground_water_creature": [
+      {
+        "type": "minecraft:glow_squid",
+        "maxCount": 6,
+        "minCount": 4,
+        "weight": 10
+      }
+    ],
+    "water_ambient": [
+      {
+        "type": "alexscaves:gossamer_worm",
+        "weight": 10,
+        "minCount": 4,
+        "maxCount": 6
+      },
+      {
+        "type": "alexscaves:demon_herring",
+        "weight": 10,
+        "minCount": 4,
+        "maxCount": 6
+      },
+      {
+        "type": "alexscaves:lanternfish",
+        "weight": 5,
+        "minCount": 8,
+        "maxCount": 8
+      },
+      {
+        "type": "alexscaves:sea_pig",
+        "weight": 10,
+        "minCount": 4,
+        "maxCount": 6
+      },
+      {
+        "type": "alexscaves:tripodfish",
+        "weight": 10,
+        "minCount": 4,
+        "maxCount": 6
+      },
+      {
+        "type": "hybrid-aquatic:firework_jellyfish",
+        "weight": 5,
+        "minCount": 2,
+        "maxCount": 3
+      },
+      {
+        "type": "unusualfishmod:wizard_jelly",
+        "weight": 5,
+        "minCount": 2,
+        "maxCount": 3
+      },
+      {
+        "type": "hybrid-aquatic:vampire_squid",
+        "weight": 5,
+        "minCount": 2,
+        "maxCount": 3
+      }
+    ],
+    "water_creature": [
+      {
+        "type": "hybrid-aquatic:frilled_shark",
+        "weight": 5,
+        "minCount": 2,
+        "maxCount": 3
+      },
+      {
+        "type": "alexscaves:hullbreaker",
+        "maxCount": 1,
+        "minCount": 1,
+        "weight": 2
+      }
+    ]
   },
   "temperature": -0.2
 }

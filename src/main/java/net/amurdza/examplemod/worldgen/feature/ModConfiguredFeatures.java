@@ -37,6 +37,10 @@ public class ModConfiguredFeatures {
     public static final ResourceKey<ConfiguredFeature<?, ?>> MOUNTAINS_SEAFLOOR = key("mountains/water/water_plants_full");
     public static final ResourceKey<ConfiguredFeature<?, ?>> MOUNTAINS_SEAFLOOR_SHALLOW = key("mountains/water/water_plants_shallow_full");
 
+    public static final ResourceKey<ConfiguredFeature<?, ?>> DEEP_DARK_FLOOR = key("deep_dark/floor/forest_floor");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> DEEP_DARK_SEAFLOOR = key("deep_dark/water/water_plants_full");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> DEEP_DARK_SEAFLOOR_SHALLOW = key("deep_dark/water/water_plants_shallow_full");
+
     public static final ResourceKey<ConfiguredFeature<?, ?>> MUSHROOM_CAVES_FLOOR = key("mushroom_caves/floor/forest_floor");
     public static final ResourceKey<ConfiguredFeature<?, ?>> MUSHROOM_CAVES_SEAFLOOR = key("mushroom_caves/water/water_plants_full");
     public static final ResourceKey<ConfiguredFeature<?, ?>> MUSHROOM_CAVES_SEAFLOOR_SHALLOW = key("mushroom_caves/water/water_plants_shallow_full");

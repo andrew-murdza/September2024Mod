@@ -91,10 +91,47 @@
         "maxCount": 8,
         "minCount": 8,
         "weight": 10
+      },
+      {
+        "type": "alexsmobs:jerboa",
+        "weight": 10,
+        "minCount": 2,
+        "maxCount": 5
       }
     ],
     "axolotls": [],
-    "creature": [],
+    "creature": [
+      {
+        "type": "minecraft:rabbit",
+        "weight": 4,
+        "minCount": 2,
+        "maxCount": 3
+      },
+      {
+        "type": "minecraft:camel",
+        "weight": 4,
+        "minCount": 2,
+        "maxCount": 3
+      },
+      {
+        "type": "faunify:fennec_fox",
+        "weight": 5,
+        "minCount": 4,
+        "maxCount": 4
+      },
+      {
+        "type": "alexsmobs:komodo_dragon",
+        "weight": 2,
+        "minCount": 2,
+        "maxCount": 5
+      },
+      {
+        "type": "alexsmobs:sunbird",
+        "weight": 10,
+        "minCount": 1,
+        "maxCount": 1
+      }
+    ],
     "misc": [],
     "monster": [
       {
@@ -123,8 +160,40 @@
       }
     ],
     "underground_water_creature": [],
-    "water_ambient": [],
-    "water_creature": []
+    "water_ambient": [
+      {
+        "type": "alexsmobs:triops",
+        "weight": 5,
+        "minCount": 4,
+        "maxCount": 6
+      },
+      {
+        "type": "ambientadditions:blue_spotted_stingray",
+        "weight": 5,
+        "minCount": 4,
+        "maxCount": 6
+      },
+      {
+        "type": "finsandtails:golden_river_ray",
+        "weight": 5,
+        "minCount": 4,
+        "maxCount": 6
+      },
+      {
+        "type": "ambientadditions:shame_faced_crab",
+        "weight": 5,
+        "minCount": 2,
+        "maxCount": 2
+      }
+    ],
+    "water_creature": [
+      {
+        "type": "hybrid-aquatic:hound_shark",
+        "weight": 5,
+        "minCount": 4,
+        "maxCount": 6
+      }
+    ]
   },
   "temperature": 2
 }

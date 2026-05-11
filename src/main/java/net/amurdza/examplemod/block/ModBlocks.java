@@ -2,7 +2,6 @@ package net.amurdza.examplemod.block;
 
 import net.amurdza.examplemod.AOEMod;
 import net.amurdza.examplemod.item.ModItems;
-import net.amurdza.examplemod.worldgen.feature.ModFeatures;
 import net.mcreator.nourishednether.init.NourishedNetherModBlocks;
 import net.minecraft.util.valueproviders.UniformInt;
 import net.minecraft.world.effect.MobEffects;
@@ -73,16 +72,6 @@ public class ModBlocks {
             () -> new CharniaBlock(BlockBehaviour.Properties.of().mapColor(MapColor.WATER).noCollission().instabreak().sound(SoundType.GRASS)
                     .pushReaction(PushReaction.DESTROY)));
 
-
-
-    public static final RegistryObject<Block> CAVE_VINES=registerBlock("cave_vines", ()->new CaveVinesHeadNew(BlockBehaviour.Properties.copy(Blocks.CAVE_VINES).lightLevel(CaveVines.emission(15))));
-    public static final RegistryObject<Block> CAVE_VINES_PLANT=registerBlock("cave_vines_plant", ()->new CaveVinesPlantNew(BlockBehaviour.Properties.copy(Blocks.CAVE_VINES_PLANT).lightLevel(CaveVines.emission(15)).randomTicks()));
-    public static final RegistryObject<Block> SEA_PICKLE=registerBlockAndItem("sea_pickle",()->new SeaPickleNew(BlockBehaviour.Properties.copy(Blocks.SEA_PICKLE).lightLevel((p_152680_) -> SeaPickleBlock.isDead(p_152680_) ? 0 : 3 + 3 * p_152680_.getValue(SeaPickleBlock.PICKLES))));
-    public static final RegistryObject<Block> LUSHROOM = registerBlockAndItem("lush_mushroom",()->new MushroomBlock(BlockBehaviour.Properties.copy(Blocks.RED_MUSHROOM).mapColor(MapColor.COLOR_GREEN), ModFeatures.HUGE_LUSHROOM));
-    public static final RegistryObject<Block> LUSHROOM_BLOCK = registerBlockAndItem("lush_mushroom_block", () -> new HugeMushroomBlock(BlockBehaviour.Properties.copy(Blocks.RED_MUSHROOM_BLOCK).mapColor(MapColor.COLOR_GREEN)));
-    public static final RegistryObject<Block> CHERRY_VINE = registerBlockAndItem("cherry_vine", () -> new VineBlock(BlockBehaviour.Properties.copy(Blocks.VINE).mapColor(MapColor.COLOR_PINK)));
-    public static final RegistryObject<Block> GLOW_SHROOM= registerBlockAndItem("glow_shroom",()->new GlowShroomBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_RED).lightLevel(p->10).noCollission().randomTicks().instabreak().sound(SoundType.GRASS).pushReaction(PushReaction.DESTROY), ModFeatures.HUGE_GLOW_SHROOM));
-    public static final RegistryObject<Block> SUNFLOWER = registerBlockAndItem("sunflower", () -> new Sunflower(BlockBehaviour.Properties.copy(Blocks.SUNFLOWER)));
 
 //    public static final RegistryObject<Block> LAVENDER=registerFlower("lavender",MobEffects.NIGHT_VISION,7);
 //    public static final RegistryObject<Block> WILDFLOWER=registerFlower("wildflower",MobEffects.DAMAGE_RESISTANCE,7);

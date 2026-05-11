@@ -15,20 +15,21 @@
     {
       "type": "minecraft:block_predicate_filter",
       "predicate": {
+        "type": "minecraft:matching_blocks",
+        "blocks": "minecraft:air"
+      }
+    },
+    {
+      "type": "minecraft:block_predicate_filter",
+      "predicate": {
         "type": "minecraft:not",
         "predicate": {
           "type": "minecraft:matching_blocks",
           "offset": [0, -1, 0],
           "blocks": [
             "minecraft:grass_block",
-            "minecraft:dirt",
-            "minecraft:blue_ice",
-            "minecraft:rooted_dirt",
             "minecraft:sand",
-            "minecraft:sandstone",
             "minecraft:red_sand",
-            "minecraft:red_sandstone",
-
             "minecraft:terracotta",
             "minecraft:white_terracotta",
             "minecraft:orange_terracotta",

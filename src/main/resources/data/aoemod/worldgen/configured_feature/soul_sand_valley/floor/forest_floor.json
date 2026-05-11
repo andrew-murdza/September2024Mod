@@ -3,7 +3,7 @@
   "config": {
     "features": [
       {
-        "chance": 0.07,
+        "chance": 0.035,
         "feature": {
           "feature": "aoemod:soul_sand_valley/floor/grass",
           "placement": [
@@ -23,7 +23,7 @@
         }
       },
       {
-        "chance": 0.005,
+        "chance": 0.01,
         "feature": {
           "feature": "aoemod:soul_sand_valley/bouddhas_hand_tree",
           "placement": [
@@ -43,7 +43,7 @@
         }
       },
       {
-        "chance": 0.925,
+        "chance": 0.955,
         "feature": {
           "feature": "aoemod:nothing",
           "placement": []

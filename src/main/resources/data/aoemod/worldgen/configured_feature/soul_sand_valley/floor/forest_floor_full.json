@@ -10,7 +10,7 @@
     "all_layers": true,
     "predicate": {
       "type": "minecraft:matching_blocks",
-      "blocks": ["minecraft:soul_sand","minecraft:soul_soil"]
+      "blocks": ["minecraft:soul_sand","minecraft:soul_soil","nourished_nether:soul_sludge"]
     },
     "biomes": "aoemod:nether_and_sculk_biomes"
   }

@@ -1247,7 +1247,7 @@
                 "type": "aoemod:noise_threshold_3d",
                 "noise": "minecraft:surface",
                 "min_threshold": 0.152,
-                "max_threshold": 1.0
+                "max_threshold": 0.3333
               },
               "then_run": {
                 "type": "minecraft:block",
@@ -1260,7 +1260,7 @@
               "type": "minecraft:condition",
               "if_true": {
                 "type": "aoemod:noise_threshold_3d",
-                "noise": "minecraft:soul_sludge",
+                "noise": "aoemod:soul_sludge",
                 "min_threshold": 0.315,
                 "max_threshold": 1.0
               },

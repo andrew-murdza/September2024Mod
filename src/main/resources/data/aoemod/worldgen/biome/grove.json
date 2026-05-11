@@ -78,7 +78,6 @@
       "aoemod:mountains/trees",
       "aoemod:mountains/berries",
       "aoemod:mountains/mushrooms",
-      "aoemod:mountains/flowers",
       "aoemod:mountains/forest_floor",
       "aoemod:plains/seafloor",
       "aoemod:mountains/seafloor",
@@ -94,17 +93,260 @@
   "has_precipitation": true,
   "spawn_costs": {},
   "spawners": {
-    "ambient": [],
+    "ambient": [
+      {
+        "type": "alexsmobs:underminer",
+        "weight": 10,
+        "minCount": 1,
+        "maxCount": 1
+      },
+      {
+        "type": "minecraft:bat",
+        "maxCount": 8,
+        "minCount": 8,
+        "weight": 10
+      }
+    ],
     "axolotls": [],
     "creature": [
-
+      {
+        "type": "alexsmobs:bald_eagle",
+        "weight": 10,
+        "minCount": 2,
+        "maxCount": 5
+      },
+      {
+        "type": "alexsmobs:moose",
+        "weight": 10,
+        "minCount": 2,
+        "maxCount": 5
+      },
+      {
+        "type": "alexsmobs:froststalker",
+        "weight": 10,
+        "minCount": 2,
+        "maxCount": 5
+      },
+      {
+        "type": "alexsmobs:seal",
+        "weight": 10,
+        "minCount": 2,
+        "maxCount": 5
+      },
+      {
+        "type": "blue_skies:reindeer",
+        "weight": 10,
+        "minCount": 2,
+        "maxCount": 5
+      },
+      {
+        "type": "blue_skies:stardust_ram",
+        "weight": 10,
+        "minCount": 2,
+        "maxCount": 5
+      },
+      {
+        "type": "minecraft:rabbit",
+        "weight": 10,
+        "minCount": 2,
+        "maxCount": 5
+      },
+      {
+        "type": "minecraft:fox",
+        "weight": 10,
+        "minCount": 2,
+        "maxCount": 5
+      },
+      {
+        "type": "minecraft:goat",
+        "weight": 10,
+        "minCount": 2,
+        "maxCount": 5
+      },
+      {
+        "type": "minecraft:llama",
+        "weight": 10,
+        "minCount": 2,
+        "maxCount": 5
+      },
+      {
+        "type": "minecraft:polar_bear",
+        "weight": 10,
+        "minCount": 2,
+        "maxCount": 5
+      },
+      {
+        "type": "minecraft:wolf",
+        "weight": 10,
+        "minCount": 2,
+        "maxCount": 5
+      },
+      {
+        "type": "environmental:reindeer",
+        "weight": 15,
+        "minCount": 4,
+        "maxCount": 4
+      }
     ],
     "misc": [],
-    "monster": [],
-    "underground_water_creature": [],
-    "water_ambient": [],
-    "water_creature": [],
-    "alexscaves:deep_sea_creature": []
+    "monster": [
+      {
+        "type": "iceandfire:troll",
+        "weight": 10,
+        "minCount": 2,
+        "maxCount": 2
+      },
+      {
+        "type": "alexsmobs:skelewag",
+        "weight": 10,
+        "minCount": 4,
+        "maxCount": 4
+      },
+      {
+        "type": "blue_skies:diophyde_prowler",
+        "weight": 10,
+        "minCount": 2,
+        "maxCount": 5
+      },
+      {
+        "type": "twilightforest:stable_ice_core",
+        "weight": 20,
+        "minCount": 2,
+        "maxCount": 5
+      },
+      {
+        "type": "minecraft:stray",
+        "maxCount": 4,
+        "minCount": 4,
+        "weight": 100
+      },
+      {
+        "type": "minecraft:guardian",
+        "weight": 15,
+        "minCount": 4,
+        "maxCount": 4
+      }
+    ],
+    "underground_water_creature": [
+      {
+        "type": "minecraft:glow_squid",
+        "maxCount": 6,
+        "minCount": 4,
+        "weight": 10
+      }
+    ],
+    "water_ambient": [
+      {
+        "type": "unusualfishmod:frosty_fin",
+        "weight": 10,
+        "minCount": 2,
+        "maxCount": 5
+      },
+      {
+        "type": "alexsmobs:devils_hole_pupfish",
+        "weight": 5,
+        "minCount": 4,
+        "maxCount": 6
+      },
+      {
+        "type": "alexsmobs:flying_fish",
+        "weight": 5,
+        "minCount": 4,
+        "maxCount": 6
+      },
+      {
+        "type": "bountiful_critters:krill",
+        "weight": 10,
+        "minCount": 2,
+        "maxCount": 5
+      },
+      {
+        "type": "minecraft:salmon",
+        "weight": 15,
+        "minCount": 8,
+        "maxCount": 8
+      },
+      {
+        "type": "minecraft:cod",
+        "weight": 15,
+        "minCount": 8,
+        "maxCount": 8
+      },
+      {
+        "type": "upgrade_aquatic:nautilus",
+        "maxCount": 4,
+        "minCount": 4,
+        "weight": 10
+      },
+      {
+        "type": "hybrid-aquatic:firework_jellyfish",
+        "weight": 5,
+        "minCount": 2,
+        "maxCount": 3
+      },
+      {
+        "type": "hybrid-aquatic:arrow_squid",
+        "weight": 20,
+        "minCount": 2,
+        "maxCount": 5
+      },
+      {
+        "type": "hybrid-aquatic:cuttlefish",
+        "weight": 20,
+        "minCount": 2,
+        "maxCount": 5
+      },
+      {
+        "type": "unusualfishmod:wizard_jelly",
+        "weight": 5,
+        "minCount": 2,
+        "maxCount": 3
+      }
+    ],
+    "water_creature": [
+      {
+        "type": "alexsmobs:cachalot_whale",
+        "weight": 5,
+        "minCount": 4,
+        "maxCount": 6
+      },
+      {
+        "type": "alexsmobs:orca",
+        "weight": 5,
+        "minCount": 4,
+        "maxCount": 6
+      },
+      {
+        "type": "minecraft:dolphin",
+        "weight": 10,
+        "minCount": 4,
+        "maxCount": 6
+      },
+      {
+        "type": "minecraft:squid",
+        "weight": 10,
+        "minCount": 4,
+        "maxCount": 6
+      },
+      {
+        "type": "hybrid-aquatic:thresher_shark",
+        "weight": 10,
+        "minCount": 2,
+        "maxCount": 4
+      },
+      {
+        "type": "hybrid-aquatic:bull_shark",
+        "weight": 15,
+        "minCount": 2,
+        "maxCount": 3
+      },
+      {
+        "type": "hybrid-aquatic:whale_shark",
+        "weight": 10,
+        "minCount": 1,
+        "maxCount": 2
+      }
+    ]
   },
   "temperature": -0.2
 }

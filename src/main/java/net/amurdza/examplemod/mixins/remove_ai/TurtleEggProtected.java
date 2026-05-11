@@ -11,10 +11,15 @@ import org.spongepowered.asm.mixin.injection.Redirect;
 
 @Mixin(TurtleEggBlock.class)
 public class TurtleEggProtected {
-    @Redirect(method = "canDestroyEgg",
-            at = @At(value = "INVOKE",
-                    target = "Lnet/minecraftforge/event/ForgeEventFactory;getMobGriefingEvent(Lnet/minecraft/world/level/Level;Lnet/minecraft/world/entity/Entity;)Z"))
+    @Redirect(
+            method = "canDestroyEgg",
+            at = @At(
+                    value = "INVOKE",
+                    target = "Lnet/minecraftforge/event/ForgeEventFactory;getMobGriefingEvent(Lnet/minecraft/world/level/Level;Lnet/minecraft/world/entity/Entity;)Z",
+                    remap = false
+            )
+    )
     private boolean protectEgg(Level level, Entity entity){
-        return !Helper.isSpecialBiome((LivingEntity) entity)&&net.minecraftforge.event.ForgeEventFactory.getMobGriefingEvent(level,entity);
+        return false;
     }
 }

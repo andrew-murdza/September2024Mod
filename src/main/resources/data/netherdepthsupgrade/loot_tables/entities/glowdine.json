@@ -235,7 +235,7 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "aoemod:glowstone_dust"
+          "name": "minecraft:glowstone_dust"
         }
       ],
       "functions": [
@@ -262,7 +262,7 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "aoemod:glowstone_dust"
+          "name": "minecraft:glowstone_dust"
         }
       ],
       "functions": [
@@ -289,7 +289,7 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "aoemod:glowstone_dust"
+          "name": "minecraft:glowstone_dust"
         }
       ],
       "functions": [
@@ -316,7 +316,7 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "aoemod:glowstone_dust"
+          "name": "minecraft:glowstone_dust"
         }
       ],
       "functions": [
@@ -343,7 +343,7 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "aoemod:glowstone_dust"
+          "name": "minecraft:glowstone_dust"
         }
       ],
       "functions": [
@@ -406,7 +406,7 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "aoemod:glowstone_dust"
+          "name": "minecraft:glowstone_dust"
         }
       ],
       "functions": [
@@ -433,7 +433,7 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "aoemod:glowstone_dust"
+          "name": "minecraft:glowstone_dust"
         }
       ],
       "functions": [
@@ -460,7 +460,7 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "aoemod:glowstone_dust"
+          "name": "minecraft:glowstone_dust"
         }
       ],
       "functions": [
@@ -487,7 +487,7 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "aoemod:glowstone_dust"
+          "name": "minecraft:glowstone_dust"
         }
       ],
       "functions": [

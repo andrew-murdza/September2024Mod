@@ -11,7 +11,7 @@ import org.spongepowered.asm.mixin.injection.Redirect;
 
 import static com.github.alexmodguy.alexscaves.server.entity.ACEntityRegistry.CAVE_CREATURE;
 
-@Mixin(ACEntityRegistry.class)
+@Mixin(value = ACEntityRegistry.class,remap = false)
 public class CaveCreatureMobCap {
     @Redirect(method = "lambda$static$12",at= @At(value = "INVOKE", target = "Lnet/minecraft/world/entity/EntityType$Builder;of(Lnet/minecraft/world/entity/EntityType$EntityFactory;Lnet/minecraft/world/entity/MobCategory;)Lnet/minecraft/world/entity/EntityType$Builder;"))
     private static <T extends Entity> EntityType.Builder<T> hi(EntityType.EntityFactory<T> pFactory, MobCategory pCategory){

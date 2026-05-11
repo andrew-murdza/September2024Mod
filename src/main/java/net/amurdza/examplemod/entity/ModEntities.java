@@ -11,6 +11,8 @@ import net.minecraftforge.common.ForgeSpawnEggItem;
 import net.minecraftforge.event.entity.EntityAttributeCreationEvent;
 import net.minecraftforge.event.entity.SpawnPlacementRegisterEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
+import net.minecraftforge.eventbus.api.SubscribeEvent;
+import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
@@ -24,6 +26,7 @@ import net.minecraftforge.registries.RegistryObject;
  *  - spawn placements via SpawnPlacementRegisterEvent
  *  - spawn eggs via item DeferredRegister (see below)
  */
+@Mod.EventBusSubscriber(modid = AOEMod.MOD_ID, bus = Mod.EventBusSubscriber.Bus.MOD)
 public final class ModEntities {
 
     private ModEntities() {}
@@ -105,6 +108,7 @@ public final class ModEntities {
      * Call this from your mod setup by registering it to the MOD event bus,
      * e.g. modEventBus.addListener(MobEntities::onEntityAttributes);
      */
+    @SubscribeEvent
     public static void onEntityAttributes(EntityAttributeCreationEvent event) {
         // Config gating: attribute registration is harmless even if you later disable spawns/eggs.
         event.put(END_FISH.get(), EndFishEntity.createMobAttributes().build());

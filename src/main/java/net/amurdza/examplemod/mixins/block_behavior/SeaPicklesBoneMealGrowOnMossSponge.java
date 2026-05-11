@@ -23,8 +23,7 @@ public class SeaPicklesBoneMealGrowOnMossSponge {
             if(Helper.isOkToPlace(pLevel,pPos.above(),Blocks.SEA_PICKLE)){
                 return false;
             }
-            return instance.is(BlockTags.CORAL_BLOCKS)||instance.is(Blocks.MOSS_BLOCK)||instance.is(Blocks.WET_SPONGE);
         }
-        return instance.is(BlockTags.CORAL_BLOCKS);
+        return instance.is(BlockTags.CORAL_BLOCKS)||instance.is(Blocks.MOSS_BLOCK)||instance.is(Blocks.WET_SPONGE);
     }
 }

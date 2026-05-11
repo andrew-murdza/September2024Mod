@@ -2,6 +2,7 @@ package net.amurdza.examplemod.worldgen.feature;
 
 import com.mojang.serialization.Codec;
 import net.mcreator.nethersexoticism.init.NethersExoticismModBlocks;
+import net.mcreator.nourishednether.init.NourishedNetherModBlocks;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.world.level.WorldGenLevel;
@@ -25,7 +26,8 @@ public class BouddhasHandFeature extends Feature<NoneFeatureConfiguration> {
         WorldGenLevel level = context.level();
         BlockPos basePos = context.origin().below();
 
-        if (!level.getBlockState(basePos).is(Blocks.SOUL_SOIL)) {
+        if (!level.getBlockState(basePos).is(Blocks.SOUL_SOIL)
+                &&!level.getBlockState(basePos).is(NourishedNetherModBlocks.SOUL_SLUDGE.get())) {
             return false;
         }
 
@@ -45,7 +47,7 @@ public class BouddhasHandFeature extends Feature<NoneFeatureConfiguration> {
                 for (int dz = -2; dz <= 2; dz++) {
                     BlockPos checkPos = pos.offset(dx, dy, dz);
 
-                    if (!level.isEmptyBlock(checkPos)) {
+                    if (level.getBlockState(checkPos).isSolidRender(level,checkPos)) {
                         return false;
                     }
                 }

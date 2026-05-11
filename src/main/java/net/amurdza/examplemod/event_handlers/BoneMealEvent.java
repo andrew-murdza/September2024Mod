@@ -219,7 +219,8 @@ public class BoneMealEvent {
     private static float getBiomeMultiplier(ServerLevel level, BlockPos pos) {
         Holder<Biome> biomeHolder = level.getBiome(pos);
         Block block=level.getBlockState(pos).getBlock();
-        boolean mushroom=block instanceof MushroomBlock || block instanceof FungusBlock || block instanceof SkyMushroomBlock;
+        boolean mushroom=block instanceof MushroomBlock || block instanceof FungusBlock
+                || block instanceof SkyMushroomBlock || block == Blocks.MYCELIUM || block== GlimmeringWealdModule.glow_shroom;
         float best = -1f;
         for (var entry : Config.BIOME_TAG_TO_BONEMEAL_MULTIPLIERS.entrySet()) {
             TagKey<Biome> tag = entry.getKey();
@@ -284,7 +285,7 @@ public class BoneMealEvent {
 
         if (state.is(ModTags.Blocks.netherFlowers)) return false;
         if (state.is(ModTags.Blocks.netherRootsPlaceable)) return false;
-        if (block instanceof SeaPickleNew && state.getValue(SeaPickleNew.PICKLES) < 4 && state.getValue(BlockStateProperties.WATERLOGGED)) return false;
+        if (block instanceof SeaPickleBlock && state.getValue(SeaPickleNew.PICKLES) < 4 && state.getValue(BlockStateProperties.WATERLOGGED)) return false;
 
         if (
                 ((block instanceof FlowerBlock
@@ -326,8 +327,7 @@ public class BoneMealEvent {
         }
 
         if (isBiomeSurfaceBonemealTarget(level, pos, state)) {
-            if (state.is(BlockTags.DIRT)||state.is(BlockTags.SAND)||state.is(BlockTags.NYLIUM)||state.is(Blocks.SAND)
-                    ||state.is(Blocks.SOUL_SOIL)||state.is(Blocks.SOUL_SAND)||state.is(NourishedNetherModBlocks.SOUL_SLUDGE.get())) {
+            if (isCorrectLandGroundForBiome(level,pos)) {
                 Block.popResource(level, pos, new ItemStack(block));
             }
             growBiomeSurface(level, pos);
@@ -404,11 +404,6 @@ public class BoneMealEvent {
         if (!waterAbove) {
             if (block == Blocks.RED_SAND || block == Blocks.SAND) {
                 growSand(level, pos, block != Blocks.SAND);
-                return true;
-            }
-
-            if (block == Blocks.MYCELIUM) {
-                growMycelium(level, pos);
                 return true;
             }
 
@@ -580,18 +575,6 @@ public class BoneMealEvent {
         placeBoneMeal(world, pos, blockState -> blockState.is(Blocks.SAND)||red&&blockState.is(Blocks.RED_SAND), 10, func);
     }
 
-
-
-    private static void growMycelium(Level world, BlockPos pos) {
-        BlockState brown = Blocks.BROWN_MUSHROOM.defaultBlockState();
-        BlockState red = Blocks.RED_MUSHROOM.defaultBlockState();
-        BlockState glow = GlimmeringWealdModule.glow_shroom.defaultBlockState();
-        RandomSource random = world.random;
-        BlockState state=Helper.select(random,red,brown,glow);
-        Function<BlockPos, Boolean> func = (pos1) -> world.setBlockAndUpdate(pos1, state);
-        placeBoneMeal(world, pos, blockState -> blockState.is(Blocks.MYCELIUM), 10, func);
-    }
-
     private static void growRootedDirt(Level world, RandomSource random, BlockPos pos) {
         if(world instanceof ServerLevel&&!world.isClientSide) {
             BlockPos blockPos = pos.below();
@@ -703,6 +686,10 @@ public class BoneMealEvent {
     private static boolean isBiomeSurfaceBonemealTarget(ServerLevel level, BlockPos pos, BlockState state) {
         Holder<Biome> biome = level.getBiome(pos);
 
+        if (biome.is(ModTags.Biomes.mushroomCaves)) {
+            return state.is(Blocks.MYCELIUM);
+        }
+
         if (biome.is(ModTags.Biomes.tropicalBiomes)) {
             return state.is(Blocks.MOSS_BLOCK);
         }
@@ -714,16 +701,16 @@ public class BoneMealEvent {
             return state.is(Blocks.GRASS_BLOCK);
         }
 
+        if(biome.is(ModTags.Biomes.deepDarkBiomes)){
+            return state.is(Blocks.SCULK);
+        }
+
         if (biome.is(ModTags.Biomes.crimsonForestBiomes)) {
             return state.is(Blocks.CRIMSON_NYLIUM);
         }
 
         if (biome.is(ModTags.Biomes.warpedForestBiomes)) {
             return state.is(Blocks.WARPED_NYLIUM);
-        }
-
-        if (biome.is(ModTags.Biomes.mushroomCaves)) {
-            return state.is(Blocks.MYCELIUM);
         }
 
         if (biome.is(ModTags.Biomes.soulSandValleyBiomes)) {
@@ -814,14 +801,25 @@ public class BoneMealEvent {
         BlockState ground = level.getBlockState(groundPos);
         Holder<Biome> biome = level.getBiome(groundPos);
 
+        if (biome.is(ModTags.Biomes.mushroomCaves)) {
+            return ground.is(Blocks.MYCELIUM);
+        }
+
         if (biome.is(ModTags.Biomes.tropicalBiomes)) {
             return ground.is(Blocks.MOSS_BLOCK);
         }
 
         if (biome.is(ModTags.Biomes.savannaBiomes)
                 || biome.is(ModTags.Biomes.plainsBiomes)
-                || biome.is(ModTags.Biomes.mountainBiomes)
-                || biome.is(ModTags.Biomes.desertBiomes)) {
+                || biome.is(ModTags.Biomes.mountainBiomes)) {
+            return ground.is(Blocks.GRASS_BLOCK);
+        }
+
+        if (biome.is(ModTags.Biomes.deepDarkBiomes)) {
+            return ground.is(Blocks.SCULK);
+        }
+
+        if (biome.is(ModTags.Biomes.desertBiomes)) {
             return ground.is(Blocks.SAND);
         }
 
@@ -831,10 +829,6 @@ public class BoneMealEvent {
 
         if (biome.is(ModTags.Biomes.warpedForestBiomes)) {
             return ground.is(Blocks.WARPED_NYLIUM);
-        }
-
-        if (biome.is(ModTags.Biomes.mushroomCaves)) {
-            return ground.is(Blocks.MYCELIUM);
         }
 
         if (biome.is(ModTags.Biomes.soulSandValleyBiomes)) {
@@ -852,6 +846,16 @@ public class BoneMealEvent {
 
     private static BiomeBonemealFeatures biomeBonemealFeaturesAt(ServerLevel level, BlockPos pos) {
         Holder<Biome> biome = level.getBiome(pos);
+
+        if (biome.is(ModTags.Biomes.mushroomCaves)) {
+            return new BiomeBonemealFeatures(
+                    ModConfiguredFeatures.MUSHROOM_CAVES_FLOOR,
+                    null,
+                    ModConfiguredFeatures.MUSHROOM_CAVES_SEAFLOOR,
+                    ModConfiguredFeatures.MUSHROOM_CAVES_SEAFLOOR_SHALLOW,
+                    false
+            );
+        }
 
         if (biome.is(ModTags.Biomes.tropicalBiomes)) {
             return new BiomeBonemealFeatures(
@@ -886,9 +890,19 @@ public class BoneMealEvent {
         if (biome.is(ModTags.Biomes.mountainBiomes)) {
             return new BiomeBonemealFeatures(
                     ModConfiguredFeatures.MOUNTAINS_FLOOR,
-                    ModConfiguredFeatures.MOUNTAINS_FLOWERS,
+                    null,
                     ModConfiguredFeatures.MOUNTAINS_SEAFLOOR,
                     ModConfiguredFeatures.MOUNTAINS_SEAFLOOR_SHALLOW,
+                    false
+            );
+        }
+
+        if (biome.is(ModTags.Biomes.deepDarkBiomes)) {
+            return new BiomeBonemealFeatures(
+                    ModConfiguredFeatures.DEEP_DARK_FLOOR,
+                    null,
+                    ModConfiguredFeatures.DEEP_DARK_SEAFLOOR,
+                    ModConfiguredFeatures.DEEP_DARK_SEAFLOOR_SHALLOW,
                     false
             );
         }
@@ -920,16 +934,6 @@ public class BoneMealEvent {
                     ModConfiguredFeatures.WARPED_FOREST_SEAFLOOR,
                     ModConfiguredFeatures.WARPED_FOREST_SEAFLOOR_SHALLOW,
                     true
-            );
-        }
-
-        if (biome.is(ModTags.Biomes.mushroomCaves)) {
-            return new BiomeBonemealFeatures(
-                    ModConfiguredFeatures.MUSHROOM_CAVES_FLOOR,
-                    null,
-                    ModConfiguredFeatures.MUSHROOM_CAVES_SEAFLOOR,
-                    ModConfiguredFeatures.MUSHROOM_CAVES_SEAFLOOR_SHALLOW,
-                    false
             );
         }
 

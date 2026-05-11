@@ -10,6 +10,7 @@ import net.minecraft.tags.ItemTags;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.gameevent.GameEvent;
@@ -29,7 +30,7 @@ public class ShearsOnCaveVinesWithBerries {
         ItemStack itemStack=event.getItemStack();
         BlockState blockstate=event.getLevel().getBlockState(blockpos);
         if(itemStack.is(ItemTags.AXES)){
-            if(blockstate.is(ModBlocks.CAVE_VINES_PLANT.get())||blockstate.is(ModBlocks.CAVE_VINES.get())&&
+            if(blockstate.is(Blocks.CAVE_VINES_PLANT)||blockstate.is(Blocks.CAVE_VINES)&&
                     blockstate.getValue(BlockStateProperties.ENABLED)){
                 Player player = event.getEntity();
                 if (player instanceof ServerPlayer) {

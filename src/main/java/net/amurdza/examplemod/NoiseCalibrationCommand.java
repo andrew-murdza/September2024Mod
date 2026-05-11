@@ -30,8 +30,8 @@ public class NoiseCalibrationCommand {
     private static final ResourceKey<NormalNoise.NoiseParameters> SURFACE_NOISE =
             ResourceKey.create(Registries.NOISE, new ResourceLocation("minecraft", "surface"));
 
-    private static final ResourceKey<NormalNoise.NoiseParameters> GRAVEL_NOISE =
-            ResourceKey.create(Registries.NOISE, new ResourceLocation("minecraft", "gravel"));
+    private static final ResourceKey<NormalNoise.NoiseParameters> SLUDGE_NOISE =
+            ResourceKey.create(Registries.NOISE, new ResourceLocation("aoemod", "soul_sludge"));
 
     @SubscribeEvent
     public static void registerCommands(RegisterCommandsEvent event) {
@@ -71,7 +71,7 @@ public class NoiseCalibrationCommand {
         RandomState randomState = level.getChunkSource().randomState();
 
         NormalNoise surfaceNoise = randomState.getOrCreateNoise(SURFACE_NOISE);
-        NormalNoise gravelNoise = randomState.getOrCreateNoise(GRAVEL_NOISE);
+        NormalNoise gravelNoise = randomState.getOrCreateNoise(SLUDGE_NOISE);
 
         List<Double> surfaceValues = new ArrayList<>();
         List<Sample> samples = new ArrayList<>();

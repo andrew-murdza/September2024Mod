@@ -1,27 +1,21 @@
 package net.amurdza.examplemod.worldgen.feature;
 
 import com.mojang.serialization.Codec;
-import net.amurdza.examplemod.block.ModBlocks;
 import net.amurdza.examplemod.util.RandomCollection;
 import net.minecraft.core.BlockPos;
-import net.minecraft.core.Direction;
 import net.minecraft.tags.BlockTags;
+import net.minecraft.tags.FluidTags;
 import net.minecraft.util.RandomSource;
 import net.minecraft.util.valueproviders.IntProvider;
 import net.minecraft.world.level.ChunkPos;
-import net.minecraft.world.level.Level;
 import net.minecraft.world.level.WorldGenLevel;
 import net.minecraft.world.level.block.Blocks;
-import net.minecraft.world.level.block.MultifaceBlock;
-import net.minecraft.world.level.block.PipeBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
-import net.minecraft.world.level.block.state.properties.BooleanProperty;
 import net.minecraft.world.level.chunk.ChunkAccess;
 import net.minecraft.world.level.levelgen.blockpredicates.BlockPredicate;
 import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
-import org.violetmoon.quark.content.building.module.ShearVinesModule;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -31,8 +25,6 @@ public class CaveVineColumn extends Feature<CaveVineConfig> {
     public CaveVineColumn(Codec<CaveVineConfig> p_66619_) {
         super(p_66619_);
     }
-    private static final List<BooleanProperty> properties=List.of(PipeBlock.UP,PipeBlock.NORTH,PipeBlock.SOUTH,
-            PipeBlock.EAST,PipeBlock.WEST);
     public boolean place(FeaturePlaceContext<CaveVineConfig> context) {
         CaveVineConfig config = context.config();
         float chance=config.chance;
@@ -48,7 +40,6 @@ public class CaveVineColumn extends Feature<CaveVineConfig> {
         stateCases.add(1,0);
         stateCases.add(config.weepingVinesChance,1);
         stateCases.add(config.sporeBlossomChance,2);
-        List<Direction> directions=List.of(Direction.DOWN,Direction.NORTH,Direction.SOUTH,Direction.EAST,Direction.WEST);
         for(int i=0;i<16;i++){
             int x=minX+i;
             for(int j=0;j<16;j++){
@@ -105,9 +96,10 @@ public class CaveVineColumn extends Feature<CaveVineConfig> {
                     pos.move(0,-1,0);
                 }
                 for(int k:caveVinesPoses){
-                    BlockState blockState=ModBlocks.CAVE_VINES.get().defaultBlockState()
+                    BlockState blockState=Blocks.CAVE_VINES.defaultBlockState()
                             .setValue(BlockStateProperties.BERRIES,true)
-                            .setValue(BlockStateProperties.AGE_25,25);
+                            .setValue(BlockStateProperties.AGE_25,25)
+                            .setValue(BlockStateProperties.WATERLOGGED, level.getFluidState(new BlockPos(x,k,z)).is(FluidTags.WATER));
                     level.setBlock(new BlockPos(x,k,z),blockState,2);
                 }
             }
@@ -115,14 +107,7 @@ public class CaveVineColumn extends Feature<CaveVineConfig> {
         }
         return flag;
     }
-    private void setVine(BlockState state, WorldGenLevel level, BlockPos pos){
-        BlockState blockState=ShearVinesModule.cut_vine.defaultBlockState();
-        for(BooleanProperty property:properties){
-            blockState=blockState.setValue(property,state.getValue(property));
-        }
-        level.setBlock(pos,blockState,2);
-    }
-    private final BiFunction<BlockState,Boolean,Boolean> tester= (state,weeping)->state.is(Blocks.WATER)&&
+    private final BiFunction<BlockState,Boolean,Boolean> tester= (state,weeping)->state.getFluidState().is(FluidTags.WATER)&&
             !weeping||state.is(Blocks.AIR)||
             state.is(Blocks.CAVE_AIR)||state.is(Blocks.VOID_AIR);
     private boolean helper(WorldGenLevel level, BlockPos pos, FeaturePlaceContext<CaveVineConfig> context,
@@ -162,9 +147,9 @@ public class CaveVineColumn extends Feature<CaveVineConfig> {
             BlockPos placePos = positions.get(i);
             BlockState state = level.getBlockState(placePos);
 
-            BlockState blockState = ModBlocks.CAVE_VINES.get().defaultBlockState()
+            BlockState blockState = Blocks.CAVE_VINES.defaultBlockState()
                     .setValue(BlockStateProperties.BERRIES, true)
-                    .setValue(BlockStateProperties.WATERLOGGED, state.is(Blocks.WATER))
+                    .setValue(BlockStateProperties.WATERLOGGED, state.getFluidState().is(FluidTags.WATER))
                     .setValue(BlockStateProperties.AGE_25, 25);
 
             if (weepingVines) {

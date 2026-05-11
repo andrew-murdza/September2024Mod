@@ -12,6 +12,7 @@ import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.AxeItem;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
@@ -37,7 +38,7 @@ public class BlockHelper {
         else if (pState.getValue(BlockStateProperties.BERRIES)) {
             flag=true;
             property=BlockStateProperties.BERRIES;
-            Block.popResource(pLevel, pPos, new ItemStack(ModItems.GLOW_BERRIES.get(), 1));
+            Block.popResource(pLevel, pPos, new ItemStack(Items.GLOW_BERRIES, 1));
             sound=SoundEvents.CAVE_VINES_PICK_BERRIES;
         }
         if(flag){
@@ -49,9 +50,5 @@ public class BlockHelper {
             return InteractionResult.sidedSuccess(pLevel.isClientSide);
         }
         return InteractionResult.PASS;
-    }
-    public static boolean isSolidBlockBelow(BlockGetter pLevel, BlockPos pPos, BlockState pState){
-        return !pState.getCollisionShape(pLevel, pPos).getFaceShape(Direction.UP).isEmpty()
-                || pState.isFaceSturdy(pLevel, pPos, Direction.UP);
     }
 }

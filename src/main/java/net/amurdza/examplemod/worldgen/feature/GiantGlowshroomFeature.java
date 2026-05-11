@@ -5,9 +5,6 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.LevelAccessor;
-import net.minecraft.world.level.block.Blocks;
-import net.minecraft.world.level.block.state.properties.BlockStateProperties;
-import net.minecraft.world.level.block.state.properties.DirectionProperty;
 import net.minecraft.world.level.levelgen.feature.HugeBrownMushroomFeature;
 import net.minecraft.world.level.levelgen.feature.configurations.HugeMushroomFeatureConfiguration;
 import org.violetmoon.quark.content.world.block.GlowShroomRingBlock;
@@ -21,12 +18,9 @@ public class GiantGlowshroomFeature extends HugeBrownMushroomFeature {
     protected void placeTrunk(LevelAccessor pLevel, RandomSource pRandom, BlockPos pPos, HugeMushroomFeatureConfiguration pConfig, int pMaxHeight, BlockPos.MutableBlockPos pMutablePos) {
         for(int i = 0; i < pMaxHeight; ++i) {
             pMutablePos.set(pPos).move(Direction.UP, i);
-            System.out.println("this ran 0");
             if (!pLevel.getBlockState(pMutablePos).isSolidRender(pLevel, pMutablePos)) {
                 this.setBlock(pLevel, pMutablePos, pConfig.stemProvider.getState(pRandom, pPos));
-                System.out.println("this ran 1");
                 if(i>=pMaxHeight-2){
-                    System.out.println("this ran 2");
                     for(Direction direction: Direction.Plane.HORIZONTAL){
                         BlockPos pos1=pMutablePos.relative(direction);
                         if(!pLevel.getBlockState(pos1).isSolidRender(pLevel, pos1)){

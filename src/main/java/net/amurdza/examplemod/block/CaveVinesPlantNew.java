@@ -39,20 +39,12 @@ public class CaveVinesPlantNew extends CaveVinesPlantBlock {
                 .setValue(ENABLED,p_153028_.getValue(ENABLED));
     }
 
-
-    public ItemStack getCloneItemStack(BlockGetter p_152966_, BlockPos p_152967_, BlockState p_152968_) {
-        return new ItemStack(ModItems.GLOW_BERRIES.get());
-    }
-
     protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> pBuilder) {
         super.createBlockStateDefinition(pBuilder);
         pBuilder.add(BlockStateProperties.ENABLED).add(WATERLOGGED);
     }
     public boolean isRandomlyTicking(BlockState pState) {
         return !pState.getValue(BERRIES)&&pState.getValue(BlockStateProperties.ENABLED);
-    }
-    protected GrowingPlantHeadBlock getHeadBlock() {
-        return (GrowingPlantHeadBlock) ModBlocks.CAVE_VINES.get();
     }
 
     @Override

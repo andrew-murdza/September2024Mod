@@ -15,8 +15,8 @@ public class WorldGenUtils {
         return getSeaLevelWorldGen(level.getBiome(pos));
     }
     public static int getSeaLevelWorldGen(Holder<Biome> biome){
-        return biome.is(ModTags.Biomes.netherBiomes)?-64:biome.is(ModTags.Biomes.desertBiomes)?170
-                :biome.is(ModTags.Biomes.mountainBiomes)?120:63;
+        return biome.is(ModTags.Biomes.netherBiomes)?-129:biome.is(ModTags.Biomes.desertBiomes)?63
+                :biome.is(ModTags.Biomes.mountainBiomes)?140:63;
     }
     public static int getTotalWaterAbove(BlockPos pos, BlockGetter level){
         return getTotalWaterAbove(pos,level,-pos.getY()+level.getMaxBuildHeight()-1);

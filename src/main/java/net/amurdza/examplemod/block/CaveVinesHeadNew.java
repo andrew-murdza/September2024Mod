@@ -1,6 +1,5 @@
 package net.amurdza.examplemod.block;
 
-import net.amurdza.examplemod.item.ModItems;
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.tags.BlockTags;
@@ -10,6 +9,7 @@ import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
@@ -19,7 +19,6 @@ import net.minecraft.world.level.block.CaveVinesBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
-import net.minecraft.world.level.material.Fluid;
 import net.minecraft.world.level.material.FluidState;
 import net.minecraft.world.level.material.Fluids;
 import net.minecraft.world.phys.BlockHitResult;
@@ -44,7 +43,7 @@ public class CaveVinesHeadNew extends CaveVinesBlock {
     }
 
     public ItemStack getCloneItemStack(BlockGetter p_152966_, BlockPos p_152967_, BlockState p_152968_) {
-        return new ItemStack(ModItems.GLOW_BERRIES.get());
+        return new ItemStack(Items.GLOW_BERRIES);
     }
 
     @Override
@@ -82,9 +81,6 @@ public class CaveVinesHeadNew extends CaveVinesBlock {
         }
     }
 
-    protected @NotNull Block getBodyBlock() {
-        return ModBlocks.CAVE_VINES_PLANT.get();
-    }
     public boolean isRandomlyTicking(BlockState pState) {
         return pState.getValue(AGE) < 25 || !pState.getValue(BERRIES)&&pState.getValue(BlockStateProperties.ENABLED);
     }

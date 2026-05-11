@@ -29,6 +29,13 @@
       }
     },
     {
+      "type": "minecraft:block_predicate_filter",
+      "predicate": {
+        "type": "minecraft:matching_blocks",
+        "blocks": "minecraft:air"
+      }
+    },
+    {
       "type": "minecraft:count_on_every_layer",
       "count": 1
     },

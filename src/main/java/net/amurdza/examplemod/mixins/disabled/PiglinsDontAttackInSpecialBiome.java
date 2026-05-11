@@ -12,6 +12,6 @@ import org.spongepowered.asm.mixin.injection.Redirect;
 public class PiglinsDontAttackInSpecialBiome {
     @Redirect(method = "doTick", at= @At(value = "INVOKE", target = "Lnet/minecraft/world/entity/monster/piglin/PiglinAi;isWearingGold(Lnet/minecraft/world/entity/LivingEntity;)Z"))
     private boolean hi(LivingEntity item){
-        return PiglinAi.isWearingGold(item) || Helper.isSpecialBiome(item);
+        return false;
     }
 }

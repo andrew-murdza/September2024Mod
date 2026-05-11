@@ -18,8 +18,6 @@ public class ModItems {
     public static void register(IEventBus eventBus){
         ITEMS.register(eventBus);
     }
-    public static final RegistryObject<Item> GLOW_BERRIES= ITEMS.register("glow_berries",
-            ()->new ItemNameBlockItem(ModBlocks.CAVE_VINES.get(), (new Item.Properties()).food(Foods.GLOW_BERRIES)));
     public static final RegistryObject<Item> GRAPES= ITEMS.register("grapes",
             ()->new ItemNameBlockItem(ModBlocks.GRAPE_VINE.get(), (new Item.Properties()).food(Foods.SWEET_BERRIES)));
     public static final RegistryObject<Item> WARPED_CARROT= ITEMS.register("warped_carrot",

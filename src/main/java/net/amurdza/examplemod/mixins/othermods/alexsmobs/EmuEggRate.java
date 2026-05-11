@@ -8,7 +8,7 @@ import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Redirect;
 
-@Mixin(EntityEmu.class)
+@Mixin(value = EntityEmu.class,remap = false)
 public class EmuEggRate {
     @Shadow public int timeUntilNextEgg;
 

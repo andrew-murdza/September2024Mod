@@ -1,0 +1,26 @@
+package net.amurdza.examplemod.mixins.bonemeal;
+
+import net.amurdza.examplemod.Config;
+import net.amurdza.examplemod.block.JungleGlowLichen;
+import net.amurdza.examplemod.util.Helper;
+import net.minecraft.core.BlockPos;
+import net.minecraft.server.level.ServerLevel;
+import net.minecraft.util.RandomSource;
+import net.minecraft.world.level.block.GlowLichenBlock;
+import net.minecraft.world.level.block.state.BlockState;
+import org.spongepowered.asm.mixin.Mixin;
+import org.spongepowered.asm.mixin.injection.At;
+import org.spongepowered.asm.mixin.injection.Inject;
+import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
+
+@Mixin(JungleGlowLichen.class)
+public class JungleGlowLichenBoneMealEffectiveness {
+    @Inject(method = "performBonemeal", at=@At("HEAD"))
+    public void grow(ServerLevel world, RandomSource random, BlockPos pos, BlockState state, CallbackInfo info) {
+        GlowLichenBlock block=(GlowLichenBlock) (Object) this;
+        int numTries= Helper.isSpecialBiome(world,pos)? Config.GLOW_LICHEN_TRIES:1;
+        for(int i=0;i<numTries;i++){
+            block.getSpreader().spreadFromRandomFaceTowardRandomDirection(state, world, pos, random);
+        }
+    }
+}

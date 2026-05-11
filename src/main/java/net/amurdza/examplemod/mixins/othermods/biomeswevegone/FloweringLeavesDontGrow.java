@@ -10,7 +10,7 @@ import org.spongepowered.asm.mixin.injection.Redirect;
 
 import java.util.function.Supplier;
 
-@Mixin(BWGWood.class)
+@Mixin(value = BWGWood.class,remap = false)
 public abstract class FloweringLeavesDontGrow {
     @Shadow
     private static Supplier<LeavesBlock> registerLeaves(String key, MapColor mapColor) {

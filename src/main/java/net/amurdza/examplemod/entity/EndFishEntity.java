@@ -47,7 +47,7 @@ public class EndFishEntity extends AbstractSchoolingFish {
 
         if (entityTag != null) {
             if (entityTag.contains("Variant")) {
-                this.entityData.set(VARIANT, entityTag.getByte("variant"));
+                this.entityData.set(VARIANT, entityTag.getByte("Variant"));
             }
             if (entityTag.contains("Scale")) {
                 this.entityData.set(SCALE, entityTag.getByte("scale"));

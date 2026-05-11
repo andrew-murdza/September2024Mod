@@ -6,6 +6,7 @@ import net.amurdza.examplemod.block.NetherCropBlock;
 import net.amurdza.examplemod.util.ModTags;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Holder;
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.tags.TagKey;
 import net.minecraft.util.Mth;
@@ -49,6 +50,10 @@ public class BlockGrowth {
 
         // Only handle blocks we know about:
         float mult = getMultiplier(level, pos, block);
+
+        AOEMod.LOGGER.info("GROW EVENT BLOCK = {}", BuiltInRegistries.BLOCK.getKey(block));
+        AOEMod.LOGGER.info("MULT = {}", mult);
+        AOEMod.LOGGER.info("BIOME = {}", level.getBiome(pos).unwrapKey().map(k -> k.location().toString()).orElse("unknown"));
 
         if (mult < 0f) return; // not tracked, let vanilla/mods handle it
 
@@ -203,6 +208,7 @@ public class BlockGrowth {
 
     private static TagKey<Biome> pickBucket(Holder<Biome> biome) {
         // Nether sub-biomes (specific)
+        if (biome.is(ModTags.Biomes.deepDarkBiomes)) return ModTags.Biomes.deepDarkBiomes;
         if (biome.is(ModTags.Biomes.basaltDeltasBiomes)) return ModTags.Biomes.basaltDeltasBiomes;
         if (biome.is(ModTags.Biomes.crimsonForestBiomes)) return ModTags.Biomes.crimsonForestBiomes;
         if (biome.is(ModTags.Biomes.warpedForestBiomes)) return ModTags.Biomes.warpedForestBiomes;

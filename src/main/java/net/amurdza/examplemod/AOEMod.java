@@ -6,15 +6,19 @@ import net.amurdza.examplemod.entity.ModEntities;
 import net.amurdza.examplemod.event_handlers.BlockGrowthConfig;
 import net.amurdza.examplemod.item.ModItems;
 import net.amurdza.examplemod.item.ModToolTiers;
+import net.amurdza.examplemod.mixins.mob_spawning.MobsSpawnOnGlowingMoss;
+import net.amurdza.examplemod.mixins.mob_spawning.MobsSpawnOnGlowingMoss1;
 import net.amurdza.examplemod.util.ConfigHelper;
 import net.amurdza.examplemod.worldgen.density_function.AOEDensityFunctions;
 import net.amurdza.examplemod.worldgen.feature.ModFeatures;
 import net.amurdza.examplemod.worldgen.feature.ModTreeDecorators;
 import net.amurdza.examplemod.worldgen.structure.ModStructures;
 import net.amurdza.examplemod.worldgen.surface_rule.ModSurfaceRules;
+import net.minecraft.core.Direction;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.CreativeModeTabs;
-import net.minecraft.world.level.block.ComposterBlock;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.BuildCreativeModeTabContentsEvent;
@@ -92,7 +96,15 @@ public class AOEMod
         event.enqueueWork(BlockGrowthConfig::init);
         event.enqueueWork(() -> {
             SurfaceRuleManager.setDefaultSurfaceRules(SurfaceRuleManager.RuleCategory.OVERWORLD, ModSurfaceRules.makeRules());
-            ComposterBlock.COMPOSTABLES.put(ModBlocks.SUNFLOWER.get().asItem(), 0.65F);
+
+            BlockBehaviour.Properties props =
+                    ((MobsSpawnOnGlowingMoss1) Blocks.MOSS_BLOCK).getProperties();
+
+            ((MobsSpawnOnGlowingMoss) props).setIsValidSpawn(
+                    (state, level, pos, entityType) ->
+                            state.isFaceSturdy(level, pos, Direction.UP)
+            );
+
 //            SurfaceRuleManager.addToDefaultSurfaceRulesAtStage(SurfaceRuleManager.RuleCategory.OVERWORLD,
 //                    SurfaceRuleManager.RuleStage.AFTER_BEDROCK,100000,ModSurfaceRules.makeRules());
             //.addSurfaceRules(SurfaceRuleManager.RuleCategory.OVERWORLD, MOD_ID, ModSurfaceRules.makeRules());
@@ -106,12 +118,8 @@ public class AOEMod
         if (tab == CreativeModeTabs.NATURAL_BLOCKS) {
             // existing
             event.accept(ModItems.GRAPES.get());
-            event.accept(ModItems.GLOW_BERRIES.get());
 
-            event.accept(ModBlocks.SEA_PICKLE.get());
-            event.accept(ModBlocks.LUSHROOM.get());
-            event.accept(ModBlocks.LUSHROOM_BLOCK.get());
-            event.accept(ModBlocks.CHERRY_VINE.get());
+
             event.accept(ModItems.ASHEN_WHEAT_SEEDS.get());
             event.accept(ModItems.SOUL_BERRIES.get());
             event.accept(ModItems.SOUL_BEET_SEEDS.get());
@@ -131,9 +139,6 @@ public class AOEMod
             event.accept(ModBlocks.WILD_BEANS.get());
             event.accept(ModBlocks.WILD_ASHEN_WHEAT.get());
 
-            event.accept(ModBlocks.GLOW_SHROOM.get());
-            event.accept(ModBlocks.SUNFLOWER.get());
-
             event.accept(ModBlocks.PURPLE_CHARNIA.get());
             event.accept(ModBlocks.GREEN_CHARNIA.get());
             event.accept(ModBlocks.CYAN_CHARNIA.get());
@@ -152,7 +157,6 @@ public class AOEMod
         // FOOD AND DRINKS
         if (tab == CreativeModeTabs.FOOD_AND_DRINKS) {
             // existing
-            event.accept(ModItems.GLOW_BERRIES.get());
             event.accept(ModItems.GRAPES.get());
             event.accept(ModItems.WARPED_CARROT.get());
             event.accept(ModItems.CRIMSON_POTATO.get());

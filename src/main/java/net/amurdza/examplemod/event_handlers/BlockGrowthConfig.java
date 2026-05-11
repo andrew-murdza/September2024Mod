@@ -1,17 +1,21 @@
 package net.amurdza.examplemod.event_handlers;
 
+import com.belgieyt.trailsandtalesplus.Objects.TTBlockRegistry;
 import com.legacy.blue_skies.registries.SkiesBlocks;
 import com.teamabnormals.upgrade_aquatic.core.registry.UABlocks;
 import dev.hybridlabs.aquatic.block.HybridAquaticBlocks;
+import net.amurdza.examplemod.AOEMod;
 import net.amurdza.examplemod.block.ModBlocks;
 import net.amurdza.examplemod.util.ModTags;
 import net.mehvahdjukaar.hauntedharvest.reg.ModRegistry;
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.potionstudios.biomeswevegone.world.level.block.BWGBlocks;
 import net.potionstudios.biomeswevegone.world.level.block.wood.BWGWood;
+import org.violetmoon.quark.content.world.module.GlimmeringWealdModule;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -39,6 +43,7 @@ public final class BlockGrowthConfig {
         ensureTag(ModTags.Biomes.mushroomCaves);
         ensureTag(ModTags.Biomes.desertBiomes);
 
+        ensureTag(ModTags.Biomes.deepDarkBiomes);
         ensureTag(ModTags.Biomes.netherBiomes);
         ensureTag(ModTags.Biomes.basaltDeltasBiomes);
         ensureTag(ModTags.Biomes.crimsonForestBiomes);
@@ -66,7 +71,6 @@ public final class BlockGrowthConfig {
 
     /**
      * Adds a block and fills all relevant tag entries at once.
-     *
      * Any tag not specified here should be treated as "other" via DEFAULT_OTHER_BIOMES,
      * but for sanity we explicitly set all tags you care about.
      */
@@ -77,6 +81,7 @@ public final class BlockGrowthConfig {
             float mountains,
             float mountainCaves,
             float desert,
+            float deepDark,
             float netherGeneric,
             float basaltDeltas,
             float crimsonForest,
@@ -90,6 +95,7 @@ public final class BlockGrowthConfig {
         put(ModTags.Biomes.mushroomCaves, block, mountainCaves);
         put(ModTags.Biomes.desertBiomes, block, desert);
 
+        put(ModTags.Biomes.deepDarkBiomes, block, deepDark);
         put(ModTags.Biomes.netherBiomes, block, netherGeneric);
         put(ModTags.Biomes.basaltDeltasBiomes, block, basaltDeltas);
         put(ModTags.Biomes.crimsonForestBiomes, block, crimsonForest);
@@ -111,29 +117,13 @@ public final class BlockGrowthConfig {
                 0.7f,   // mountains
                 0.7f,   // mountain caves
                 0.0f,   // desert
+                0.0f,   // deep dark
                 0.0f,   // nether generic
                 0.0f,   // basalt deltas
                 0.0f,   // crimson forest
                 0.0f,   // warped forest
                 0.0f,   // soul sand valley
-                0.14f   // other
-        );
-    }
-
-    private static void addDesertPlant(Block block) {
-        // kelp: 0.7 mountains/tropical, 0.28 savanna, 0 desert/nether, 0.14 other
-        addToMap(block,
-                0.7f,   // tropical
-                0.0f,  // savanna
-                0.0f,   // mountains
-                0.0f,   // mountain caves
-                0.0f,   // desert
-                0.0f,   // nether generic
-                0.0f,   // basalt deltas
-                0.0f,   // crimson forest
-                0.0f,   // warped forest
-                0.0f,   // soul sand valley
-                0.14f   // other
+                0.0f   // other
         );
     }
 
@@ -147,6 +137,7 @@ public final class BlockGrowthConfig {
                 0.0f,   // mountains
                 0.0f,   // mountain caves
                 0.0f,   // desert
+                0.0f,   // deep dark
                 0.0f,   // nether generic
                 0.05f,  // basalt deltas
                 crimson,// crimson forest
@@ -164,6 +155,7 @@ public final class BlockGrowthConfig {
                 1.0f,  // mountains
                 1.0f,  // mountain caves
                 0.0f,  // desert
+                0.0f,   // deep dark
                 0.0f,  // nether generic
                 0.0f,  // basalt deltas
                 0.0f,  // crimson forest
@@ -177,11 +169,12 @@ public final class BlockGrowthConfig {
         // mushroom:
         // 0.2 mountains, 0.8 mountain caves, 0.5 tropical, 0.2 savanna, 0.2 desert/nether, 0.2 other
         addToMap(block,
-                0.5f,  // tropical
+                0.8f,  // tropical
                 0.2f,  // savanna
                 0.2f,  // mountains
                 0.8f,  // mountain caves
                 0.2f,  // desert
+                0.2f,   // deep dark
                 0.2f,  // nether generic
                 0.2f,  // basalt deltas
                 0.2f,  // crimson forest
@@ -199,6 +192,7 @@ public final class BlockGrowthConfig {
                 0.7f,  // mountains
                 0.7f,  // mountain caves
                 0.1f,  // desert
+                0.1f,   // deep dark
                 0.0f,  // nether generic
                 0.0f,  // basalt deltas
                 0.0f,  // crimson forest
@@ -216,6 +210,7 @@ public final class BlockGrowthConfig {
                 0.2f,  // mountains
                 0.2f,  // mountain caves
                 0.0f,  // desert
+                0.0f,   // deep dark
                 0.0f,  // nether generic
                 0.0f,  // basalt deltas
                 0.0f,  // crimson forest
@@ -233,12 +228,13 @@ public final class BlockGrowthConfig {
                 0.0f,  // mountains
                 0.0f,  // mountain caves
                 4.0f,  // desert
+                0.0f,   // deep dark
                 0.0f,  // nether generic
                 0.0f,  // basalt deltas
                 0.0f,  // crimson forest
                 0.0f,  // warped forest
                 0.0f,  // soul sand valley
-                4.0f   // other
+                0.0f   // other
         );
     }
 
@@ -251,6 +247,7 @@ public final class BlockGrowthConfig {
                 0.0f,  // mountains
                 0.0f,  // mountain caves
                 2.0f,  // desert
+                0.0f,   // deep dark
                 0.0f,  // nether generic
                 0.0f,  // basalt deltas
                 0.0f,  // crimson forest
@@ -267,6 +264,7 @@ public final class BlockGrowthConfig {
                 0.0f, // mountains
                 0.0f, // mountain caves
                 0.0f, // desert
+                0.0f,   // deep dark
                 2.0f, // nether generic
                 4.0f, // basalt deltas
                 2.0f, // crimson forest
@@ -288,6 +286,7 @@ public final class BlockGrowthConfig {
                 0.0f, // mountains
                 0.0f, // mountain caves
                 0.0f, // desert
+                0.0f,   // deep dark
                 0.0f, // nether generic
                 0.0f, // basalt deltas
                 0.0f, // crimson forest
@@ -311,6 +310,7 @@ public final class BlockGrowthConfig {
                 0.0f,  // mountains
                 0.0f,  // mountain caves
                 0.0f,  // desert
+                0.0f,   // deep dark
                 0.0f,  // nether generic (only specific sub-biomes)
                 0.10f, // basalt deltas
                 0.20f, // crimson forest
@@ -328,6 +328,7 @@ public final class BlockGrowthConfig {
                 0.0f,  // mountains
                 0.0f,  // mountain caves
                 0.0f,  // desert
+                0.0f,   // deep dark
                 0.0f,  // nether generic
                 0.0f,  // basalt deltas
                 0.0f,  // crimson forest
@@ -345,6 +346,7 @@ public final class BlockGrowthConfig {
                 0.0f,  // mountains
                 0.0f,  // mountain caves
                 0.0f,  // desert
+                0.0f,   // deep dark
                 0.0f,  // nether generic
                 0.0f,  // basalt deltas
                 0.0f,  // crimson forest
@@ -360,11 +362,12 @@ public final class BlockGrowthConfig {
         // 0.1 warped/crimson,
         // 0.05 basalt deltas
         addToMap(block,
-                0.2f,  // tropical
+                0f,  // tropical
                 0.0f,  // savanna
                 0.0f,  // mountains
                 0.0f,  // mountain caves
                 0.0f,  // desert
+                0.0f,   // deep dark
                 0.0f,  // nether generic
                 0.05f, // basalt deltas
                 0.1f,  // crimson forest
@@ -382,6 +385,7 @@ public final class BlockGrowthConfig {
                 0.2f, // mountains
                 0.2f, // mountain caves
                 0.0f, // desert
+                0.0f,   // deep dark
                 0.0f, // nether generic
                 0.0f, // basalt
                 0.0f, // crimson
@@ -398,75 +402,79 @@ public final class BlockGrowthConfig {
         // Coconut seedling: 0.7 tropical, 0 otherwise
         addToMap(samebutdifferent.ecologics.registry.ModBlocks.COCONUT_SEEDLING.get(),
                 0.7f, 0.0f, 0.0f, 0.0f, 0.0f,
-                0.0f, 0.0f, 0.0f, 0.0f, 0.0f,
+                0.0f,0.0f, 0.0f, 0.0f, 0.0f, 0.0f,
                 0.0f
         );
 
         // Spruce: 0.7 tropical, 0.26 mountains, 0 other
         addToMap(Blocks.SPRUCE_SAPLING,
                 0.7f, 0.0f, 0.26f, 0.26f, 0.0f,
-                0.0f,0.0f,0.0f,0.0f,0.0f,
+                0.0f,0.0f,0.0f,0.0f,0.0f,0.0f,
                 0.0f
         );
 
         // Acacia: 0.30 savanna, 0.70 tropical, 0 other
         addToMap(Blocks.ACACIA_SAPLING,
                 0.70f, 0.30f, 0.0f, 0.0f, 0.0f,
-                0.0f,0.0f,0.0f,0.0f,0.0f,
+                0.0f,0.0f,0.0f,0.0f,0.0f,0.0f,
                 0.0f
         );
 
         // Baobab: 0.13 savanna, 0.4 tropical, 0 other
         addToMap(java.util.Objects.requireNonNull(BWGWood.BAOBAB.sapling()).getBlock(),
                 0.40f, 0.13f, 0.0f, 0.0f, 0.0f,
-                0.0f,0.0f,0.0f,0.0f,0.0f,
+                0.0f,0.0f,0.0f,0.0f,0.0f,0.0f,
                 0.0f
         );
 
         // Oak + birch: 0.2 savanna, 0.7 tropical, 0 desert/mountains/nether, 0.15 other
         addToMap(Blocks.OAK_SAPLING,
                 0.7f, 0.2f, 0.0f, 0.0f, 0.0f,
-                0.0f,0.0f,0.0f,0.0f,0.0f,
+                0.0f,0.0f,0.0f,0.0f,0.0f,0.0f,
                 0.15f
         );
         addToMap(Blocks.BIRCH_SAPLING,
                 0.7f, 0.2f, 0.0f, 0.0f, 0.0f,
-                0.0f,0.0f,0.0f,0.0f,0.0f,
+                0.0f,0.0f,0.0f,0.0f,0.0f,0.0f,
                 0.15f
         );
 
         // Cherry: 0.7 tropical, 0 other
         addToMap(Blocks.CHERRY_SAPLING,
                 0.7f,0.0f,0.0f,0.0f,0.0f,
-                0.0f,0.0f,0.0f,0.0f,0.0f,
+                0.0f,0.0f,0.0f,0.0f,0.0f,0.0f,
                 0.0f
         );
 
         // Mangrove propagule: 0.7 tropical, 0 other
         addToMap(Blocks.MANGROVE_PROPAGULE,
                 0.7f,0.0f,0.0f,0.0f,0.0f,
-                0.0f,0.0f,0.0f,0.0f,0.0f,
+                0.0f,0.0f,0.0f,0.0f,0.0f,0.0f,
                 0.0f
         );
 
         // Dark oak: 0.5 tropical, 0 other
         addToMap(Blocks.DARK_OAK_SAPLING,
                 0.5f,0.0f,0.0f,0.0f,0.0f,
-                0.0f,0.0f,0.0f,0.0f,0.0f,
+                0.0f,0.0f,0.0f,0.0f,0.0f,0.0f,
                 0.0f
         );
 
         // Jungle sapling: 1 in tropical, 0 other  (since jungle -> tropical)
         addToMap(Blocks.JUNGLE_SAPLING,
                 1.0f,0.0f,0.0f,0.0f,0.0f,
-                0.0f,0.0f,0.0f,0.0f,0.0f,
+                0.0f,0.0f,0.0f,0.0f,0.0f,0.0f,
                 0.0f
         );
 
+        Block witchHazelFromBWGWood = Objects.requireNonNull(BWGWood.WITCH_HAZEL.sapling()).getBlock();
+
+        AOEMod.LOGGER.info("WITCH HAZEL FROM BWGWood = {}", BuiltInRegistries.BLOCK.getKey(witchHazelFromBWGWood));
+        AOEMod.LOGGER.info("WITCH HAZEL BLOCK OBJECT = {}", witchHazelFromBWGWood);
         // Jungle sapling: 1 in tropical, 0 other  (since jungle -> tropical)
         addToMap(Objects.requireNonNull(BWGWood.WITCH_HAZEL.sapling()).getBlock(),
                 0.0f,0.0f,0.0f,0.0f,0.0f,
-                0.0f,0.13f,0.08f,0.08f,0.04f,
+                0.0f,0.08f,0.13f,0.08f,0.08f,0.04f,
                 0.0f
         );
     }
@@ -535,11 +543,11 @@ public final class BlockGrowthConfig {
         addOverworldCrops(ModBlocks.BEAN_CROP.get(), true);
 
         // Cave vines: you said 1 jungle, 0 otherwise
-        addCaveTropicalOnly(ModBlocks.CAVE_VINES.get());
-        addCaveTropicalOnly(ModBlocks.CAVE_VINES.get());
+        addCaveTropicalOnly(Blocks.CAVE_VINES);
+        addCaveTropicalOnly(Blocks.CAVE_VINES_PLANT);
 
         addCaveTropicalOnly(Blocks.VINE);
-        addCaveTropicalOnly(ModBlocks.CHERRY_VINE.get());
+        addCaveTropicalOnly(TTBlockRegistry.CHERRY_VINE.get());
 
         addToMap(Blocks.TURTLE_EGG,
                 0.2f,  // tropical
@@ -547,6 +555,23 @@ public final class BlockGrowthConfig {
                 0.0f,  // mountains
                 0.0f,  // mountain caves
                 0.0f,  // desert
+                0.0f,   // deep dark
+                0.0f,  // nether generic
+                0.0f,  // basalt deltas
+                0.0f,  // crimson forest
+                0.0f,  // warped forest
+                0.0f,  // soul sand valley
+                0.0f   // other
+        );
+
+        // Sea pickle values (replace the existing addToMap(...) for SEA_PICKLE)
+        addToMap(Blocks.SEA_PICKLE,
+                1.0f,  // tropical
+                0.4f,  // savanna
+                0.0f,  // mountains
+                0.0f,  // mountain caves
+                0.0f,  // desert
+                0.0f,   // deep dark
                 0.0f,  // nether generic
                 0.0f,  // basalt deltas
                 0.0f,  // crimson forest
@@ -582,9 +607,6 @@ public final class BlockGrowthConfig {
 
         // === Your addToMap list ===
 
-        addCaveTropicalOnly(ModBlocks.CAVE_VINES.get());
-        addCaveTropicalOnly(ModBlocks.CAVE_VINES_PLANT.get());
-
         addNetherCrops(ModBlocks.SOUL_BEETS.get()); // nether crop family
         addNetherCrops(ModBlocks.CRIMSON_POTATOES.get());
         addNetherCrops(ModBlocks.WARPED_CARROTS.get());
@@ -596,20 +618,7 @@ public final class BlockGrowthConfig {
         addTropicalOnlyCocoaLike(UABlocks.MULBERRY_VINE.get()); // "copy from cocoa"
         addSoulBerries(ModBlocks.SOUL_BERRY_BUSH.get());
 
-        // Sea pickle values (replace the existing addToMap(...) for SEA_PICKLE)
-        addToMap(ModBlocks.SEA_PICKLE.get(),
-                1.0f,  // tropical
-                0.4f,  // savanna
-                0.0f,  // mountains
-                0.0f,  // mountain caves
-                0.0f,  // desert
-                0.0f,  // nether generic
-                0.0f,  // basalt deltas
-                0.0f,  // crimson forest
-                0.0f,  // warped forest
-                0.0f,  // soul sand valley
-                0.0f   // other
-        );
+
 
         // These 12 crops: copy from wheat (i.e. your crop rules)
 //        addOverworldCrops(com.phantomwing.rusticdelight.block.ModBlocks.BELL_PEPPER_CROP.get(), true);
@@ -644,6 +653,7 @@ public final class BlockGrowthConfig {
                 0.0f,  // mountains
                 0.0f,  // mountain caves
                 0.0f,  // desert
+                0.0f,   // deep dark
                 0.0f,  // nether generic
                 0.0f,  // basalt deltas
                 0.0f,  // crimson forest
@@ -653,12 +663,13 @@ public final class BlockGrowthConfig {
         );
 
     // Lushroom: 0.5 in tropical, 0 otherwise (replace the existing addToMap for LUSHROOM)
-        addToMap(ModBlocks.LUSHROOM.get(),
+        addToMap(TTBlockRegistry.LUSHROOM_MUSHROOM.get(),
                 0.5f,  // tropical
                 0.0f,  // savanna
                 0.0f,  // mountains
                 0.0f,  // mountain caves
                 0.0f,  // desert
+                0.0f,   // deep dark
                 0.0f,  // nether generic
                 0.0f,  // basalt deltas
                 0.0f,  // crimson forest
@@ -672,7 +683,7 @@ public final class BlockGrowthConfig {
         addMushroom(BWGBlocks.WEEPING_MILKCAP.get());
         addMushroom(BWGBlocks.WEEPING_MILKCAP.get());
         addMushroom(BWGBlocks.GREEN_MUSHROOM.get());
-        addMushroom(ModBlocks.GLOW_SHROOM.get());
+        addMushroom(GlimmeringWealdModule.glow_shroom);
         addMushroom(SkiesBlocks.snowcap_pinhead);
 
         // Prickly pear: same as cactus
@@ -682,6 +693,7 @@ public final class BlockGrowthConfig {
                 0.0f,  // mountains
                 0.0f,  // mountain caves
                 0.4f,  // desert
+                0.0f,   // deep dark
                 0.0f,  // nether generic
                 0.0f,  // basalt deltas
                 0.0f,  // crimson forest

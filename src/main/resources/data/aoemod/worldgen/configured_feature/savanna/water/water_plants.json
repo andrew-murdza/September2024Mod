@@ -13,7 +13,7 @@
         {
           "weight": 10,
           "data": {
-            "Name": "aoemod:sea_pickle",
+            "Name": "minecraft:sea_pickle",
             "Properties": {
               "pickles": "4",
               "waterlogged": "true"

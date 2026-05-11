@@ -90,12 +90,56 @@
         "maxCount": 8,
         "minCount": 8,
         "weight": 10
+      },
+      {
+        "type": "alexsmobs:cosmic_cod",
+        "weight": 10,
+        "minCount": 2,
+        "maxCount": 3
       }
     ],
     "axolotls": [],
-    "creature": [],
+    "creature": [
+      {
+        "type": "alexsmobs:endergrade",
+        "weight": 10,
+        "minCount": 2,
+        "maxCount": 3
+      }
+    ],
     "misc": [],
-    "monster": [],
+    "monster": [
+      {
+        "type": "unusualfishmod:prawn",
+        "weight": 5,
+        "minCount": 2,
+        "maxCount": 3
+      },
+      {
+        "type": "trailsandtalesplus:traverser",
+        "weight": 5,
+        "minCount": 2,
+        "maxCount": 3
+      },
+      {
+        "type": "minecraft:enderman",
+        "weight": 10,
+        "minCount": 2,
+        "maxCount": 3
+      },
+      {
+        "type": "trailsandtalesplus:blastling",
+        "weight": 5,
+        "minCount": 2,
+        "maxCount": 3
+      },
+      {
+        "type": "alexsmobs:mimicube",
+        "weight": 5,
+        "minCount": 2,
+        "maxCount": 3
+      }
+    ],
     "underground_water_creature": [
       {
         "type": "minecraft:glow_squid",
@@ -104,8 +148,28 @@
         "weight": 10
       }
     ],
-    "water_ambient": [],
-    "water_creature": []
+    "water_ambient": [
+      {
+        "type": "blue_skies:municipal_monkfish",
+        "weight": 5,
+        "minCount": 2,
+        "maxCount": 3
+      },
+      {
+        "type": "blue_skies:grittle_flatfish",
+        "weight": 5,
+        "minCount": 2,
+        "maxCount": 3
+      }
+    ],
+    "water_creature": [
+      {
+        "type": "unusualfishmod:shockcat",
+        "weight": 15,
+        "minCount": 2,
+        "maxCount": 3
+      }
+    ]
   },
   "temperature": 2
 }

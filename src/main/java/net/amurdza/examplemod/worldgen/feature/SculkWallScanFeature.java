@@ -3,6 +3,7 @@ package net.amurdza.examplemod.worldgen.feature;
 import com.mojang.serialization.Codec;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.tags.BlockTags;
 import net.minecraft.world.level.ChunkPos;
 import net.minecraft.world.level.WorldGenLevel;
 import net.minecraft.world.level.block.Blocks;
@@ -54,7 +55,7 @@ public class SculkWallScanFeature extends Feature<SculkWallScanFeatureConfig> {
     private static boolean aoe$shouldConvertToSculk(WorldGenLevel level, BlockPos pos) {
         BlockState state = level.getBlockState(pos);
 
-        if (state.is(Blocks.WATER)||state.is(Blocks.LAVA)||state.isAir()) {
+        if (!state.is(BlockTags.SCULK_REPLACEABLE)) {
             return false;
         }
 

@@ -6,6 +6,10 @@ import org.spongepowered.asm.mixin.Overwrite;
 
 @Mixin(AbstractGolem.class)
 public class ShulkersDespawnPart1 {
+    /**
+     * @author amurdza
+     * @reason simplest way to accomplish what I want
+     */
     @Overwrite
     public boolean removeWhenFarAway(double pDistanceToClosestPlayer) {
         return false;

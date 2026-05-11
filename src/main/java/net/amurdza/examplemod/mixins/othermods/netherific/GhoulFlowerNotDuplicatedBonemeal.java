@@ -6,7 +6,7 @@ import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Redirect;
 
-@Mixin(GhoulflowerBlock.class)
+@Mixin(value = GhoulflowerBlock.class,remap = false)
 public class GhoulFlowerNotDuplicatedBonemeal {
     @Redirect(method = "performBonemeal",at= @At(value = "INVOKE", target = "Lnet/mcreator/nourishednether/procedures/GhoulflowerOnBoneMealSuccessProcedure;execute(Lnet/minecraft/world/level/LevelAccessor;DDD)V"))
     private void hi(LevelAccessor entityToSpawn, double _level, double world, double x){

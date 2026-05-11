@@ -60,7 +60,7 @@
               },
               {
                 "type": "minecraft:matching_blocks",
-                "blocks": "minecraft:grass_block",
+                "blocks": "minecraft:soul_sand",
                 "offset": [
                   0,
                   -1,
@@ -72,8 +72,8 @@
         }
       ]
     },
-    "tries": 96,
-    "xz_spread": 7,
-    "y_spread": 3
+    "tries": 20,
+    "xz_spread": 2,
+    "y_spread": 2
   }
 }

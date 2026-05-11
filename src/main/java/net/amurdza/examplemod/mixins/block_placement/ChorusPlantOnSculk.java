@@ -19,6 +19,20 @@ public class ChorusPlantOnSculk {
         return aOEMod1_20_1V2$isSoil(instance,block);
     }
 
+    @Redirect(method = "updateShape",at=@At(value = "INVOKE",
+            target = "Lnet/minecraft/world/level/block/state/BlockState;is(Lnet/minecraft/world/level/block/Block;)Z",
+            ordinal = 2))
+    private boolean hi2(BlockState instance, Block block){
+        return aOEMod1_20_1V2$isSoil(instance,block);
+    }
+
+    @Redirect(method = "getStateForPlacement(Lnet/minecraft/world/level/BlockGetter;Lnet/minecraft/core/BlockPos;)Lnet/minecraft/world/level/block/state/BlockState;",at=@At(value = "INVOKE",
+            target = "Lnet/minecraft/world/level/block/state/BlockState;is(Lnet/minecraft/world/level/block/Block;)Z",
+            ordinal = 2))
+    private boolean hi3(BlockState instance, Block block){
+        return aOEMod1_20_1V2$isSoil(instance,block);
+    }
+
     @Unique
     private boolean aOEMod1_20_1V2$isSoil(BlockState instance, Block block){
         return instance.is(block)||instance.is(Blocks.SCULK)||instance.is(Blocks.SCULK_CATALYST);

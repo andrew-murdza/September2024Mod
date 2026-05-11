@@ -1,5 +1,5 @@
 {
-  "feature": "minecraft:trees_savanna",
+  "feature": "aoemod:savanna/trees",
   "placement": [
     {
       "type": "minecraft:rarity_filter",

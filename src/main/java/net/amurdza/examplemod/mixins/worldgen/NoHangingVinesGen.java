@@ -6,12 +6,14 @@ import net.minecraft.world.level.levelgen.feature.treedecorators.LeaveVineDecora
 import net.minecraft.world.level.levelgen.feature.treedecorators.TreeDecorator;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
+import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.Redirect;
+import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 @Mixin(LeaveVineDecorator.class)
 public class NoHangingVinesGen {
-    @Redirect(method = "lambda$place$1",at= @At(value = "INVOKE", target = "Lnet/minecraft/world/level/levelgen/feature/treedecorators/LeaveVineDecorator;addHangingVine(Lnet/minecraft/core/BlockPos;Lnet/minecraft/world/level/block/state/properties/BooleanProperty;Lnet/minecraft/world/level/levelgen/feature/treedecorators/TreeDecorator$Context;)V"))
-    private void hi(BlockPos blockpos, BooleanProperty pPos, TreeDecorator.Context pSideProperty){
-
+    @Inject(method = "place", at = @At("HEAD"), cancellable = true)
+    private void aoe$cancelVines(TreeDecorator.Context context, CallbackInfo ci) {
+        ci.cancel();
     }
 }

@@ -53,7 +53,7 @@ public class BerryDrops {
             Item item = null;
             if((block instanceof CaveVines)&&state.getValue(BlockStateProperties.BERRIES)){
                 amount=Config.GLOW_BERRY_HARVEST_AMOUNT-1;
-                item=ModItems.GLOW_BERRIES.get();
+                item=Items.GLOW_BERRIES;
             }
             if(state.is(Blocks.SWEET_BERRY_BUSH)){
                 int age=state.getValue(BlockStateProperties.AGE_3);

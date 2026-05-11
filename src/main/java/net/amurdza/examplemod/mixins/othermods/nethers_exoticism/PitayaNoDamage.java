@@ -13,7 +13,7 @@ import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Redirect;
 
-@Mixin(PitayaStemBlock.class)
+@Mixin(value = PitayaStemBlock.class,remap = false)
 public class PitayaNoDamage {
     @Redirect(method = "entityInside",at= @At(value = "INVOKE", target = "Lnet/mcreator/nethersexoticism/procedures/PitayaStemEntityCollidesInTheBlockProcedure;execute(Lnet/minecraft/world/level/LevelAccessor;Lnet/minecraft/world/entity/Entity;)V"))
     private void hi(LevelAccessor world, Entity entity){
