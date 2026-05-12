@@ -29,19 +29,6 @@ public abstract class SeaSpiderInLava extends PathfinderMob {
         super(pEntityType, pLevel);
     }
 
-    @Inject(method = "<init>", at = @At("TAIL"), remap = false)
-    private void aoemod$lavaPathing(EntityType<?> type, Level level, CallbackInfo ci) {
-        this.setPathfindingMalus(BlockPathTypes.WATER, 8.0F);
-        this.setPathfindingMalus(BlockPathTypes.LAVA, 0.0F);
-    }
-
-    @Inject(method = "registerGoals", at = @At("TAIL"), remap = false)
-    private void aoemod$replaceWaterGoalsWithLavaGoals(CallbackInfo ci) {
-        this.goalSelector.removeAllGoals(goal ->
-                goal instanceof TryFindWaterGoal
-        );
-        this.goalSelector.addGoal(0, new TryFindLavaGoal(this));
-    }
     @Inject(method = "createNavigation", at = @At("HEAD"), cancellable = true, remap = false)
     private void aoemod$useGroundNavigation(Level level, CallbackInfoReturnable<PathNavigation> cir) {
         SeaSpider self = (SeaSpider)(Object)this;

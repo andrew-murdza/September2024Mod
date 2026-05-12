@@ -32,7 +32,6 @@ public class WitchHazelOnBasalt {
             MapColor color,
             Supplier<AbstractTreeGrower> grower
     ) {
-        AOEMod.LOGGER.info("AOE: Redirected witch hazel BWGWoodSet!");
         return new WitchHazelOnBasalt2(name, color, WitchHazelTreeGrower::new, ModTags.Blocks.basaltStones);
     }
 }

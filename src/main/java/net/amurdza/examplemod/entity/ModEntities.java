@@ -19,7 +19,6 @@ import net.minecraftforge.registries.RegistryObject;
 
 /**
  * Forge 1.20.1 entity registration.
- *
  * Register:
  *  - entity types via DeferredRegister
  *  - attributes via EntityAttributeCreationEvent
@@ -43,8 +42,7 @@ public final class ModEntities {
             MobCategory.WATER_AMBIENT,
             0.5F,
             0.5F,
-            EndFishEntity::new,
-            true
+            EndFishEntity::new
     );
 
     public static final RegistryObject<EntityType<CubozoaEntity>> CUBOZOA = registerMob(
@@ -52,8 +50,7 @@ public final class ModEntities {
             MobCategory.WATER_AMBIENT,
             0.6F,
             1.0F,
-            CubozoaEntity::new,
-            true
+            CubozoaEntity::new
     );
 
     // -------------
@@ -115,10 +112,7 @@ public final class ModEntities {
         event.put(CUBOZOA.get(), CubozoaEntity.createMobAttributes().build());
     }
 
-    /**
-     * Call this from your mod setup by registering it to the MOD event bus,
-     * e.g. modEventBus.addListener(MobEntities::onSpawnPlacements);
-     */
+    @SubscribeEvent
     public static void onSpawnPlacements(SpawnPlacementRegisterEvent event) {
         // If you want Fabric-like “config disables entity entirely”, the closest Forge pattern is:
         // - always register EntityType
@@ -147,8 +141,7 @@ public final class ModEntities {
             MobCategory category,
             float width,
             float height,
-            EntityType.EntityFactory<T> factory,
-            boolean fixedSize
+            EntityType.EntityFactory<T> factory
     ) {
         return ENTITY_TYPES.register(name, () ->
                 EntityType.Builder
@@ -165,9 +158,8 @@ public final class ModEntities {
             MobCategory category,
             float width,
             float height,
-            EntityType.EntityFactory<T> factory,
-            boolean fixedSize
+            EntityType.EntityFactory<T> factory
     ) {
-        return registerEntity(name, category, width, height, factory, fixedSize);
+        return registerEntity(name, category, width, height, factory);
     }
 }

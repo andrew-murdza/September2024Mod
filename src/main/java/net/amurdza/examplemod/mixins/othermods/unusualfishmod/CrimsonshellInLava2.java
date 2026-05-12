@@ -11,8 +11,8 @@ import org.spongepowered.asm.mixin.injection.Redirect;
 
 @Mixin(value = SquidMoveControl.class,remap = false)
 public class CrimsonshellInLava2 {
-    @Redirect(method = "tick",at= @At(value = "INVOKE", target = "Lcodyhuh/unusualfishmod/common/entity/util/base/BreedableWaterAnimal;isEyeInFluid(Lnet/minecraft/tags/TagKey;)Z"))
-    private boolean hi(BreedableWaterAnimal instance, TagKey tagKey){
-        return LavaMobs.isLavaMob(instance)?instance.isEyeInFluid(FluidTags.LAVA):instance.isEyeInFluid(FluidTags.WATER);
-    }
+//    @Redirect(method = "tick",at= @At(value = "INVOKE", target = "Lcodyhuh/unusualfishmod/common/entity/util/base/BreedableWaterAnimal;isEyeInFluid(Lnet/minecraft/tags/TagKey;)Z"))
+//    private boolean hi(BreedableWaterAnimal instance, TagKey tagKey){
+//        return LavaMobs.isLavaMob(instance)?instance.isEyeInFluid(FluidTags.LAVA):instance.isEyeInFluid(FluidTags.WATER);
+//    }
 }

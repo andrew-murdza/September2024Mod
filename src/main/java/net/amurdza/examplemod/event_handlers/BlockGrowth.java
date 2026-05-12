@@ -48,12 +48,17 @@ public class BlockGrowth {
         BlockState state = event.getState();
         Block block = state.getBlock();
 
+        if(block==Blocks.AIR){
+            if(level.getBlockState(pos.below()).is(Blocks.CAVE_VINES)){
+                block=Blocks.CAVE_VINES;
+            }
+            if(level.getBlockState(pos.below()).is(Blocks.CAVE_VINES_PLANT)){
+                block=Blocks.CAVE_VINES_PLANT;
+            }
+        }
+
         // Only handle blocks we know about:
         float mult = getMultiplier(level, pos, block);
-
-        AOEMod.LOGGER.info("GROW EVENT BLOCK = {}", BuiltInRegistries.BLOCK.getKey(block));
-        AOEMod.LOGGER.info("MULT = {}", mult);
-        AOEMod.LOGGER.info("BIOME = {}", level.getBiome(pos).unwrapKey().map(k -> k.location().toString()).orElse("unknown"));
 
         if (mult < 0f) return; // not tracked, let vanilla/mods handle it
 

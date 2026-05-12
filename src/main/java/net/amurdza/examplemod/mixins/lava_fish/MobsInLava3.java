@@ -1,32 +1,52 @@
 package net.amurdza.examplemod.mixins.lava_fish;
 
-import net.amurdza.examplemod.lava_fish.LavaBoundPathNavigation;
 import net.amurdza.examplemod.lava_fish.LavaMobs;
-import net.minecraft.world.entity.Mob;
-import net.minecraft.world.entity.ai.navigation.PathNavigation;
-import net.minecraft.world.entity.animal.AbstractFish;
-import net.minecraft.world.level.Level;
+import net.minecraft.world.entity.Entity;
+import net.minecraftforge.common.ForgeMod;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.Redirect;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
-@Mixin(AbstractFish.class)
-public class MobsInLava3 {
+import java.util.function.BiPredicate;
 
-    @Redirect(method = "aiStep",at= @At(value = "INVOKE", target = "Lnet/minecraft/world/entity/animal/AbstractFish;isInWater()Z"))
-    private boolean hi(AbstractFish instance){
-        return LavaMobs.isLavaMob(instance)?instance.isInLava():instance.isInWater();
-    }
-    @Inject(method = "createNavigation",at= @At("HEAD"),cancellable = true)
-    private void hi(Level pLevel, CallbackInfoReturnable<PathNavigation> cir){
-        if(LavaMobs.isLavaMob(this)){
-            cir.setReturnValue(new LavaBoundPathNavigation((Mob)(Object)this,pLevel));
+@Mixin(Entity.class)
+public class MobsInLava3 {
+    @Inject(method = "isInWater", at = @At("HEAD"), cancellable = true)
+    private void aoemod$lavaCountsAsWater(CallbackInfoReturnable<Boolean> cir) {
+        Entity self = (Entity)(Object)this;
+        if (LavaMobs.isLavaMob(self)) {
+            cir.setReturnValue(self.isInLava());
         }
     }
-    @Redirect(method = "travel",at= @At(value = "INVOKE", target = "Lnet/minecraft/world/entity/animal/AbstractFish;isInWater()Z"))
-    private boolean hi1(AbstractFish instance){
-        return LavaMobs.isLavaMob(instance)?instance.isInLava():instance.isInWater();
+    @Redirect(
+            method = "updateSwimming",
+            at = @At(
+                    value = "INVOKE",
+                    target = "Lnet/minecraft/world/entity/Entity;isInFluidType(Ljava/util/function/BiPredicate;)Z",remap = false
+            )
+    )
+    private boolean aoemod$lavaMobsCanSwimInLavaForUpdateSwimming(Entity entity, BiPredicate biPredicate) {
+        if (LavaMobs.isLavaMob(entity) && entity.getEyeInFluidType() == ForgeMod.LAVA_TYPE.get()) {
+            return true;
+        }
+
+        return entity.isInFluidType((fluidType, height) -> entity.canSwimInFluidType(fluidType));
+    }
+
+    @Redirect(
+            method = "isVisuallyCrawling",
+            at = @At(
+                    value = "INVOKE",
+                    target = "Lnet/minecraft/world/entity/Entity;isInFluidType(Ljava/util/function/BiPredicate;)Z",remap = false
+            )
+    )
+    private boolean aoemod$lavaMobsCanSwimInLavaForCrawling(Entity entity, BiPredicate biPredicate) {
+        if (LavaMobs.isLavaMob(entity) && entity.getEyeInFluidType() == ForgeMod.LAVA_TYPE.get()) {
+            return true;
+        }
+
+        return entity.isInFluidType((fluidType, height) -> entity.canSwimInFluidType(fluidType));
     }
 }

@@ -8,7 +8,6 @@ import net.amurdza.examplemod.AOEMod;
 import net.amurdza.examplemod.Config;
 import net.amurdza.examplemod.block.CharniaBlock;
 import net.amurdza.examplemod.block.ModBlocks;
-import net.amurdza.examplemod.block.SeaPickleNew;
 import net.amurdza.examplemod.util.Helper;
 import net.amurdza.examplemod.util.ModTags;
 import net.amurdza.examplemod.util.RandomCollection;
@@ -285,7 +284,7 @@ public class BoneMealEvent {
 
         if (state.is(ModTags.Blocks.netherFlowers)) return false;
         if (state.is(ModTags.Blocks.netherRootsPlaceable)) return false;
-        if (block instanceof SeaPickleBlock && state.getValue(SeaPickleNew.PICKLES) < 4 && state.getValue(BlockStateProperties.WATERLOGGED)) return false;
+        if (block instanceof SeaPickleBlock && state.getValue(SeaPickleBlock.PICKLES) < 4 && state.getValue(BlockStateProperties.WATERLOGGED)) return false;
 
         if (
                 ((block instanceof FlowerBlock
@@ -433,10 +432,10 @@ public class BoneMealEvent {
                 }
             }
         }
-        if (block instanceof SeaPickleNew && state.getValue(SeaPickleNew.PICKLES) < 4) {
+        if (block instanceof SeaPickleBlock && state.getValue(SeaPickleBlock.PICKLES) < 4) {
             level.setBlockAndUpdate(
                     pos,
-                    state.setValue(SeaPickleNew.PICKLES, state.getValue(SeaPickleNew.PICKLES) + 1)
+                    state.setValue(SeaPickleBlock.PICKLES, state.getValue(SeaPickleBlock.PICKLES) + 1)
             );
             return true;
         }

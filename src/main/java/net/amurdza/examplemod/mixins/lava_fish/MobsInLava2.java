@@ -11,11 +11,11 @@ import net.minecraft.world.entity.MobType;
 import net.minecraft.world.entity.animal.WaterAnimal;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelAccessor;
+import net.minecraft.world.level.material.Fluids;
 import net.minecraft.world.level.pathfinder.BlockPathTypes;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
-import org.spongepowered.asm.mixin.injection.Redirect;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
@@ -32,8 +32,8 @@ public abstract class MobsInLava2 {
     ) {
         if (LavaMobs.isLavaMob(type)) {
             cir.setReturnValue(
-                    level.getFluidState(pos).is(FluidTags.LAVA)
-                            && level.getFluidState(pos.below()).is(FluidTags.LAVA)
+                    level.getFluidState(pos.below()).is(FluidTags.LAVA)
+                            && level.getFluidState(pos.above()).is(Fluids.LAVA)
             );
         }
     }
@@ -47,11 +47,6 @@ public abstract class MobsInLava2 {
         }
     }
 
-    @Redirect(method = "handleAirSupply", at= @At(value = "INVOKE", target = "Lnet/minecraft/world/entity/animal/WaterAnimal;isInWaterOrBubble()Z"))
-    boolean hi(WaterAnimal instance){
-        return LavaMobs.isLavaMob(instance)&&instance.isInLava()||!LavaMobs.isLavaMob(instance)&&instance.isInWaterOrBubble();
-    }
-
     @Inject(method = "<init>", at = @At("TAIL"))
     private void aoemod$lavaPathMalus(
             EntityType<? extends WaterAnimal> type,
@@ -60,11 +55,7 @@ public abstract class MobsInLava2 {
     ) {
         if (LavaMobs.isLavaMob(type)) {
             WaterAnimal self = (WaterAnimal) (Object) this;
-
             self.setPathfindingMalus(BlockPathTypes.LAVA, 0.0F);
-
-            // Optional: make water bad for converted lava mobs
-            self.setPathfindingMalus(BlockPathTypes.WATER, 8.0F);
         }
     }
 }

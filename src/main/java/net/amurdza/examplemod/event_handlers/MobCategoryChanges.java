@@ -53,9 +53,6 @@ public class MobCategoryChanges {
 
         if (type != null) {
             ((EntityTypeCategoryAccessor) type).aoemod$setCategory(category);
-            AOEMod.LOGGER.info("Changed mob category of {} to {}", id, category.getName());
-        } else {
-            AOEMod.LOGGER.warn("Could not find entity type {}", id);
         }
     }
 }

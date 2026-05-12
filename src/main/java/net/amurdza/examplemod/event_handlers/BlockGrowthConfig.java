@@ -467,10 +467,6 @@ public final class BlockGrowthConfig {
                 0.0f
         );
 
-        Block witchHazelFromBWGWood = Objects.requireNonNull(BWGWood.WITCH_HAZEL.sapling()).getBlock();
-
-        AOEMod.LOGGER.info("WITCH HAZEL FROM BWGWood = {}", BuiltInRegistries.BLOCK.getKey(witchHazelFromBWGWood));
-        AOEMod.LOGGER.info("WITCH HAZEL BLOCK OBJECT = {}", witchHazelFromBWGWood);
         // Jungle sapling: 1 in tropical, 0 other  (since jungle -> tropical)
         addToMap(Objects.requireNonNull(BWGWood.WITCH_HAZEL.sapling()).getBlock(),
                 0.0f,0.0f,0.0f,0.0f,0.0f,

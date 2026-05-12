@@ -1,34 +1,36 @@
 package net.amurdza.examplemod.entity.render;
 
-import dev.architectury.registry.client.level.entity.EntityModelLayerRegistry;
-import dev.architectury.registry.client.level.entity.EntityRendererRegistry;
 import net.amurdza.examplemod.AOEMod;
 import net.amurdza.examplemod.entity.ModEntities;
 import net.amurdza.examplemod.entity.model.CubozoaEntityModel;
 import net.amurdza.examplemod.entity.model.EndFishEntityModel;
 import net.minecraft.client.model.geom.ModelLayerLocation;
-import net.minecraft.client.renderer.entity.MobRenderer;
-import net.minecraft.world.entity.EntityType;
-import net.minecraft.client.renderer.entity.EntityRendererProvider.Context;
+import net.minecraftforge.api.distmarker.Dist;
+import net.minecraftforge.client.event.EntityRenderersEvent;
+import net.minecraftforge.eventbus.api.SubscribeEvent;
+import net.minecraftforge.fml.common.Mod;
 
-import java.util.function.Function;
+@Mod.EventBusSubscriber(
+        modid = AOEMod.MOD_ID,
+        bus = Mod.EventBusSubscriber.Bus.MOD,
+        value = Dist.CLIENT
+)
+public class EntityRenders {
+    public static final ModelLayerLocation END_FISH_MODEL =
+            new ModelLayerLocation(AOEMod.makeID("endfish"), "main");
 
-public class EntityRenders
-{
-    public static final ModelLayerLocation END_FISH_MODEL = registerMain("endfish");
-    public static final ModelLayerLocation CUBOZOA_MODEL = registerMain("cubozoa");
+    public static final ModelLayerLocation CUBOZOA_MODEL =
+            new ModelLayerLocation(AOEMod.makeID("cubozoa"), "main");
 
-    private static ModelLayerLocation registerMain(String id) {
-        return new ModelLayerLocation(AOEMod.makeID(id), "main");
+    @SubscribeEvent
+    public static void registerRenderers(EntityRenderersEvent.RegisterRenderers event) {
+        event.registerEntityRenderer(ModEntities.END_FISH.get(), RendererEntityEndFish::new);
+        event.registerEntityRenderer(ModEntities.CUBOZOA.get(), RendererEntityCubozoa::new);
     }
-    public static void register(){
-        register(ModEntities.END_FISH.get(), RendererEntityEndFish::new);
-        register(ModEntities.CUBOZOA.get(), RendererEntityCubozoa::new);
 
-        EntityModelLayerRegistry.register(END_FISH_MODEL, EndFishEntityModel::getTexturedModelData);
-        EntityModelLayerRegistry.register(CUBOZOA_MODEL, CubozoaEntityModel::getTexturedModelData);
-    }
-    private static void register(EntityType<?> type, Function<Context, MobRenderer> renderer) {
-        EntityRendererRegistry.register(()->type, (context) -> renderer.apply(context));
+    @SubscribeEvent
+    public static void registerLayerDefinitions(EntityRenderersEvent.RegisterLayerDefinitions event) {
+        event.registerLayerDefinition(END_FISH_MODEL, EndFishEntityModel::getTexturedModelData);
+        event.registerLayerDefinition(CUBOZOA_MODEL, CubozoaEntityModel::getTexturedModelData);
     }
 }

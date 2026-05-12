@@ -54,7 +54,6 @@ public class AOEMod
 
         // Register the item to a creative tab
         modEventBus.addListener(this::addCreative);
-        modEventBus.addListener(ModEntities::onSpawnPlacements);
 
         //custom items
         ModItems.register(modEventBus);
