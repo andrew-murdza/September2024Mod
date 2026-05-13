@@ -17,7 +17,7 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
-@Mixin(value = Entity.class,remap = false)
+@Mixin(value = Entity.class)
 public abstract class MobsInLava1 {
     @Inject(method = "fireImmune", at = @At("HEAD"), cancellable = true)
     private void aoemod$seaSpiderFireImmune(CallbackInfoReturnable<Boolean> cir) {

@@ -1,6 +1,7 @@
 package net.amurdza.examplemod.event_handlers;
 
 import com.github.alexthe666.alexsmobs.entity.AMEntityRegistry;
+import com.github.alexthe666.iceandfire.entity.IafEntityRegistry;
 import com.legacy.blue_skies.registries.SkiesEntityTypes;
 import net.amurdza.examplemod.AOEMod;
 import net.amurdza.examplemod.mixins.mob_spawning.EntityTypeCategoryAccessor;
@@ -21,6 +22,11 @@ public class MobCategoryChanges {
         event.enqueueWork(() -> {
             setCategory(AMEntityRegistry.JERBOA.get(), MobCategory.CREATURE);
             setCategory(SkiesEntityTypes.EMBERBACK, MobCategory.CREATURE);
+            setCategory(IafEntityRegistry.AMPHITHERE.get(), MobCategory.CREATURE);
+            setCategory(IafEntityRegistry.SIREN.get(), MobCategory.CREATURE);
+            setCategory(IafEntityRegistry.CYCLOPS.get(), MobCategory.CREATURE);
+            setCategory(IafEntityRegistry.STYMPHALIAN_BIRD.get(), MobCategory.CREATURE);
+            setCategory(AMEntityRegistry.JERBOA.get(), MobCategory.CREATURE);
 
             // Move to water_creature
             setCategory("hybrid-aquatic:manta_ray", MobCategory.WATER_CREATURE);

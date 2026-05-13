@@ -89,12 +89,12 @@ public abstract class BiomeManagerPreciseYMixin {
             double xNoise,
             double zNoise
     ) {
-        long mixedSeed = LinearCongruentialGenerator.next(seed, (long)quartX);
-        mixedSeed = LinearCongruentialGenerator.next(mixedSeed, (long)quartY);
-        mixedSeed = LinearCongruentialGenerator.next(mixedSeed, (long)quartZ);
-        mixedSeed = LinearCongruentialGenerator.next(mixedSeed, (long)quartX);
-        mixedSeed = LinearCongruentialGenerator.next(mixedSeed, (long)quartY);
-        mixedSeed = LinearCongruentialGenerator.next(mixedSeed, (long)quartZ);
+        long mixedSeed = LinearCongruentialGenerator.next(seed, quartX);
+        mixedSeed = LinearCongruentialGenerator.next(mixedSeed, quartY);
+        mixedSeed = LinearCongruentialGenerator.next(mixedSeed, quartZ);
+        mixedSeed = LinearCongruentialGenerator.next(mixedSeed, quartX);
+        mixedSeed = LinearCongruentialGenerator.next(mixedSeed, quartY);
+        mixedSeed = LinearCongruentialGenerator.next(mixedSeed, quartZ);
 
         double xFiddle = aoe$getFiddle(mixedSeed);
         mixedSeed = LinearCongruentialGenerator.next(mixedSeed, seed);

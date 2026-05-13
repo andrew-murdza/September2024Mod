@@ -7,6 +7,8 @@ import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.SpawnPlacements;
 import net.minecraft.world.entity.monster.Monster;
 import net.minecraft.world.level.ServerLevelAccessor;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.levelgen.Heightmap;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
@@ -21,6 +23,10 @@ public class SpawnConditions {
         addSpawn(EntityType.SLIME,false, Monster::checkMonsterSpawnRules,event);
 
         addSpawn(EntityType.PILLAGER,false,Monster::checkMonsterSpawnRules,event);
+        addSpawn(EntityType.CAMEL, false, (p,q,r,s,t)->camel(q,s), event);
+        addSpawn(EntityType.ZOGLIN,false,Monster::checkMonsterSpawnRules,event);
+        addSpawn(EntityType.PIGLIN_BRUTE,false,Monster::checkMonsterSpawnRules,event);
+
     }
     private static void addSpawn(FMLCommonSetupEvent event, SpawnPlacements.Type type, Heightmap.Types heightType , EntityType entityType, SpawnPlacements.SpawnPredicate func){
         event.enqueueWork(()->{
@@ -44,5 +50,9 @@ public class SpawnConditions {
     }
     private static boolean glowSquid(ServerLevelAccessor level, BlockPos pos) {
         return Helper.isSpecialBiome(level,pos)||pos.getY() <= level.getSeaLevel()-33;
+    }
+    private static boolean camel(ServerLevelAccessor level, BlockPos pos) {
+        BlockState state=level.getBlockState(pos.below());
+        return state.is(Blocks.SAND) || state.is(Blocks.GRASS_BLOCK) || state.is(Blocks.MOSS_BLOCK) && level.getRawBrightness(pos, 0) > 8;
     }
 }

@@ -91,16 +91,16 @@
         "maxCount": 8,
         "minCount": 8,
         "weight": 10
-      },
+      }
+    ],
+    "axolotls": [],
+    "creature": [
       {
         "type": "alexsmobs:jerboa",
         "weight": 10,
         "minCount": 2,
         "maxCount": 5
-      }
-    ],
-    "axolotls": [],
-    "creature": [
+      },
       {
         "type": "minecraft:rabbit",
         "weight": 4,

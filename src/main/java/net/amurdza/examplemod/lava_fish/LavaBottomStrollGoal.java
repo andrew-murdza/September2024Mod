@@ -9,9 +9,9 @@ import net.minecraft.world.phys.Vec3;
 
 import javax.annotation.Nullable;
 
-public class BottomLavaStrollGoal extends RandomStrollGoal {
+public class LavaBottomStrollGoal extends RandomStrollGoal {
 
-    public BottomLavaStrollGoal(PathfinderMob mob, double speedModifier, int interval) {
+    public LavaBottomStrollGoal(PathfinderMob mob, double speedModifier, int interval) {
         super(mob, speedModifier, interval);
     }
 

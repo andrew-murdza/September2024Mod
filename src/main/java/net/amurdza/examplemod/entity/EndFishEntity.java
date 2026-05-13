@@ -112,17 +112,6 @@ public class EndFishEntity extends AbstractSchoolingFish {
         return SoundEvents.SALMON_HURT;
     }
 
-    @Override
-    public void tick() {
-        super.tick();
-        if (random.nextInt(8) == 0 && getFeetBlockState().is(Blocks.WATER)) {
-            double x = getX() + random.nextGaussian() * 0.2;
-            double y = getY() + random.nextGaussian() * 0.2;
-            double z = getZ() + random.nextGaussian() * 0.2;
-            level().addParticle(ParticleTypes.BUBBLE, x, y, z, 0, 0, 0);
-        }
-    }
-
     public static AttributeSupplier.Builder createMobAttributes() {
         return LivingEntity
                 .createLivingAttributes()

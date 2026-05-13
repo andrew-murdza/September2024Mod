@@ -5,6 +5,7 @@ import net.amurdza.examplemod.item.ModItems;
 import net.amurdza.examplemod.util.ColorUtil;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.*;
+import net.minecraft.world.entity.animal.Animal;
 import net.minecraft.world.entity.animal.TropicalFish;
 import net.minecraft.world.level.levelgen.Heightmap;
 import net.minecraftforge.common.ForgeSpawnEggItem;

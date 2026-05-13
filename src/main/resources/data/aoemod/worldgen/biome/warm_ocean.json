@@ -362,27 +362,6 @@
         "weight": 5,
         "minCount": 2,
         "maxCount": 5
-      }
-    ],
-    "misc": [],
-    "monster": [
-      {
-        "type": "alexsmobs:centipede_head",
-        "weight": 10,
-        "minCount": 2,
-        "maxCount": 5
-      },
-      {
-        "type": "iceandfire:amphithere",
-        "weight": 5,
-        "minCount": 2,
-        "maxCount": 5
-      },
-      {
-        "type": "iceandfire:gorgon",
-        "weight": 5,
-        "minCount": 1,
-        "maxCount": 2
       },
       {
         "type": "iceandfire:siren",
@@ -395,6 +374,27 @@
         "weight": 5,
         "minCount": 2,
         "maxCount": 5
+      },
+      {
+        "type": "iceandfire:amphithere",
+        "weight": 5,
+        "minCount": 2,
+        "maxCount": 5
+      }
+    ],
+    "misc": [],
+    "monster": [
+      {
+        "type": "alexsmobs:centipede_head",
+        "weight": 10,
+        "minCount": 2,
+        "maxCount": 5
+      },
+      {
+        "type": "iceandfire:gorgon",
+        "weight": 5,
+        "minCount": 1,
+        "maxCount": 2
       },
       {
         "type": "minecraft:spider",
@@ -413,12 +413,6 @@
         "weight": 100,
         "minCount": 4,
         "maxCount": 4
-      },
-      {
-        "type": "minecraft:witch",
-        "weight": 10,
-        "minCount": 1,
-        "maxCount": 1
       }
     ],
     "underground_water_creature": [

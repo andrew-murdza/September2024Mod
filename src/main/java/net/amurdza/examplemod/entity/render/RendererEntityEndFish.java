@@ -12,6 +12,7 @@ import net.minecraft.client.renderer.entity.MobRenderer;
 import net.minecraft.client.renderer.entity.layers.EyesLayer;
 import net.minecraft.client.renderer.texture.OverlayTexture;
 import net.minecraft.resources.ResourceLocation;
+import org.jetbrains.annotations.NotNull;
 
 public class RendererEntityEndFish extends MobRenderer<EndFishEntity, EndFishEntityModel> {
     private static final ResourceLocation[] TEXTURE = new ResourceLocation[EndFishEntity.VARIANTS];
@@ -49,14 +50,16 @@ public class RendererEntityEndFish extends MobRenderer<EndFishEntity, EndFishEnt
     }
 
     @Override
-    public ResourceLocation getTextureLocation(EndFishEntity entity) {
+    public @NotNull ResourceLocation getTextureLocation(EndFishEntity entity) {
         return TEXTURE[entity.getVariant()];
     }
 
     static {
         for (int i = 0; i < EndFishEntity.VARIANTS; i++) {
-            TEXTURE[i] = AOEMod.makeID("textures/entity/end_fish/end_fish_" + i + ".png");
-            GLOW[i] = RenderType.eyes(AOEMod.makeID("textures/entity/end_fish/end_fish_" + i + "_glow.png"));
+            TEXTURE[i] = AOEMod.makeID("textures/entity/endfish/end_fish_" + i + ".png");
+            GLOW[i] = RenderType.eyes(
+                    AOEMod.makeID("textures/entity/endfish/end_fish_" + i + "_glow.png")
+            );
         }
     }
 }

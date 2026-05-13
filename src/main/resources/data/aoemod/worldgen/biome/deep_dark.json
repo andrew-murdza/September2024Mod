@@ -110,12 +110,6 @@
     "misc": [],
     "monster": [
       {
-        "type": "unusualfishmod:prawn",
-        "weight": 5,
-        "minCount": 2,
-        "maxCount": 3
-      },
-      {
         "type": "trailsandtalesplus:traverser",
         "weight": 5,
         "minCount": 2,
@@ -166,6 +160,12 @@
       {
         "type": "unusualfishmod:shockcat",
         "weight": 15,
+        "minCount": 2,
+        "maxCount": 3
+      },
+      {
+        "type": "unusualfishmod:prawn",
+        "weight": 5,
         "minCount": 2,
         "maxCount": 3
       }

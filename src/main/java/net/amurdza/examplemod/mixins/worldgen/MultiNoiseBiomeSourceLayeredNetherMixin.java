@@ -75,11 +75,12 @@ public abstract class MultiNoiseBiomeSourceLayeredNetherMixin {
         if (blockY < -96) {
             cir.setReturnValue(biomes.get(AOE_BASALT));
         } else if (blockY < -64) {
-            cir.setReturnValue(biomes.get(AOE_SOUL));
+            cir.setReturnValue(biomes.get(AOE_CRIMSON));
+
         } else if (blockY < -32) {
             cir.setReturnValue(biomes.get(AOE_WARPED));
         } else if (blockY < 0) {
-            cir.setReturnValue(biomes.get(AOE_CRIMSON));
+            cir.setReturnValue(biomes.get(AOE_SOUL));
         } else if (blockY < 32) {
             cir.setReturnValue(biomes.get(AOE_DEEP_DARK));
         } else {

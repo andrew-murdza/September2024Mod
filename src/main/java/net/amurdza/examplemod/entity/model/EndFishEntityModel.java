@@ -2,6 +2,7 @@ package net.amurdza.examplemod.entity.model;
 
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
+import net.amurdza.examplemod.AOEMod;
 import net.amurdza.examplemod.entity.EndFishEntity;
 import net.minecraft.client.model.EntityModel;
 import net.minecraft.client.model.geom.ModelPart;
@@ -12,6 +13,7 @@ import net.minecraft.client.model.geom.builders.LayerDefinition;
 import net.minecraft.client.model.geom.builders.MeshDefinition;
 import net.minecraft.client.model.geom.builders.PartDefinition;
 import net.minecraft.client.renderer.RenderType;
+import net.minecraft.resources.ResourceLocation;
 
 public class EndFishEntityModel extends EntityModel<EndFishEntity> {
     private final ModelPart model;
@@ -20,6 +22,7 @@ public class EndFishEntityModel extends EntityModel<EndFishEntity> {
     private final ModelPart flipper;
     private final ModelPart fin_right;
     private final ModelPart fin_left;
+
 
     public static LayerDefinition getTexturedModelData() {
         MeshDefinition modelData = new MeshDefinition();

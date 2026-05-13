@@ -3,7 +3,7 @@
   "config": {
     "features": [
       {
-        "chance": 0.03,
+        "chance": 0.01,
         "feature": {
           "feature": "aoemod:basalt_deltas/floor/grass",
           "placement": [
@@ -43,7 +43,7 @@
         }
       },
       {
-        "chance": 0.969,
+        "chance": 0.989,
         "feature": {
           "feature": "aoemod:nothing",
           "placement": []
