@@ -5,35 +5,35 @@
       {
         "chance": 0.33333,
         "feature": {
-          "feature": "aoemod:brown_mushroom_patch",
+          "feature": "aoemod:mushrooms/brown_mushroom_patch",
           "placement": []
         }
       },
       {
         "chance": 0.33333,
         "feature": {
-          "feature": "aoemod:red_mushroom_patch",
+          "feature": "aoemod:mushrooms/red_mushroom_patch",
           "placement": []
         }
       },
       {
         "chance": 0.16667,
         "feature": {
-          "feature": "aoemod:green_mushroom_patch",
+          "feature": "aoemod:mushrooms/green_mushroom_patch",
           "placement": []
         }
       },
       {
         "chance": 0.16667,
         "feature": {
-          "feature": "aoemod:wood_blewit_patch",
+          "feature": "aoemod:mushrooms/wood_blewit_patch",
           "placement": []
         }
       },
       {
         "chance": 0.16667,
         "feature": {
-          "feature": "aoemod:weeping_milkcap_patch",
+          "feature": "aoemod:mushrooms/weeping_milkcap_patch",
           "placement": []
         }
       }

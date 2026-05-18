@@ -55,7 +55,7 @@ public class SculkWallScanFeature extends Feature<SculkWallScanFeatureConfig> {
     private static boolean aoe$shouldConvertToSculk(WorldGenLevel level, BlockPos pos) {
         BlockState state = level.getBlockState(pos);
 
-        if (!state.is(BlockTags.SCULK_REPLACEABLE)) {
+        if (!state.is(BlockTags.SCULK_REPLACEABLE)||state.is(Blocks.SOUL_SAND)) {
             return false;
         }
 

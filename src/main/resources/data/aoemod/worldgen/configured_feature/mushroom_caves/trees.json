@@ -12,7 +12,7 @@
       {
         "chance": 0.1,
         "feature": {
-          "feature": "aoemod:huge_glow_shroom",
+          "feature": "aoemod:giant_mushrooms/huge_glow_shroom",
           "placement": []
         }
       },

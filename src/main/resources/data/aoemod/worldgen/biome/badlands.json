@@ -1,10 +1,6 @@
 {
   "carvers": {
-    "air": [
-      "minecraft:cave",
-      "minecraft:cave_extra_underground",
-      "minecraft:canyon"
-    ]
+    "air": []
   },
   "downfall": 0,
   "effects": {
@@ -33,24 +29,16 @@
     [],
     [],
     [
-      "aoemod:desert/blobs/andesite_lower",
-      "aoemod:desert/blobs/andesite_upper",
-      "aoemod:desert/blobs/basalt",
-      "aoemod:desert/blobs/calcite_lower",
-      "aoemod:desert/blobs/calcite_upper",
-      "aoemod:desert/blobs/diorite_lower",
-      "aoemod:desert/blobs/diorite_upper",
-      "aoemod:desert/blobs/granite_lower",
-      "aoemod:desert/blobs/granite_upper",
       "aoemod:desert/blobs/gravel",
+      "aoemod:desert/blobs/sand",
+      "aoemod:desert/blobs/terracotta",
       "aoemod:desert/blobs/red_sand",
-      "aoemod:desert/blobs/red_sandstone_lower",
-      "aoemod:desert/blobs/red_sandstone_upper",
-      "aoemod:desert/blobs/sand_lower",
-      "aoemod:desert/blobs/sand_upper",
-      "aoemod:desert/blobs/sandstone_lower",
-      "aoemod:desert/blobs/sandstone_upper",
-      "aoemod:desert/blobs/tuff",
+      "aoemod:desert/blobs/sandstone",
+      "aoemod:desert/blobs/red_sandstone",
+      "aoemod:desert/blobs/calcite",
+      "aoemod:desert/blobs/andesite",
+      "aoemod:desert/blobs/granite",
+      "aoemod:desert/blobs/diorite",
       "aoemod:desert/ores/ore_coal_lower",
       "aoemod:desert/ores/ore_coal_upper",
       "aoemod:desert/ores/ore_copper",
@@ -153,6 +141,12 @@
         "weight": 80
       },
       {
+        "type": "minecraft:shulker",
+        "maxCount": 1,
+        "minCount": 1,
+        "weight": 100
+      },
+      {
         "type": "minecraft:creeper",
         "maxCount": 4,
         "minCount": 4,
@@ -186,14 +180,7 @@
         "maxCount": 2
       }
     ],
-    "water_creature": [
-      {
-        "type": "hybrid-aquatic:hound_shark",
-        "weight": 5,
-        "minCount": 4,
-        "maxCount": 6
-      }
-    ]
+    "water_creature": []
   },
   "temperature": 2
 }

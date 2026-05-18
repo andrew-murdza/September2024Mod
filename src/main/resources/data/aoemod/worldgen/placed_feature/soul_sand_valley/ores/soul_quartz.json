@@ -1,9 +1,9 @@
 {
-  "feature": "aoemod:soul_sand_valley/ores/soul_quartz",
+  "feature": "aoemod:soul_sand_valley/ores/soul_quartz_ore",
   "placement": [
     {
       "type": "minecraft:count",
-      "count": 16
+      "count": 3
     },
     {
       "type": "minecraft:in_square"
@@ -13,10 +13,10 @@
       "height": {
         "type": "minecraft:uniform",
         "min_inclusive": {
-          "absolute": 0
+          "absolute": -32
         },
         "max_inclusive": {
-          "absolute": 128
+          "absolute": -1
         }
       }
     },

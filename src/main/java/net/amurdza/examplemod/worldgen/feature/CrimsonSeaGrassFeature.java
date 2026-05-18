@@ -3,6 +3,7 @@ package net.amurdza.examplemod.worldgen.feature;
 import com.mojang.serialization.Codec;
 import com.scouter.netherdepthsupgrade.blocks.NDUBlocks;
 import com.scouter.netherdepthsupgrade.blocks.TallCrimsonSeagrassBlock;
+import net.amurdza.examplemod.AOEMod;
 import net.minecraft.core.BlockPos;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.WorldGenLevel;

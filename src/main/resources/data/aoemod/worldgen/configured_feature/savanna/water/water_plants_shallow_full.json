@@ -25,7 +25,7 @@
       {
         "chance": 0.0375,
         "feature": {
-          "feature": "aoemod:kelp",
+          "feature": "aoemod:water/kelp",
           "placement": [
             {
               "type": "minecraft:block_predicate_filter",
@@ -45,7 +45,7 @@
       {
         "chance": 0.4875,
         "feature": {
-          "feature": "aoemod:short_seagrass",
+          "feature": "aoemod:water/short_seagrass",
           "placement": [
             {
               "type": "minecraft:block_predicate_filter",

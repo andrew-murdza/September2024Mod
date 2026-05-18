@@ -5,15 +5,18 @@ import com.legacy.blue_skies.registries.SkiesConfiguredFeatures;
 import net.amurdza.examplemod.Config;
 import net.amurdza.examplemod.util.Helper;
 import net.minecraft.core.BlockPos;
-import net.minecraft.core.Direction;
 import net.minecraft.core.Holder;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.server.level.ServerLevel;
+import net.minecraft.tags.BlockTags;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.BlockGetter;
+import net.minecraft.world.level.LevelReader;
+import net.minecraft.world.level.block.BushBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
 import net.minecraftforge.eventbus.api.Event;
+import org.jetbrains.annotations.NotNull;
 import org.spongepowered.asm.mixin.Intrinsic;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Unique;
@@ -22,18 +25,36 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
+import java.util.Objects;
 import java.util.Optional;
 
 @Mixin(SnowcapPinheadBlock.class)
-public class SnowcapPinheadChanges {
+public class SnowcapPinheadChanges extends BushBlock {
+    public SnowcapPinheadChanges(Properties pProperties) {
+        super(pProperties);
+    }
+
+    @Override
+    public boolean canSurvive(@NotNull BlockState pState, LevelReader pLevel, BlockPos pPos) {
+        BlockPos blockpos = pPos.below();
+        BlockState blockstate = pLevel.getBlockState(blockpos);
+        if (blockstate.is(BlockTags.MUSHROOM_GROW_BLOCK)) {
+            return true;
+        } else {
+            return pLevel.getRawBrightness(pPos, 0) < 13 && blockstate.canSustainPlant(pLevel, blockpos,
+                    net.minecraft.core.Direction.UP, this);
+        }
+    }
+
     @Inject(method = "mayPlaceOn", at = @At("HEAD"), cancellable = true)
     private void aoe$mayPlaceOn(BlockState state, BlockGetter level, BlockPos pos,
                                 CallbackInfoReturnable<Boolean> cir) {
-        cir.setReturnValue(state.isFaceSturdy(level, pos, Direction.UP));
+        cir.setReturnValue(state.isSolidRender(level, pos));
     }
 
-    @Intrinsic(displace = true)
-    public void randomTick(BlockState state, ServerLevel level, BlockPos pos, RandomSource random) {
+    @Override
+    public void randomTick(@NotNull BlockState state, @NotNull ServerLevel level, @NotNull BlockPos pos,
+                           @NotNull RandomSource random) {
         aoe$spreadLikeMushroom(state, level, pos, random);
     }
 
@@ -111,7 +132,8 @@ public class SnowcapPinheadChanges {
 
         level.removeBlock(pos, false);
 
-        if (event.getFeature().value().place(level, level.getChunkSource().getGenerator(), random, pos)) {
+        if (Objects.requireNonNull(event.getFeature()).value().place(level, level.getChunkSource().getGenerator(),
+                random, pos)) {
             return;
         }
 

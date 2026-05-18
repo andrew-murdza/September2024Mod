@@ -8,12 +8,15 @@ import net.minecraft.core.Direction;
 import net.minecraft.core.Holder;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.server.level.ServerLevel;
+import net.minecraft.tags.BlockTags;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.BlockGetter;
+import net.minecraft.world.level.LevelReader;
+import net.minecraft.world.level.block.BushBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
 import net.minecraftforge.eventbus.api.Event;
-import org.spongepowered.asm.mixin.Intrinsic;
+import org.jetbrains.annotations.NotNull;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
@@ -22,11 +25,16 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 import org.violetmoon.quark.content.world.block.GlowShroomBlock;
 
+import java.util.Objects;
 import java.util.Optional;
 
 @Mixin(value = GlowShroomBlock.class,remap = false)
-public abstract class GlowShroomBlockChanges {
+public abstract class GlowShroomBlockChanges extends BushBlock {
 
+
+    public GlowShroomBlockChanges(Properties pProperties) {
+        super(pProperties);
+    }
 
     @Inject(method = "mayPlaceOn", at = @At("HEAD"), cancellable = true)
     private void aoe$mayPlaceOn(BlockState state, BlockGetter level, BlockPos pos,
@@ -34,9 +42,22 @@ public abstract class GlowShroomBlockChanges {
         cir.setReturnValue(state.isFaceSturdy(level, pos, Direction.UP));
     }
 
-    @Intrinsic(displace = true)
-    public void randomTick(BlockState state, ServerLevel level, BlockPos pos, RandomSource random) {
+    @Override
+    public void randomTick(@NotNull BlockState state, @NotNull ServerLevel level, @NotNull BlockPos pos,
+                           @NotNull RandomSource random) {
         aoe$spreadLikeMushroom(state, level, pos, random);
+    }
+
+    @Override
+    public boolean canSurvive(@NotNull BlockState pState, LevelReader pLevel, BlockPos pPos) {
+        BlockPos blockpos = pPos.below();
+        BlockState blockstate = pLevel.getBlockState(blockpos);
+        if (blockstate.is(BlockTags.MUSHROOM_GROW_BLOCK)) {
+            return true;
+        } else {
+            return pLevel.getRawBrightness(pPos, 0) < 13 && blockstate.canSustainPlant(pLevel, blockpos,
+                    net.minecraft.core.Direction.UP, this);
+        }
     }
 
     @Inject(method = "performBonemeal", at = @At("HEAD"), cancellable = true)
@@ -113,7 +134,8 @@ public abstract class GlowShroomBlockChanges {
 
         level.removeBlock(pos, false);
 
-        if (event.getFeature().value().place(level, level.getChunkSource().getGenerator(), random, pos)) {
+        if (Objects.requireNonNull(event.getFeature()).value().place(level, level.getChunkSource().getGenerator(),
+                random, pos)) {
             return;
         }
 

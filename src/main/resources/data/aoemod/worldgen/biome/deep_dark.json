@@ -1,11 +1,5 @@
 {
-  "carvers": {
-    "air": [
-      "minecraft:cave",
-      "minecraft:cave_extra_underground",
-      "minecraft:canyon"
-    ]
-  },
+  "carvers": {},
   "downfall": 0,
   "effects": {
     "fog_color": 12638463,
@@ -33,24 +27,16 @@
     [],
     [],
     [
-      "aoemod:deep_dark/blobs/andesite_lower",
-      "aoemod:deep_dark/blobs/andesite_upper",
-      "aoemod:deep_dark/blobs/basalt",
-      "aoemod:deep_dark/blobs/calcite_lower",
-      "aoemod:deep_dark/blobs/calcite_upper",
-      "aoemod:deep_dark/blobs/diorite_lower",
-      "aoemod:deep_dark/blobs/diorite_upper",
-      "aoemod:deep_dark/blobs/granite_lower",
-      "aoemod:deep_dark/blobs/granite_upper",
       "aoemod:deep_dark/blobs/gravel",
+      "aoemod:deep_dark/blobs/sand",
+      "aoemod:deep_dark/blobs/terracotta",
       "aoemod:deep_dark/blobs/red_sand",
-      "aoemod:deep_dark/blobs/red_sandstone_lower",
-      "aoemod:deep_dark/blobs/red_sandstone_upper",
-      "aoemod:deep_dark/blobs/sand_lower",
-      "aoemod:deep_dark/blobs/sand_upper",
-      "aoemod:deep_dark/blobs/sandstone_lower",
-      "aoemod:deep_dark/blobs/sandstone_upper",
-      "aoemod:deep_dark/blobs/tuff",
+      "aoemod:deep_dark/blobs/sandstone",
+      "aoemod:deep_dark/blobs/red_sandstone",
+      "aoemod:deep_dark/blobs/calcite",
+      "aoemod:deep_dark/blobs/andesite",
+      "aoemod:deep_dark/blobs/granite",
+      "aoemod:deep_dark/blobs/diorite",
       "aoemod:deep_dark/ores/ore_coal_lower",
       "aoemod:deep_dark/ores/ore_coal_upper",
       "aoemod:deep_dark/ores/ore_copper",

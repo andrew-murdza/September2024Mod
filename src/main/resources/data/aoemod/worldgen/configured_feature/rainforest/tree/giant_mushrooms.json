@@ -61,14 +61,14 @@
       {
         "chance": 0.1,
         "feature": {
-          "feature": "aoemod:huge_lush_mushroom",
+          "feature": "aoemod:giant_mushrooms/huge_lush_mushroom",
           "placement": []
         }
       },
       {
         "chance": 0.1,
         "feature": {
-          "feature": "aoemod:huge_glow_shroom",
+          "feature": "aoemod:giant_mushrooms/huge_glow_shroom",
           "placement": []
         }
       }

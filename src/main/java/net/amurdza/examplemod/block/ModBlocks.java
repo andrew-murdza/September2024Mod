@@ -42,7 +42,7 @@ public class ModBlocks {
     public static final RegistryObject<Block> WILD_CRYO_ROOTS = registerBlockAndItem("wild_cryo_roots", ()->new WildCropBlock(MobEffects.SLOW_FALLING,6,BlockBehaviour.Properties.copy(Blocks.TALL_GRASS)));
     public static final RegistryObject<Block> WILD_WARPED_CARROTS = registerBlockAndItem("wild_warped_carrots", ()->new WildWarpedCarrots(MobEffects.FIRE_RESISTANCE,6,BlockBehaviour.Properties.copy(Blocks.WARPED_ROOTS)));
     public static final RegistryObject<Block> WILD_CRIMSON_POTATOES = registerBlockAndItem("wild_crimson_potatoes", ()->new WildCrimsonPotatoes(MobEffects.FIRE_RESISTANCE,6,BlockBehaviour.Properties.copy(Blocks.CRIMSON_ROOTS)));
-    public static final RegistryObject<Block> WILD_ASHEN_WHEAT = registerBlockAndItem("wild_ashen_wheat", ()->new WildCrimsonPotatoes(MobEffects.WITHER,6,BlockBehaviour.Properties.copy(Blocks.CRIMSON_ROOTS)));
+    public static final RegistryObject<Block> WILD_ASHEN_WHEAT = registerBlockAndItem("wild_ashen_wheat", ()->new WildAshenWheat(MobEffects.WITHER,6,BlockBehaviour.Properties.copy(Blocks.CRIMSON_ROOTS)));
     public static final RegistryObject<Block> WILD_SOUL_BEETS = registerBlockAndItem("wild_soul_beets", ()->new WildSoulBeets(MobEffects.FIRE_RESISTANCE,6,BlockBehaviour.Properties.copy(NourishedNetherModBlocks.SOUL_WEEDS.get())));
     public static final RegistryObject<Block> WILD_BEANS = registerBlockAndItem("wild_beans",
             () -> new WildCropBlock(MobEffects.SATURATION, 6, BlockBehaviour.Properties.copy(Blocks.TALL_GRASS)));
@@ -71,6 +71,15 @@ public class ModBlocks {
     public static final RegistryObject<Block> ORANGE_CHARNIA = registerBlockAndItem("orange_charnia",
             () -> new CharniaBlock(BlockBehaviour.Properties.of().mapColor(MapColor.WATER).noCollission().instabreak().sound(SoundType.GRASS)
                     .pushReaction(PushReaction.DESTROY)));
+
+    public static final RegistryObject<Block> SUNFLOWER = registerBlockAndItem("sunflower", () -> new RotateableSunflower(
+            BlockBehaviour.Properties.copy(Blocks.SUNFLOWER)));
+
+//    public static final RegistryObject<Block> SUNFLOWER = VANILLA_BLOCKS.register("sunflower",()->
+//            new RotateableSunflower(BlockBehaviour.Properties.of().mapColor(MapColor.PLANT).noCollission()
+//                    .instabreak().sound(SoundType.GRASS).ignitedByLava().pushReaction(PushReaction.DESTROY)));
+    //.offsetType(BlockBehaviour.OffsetType.XZ)
+
 
 
 //    public static final RegistryObject<Block> LAVENDER=registerFlower("lavender",MobEffects.NIGHT_VISION,7);

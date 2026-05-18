@@ -1,5 +1,5 @@
 {
-  "type": "aoemod:aoedim_type",
+  "type": "aoemod:aoedim",
   "generator": {
     "type": "minecraft:noise",
     "settings": "aoemod:aoedim",

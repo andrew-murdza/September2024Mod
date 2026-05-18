@@ -1,11 +1,11 @@
 package net.amurdza.examplemod.entity;
 
 import net.amurdza.examplemod.AOEMod;
+import net.amurdza.examplemod.entity.sea_serpent.SeaSerpentEntity;
 import net.amurdza.examplemod.item.ModItems;
 import net.amurdza.examplemod.util.ColorUtil;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.*;
-import net.minecraft.world.entity.animal.Animal;
 import net.minecraft.world.entity.animal.TropicalFish;
 import net.minecraft.world.level.levelgen.Heightmap;
 import net.minecraftforge.common.ForgeSpawnEggItem;
@@ -54,6 +54,13 @@ public final class ModEntities {
             CubozoaEntity::new
     );
 
+    public static final RegistryObject<EntityType<SeaSerpentEntity>> SEA_SERPENT =
+            ENTITY_TYPES.register("sea_serpent", () ->
+                    EntityType.Builder.of(SeaSerpentEntity::new, MobCategory.WATER_CREATURE)
+                            .sized(1.1F, 1.1F)
+                            .clientTrackingRange(10)
+                            .build(AOEMod.MOD_ID + ":sea_serpent"));
+
     // -------------
     // Spawn Eggs
     // -------------
@@ -76,6 +83,16 @@ public final class ModEntities {
 
     public static final RegistryObject<ForgeSpawnEggItem> CUBOZOA_SPAWN_EGG =
             ModItems.ITEMS.register("spawn_egg_cubozoa",
+                    () -> new ForgeSpawnEggItem(
+                            CUBOZOA,
+                            ColorUtil.color(151, 77, 181),
+                            ColorUtil.color(93, 176, 238),
+                            new net.minecraft.world.item.Item.Properties()
+                    )
+            );
+
+    public static final RegistryObject<ForgeSpawnEggItem> SEA_SERPENT_SPAWN_EGG =
+            ModItems.ITEMS.register("spawn_egg_sea_serpent",
                     () -> new ForgeSpawnEggItem(
                             CUBOZOA,
                             ColorUtil.color(151, 77, 181),
@@ -111,6 +128,7 @@ public final class ModEntities {
         // Config gating: attribute registration is harmless even if you later disable spawns/eggs.
         event.put(END_FISH.get(), EndFishEntity.createMobAttributes().build());
         event.put(CUBOZOA.get(), CubozoaEntity.createMobAttributes().build());
+        event.put(ModEntities.SEA_SERPENT.get(), SeaSerpentEntity.createAttributes().build());
     }
 
     @SubscribeEvent
@@ -127,6 +145,13 @@ public final class ModEntities {
         );
         event.register(
                 CUBOZOA.get(),
+                SpawnPlacements.Type.IN_WATER,
+                Heightmap.Types.MOTION_BLOCKING,
+                TropicalFish::checkSurfaceWaterAnimalSpawnRules,
+                SpawnPlacementRegisterEvent.Operation.OR
+        );
+        event.register(
+                SEA_SERPENT.get(),
                 SpawnPlacements.Type.IN_WATER,
                 Heightmap.Types.MOTION_BLOCKING,
                 TropicalFish::checkSurfaceWaterAnimalSpawnRules,

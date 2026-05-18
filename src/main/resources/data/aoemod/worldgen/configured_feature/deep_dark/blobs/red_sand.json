@@ -2,7 +2,7 @@
   "type": "minecraft:ore",
   "config": {
     "discard_chance_on_air_exposure": 0.0,
-    "size": 33,
+    "size": 64,
     "targets": [
       {
         "target": {
@@ -16,55 +16,10 @@
       {
         "target": {
           "predicate_type": "minecraft:block_match",
-          "block": "minecraft:andesite"
+          "block": "minecraft:deepslate"
         },
         "state": {
-          "Name": "minecraft:red_sand"
-        }
-      },
-      {
-        "target": {
-          "predicate_type": "minecraft:block_match",
-          "block": "minecraft:diorite"
-        },
-        "state": {
-          "Name": "minecraft:red_sand"
-        }
-      },
-      {
-        "target": {
-          "predicate_type": "minecraft:block_match",
-          "block": "minecraft:granite"
-        },
-        "state": {
-          "Name": "minecraft:red_sand"
-        }
-      },
-      {
-        "target": {
-          "predicate_type": "minecraft:block_match",
-          "block": "minecraft:calcite"
-        },
-        "state": {
-          "Name": "minecraft:red_sand"
-        }
-      },
-      {
-        "target": {
-          "predicate_type": "minecraft:block_match",
-          "block": "minecraft:clay"
-        },
-        "state": {
-          "Name": "minecraft:red_sand"
-        }
-      },
-      {
-        "target": {
-          "predicate_type": "minecraft:block_match",
-          "block": "minecraft:dirt"
-        },
-        "state": {
-          "Name": "minecraft:red_sand"
+          "Name": "minecraft:basalt"
         }
       }
     ]

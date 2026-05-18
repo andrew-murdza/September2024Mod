@@ -1,0 +1,24 @@
+{
+  "values": [
+    "#aoemod:nether_land",
+    "#minecraft:nylium",
+    "minecraft:mycelium",
+    "minecraft:sculk",
+    "minecraft:calcite",
+    "minecraft:tuff",
+    "#minecraft:base_stone_overworld",
+    "minecraft:dirt",
+    "minecraft:rooted_dirt",
+    "minecraft:mud",
+    "minecraft:clay",
+    "minecraft:basalt",
+    "minecraft:smooth_basalt",
+    "minecraft:polished_basalt",
+    "#minecraft:terracotta",
+    "#minecraft:sand",
+    "minecraft:sandstone",
+    "minecraft:red_sandstone",
+    "minecraft:gravel",
+    "#minecraft:terracotta"
+  ]
+}

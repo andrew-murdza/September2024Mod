@@ -124,7 +124,7 @@
         {
           "weight": 1,
           "data": {
-            "Name": "minecraft:sunflower",
+            "Name": "aoemod:sunflower",
             "Properties": {
               "half": "lower"
             }

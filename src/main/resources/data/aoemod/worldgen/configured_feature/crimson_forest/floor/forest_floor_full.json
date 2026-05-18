@@ -12,6 +12,6 @@
       "type": "minecraft:matching_blocks",
       "blocks": ["minecraft:crimson_nylium"]
     },
-    "biomes": "aoemod:nether_and_sculk_biomes"
+    "biomes": "aoemod:crimson_forest_biomes"
   }
 }

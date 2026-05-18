@@ -9,6 +9,7 @@ import net.amurdza.examplemod.item.ModToolTiers;
 import net.amurdza.examplemod.mixins.mob_spawning.MobsSpawnOnGlowingMoss;
 import net.amurdza.examplemod.mixins.mob_spawning.MobsSpawnOnGlowingMoss1;
 import net.amurdza.examplemod.util.ConfigHelper;
+import net.amurdza.examplemod.worldgen.carver.ModCarvers;
 import net.amurdza.examplemod.worldgen.density_function.AOEDensityFunctions;
 import net.amurdza.examplemod.worldgen.feature.ModFeatures;
 import net.amurdza.examplemod.worldgen.feature.ModTreeDecorators;
@@ -75,6 +76,8 @@ public class AOEMod
         ModSurfaceRules.register(modEventBus);
 
         ModToolTiers.register();
+
+        ModCarvers.CARVERS.register(modEventBus);
     }
 
     private void onConfigLoad(final ModConfigEvent.Loading event) {
@@ -127,6 +130,8 @@ public class AOEMod
             // remaining registerBlockAndItem blocks (from your list)
             event.accept(ModBlocks.JUNGLE_GLOW_LICHEN.get());
             event.accept(ModBlocks.NETHER_CANE.get());
+
+            event.accept(ModBlocks.SUNFLOWER.get());
 
             event.accept(ModBlocks.DESERT_GRASS.get());
             event.accept(ModBlocks.DESERT_TALL_GRASS.get());
@@ -245,6 +250,7 @@ public class AOEMod
         if (tab == CreativeModeTabs.SPAWN_EGGS) {
             event.accept(ModEntities.CUBOZOA_SPAWN_EGG.get());
             event.accept(ModEntities.END_FISH_SPAWN_EGG.get());
+            event.accept(ModEntities.SEA_SERPENT_SPAWN_EGG.get());
         }
     }
 

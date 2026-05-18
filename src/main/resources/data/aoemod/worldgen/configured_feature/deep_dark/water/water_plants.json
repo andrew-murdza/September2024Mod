@@ -7,13 +7,10 @@
         {
           "weight": 1,
           "data": {
-            "Name": "hybrid_aquatic:bull_kelp"
-          }
-        },
-        {
-          "weight": 1,
-          "data": {
-            "Name": "hybrid_aquatic:sargassum"
+            "Name": "minecraft:sculk_sensor",
+            "Properties": {
+              "waterlogged": "true"
+            }
           }
         }
       ]

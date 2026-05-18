@@ -57,7 +57,7 @@
       {
         "chance": 0.04,
         "feature": {
-          "feature": "aoemod:crimson_kelp",
+          "feature": "aoemod:water/crimson_kelp",
           "placement": [
             {
               "type": "minecraft:block_predicate_filter",
@@ -77,7 +77,7 @@
       {
         "chance": 0.04,
         "feature": {
-          "feature": "aoemod:warped_kelp",
+          "feature": "aoemod:water/warped_kelp",
           "placement": [
             {
               "type": "minecraft:block_predicate_filter",

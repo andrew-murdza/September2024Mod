@@ -49,40 +49,7 @@ public class CaveVineColumn extends Feature<CaveVineConfig> {
                 List<Integer> caveVinesPoses=new ArrayList<>();
                 for(int k=maxY;k>=chunk.getMinBuildHeight()+1;k--){
                     BlockState state=level.getBlockState(pos);
-//                    BlockState blockState1=level.getBlockState(pos.below());
-//                    if(state.is(Blocks.VINE)){
-//                        int w=0;
-//                        for(int t=0;t<properties.size();t++){
-//                            Direction dir=directions.get(t);
-//                            BlockPos pos1=pos.relative(dir);
-//                            if(state.getValue(properties.get(t))&&
-//                                    !MultifaceBlock.canAttachTo(level,dir,pos1,level.getBlockState(pos1))){
-//                                for(int l=1;l<5;l++){
-//                                    BlockState state1=level.getBlockState(pos.below(l));
-//                                    if(!state1.is(Blocks.AIR)&&!state1.is(Blocks.VINE)
-//                                            &&!state1.is(ShearVinesModule.cut_vine)){
-//                                        w=l;
-//                                    }
-//                                }
-//                            }
-//                        }
-//                        if(w>0){
-//                            for(int l=w;l>=0;l--){
-//                                BlockPos pos2=pos.below(l);
-//                                BlockState state1=level.getBlockState(pos2);
-//                                if(state1.is(Blocks.VINE)||state1.is(ShearVinesModule.cut_vine)){
-//                                    level.setBlock(pos2,Blocks.AIR.defaultBlockState(),2);
-//                                }
-//                            }
-//                            BlockPos abovePos=pos.above();
-//                            if(level.getBlockState(abovePos).is(Blocks.VINE)){
-//                                setVine(level.getBlockState(abovePos),level,abovePos);
-//                            }
-//                        }
-//                        else if(!blockState1.equals(state)){
-//                            setVine(state,level,pos);
-//                        }
-//                    }
+
                     if(state.is(Blocks.CAVE_VINES)||state.is(Blocks.CAVE_VINES_PLANT)){
                         caveVinesPoses.add(k);
                     }
@@ -100,7 +67,11 @@ public class CaveVineColumn extends Feature<CaveVineConfig> {
                             .setValue(BlockStateProperties.BERRIES,true)
                             .setValue(BlockStateProperties.AGE_25,25)
                             .setValue(BlockStateProperties.WATERLOGGED, level.getFluidState(new BlockPos(x,k,z)).is(FluidTags.WATER));
-                    level.setBlock(new BlockPos(x,k,z),blockState,2);
+                    BlockPos vinePos = new BlockPos(x, k, z);
+
+                    if (doesntHaveMossWithinFourBelow(level, vinePos)) {
+                        level.setBlock(vinePos, blockState, 2);
+                    }
                 }
             }
 
@@ -137,6 +108,10 @@ public class CaveVineColumn extends Feature<CaveVineConfig> {
                 break;
             }
 
+            if ((weepingVines || sporeblossom) || doesntHaveMossWithinFourBelow(level, pos1)) {
+                positions.add(pos1.immutable());
+            }
+
             positions.add(pos1.immutable());
             pos1.move(0, -1, 0);
         }
@@ -168,5 +143,15 @@ public class CaveVineColumn extends Feature<CaveVineConfig> {
         }
 
         return flag;
+    }
+    private boolean doesntHaveMossWithinFourBelow(WorldGenLevel level, BlockPos pos) {
+        for (int dy = 1; dy <= 4; dy++) {
+            BlockState state=level.getBlockState(pos.below(dy));
+            if (state.is(Blocks.MOSS_BLOCK)||!state.getFluidState().isEmpty()) {
+                return false;
+            }
+        }
+
+        return true;
     }
 }

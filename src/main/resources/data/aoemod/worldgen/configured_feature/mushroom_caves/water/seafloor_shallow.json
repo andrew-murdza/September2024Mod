@@ -16,11 +16,6 @@
           "blocks": [
             "minecraft:gravel",
             "minecraft:wet_sponge"
-          ],
-          "offset": [
-            0,
-            -1,
-            0
           ]
         }
       ]

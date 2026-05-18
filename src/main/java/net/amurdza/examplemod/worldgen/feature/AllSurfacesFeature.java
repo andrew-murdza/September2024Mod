@@ -1,6 +1,7 @@
 package net.amurdza.examplemod.worldgen.feature;
 
 import com.mojang.serialization.Codec;
+import net.amurdza.examplemod.AOEMod;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.level.ChunkPos;
 import net.minecraft.world.level.WorldGenLevel;
@@ -40,11 +41,11 @@ public class AllSurfacesFeature extends Feature<AllSurfacesFeatureConfig> {
                 int z = minZ + dz;
 
                 int maxY = chunk.getMaxBuildHeight() - 1;
-                int minY = chunk.getMinBuildHeight();
+                int minY = chunk.getMinBuildHeight() -1;
 
                 BlockPos.MutableBlockPos pos = new BlockPos.MutableBlockPos(x, maxY, z);
 
-                for (int y = maxY; y >= minY + 1; y--) {
+                for (int y = maxY; y >= minY; y--) {
                     pos.set(x, y, z);
 
                     boolean placed = tryPlace(level, pos, context, cfg, feature);
@@ -67,7 +68,7 @@ public class AllSurfacesFeature extends Feature<AllSurfacesFeatureConfig> {
             AllSurfacesFeatureConfig cfg,
             PlacedFeature feature
     ) {
-        if (cfg.biomes != null && !level.getBiome(pos).is(cfg.biomes)) {
+        if (cfg.biomes != null && !level.getBiome(pos.below()).is(cfg.biomes)) {
             return false;
         }
 

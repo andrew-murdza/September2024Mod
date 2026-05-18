@@ -62,14 +62,14 @@ public class SeaPicklesGrow extends BushBlock {
         builder.add(AOE_SHEARED);
     }
 
-    @Intrinsic(displace = true)
+    @Override
     public boolean isRandomlyTicking(BlockState state) {
         return state.getValue(PICKLES) < 4
                 && state.getValue(WATERLOGGED)
                 && !state.getValue(AOE_SHEARED);
     }
 
-    @Intrinsic(displace = true)
+    @Override
     public void randomTick(BlockState state, @NotNull ServerLevel level, @NotNull BlockPos pos, @NotNull RandomSource random) {
         if (!state.getValue(AOE_SHEARED)
                 && state.getValue(PICKLES) < 4

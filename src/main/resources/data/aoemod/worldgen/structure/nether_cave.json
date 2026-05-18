@@ -1,0 +1,18 @@
+{
+  "type": "aoemod:nether_cave",
+  "biomes": "#aoemod:has_structure/nether_cave",
+  "step": "underground_structures",
+  "terrain_adaptation": "none",
+  "spawn_overrides": {},
+  "horizontal_radius_multiplier": 24.0,
+  "vertical_radius_multiplier": 9.0,
+  "floor_level": -1.0,
+  "lava_level": -116,
+  "start_y": 32,
+  "replaceable": "aoemod:cave_replaceable",
+  "central_pillar_diameter_extra": 0.0,
+  "min_floor_thickness": 6.0,
+  "pitch_lower": 1.0,
+  "liquid_radius": 4.0,
+  "liquid_depth": 3.0
+}

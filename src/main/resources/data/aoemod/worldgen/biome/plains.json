@@ -1,5 +1,7 @@
 {
-  "carvers": {},
+  "carvers": {
+    "air": []
+  },
   "downfall": 0.5,
   "effects": {
     "fog_color": 12638463,
@@ -20,7 +22,17 @@
     [],
     [],
     [],
-    [],
+    [
+      "aoemod:plains/blobs/gravel",
+      "aoemod:plains/blobs/clay",
+      "aoemod:plains/blobs/sand",
+      "aoemod:plains/blobs/dirt",
+      "aoemod:plains/blobs/sandstone",
+      "aoemod:plains/blobs/calcite",
+      "aoemod:plains/blobs/andesite",
+      "aoemod:plains/blobs/granite",
+      "aoemod:plains/blobs/diorite"
+    ],
     [],
     [
       "minecraft:spring_water"
@@ -74,8 +86,8 @@
       {
         "type": "minecraft:goat",
         "weight": 5,
-        "minCount": 2,
-        "maxCount": 10
+        "minCount": 4,
+        "maxCount": 4
       },
       {
         "type": "minecraft:pig",
@@ -164,12 +176,12 @@
       }
     ],
     "water_creature": [
-//      {
-//        "type": "minecraft:squid",
-//        "weight": 10,
-//        "minCount": 4,
-//        "maxCount": 6
-//      }
+      {
+        "type": "minecraft:squid",
+        "weight": 10,
+        "minCount": 4,
+        "maxCount": 6
+      }
     ]
   },
   "temperature": 0.5

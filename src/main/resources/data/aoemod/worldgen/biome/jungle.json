@@ -356,6 +356,12 @@
         "weight": 5,
         "minCount": 2,
         "maxCount": 5
+      },
+      {
+        "type": "iceandfire:siren",
+        "weight": 10,
+        "minCount": 2,
+        "maxCount": 5
       }
     ],
     "misc": [],
@@ -377,12 +383,6 @@
         "weight": 5,
         "minCount": 1,
         "maxCount": 2
-      },
-      {
-        "type": "iceandfire:siren",
-        "weight": 10,
-        "minCount": 2,
-        "maxCount": 5
       },
       {
         "type": "iceandfire:stymphalian_bird",

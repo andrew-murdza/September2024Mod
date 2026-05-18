@@ -1,12 +1,8 @@
 {
   "values": [
-    "minecraft:basalt",
-    "minecraft:polished_basalt",
-    "minecraft:blackstone",
-    "minecraft:soul_soil",
-    "minecraft:soul_sand",
+    "#aoemod:basalt_stones",
+    "#aoemod:soul_sediments",
     "#minecraft:nylium",
-    "minecraft:moss_block",
-    "nourished_nether:soul_sludge"
+    "minecraft:moss_block"
   ]
 }

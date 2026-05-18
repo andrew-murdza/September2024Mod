@@ -5,7 +5,7 @@
       {
         "chance": 0.20,
         "feature": {
-          "feature": "aoemod:brown_mushroom_patch",
+          "feature": "aoemod:mushrooms/brown_mushroom_patch",
           "placement": [
             {
               "type": "minecraft:block_predicate_filter",
@@ -21,7 +21,7 @@
       {
         "chance": 0.20,
         "feature": {
-          "feature": "aoemod:red_mushroom_patch",
+          "feature": "aoemod:mushrooms/red_mushroom_patch",
           "placement": [
             {
               "type": "minecraft:block_predicate_filter",
@@ -37,7 +37,7 @@
       {
         "chance": 0.20,
         "feature": {
-          "feature": "aoemod:snowcap_pinhead_patch",
+          "feature": "aoemod:mushrooms/snowcap_pinhead_patch",
           "placement": [
             {
               "type": "minecraft:block_predicate_filter",
@@ -53,7 +53,7 @@
       {
         "chance": 0.20,
         "feature": {
-          "feature": "aoemod:mushgloom_patch",
+          "feature": "aoemod:mushrooms/mushgloom_patch",
           "placement": [
             {
               "type": "minecraft:block_predicate_filter",
@@ -69,7 +69,7 @@
       {
         "chance": 0.20,
         "feature": {
-          "feature": "aoemod:glow_shroom_patch",
+          "feature": "aoemod:mushrooms/glow_shroom_patch",
           "placement": [
             {
               "type": "minecraft:block_predicate_filter",

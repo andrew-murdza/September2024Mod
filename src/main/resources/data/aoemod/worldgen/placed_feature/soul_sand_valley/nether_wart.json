@@ -1,9 +1,9 @@
 {
-  "feature": "aoemod:ashen_wheat",
+  "feature": "aoemod:soul_sand_valley/nether_wart",
   "placement": [
     {
       "type": "minecraft:rarity_filter",
-      "chance": 1
+      "chance": 3
     },
     {
       "type": "minecraft:in_square"

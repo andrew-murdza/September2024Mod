@@ -21,7 +21,7 @@ import java.util.Map;
 @Mixin(MultiNoiseBiomeSource.class)
 public abstract class MultiNoiseBiomeSourceLayeredNetherMixin {
 
-    @Unique private static final long AOE_BADLANDS_CONTINENTALNESS = Climate.quantizeCoord(0.27F);
+    @Unique private static final long AOE_BADLANDS_CONTINENTALNESS = Climate.quantizeCoord(-1.0F);
 
     @Unique private static final ResourceKey<Biome> AOE_BADLANDS =
             ResourceKey.create(Registries.BIOME, new ResourceLocation("aoemod", "badlands"));

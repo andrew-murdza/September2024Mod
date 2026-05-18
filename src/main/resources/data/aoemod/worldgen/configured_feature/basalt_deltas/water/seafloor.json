@@ -23,11 +23,6 @@
             "minecraft:magma_block",
             "minecraft:basalt",
             "minecraft:smooth_basalt"
-          ],
-          "offset": [
-            0,
-            -1,
-            0
           ]
         }
       ]

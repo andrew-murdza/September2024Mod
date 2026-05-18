@@ -1,9 +1,0 @@
-{
-  "type": "minecraft:smoking",
-  "ingredient": {
-    "item": "finsandtails:luminous_calamari"
-  },
-  "result": "finsandtails:cooked_luminous_calamari",
-  "experience": 0.35,
-  "cookingtime": 100
-}

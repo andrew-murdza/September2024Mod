@@ -3,7 +3,29 @@
   "config": {
     "features": [
       {
-        "chance": 1,
+        "chance": 0.10,
+        "feature": {
+          "feature": "aoemod:deep_dark/water/water_plants",
+          "placement": [
+            {
+              "type": "minecraft:block_predicate_filter",
+              "predicate": {
+                "type": "minecraft:matching_blocks",
+                "offset": [
+                  0,
+                  -1,
+                  0
+                ],
+                "blocks": [
+                  "minecraft:sculk"
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "chance": 0.90,
         "feature": {
           "feature": "aoemod:nothing",
           "placement": []

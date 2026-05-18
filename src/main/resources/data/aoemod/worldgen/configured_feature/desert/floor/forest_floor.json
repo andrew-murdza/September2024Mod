@@ -11,11 +11,6 @@
               "type": "minecraft:block_predicate_filter",
               "predicate": {
                 "type": "minecraft:matching_blocks",
-                "offset": [
-                  0,
-                  -1,
-                  0
-                ],
                 "blocks": [
                   "minecraft:sand"
                 ]
@@ -25,7 +20,7 @@
         }
       },
       {
-        "chance": 0.0015,
+        "chance": 0.00075,
         "feature": {
           "feature": "aoemod:desert/floor/cactus",
           "placement": [
@@ -33,11 +28,6 @@
               "type": "minecraft:block_predicate_filter",
               "predicate": {
                 "type": "minecraft:matching_blocks",
-                "offset": [
-                  0,
-                  -1,
-                  0
-                ],
                 "blocks": [
                   "minecraft:sand"
                 ]
@@ -55,11 +45,6 @@
               "type": "minecraft:block_predicate_filter",
               "predicate": {
                 "type": "minecraft:matching_blocks",
-                "offset": [
-                  0,
-                  -1,
-                  0
-                ],
                 "blocks": [
                   "minecraft:red_sand"
                 ]
@@ -69,7 +54,7 @@
         }
       },
       {
-        "chance": 0.891,
+        "chance": 0.89125,
         "feature": {
           "feature": "aoemod:nothing",
           "placement": []

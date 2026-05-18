@@ -1,8 +1,0 @@
-{
-  "type": "minecraft:stonecutting",
-  "count": 1,
-  "ingredient": {
-    "item": "nourished_nether:gilded_blackstone_bricks"
-  },
-  "result": "nourished_nether:gilded_blackstone_brick_wall"
-}

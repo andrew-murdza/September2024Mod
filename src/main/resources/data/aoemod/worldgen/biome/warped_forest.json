@@ -1,11 +1,5 @@
 {
-  "carvers": {
-    "air": [
-      "minecraft:cave",
-      "minecraft:cave_extra_underground",
-      "minecraft:canyon"
-    ]
-  },
+  "carvers": {},
   "downfall": 0,
   "effects": {
     "additions_sound": {
@@ -44,13 +38,15 @@
     [],
     [],
     [
-      "aoemod:warped_forest/blobs/blackstone_blobs",
-      "aoemod:warped_forest/blobs/glowstone_blobs",
-      "aoemod:warped_forest/blobs/gravel_blobs",
       "aoemod:warped_forest/blobs/magma_blobs",
-      "aoemod:warped_forest/ores/ancient_debris",
-      "aoemod:warped_forest/ores/nether_gold",
-      "aoemod:warped_forest/ores/nether_quartz"
+      "aoemod:warped_forest/blobs/glowstone_blobs",
+      "aoemod:warped_forest/blobs/blackstone_blobs",
+      "aoemod:warped_forest/blobs/gravel_blobs",
+      "aoemod:warped_forest/blobs/basalt_blobs",
+      "aoemod:warped_forest/ores/ancient_debris_small",
+      "aoemod:warped_forest/ores/ancient_debris_large",
+      "aoemod:warped_forest/ores/gold_ore",
+      "aoemod:warped_forest/ores/quartz_ore"
     ],
     [],
     [],
@@ -58,17 +54,11 @@
       "aoemod:nether_cane",
       "aoemod:warped_forest/warped_carrot",
       "aoemod:ashen_wheat",
+      "minecraft:twisting_vines",
       "aoemod:warped_forest/pitaya",
-      "aoemod:crimson_forest/forest_floor",
       "aoemod:warped_forest/forest_floor",
-      "aoemod:soul_sand_valley/forest_floor",
-      "aoemod:crimson_forest/seafloor",
       "aoemod:warped_forest/seafloor",
-      "aoemod:soul_sand_valley/seafloor",
-      "aoemod:crimson_forest/seafloor_shallow",
-      "aoemod:warped_forest/seafloor_shallow",
-      "aoemod:soul_sand_valley/seafloor_shallow",
-      "minecraft:twisting_vines"
+      "aoemod:warped_forest/seafloor_shallow"
     ]
   ],
   "has_precipitation": false,

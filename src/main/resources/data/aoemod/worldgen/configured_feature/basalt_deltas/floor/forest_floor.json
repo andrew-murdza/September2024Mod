@@ -3,7 +3,7 @@
   "config": {
     "features": [
       {
-        "chance": 0.01,
+        "chance": 0.10,
         "feature": {
           "feature": "aoemod:basalt_deltas/floor/grass",
           "placement": [
@@ -23,7 +23,7 @@
         }
       },
       {
-        "chance": 0.001,
+        "chance": 0.003,
         "feature": {
           "feature": "biomeswevegone:witch_hazel3",
           "placement": [
@@ -43,7 +43,7 @@
         }
       },
       {
-        "chance": 0.989,
+        "chance": 0.897,
         "feature": {
           "feature": "aoemod:nothing",
           "placement": []

@@ -9,33 +9,6 @@
       "type": "minecraft:in_square"
     },
     {
-      "type": "minecraft:block_predicate_filter",
-      "predicate": {
-        "type": "minecraft:not",
-        "predicate": {
-          "type": "minecraft:matching_blocks",
-          "offset": [
-            0,
-            -1,
-            0
-          ],
-          "blocks": [
-            "minecraft:grass_block",
-            "minecraft:dirt",
-            "minecraft:blue_ice",
-            "minecraft:rooted_dirt"
-          ]
-        }
-      }
-    },
-    {
-      "type": "minecraft:block_predicate_filter",
-      "predicate": {
-        "type": "minecraft:matching_blocks",
-        "blocks": "minecraft:air"
-      }
-    },
-    {
       "type": "minecraft:count_on_every_layer",
       "count": 1
     },

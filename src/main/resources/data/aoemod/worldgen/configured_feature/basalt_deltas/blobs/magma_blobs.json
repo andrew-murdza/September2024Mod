@@ -6,17 +6,8 @@
     "targets": [
       {
         "target": {
-          "predicate_type": "minecraft:block_match",
-          "block": "minecraft:basalt"
-        },
-        "state": {
-          "Name": "minecraft:magma_block"
-        }
-      },
-      {
-        "target": {
-          "predicate_type": "minecraft:block_match",
-          "block": "minecraft:blackstone"
+          "predicate_type": "minecraft:tag_match",
+          "tag": "aoemod:nether_land"
         },
         "state": {
           "Name": "minecraft:magma_block"

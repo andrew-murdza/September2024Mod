@@ -125,7 +125,7 @@
       {
         "chance": 0.003,
         "feature": {
-          "feature": "aoemod:sugar_cane",
+          "feature": "aoemod:reeds/sugar_cane",
           "placement": [
             {
               "type": "minecraft:block_predicate_filter",

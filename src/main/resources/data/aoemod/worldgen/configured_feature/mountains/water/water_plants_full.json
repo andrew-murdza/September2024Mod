@@ -45,7 +45,7 @@
       {
         "chance": 0.1,
         "feature": {
-          "feature": "aoemod:kelp",
+          "feature": "aoemod:water/kelp",
           "placement": [
             {
               "type": "minecraft:block_predicate_filter",

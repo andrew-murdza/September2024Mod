@@ -1,9 +1,0 @@
-{
-  "type": "minecraft:smoking",
-  "ingredient": {
-    "item": "bountiful_critters:raw_krill"
-  },
-  "result": "bountiful_critters:fried_krill",
-  "experience": 0.20,
-  "cookingtime": 60
-}

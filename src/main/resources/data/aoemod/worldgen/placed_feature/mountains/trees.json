@@ -30,29 +30,6 @@
     },
     {
       "type": "minecraft:biome"
-    },
-    {
-      "type": "minecraft:block_predicate_filter",
-      "predicate": {
-        "type": "minecraft:matching_blocks",
-        "offset": [
-          0,
-          -1,
-          0
-        ],
-        "blocks": [
-          "minecraft:snow_block",
-          "minecraft:coarse_dirt",
-          "minecraft:dirt",
-          "minecraft:rooted_dirt",
-          "minecraft:podzol",
-          "minecraft:grass_block",
-          "minecraft:mud",
-          "minecraft:muddy_mangrove_roots",
-          "minecraft:moss_block",
-          "minecraft:mycelium"
-        ]
-      }
     }
   ]
 }

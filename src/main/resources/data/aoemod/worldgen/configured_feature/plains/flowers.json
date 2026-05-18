@@ -5,243 +5,78 @@
       {
         "chance": 1,
         "feature": {
-          "feature": "aoemod:dandelion_patch",
-          "placement": [
-            {
-              "type": "minecraft:block_predicate_filter",
-              "predicate": {
-                "type": "minecraft:matching_blocks",
-                "offset": [
-                  0,
-                  -1,
-                  0
-                ],
-                "blocks": [
-                  "minecraft:grass_block"
-                ]
-              }
-            }
-          ]
+          "feature": "aoemod:flowers/dandelion_patch",
+          "placement": []
         }
       },
       {
         "chance": 1,
         "feature": {
-          "feature": "aoemod:poppy_patch",
-          "placement": [
-            {
-              "type": "minecraft:block_predicate_filter",
-              "predicate": {
-                "type": "minecraft:matching_blocks",
-                "offset": [
-                  0,
-                  -1,
-                  0
-                ],
-                "blocks": [
-                  "minecraft:grass_block"
-                ]
-              }
-            }
-          ]
+          "feature": "aoemod:flowers/poppy_patch",
+          "placement": []
         }
       },
       {
         "chance": 1,
         "feature": {
-          "feature": "aoemod:azure_bluet_patch",
-          "placement": [
-            {
-              "type": "minecraft:block_predicate_filter",
-              "predicate": {
-                "type": "minecraft:matching_blocks",
-                "offset": [
-                  0,
-                  -1,
-                  0
-                ],
-                "blocks": [
-                  "minecraft:grass_block"
-                ]
-              }
-            }
-          ]
+          "feature": "aoemod:flowers/azure_bluet_patch",
+          "placement": []
         }
       },
       {
         "chance": 1,
         "feature": {
-          "feature": "aoemod:red_tulip_patch",
-          "placement": [
-            {
-              "type": "minecraft:block_predicate_filter",
-              "predicate": {
-                "type": "minecraft:matching_blocks",
-                "offset": [
-                  0,
-                  -1,
-                  0
-                ],
-                "blocks": [
-                  "minecraft:grass_block"
-                ]
-              }
-            }
-          ]
+          "feature": "aoemod:flowers/red_tulip_patch",
+          "placement": []
         }
       },
       {
         "chance": 1,
         "feature": {
-          "feature": "aoemod:orange_tulip_patch",
-          "placement": [
-            {
-              "type": "minecraft:block_predicate_filter",
-              "predicate": {
-                "type": "minecraft:matching_blocks",
-                "offset": [
-                  0,
-                  -1,
-                  0
-                ],
-                "blocks": [
-                  "minecraft:grass_block"
-                ]
-              }
-            }
-          ]
+          "feature": "aoemod:flowers/orange_tulip_patch",
+          "placement": []
         }
       },
       {
         "chance": 1,
         "feature": {
-          "feature": "aoemod:white_tulip_patch",
-          "placement": [
-            {
-              "type": "minecraft:block_predicate_filter",
-              "predicate": {
-                "type": "minecraft:matching_blocks",
-                "offset": [
-                  0,
-                  -1,
-                  0
-                ],
-                "blocks": [
-                  "minecraft:grass_block"
-                ]
-              }
-            }
-          ]
+          "feature": "aoemod:flowers/white_tulip_patch",
+          "placement": []
         }
       },
       {
         "chance": 1,
         "feature": {
-          "feature": "aoemod:pink_tulip_patch",
-          "placement": [
-            {
-              "type": "minecraft:block_predicate_filter",
-              "predicate": {
-                "type": "minecraft:matching_blocks",
-                "offset": [
-                  0,
-                  -1,
-                  0
-                ],
-                "blocks": [
-                  "minecraft:grass_block"
-                ]
-              }
-            }
-          ]
+          "feature": "aoemod:flowers/pink_tulip_patch",
+          "placement": []
         }
       },
       {
         "chance": 1,
         "feature": {
-          "feature": "aoemod:oxeye_daisy_patch",
-          "placement": [
-            {
-              "type": "minecraft:block_predicate_filter",
-              "predicate": {
-                "type": "minecraft:matching_blocks",
-                "offset": [
-                  0,
-                  -1,
-                  0
-                ],
-                "blocks": [
-                  "minecraft:grass_block"
-                ]
-              }
-            }
-          ]
+          "feature": "aoemod:flowers/oxeye_daisy_patch",
+          "placement": []
         }
       },
       {
         "chance": 1,
         "feature": {
-          "feature": "aoemod:cornflower_patch",
-          "placement": [
-            {
-              "type": "minecraft:block_predicate_filter",
-              "predicate": {
-                "type": "minecraft:matching_blocks",
-                "offset": [
-                  0,
-                  -1,
-                  0
-                ],
-                "blocks": [
-                  "minecraft:grass_block"
-                ]
-              }
-            }
-          ]
+          "feature": "aoemod:flowers/cornflower_patch",
+          "placement": []
         }
       },
       {
         "chance": 1,
         "feature": {
-          "feature": "aoemod:lily_of_the_valley_patch",
-          "placement": [
-            {
-              "type": "minecraft:block_predicate_filter",
-              "predicate": {
-                "type": "minecraft:matching_blocks",
-                "offset": [
-                  0,
-                  -1,
-                  0
-                ],
-                "blocks": [
-                  "minecraft:grass_block"
-                ]
-              }
-            }
-          ]
+          "feature": "aoemod:flowers/lily_of_the_valley_patch",
+          "placement": []
         }
       },
       {
         "chance": 1,
         "feature": {
-          "feature": "aoemod:sunflower_patch",
-          "placement": [
-            {
-              "type": "minecraft:block_predicate_filter",
-              "predicate": {
-                "type": "minecraft:matching_blocks",
-                "offset": [
-                  0,
-                  -1,
-                  0
-                ],
-                "blocks": [
-                  "minecraft:grass_block"
-                ]
-              }
-            }
-          ]
+          "feature": "aoemod:flowers/sunflower_patch",
+          "placement": []
         }
       }
     ]

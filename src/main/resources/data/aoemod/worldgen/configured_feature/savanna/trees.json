@@ -24,13 +24,6 @@
         }
       },
       {
-        "chance": 0.15,
-        "feature": {
-          "feature": "biomeswevegone:baobab_trees",
-          "placement": []
-        }
-      },
-      {
         "chance": 0.02,
         "feature": {
           "feature": "ecologics:walnut",

@@ -5,7 +5,7 @@
       {
         "chance": 0.30,
         "feature": {
-          "feature": "aoemod:short_seagrass",
+          "feature": "aoemod:water/short_seagrass",
           "placement": []
         }
       },

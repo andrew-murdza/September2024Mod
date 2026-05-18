@@ -1,5 +1,10 @@
 {
-  "carvers": {},
+  "carvers": {
+    "air": [
+      "minecraft:cave",
+      "minecraft:cave_extra_underground"
+    ]
+  },
   "downfall": 0.4,
   "effects": {
     "fog_color": 12638463,
@@ -21,23 +26,15 @@
     [],
     [],
     [
-      "aoemod:mushroom_caves/blobs/andesite_lower",
-      "aoemod:mushroom_caves/blobs/andesite_upper",
-      "aoemod:mushroom_caves/blobs/basalt",
-      "aoemod:mushroom_caves/blobs/calcite_lower",
-      "aoemod:mushroom_caves/blobs/calcite_upper",
-      "aoemod:mushroom_caves/blobs/clay",
-      "aoemod:mushroom_caves/blobs/diorite_lower",
-      "aoemod:mushroom_caves/blobs/diorite_upper",
-      "aoemod:mushroom_caves/blobs/dirt",
-      "aoemod:mushroom_caves/blobs/granite_lower",
-      "aoemod:mushroom_caves/blobs/granite_upper",
       "aoemod:mushroom_caves/blobs/gravel",
-      "aoemod:mushroom_caves/blobs/sand_lower",
-      "aoemod:mushroom_caves/blobs/sand_upper",
-      "aoemod:mushroom_caves/blobs/sandstone_lower",
-      "aoemod:mushroom_caves/blobs/sandstone_upper",
-      "aoemod:mushroom_caves/blobs/tuff",
+      "aoemod:mushroom_caves/blobs/clay",
+      "aoemod:mushroom_caves/blobs/sand",
+      "aoemod:mushroom_caves/blobs/dirt",
+      "aoemod:mushroom_caves/blobs/sandstone",
+      "aoemod:mushroom_caves/blobs/calcite",
+      "aoemod:mushroom_caves/blobs/andesite",
+      "aoemod:mushroom_caves/blobs/granite",
+      "aoemod:mushroom_caves/blobs/diorite",
       "aoemod:mushroom_caves/ores/ore_coal_lower",
       "aoemod:mushroom_caves/ores/ore_coal_upper",
       "aoemod:mushroom_caves/ores/ore_copper",

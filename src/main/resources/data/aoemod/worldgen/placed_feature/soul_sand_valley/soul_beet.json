@@ -1,9 +1,9 @@
 {
-  "feature": "aoemod:ashen_wheat",
+  "feature": "aoemod:soul_sand_valley/soul_beet",
   "placement": [
     {
       "type": "minecraft:rarity_filter",
-      "chance": 16
+      "chance": 4
     },
     {
       "type": "minecraft:in_square"

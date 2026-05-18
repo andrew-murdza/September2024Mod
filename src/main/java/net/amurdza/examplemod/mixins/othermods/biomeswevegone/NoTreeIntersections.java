@@ -216,14 +216,25 @@ public class NoTreeIntersections {
             BlockState generatedState,
             BlockState existingState
     ) {
-        boolean generatedIsLogOrLeaf =
-                !generatedState.is(ModTags.Blocks.mushroomBlocks);
+        boolean generatedIsGiantMushroom =
+                generatedState.is(ModTags.Blocks.mushroomBlocks);
 
-        boolean existingIsAirOrLeaf =
-                existingState.isAir() ||
-                        existingState.is(BlockTags.LEAVES);
+        boolean existingIsAllowedForMushroom =
+                existingState.isAir()
+                        || existingState.is(BlockTags.LEAVES);
 
-        return !generatedIsLogOrLeaf && !existingIsAirOrLeaf || existingState.is(BlockTags.SCULK_REPLACEABLE);
+
+        if (generatedState.is(ModTags.Blocks.mushroomBlocks)
+                && !existingState.isAir()
+                && !existingState.is(BlockTags.LEAVES)) {
+            System.out.println("BAD MUSHROOM COLLISION: generated="
+                    + generatedState + " existing=" + existingState);
+            return true;
+        }
+
+
+        return (generatedIsGiantMushroom && !existingIsAllowedForMushroom)
+                || existingState.is(BlockTags.SCULK_REPLACEABLE);
     }
 
     @Unique

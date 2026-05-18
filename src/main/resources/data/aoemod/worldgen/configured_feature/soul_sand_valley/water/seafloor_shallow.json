@@ -24,11 +24,6 @@
             "minecraft:basalt",
             "minecraft:smooth_basalt",
             "nourished_nether:soul_sludge"
-          ],
-          "offset": [
-            0,
-            -1,
-            0
           ]
         }
       ]

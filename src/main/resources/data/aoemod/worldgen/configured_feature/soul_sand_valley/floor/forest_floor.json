@@ -3,47 +3,21 @@
   "config": {
     "features": [
       {
-        "chance": 0.05,
+        "chance": 0.10,
         "feature": {
           "feature": "aoemod:soul_sand_valley/floor/grass",
-          "placement": [
-            {
-              "type": "minecraft:block_predicate_filter",
-              "predicate": {
-                "type": "minecraft:matching_blocks",
-                "offset": [
-                  0,
-                  -1,
-                  0
-                ],
-                "blocks": ["minecraft:soul_sand","minecraft:soul_soil","nourished_nether:soul_sludge"]
-              }
-            }
-          ]
+          "placement": []
         }
       },
       {
         "chance": 0.002,
         "feature": {
           "feature": "aoemod:soul_sand_valley/bouddhas_hand_tree",
-          "placement": [
-            {
-              "type": "minecraft:block_predicate_filter",
-              "predicate": {
-                "type": "minecraft:matching_blocks",
-                "offset": [
-                  0,
-                  -1,
-                  0
-                ],
-                "blocks": ["minecraft:soul_soil","nourished_nether:soul_sludge"]
-              }
-            }
-          ]
+          "placement": []
         }
       },
       {
-        "chance": 0.948,
+        "chance": 0.88,
         "feature": {
           "feature": "aoemod:nothing",
           "placement": []

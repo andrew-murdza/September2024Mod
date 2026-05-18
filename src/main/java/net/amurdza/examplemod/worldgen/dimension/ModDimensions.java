@@ -9,7 +9,7 @@ import net.minecraft.world.level.dimension.DimensionType;
 import net.minecraft.world.level.dimension.LevelStem;
 
 public class ModDimensions {
-    public static final ResourceKey<LevelStem> AOEDIM_KEY = ResourceKey.create(Registries.LEVEL_STEM,
+    public static final ResourceKey<LevelStem> AOE_DIM = ResourceKey.create(Registries.LEVEL_STEM,
             new ResourceLocation(AOEMod.MOD_ID, "aoedim"));
     public static final ResourceKey<Level> AOEDIM_LEVEL_KEY = ResourceKey.create(Registries.DIMENSION,
             new ResourceLocation(AOEMod.MOD_ID, "aoedim"));

@@ -1,11 +1,5 @@
 {
-  "carvers": {
-    "air": [
-      "minecraft:cave",
-      "minecraft:cave_extra_underground",
-      "minecraft:canyon"
-    ]
-  },
+  "carvers": {},
   "downfall": 0,
   "effects": {
     "additions_sound": {
@@ -44,24 +38,20 @@
     [],
     [],
     [
-      "aoemod:basalt_deltas/blobs/blackstone_blobs",
+      "aoemod:basalt_deltas/blobs/magma_blobs",
       "aoemod:basalt_deltas/blobs/glowstone_blobs",
       "aoemod:basalt_deltas/blobs/gravel_blobs",
-      "aoemod:basalt_deltas/blobs/magma_blobs",
-      "aoemod:basalt_deltas/ores/ancient_debris",
-      "aoemod:basalt_deltas/ores/basalt_gold_ore",
-      "aoemod:basalt_deltas/ores/basalt_quartz_ore",
-      "aoemod:basalt_deltas/ores/blackstone_gold_ore",
-      "aoemod:basalt_deltas/ores/blackstone_quartz_ore"
+      "aoemod:basalt_deltas/blobs/basalt_blobs",
+      "aoemod:basalt_deltas/ores/ancient_debris_small",
+      "aoemod:basalt_deltas/ores/ancient_debris_large",
+      "aoemod:basalt_deltas/ores/gold_ore",
+      "aoemod:basalt_deltas/ores/quartz_ore"
     ],
     [
       "aoemod:nether_cane",
-      "aoemod:soul_sand_valley/forest_floor",
       "aoemod:basalt_deltas/forest_floor",
       "aoemod:basalt_deltas/seafloor",
-      "aoemod:soul_sand_valley/seafloor",
-      "aoemod:basalt_deltas/seafloor_shallow",
-      "aoemod:warped_forest/seafloor_shallow"
+      "aoemod:basalt_deltas/seafloor_shallow"
     ]
   ],
   "has_precipitation": false,
@@ -76,18 +66,6 @@
         "minCount": 3,
         "weight": 30
       }
-//      {
-//        "type": "aoemod:nether_crab",
-//        "weight": 15,
-//        "minCount": 4,
-//        "maxCount": 4
-//      },
-//      {
-//        "type": "aoemod:nether_snail",
-//        "weight": 10,
-//        "minCount": 4,
-//        "maxCount": 4
-//      }
     ],
     "misc": [],
     "monster": [
@@ -216,12 +194,6 @@
         "minCount": 1,
         "maxCount": 2
       }
-//      {
-//        "type": "aoemod:nether_squid",
-//        "weight": 20,
-//        "minCount": 4,
-//        "maxCount": 4
-//      }
     ]
   },
   "temperature": 2

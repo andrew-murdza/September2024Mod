@@ -7,8 +7,9 @@ import net.amurdza.examplemod.worldgen.feature.ModFeatures;
 import net.minecraft.core.BlockPos;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.server.level.ServerLevel;
+import net.minecraft.tags.BlockTags;
 import net.minecraft.util.RandomSource;
-import net.minecraft.world.level.LevelReader;
+import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
 import org.spongepowered.asm.mixin.Mixin;
@@ -23,11 +24,11 @@ public class LushroomBehavior {
             method = "canSurvive",
             at = @At(
                     value = "INVOKE",
-                    target = "Lnet/minecraft/world/level/LevelReader;getRawBrightness(Lnet/minecraft/core/BlockPos;I)I"
+                    target = "Lnet/minecraft/world/level/block/state/BlockState;is(Lnet/minecraft/world/level/block/Block;)Z"
             )
     )
-    private int aoe$ignoreLightLevel(LevelReader level, BlockPos pos, int amount) {
-        return 0;
+    private boolean aoe$ignoreLightLevel(BlockState instance, Block block) {
+        return instance.is(BlockTags.MUSHROOM_GROW_BLOCK);
     }
 
     /**

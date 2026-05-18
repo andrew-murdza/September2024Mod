@@ -83,12 +83,12 @@ public abstract class CaveVineHeadBehavior extends GrowingPlantHeadBlock impleme
         cir.setReturnValue(BlockHelper.useCaveVines(state, level, pos, player, hand));
     }
 
-    @Intrinsic(displace = true)
+    @Override
     public @NotNull FluidState getFluidState(BlockState state) {
         return state.getValue(WATERLOGGED) ? Fluids.WATER.getSource(false) : super.getFluidState(state);
     }
 
-    @Intrinsic(displace = true)
+    @Override
     @Nullable
     public BlockState getStateForPlacement(BlockPlaceContext ctx) {
         BlockState stateAtGrowthSide = ctx.getLevel().getBlockState(ctx.getClickedPos().relative(this.growthDirection));
@@ -102,20 +102,20 @@ public abstract class CaveVineHeadBehavior extends GrowingPlantHeadBlock impleme
         return state.setValue(WATERLOGGED, fluid.getType() == Fluids.WATER);
     }
 
-    @Intrinsic(displace = true)
+    @Override
     public boolean canSurvive(@NotNull BlockState state, LevelReader level, BlockPos pos) {
         BlockPos attachPos = pos.relative(this.growthDirection.getOpposite());
         BlockState attachState = level.getBlockState(attachPos);
         return super.canSurvive(state,level,pos)||attachState.is(BlockTags.LEAVES);
     }
 
-    @Intrinsic(displace = true)
+    @Override
     public boolean isRandomlyTicking(BlockState state) {
         return state.getValue(AGE) < 25
                 || (!state.getValue(BERRIES) && state.getValue(BlockStateProperties.ENABLED));
     }
 
-    @Intrinsic(displace = true)
+    @Override
     public void randomTick(@NotNull BlockState state, @NotNull ServerLevel level, BlockPos pos, RandomSource random) {
             if (!state.getValue(BERRIES) && state.getValue(BlockStateProperties.ENABLED)&&net.minecraftforge.common.ForgeHooks.onCropsGrowPre(
                     level,

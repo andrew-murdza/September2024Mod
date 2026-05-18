@@ -7,114 +7,6 @@
       {
         "target": {
           "predicate_type": "minecraft:block_match",
-          "block": "minecraft:andesite"
-        },
-        "state": {
-          "Name": "minecraft:gravel"
-        }
-      },
-      {
-        "target": {
-          "predicate_type": "minecraft:block_match",
-          "block": "minecraft:basalt"
-        },
-        "state": {
-          "Name": "minecraft:gravel"
-        }
-      },
-      {
-        "target": {
-          "predicate_type": "minecraft:block_match",
-          "block": "minecraft:calcite"
-        },
-        "state": {
-          "Name": "minecraft:gravel"
-        }
-      },
-      {
-        "target": {
-          "predicate_type": "minecraft:block_match",
-          "block": "minecraft:clay"
-        },
-        "state": {
-          "Name": "minecraft:gravel"
-        }
-      },
-      {
-        "target": {
-          "predicate_type": "minecraft:block_match",
-          "block": "minecraft:deepslate"
-        },
-        "state": {
-          "Name": "minecraft:gravel"
-        }
-      },
-      {
-        "target": {
-          "predicate_type": "minecraft:block_match",
-          "block": "minecraft:diorite"
-        },
-        "state": {
-          "Name": "minecraft:gravel"
-        }
-      },
-      {
-        "target": {
-          "predicate_type": "minecraft:block_match",
-          "block": "minecraft:granite"
-        },
-        "state": {
-          "Name": "minecraft:gravel"
-        }
-      },
-      {
-        "target": {
-          "predicate_type": "minecraft:block_match",
-          "block": "minecraft:gravel"
-        },
-        "state": {
-          "Name": "minecraft:gravel"
-        }
-      },
-      {
-        "target": {
-          "predicate_type": "minecraft:block_match",
-          "block": "minecraft:red_sand"
-        },
-        "state": {
-          "Name": "minecraft:gravel"
-        }
-      },
-      {
-        "target": {
-          "predicate_type": "minecraft:block_match",
-          "block": "minecraft:red_sandstone"
-        },
-        "state": {
-          "Name": "minecraft:gravel"
-        }
-      },
-      {
-        "target": {
-          "predicate_type": "minecraft:block_match",
-          "block": "minecraft:sand"
-        },
-        "state": {
-          "Name": "minecraft:gravel"
-        }
-      },
-      {
-        "target": {
-          "predicate_type": "minecraft:block_match",
-          "block": "minecraft:sandstone"
-        },
-        "state": {
-          "Name": "minecraft:gravel"
-        }
-      },
-      {
-        "target": {
-          "predicate_type": "minecraft:block_match",
           "block": "minecraft:stone"
         },
         "state": {
@@ -124,7 +16,7 @@
       {
         "target": {
           "predicate_type": "minecraft:block_match",
-          "block": "minecraft:tuff"
+          "block": "minecraft:deepslate"
         },
         "state": {
           "Name": "minecraft:gravel"

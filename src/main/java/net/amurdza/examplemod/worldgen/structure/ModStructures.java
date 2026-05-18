@@ -22,6 +22,12 @@ public class ModStructures {
     public static final RegistryObject<StructurePieceType> MOUNTAIN_LAKE_PIECE =
             PIECE_TYPES.register("mountain_lake_piece", () -> MountainLakePiece::new);
 
+    public static final RegistryObject<StructureType<LongNetherLayerCaveStructure>> NETHER_CAVE =
+            STRUCTURE_TYPES.register("nether_cave", () -> LongNetherLayerCaveStructure.CODEC::codec);
+
+    public static final RegistryObject<StructurePieceType> NETHER_CAVE_PIECE =
+            PIECE_TYPES.register("nether_cave_piece", () -> LongNetherLayerCavePiece::new);
+
     public static void register(IEventBus bus) {
         STRUCTURE_TYPES.register(bus);
         PIECE_TYPES.register(bus);
