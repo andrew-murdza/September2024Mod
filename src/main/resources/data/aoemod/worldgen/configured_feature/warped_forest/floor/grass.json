@@ -14,13 +14,13 @@
           "data": {
             "Name": "minecraft:nether_sprouts"
           },
-          "weight": 63
+          "weight": 64
         },
         {
           "data": {
             "Name": "minecraft:warped_fungus"
           },
-          "weight": 2
+          "weight": 1
         }
       ]
     }

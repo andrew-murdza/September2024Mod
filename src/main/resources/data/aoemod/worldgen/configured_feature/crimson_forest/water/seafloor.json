@@ -9,16 +9,8 @@
     "deep": true,
     "all_layers": true,
     "predicate": {
-      "type": "minecraft:any_of",
-      "predicates": [
-        {
-          "type": "minecraft:matching_blocks",
-          "blocks": [
-            "minecraft:sculk"
-          ]
-        }
-      ]
+      "type": "minecraft:solid"
     },
-    "biomes": "aoemod:deep_dark_biomes"
+    "biomes": "aoemod:crimson_forest_biomes"
   }
 }

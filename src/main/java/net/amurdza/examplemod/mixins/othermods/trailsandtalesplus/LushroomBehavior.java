@@ -1,6 +1,8 @@
 package net.amurdza.examplemod.mixins.othermods.trailsandtalesplus;
 
 import com.belgieyt.trailsandtalesplus.Objects.blocks.LushroomBlock;
+import com.llamalad7.mixinextras.injector.wrapoperation.Operation;
+import com.llamalad7.mixinextras.injector.wrapoperation.WrapOperation;
 import net.amurdza.examplemod.Config;
 import net.amurdza.examplemod.util.Helper;
 import net.amurdza.examplemod.worldgen.feature.ModFeatures;
@@ -9,6 +11,7 @@ import net.minecraft.resources.ResourceKey;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.util.RandomSource;
+import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
@@ -29,6 +32,17 @@ public class LushroomBehavior {
     )
     private boolean aoe$ignoreLightLevel(BlockState instance, Block block) {
         return instance.is(BlockTags.MUSHROOM_GROW_BLOCK);
+    }
+
+    @WrapOperation(
+            method = "canSurvive",
+            at = @At(
+                    value = "INVOKE",
+                    target = "Lnet/minecraft/world/level/LevelReader;getRawBrightness(Lnet/minecraft/core/BlockPos;I)I"
+            )
+    )
+    private int aoe$ignoreLightLevel(LevelReader instance, BlockPos blockPos, int i, Operation<Integer> original) {
+        return 0;
     }
 
     /**

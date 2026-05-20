@@ -14,11 +14,6 @@
                 "predicates": [
                   {
                     "type": "minecraft:matching_blocks",
-                    "offset": [
-                      0,
-                      -1,
-                      0
-                    ],
                     "blocks": [
                       "minecraft:moss_block",
                       "minecraft:wet_sponge"

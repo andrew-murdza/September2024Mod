@@ -79,8 +79,7 @@ public class CaveVineColumn extends Feature<CaveVineConfig> {
         return flag;
     }
     private final BiFunction<BlockState,Boolean,Boolean> tester= (state,weeping)->state.getFluidState().is(FluidTags.WATER)&&
-            !weeping||state.is(Blocks.AIR)||
-            state.is(Blocks.CAVE_AIR)||state.is(Blocks.VOID_AIR);
+            !weeping||state.isAir();
     private boolean helper(WorldGenLevel level, BlockPos pos, FeaturePlaceContext<CaveVineConfig> context,
                            BlockPredicate predicate, IntProvider heightProvider, boolean shouldRun,
                            boolean weepingVines, boolean sporeBlossom){

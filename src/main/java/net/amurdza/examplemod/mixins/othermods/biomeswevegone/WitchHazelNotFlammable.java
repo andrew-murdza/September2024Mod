@@ -1,6 +1,9 @@
 package net.amurdza.examplemod.mixins.othermods.biomeswevegone;
 
 
+import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
+import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.FireBlock;
 import net.minecraft.world.level.block.state.BlockState;
@@ -12,26 +15,12 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
-@Mixin(FireBlock.class)
+@Mixin(value = FireBlock.class,remap = false)
 public class WitchHazelNotFlammable {
 
-    @Inject(method = "getBurnOdds", at = @At("HEAD"), cancellable = true)
-    private void aoemod$witchHazelNoBurnOdds(BlockState state, CallbackInfoReturnable<Integer> cir) {
-        if (september2024Mod$isWitchHazel(state)) {
-            cir.setReturnValue(0);
-        }
-    }
-
-    @Inject(method = "getIgniteOdds*", at = @At("HEAD"), cancellable = true)
-    private void aoemod$witchHazelNoIgniteOdds(BlockState state, CallbackInfoReturnable<Integer> cir) {
-        if (september2024Mod$isWitchHazel(state)) {
-            cir.setReturnValue(0);
-        }
-    }
-
-    @Inject(method = "canBurn", at = @At("HEAD"), cancellable = true)
-    private void aoemod$witchHazelCannotBurn(BlockState state, CallbackInfoReturnable<Boolean> cir) {
-        if (september2024Mod$isWitchHazel(state)) {
+    @Inject(method = "canCatchFire", at = @At("HEAD"), cancellable = true)
+    private void aoemod$witchHazelCannotBurn(BlockGetter world, BlockPos pos, Direction face, CallbackInfoReturnable<Boolean> cir) {
+        if (september2024Mod$isWitchHazel(world.getBlockState(pos))) {
             cir.setReturnValue(false);
         }
     }

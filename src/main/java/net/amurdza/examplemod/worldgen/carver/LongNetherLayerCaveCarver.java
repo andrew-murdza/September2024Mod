@@ -248,7 +248,7 @@ public class LongNetherLayerCaveCarver extends CaveWorldCarver {
 
         BlockState carvedState = pos.getY() <= config.lavaLevel.resolveY(context)
                 ? Blocks.LAVA.defaultBlockState()
-                : Blocks.CAVE_AIR.defaultBlockState();
+                : Blocks.AIR.defaultBlockState();
 
         chunk.setBlockState(pos, carvedState, false);
 

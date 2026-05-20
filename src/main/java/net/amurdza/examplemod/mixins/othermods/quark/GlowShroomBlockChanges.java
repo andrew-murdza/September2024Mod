@@ -55,7 +55,7 @@ public abstract class GlowShroomBlockChanges extends BushBlock {
         if (blockstate.is(BlockTags.MUSHROOM_GROW_BLOCK)) {
             return true;
         } else {
-            return pLevel.getRawBrightness(pPos, 0) < 13 && blockstate.canSustainPlant(pLevel, blockpos,
+            return blockstate.canSustainPlant(pLevel, blockpos,
                     net.minecraft.core.Direction.UP, this);
         }
     }

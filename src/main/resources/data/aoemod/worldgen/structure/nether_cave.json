@@ -14,5 +14,10 @@
   "min_floor_thickness": 6.0,
   "pitch_lower": 1.0,
   "liquid_radius": 4.0,
-  "liquid_depth": 3.0
+  "liquid_depth": 3.0,
+  "max_deep_dark_y": 31,
+  "max_soul_sand_valley_y": -1,
+  "max_warped_forest_y": -33,
+  "max_crimson_forest_y": -65,
+  "max_basalt_deltas_y": -97
 }

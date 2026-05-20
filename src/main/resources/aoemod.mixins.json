@@ -37,6 +37,7 @@
     "block_placement.FungusPlacement",
     "block_placement.FurtherLeavesPart1",
     "block_placement.GrassMyceliumDontDieUnderTrees",
+    "block_placement.MushroomsSurviveInDaylight",
     "block_placement.MyceliumSurvivesInDarknessP1",
     "block_placement.MyceliumSurvivesInDarknessP2",
     "block_placement.NetherRootsPlacement",

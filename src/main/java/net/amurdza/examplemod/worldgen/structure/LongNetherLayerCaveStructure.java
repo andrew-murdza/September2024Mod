@@ -3,7 +3,6 @@ package net.amurdza.examplemod.worldgen.structure;
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.MapCodec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
-import net.amurdza.examplemod.AOEMod;
 import net.minecraft.core.BlockPos;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.ExtraCodecs;
@@ -56,8 +55,25 @@ public class LongNetherLayerCaveStructure extends Structure {
                                     .fieldOf("pitch_lower")
                                     .forGetter(s -> s.pitchLower),
 
-                            ExtraCodecs.POSITIVE_FLOAT.fieldOf("liquid_radius").forGetter(s -> s.liquidRadius),
-                            ExtraCodecs.POSITIVE_FLOAT.fieldOf("liquid_depth").forGetter(s -> s.liquidDepth)
+                            Codec.INT
+                                    .fieldOf("max_deep_dark_y")
+                                    .forGetter(s -> s.maxDeepDarkY),
+
+                            Codec.INT
+                                    .fieldOf("max_soul_sand_valley_y")
+                                    .forGetter(s -> s.maxSoulSandValleyY),
+
+                            Codec.INT
+                                    .fieldOf("max_warped_forest_y")
+                                    .forGetter(s -> s.maxWarpedForestY),
+
+                            Codec.INT
+                                    .fieldOf("max_crimson_forest_y")
+                                    .forGetter(s -> s.maxCrimsonForestY),
+
+                            Codec.INT
+                                    .fieldOf("max_basalt_deltas_y")
+                                    .forGetter(s -> s.maxCrimsonForestY)
 
                     ).apply(instance, LongNetherLayerCaveStructure::new)
             );
@@ -71,8 +87,12 @@ public class LongNetherLayerCaveStructure extends Structure {
     private final float centralPillarDiameterExtra;
     private final float minFloorThickness;
     private final float pitchLower;
-    private final float liquidRadius;
-    private final float liquidDepth;
+
+    private final int maxDeepDarkY;
+    private final int maxSoulSandValleyY;
+    private final int maxWarpedForestY;
+    private final int maxCrimsonForestY;
+    private final int maxBasaltDeltasY;
 
     public LongNetherLayerCaveStructure(
             StructureSettings settings,
@@ -85,8 +105,11 @@ public class LongNetherLayerCaveStructure extends Structure {
             float centralPillarDiameterExtra,
             float minFloorThickness,
             float pitchLower,
-            float liquidRadius,
-            float liquidDepth
+            int maxDeepDarkY,
+            int maxSoulSandValleyY,
+            int maxWarpedForestY,
+            int maxCrimsonForestY,
+            int maxBasaltDeltasY
     ) {
         super(settings);
 
@@ -99,21 +122,19 @@ public class LongNetherLayerCaveStructure extends Structure {
         this.centralPillarDiameterExtra = centralPillarDiameterExtra;
         this.minFloorThickness = minFloorThickness;
         this.pitchLower = pitchLower;
-        this.liquidRadius = liquidRadius;
-        this.liquidDepth = liquidDepth;
+
+        this.maxDeepDarkY = maxDeepDarkY;
+        this.maxSoulSandValleyY = maxSoulSandValleyY;
+        this.maxWarpedForestY = maxWarpedForestY;
+        this.maxCrimsonForestY = maxCrimsonForestY;
+        this.maxBasaltDeltasY = maxBasaltDeltasY;
     }
 
     @Override
     public @NotNull Optional<GenerationStub> findGenerationPoint(GenerationContext context) {
         ChunkPos chunkPos = context.chunkPos();
-        AOEMod.LOGGER.info("NETHER CAVE findGenerationPoint {}", chunkPos);
 
-
-        BlockPos origin = new BlockPos(
-                chunkPos.getMiddleBlockX(),
-                this.startY,
-                chunkPos.getMiddleBlockZ()
-        );
+        BlockPos origin = new BlockPos(chunkPos.getMiddleBlockX(), this.startY, chunkPos.getMiddleBlockZ());
 
         return Optional.of(new GenerationStub(origin, builder -> builder.addPiece(
                 new LongNetherLayerCavePiece(
@@ -127,8 +148,11 @@ public class LongNetherLayerCaveStructure extends Structure {
                         this.centralPillarDiameterExtra,
                         this.minFloorThickness,
                         this.pitchLower,
-                        this.liquidRadius,
-                        this.liquidDepth
+                        this.maxDeepDarkY,
+                        this.maxSoulSandValleyY,
+                        this.maxWarpedForestY,
+                        this.maxCrimsonForestY,
+                        this.maxBasaltDeltasY
                 )
         )));
     }
