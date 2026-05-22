@@ -15,11 +15,12 @@ import net.minecraft.resources.ResourceLocation;
 import org.jetbrains.annotations.NotNull;
 
 public class CubozoaEntityRenderer extends MobRenderer<CubozoaEntity, CubozoaEntityModel> {
-    private static final ResourceLocation[] TEXTURE = new ResourceLocation[2];
-    private static final RenderType[] GLOW = new RenderType[2];
+    private static final ResourceLocation[] TEXTURE = new ResourceLocation[CubozoaEntity.VARIANTS];
+    private static final RenderType[] GLOW = new RenderType[CubozoaEntity.VARIANTS];
 
     public CubozoaEntityRenderer(EntityRendererProvider.Context ctx) {
         super(ctx, new CubozoaEntityModel(ctx.bakeLayer(EntityRenderers.CUBOZOA_MODEL)), 0.5f);
+
         this.addLayer(new EyesLayer<>(this) {
             @Override
             public @NotNull RenderType renderType() {
@@ -27,18 +28,30 @@ public class CubozoaEntityRenderer extends MobRenderer<CubozoaEntity, CubozoaEnt
             }
 
             @Override
-            public void render(PoseStack matrices, MultiBufferSource vertexConsumers, int light, CubozoaEntity entity, float limbAngle, float limbDistance, float tickDelta, float animationProgress, float headYaw, float headPitch) {
-                VertexConsumer vertexConsumer = vertexConsumers.getBuffer(GLOW[entity.getVariant()]);
-                this.getParentModel()
-                        .renderToBuffer(matrices,
-                                vertexConsumer,
-                                15728640,
-                                OverlayTexture.NO_OVERLAY,
-                                1.0F,
-                                1.0F,
-                                1.0F,
-                                1.0F
-                        );
+            public void render(
+                    @NotNull PoseStack matrices,
+                    @NotNull MultiBufferSource vertexConsumers,
+                    int light,
+                    @NotNull CubozoaEntity entity,
+                    float limbAngle,
+                    float limbDistance,
+                    float tickDelta,
+                    float animationProgress,
+                    float headYaw,
+                    float headPitch
+            ) {
+                VertexConsumer vertexConsumer = vertexConsumers.getBuffer(GLOW[entity.getVariantId()]);
+
+                this.getParentModel().renderToBuffer(
+                        matrices,
+                        vertexConsumer,
+                        15728640,
+                        OverlayTexture.NO_OVERLAY,
+                        1.0F,
+                        1.0F,
+                        1.0F,
+                        1.0F
+                );
             }
         });
     }
@@ -50,14 +63,15 @@ public class CubozoaEntityRenderer extends MobRenderer<CubozoaEntity, CubozoaEnt
     }
 
     @Override
-    public ResourceLocation getTextureLocation(CubozoaEntity entity) {
-        return TEXTURE[entity.getVariant()];
+    public @NotNull ResourceLocation getTextureLocation(CubozoaEntity entity) {
+        return TEXTURE[entity.getVariantId()];
     }
 
     static {
-        TEXTURE[0] = new ResourceLocation(AOEMod.MOD_ID,"textures/entity/cubozoa/cubozoa.png");
-        TEXTURE[1] = new ResourceLocation(AOEMod.MOD_ID,"textures/entity/cubozoa/cubozoa_sulphur.png");
-        GLOW[0] = RenderType.eyes(new ResourceLocation(AOEMod.MOD_ID,"textures/entity/cubozoa/cubozoa_glow.png"));
-        GLOW[1] = RenderType.eyes(new ResourceLocation(AOEMod.MOD_ID,"textures/entity/cubozoa/cubozoa_sulphur_glow.png"));
+        TEXTURE[0] = new ResourceLocation(AOEMod.MOD_ID, "textures/entity/cubozoa/cubozoa.png");
+        TEXTURE[1] = new ResourceLocation(AOEMod.MOD_ID, "textures/entity/cubozoa/cubozoa_sulphur.png");
+
+        GLOW[0] = RenderType.eyes(new ResourceLocation(AOEMod.MOD_ID, "textures/entity/cubozoa/cubozoa_glow.png"));
+        GLOW[1] = RenderType.eyes(new ResourceLocation(AOEMod.MOD_ID, "textures/entity/cubozoa/cubozoa_sulphur_glow.png"));
     }
 }

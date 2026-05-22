@@ -24,6 +24,20 @@
               "minecraft:void_air"
             ]
           }
+        },
+        {
+          "type": "minecraft:block_predicate_filter",
+          "predicate": {
+            "type": "minecraft:matching_blocks",
+            "blocks": [
+              "nourished_nether:soul_sludge"
+            ],
+            "offset": [
+              0,
+              -1,
+              0
+            ]
+          }
         }
       ]
     },

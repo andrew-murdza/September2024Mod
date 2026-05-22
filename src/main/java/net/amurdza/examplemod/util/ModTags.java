@@ -21,6 +21,7 @@ public class ModTags {
         public static final TagKey<Block> needsDeepWater = tag("needs_deep_water");
         public static final TagKey<Block> basaltStones = tag("basalt_stones");
         public static final TagKey<Block> charnia = tag("charnia");
+        public static final TagKey<Block> caveReplaeable = tag("cave_replaceable");
 
         private static TagKey<Block> tag(String name){
             return BlockTags.create(new ResourceLocation(AOEMod.MOD_ID,name));

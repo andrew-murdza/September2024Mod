@@ -17,11 +17,21 @@
                     "blocks": [
                       "minecraft:moss_block",
                       "minecraft:wet_sponge"
+                    ],
+                    "offset": [
+                      0,
+                      -1,
+                      0
                     ]
                   },
                   {
                     "type": "minecraft:matching_block_tag",
-                    "tag": "minecraft:coral_blocks"
+                    "tag": "minecraft:coral_blocks",
+                    "offset": [
+                      0,
+                      -1,
+                      0
+                    ]
                   }
                 ]
               }
@@ -53,7 +63,12 @@
                   },
                   {
                     "type": "minecraft:matching_block_tag",
-                    "tag": "minecraft:coral_blocks"
+                    "tag": "minecraft:coral_blocks",
+                    "offset": [
+                      0,
+                      -1,
+                      0
+                    ]
                   }
                 ]
               }
@@ -85,7 +100,12 @@
                   },
                   {
                     "type": "minecraft:matching_block_tag",
-                    "tag": "minecraft:coral_blocks"
+                    "tag": "minecraft:coral_blocks",
+                    "offset": [
+                      0,
+                      -1,
+                      0
+                    ]
                   }
                 ]
               }

@@ -12,7 +12,7 @@ import org.spongepowered.asm.mixin.injection.At;
 @Mixin(DimensionSpecialEffects.class)
 public class NetherFog1 {
 
-    @WrapOperation(method = "forType",at= @At(value = "INVOKE", target = "Lnet/minecraftforge/client/DimensionSpecialEffectsManager;getForType(Lnet/minecraft/resources/ResourceLocation;)Lnet/minecraft/client/renderer/DimensionSpecialEffects;"))
+    @WrapOperation(method = "forType",at= @At(value = "INVOKE", target = "Lnet/minecraftforge/client/DimensionSpecialEffectsManager;getForType(Lnet/minecraft/resources/ResourceLocation;)Lnet/minecraft/client/renderer/DimensionSpecialEffects;"),remap = false)
     private static DimensionSpecialEffects hi(ResourceLocation type, Operation<DimensionSpecialEffects> original){
         return type.equals(new ResourceLocation(AOEMod.MOD_ID,"aoedim"))?
                 new NetherFog() : original.call(type);

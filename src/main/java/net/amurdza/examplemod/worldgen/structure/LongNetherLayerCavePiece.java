@@ -3,7 +3,6 @@ package net.amurdza.examplemod.worldgen.structure;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.nbt.CompoundTag;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.Mth;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.ChunkPos;
@@ -16,11 +15,14 @@ import net.minecraft.world.level.chunk.ChunkGenerator;
 import net.minecraft.world.level.levelgen.structure.BoundingBox;
 import net.minecraft.world.level.levelgen.structure.StructurePiece;
 import net.minecraft.world.level.levelgen.structure.pieces.StructurePieceSerializationContext;
-import net.minecraft.world.level.material.FluidState;
 import org.jetbrains.annotations.NotNull;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class LongNetherLayerCavePiece extends StructurePiece {
-    private static final int TARGET_Y = -127;
+    private static final int TARGET_Y = -126;
+    private static final float FLOOR_LEVEL = -1.0F;
 
     private enum NetherLayer {
         DEEP_DARK,
@@ -35,12 +37,12 @@ public class LongNetherLayerCavePiece extends StructurePiece {
     private final long seed;
     private final float horizontalRadius;
     private final float verticalRadius;
-    private final float floorLevel;
     private final int lavaLevel;
-    private final ResourceLocation replaceable;
     private final float centralPillarDiameterExtra;
     private final float minFloorThickness;
     private final float pitchLower;
+    private final float liquidDepth;
+    private final float liquidRadius;
 
     private final int maxDeepDarkY;
     private final int maxSoulSandValleyY;
@@ -53,12 +55,12 @@ public class LongNetherLayerCavePiece extends StructurePiece {
             long seed,
             float horizontalRadius,
             float verticalRadius,
-            float floorLevel,
             int lavaLevel,
-            ResourceLocation replaceable,
             float centralPillarDiameterExtra,
             float minFloorThickness,
             float pitchLower,
+            float liquidDepth,
+            float liquidRadius,
             int maxDeepDarkY,
             int maxSoulSandValleyY,
             int maxWarpedForestY,
@@ -72,19 +74,21 @@ public class LongNetherLayerCavePiece extends StructurePiece {
                 lavaLevel,
                 centralPillarDiameterExtra,
                 minFloorThickness,
-                pitchLower
+                pitchLower,
+                liquidDepth,
+                liquidRadius
         ));
 
         this.origin = origin;
         this.seed = seed;
         this.horizontalRadius = horizontalRadius;
         this.verticalRadius = verticalRadius;
-        this.floorLevel = floorLevel;
         this.lavaLevel = lavaLevel;
-        this.replaceable = replaceable;
         this.centralPillarDiameterExtra = centralPillarDiameterExtra;
         this.minFloorThickness = minFloorThickness;
         this.pitchLower = pitchLower;
+        this.liquidDepth = liquidDepth;
+        this.liquidRadius = liquidRadius;
 
         this.maxDeepDarkY = maxDeepDarkY;
         this.maxSoulSandValleyY = maxSoulSandValleyY;
@@ -101,12 +105,15 @@ public class LongNetherLayerCavePiece extends StructurePiece {
         this.seed = tag.getLong("Seed");
         this.horizontalRadius = tag.getFloat("HorizontalRadius");
         this.verticalRadius = tag.getFloat("VerticalRadius");
-        this.floorLevel = tag.getFloat("FloorLevel");
         this.lavaLevel = tag.getInt("LavaLevel");
-        this.replaceable = ResourceLocation.tryParse(tag.getString("Replaceable"));
         this.centralPillarDiameterExtra = tag.getFloat("CentralPillarDiameterExtra");
         this.minFloorThickness = tag.getFloat("MinFloorThickness");
         this.pitchLower = tag.getFloat("PitchLower");
+        this.liquidDepth = tag.getFloat("LiquidDepth");
+
+        this.liquidRadius = tag.contains("LiquidRadius")
+                ? tag.getFloat("LiquidRadius")
+                : tag.getFloat("LiquidWidth");
 
         this.maxDeepDarkY = tag.getInt("MaxDeepDarkY");
         this.maxSoulSandValleyY = tag.getInt("MaxSoulSandValleyY");
@@ -126,12 +133,12 @@ public class LongNetherLayerCavePiece extends StructurePiece {
         tag.putLong("Seed", this.seed);
         tag.putFloat("HorizontalRadius", this.horizontalRadius);
         tag.putFloat("VerticalRadius", this.verticalRadius);
-        tag.putFloat("FloorLevel", this.floorLevel);
         tag.putInt("LavaLevel", this.lavaLevel);
-        tag.putString("Replaceable", this.replaceable.toString());
         tag.putFloat("CentralPillarDiameterExtra", this.centralPillarDiameterExtra);
         tag.putFloat("MinFloorThickness", this.minFloorThickness);
         tag.putFloat("PitchLower", this.pitchLower);
+        tag.putFloat("LiquidDepth", this.liquidDepth);
+        tag.putFloat("LiquidRadius", this.liquidRadius);
 
         tag.putInt("MaxDeepDarkY", this.maxDeepDarkY);
         tag.putInt("MaxSoulSandValleyY", this.maxSoulSandValleyY);
@@ -141,7 +148,7 @@ public class LongNetherLayerCavePiece extends StructurePiece {
     }
 
     private boolean shouldSkip(double relativeX, double relativeY, double relativeZ) {
-        if (relativeY <= this.floorLevel) {
+        if (relativeY <= FLOOR_LEVEL) {
             return true;
         }
 
@@ -160,7 +167,6 @@ public class LongNetherLayerCavePiece extends StructurePiece {
                 + centralPillarDiameterExtra;
     }
 
-
     private static double turnPerStepForPathRadius(double pathRadius) {
         return 1.0D / Math.max(pathRadius, 1.0D);
     }
@@ -168,7 +174,7 @@ public class LongNetherLayerCavePiece extends StructurePiece {
     private void carveBlock(WorldGenLevel level, BlockPos.MutableBlockPos pos) {
         BlockState oldState = level.getBlockState(pos);
 
-        if (!canReplace(oldState) || pos.getY() < -127) {
+        if (!canReplace(oldState) || pos.getY() < TARGET_Y) {
             return;
         }
 
@@ -177,15 +183,14 @@ public class LongNetherLayerCavePiece extends StructurePiece {
                 : Blocks.AIR.defaultBlockState();
 
         level.setBlock(pos, carvedState, Block.UPDATE_CLIENTS);
-        decorateCaveSurface(level, pos, carvedState);
+        decorateCaveSurface(level, pos);
     }
-
 
     private boolean canReplace(BlockState state) {
-        return !state.is(Blocks.BEDROCK);
+        return !state.is(Blocks.BEDROCK) && state.getFluidState().isEmpty();
     }
 
-    private void decorateCaveSurface(WorldGenLevel level, BlockPos carvedPos, BlockState carvedState) {
+    private void decorateCaveSurface(WorldGenLevel level, BlockPos carvedPos) {
         NetherLayer layer = getLayerAtY(carvedPos.getY());
 
         if (layer == NetherLayer.DEEP_DARK) {
@@ -194,7 +199,7 @@ public class LongNetherLayerCavePiece extends StructurePiece {
         }
 
         NetherLayer belowLayer = getLayerAtY(carvedPos.getY() - 1);
-        BlockState floorState = getFloorState(belowLayer, carvedState.getFluidState());
+        BlockState floorState = getFloorState(belowLayer);
 
         if (floorState != null) {
             BlockPos below = carvedPos.below();
@@ -225,20 +230,11 @@ public class LongNetherLayerCavePiece extends StructurePiece {
         return NetherLayer.BASALT_DELTAS;
     }
 
-    private static BlockState getFloorState(NetherLayer layer, FluidState fluidState) {
+    private static BlockState getFloorState(NetherLayer layer) {
         return switch (layer) {
             case CRIMSON_FOREST -> Blocks.CRIMSON_NYLIUM.defaultBlockState();
             case WARPED_FOREST -> Blocks.WARPED_NYLIUM.defaultBlockState();
-
-            /*
-             * Left as null for now so you can add the exact Soul Sand Valley behavior later.
-             * For example, you might return soul sand, soul soil, gravel, blackstone, etc.
-             */
-            case SOUL_SAND_VALLEY -> null;
-
-            case BASALT_DELTAS -> null;
-
-            case DEEP_DARK, NONE -> null;
+            case SOUL_SAND_VALLEY, BASALT_DELTAS, DEEP_DARK, NONE -> null;
         };
     }
 
@@ -295,7 +291,6 @@ public class LongNetherLayerCavePiece extends StructurePiece {
                 || state.is(Blocks.SMOOTH_BASALT);
     }
 
-
     @Override
     public void postProcess(
             @NotNull WorldGenLevel level,
@@ -320,7 +315,7 @@ public class LongNetherLayerCavePiece extends StructurePiece {
 
         double stepsPerTurn = (Math.PI * 2.0D) / Math.abs(turnPerStep);
 
-        double carvedHeight = (1.0D - this.floorLevel) * this.verticalRadius;
+        double carvedHeight = (1.0D - FLOOR_LEVEL) * this.verticalRadius;
         double requiredVerticalSeparation = carvedHeight * 1.1D + this.minFloorThickness;
 
         double minDropPerStep = requiredVerticalSeparation / stepsPerTurn;
@@ -334,11 +329,14 @@ public class LongNetherLayerCavePiece extends StructurePiece {
         double z = this.origin.getZ();
 
         int maxSteps = 4096;
+        List<RiverPoint> riverPoints = new ArrayList<>();
 
         for (int step = 0; step < maxSteps && y > TARGET_Y; step++) {
             carveEllipsoid(level, box, x, y, z);
 
             if (y <= this.lavaLevel) {
+                riverPoints.add(new RiverPoint(x, y, z));
+
                 double horizontalStep = 1.0D;
                 double verticalDrop = horizontalStep * this.pitchLower;
 
@@ -356,19 +354,12 @@ public class LongNetherLayerCavePiece extends StructurePiece {
             }
         }
 
+        placeLavaRiver(level, box, riverPoints);
         replaceLavaFloorsWithBlackstone(level, box);
     }
 
     private void carveEllipsoid(WorldGenLevel level, BoundingBox box, double centerX, double centerY, double centerZ) {
-        double localVerticalRadius = this.verticalRadius;
-
-        if (centerY <= this.lavaLevel) {
-            double minCeilingY = this.lavaLevel + 7.0D;
-
-            if (centerY + localVerticalRadius < minCeilingY) {
-                localVerticalRadius = minCeilingY - centerY;
-            }
-        }
+        double localVerticalRadius = getLocalVerticalRadius(centerY);
 
         int minX = Mth.floor(centerX - this.horizontalRadius) - 1;
         int maxX = Mth.floor(centerX + this.horizontalRadius) + 1;
@@ -402,6 +393,236 @@ public class LongNetherLayerCavePiece extends StructurePiece {
         }
     }
 
+    private record RiverPoint(double x, double y, double z) {
+    }
+
+    private void placeLavaRiver(WorldGenLevel level, BoundingBox box, List<RiverPoint> riverPoints) {
+        if (this.liquidDepth <= 0.0F || this.liquidRadius <= 0.0F || riverPoints.size() < 2) {
+            return;
+        }
+
+        BlockPos.MutableBlockPos pos = new BlockPos.MutableBlockPos();
+
+        for (int i = 0; i < riverPoints.size() - 1; i++) {
+            RiverPoint current = riverPoints.get(i);
+            RiverPoint next = riverPoints.get(i + 1);
+
+            double pathDx = next.x - current.x;
+            double pathDz = next.z - current.z;
+            double pathHorizontalLength = Math.sqrt(pathDx * pathDx + pathDz * pathDz);
+
+            if (pathHorizontalLength < 0.0001D) {
+                continue;
+            }
+
+            double forwardX = pathDx / pathHorizontalLength;
+            double forwardZ = pathDz / pathHorizontalLength;
+
+            double currentOutwardX = current.x - this.origin.getX();
+            double currentOutwardZ = current.z - this.origin.getZ();
+            double currentOutwardLength = Math.sqrt(
+                    currentOutwardX * currentOutwardX
+                            + currentOutwardZ * currentOutwardZ
+            );
+
+            double nextOutwardX = next.x - this.origin.getX();
+            double nextOutwardZ = next.z - this.origin.getZ();
+            double nextOutwardLength = Math.sqrt(
+                    nextOutwardX * nextOutwardX
+                            + nextOutwardZ * nextOutwardZ
+            );
+
+            if (currentOutwardLength < 0.0001D || nextOutwardLength < 0.0001D) {
+                continue;
+            }
+
+            currentOutwardX /= currentOutwardLength;
+            currentOutwardZ /= currentOutwardLength;
+            nextOutwardX /= nextOutwardLength;
+            nextOutwardZ /= nextOutwardLength;
+
+            int currentFloorY = getApproximateCarvedFloorY(current.y);
+            int nextFloorY = getApproximateCarvedFloorY(next.y);
+
+            int lavaSurfaceY = Math.min(currentFloorY, nextFloorY);
+
+            double shorelineInset = this.liquidRadius * 0.65D;
+            double riverDistanceFromPathCenter = Math.max(0.0D, this.horizontalRadius - shorelineInset);
+
+            double currentRiverCenterX = current.x + currentOutwardX * riverDistanceFromPathCenter;
+            double currentRiverCenterZ = current.z + currentOutwardZ * riverDistanceFromPathCenter;
+
+            double nextRiverCenterX = next.x + nextOutwardX * riverDistanceFromPathCenter;
+            double nextRiverCenterZ = next.z + nextOutwardZ * riverDistanceFromPathCenter;
+
+            double riverDx = nextRiverCenterX - currentRiverCenterX;
+            double riverDz = nextRiverCenterZ - currentRiverCenterZ;
+            double riverLength = Math.sqrt(riverDx * riverDx + riverDz * riverDz);
+
+            if (riverLength < 0.0001D) {
+                continue;
+            }
+
+            double riverForwardX = riverDx / riverLength;
+            double riverForwardZ = riverDz / riverLength;
+
+            double riverHorizontalRadius = this.liquidRadius;
+            double riverVerticalRadius = this.liquidDepth;
+
+            int minX = Mth.floor(Math.min(currentRiverCenterX, nextRiverCenterX) - riverHorizontalRadius) - 2;
+            int maxX = Mth.floor(Math.max(currentRiverCenterX, nextRiverCenterX) + riverHorizontalRadius) + 2;
+            int minY = Mth.floor(lavaSurfaceY - riverVerticalRadius) - 2;
+            int maxY = lavaSurfaceY + 2;
+            int minZ = Mth.floor(Math.min(currentRiverCenterZ, nextRiverCenterZ) - riverHorizontalRadius) - 2;
+            int maxZ = Mth.floor(Math.max(currentRiverCenterZ, nextRiverCenterZ) + riverHorizontalRadius) + 2;
+
+            for (int x = minX; x <= maxX; x++) {
+                for (int y = minY; y <= maxY; y++) {
+                    for (int z = minZ; z <= maxZ; z++) {
+                        pos.set(x, y, z);
+
+                        if (!box.isInside(pos)) {
+                            continue;
+                        }
+
+                        double blockCenterX = x + 0.5D;
+                        double blockCenterY = y + 0.5D;
+                        double blockCenterZ = z + 0.5D;
+
+                        double relX = blockCenterX - currentRiverCenterX;
+                        double relZ = blockCenterZ - currentRiverCenterZ;
+
+                        double along = relX * riverForwardX + relZ * riverForwardZ;
+
+                        if (along < -1.0D || along > riverLength + 1.0D) {
+                            continue;
+                        }
+
+                        double clampedAlong = Mth.clamp(along, 0.0D, riverLength);
+
+                        double closestCenterX = currentRiverCenterX + riverForwardX * clampedAlong;
+                        double closestCenterZ = currentRiverCenterZ + riverForwardZ * clampedAlong;
+
+                        double radialX = blockCenterX - closestCenterX;
+                        double radialZ = blockCenterZ - closestCenterZ;
+                        double radialDistance = Math.sqrt(radialX * radialX + radialZ * radialZ);
+
+                        double relativeHorizontal = radialDistance / riverHorizontalRadius;
+                        double relativeVertical = (blockCenterY - lavaSurfaceY) / riverVerticalRadius;
+
+                        if (relativeHorizontal * relativeHorizontal + relativeVertical * relativeVertical > 1.0D) {
+                            continue;
+                        }
+
+                        BlockState oldState = level.getBlockState(pos);
+
+                        if (!canReplace(oldState) && !oldState.is(Blocks.LAVA)) {
+                            continue;
+                        }
+
+                        if (y <= lavaSurfaceY) {
+                            level.setBlock(pos, Blocks.LAVA.defaultBlockState(), Block.UPDATE_CLIENTS);
+                        } else if (canReplace(oldState) || oldState.is(Blocks.LAVA)) {
+                            level.setBlock(pos, Blocks.AIR.defaultBlockState(), Block.UPDATE_CLIENTS);
+                        }
+                    }
+                }
+            }
+
+            placeRiverFloor(
+                    level,
+                    box,
+                    currentRiverCenterX,
+                    lavaSurfaceY,
+                    currentRiverCenterZ,
+                    riverForwardX,
+                    riverForwardZ,
+                    riverLength,
+                    riverHorizontalRadius,
+                    riverVerticalRadius
+            );
+        }
+    }
+
+    private void placeRiverFloor(
+            WorldGenLevel level,
+            BoundingBox box,
+            double riverCenterX,
+            int lavaSurfaceY,
+            double riverCenterZ,
+            double forwardX,
+            double forwardZ,
+            double horizontalLength,
+            double riverHorizontalRadius,
+            double riverVerticalRadius
+    ) {
+        BlockPos.MutableBlockPos pos = new BlockPos.MutableBlockPos();
+
+        int minX = Mth.floor(riverCenterX - riverHorizontalRadius) - 2;
+        int maxX = Mth.floor(riverCenterX + forwardX * horizontalLength + riverHorizontalRadius) + 2;
+        int minZ = Mth.floor(riverCenterZ - riverHorizontalRadius) - 2;
+        int maxZ = Mth.floor(riverCenterZ + forwardZ * horizontalLength + riverHorizontalRadius) + 2;
+
+        if (minX > maxX) {
+            int temp = minX;
+            minX = maxX;
+            maxX = temp;
+        }
+
+        if (minZ > maxZ) {
+            int temp = minZ;
+            minZ = maxZ;
+            maxZ = temp;
+        }
+
+        int minY = Mth.floor(lavaSurfaceY - riverVerticalRadius) - 3;
+        int maxY = lavaSurfaceY;
+
+        for (int x = minX; x <= maxX; x++) {
+            for (int y = minY; y <= maxY; y++) {
+                for (int z = minZ; z <= maxZ; z++) {
+                    pos.set(x, y, z);
+
+                    if (!box.isInside(pos)) {
+                        continue;
+                    }
+
+                    BlockState state = level.getBlockState(pos);
+
+                    if (!state.is(Blocks.LAVA)) {
+                        continue;
+                    }
+
+                    BlockPos below = pos.below();
+                    BlockState belowState = level.getBlockState(below);
+
+                    if (canReplace(belowState) || shouldReplaceFloor(belowState)) {
+                        level.setBlock(below, Blocks.BLACKSTONE.defaultBlockState(), Block.UPDATE_CLIENTS);
+                    }
+                }
+            }
+        }
+    }
+
+    private int getApproximateCarvedFloorY(double centerY) {
+        double localVerticalRadius = getLocalVerticalRadius(centerY);
+        return Mth.floor(centerY + FLOOR_LEVEL * localVerticalRadius + 0.5D);
+    }
+
+    private double getLocalVerticalRadius(double centerY) {
+        double localVerticalRadius = this.verticalRadius;
+
+        if (centerY <= this.lavaLevel) {
+            double minCeilingY = this.lavaLevel + 9.0D;
+
+            if (centerY + localVerticalRadius < minCeilingY) {
+                localVerticalRadius = minCeilingY - centerY;
+            }
+        }
+
+        return localVerticalRadius;
+    }
+
     private static BoundingBox makeBoundingBox(
             BlockPos origin,
             float horizontalRadius,
@@ -409,7 +630,9 @@ public class LongNetherLayerCavePiece extends StructurePiece {
             int lavaLevel,
             float centralPillarDiameterExtra,
             float minFloorThickness,
-            float pitchLower
+            float pitchLower,
+            float liquidDepth,
+            float liquidRadius
     ) {
         float centralPillarDiameter = actualCentralPillarDiameter(
                 horizontalRadius,
@@ -422,9 +645,11 @@ public class LongNetherLayerCavePiece extends StructurePiece {
         double lowerVerticalDrop = Math.max(0.0D, lavaLevel - TARGET_Y);
         double lowerHorizontalTravel = lowerVerticalDrop / pitchLower;
 
-        int totalRadius = Mth.ceil(pathRadius + horizontalRadius + lowerHorizontalTravel + 32.0D);
+        float maxHorizontalCarveRadius = Math.max(horizontalRadius, liquidRadius);
 
-        int minY = Math.min(TARGET_Y - Mth.ceil(verticalRadius) - 16, -126);
+        int totalRadius = Mth.ceil(pathRadius + maxHorizontalCarveRadius + lowerHorizontalTravel + 32.0D);
+
+        int minY = Math.min(TARGET_Y - Mth.ceil(verticalRadius) - Mth.ceil(liquidDepth) - 16, -126);
         int maxY = Math.max(origin.getY() + Mth.ceil(verticalRadius) + 32, lavaLevel + 16);
 
         return new BoundingBox(

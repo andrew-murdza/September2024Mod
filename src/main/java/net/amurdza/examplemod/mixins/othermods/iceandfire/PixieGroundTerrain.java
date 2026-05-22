@@ -167,8 +167,7 @@ public abstract class PixieGroundTerrain {
         }
 
         BlockState houseState = september2024Mod$randomHouseState(rand, houseDir);
-        level.setBlock(supportPos, Blocks.COARSE_DIRT.defaultBlockState(), 2);
-        level.setBlock(supportPos.below(), Blocks.COARSE_DIRT.defaultBlockState(), 2);
+        level.setBlock(supportPos, Blocks.MOSS_BLOCK.defaultBlockState(), 2);
         september2024Mod$clearNonSolidAbove(level, housePos, HOUSE_CLEAR_HEIGHT);
         level.setBlock(housePos, houseState, 2);
 

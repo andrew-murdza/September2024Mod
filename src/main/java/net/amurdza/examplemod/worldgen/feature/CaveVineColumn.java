@@ -111,7 +111,6 @@ public class CaveVineColumn extends Feature<CaveVineConfig> {
                 positions.add(pos1.immutable());
             }
 
-            positions.add(pos1.immutable());
             pos1.move(0, -1, 0);
         }
 

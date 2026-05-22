@@ -1,5 +1,6 @@
 package net.amurdza.examplemod.block;
 
+import net.mcreator.nourishednether.init.NourishedNetherModBlocks;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.level.BlockGetter;
@@ -12,6 +13,7 @@ public class WildSoulBeets extends WildCropBlock {
         super(suspiciousStewEffect, effectDuration, properties);
     }
     protected boolean mayPlaceOn(BlockState state, BlockGetter level, BlockPos pos) {
-        return state.is(ModBlocks.NETHER_FARMLAND.get()) || state.is(Blocks.SOUL_SOIL);
+        return state.is(ModBlocks.NETHER_FARMLAND.get()) || state.is(Blocks.SOUL_SOIL)
+                || state.is(NourishedNetherModBlocks.SOUL_SLUDGE.get());
     }
 }

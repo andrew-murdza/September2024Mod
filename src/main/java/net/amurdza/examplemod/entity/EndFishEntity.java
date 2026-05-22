@@ -1,35 +1,40 @@
 package net.amurdza.examplemod.entity;
 
 import net.amurdza.examplemod.item.ModItems;
-import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.syncher.EntityDataAccessor;
 import net.minecraft.network.syncher.EntityDataSerializers;
 import net.minecraft.network.syncher.SynchedEntityData;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
+import net.minecraft.util.ByIdMap;
 import net.minecraft.world.DifficultyInstance;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.MobSpawnType;
 import net.minecraft.world.entity.SpawnGroupData;
+import net.minecraft.world.entity.VariantHolder;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.animal.AbstractSchoolingFish;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.ServerLevelAccessor;
-import net.minecraft.world.level.block.Blocks;
+import org.jetbrains.annotations.NotNull;
 
-public class EndFishEntity extends AbstractSchoolingFish {
+import java.util.function.IntFunction;
+
+public class EndFishEntity extends AbstractSchoolingFish implements VariantHolder<EndFishEntity.Variant> {
     public static final int VARIANTS_NORMAL = 5;
     public static final int VARIANTS_SULPHUR = 3;
     public static final int VARIANTS = VARIANTS_NORMAL + VARIANTS_SULPHUR;
-    private static final EntityDataAccessor<Byte> VARIANT = SynchedEntityData.defineId(
+
+    private static final EntityDataAccessor<Integer> VARIANT = SynchedEntityData.defineId(
             EndFishEntity.class,
-            EntityDataSerializers.BYTE
+            EntityDataSerializers.INT
     );
+
     private static final EntityDataAccessor<Byte> SCALE = SynchedEntityData.defineId(
             EndFishEntity.class,
             EntityDataSerializers.BYTE
@@ -40,17 +45,24 @@ public class EndFishEntity extends AbstractSchoolingFish {
     }
 
     @Override
-    public SpawnGroupData finalizeSpawn(ServerLevelAccessor world, DifficultyInstance difficulty, MobSpawnType spawnReason, SpawnGroupData entityData, CompoundTag entityTag) {
+    public SpawnGroupData finalizeSpawn(
+            @NotNull ServerLevelAccessor world,
+            @NotNull DifficultyInstance difficulty,
+            @NotNull MobSpawnType spawnReason,
+            SpawnGroupData entityData,
+            CompoundTag entityTag
+    ) {
         SpawnGroupData data = super.finalizeSpawn(world, difficulty, spawnReason, entityData, entityTag);
 
-        this.entityData.set(VARIANT, (byte) (random.nextInt(VARIANTS_SULPHUR) + VARIANTS_NORMAL));
+        this.setVariant(Variant.byId(this.random.nextInt(VARIANTS_SULPHUR) + VARIANTS_NORMAL));
 
         if (entityTag != null) {
             if (entityTag.contains("Variant")) {
-                this.entityData.set(VARIANT, entityTag.getByte("Variant"));
+                this.setVariant(Variant.byId(entityTag.getInt("Variant")));
             }
+
             if (entityTag.contains("Scale")) {
-                this.entityData.set(SCALE, entityTag.getByte("scale"));
+                this.entityData.set(SCALE, sanitizeScale(entityTag.getInt("Scale")));
             }
         }
 
@@ -61,39 +73,45 @@ public class EndFishEntity extends AbstractSchoolingFish {
     @Override
     protected void defineSynchedData() {
         super.defineSynchedData();
-        this.entityData.define(VARIANT, (byte) this.getRandom().nextInt(VARIANTS_NORMAL));
+        this.entityData.define(VARIANT, Variant.byId(this.getRandom().nextInt(VARIANTS_NORMAL)).id());
         this.entityData.define(SCALE, (byte) this.getRandom().nextInt(16));
     }
 
     @Override
-    public void addAdditionalSaveData(CompoundTag tag) {
+    public void addAdditionalSaveData(@NotNull CompoundTag tag) {
         super.addAdditionalSaveData(tag);
-        tag.putByte("Variant", (byte) getVariant());
-        tag.putByte("Scale", getByteScale());
+        tag.putInt("Variant", this.getVariant().id());
+        tag.putByte("Scale", this.getByteScale());
     }
 
     @Override
-    public void readAdditionalSaveData(CompoundTag tag) {
+    public void readAdditionalSaveData(@NotNull CompoundTag tag) {
         super.readAdditionalSaveData(tag);
+
         if (tag.contains("Variant")) {
-            this.entityData.set(VARIANT, tag.getByte("Variant"));
+            this.setVariant(Variant.byId(tag.getInt("Variant")));
         }
+
         if (tag.contains("Scale")) {
-            this.entityData.set(SCALE, tag.getByte("Scale"));
+            this.entityData.set(SCALE, sanitizeScale(tag.getInt("Scale")));
         }
+
+        this.refreshDimensions();
     }
 
     @Override
-    public ItemStack getBucketItemStack() {
+    public @NotNull ItemStack getBucketItemStack() {
         ItemStack bucket = ModItems.BUCKET_END_FISH.get().getDefaultInstance();
         CompoundTag tag = bucket.getOrCreateTag();
-        tag.putByte("variant", entityData.get(VARIANT));
-        tag.putByte("scale", entityData.get(SCALE));
+
+        tag.putInt("Variant", this.getVariant().id());
+        tag.putByte("Scale", this.getByteScale());
+
         return bucket;
     }
 
     @Override
-    protected SoundEvent getFlopSound() {
+    protected @NotNull SoundEvent getFlopSound() {
         return SoundEvents.TROPICAL_FISH_FLOP;
     }
 
@@ -108,11 +126,11 @@ public class EndFishEntity extends AbstractSchoolingFish {
     }
 
     @Override
-    protected SoundEvent getHurtSound(DamageSource source) {
+    protected SoundEvent getHurtSound(@NotNull DamageSource source) {
         return SoundEvents.SALMON_HURT;
     }
 
-    public static AttributeSupplier.Builder createMobAttributes() {
+    public static AttributeSupplier.@NotNull Builder createMobAttributes() {
         return LivingEntity
                 .createLivingAttributes()
                 .add(Attributes.MAX_HEALTH, 2.0)
@@ -120,8 +138,18 @@ public class EndFishEntity extends AbstractSchoolingFish {
                 .add(Attributes.MOVEMENT_SPEED, 0.75);
     }
 
-    public int getVariant() {
-        return (int) this.entityData.get(VARIANT);
+    @Override
+    public @NotNull Variant getVariant() {
+        return Variant.byId(this.entityData.get(VARIANT));
+    }
+
+    @Override
+    public void setVariant(Variant variant) {
+        this.entityData.set(VARIANT, variant.id());
+    }
+
+    public int getVariantId() {
+        return this.getVariant().id();
     }
 
     public byte getByteScale() {
@@ -130,5 +158,44 @@ public class EndFishEntity extends AbstractSchoolingFish {
 
     public float getScale() {
         return getByteScale() / 32F + 0.75F;
+    }
+
+    private static byte sanitizeScale(int scale) {
+        if (scale < 0 || scale > 15) {
+            return 0;
+        }
+
+        return (byte) scale;
+    }
+
+    public enum Variant {
+        NORMAL_0(0),
+        NORMAL_1(1),
+        NORMAL_2(2),
+        NORMAL_3(3),
+        NORMAL_4(4),
+        SULPHUR_0(5),
+        SULPHUR_1(6),
+        SULPHUR_2(7);
+
+        private static final IntFunction<Variant> BY_ID = ByIdMap.sparse(
+                Variant::id,
+                values(),
+                NORMAL_0
+        );
+
+        private final int id;
+
+        Variant(int id) {
+            this.id = id;
+        }
+
+        public int id() {
+            return this.id;
+        }
+
+        public static Variant byId(int id) {
+            return BY_ID.apply(id);
+        }
     }
 }

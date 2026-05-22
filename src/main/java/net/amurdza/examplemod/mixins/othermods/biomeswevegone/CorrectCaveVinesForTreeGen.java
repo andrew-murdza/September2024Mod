@@ -1,9 +1,14 @@
 package net.amurdza.examplemod.mixins.othermods.biomeswevegone;
 
+import com.llamalad7.mixinextras.injector.wrapoperation.Operation;
+import com.llamalad7.mixinextras.injector.wrapoperation.WrapOperation;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.CaveVinesBlock;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.levelgen.feature.treedecorators.TreeDecorator;
+import net.minecraft.world.level.material.FluidState;
 import net.potionstudios.biomeswevegone.world.level.levelgen.feature.treedecorators.GlowBerryDecorator;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Unique;
@@ -24,7 +29,7 @@ public class CorrectCaveVinesForTreeGen {
         return 25;
     }
 
-    @Redirect(
+    @WrapOperation(
             method = "place",
             at = @At(
                     value = "INVOKE",
@@ -32,12 +37,19 @@ public class CorrectCaveVinesForTreeGen {
             ),
             remap = true
     )
-    private void aoemod$skipCaveVinesTooCloseToMoss(TreeDecorator.Context context, BlockPos pos, BlockState state) {
-        if ((state.is(Blocks.CAVE_VINES) || state.is(Blocks.CAVE_VINES_PLANT)) && september2024Mod$hasMossWithinFourBelow(context, pos)) {
+    private void aoemod$skipCaveVinesTooCloseToMoss(TreeDecorator.Context context, BlockPos pos, BlockState state, Operation<Void> original) {
+        if ((state.is(Blocks.CAVE_VINES) || state.is(Blocks.CAVE_VINES_PLANT))) {
+            if(!september2024Mod$hasMossWithinFourBelow(context, pos)){
+                state=state.setValue(BlockStateProperties.WATERLOGGED,!context.level().isFluidAtPosition(pos, FluidState::isEmpty))
+                        .setValue(CaveVinesBlock.BERRIES,true);
+                if(state.is(Blocks.CAVE_VINES)){
+                    state=state.setValue(CaveVinesBlock.AGE,25);
+                }
+                context.setBlock(pos,state);
+            }
             return;
         }
-
-        context.setBlock(pos, state);
+        original.call(context,pos,state);
     }
 
     @Unique

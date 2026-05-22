@@ -1,5 +1,6 @@
 package net.amurdza.examplemod.mixins.block_placement;
 
+import net.mcreator.nourishednether.init.NourishedNetherModBlocks;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.block.Blocks;
@@ -16,7 +17,8 @@ public class NetherwartPlacement {
     @Inject(method = "mayPlaceOn",at=@At(value = "RETURN"),cancellable = true)
     private void hi(BlockState pState, BlockGetter pLevel, BlockPos pPos, CallbackInfoReturnable<Boolean> cir){
         cir.setReturnValue(pState.is(Blocks.MOSS_BLOCK)||pState.is(ModBlocks.RICH_SOIL.get())
-                ||pState.is(ModBlocks.RICH_SOIL_FARMLAND.get())||pState.is(Blocks.SOUL_SAND));
+                ||pState.is(ModBlocks.RICH_SOIL_FARMLAND.get())||pState.is(Blocks.SOUL_SAND)
+                ||pState.is(NourishedNetherModBlocks.SOUL_SLUDGE.get()));
                 //|| pState.is(ModTags.Blocks.netherRootsPlaceable));
     }
 }

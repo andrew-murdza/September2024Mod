@@ -6,19 +6,11 @@
         "type": "minecraft:simple_block",
         "config": {
           "to_place": {
-            "type": "minecraft:randomized_int_state_provider",
-            "property": "age",
-            "values": {
-              "type": "minecraft:uniform",
-              "value": {
-                "min_inclusive": 0,
-                "max_inclusive": 3
-              }
-            },
-            "source": {
-              "type": "minecraft:simple_state_provider",
-              "state": {
-                "Name": "minecraft:nether_wart"
+            "type": "minecraft:simple_state_provider",
+            "state": {
+              "Name": "minecraft:nether_wart",
+              "Properties": {
+                "age": "3"
               }
             }
           }
@@ -28,12 +20,25 @@
         {
           "type": "minecraft:block_predicate_filter",
           "predicate": {
-            "type": "minecraft:all_of",
-            "predicates": [
-              {
-                "type": "minecraft:matching_blocks",
-                "blocks": "minecraft:air"
-              }
+            "type": "minecraft:matching_blocks",
+            "blocks": [
+              "minecraft:air",
+              "minecraft:cave_air",
+              "minecraft:void_air"
+            ]
+          }
+        },
+        {
+          "type": "minecraft:block_predicate_filter",
+          "predicate": {
+            "type": "minecraft:matching_blocks",
+            "blocks": [
+              "minecraft:soul_sand"
+            ],
+            "offset": [
+              0,
+              -1,
+              0
             ]
           }
         }

@@ -20,25 +20,38 @@ public class EndFishEntityRenderer extends MobRenderer<EndFishEntity, EndFishEnt
 
     public EndFishEntityRenderer(EntityRendererProvider.Context ctx) {
         super(ctx, new EndFishEntityModel(ctx.bakeLayer(EntityRenderers.END_FISH_MODEL)), 0.5f);
-        this.addLayer(new EyesLayer<EndFishEntity, EndFishEntityModel>(this) {
+
+        this.addLayer(new EyesLayer<>(this) {
             @Override
             public @NotNull RenderType renderType() {
                 return GLOW[0];
             }
 
             @Override
-            public void render(@NotNull PoseStack matrices, @NotNull MultiBufferSource vertexConsumers, int light, @NotNull EndFishEntity entity, float limbAngle, float limbDistance, float tickDelta, float animationProgress, float headYaw, float headPitch) {
-                VertexConsumer vertexConsumer = vertexConsumers.getBuffer(GLOW[entity.getVariant()]);
-                this.getParentModel()
-                        .renderToBuffer(matrices,
-                                vertexConsumer,
-                                15728640,
-                                OverlayTexture.NO_OVERLAY,
-                                1.0F,
-                                1.0F,
-                                1.0F,
-                                1.0F
-                        );
+            public void render(
+                    @NotNull PoseStack matrices,
+                    @NotNull MultiBufferSource vertexConsumers,
+                    int light,
+                    @NotNull EndFishEntity entity,
+                    float limbAngle,
+                    float limbDistance,
+                    float tickDelta,
+                    float animationProgress,
+                    float headYaw,
+                    float headPitch
+            ) {
+                VertexConsumer vertexConsumer = vertexConsumers.getBuffer(GLOW[entity.getVariantId()]);
+
+                this.getParentModel().renderToBuffer(
+                        matrices,
+                        vertexConsumer,
+                        15728640,
+                        OverlayTexture.NO_OVERLAY,
+                        1.0F,
+                        1.0F,
+                        1.0F,
+                        1.0F
+                );
             }
         });
     }
@@ -51,7 +64,7 @@ public class EndFishEntityRenderer extends MobRenderer<EndFishEntity, EndFishEnt
 
     @Override
     public @NotNull ResourceLocation getTextureLocation(EndFishEntity entity) {
-        return TEXTURE[entity.getVariant()];
+        return TEXTURE[entity.getVariantId()];
     }
 
     static {
