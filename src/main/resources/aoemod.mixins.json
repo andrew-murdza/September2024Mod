@@ -16,7 +16,6 @@
     "block_behavior.NoIceOnWaterPart1",
     "block_behavior.SeaPicklesBoneMealGrowOnMossSponge",
     "block_behavior.SoulSandSoilHoneyDontSlow",
-    "block_behavior.SunflowersAreRotatable",
     "block_behavior.entity_inside.CactusDoesntBreakItemsOrHurtMobs",
     "block_behavior.entity_inside.NoCampFireDamage",
     "block_behavior.entity_inside.SweetBerriesDontSlowOrHurtMobs",
