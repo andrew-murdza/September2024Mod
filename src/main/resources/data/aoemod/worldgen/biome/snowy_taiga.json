@@ -1,10 +1,5 @@
 {
-  "carvers": {
-    "air": [
-      "minecraft:cave",
-      "minecraft:cave_extra_underground"
-    ]
-  },
+  "carvers": {},
   "downfall": 0.8,
   "effects": {
     "fog_color": 12638463,
@@ -34,15 +29,7 @@
     [],
     [],
     [
-      "aoemod:mountains/blobs/gravel",
-      "aoemod:mountains/blobs/clay",
-      "aoemod:mountains/blobs/sand",
-      "aoemod:mountains/blobs/dirt",
-      "aoemod:mountains/blobs/sandstone",
-      "aoemod:mountains/blobs/calcite",
-      "aoemod:mountains/blobs/andesite",
-      "aoemod:mountains/blobs/granite",
-      "aoemod:mountains/blobs/diorite",
+      "aoemod:mountains/stone_variants",
       "aoemod:mountains/ores/ore_coal_lower",
       "aoemod:mountains/ores/ore_coal_upper",
       "aoemod:mountains/ores/ore_copper",
@@ -72,10 +59,7 @@
       "aoemod:mountains/forest_floor",
       "aoemod:plains/seafloor",
       "aoemod:mountains/seafloor",
-      "aoemod:desert/seafloor",
-      "aoemod:plains/seafloor_shallow",
-      "aoemod:mountains/seafloor_shallow",
-      "aoemod:desert/seafloor_shallow"
+      "aoemod:desert/seafloor"
     ],
     [
       "minecraft:freeze_top_layer"

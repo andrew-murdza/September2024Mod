@@ -38,15 +38,14 @@
     [],
     [],
     [
-      "aoemod:soul_sand_valley/blobs/magma_blobs",
-      "aoemod:soul_sand_valley/blobs/glowstone_blobs",
-      "aoemod:soul_sand_valley/blobs/blackstone_blobs",
-      "aoemod:soul_sand_valley/blobs/gravel_blobs",
-      "aoemod:soul_sand_valley/blobs/basalt_blobs",
+      "aoemod:soul_sand_valley/blobs/magma",
+      "aoemod:soul_sand_valley/blobs/glowstone",
+      "aoemod:soul_sand_valley/blobs/blackstone",
+      "aoemod:soul_sand_valley/blobs/gravel",
+      "aoemod:soul_sand_valley/blobs/basalt",
       "aoemod:soul_sand_valley/ores/soul_quartz",
-      "aoemod:soul_sand_valley/ores/ancient_debris_small",
-      "aoemod:soul_sand_valley/ores/ancient_debris_large",
-      "aoemod:soul_sand_valley/ores/gold_ore"
+      "aoemod:soul_sand_valley/ores/ancient_debris",
+      "aoemod:soul_sand_valley/ores/gold"
     ],
     [],
     [],
@@ -55,10 +54,7 @@
       "aoemod:soul_sand_valley/soul_beet",
       "aoemod:soul_sand_valley/soul_berries",
       "aoemod:soul_sand_valley/nether_wart",
-      "aoemod:soul_sand_valley/flowers",
-      "aoemod:soul_sand_valley/forest_floor",
-      "aoemod:soul_sand_valley/seafloor",
-      "aoemod:soul_sand_valley/seafloor_shallow"
+      "aoemod:soul_sand_valley/flowers"
     ]
   ],
   "has_precipitation": false,

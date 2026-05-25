@@ -10,13 +10,6 @@
         }
       },
       {
-        "chance": 0,
-        "feature": {
-          "feature": "aoemod:plains/water/water_plants",
-          "placement": []
-        }
-      },
-      {
         "chance": 0.60,
         "feature": {
           "feature": "aoemod:nothing",

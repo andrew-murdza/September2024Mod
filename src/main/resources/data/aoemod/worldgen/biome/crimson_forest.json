@@ -38,25 +38,20 @@
     [],
     [],
     [
-      "aoemod:crimson_forest/blobs/magma_blobs",
-      "aoemod:crimson_forest/blobs/glowstone_blobs",
-      "aoemod:crimson_forest/blobs/blackstone_blobs",
-      "aoemod:crimson_forest/blobs/gravel_blobs",
-      "aoemod:crimson_forest/blobs/basalt_blobs",
-      "aoemod:crimson_forest/ores/ancient_debris_small",
-      "aoemod:crimson_forest/ores/ancient_debris_large",
-      "aoemod:crimson_forest/ores/gold_ore",
-      "aoemod:crimson_forest/ores/quartz_ore"
+      "aoemod:crimson_forest/blobs/magma",
+      "aoemod:crimson_forest/blobs/glowstone",
+      "aoemod:crimson_forest/blobs/blackstone",
+      "aoemod:crimson_forest/blobs/gravel",
+      "aoemod:crimson_forest/blobs/basalt",
+      "aoemod:crimson_forest/ores/ancient_debris",
+      "aoemod:crimson_forest/ores/gold",
+      "aoemod:crimson_forest/ores/quartz"
     ],
     [],
     [],
     [
       "aoemod:nether_cane",
-      "aoemod:crimson_forest/crimson_potato",
-      "aoemod:ashen_wheat",
-      "aoemod:crimson_forest/forest_floor",
-      "aoemod:crimson_forest/seafloor",
-      "aoemod:crimson_forest/seafloor_shallow"
+      "aoemod:crimson_forest/crimson_potato"
     ]
   ],
   "has_precipitation": false,

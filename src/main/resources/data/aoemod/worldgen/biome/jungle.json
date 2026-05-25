@@ -638,15 +638,13 @@
     ],
     [
       "aoemod:rainforest/trees",
-      "aoemod:rainforest/giant_mushrooms",
+      "aoemod:rainforest/non_tree_large_features",
       "aoemod:rainforest/forest_floor",
       "aoemod:savanna/forest_floor",
       "aoemod:rainforest/patch_wild_rice",
       "upgrade_aquatic:patch_pickerelweed_extra",
       "aoemod:rainforest/seafloor",
       "aoemod:savanna/seafloor",
-      "aoemod:rainforest/seafloor_shallow",
-      "aoemod:savanna/seafloor_shallow",
       "aoemod:rainforest/cave_vines",
       "aoemod:rainforest/lilypads"
     ],

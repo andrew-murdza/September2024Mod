@@ -1,0 +1,592 @@
+{
+  "type": "minecraft:spline",
+  "spline": {
+    "coordinate": "aoemod:continents",
+    "points": [
+      {
+        "location": -1.0,
+        "value": -0.625,
+        "derivative": 0.0
+      },
+      {
+        "location": -0.8353333333333334,
+        "value": -0.625,
+        "derivative": 0.0
+      },
+      {
+        "location": -0.8313333333333334,
+        "value": {
+          "coordinate": "aoemod:rivers",
+          "points": [
+            {
+              "location": -1.0,
+              "value": -0.6484375,
+              "derivative": 0.0
+            },
+            {
+              "location": -0.82,
+              "value": -0.6484375,
+              "derivative": 0.0
+            },
+            {
+              "location": -0.45,
+              "value": -0.515625,
+              "derivative": 0.0
+            },
+            {
+              "location": 1.0,
+              "value": -0.515625,
+              "derivative": 0.0
+            }
+          ]
+        },
+        "derivative": 0.0
+      },
+      {
+        "location": -0.6686666666666666,
+        "value": {
+          "coordinate": "aoemod:rivers",
+          "points": [
+            {
+              "location": -1.0,
+              "value": -0.6484375,
+              "derivative": 0.0
+            },
+            {
+              "location": -0.82,
+              "value": -0.6484375,
+              "derivative": 0.0
+            },
+            {
+              "location": -0.45,
+              "value": -0.515625,
+              "derivative": 0.0
+            },
+            {
+              "location": 1.0,
+              "value": -0.515625,
+              "derivative": 0.0
+            }
+          ]
+        },
+        "derivative": 0.0
+      },
+      {
+        "location": -0.6646666666666666,
+        "value": {
+          "coordinate": "aoemod:rivers",
+          "points": [
+            {
+              "location": -1.0,
+              "value": -0.59375,
+              "derivative": 0.0
+            },
+            {
+              "location": -0.84,
+              "value": -0.59375,
+              "derivative": 0.0
+            },
+            {
+              "location": -0.58,
+              "value": -0.515625,
+              "derivative": 0.0
+            },
+            {
+              "location": 1.0,
+              "value": -0.515625,
+              "derivative": 0.0
+            }
+          ]
+        },
+        "derivative": 0.0
+      },
+      {
+        "location": -0.502,
+        "value": {
+          "coordinate": "aoemod:rivers",
+          "points": [
+            {
+              "location": -1.0,
+              "value": -0.59375,
+              "derivative": 0.0
+            },
+            {
+              "location": -0.84,
+              "value": -0.59375,
+              "derivative": 0.0
+            },
+            {
+              "location": -0.58,
+              "value": -0.515625,
+              "derivative": 0.0
+            },
+            {
+              "location": 1.0,
+              "value": -0.515625,
+              "derivative": 0.0
+            }
+          ]
+        },
+        "derivative": 0.0
+      },
+      {
+        "location": -0.498,
+        "value": {
+          "coordinate": "aoemod:rivers",
+          "points": [
+            {
+              "location": -1.0,
+              "value": -0.5625,
+              "derivative": 0.0
+            },
+            {
+              "location": -0.86,
+              "value": -0.5625,
+              "derivative": 0.0
+            },
+            {
+              "location": -0.68,
+              "value": -0.515625,
+              "derivative": 0.0
+            },
+            {
+              "location": 1.0,
+              "value": -0.515625,
+              "derivative": 0.0
+            }
+          ]
+        },
+        "derivative": 0.0
+      },
+      {
+        "location": -0.3353333333333333,
+        "value": {
+          "coordinate": "aoemod:rivers",
+          "points": [
+            {
+              "location": -1.0,
+              "value": -0.5625,
+              "derivative": 0.0
+            },
+            {
+              "location": -0.86,
+              "value": -0.5625,
+              "derivative": 0.0
+            },
+            {
+              "location": -0.68,
+              "value": -0.515625,
+              "derivative": 0.0
+            },
+            {
+              "location": 1.0,
+              "value": -0.515625,
+              "derivative": 0.0
+            }
+          ]
+        },
+        "derivative": 0.0
+      },
+      {
+        "location": -0.3313333333333333,
+        "value": 0.09375,
+        "derivative": 0.0
+      },
+      {
+        "location": -0.16866666666666666,
+        "value": 0.09375,
+        "derivative": 0.0
+      },
+      {
+        "location": -0.16466666666666666,
+        "value": {
+          "coordinate": "aoemod:badlands_terraces",
+          "points": [
+            {
+              "location": -1.0,
+              "value": -0.4609375,
+              "derivative": 0.0
+            },
+            {
+              "location": -0.36,
+              "value": -0.4609375,
+              "derivative": 0.0
+            },
+            {
+              "location": -0.35,
+              "value": -0.40625,
+              "derivative": 0.0
+            },
+            {
+              "location": 0.12,
+              "value": -0.40625,
+              "derivative": 0.0
+            },
+            {
+              "location": 0.13,
+              "value": -0.3515625,
+              "derivative": 0.0
+            },
+            {
+              "location": 0.56,
+              "value": -0.3515625,
+              "derivative": 0.0
+            },
+            {
+              "location": 0.57,
+              "value": -0.296875,
+              "derivative": 0.0
+            },
+            {
+              "location": 1.0,
+              "value": -0.296875,
+              "derivative": 0.0
+            }
+          ]
+        },
+        "derivative": 0.0
+      },
+      {
+        "location": -0.002,
+        "value": {
+          "coordinate": "aoemod:badlands_terraces",
+          "points": [
+            {
+              "location": -1.0,
+              "value": -0.4609375,
+              "derivative": 0.0
+            },
+            {
+              "location": -0.36,
+              "value": -0.4609375,
+              "derivative": 0.0
+            },
+            {
+              "location": -0.35,
+              "value": -0.40625,
+              "derivative": 0.0
+            },
+            {
+              "location": 0.12,
+              "value": -0.40625,
+              "derivative": 0.0
+            },
+            {
+              "location": 0.13,
+              "value": -0.3515625,
+              "derivative": 0.0
+            },
+            {
+              "location": 0.56,
+              "value": -0.3515625,
+              "derivative": 0.0
+            },
+            {
+              "location": 0.57,
+              "value": -0.296875,
+              "derivative": 0.0
+            },
+            {
+              "location": 1.0,
+              "value": -0.296875,
+              "derivative": 0.0
+            }
+          ]
+        },
+        "derivative": 0.0
+      },
+      {
+        "location": 0.002,
+        "value": {
+          "coordinate": "aoemod:badlands_terraces",
+          "points": [
+            {
+              "location": -1.0,
+              "value": -0.4609375,
+              "derivative": 0.0
+            },
+            {
+              "location": -0.36,
+              "value": -0.4609375,
+              "derivative": 0.0
+            },
+            {
+              "location": -0.35,
+              "value": -0.40625,
+              "derivative": 0.0
+            },
+            {
+              "location": 0.12,
+              "value": -0.40625,
+              "derivative": 0.0
+            },
+            {
+              "location": 0.13,
+              "value": -0.3515625,
+              "derivative": 0.0
+            },
+            {
+              "location": 0.56,
+              "value": -0.3515625,
+              "derivative": 0.0
+            },
+            {
+              "location": 0.57,
+              "value": -0.296875,
+              "derivative": 0.0
+            },
+            {
+              "location": 1.0,
+              "value": -0.296875,
+              "derivative": 0.0
+            }
+          ]
+        },
+        "derivative": 0.0
+      },
+      {
+        "location": 0.16466666666666666,
+        "value": {
+          "coordinate": "aoemod:badlands_terraces",
+          "points": [
+            {
+              "location": -1.0,
+              "value": -0.4609375,
+              "derivative": 0.0
+            },
+            {
+              "location": -0.36,
+              "value": -0.4609375,
+              "derivative": 0.0
+            },
+            {
+              "location": -0.35,
+              "value": -0.40625,
+              "derivative": 0.0
+            },
+            {
+              "location": 0.12,
+              "value": -0.40625,
+              "derivative": 0.0
+            },
+            {
+              "location": 0.13,
+              "value": -0.3515625,
+              "derivative": 0.0
+            },
+            {
+              "location": 0.56,
+              "value": -0.3515625,
+              "derivative": 0.0
+            },
+            {
+              "location": 0.57,
+              "value": -0.296875,
+              "derivative": 0.0
+            },
+            {
+              "location": 1.0,
+              "value": -0.296875,
+              "derivative": 0.0
+            }
+          ]
+        },
+        "derivative": 0.0
+      },
+      {
+        "location": 0.16866666666666666,
+        "value": 0.09375,
+        "derivative": 0.0
+      },
+      {
+        "location": 0.3313333333333333,
+        "value": 0.09375,
+        "derivative": 0.0
+      },
+      {
+        "location": 0.3353333333333333,
+        "value": {
+          "coordinate": "aoemod:rivers",
+          "points": [
+            {
+              "location": -1.0,
+              "value": -0.5625,
+              "derivative": 0.0
+            },
+            {
+              "location": -0.86,
+              "value": -0.5625,
+              "derivative": 0.0
+            },
+            {
+              "location": -0.68,
+              "value": -0.515625,
+              "derivative": 0.0
+            },
+            {
+              "location": 1.0,
+              "value": -0.515625,
+              "derivative": 0.0
+            }
+          ]
+        },
+        "derivative": 0.0
+      },
+      {
+        "location": 0.498,
+        "value": {
+          "coordinate": "aoemod:rivers",
+          "points": [
+            {
+              "location": -1.0,
+              "value": -0.5625,
+              "derivative": 0.0
+            },
+            {
+              "location": -0.86,
+              "value": -0.5625,
+              "derivative": 0.0
+            },
+            {
+              "location": -0.68,
+              "value": -0.515625,
+              "derivative": 0.0
+            },
+            {
+              "location": 1.0,
+              "value": -0.515625,
+              "derivative": 0.0
+            }
+          ]
+        },
+        "derivative": 0.0
+      },
+      {
+        "location": 0.502,
+        "value": {
+          "coordinate": "aoemod:rivers",
+          "points": [
+            {
+              "location": -1.0,
+              "value": -0.59375,
+              "derivative": 0.0
+            },
+            {
+              "location": -0.84,
+              "value": -0.59375,
+              "derivative": 0.0
+            },
+            {
+              "location": -0.58,
+              "value": -0.515625,
+              "derivative": 0.0
+            },
+            {
+              "location": 1.0,
+              "value": -0.515625,
+              "derivative": 0.0
+            }
+          ]
+        },
+        "derivative": 0.0
+      },
+      {
+        "location": 0.6646666666666666,
+        "value": {
+          "coordinate": "aoemod:rivers",
+          "points": [
+            {
+              "location": -1.0,
+              "value": -0.59375,
+              "derivative": 0.0
+            },
+            {
+              "location": -0.84,
+              "value": -0.59375,
+              "derivative": 0.0
+            },
+            {
+              "location": -0.58,
+              "value": -0.515625,
+              "derivative": 0.0
+            },
+            {
+              "location": 1.0,
+              "value": -0.515625,
+              "derivative": 0.0
+            }
+          ]
+        },
+        "derivative": 0.0
+      },
+      {
+        "location": 0.6686666666666666,
+        "value": {
+          "coordinate": "aoemod:rivers",
+          "points": [
+            {
+              "location": -1.0,
+              "value": -0.6484375,
+              "derivative": 0.0
+            },
+            {
+              "location": -0.82,
+              "value": -0.6484375,
+              "derivative": 0.0
+            },
+            {
+              "location": -0.45,
+              "value": -0.515625,
+              "derivative": 0.0
+            },
+            {
+              "location": 1.0,
+              "value": -0.515625,
+              "derivative": 0.0
+            }
+          ]
+        },
+        "derivative": 0.0
+      },
+      {
+        "location": 0.8313333333333334,
+        "value": {
+          "coordinate": "aoemod:rivers",
+          "points": [
+            {
+              "location": -1.0,
+              "value": -0.6484375,
+              "derivative": 0.0
+            },
+            {
+              "location": -0.82,
+              "value": -0.6484375,
+              "derivative": 0.0
+            },
+            {
+              "location": -0.45,
+              "value": -0.515625,
+              "derivative": 0.0
+            },
+            {
+              "location": 1.0,
+              "value": -0.515625,
+              "derivative": 0.0
+            }
+          ]
+        },
+        "derivative": 0.0
+      },
+      {
+        "location": 0.8353333333333334,
+        "value": -0.625,
+        "derivative": 0.0
+      },
+      {
+        "location": 1.0,
+        "value": -0.625,
+        "derivative": 0.0
+      }
+    ]
+  }
+}

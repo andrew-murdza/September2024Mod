@@ -25,7 +25,6 @@ public class ModFeatures {
         FEATURES.register(eventBus);
     }
     public static final RegistryObject<Feature<AOETreeConfiguration>> AOE_TREE_FEATURE= FEATURES.register("special_biome_tree", ()->new AOETree(AOETreeConfiguration.CODEC));
-    public static final RegistryObject<Feature<NoneFeatureConfiguration>> SEA_PICKLE_POND=FEATURES.register("sea_pickle_pond",()->new SeaPicklePond(NoneFeatureConfiguration.CODEC));
     public static final RegistryObject<Feature<ProbabilityFeatureConfiguration>> SEAGRASS=FEATURES.register("seagrass",()->new SeagrassFeature(ProbabilityFeatureConfiguration.CODEC));
     public static final RegistryObject<Feature<KelpFeatureConfiguration>> KELP=FEATURES.register("kelp",()->new KelpFeature(KelpFeatureConfiguration.CODEC));
     public static final RegistryObject<Feature<AllSurfacesFeatureConfig>> ALL_SURFACE=FEATURES.register("all_surface",()->new AllSurfacesFeature(AllSurfacesFeatureConfig.CODEC));
@@ -37,9 +36,6 @@ public class ModFeatures {
     public static final RegistryObject<Feature<HugeMushroomFeatureConfiguration>> GIANT_GLOW_SHROOM=FEATURES.register("huge_glow_shroom",()->new GiantGlowshroomFeature(HugeMushroomFeatureConfiguration.CODEC));
     public static final RegistryObject<Feature<ProbabilityFeatureConfiguration>> CRIMSON_SEAGRASS=FEATURES.register("crimson_seagrass",()->new CrimsonSeaGrassFeature(ProbabilityFeatureConfiguration.CODEC));
     public static final RegistryObject<Feature<ProbabilityFeatureConfiguration>> WARPED_SEAGRASS=FEATURES.register("warped_seagrass",()->new WarpedSeagrassFeature(ProbabilityFeatureConfiguration.CODEC));
-    public static final RegistryObject<Feature<SculkWallScanFeatureConfig>> SCULK_WALL_SCAN =
-            FEATURES.register("sculk_wall_scan",
-                    () -> new SculkWallScanFeature(SculkWallScanFeatureConfig.CODEC));
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> HUGE_LUSHROOM = createKey("huge_lush_mushroom");
     public static final ResourceKey<ConfiguredFeature<?,?>> HUGE_GLOW_SHROOM = createKey("huge_glow_shroom");

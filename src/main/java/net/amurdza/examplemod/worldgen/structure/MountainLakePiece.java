@@ -531,9 +531,6 @@ public class MountainLakePiece extends StructurePiece {
     }
 
     private boolean cantReplaceForLake(BlockState state) {
-        return state.is(Blocks.BEDROCK)
-                || state.is(Blocks.NETHER_PORTAL)
-                || state.is(Blocks.END_PORTAL)
-                || state.is(Blocks.END_PORTAL_FRAME);
+        return state.is(Blocks.BEDROCK);
     }
 }

@@ -1,0 +1,6 @@
+{
+  "type": "minecraft:noise",
+  "noise": "aoemod:badlands_terraces",
+  "xz_scale": 0.75,
+  "y_scale": 0.0
+}

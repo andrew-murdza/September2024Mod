@@ -5,14 +5,14 @@
       {
         "chance": 0.5,
         "feature": {
-          "feature": "aoemod:mushrooms/brown_mushroom_patch",
+          "feature": "aoemod:mushrooms/red_mushroom_patch",
           "placement": []
         }
       },
       {
         "chance": 0.5,
         "feature": {
-          "feature": "aoemod:mushrooms/red_mushroom_patch",
+          "feature": "aoemod:mushrooms/brown_mushroom_patch",
           "placement": []
         }
       }

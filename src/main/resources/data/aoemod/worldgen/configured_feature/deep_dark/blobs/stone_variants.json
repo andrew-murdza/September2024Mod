@@ -1,0 +1,77 @@
+{
+  "type": "aoemod:random_selector",
+  "config": {
+    "features": [
+      {
+        "chance": 0.5,
+        "feature": {
+          "feature": "aoemod:deep_dark/blobs/andesite",
+          "placement": []
+        }
+      },
+      {
+        "chance": 0.5,
+        "feature": {
+          "feature": "aoemod:deep_dark/blobs/calcite",
+          "placement": []
+        }
+      },
+      {
+        "chance": 0.5,
+        "feature": {
+          "feature": "aoemod:deep_dark/blobs/diorite",
+          "placement": []
+        }
+      },
+      {
+        "chance": 0.5,
+        "feature": {
+          "feature": "aoemod:deep_dark/blobs/terracotta",
+          "placement": []
+        }
+      },
+      {
+        "chance": 0.5,
+        "feature": {
+          "feature": "aoemod:deep_dark/blobs/red_sand",
+          "placement": []
+        }
+      },
+      {
+        "chance": 0.5,
+        "feature": {
+          "feature": "aoemod:deep_dark/blobs/red_sandstone",
+          "placement": []
+        }
+      },
+      {
+        "chance": 0.5,
+        "feature": {
+          "feature": "aoemod:deep_dark/blobs/granite",
+          "placement": []
+        }
+      },
+      {
+        "chance": 0.5,
+        "feature": {
+          "feature": "aoemod:deep_dark/blobs/gravel",
+          "placement": []
+        }
+      },
+      {
+        "chance": 0.5,
+        "feature": {
+          "feature": "aoemod:deep_dark/blobs/sand",
+          "placement": []
+        }
+      },
+      {
+        "chance": 0.5,
+        "feature": {
+          "feature": "aoemod:deep_dark/blobs/sandstone",
+          "placement": []
+        }
+      }
+    ]
+  }
+}

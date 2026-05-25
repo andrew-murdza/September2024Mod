@@ -23,15 +23,7 @@
     [],
     [],
     [
-      "aoemod:plains/blobs/gravel",
-      "aoemod:plains/blobs/clay",
-      "aoemod:plains/blobs/sand",
-      "aoemod:plains/blobs/dirt",
-      "aoemod:plains/blobs/sandstone",
-      "aoemod:plains/blobs/calcite",
-      "aoemod:plains/blobs/andesite",
-      "aoemod:plains/blobs/granite",
-      "aoemod:plains/blobs/diorite"
+      "aoemod:plains/stone_variants"
     ],
     [],
     [
@@ -49,10 +41,7 @@
       "aoemod:mountains/forest_floor",
       "aoemod:savanna/seafloor",
       "aoemod:plains/seafloor",
-      "aoemod:mountains/seafloor",
-      "aoemod:savanna/seafloor_shallow",
-      "aoemod:plains/seafloor_shallow",
-      "aoemod:mountains/seafloor_shallow"
+      "aoemod:mountains/seafloor"
     ],
     [
       "minecraft:freeze_top_layer"
@@ -159,14 +148,7 @@
         "weight": 100
       }
     ],
-    "underground_water_creature": [
-      {
-        "type": "minecraft:glow_squid",
-        "maxCount": 6,
-        "minCount": 4,
-        "weight": 10
-      }
-    ],
+    "underground_water_creature": [],
     "water_ambient": [
       {
         "type": "minecraft:cod",

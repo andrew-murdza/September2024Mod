@@ -27,7 +27,7 @@ public class RandomSelectionFeature extends Feature<RandomSelectionFeatureConfig
     }
 
 
-    public boolean placeSkippingFeatures(
+    public void placeSkippingFeatures(
             FeaturePlaceContext<RandomSelectionFeatureConfig> context,
             Predicate<Feature<?>> rejectedFeature,
             int maxRerolls
@@ -49,15 +49,15 @@ public class RandomSelectionFeature extends Feature<RandomSelectionFeatureConfig
                     .anyMatch(rejectedFeature);
 
             if (!bad) {
-                return placed.place(
+                placed.place(
                         context.level(),
                         context.chunkGenerator(),
                         random,
                         context.origin()
                 );
+                return;
             }
         }
 
-        return false;
     }
 }

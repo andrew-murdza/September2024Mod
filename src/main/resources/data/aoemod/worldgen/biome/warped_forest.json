@@ -38,27 +38,22 @@
     [],
     [],
     [
-      "aoemod:warped_forest/blobs/magma_blobs",
-      "aoemod:warped_forest/blobs/glowstone_blobs",
-      "aoemod:warped_forest/blobs/blackstone_blobs",
-      "aoemod:warped_forest/blobs/gravel_blobs",
-      "aoemod:warped_forest/blobs/basalt_blobs",
-      "aoemod:warped_forest/ores/ancient_debris_small",
-      "aoemod:warped_forest/ores/ancient_debris_large",
-      "aoemod:warped_forest/ores/gold_ore",
-      "aoemod:warped_forest/ores/quartz_ore"
+      "aoemod:warped_forest/blobs/magma",
+      "aoemod:warped_forest/blobs/glowstone",
+      "aoemod:warped_forest/blobs/blackstone",
+      "aoemod:warped_forest/blobs/gravel",
+      "aoemod:warped_forest/blobs/basalt",
+      "aoemod:warped_forest/ores/ancient_debris",
+      "aoemod:warped_forest/ores/gold",
+      "aoemod:warped_forest/ores/quartz"
     ],
     [],
     [],
     [
       "aoemod:nether_cane",
       "aoemod:warped_forest/warped_carrot",
-      "aoemod:ashen_wheat",
       "aoemod:warped_forest/twisting_vines",
-      "aoemod:warped_forest/pitaya",
-      "aoemod:warped_forest/forest_floor",
-      "aoemod:warped_forest/seafloor",
-      "aoemod:warped_forest/seafloor_shallow"
+//      "aoemod:warped_forest/pitaya"
     ]
   ],
   "has_precipitation": false,

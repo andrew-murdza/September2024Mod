@@ -35,9 +35,7 @@
       "aoemod:savanna/forest_floor",
       "aoemod:plains/forest_floor",
       "aoemod:rainforest/seafloor",
-      "aoemod:savanna/seafloor",
-      "aoemod:rainforest/seafloor_shallow",
-      "aoemod:savanna/seafloor_shallow"
+      "aoemod:savanna/seafloor"
     ],
     [
       "minecraft:freeze_top_layer"

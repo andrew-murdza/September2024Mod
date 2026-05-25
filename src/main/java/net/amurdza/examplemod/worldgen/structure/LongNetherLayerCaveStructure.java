@@ -3,6 +3,7 @@ package net.amurdza.examplemod.worldgen.structure;
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.MapCodec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
+import net.amurdza.examplemod.worldgen.feature.AllSurfacesFeatureConfig;
 import net.minecraft.core.BlockPos;
 import net.minecraft.util.ExtraCodecs;
 import net.minecraft.world.level.ChunkPos;
@@ -10,13 +11,16 @@ import net.minecraft.world.level.levelgen.structure.Structure;
 import net.minecraft.world.level.levelgen.structure.StructureType;
 import org.jetbrains.annotations.NotNull;
 
+import java.util.List;
 import java.util.Optional;
 
 public class LongNetherLayerCaveStructure extends Structure {
 
     public record BiomeCutoffs(
             int maxDeepDarkY,
-            int maxSoulSandValleyY,
+            int maxSoulSludgeY,
+            int maxSoulSoilY,
+            int maxSoulSandY,
             int maxWarpedForestY,
             int maxCrimsonForestY,
             int maxBasaltDeltasY
@@ -29,8 +33,16 @@ public class LongNetherLayerCaveStructure extends Structure {
                                         .forGetter(BiomeCutoffs::maxDeepDarkY),
 
                                 Codec.INT
-                                        .fieldOf("max_soul_sand_valley_y")
-                                        .forGetter(BiomeCutoffs::maxSoulSandValleyY),
+                                        .fieldOf("max_soul_sludge_y")
+                                        .forGetter(BiomeCutoffs::maxSoulSludgeY),
+
+                                Codec.INT
+                                        .fieldOf("max_soul_soil_y")
+                                        .forGetter(BiomeCutoffs::maxSoulSoilY),
+
+                                Codec.INT
+                                        .fieldOf("max_soul_sand_y")
+                                        .forGetter(BiomeCutoffs::maxSoulSandY),
 
                                 Codec.INT
                                         .fieldOf("max_warped_forest_y")
@@ -68,8 +80,8 @@ public class LongNetherLayerCaveStructure extends Structure {
                                     .forGetter(s -> s.lavaLevel),
 
                             Codec.floatRange(0.0F, Float.MAX_VALUE)
-                                    .fieldOf("central_pillar_diameter_extra")
-                                    .forGetter(s -> s.centralPillarDiameterExtra),
+                                    .fieldOf("central_pillar_diameter")
+                                    .forGetter(s -> s.centralPillarDiameter),
 
                             ExtraCodecs.POSITIVE_FLOAT
                                     .fieldOf("min_floor_thickness")
@@ -78,6 +90,10 @@ public class LongNetherLayerCaveStructure extends Structure {
                             ExtraCodecs.POSITIVE_FLOAT
                                     .fieldOf("pitch_lower")
                                     .forGetter(s -> s.pitchLower),
+
+                            ExtraCodecs.POSITIVE_FLOAT
+                                    .fieldOf("pitch_upper")
+                                    .forGetter(s -> s.pitchUpper),
 
                             ExtraCodecs.POSITIVE_FLOAT
                                     .fieldOf("liquid_depth")
@@ -90,30 +106,52 @@ public class LongNetherLayerCaveStructure extends Structure {
                             BiomeCutoffs.CODEC
                                     .forGetter(s -> new BiomeCutoffs(
                                             s.maxDeepDarkY,
-                                            s.maxSoulSandValleyY,
+                                            s.maxSoulSludgeY,
+                                            s.maxSoulSoilY,
+                                            s.maxSoulSandY,
                                             s.maxWarpedForestY,
                                             s.maxCrimsonForestY,
                                             s.maxBasaltDeltasY
-                                    ))
+                                    )),
 
-                    ).apply(instance, LongNetherLayerCaveStructure::new)
+                            AllSurfacesFeatureConfig.CODEC.listOf()
+                                    .optionalFieldOf("all_surface_features", List.of())
+                                    .forGetter(s -> s.allSurfaceFeatures),
+
+                            ExactSurfaceFeatureConfig.CODEC.listOf()
+                                    .optionalFieldOf("exact_surface_features", List.of())
+                                    .forGetter(s -> s.exactSurfaceFeatures),
+
+                            ExtraCodecs.POSITIVE_FLOAT
+                                    .fieldOf("vertical_radius_upper")
+                                    .forGetter(s -> s.verticalRadiusUpper)
+
+                            ).apply(instance, LongNetherLayerCaveStructure::new)
             );
 
     private final int startY;
     private final float horizontalRadiusMultiplier;
     private final float verticalRadiusMultiplier;
     private final int lavaLevel;
-    private final float centralPillarDiameterExtra;
+    private final float centralPillarDiameter;
     private final float minFloorThickness;
     private final float pitchLower;
+    private final float pitchUpper;
     private final float liquidDepth;
     private final float liquidRadius;
 
     private final int maxDeepDarkY;
-    private final int maxSoulSandValleyY;
+    private final int maxSoulSludgeY;
+    private final int maxSoulSoilY;
+    private final int maxSoulSandY;
     private final int maxWarpedForestY;
     private final int maxCrimsonForestY;
     private final int maxBasaltDeltasY;
+
+    private final float verticalRadiusUpper;
+
+    private final List<AllSurfacesFeatureConfig> allSurfaceFeatures;
+    private final List<ExactSurfaceFeatureConfig> exactSurfaceFeatures;
 
     public LongNetherLayerCaveStructure(
             StructureSettings settings,
@@ -121,12 +159,16 @@ public class LongNetherLayerCaveStructure extends Structure {
             float horizontalRadiusMultiplier,
             float verticalRadiusMultiplier,
             int lavaLevel,
-            float centralPillarDiameterExtra,
+            float centralPillarDiameter,
             float minFloorThickness,
             float pitchLower,
+            float pitchUpper,
             float liquidDepth,
             float liquidRadius,
-            BiomeCutoffs biomeCutoffs
+            BiomeCutoffs biomeCutoffs,
+            List<AllSurfacesFeatureConfig> allSurfaceFeatures,
+            List<ExactSurfaceFeatureConfig> exactSurfaceFeatures,
+            float verticalRadiusUpper
     ) {
         super(settings);
 
@@ -134,17 +176,24 @@ public class LongNetherLayerCaveStructure extends Structure {
         this.horizontalRadiusMultiplier = horizontalRadiusMultiplier;
         this.verticalRadiusMultiplier = verticalRadiusMultiplier;
         this.lavaLevel = lavaLevel;
-        this.centralPillarDiameterExtra = centralPillarDiameterExtra;
+        this.centralPillarDiameter = centralPillarDiameter;
         this.minFloorThickness = minFloorThickness;
         this.pitchLower = pitchLower;
+        this.pitchUpper = pitchUpper;
         this.liquidDepth = liquidDepth;
         this.liquidRadius = liquidRadius;
+        this.verticalRadiusUpper = verticalRadiusUpper;
 
         this.maxDeepDarkY = biomeCutoffs.maxDeepDarkY();
-        this.maxSoulSandValleyY = biomeCutoffs.maxSoulSandValleyY();
+        this.maxSoulSludgeY = biomeCutoffs.maxSoulSludgeY();
+        this.maxSoulSoilY = biomeCutoffs.maxSoulSoilY();
+        this.maxSoulSandY = biomeCutoffs.maxSoulSandY();
         this.maxWarpedForestY = biomeCutoffs.maxWarpedForestY();
         this.maxCrimsonForestY = biomeCutoffs.maxCrimsonForestY();
         this.maxBasaltDeltasY = biomeCutoffs.maxBasaltDeltasY();
+
+        this.allSurfaceFeatures = allSurfaceFeatures;
+        this.exactSurfaceFeatures = exactSurfaceFeatures;
     }
 
     @Override
@@ -160,16 +209,22 @@ public class LongNetherLayerCaveStructure extends Structure {
                         this.horizontalRadiusMultiplier,
                         this.verticalRadiusMultiplier,
                         this.lavaLevel,
-                        this.centralPillarDiameterExtra,
+                        this.centralPillarDiameter,
                         this.minFloorThickness,
                         this.pitchLower,
+                        this.pitchUpper,
                         this.liquidDepth,
                         this.liquidRadius,
                         this.maxDeepDarkY,
-                        this.maxSoulSandValleyY,
+                        this.maxSoulSludgeY,
+                        this.maxSoulSoilY,
+                        this.maxSoulSandY,
                         this.maxWarpedForestY,
                         this.maxCrimsonForestY,
-                        this.maxBasaltDeltasY
+                        this.maxBasaltDeltasY,
+                        this.verticalRadiusUpper,
+                        this.allSurfaceFeatures,
+                        this.exactSurfaceFeatures
                 )
         )));
     }

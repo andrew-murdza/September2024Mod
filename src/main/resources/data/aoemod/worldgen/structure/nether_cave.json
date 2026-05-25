@@ -4,18 +4,230 @@
   "step": "underground_structures",
   "terrain_adaptation": "none",
   "spawn_overrides": {},
-  "horizontal_radius_multiplier": 24.0,
+  "horizontal_radius_multiplier": 36.0,
   "vertical_radius_multiplier": 9.0,
   "lava_level": -116,
-  "start_y": 22,
-  "central_pillar_diameter_extra": 0.0,
+  "start_y": 70,
+  "central_pillar_diameter": 60.0,
   "min_floor_thickness": 6.0,
   "pitch_lower": 1.0,
-  "liquid_radius": 4.0,
-  "liquid_depth": 3.0,
+  "pitch_upper": 0.5,
+  "vertical_radius_upper": 5.0,
+  "liquid_radius": 8.0,
+  "liquid_depth": 6.0,
   "max_deep_dark_y": 31,
-  "max_soul_sand_valley_y": -1,
+  "max_soul_sludge_y": 0,
+  "max_soul_soil_y": -12,
+  "max_soul_sand_y": -23,
   "max_warped_forest_y": -33,
   "max_crimson_forest_y": -65,
-  "max_basalt_deltas_y": -97
+  "max_basalt_deltas_y": -97,
+  "all_surface_features": [
+    {
+      "deep_feature": {
+        "feature": "aoemod:basalt_deltas/water/water_plants_full",
+        "placement": []
+      },
+      "feature": {
+        "feature": "aoemod:basalt_deltas/water/water_plants_shallow_full",
+        "placement": []
+      },
+      "target": "lava",
+      "all_layers": true,
+      "max_y": -96,
+      "predicate": {
+        "type": "minecraft:solid"
+      }
+    },
+    {
+      "deep_feature": {
+        "feature": "aoemod:crimson_forest/water/water_plants_full",
+        "placement": []
+      },
+      "feature": {
+        "feature": "aoemod:crimson_forest/water/water_plants_shallow_full",
+        "placement": []
+      },
+      "target": "lava",
+      "all_layers": true,
+      "min_y": -95,
+      "max_y": -64,
+      "predicate": {
+        "type": "minecraft:solid"
+      }
+    },
+    {
+      "deep_feature": {
+        "feature": "aoemod:warped_forest/water/water_plants_full",
+        "placement": []
+      },
+      "feature": {
+        "feature": "aoemod:warped_forest/water/water_plants_shallow_full",
+        "placement": []
+      },
+      "target": "lava",
+      "all_layers": true,
+      "min_y": -65,
+      "max_y": -32,
+      "predicate": {
+        "type": "minecraft:solid"
+      }
+    },
+    {
+      "deep_feature": {
+        "feature": "aoemod:soul_sand_valley/water/water_plants_full",
+        "placement": []
+      },
+      "feature": {
+        "feature": "aoemod:soul_sand_valley/water/water_plants_shallow_full",
+        "placement": []
+      },
+      "target": "lava",
+      "all_layers": true,
+      "min_y": -31,
+      "max_y": 0,
+      "predicate": {
+        "type": "minecraft:solid"
+      }
+    },
+    {
+      "deep_feature": {
+        "feature": "aoemod:deep_dark/water/water_plants_full",
+        "placement": []
+      },
+      "feature": {
+        "feature": "aoemod:deep_dark/water/water_plants_shallow_full",
+        "placement": []
+      },
+      "target": "water",
+      "all_layers": true,
+      "min_y": 1,
+      "max_y": 32,
+      "predicate": {
+        "type": "minecraft:solid"
+      }
+    },
+    {
+      "feature": {
+        "feature": "aoemod:basalt_deltas/floor/forest_floor",
+        "placement": []
+      },
+      "target": "air",
+      "all_layers": true,
+      "max_y": -96,
+      "predicate": {
+        "type": "minecraft:matching_block_tag",
+        "tag": "aoemod:basalt_stones"
+      }
+    },
+    {
+      "feature": {
+        "feature": "aoemod:crimson_forest/floor/forest_floor",
+        "placement": []
+      },
+      "target": "air",
+      "all_layers": true,
+      "max_y": -64,
+      "min_y": -95,
+      "predicate": {
+        "type": "minecraft:matching_blocks",
+        "blocks": "minecraft:crimson_nylium"
+      }
+    },
+    {
+      "feature": {
+        "feature": "aoemod:warped_forest/floor/forest_floor",
+        "placement": []
+      },
+      "target": "air",
+      "all_layers": true,
+      "max_y": -32,
+      "min_y": -63,
+      "predicate": {
+        "type": "minecraft:matching_blocks",
+        "blocks": "minecraft:warped_nylium"
+      }
+    },
+    {
+      "feature": {
+        "feature": "aoemod:soul_sand_valley/floor/forest_floor",
+        "placement": []
+      },
+      "target": "air",
+      "all_layers": true,
+      "max_y": 0,
+      "min_y": -31,
+      "predicate": {
+        "type": "minecraft:matching_blocks",
+        "blocks": "minecraft:warped_nylium"
+      }
+    },
+    {
+      "feature": {
+        "feature": "aoemod:soul_sand_valley/floor/forest_floor",
+        "placement": []
+      },
+      "target": "air",
+      "all_layers": true,
+      "max_y": 0,
+      "min_y": -31,
+      "predicate": {
+        "type": "minecraft:matching_block_tag",
+        "tag": "aoemod:soul_sediments"
+      }
+    },
+    {
+      "feature": {
+        "feature": "aoemod:deep_dark/floor/forest_floor",
+        "placement": []
+      },
+      "target": "air",
+      "all_layers": true,
+      "max_y": 32,
+      "min_y": 1,
+      "predicate": {
+        "type": "minecraft:matching_blocks",
+        "blocks": "minecraft:sculk"
+      }
+    },
+    {
+      "feature": {
+        "feature": "aoemod:desert/floor/forest_floor",
+        "placement": []
+      },
+      "target": "air",
+      "all_layers": true,
+      "max_y": 70,
+      "min_y": 68,
+      "predicate": {
+        "type": "minecraft:matching_blocks",
+        "blocks": "minecraft:sand"
+      }
+    }
+  ],
+  "exact_surface_features": [
+    {
+      "feature": "aoemod:warped_forest/pitaya",
+      "min_y": -65,
+      "max_y": -32,
+      "count": 4,
+      "predicates": [
+        {
+          "type": "minecraft:matching_blocks",
+          "blocks": [
+            "minecraft:air",
+            "minecraft:cave_air",
+            "minecraft:void_air"
+          ]
+        },
+        {
+          "type": "minecraft:matching_blocks",
+          "offset": [0, -1, 0],
+          "blocks": [
+            "minecraft:warped_nylium"
+          ]
+        }
+      ]
+    }
+  ]
 }

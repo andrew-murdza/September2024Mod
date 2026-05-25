@@ -3,8 +3,6 @@ package net.amurdza.examplemod.worldgen.structure;
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import net.minecraft.core.BlockPos;
-import net.minecraft.util.Mth;
-import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.levelgen.Heightmap;
 import net.minecraft.world.level.levelgen.structure.Structure;
 import net.minecraft.world.level.levelgen.structure.StructureType;
@@ -35,10 +33,8 @@ public class MountainLakeStructure extends Structure {
         BlockPos chunkCenter = ctx.chunkPos().getWorldPosition().offset(8, 0, 8);
 
         return Optional.of(new GenerationStub(chunkCenter, (StructurePiecesBuilder builder) -> {
-            RandomSource rand = ctx.random();
-
-            int radius = randInt(rand, lakeConfig.radiusMin(), lakeConfig.radiusMax());
-            int depth  = randInt(rand, lakeConfig.depthMin(), lakeConfig.depthMax());
+            int radius = lakeConfig.radius();
+            int depth  = lakeConfig.depth();
 
             final int rampW = lakeConfig.rampW();
 
@@ -79,7 +75,7 @@ public class MountainLakeStructure extends Structure {
             BlockPos origin = new BlockPos(chunkCenter.getX(), minSurfaceY, chunkCenter.getZ());
 
             // Water level is "level with land" (minSurfaceY), clamped to allowed range
-            int waterY = Mth.clamp(minSurfaceY + waterlineOffset, lakeConfig.minWaterY(), lakeConfig.maxWaterY());
+            int waterY = lakeConfig.waterY();
 
             // ----------------------------
             // Bounding box includes ramp + pad
@@ -112,11 +108,5 @@ public class MountainLakeStructure extends Structure {
     @Override
     public @NotNull StructureType<?> type() {
         return ModStructures.MOUNTAIN_LAKE_STRUCTURE.get();
-    }
-
-    private static int randInt(RandomSource rand, int a, int b) {
-        if (a == b) return a;
-        if (a > b) { int t = a; a = b; b = t; }
-        return a + rand.nextInt(b - a + 1);
     }
 }

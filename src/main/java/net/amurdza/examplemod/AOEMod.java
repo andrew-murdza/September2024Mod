@@ -9,10 +9,10 @@ import net.amurdza.examplemod.item.ModToolTiers;
 import net.amurdza.examplemod.mixins.mob_spawning.MobsSpawnOnGlowingMoss;
 import net.amurdza.examplemod.mixins.mob_spawning.MobsSpawnOnGlowingMoss1;
 import net.amurdza.examplemod.util.ConfigHelper;
-import net.amurdza.examplemod.worldgen.carver.ModCarvers;
 import net.amurdza.examplemod.worldgen.density_function.AOEDensityFunctions;
 import net.amurdza.examplemod.worldgen.feature.ModFeatures;
 import net.amurdza.examplemod.worldgen.feature.ModTreeDecorators;
+import net.amurdza.examplemod.worldgen.structure.ModStructurePlacementTypes;
 import net.amurdza.examplemod.worldgen.structure.ModStructures;
 import net.amurdza.examplemod.worldgen.surface_rule.ModSurfaceRules;
 import net.minecraft.core.Direction;
@@ -29,12 +29,10 @@ import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.ModLoadingContext;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.config.ModConfig;
-import net.minecraftforge.fml.event.config.ModConfigEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import org.slf4j.Logger;
-import terrablender.api.SurfaceRuleManager;
 
 // The value here should match an entry in the META-INF/mods.toml file
 @Mod(AOEMod.MOD_ID)
@@ -73,23 +71,11 @@ public class AOEMod
 
         ModStructures.register(modEventBus);
 
+        ModStructurePlacementTypes.STRUCTURE_PLACEMENT_TYPES.register(modEventBus);
+
         ModSurfaceRules.register(modEventBus);
 
         ModToolTiers.register();
-
-        ModCarvers.CARVERS.register(modEventBus);
-    }
-
-    private void onConfigLoad(final ModConfigEvent.Loading event) {
-        if (event.getConfig().getSpec() == Config.SPEC) {
-            Config.rebuildBiomeMultiplierCache();
-        }
-    }
-
-    private void onConfigReload(final ModConfigEvent.Reloading event) {
-        if (event.getConfig().getSpec() == Config.SPEC) {
-            Config.rebuildBiomeMultiplierCache();
-        }
     }
 
     private void commonSetup(final FMLCommonSetupEvent event) {
@@ -97,7 +83,6 @@ public class AOEMod
         event.enqueueWork(Config::rebuildBiomeMultiplierCache);
         event.enqueueWork(BlockGrowthConfig::init);
         event.enqueueWork(() -> {
-            SurfaceRuleManager.setDefaultSurfaceRules(SurfaceRuleManager.RuleCategory.OVERWORLD, ModSurfaceRules.makeRules());
 
             BlockBehaviour.Properties props =
                     ((MobsSpawnOnGlowingMoss1) Blocks.MOSS_BLOCK).getProperties();
@@ -106,10 +91,6 @@ public class AOEMod
                     (state, level, pos, entityType) ->
                             state.isFaceSturdy(level, pos, Direction.UP)
             );
-
-//            SurfaceRuleManager.addToDefaultSurfaceRulesAtStage(SurfaceRuleManager.RuleCategory.OVERWORLD,
-//                    SurfaceRuleManager.RuleStage.AFTER_BEDROCK,100000,ModSurfaceRules.makeRules());
-            //.addSurfaceRules(SurfaceRuleManager.RuleCategory.OVERWORLD, MOD_ID, ModSurfaceRules.makeRules());
         });
     }
     // Add the example block item to the building blocks tab
@@ -130,8 +111,6 @@ public class AOEMod
             // remaining registerBlockAndItem blocks (from your list)
             event.accept(ModBlocks.JUNGLE_GLOW_LICHEN.get());
             event.accept(ModBlocks.NETHER_CANE.get());
-
-            event.accept(ModBlocks.SUNFLOWER.get());
 
             event.accept(ModBlocks.DESERT_GRASS.get());
             event.accept(ModBlocks.DESERT_TALL_GRASS.get());
@@ -221,9 +200,9 @@ public class AOEMod
         // INGREDIENTS
         if (tab == CreativeModeTabs.INGREDIENTS) {
             event.accept(ModItems.ASHEN_WHEAT.get());
-//            event.accept(ModItems.ASHEN_WHEAT_SEEDS.get());
-//            event.accept(ModItems.SOUL_BEET_SEEDS.get());
-//            event.accept(ModItems.BEAN_SEEDS.get());
+            event.accept(ModItems.ASHEN_WHEAT_SEEDS.get());
+            event.accept(ModItems.SOUL_BEET_SEEDS.get());
+            event.accept(ModItems.BEANS.get());
         }
 
 
@@ -278,11 +257,6 @@ public class AOEMod
         public static void onClientSetup(FMLClientSetupEvent event) {
 
         }
-        //Add once in 1.21
-//        @SubscribeEvent
-//        private static void registerDataMapTypes(RegisterDataMapTypesEvent event) {
-//            event.register(EXAMPLE_DATA);
-//        }
     }
     public static ResourceLocation makeID(String path){
         return new ResourceLocation(AOEMod.MOD_ID,path);

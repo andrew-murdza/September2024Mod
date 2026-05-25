@@ -3,9 +3,8 @@
     { "structure": "aoemod:mountain_lake", "weight": 1 }
   ],
   "placement": {
-    "type": "minecraft:random_spread",
-    "spacing": 20,
-    "separation": 16,
-    "salt": 123456789
+    "type": "aoemod:band_polar",
+    "target_band_pos": 4.5,
+    "arc_spacing": 400.0
   }
 }

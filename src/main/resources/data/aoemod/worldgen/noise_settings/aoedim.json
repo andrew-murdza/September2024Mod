@@ -19,82 +19,18 @@
   },
   "noise_router": {
     "barrier": 0,
-    "continents": "aoemod:base_continents",
+    "continents": "aoemod:continents",
     "depth": "minecraft:overworld/depth",
     "erosion": "minecraft:overworld/erosion",
     "final_density": {
       "type": "interpolated",
-      "argument": {
-        "type": "minecraft:add",
-        "argument1": 1,
-        "argument2": {
-          "type": "minecraft:mul",
-          "argument1": {
-            "type": "minecraft:y_clamped_gradient",
-            "from_value": 0.0,
-            "from_y": -128,
-            "to_value": 1.0,
-            "to_y": -119
-          },
-          "argument2": {
-            "type": "minecraft:add",
-            "argument1": -2,
-            "argument2": {
-              "type": "minecraft:mul",
-              "argument1": {
-                "type": "minecraft:y_clamped_gradient",
-                "from_value": 1.0,
-                "from_y": 160,
-                "to_value": 0.0,
-                "to_y": 175
-              },
-              "argument2": {
-                "type": "minecraft:add",
-                "argument1": 1,
-                "argument2": "minecraft:overworld/sloped_cheese"
-              }
-            }
-          }
-        }
-      }
+      "argument": "aoemod:sloped_cheese"
     },
     "fluid_level_floodedness": 0,
     "fluid_level_spread": 0,
     "initial_density_without_jaggedness": {
       "type": "interpolated",
-      "argument": {
-        "type": "minecraft:add",
-        "argument1": 1,
-        "argument2": {
-          "type": "minecraft:mul",
-          "argument1": {
-            "type": "minecraft:y_clamped_gradient",
-            "from_value": 0.0,
-            "from_y": 45,
-            "to_value": 1.0,
-            "to_y": 50
-          },
-          "argument2": {
-            "type": "minecraft:add",
-            "argument1": -2,
-            "argument2": {
-              "type": "minecraft:mul",
-              "argument1": {
-                "type": "minecraft:y_clamped_gradient",
-                "from_value": 1.0,
-                "from_y": 160,
-                "to_value": 0.0,
-                "to_y": 175
-              },
-              "argument2": {
-                "type": "minecraft:add",
-                "argument1": 1,
-                "argument2": "minecraft:overworld/sloped_cheese"
-              }
-            }
-          }
-        }
-      }
+      "argument": "aoemod:sloped_cheese"
     },
     "lava": 0,
     "ridges": "minecraft:overworld/ridges",
@@ -1083,25 +1019,12 @@
             {
               "type": "minecraft:condition",
               "if_true": {
-                "type": "aoemod:noise_threshold_3d",
-                "noise": "minecraft:surface",
-                "min_threshold": 0.315,
-                "max_threshold": 2
-              },
-              "then_run": {
-                "type": "minecraft:block",
-                "result_state": {
-                  "Name": "minecraft:soul_sand"
-                }
-              }
-            },
-            {
-              "type": "minecraft:condition",
-              "if_true": {
-                "type": "aoemod:noise_threshold_3d",
-                "noise": "aoemod:soul_sludge",
-                "min_threshold": 0,
-                "max_threshold": 2.0
+                "type": "minecraft:y_above",
+                "add_stone_depth": false,
+                "anchor": {
+                  "absolute": -11
+                },
+                "surface_depth_multiplier": 0
               },
               "then_run": {
                 "type": "minecraft:block",
@@ -1111,9 +1034,32 @@
               }
             },
             {
+              "type": "minecraft:condition",
+              "if_true": {
+                "type": "minecraft:y_above",
+                "add_stone_depth": false,
+                "anchor": {
+                  "absolute": -22
+                },
+                "surface_depth_multiplier": 0
+              },
+              "then_run": {
+                "type": "minecraft:block",
+                "result_state": {
+                  "Name": "minecraft:soul_soil",
+                  "Properties": {
+                    "axis": "y"
+                  }
+                }
+              }
+            },
+            {
               "type": "minecraft:block",
               "result_state": {
-                "Name": "minecraft:soul_soil"
+                "Name": "minecraft:soul_sand",
+                "Properties": {
+                  "axis": "y"
+                }
               }
             }
           ]

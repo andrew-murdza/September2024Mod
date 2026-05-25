@@ -72,7 +72,7 @@ public class ModBlocks {
             () -> new CharniaBlock(BlockBehaviour.Properties.of().mapColor(MapColor.WATER).noCollission().instabreak().sound(SoundType.GRASS)
                     .pushReaction(PushReaction.DESTROY)));
 
-    public static final RegistryObject<Block> SUNFLOWER = registerBlockAndItem("sunflower", () -> new RotateableSunflower(
+    public static final RegistryObject<Block> SUNFLOWER = registerBlock("sunflower", () -> new RotateableSunflower(
             BlockBehaviour.Properties.copy(Blocks.SUNFLOWER)));
 
 //    public static final RegistryObject<Block> SUNFLOWER = VANILLA_BLOCKS.register("sunflower",()->

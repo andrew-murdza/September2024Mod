@@ -1,7 +1,7 @@
 package net.amurdza.examplemod.mixins.worldgen;
 
+import net.amurdza.examplemod.Config;
 import net.minecraft.core.Holder;
-import net.minecraft.core.QuartPos;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
@@ -21,8 +21,20 @@ import java.util.Map;
 @Mixin(MultiNoiseBiomeSource.class)
 public abstract class MultiNoiseBiomeSourceLayeredNetherMixin {
 
-    @Unique private static final long AOE_BADLANDS_CONTINENTALNESS = Climate.quantizeCoord(-1.0F);
-
+    @Unique private static final ResourceKey<Biome> AOE_WARM_OCEAN =
+            ResourceKey.create(Registries.BIOME, new ResourceLocation("aoemod", "warm_ocean"));
+    @Unique private static final ResourceKey<Biome> AOE_JUNGLE =
+            ResourceKey.create(Registries.BIOME, new ResourceLocation("aoemod", "jungle"));
+    @Unique private static final ResourceKey<Biome> AOE_SAVANNA =
+            ResourceKey.create(Registries.BIOME, new ResourceLocation("aoemod", "savanna"));
+    @Unique private static final ResourceKey<Biome> AOE_PLAINS =
+            ResourceKey.create(Registries.BIOME, new ResourceLocation("aoemod", "plains"));
+    @Unique private static final ResourceKey<Biome> AOE_SNOWY_TAIGA =
+            ResourceKey.create(Registries.BIOME, new ResourceLocation("aoemod", "snowy_taiga"));
+    @Unique private static final ResourceKey<Biome> AOE_GROVE =
+            ResourceKey.create(Registries.BIOME, new ResourceLocation("aoemod", "grove"));
+    @Unique private static final ResourceKey<Biome> AOE_MUSHROOM_CAVES =
+            ResourceKey.create(Registries.BIOME, new ResourceLocation("aoemod", "mushroom_caves"));
     @Unique private static final ResourceKey<Biome> AOE_BADLANDS =
             ResourceKey.create(Registries.BIOME, new ResourceLocation("aoemod", "badlands"));
     @Unique private static final ResourceKey<Biome> AOE_DEEP_DARK =
@@ -44,16 +56,23 @@ public abstract class MultiNoiseBiomeSourceLayeredNetherMixin {
             cancellable = true
     )
     private void aoe$forceHardLayeredNetherBiomes(
-            int quartX,
-            int quartY,
-            int quartZ,
+            int x,
+            int y,
+            int z,
             Climate.Sampler sampler,
             CallbackInfoReturnable<Holder<Biome>> cir
     ) {
         Map<ResourceKey<Biome>, Holder<Biome>> biomes = this.aoe$getBiomeCache();
 
         // Only affect your AOE biome source, not every multi-noise source.
-        if (!biomes.containsKey(AOE_BADLANDS)
+        if (!biomes.containsKey(AOE_WARM_OCEAN)
+                || !biomes.containsKey(AOE_JUNGLE)
+                || !biomes.containsKey(AOE_SAVANNA)
+                || !biomes.containsKey(AOE_PLAINS)
+                || !biomes.containsKey(AOE_SNOWY_TAIGA)
+                || !biomes.containsKey(AOE_GROVE)
+                || !biomes.containsKey(AOE_MUSHROOM_CAVES)
+                || !biomes.containsKey(AOE_BADLANDS)
                 || !biomes.containsKey(AOE_DEEP_DARK)
                 || !biomes.containsKey(AOE_CRIMSON)
                 || !biomes.containsKey(AOE_WARPED)
@@ -62,40 +81,73 @@ public abstract class MultiNoiseBiomeSourceLayeredNetherMixin {
             return;
         }
 
-        Climate.TargetPoint target = sampler.sample(quartX, quartY, quartZ);
+        double width = Config.BAND_WIDTH;
+        double dist = 4.0D * Math.sqrt((double) x * (double) x + (double) z * (double) z);
+        double bandPos = dist/width % 12;
+        double buffer = 32;
+        double bufferNormalized = buffer/width;
+        y *= 4;
 
-        // Only under the badlands/high-continentalness region.
-
-        if (target.continentalness() < AOE_BADLANDS_CONTINENTALNESS) {
-            return;
+        if(bandPos>6){
+            bandPos=12-bandPos;
         }
-
-        int blockY = QuartPos.toBlock(quartY);
-
-        if (blockY < -96) {
-            cir.setReturnValue(biomes.get(AOE_BASALT));
-        } else if (blockY < -64) {
-            cir.setReturnValue(biomes.get(AOE_CRIMSON));
-
-        } else if (blockY < -32) {
-            cir.setReturnValue(biomes.get(AOE_WARPED));
-        } else if (blockY < 0) {
-            cir.setReturnValue(biomes.get(AOE_SOUL));
-        } else if (blockY < 32) {
-            cir.setReturnValue(biomes.get(AOE_DEEP_DARK));
-        } else {
+        if(bandPos < 1){
+            cir.setReturnValue(biomes.get(AOE_WARM_OCEAN));
+        }
+        else if(bandPos < 2){
+            cir.setReturnValue(biomes.get(AOE_JUNGLE));
+        }
+        else if(bandPos < 3){
+            cir.setReturnValue(biomes.get(AOE_SAVANNA));
+        }
+        else if(bandPos < 4){
+            cir.setReturnValue(biomes.get(AOE_PLAINS));
+        }
+        else if(bandPos < 4+bufferNormalized){
+            cir.setReturnValue(biomes.get(AOE_SNOWY_TAIGA));
+        }
+        else if(bandPos < 5-bufferNormalized){
+            if(y < 120 && y> 61){
+                cir.setReturnValue(biomes.get(AOE_MUSHROOM_CAVES));
+            }
+            else {
+                cir.setReturnValue(biomes.get(AOE_GROVE));
+            }
+        }
+        else if(bandPos < 5){
+            cir.setReturnValue(biomes.get(AOE_SNOWY_TAIGA));
+        }
+        else if(bandPos < 5 + bufferNormalized){
             cir.setReturnValue(biomes.get(AOE_BADLANDS));
+        }
+        else {
+            if (y < -96) {
+                cir.setReturnValue(biomes.get(AOE_BASALT));
+            } else if (y < -64) {
+                cir.setReturnValue(biomes.get(AOE_CRIMSON));
+
+            } else if (y < -32) {
+                cir.setReturnValue(biomes.get(AOE_WARPED));
+            } else if (y < 0) {
+                cir.setReturnValue(biomes.get(AOE_SOUL));
+            } else if (y < 32) {
+                cir.setReturnValue(biomes.get(AOE_DEEP_DARK));
+            } else {
+                cir.setReturnValue(biomes.get(AOE_BADLANDS));
+            }
         }
     }
 
     @Unique
     private Map<ResourceKey<Biome>, Holder<Biome>> aoe$getBiomeCache() {
         if (this.aoe$biomeCache == null) {
-            this.aoe$biomeCache = new HashMap<>();
+            Map<ResourceKey<Biome>, Holder<Biome>> cache = new HashMap<>();
 
             for (Holder<Biome> holder : ((BiomeSource)(Object)this).possibleBiomes()) {
-                holder.unwrapKey().ifPresent(key -> this.aoe$biomeCache.put(key, holder));
+                holder.unwrapKey().ifPresent(key -> cache.put(key, holder));
             }
+
+            this.aoe$biomeCache = Map.copyOf(cache);
         }
 
         return this.aoe$biomeCache;

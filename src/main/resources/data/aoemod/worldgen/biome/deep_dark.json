@@ -27,16 +27,7 @@
     [],
     [],
     [
-      "aoemod:deep_dark/blobs/gravel",
-      "aoemod:deep_dark/blobs/sand",
-      "aoemod:deep_dark/blobs/terracotta",
-      "aoemod:deep_dark/blobs/red_sand",
-      "aoemod:deep_dark/blobs/sandstone",
-      "aoemod:deep_dark/blobs/red_sandstone",
-      "aoemod:deep_dark/blobs/calcite",
-      "aoemod:deep_dark/blobs/andesite",
-      "aoemod:deep_dark/blobs/granite",
-      "aoemod:deep_dark/blobs/diorite",
+      "aoemod:deep_dark/stone_variants",
       "aoemod:deep_dark/ores/ore_coal_lower",
       "aoemod:deep_dark/ores/ore_coal_upper",
       "aoemod:deep_dark/ores/ore_copper",
@@ -51,18 +42,9 @@
       "aoemod:deep_dark/ores/ore_lapis",
       "aoemod:deep_dark/ores/ore_lapis_buried"
     ],
-    [
-      "aoemod:deep_dark/sculk_wall_scan"
-    ],
     [],
-    [
-      "aoemod:mountains/forest_floor",
-      "aoemod:deep_dark/forest_floor",
-      "aoemod:mountains/seafloor",
-      "aoemod:deep_dark/seafloor",
-      "aoemod:mountains/seafloor_shallow",
-      "aoemod:deep_dark/seafloor_shallow"
-    ],
+    [],
+    [],
     [
       "minecraft:freeze_top_layer"
     ]
@@ -70,20 +52,7 @@
   "has_precipitation": false,
   "spawn_costs": {},
   "spawners": {
-    "ambient": [
-      {
-        "type": "minecraft:bat",
-        "maxCount": 8,
-        "minCount": 8,
-        "weight": 10
-      },
-      {
-        "type": "alexsmobs:cosmic_cod",
-        "weight": 10,
-        "minCount": 2,
-        "maxCount": 3
-      }
-    ],
+    "ambient": [],
     "axolotls": [],
     "creature": [
       {
@@ -134,24 +103,12 @@
         "weight": 5,
         "minCount": 2,
         "maxCount": 3
-      },
-      {
-        "type": "blue_skies:grittle_flatfish",
-        "weight": 5,
-        "minCount": 2,
-        "maxCount": 3
       }
     ],
     "water_creature": [
       {
         "type": "unusualfishmod:shockcat",
         "weight": 15,
-        "minCount": 2,
-        "maxCount": 3
-      },
-      {
-        "type": "unusualfishmod:prawn",
-        "weight": 5,
         "minCount": 2,
         "maxCount": 3
       }

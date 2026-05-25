@@ -6,8 +6,9 @@
       "placement": []
     },
      "target": "air",
-    "deep": false,
-    "all_layers": true,
+    "all_layers": false,
+    "max_y": 120,
+    "min_y": 61,
     "predicate": {
       "type": "minecraft:matching_blocks",
       "blocks": ["minecraft:mycelium"]

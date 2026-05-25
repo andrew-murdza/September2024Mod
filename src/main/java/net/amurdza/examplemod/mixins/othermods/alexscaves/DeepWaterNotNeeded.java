@@ -23,42 +23,42 @@ public class DeepWaterNotNeeded {
                                               SpawnPlacements.Type placementType, Heightmap.Types heightmap,
                                               SpawnPlacements.SpawnPredicate<T> predicate,
                                               SpawnPlacementRegisterEvent.Operation operation){
-        helper(instance,ACEntityRegistry.LANTERNFISH.get(),0);
+        september2024Mod$helper(instance,ACEntityRegistry.LANTERNFISH.get(),0);
     }
     @Redirect(method = "spawnPlacements",at= @At(value = "INVOKE", target = "Lnet/minecraftforge/event/entity/SpawnPlacementRegisterEvent;register(Lnet/minecraft/world/entity/EntityType;Lnet/minecraft/world/entity/SpawnPlacements$Type;Lnet/minecraft/world/level/levelgen/Heightmap$Types;Lnet/minecraft/world/entity/SpawnPlacements$SpawnPredicate;Lnet/minecraftforge/event/entity/SpawnPlacementRegisterEvent$Operation;)V",ordinal = 19),remap = false)
     private static <T extends Entity> void hi1(SpawnPlacementRegisterEvent instance, EntityType<T> entityType,
                                               SpawnPlacements.Type placementType, Heightmap.Types heightmap,
                                               SpawnPlacements.SpawnPredicate<T> predicate,
                                               SpawnPlacementRegisterEvent.Operation operation){
-        helper(instance,ACEntityRegistry.SEA_PIG.get(),3);
+        september2024Mod$helper(instance,ACEntityRegistry.SEA_PIG.get(),3);
     }
     @Redirect(method = "spawnPlacements",at= @At(value = "INVOKE", target = "Lnet/minecraftforge/event/entity/SpawnPlacementRegisterEvent;register(Lnet/minecraft/world/entity/EntityType;Lnet/minecraft/world/entity/SpawnPlacements$Type;Lnet/minecraft/world/level/levelgen/Heightmap$Types;Lnet/minecraft/world/entity/SpawnPlacements$SpawnPredicate;Lnet/minecraftforge/event/entity/SpawnPlacementRegisterEvent$Operation;)V",ordinal = 20),remap = false)
     private static <T extends Entity> void hi2(SpawnPlacementRegisterEvent instance, EntityType<T> entityType,
                                               SpawnPlacements.Type placementType, Heightmap.Types heightmap,
                                               SpawnPlacements.SpawnPredicate<T> predicate,
                                               SpawnPlacementRegisterEvent.Operation operation){
-        helper(instance,ACEntityRegistry.HULLBREAKER.get(),20);
+        september2024Mod$helper(instance,ACEntityRegistry.HULLBREAKER.get(),20);
     }
     @Redirect(method = "spawnPlacements",at= @At(value = "INVOKE", target = "Lnet/minecraftforge/event/entity/SpawnPlacementRegisterEvent;register(Lnet/minecraft/world/entity/EntityType;Lnet/minecraft/world/entity/SpawnPlacements$Type;Lnet/minecraft/world/level/levelgen/Heightmap$Types;Lnet/minecraft/world/entity/SpawnPlacements$SpawnPredicate;Lnet/minecraftforge/event/entity/SpawnPlacementRegisterEvent$Operation;)V",ordinal = 21),remap = false)
     private static <T extends Entity> void hi3(SpawnPlacementRegisterEvent instance, EntityType<T> entityType,
                                               SpawnPlacements.Type placementType, Heightmap.Types heightmap,
                                               SpawnPlacements.SpawnPredicate<T> predicate,
                                               SpawnPlacementRegisterEvent.Operation operation){
-        helper(instance,ACEntityRegistry.GOSSAMER_WORM.get(),8);
+        september2024Mod$helper(instance,ACEntityRegistry.GOSSAMER_WORM.get(),8);
     }
     @Redirect(method = "spawnPlacements",at= @At(value = "INVOKE", target = "Lnet/minecraftforge/event/entity/SpawnPlacementRegisterEvent;register(Lnet/minecraft/world/entity/EntityType;Lnet/minecraft/world/entity/SpawnPlacements$Type;Lnet/minecraft/world/level/levelgen/Heightmap$Types;Lnet/minecraft/world/entity/SpawnPlacements$SpawnPredicate;Lnet/minecraftforge/event/entity/SpawnPlacementRegisterEvent$Operation;)V",ordinal = 21),remap = false)
     private static <T extends Entity> void hi4(SpawnPlacementRegisterEvent instance, EntityType<T> entityType,
                                                SpawnPlacements.Type placementType, Heightmap.Types heightmap,
                                                SpawnPlacements.SpawnPredicate<T> predicate,
                                                SpawnPlacementRegisterEvent.Operation operation){
-        helper(instance,ACEntityRegistry.TRIPODFISH.get(),0);
+        september2024Mod$helper(instance,ACEntityRegistry.TRIPODFISH.get(),0);
     }
     @Unique
-    private static void helper(SpawnPlacementRegisterEvent instance, EntityType type, int k){
-        instance.register(type, SpawnPlacements.Type.IN_WATER, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, (p,q,r,s,t)->checkSurfaceWaterAnimalSpawnRules1(p,q,r,s,t,k), SpawnPlacementRegisterEvent.Operation.AND);
+    private static void september2024Mod$helper(SpawnPlacementRegisterEvent instance, EntityType type, int k){
+        instance.register(type, SpawnPlacements.Type.IN_WATER, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, (p,q,r,s,t)-> september2024Mod$checkSurfaceWaterAnimalSpawnRules1(p,q,r,s,t,k), SpawnPlacementRegisterEvent.Operation.AND);
     }
     @Unique
-    private static boolean checkSurfaceWaterAnimalSpawnRules1(EntityType<?> pWaterAnimal, LevelAccessor pLevel, MobSpawnType pSpawnType, BlockPos pPos, RandomSource pRandom, int k) {
+    private static boolean september2024Mod$checkSurfaceWaterAnimalSpawnRules1(EntityType<?> pWaterAnimal, LevelAccessor pLevel, MobSpawnType pSpawnType, BlockPos pPos, RandomSource pRandom, int k) {
         return WorldGenUtils.getTotalWaterAbove(pPos,pLevel)>=Math.max(k,0);//k-10//WorldGenUtils.getTotalWaterInColumn(pPos,5,pLevel)>=k&&
     }
 }

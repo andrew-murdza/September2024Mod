@@ -654,7 +654,7 @@ public class BoneMealEvent {
             };
         }
 
-        placeBoneMeal(world, pos.below(), check, 10, func, b, isWater);
+        placeBoneMeal(world, pos.below(), check, func, b, isWater);
     }
 
     private static void growFlowers(Level world, BlockPos pos) {
@@ -1009,11 +1009,11 @@ public class BoneMealEvent {
                 || feature instanceof BouddhasHandFeature;
     }
 
-    private static void placeBoneMeal(Level world, BlockPos pos, Function<BlockState, Boolean> check, int tries, Function<BlockPos, Boolean> run, boolean twoBlocks, boolean isWater) {
-        placeBoneMeal(world, pos, (state1, pos1) -> check.apply(state1), tries, (a, b) -> run.apply(a), twoBlocks, isWater);
+    private static void placeBoneMeal(Level world, BlockPos pos, Function<BlockState, Boolean> check, Function<BlockPos, Boolean> run, boolean twoBlocks, boolean isWater) {
+        placeBoneMeal(world, pos, (state1, pos1) -> check.apply(state1), 10, (a, b) -> run.apply(a), twoBlocks, isWater);
     }
 
-    private static boolean placeSingleFlowerFromPatch(
+    private static void placeSingleFlowerFromPatch(
             ServerLevel level,
             ChunkGenerator chunkGenerator,
             RandomSource random,
@@ -1032,25 +1032,21 @@ public class BoneMealEvent {
             for (WeightedPlacedFeature weighted : config.features) {
                 PlacedFeature placed = weighted.feature.value();
 
-                PlacedFeature singleFlower = placed.getFeatures()
+                placed.getFeatures()
                         .filter(cf -> cf.config() instanceof RandomPatchConfiguration)
                         .map(cf -> ((RandomPatchConfiguration) cf.config()).feature().value())
-                        .findFirst()
-                        .orElse(null);
+                        .findFirst().ifPresent(singleFlower -> choices.add(weighted.chance, singleFlower));
 
-                if (singleFlower != null) {
-                    choices.add(weighted.chance, singleFlower);
-                }
             }
 
             PlacedFeature chosen = choices.next(random);
-            return chosen.place(level, chunkGenerator, random, pos);
+            chosen.place(level, chunkGenerator, random, pos);
+            return;
         }
 
         if (configured.config() instanceof RandomPatchConfiguration patch) {
-            return patch.feature().value().place(level, chunkGenerator, random, pos);
+            patch.feature().value().place(level, chunkGenerator, random, pos);
         }
 
-        return false;
     }
 }

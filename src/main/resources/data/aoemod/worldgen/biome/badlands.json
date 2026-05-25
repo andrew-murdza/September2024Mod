@@ -29,16 +29,7 @@
     [],
     [],
     [
-      "aoemod:desert/blobs/gravel",
-      "aoemod:desert/blobs/sand",
-      "aoemod:desert/blobs/terracotta",
-      "aoemod:desert/blobs/red_sand",
-      "aoemod:desert/blobs/sandstone",
-      "aoemod:desert/blobs/red_sandstone",
-      "aoemod:desert/blobs/calcite",
-      "aoemod:desert/blobs/andesite",
-      "aoemod:desert/blobs/granite",
-      "aoemod:desert/blobs/diorite",
+      "aoemod:desert/stone_variants",
       "aoemod:desert/ores/ore_coal_lower",
       "aoemod:desert/ores/ore_coal_upper",
       "aoemod:desert/ores/ore_copper",
@@ -62,9 +53,7 @@
       "aoemod:mountains/forest_floor",
       "aoemod:desert/forest_floor",
       "aoemod:mountains/seafloor",
-      "aoemod:desert/seafloor",
-      "aoemod:mountains/seafloor_shallow",
-      "aoemod:desert/seafloor_shallow"
+      "aoemod:desert/seafloor"
     ],
     [
       "minecraft:freeze_top_layer"

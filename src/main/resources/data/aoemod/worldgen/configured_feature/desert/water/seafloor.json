@@ -1,13 +1,16 @@
 {
   "type": "aoemod:all_surface",
   "config": {
-    "feature": {
+    "deep_feature": {
       "feature": "aoemod:desert/water/water_plants_full",
       "placement": []
     },
+    "feature": {
+      "feature": "aoemod:desert/water/water_plants_shallow_full",
+      "placement": []
+    },
     "target": "water",
-    "deep": true,
-    "all_layers": true,
+    "all_layers": false,
     "predicate": {
       "type": "minecraft:matching_blocks",
       "blocks": [

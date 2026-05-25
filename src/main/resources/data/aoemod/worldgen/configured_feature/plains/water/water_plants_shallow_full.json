@@ -1,0 +1,21 @@
+{
+  "type": "aoemod:random_selector",
+  "config": {
+    "features": [
+      {
+        "chance": 0.40,
+        "feature": {
+          "feature": "aoemod:water/short_seagrass",
+          "placement": []
+        }
+      },
+      {
+        "chance": 0.60,
+        "feature": {
+          "feature": "aoemod:nothing",
+          "placement": []
+        }
+      }
+    ]
+  }
+}

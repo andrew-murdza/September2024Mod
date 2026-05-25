@@ -38,20 +38,16 @@
     [],
     [],
     [
-      "aoemod:basalt_deltas/blobs/magma_blobs",
-      "aoemod:basalt_deltas/blobs/glowstone_blobs",
-      "aoemod:basalt_deltas/blobs/gravel_blobs",
-      "aoemod:basalt_deltas/blobs/basalt_blobs",
-      "aoemod:basalt_deltas/ores/ancient_debris_small",
-      "aoemod:basalt_deltas/ores/ancient_debris_large",
-      "aoemod:basalt_deltas/ores/gold_ore",
-      "aoemod:basalt_deltas/ores/quartz_ore"
+      "aoemod:basalt_deltas/blobs/magma",
+      "aoemod:basalt_deltas/blobs/glowstone",
+      "aoemod:basalt_deltas/blobs/gravel",
+      "aoemod:basalt_deltas/blobs/basalt",
+      "aoemod:basalt_deltas/ores/ancient_debris",
+      "aoemod:basalt_deltas/ores/gold",
+      "aoemod:basalt_deltas/ores/quartz"
     ],
     [
-      "aoemod:nether_cane",
-      "aoemod:basalt_deltas/forest_floor",
-      "aoemod:basalt_deltas/seafloor",
-      "aoemod:basalt_deltas/seafloor_shallow"
+      "aoemod:nether_cane"
     ]
   ],
   "has_precipitation": false,
@@ -128,13 +124,13 @@
       },
       {
         "type": "unusualfishmod:amber_goby",
-        "weight": 5,
+        "weight": 100,
         "minCount": 4,
         "maxCount": 4
       },
       {
         "type": "blue_skies:horizofin_tunid",
-        "weight": 10,
+        "weight": 100,
         "minCount": 1,
         "maxCount": 2
       },

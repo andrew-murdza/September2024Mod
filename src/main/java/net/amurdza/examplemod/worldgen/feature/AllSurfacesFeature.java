@@ -1,13 +1,14 @@
 package net.amurdza.examplemod.worldgen.feature;
 
 import com.mojang.serialization.Codec;
-import net.amurdza.examplemod.AOEMod;
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.Holder;
 import net.minecraft.world.level.ChunkPos;
 import net.minecraft.world.level.WorldGenLevel;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.chunk.ChunkAccess;
+import net.minecraft.world.level.levelgen.Heightmap;
 import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
 import net.minecraft.world.level.levelgen.placement.PlacedFeature;
@@ -15,7 +16,6 @@ import net.minecraft.world.level.levelgen.placement.PlacedFeature;
 import static net.amurdza.examplemod.worldgen.feature.AllSurfacesFeatureConfig.Target.AIR;
 
 public class AllSurfacesFeature extends Feature<AllSurfacesFeatureConfig> {
-
     public AllSurfacesFeature(Codec<AllSurfacesFeatureConfig> codec) {
         super(codec);
     }
@@ -23,7 +23,6 @@ public class AllSurfacesFeature extends Feature<AllSurfacesFeatureConfig> {
     @Override
     public boolean place(FeaturePlaceContext<AllSurfacesFeatureConfig> context) {
         AllSurfacesFeatureConfig cfg = context.config();
-        PlacedFeature feature = cfg.feature.value();
 
         WorldGenLevel level = context.level();
         ChunkAccess chunk = level.getChunk(context.origin());
@@ -32,7 +31,18 @@ public class AllSurfacesFeature extends Feature<AllSurfacesFeatureConfig> {
         int minX = chunkPos.getMinBlockX();
         int minZ = chunkPos.getMinBlockZ();
 
+        int defaultMaxY = chunk.getMaxBuildHeight() - 1;
+        int defaultMinY = chunk.getMinBuildHeight() - 1;
+
+        int maxY = cfg.maxY != null ? cfg.maxY : defaultMaxY;
+        int minY = cfg.minY != null ? cfg.minY : defaultMinY;
+
+        if (maxY < minY) {
+            return false;
+        }
+
         boolean placedAnything = false;
+        BlockPos.MutableBlockPos pos = new BlockPos.MutableBlockPos();
 
         for (int dx = 0; dx < 16; dx++) {
             int x = minX + dx;
@@ -40,20 +50,24 @@ public class AllSurfacesFeature extends Feature<AllSurfacesFeatureConfig> {
             for (int dz = 0; dz < 16; dz++) {
                 int z = minZ + dz;
 
-                int maxY = chunk.getMaxBuildHeight() - 1;
-                int minY = chunk.getMinBuildHeight() -1;
+                if (cfg.allLayers) {
+                    for (int y = maxY; y >= minY; y--) {
+                        pos.set(x, y, z);
 
-                BlockPos.MutableBlockPos pos = new BlockPos.MutableBlockPos(x, maxY, z);
+                        boolean placed = tryPlace(level, pos, context, cfg);
+                        placedAnything |= placed;
+                    }
+                } else {
+                    int y = getSurfaceStartY(chunk, cfg, dx, dz);
 
-                for (int y = maxY; y >= minY; y--) {
+                    if (y > maxY || y < minY) {
+                        continue;
+                    }
+
                     pos.set(x, y, z);
 
-                    boolean placed = tryPlace(level, pos, context, cfg, feature);
+                    boolean placed = tryPlace(level, pos, context, cfg);
                     placedAnything |= placed;
-
-                    if (placed && !cfg.allLayers) {
-                        break;
-                    }
                 }
             }
         }
@@ -61,52 +75,35 @@ public class AllSurfacesFeature extends Feature<AllSurfacesFeatureConfig> {
         return placedAnything;
     }
 
+    private int getSurfaceStartY(
+            ChunkAccess chunk,
+            AllSurfacesFeatureConfig cfg,
+            int localX,
+            int localZ
+    ) {
+        Heightmap.Types heightmap = switch (cfg.target) {
+            case AIR -> Heightmap.Types.WORLD_SURFACE_WG;
+            case WATER, LAVA -> Heightmap.Types.OCEAN_FLOOR_WG;
+        };
+
+        int height = chunk.getHeight(heightmap, localX, localZ);
+
+        return height + 1;
+    }
+
     private boolean tryPlace(
             WorldGenLevel level,
             BlockPos pos,
             FeaturePlaceContext<AllSurfacesFeatureConfig> context,
-            AllSurfacesFeatureConfig cfg,
-            PlacedFeature feature
+            AllSurfacesFeatureConfig cfg
     ) {
         if (cfg.biomes != null && !level.getBiome(pos.below()).is(cfg.biomes)) {
             return false;
         }
 
-        BlockState state = level.getBlockState(pos);
-        BlockState above = level.getBlockState(pos.above());
+        Holder<PlacedFeature> selectedFeature = getFeatureForTargetPosition(level, pos, cfg);
 
-        boolean validTarget;
-
-        switch (cfg.target) {
-            case AIR -> validTarget =
-                    state.isAir()
-                            && level.getFluidState(pos).isEmpty()
-                            && level.getFluidState(pos.above()).isEmpty();
-
-            case WATER -> {
-                boolean hereWater = state.is(Blocks.WATER);
-                boolean aboveWater = above.is(Blocks.WATER);
-
-                validTarget = hereWater && (
-                        (cfg.deep && aboveWater) ||
-                                (!cfg.deep && !aboveWater)
-                );
-            }
-
-            case LAVA -> {
-                boolean hereLava = state.is(Blocks.LAVA);
-                boolean aboveLava = above.is(Blocks.LAVA);
-
-                validTarget = hereLava && (
-                        (cfg.deep && aboveLava) ||
-                                (!cfg.deep && !aboveLava)
-                );
-            }
-
-            default -> validTarget = false;
-        }
-
-        if (!validTarget) {
+        if (selectedFeature == null) {
             return false;
         }
 
@@ -120,7 +117,63 @@ public class AllSurfacesFeature extends Feature<AllSurfacesFeatureConfig> {
             }
         }
 
-        return feature.place(level, context.chunkGenerator(), context.random(), pos);
+        return selectedFeature.value().place(level, context.chunkGenerator(), context.random(), pos);
+    }
+
+    private Holder<PlacedFeature> getFeatureForTargetPosition(
+            WorldGenLevel level,
+            BlockPos pos,
+            AllSurfacesFeatureConfig cfg
+    ) {
+        BlockState state = level.getBlockState(pos);
+        BlockState above = level.getBlockState(pos.above());
+
+        return switch (cfg.target) {
+            case AIR -> {
+                boolean validAir =
+                        state.isAir()
+                                && level.getFluidState(pos).isEmpty()
+                                && level.getFluidState(pos.above()).isEmpty();
+
+                if (!validAir) {
+                    yield null;
+                }
+
+                yield cfg.feature;
+            }
+
+            case WATER -> {
+                boolean hereWater = state.is(Blocks.WATER);
+
+                if (!hereWater) {
+                    yield null;
+                }
+
+                boolean aboveWater = above.is(Blocks.WATER);
+
+                if (aboveWater) {
+                    yield cfg.deepFeature;
+                }
+
+                yield cfg.feature;
+            }
+
+            case LAVA -> {
+                boolean hereLava = state.is(Blocks.LAVA);
+
+                if (!hereLava) {
+                    yield null;
+                }
+
+                boolean aboveLava = above.is(Blocks.LAVA);
+
+                if (aboveLava) {
+                    yield cfg.deepFeature;
+                }
+
+                yield cfg.feature;
+            }
+        };
     }
 
     private boolean isSafeAirOrigin(WorldGenLevel level, BlockPos pos) {

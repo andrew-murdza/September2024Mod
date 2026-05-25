@@ -6,7 +6,8 @@
       "placement": []
     },
      "target": "air",
-    "deep": false,
+    "max_y": 70,
+    "min_y": 0,
     "all_layers": true,
     "predicate": {
       "type": "minecraft:matching_blocks",

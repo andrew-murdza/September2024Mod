@@ -111,6 +111,7 @@ public abstract class HugeFungiDontGenerateIntoWalls extends Feature<HugeFungusC
         return true;
     }
 
+    @Unique
     private static boolean aoemod$canPlaceHat(
             WorldGenLevel level,
             RandomSource random,

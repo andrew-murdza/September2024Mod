@@ -31,6 +31,8 @@ import java.util.function.Function;
 @Mod.EventBusSubscriber(modid = AOEMod.MOD_ID, bus = Mod.EventBusSubscriber.Bus.MOD)
 public class Config
 {
+    public static final double BAND_WIDTH = 640;
+
     public static final Function<RandomSource, Integer> shearAmount=randomSource->2*(1+randomSource.nextInt(3));
     public static final double LLAMA_HEALTH = 40;
     public static final double HORSE_HEALTH = 40;

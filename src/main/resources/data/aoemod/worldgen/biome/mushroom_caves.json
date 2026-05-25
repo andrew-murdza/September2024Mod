@@ -1,10 +1,5 @@
 {
-  "carvers": {
-    "air": [
-      "minecraft:cave",
-      "minecraft:cave_extra_underground"
-    ]
-  },
+  "carvers": {},
   "downfall": 0.4,
   "effects": {
     "fog_color": 12638463,
@@ -26,15 +21,7 @@
     [],
     [],
     [
-      "aoemod:mushroom_caves/blobs/gravel",
-      "aoemod:mushroom_caves/blobs/clay",
-      "aoemod:mushroom_caves/blobs/sand",
-      "aoemod:mushroom_caves/blobs/dirt",
-      "aoemod:mushroom_caves/blobs/sandstone",
-      "aoemod:mushroom_caves/blobs/calcite",
-      "aoemod:mushroom_caves/blobs/andesite",
-      "aoemod:mushroom_caves/blobs/granite",
-      "aoemod:mushroom_caves/blobs/diorite",
+      "aoemod:mushroom_caves/stone_variants",
       "aoemod:mushroom_caves/ores/ore_coal_lower",
       "aoemod:mushroom_caves/ores/ore_coal_upper",
       "aoemod:mushroom_caves/ores/ore_copper",
@@ -60,8 +47,7 @@
     [
       "aoemod:mushroom_caves/trees",
       "aoemod:mushroom_caves/mushrooms",
-      "aoemod:mushroom_caves/seafloor",
-      "aoemod:mushroom_caves/seafloor_shallow"
+      "aoemod:mushroom_caves/seafloor"
     ],
     [
       "minecraft:freeze_top_layer"

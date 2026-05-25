@@ -6,9 +6,8 @@
     }
   ],
   "placement": {
-    "type": "minecraft:random_spread",
-    "spacing": 25,
-    "separation": 24,
-    "salt": 8246137
+    "type": "aoemod:band_polar",
+    "target_band_pos": 5.5,
+    "arc_spacing": 900.0
   }
 }

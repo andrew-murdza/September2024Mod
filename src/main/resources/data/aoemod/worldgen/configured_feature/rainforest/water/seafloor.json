@@ -1,12 +1,17 @@
 {
   "type": "aoemod:all_surface",
   "config": {
-    "feature": {
+    "deep_feature": {
       "feature": "aoemod:rainforest/water/water_plants_full",
       "placement": []
     },
+    "feature": {
+      "feature": "aoemod:rainforest/water/water_plants_shallow_full",
+      "placement": []
+    },
     "target": "water",
-    "deep": true,
+    "max_y": 70,
+    "min_y": 0,
     "all_layers": true,
     "predicate": {
       "type": "minecraft:any_of",

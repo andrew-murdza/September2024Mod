@@ -8,17 +8,10 @@ import net.minecraft.world.level.levelgen.feature.configurations.FeatureConfigur
 import java.util.List;
 
 public record MountainLakeConfig(
-        int minWaterY,
-        int maxWaterY,
-
-        int radiusMin,
-        int radiusMax,
-
-        int depthMin,
-        int depthMax,
-
-        int rampW,                      // ✅ configurable ramp width
-
+        int waterY,
+        int radius,
+        int depth,
+        int rampW,
         List<BlockState> seafloorBlocks, // ✅ variable length; [0]=waterY-1, [1]=waterY-2, ...
         BlockState rampFill              // ✅ fill block used for the ramp
 ) implements FeatureConfiguration {
@@ -31,20 +24,17 @@ public record MountainLakeConfig(
     }
 
     public static final Codec<MountainLakeConfig> CODEC = RecordCodecBuilder.create(i -> i.group(
-            Codec.INT.fieldOf("min_water_y").forGetter(MountainLakeConfig::minWaterY),
-            Codec.INT.fieldOf("max_water_y").forGetter(MountainLakeConfig::maxWaterY),
+            Codec.INT.fieldOf("water_y").forGetter(MountainLakeConfig::waterY),
 
-            Codec.INT.fieldOf("radius_min").forGetter(MountainLakeConfig::radiusMin),
-            Codec.INT.fieldOf("radius_max").forGetter(MountainLakeConfig::radiusMax),
+            Codec.INT.fieldOf("radius").forGetter(MountainLakeConfig::radius),
 
-            Codec.INT.fieldOf("depth_min").forGetter(MountainLakeConfig::depthMin),
-            Codec.INT.fieldOf("depth_max").forGetter(MountainLakeConfig::depthMax),
+            Codec.INT.fieldOf("depth").forGetter(MountainLakeConfig::depth),
 
             Codec.INT.fieldOf("ramp_w").forGetter(MountainLakeConfig::rampW),
 
             SeafloorBlocks.CODEC.fieldOf("seafloor_blocks").forGetter(c -> new SeafloorBlocks(c.seafloorBlocks())),
             BlockState.CODEC.fieldOf("ramp_fill").forGetter(MountainLakeConfig::rampFill)
-    ).apply(i, (minW, maxW, rMin, rMax, dMin, dMax, rampW, sf, rampFill) ->
-            new MountainLakeConfig(minW, maxW, rMin, rMax, dMin, dMax, rampW, sf.layers(), rampFill)
+    ).apply(i, (w, r, d, rampW, sf, rampFill) ->
+            new MountainLakeConfig(w, r, d, rampW, sf.layers(), rampFill)
     ));
 }

@@ -12,6 +12,6 @@ public class AntHillChance {
             constant = @Constant(floatValue = 0.0175F)
     )
     private float aoemod$increaseAnthillChance(float original) {
-        return 0.05F;
+        return 1F;
     }
 }
