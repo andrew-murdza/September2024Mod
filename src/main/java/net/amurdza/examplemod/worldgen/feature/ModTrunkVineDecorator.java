@@ -2,7 +2,6 @@ package net.amurdza.examplemod.worldgen.feature;
 
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
-import net.amurdza.examplemod.block.ModBlocks;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.util.RandomSource;
@@ -25,10 +24,8 @@ public class ModTrunkVineDecorator extends TreeDecorator {
     public static final Codec<ModTrunkVineDecorator> CODEC = RecordCodecBuilder.create(inst ->
             inst.group(
                     Codec.floatRange(0.0F, 1.0F).fieldOf("probability").forGetter(d -> d.probability),
-                    Codec.intRange(1, 1000).fieldOf("grape_weight").forGetter(d -> d.grapeWeight),
                     Codec.intRange(1, 1000).fieldOf("lichen_weight").forGetter(d -> d.lichenWeight),
                     Codec.intRange(1, 1000).fieldOf("vine_weight").forGetter(d -> d.vineWeight),
-                    Codec.intRange(1, 1000).optionalFieldOf("cherry_vine_weight",0).forGetter(d -> d.cherryVineWeight),
                     Codec.intRange(1, 1000).optionalFieldOf("cocoa_weight",0).forGetter(d -> d.cocoaWeight),
                     Codec.intRange(0, 1000).optionalFieldOf("max_log_y_delta", 2).forGetter(d -> d.maxLogYDelta),
                     Codec.floatRange(0.0F, 1.0F).optionalFieldOf("per_side_chance", 0.25F).forGetter(d -> d.perSideChance)
@@ -36,10 +33,8 @@ public class ModTrunkVineDecorator extends TreeDecorator {
     );
 
     private final float probability;
-    private final int grapeWeight;
     private final int lichenWeight;
     private final int vineWeight;
-    private final int cherryVineWeight;
     private final int cocoaWeight;
     private final int maxLogYDelta;
     private final float perSideChance;
@@ -50,19 +45,15 @@ public class ModTrunkVineDecorator extends TreeDecorator {
 
     public ModTrunkVineDecorator(
             float probability,
-            int grapeWeight,
             int lichenWeight,
             int vineWeight,
-            int cherryVineWeight,
             int cocoaWeight,
             int maxLogYDelta,
             float perSideChance
     ) {
         this.probability = probability;
-        this.grapeWeight = grapeWeight;
         this.lichenWeight = lichenWeight;
         this.vineWeight = vineWeight;
-        this.cherryVineWeight = cherryVineWeight;
         this.cocoaWeight = cocoaWeight;
         this.maxLogYDelta = maxLogYDelta;
         this.perSideChance = perSideChance;
@@ -104,17 +95,13 @@ public class ModTrunkVineDecorator extends TreeDecorator {
         }
     }
 
-    private enum BlockChoice { GRAPE, LICHEN, VINE, CHERRY_VINE, COCOA}
+    private enum BlockChoice { LICHEN, VINE, COCOA}
 
     private BlockChoice pick(RandomSource rand) {
-        int total = grapeWeight + lichenWeight + vineWeight +cherryVineWeight + cocoaWeight;
+        int total = lichenWeight + vineWeight + cocoaWeight;
         int r = rand.nextInt(total);
-        if (r < grapeWeight) return BlockChoice.GRAPE;
-        r -= grapeWeight;
         if (r < lichenWeight) return BlockChoice.LICHEN;
         r -= lichenWeight;
-        if (r < cherryVineWeight) return BlockChoice.CHERRY_VINE;
-        r -= cherryVineWeight;
         if (r < cocoaWeight) return BlockChoice.COCOA;
         return BlockChoice.VINE;
     }
@@ -124,10 +111,8 @@ public class ModTrunkVineDecorator extends TreeDecorator {
 
         BlockState state;
         switch (choice) {
-            case GRAPE -> state = ModBlocks.GRAPE_VINE.get().defaultBlockState();
-            case LICHEN -> state = ModBlocks.JUNGLE_GLOW_LICHEN.get().defaultBlockState();
+            case LICHEN -> state = Blocks.GLOW_LICHEN.defaultBlockState();
             case VINE -> state = Blocks.VINE.defaultBlockState();
-            case CHERRY_VINE -> state = Blocks.VINE.defaultBlockState();
             case COCOA -> state = Blocks.COCOA.defaultBlockState().setValue(BlockStateProperties.AGE_2,2);
             default -> { return; }
         }

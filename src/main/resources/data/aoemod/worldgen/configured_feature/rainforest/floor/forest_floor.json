@@ -103,69 +103,9 @@
         }
       },
       {
-        "chance": 0.002,
-        "feature": {
-          "feature": "aoemod:rainforest/floor/cactus",
-          "placement": [
-            {
-              "type": "minecraft:block_predicate_filter",
-              "predicate": {
-                "type": "minecraft:matching_blocks",
-                "offset": [
-                  0,
-                  -1,
-                  0
-                ],
-                "blocks": "minecraft:moss_block"
-              }
-            }
-          ]
-        }
-      },
-      {
         "chance": 0.003,
         "feature": {
-          "feature": "aoemod:reeds/sugar_cane",
-          "placement": [
-            {
-              "type": "minecraft:block_predicate_filter",
-              "predicate": {
-                "type": "minecraft:matching_blocks",
-                "offset": [
-                  0,
-                  -1,
-                  0
-                ],
-                "blocks": "minecraft:moss_block"
-              }
-            }
-          ]
-        }
-      },
-      {
-        "chance": 0.001,
-        "feature": {
-          "feature": "aoemod:rainforest/floor/small_dripleaf",
-          "placement": [
-            {
-              "type": "minecraft:block_predicate_filter",
-              "predicate": {
-                "type": "minecraft:matching_blocks",
-                "offset": [
-                  0,
-                  -1,
-                  0
-                ],
-                "blocks": "minecraft:moss_block"
-              }
-            }
-          ]
-        }
-      },
-      {
-        "chance": 0.001,
-        "feature": {
-          "feature": "aoemod:rainforest/floor/big_dripleaf",
+          "feature": "aoemod:sugar_cane",
           "placement": [
             {
               "type": "minecraft:block_predicate_filter",

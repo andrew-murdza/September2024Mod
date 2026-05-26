@@ -6,12 +6,10 @@ import com.teamabnormals.upgrade_aquatic.core.registry.UABlocks;
 import dev.corgitaco.ohthetreesyoullgrow.world.level.levelgen.feature.TreeFromStructureNBTFeature;
 import net.amurdza.examplemod.AOEMod;
 import net.amurdza.examplemod.Config;
-import net.amurdza.examplemod.block.CharniaBlock;
 import net.amurdza.examplemod.block.ModBlocks;
 import net.amurdza.examplemod.util.Helper;
 import net.amurdza.examplemod.util.ModTags;
 import net.amurdza.examplemod.util.RandomCollection;
-import net.amurdza.examplemod.worldgen.feature.BouddhasHandFeature;
 import net.amurdza.examplemod.worldgen.feature.ModConfiguredFeatures;
 import net.amurdza.examplemod.worldgen.feature.RandomSelectionFeature;
 import net.amurdza.examplemod.worldgen.feature.RandomSelectionFeatureConfig;
@@ -66,54 +64,6 @@ public class BoneMealEvent {
         placeBoneMeal(world, pos, blockState -> blockState.is(Blocks.SOUL_SAND)||blockState.is(Blocks.SOUL_SOIL), 10, func);
     }
 
-//    static RandomCollection<BiFunction<Level, BlockPos, Boolean>> mossPlants = new RandomCollection<>();
-//    static {
-//        mossPlants.add(1, placeBlock(Blocks.RED_MUSHROOM));
-//        mossPlants.add(1, placeBlock(Blocks.BROWN_MUSHROOM));
-//        Block[] flowers = new Block[]{Blocks.POPPY, Blocks.DANDELION, Blocks.CORNFLOWER, Blocks.BLUE_ORCHID,
-//                Blocks.AZURE_BLUET, Blocks.WHITE_TULIP, Blocks.PINK_TULIP, Blocks.ORANGE_TULIP, Blocks.RED_TULIP,
-//                Blocks.OXEYE_DAISY, Blocks.LILY_OF_THE_VALLEY, Blocks.ALLIUM};
-//        for(Block flower : flowers) {
-//            mossPlants.add(1, placeBlock(flower));
-//        }
-//        mossPlants.add(100, placeBlock(Blocks.GRASS));
-//        mossPlants.add(20, placeBlock(Blocks.FERN));
-//        mossPlants.add(0.3, placeBlock(Blocks.DEAD_BUSH));
-//        mossPlants.add(1, BoneMealEvent::createDripLeaf);
-//        mossPlants.add(6, placeBlock(Blocks.AZALEA));
-//        mossPlants.add(2, placeBlock(Blocks.FLOWERING_AZALEA));
-//        mossPlants.add(20, placeDoubleBlock(Blocks.LARGE_FERN));
-//        mossPlants.add(20, placeDoubleBlock(Blocks.TALL_GRASS));
-//        mossPlants.add(1, placeDoubleBlock(Blocks.SUNFLOWER));
-//        mossPlants.add(1, placeDoubleBlock(Blocks.LILAC));
-//        mossPlants.add(1, placeDoubleBlock(Blocks.ROSE_BUSH));
-//        mossPlants.add(1, placeDoubleBlock(Blocks.PEONY));
-//    }
-
-//    // Block placer methods
-//    private static BiFunction<Level, BlockPos, Boolean> placeBlock(BlockState state) {
-//        return (level, pos) -> {
-//            boolean successful=Helper.isOkToPlace(level,pos,state);
-//            if(successful&&!level.isClientSide){
-//                level.setBlockAndUpdate(pos, state);
-//            }
-//            return successful;
-//        };
-//    }
-
-//    private static BiFunction<Level, BlockPos, Boolean> placeDoubleBlock(Block block) {
-//        return (level, pos) -> {
-//            boolean successful=Helper.isOkToPlace(level,pos,block)&&Helper.isOkToPlace(level,pos.above(),block);
-//            if(successful&&!level.isClientSide){
-//                DoublePlantBlock.placeAt(level, block.defaultBlockState(), pos, 2);
-//            }
-//            return successful;
-//        };
-//    }
-
-//    private static BiFunction<Level, BlockPos, Boolean> placeBlock(Block block) {
-//        return placeBlock(block.defaultBlockState());
-//    }
 
     @SubscribeEvent
     public static void onRightClickBlock(PlayerInteractEvent.RightClickBlock event) {
@@ -175,10 +125,6 @@ public class BoneMealEvent {
 
             // If we did nothing this iteration, stop early.
             if (!applyOnce(level,pos)) break;
-
-//            // Re-check continuation condition based on UPDATED state.
-//            BlockState newState = level.getBlockState(pos);
-//            if (isNotEligibleBonemealTarget(level, pos, newState)) break;
         }
     }
 
@@ -280,7 +226,6 @@ public class BoneMealEvent {
         if (block == Blocks.SMALL_DRIPLEAF) return false;
 
         if (block == UABlocks.TALL_PICKERELWEED.get()) return false;
-        if (block instanceof CharniaBlock) return false;
 
         if (state.is(ModTags.Blocks.netherFlowers)) return false;
         if (state.is(ModTags.Blocks.netherRootsPlaceable)) return false;
@@ -330,14 +275,6 @@ public class BoneMealEvent {
                 Block.popResource(level, pos, new ItemStack(block));
             }
             growBiomeSurface(level, pos);
-            return true;
-        }
-
-        if (block instanceof CharniaBlock) {
-            BiFunction<BlockState, BlockPos, Boolean> func =
-                    (state1, pos1) -> state1.isFaceSturdy(level, pos1, Direction.UP);
-
-            growFlowers(level, pos, func);
             return true;
         }
 
@@ -1005,8 +942,7 @@ public class BoneMealEvent {
                 || feature instanceof HugeFungusFeature
                 || feature instanceof AbstractHugeMushroomFeature
                 || feature instanceof BaseLargeMushroomFeature
-                || feature instanceof TreeFromStructureNBTFeature
-                || feature instanceof BouddhasHandFeature;
+                || feature instanceof TreeFromStructureNBTFeature;
     }
 
     private static void placeBoneMeal(Level world, BlockPos pos, Function<BlockState, Boolean> check, Function<BlockPos, Boolean> run, boolean twoBlocks, boolean isWater) {

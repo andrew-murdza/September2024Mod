@@ -10,14 +10,7 @@
         }
       },
       {
-        "chance": 0.002,
-        "feature": {
-          "feature": "aoemod:soul_sand_valley/bouddhas_hand_tree",
-          "placement": []
-        }
-      },
-      {
-        "chance": 0.88,
+        "chance": 0.90,
         "feature": {
           "feature": "aoemod:nothing",
           "placement": []

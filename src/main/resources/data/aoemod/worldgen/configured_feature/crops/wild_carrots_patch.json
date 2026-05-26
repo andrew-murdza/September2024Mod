@@ -27,10 +27,12 @@
                   "minecraft:void_air"
                 ]
               },
-
               {
                 "type": "minecraft:matching_blocks",
-                "blocks": "minecraft:grass_block",
+                "blocks": [
+                  "minecraft:grass_block",
+                  "minecraft:moss_block"
+                ],
                 "offset": [
                   0,
                   -1,

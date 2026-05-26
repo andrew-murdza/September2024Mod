@@ -38,10 +38,8 @@
     [],
     [],
     [
-      "aoemod:warped_forest/blobs/magma",
       "aoemod:warped_forest/blobs/glowstone",
       "aoemod:warped_forest/blobs/blackstone",
-      "aoemod:warped_forest/blobs/gravel",
       "aoemod:warped_forest/blobs/basalt",
       "aoemod:warped_forest/ores/ancient_debris",
       "aoemod:warped_forest/ores/gold",
@@ -50,10 +48,7 @@
     [],
     [],
     [
-      "aoemod:nether_cane",
-      "aoemod:warped_forest/warped_carrot",
-      "aoemod:warped_forest/twisting_vines",
-//      "aoemod:warped_forest/pitaya"
+      "aoemod:warped_forest/twisting_vines"
     ]
   ],
   "has_precipitation": false,
@@ -72,12 +67,6 @@
         "weight": 15,
         "minCount": 4,
         "maxCount": 4
-      },
-      {
-        "type": "minecraft:strider",
-        "maxCount": 2,
-        "minCount": 1,
-        "weight": 60
       }
     ],
     "misc": [],
@@ -104,31 +93,7 @@
     "underground_water_creature": [],
     "water_ambient": [
       {
-        "type": "netherdepthsupgrade:bonefish",
-        "weight": 5,
-        "minCount": 2,
-        "maxCount": 4
-      },
-      {
-        "type": "netherdepthsupgrade:glowdine",
-        "weight": 5,
-        "minCount": 3,
-        "maxCount": 6
-      },
-      {
-        "type": "netherdepthsupgrade:lava_pufferfish",
-        "weight": 10,
-        "minCount": 1,
-        "maxCount": 3
-      },
-      {
-        "type": "netherdepthsupgrade:searing_cod",
-        "weight": 15,
-        "minCount": 3,
-        "maxCount": 6
-      },
-      {
-        "type": "blue_skies:charscale_moki",
+        "type": "blue_skies:municipal_monkfish",
         "weight": 3,
         "minCount": 2,
         "maxCount": 4

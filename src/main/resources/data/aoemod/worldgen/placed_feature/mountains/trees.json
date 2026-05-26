@@ -13,20 +13,20 @@
       "max_water_depth": 0
     },
     {
+      "type": "minecraft:heightmap",
+      "heightmap": "OCEAN_FLOOR"
+    },
+    {
       "type": "minecraft:block_predicate_filter",
       "predicate": {
         "type": "minecraft:would_survive",
         "state": {
-          "Name": "minecraft:oak_sapling",
+          "Name": "minecraft:spruce_sapling",
           "Properties": {
             "stage": "0"
           }
         }
       }
-    },
-    {
-      "type": "minecraft:heightmap",
-      "heightmap": "OCEAN_FLOOR"
     },
     {
       "type": "minecraft:biome"

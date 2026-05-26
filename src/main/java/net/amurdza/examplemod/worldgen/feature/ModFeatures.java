@@ -1,18 +1,15 @@
 package net.amurdza.examplemod.worldgen.feature;
 
 import net.amurdza.examplemod.AOEMod;
-import net.amurdza.examplemod.worldgen.structure.MountainLakeConfig;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
 import net.minecraft.world.level.levelgen.feature.Feature;
-import net.minecraft.world.level.levelgen.feature.HugeBrownMushroomFeature;
 import net.minecraft.world.level.levelgen.feature.configurations.BlockColumnConfiguration;
 import net.minecraft.world.level.levelgen.feature.configurations.HugeMushroomFeatureConfiguration;
 import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConfiguration;
 import net.minecraft.world.level.levelgen.feature.configurations.ProbabilityFeatureConfiguration;
-
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
@@ -30,23 +27,18 @@ public class ModFeatures {
     public static final RegistryObject<Feature<AllSurfacesFeatureConfig>> ALL_SURFACE=FEATURES.register("all_surface",()->new AllSurfacesFeature(AllSurfacesFeatureConfig.CODEC));
     public static final RegistryObject<Feature<RandomSelectionFeatureConfig>> RANDOM_SELECTION=FEATURES.register("random_selector",()->new RandomSelectionFeature(RandomSelectionFeatureConfig.CODEC));
     public static final RegistryObject<Feature<CaveVineConfig>> CAVE_VINES=FEATURES.register("cave_vines",()->new CaveVineColumn(CaveVineConfig.CODEC));
-    public static final RegistryObject<Feature<NoneFeatureConfiguration>> PITAYA=FEATURES.register("pitaya",()->new PitayaFeature(NoneFeatureConfiguration.CODEC));
     public static final RegistryObject<Feature<BlockColumnConfiguration>> BLOCK_COLUMN=FEATURES.register("block_column",()->new BlockColumn(BlockColumnConfiguration.CODEC));
     public static final RegistryObject<Feature<NoneFeatureConfiguration>> GLOW_LICHEN=FEATURES.register("glow_lichen",()->new GlowLichenFeature(NoneFeatureConfiguration.CODEC));
     public static final RegistryObject<Feature<HugeMushroomFeatureConfiguration>> GIANT_GLOW_SHROOM=FEATURES.register("huge_glow_shroom",()->new GiantGlowshroomFeature(HugeMushroomFeatureConfiguration.CODEC));
     public static final RegistryObject<Feature<ProbabilityFeatureConfiguration>> CRIMSON_SEAGRASS=FEATURES.register("crimson_seagrass",()->new CrimsonSeaGrassFeature(ProbabilityFeatureConfiguration.CODEC));
     public static final RegistryObject<Feature<ProbabilityFeatureConfiguration>> WARPED_SEAGRASS=FEATURES.register("warped_seagrass",()->new WarpedSeagrassFeature(ProbabilityFeatureConfiguration.CODEC));
 
-    public static final ResourceKey<ConfiguredFeature<?, ?>> HUGE_LUSHROOM = createKey("huge_lush_mushroom");
     public static final ResourceKey<ConfiguredFeature<?,?>> HUGE_GLOW_SHROOM = createKey("huge_glow_shroom");
+    public static final ResourceKey<ConfiguredFeature<?,?>> HUGE_SNOWCAP_MUSHROOM = createKey("huge_snowcap_mushroom");
 
     public static ResourceKey<ConfiguredFeature<?, ?>> createKey(String p_255643_) {
         return ResourceKey.create(Registries.CONFIGURED_FEATURE, new ResourceLocation("aoemod", p_255643_));
     }
-
-    public static final RegistryObject<Feature<NoneFeatureConfiguration>> BOUDDHAS_HAND =
-            FEATURES.register("bouddhas_hand_tree", () ->
-                    new BouddhasHandFeature(NoneFeatureConfiguration.CODEC));
 }
 
 //public class ModFeatures {

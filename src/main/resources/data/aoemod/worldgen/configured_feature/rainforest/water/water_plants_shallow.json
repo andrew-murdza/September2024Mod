@@ -70,15 +70,6 @@
         {
           "weight": 1,
           "data": {
-            "Name": "upgrade_aquatic:moss_coral_fan",
-            "Properties": {
-              "waterlogged": "true"
-            }
-          }
-        },
-        {
-          "weight": 1,
-          "data": {
             "Name": "upgrade_aquatic:petal_coral_fan",
             "Properties": {
               "waterlogged": "true"

@@ -21,6 +21,15 @@
         "state": {
           "Name": "aoemod:basalt_quartz_ore"
         }
+      },
+      {
+        "target": {
+          "predicate_type": "minecraft:block_match",
+          "block": "minecraft:netherrack"
+        },
+        "state": {
+          "Name": "minecraft:nether_quartz_ore"
+        }
       }
     ]
   }

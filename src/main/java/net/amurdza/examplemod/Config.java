@@ -47,7 +47,6 @@ public class Config
 //    public static final int CHANCE_OF_TALL_SEAGRASS_BONEMEAL = 4;
     public static final int MAX_MUSHROOMS_FOR_GROWTH = 5;
 //    public static final int MYCELIUM_GRASS_SPREAD_NUM_TRIES = 8;
-    public static final int GLOW_LICHEN_TRIES = 4;
     public static final double PLACE_CHORUS_FLOWER_CHANCE = 0.1;
     public static final double CHORUS_FLOWER_GROW_CHANCE = 0.16;
     public static final int MULBERRY_HARVEST_AMOUNT_IN_SPECIAL_BIOME = 4;
@@ -61,12 +60,8 @@ public class Config
     public static final float PLAYER_ATTACK_FACTOR = 1.05F;
     public static final float MONSTER_ATTACK_FACTOR = 1.05F;
     public static final int FARMLAND_DISTANCE = 14;
-//    public static final float PROPEL_GROWTH_CHANCE = 0.5F;
-    public static final float PITAYA_GROWTH_CHANCE = 0.5F;
     public static final double GLOW_LICHEN_TRUNK_CHANCE = 0.1;
     public static final double VINE_TRUNK_CHANCE = 0.5;
-    public static final double FRUIT_LEAVES_CHANCE = 0.5;
-    public static final float PRICKLY_PEAR_CHANCE = 1F;
     public static List<Item> BLACKLISTED_USE_ITEMS=List.of();
 //    public static final int BLOOD_MOON_FREQUENCY = 7;
 //    public static final float BLOOD_MOON_SPAWN_CAP_MULTIPLIER = 3.0f;
@@ -299,7 +294,7 @@ public class Config
         addToMap(EntityAlligatorSnappingTurtle.class,0,AMItemRegistry.SPIKED_SCUTE.get());
 
 
-        List<Block> saplings=List.of(samebutdifferent.ecologics.registry.ModBlocks.COCONUT_SEEDLING.get(), Blocks.SPRUCE_SAPLING,Blocks.ACACIA_SAPLING,Blocks.CHERRY_SAPLING,Blocks.BIRCH_SAPLING,Blocks.DARK_OAK_SAPLING,Blocks.JUNGLE_SAPLING,Blocks.OAK_SAPLING,Blocks.MANGROVE_PROPAGULE, Objects.requireNonNull(BWGWood.BAOBAB.sapling()).getBlock());
+        List<Block> saplings=List.of(Blocks.SPRUCE_SAPLING,Blocks.ACACIA_SAPLING,Blocks.CHERRY_SAPLING,Blocks.BIRCH_SAPLING,Blocks.DARK_OAK_SAPLING,Blocks.JUNGLE_SAPLING,Blocks.OAK_SAPLING,Blocks.MANGROVE_PROPAGULE, Objects.requireNonNull(BWGWood.BAOBAB.sapling()).getBlock());
         for(Block block: saplings){
             addToMap(block,0.45D);
         }

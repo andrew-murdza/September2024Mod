@@ -10,7 +10,7 @@
     "leaf_block_state_provider": {
       "type": "minecraft:simple_state_provider",
       "state": {
-        "Name": "trailsandtalesplus:cherry_leaves"
+        "Name": "minecraft:cherry_leaves"
       }
     },
     "has_spore_blossoms":true,
@@ -20,10 +20,7 @@
     "vine_block_state_provider": {
       "type": "minecraft:simple_state_provider",
       "state": {
-        "Name": "aoemod:grapes",
-        "Properties": {
-          "berries": "true"
-        }
+        "Name": "minecraft:vines"
       }
     }
   }

@@ -20,23 +20,6 @@
         }
       },
       {
-        "chance": 0.00075,
-        "feature": {
-          "feature": "aoemod:desert/floor/cactus",
-          "placement": [
-            {
-              "type": "minecraft:block_predicate_filter",
-              "predicate": {
-                "type": "minecraft:matching_blocks",
-                "blocks": [
-                  "minecraft:sand"
-                ]
-              }
-            }
-          ]
-        }
-      },
-      {
         "chance": 0.008,
         "feature": {
           "feature": "aoemod:desert/floor/red_sand_grass",
@@ -54,7 +37,7 @@
         }
       },
       {
-        "chance": 0.89125,
+        "chance": 0.892,
         "feature": {
           "feature": "aoemod:nothing",
           "placement": []

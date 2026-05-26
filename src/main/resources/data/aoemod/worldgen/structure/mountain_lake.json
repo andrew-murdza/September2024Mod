@@ -4,17 +4,11 @@
   "step": "surface_structures",
   "terrain_adaptation": "none",
   "spawn_overrides": {},
-  "lake": {
-    "water_y": 140,
-    "radius": 50,
-    "depth": 50,
-    "ramp_w": 16,
-    "seafloor_blocks": {
-      "layers": [
-        { "Name": "minecraft:gravel" },
-        { "Name": "minecraft:gravel" }
-      ]
-    },
-    "ramp_fill": { "Name": "minecraft:stone" }
-  }
+  "water_y": 139,
+  "radius": 50,
+  "depth": 50,
+  "seafloor_blocks": [
+    { "Name": "minecraft:mud" },
+    { "Name": "minecraft:mud" }
+  ]
 }

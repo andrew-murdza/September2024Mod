@@ -1,7 +1,0 @@
-{
-  "parent": "minecraft:block/cross",
-  "textures": {
-    "cross": "aoemod:block/nether_cane"
-  },
-  "render_type": "cutout"
-}

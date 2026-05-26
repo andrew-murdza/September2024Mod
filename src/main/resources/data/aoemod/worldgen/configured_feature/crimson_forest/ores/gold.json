@@ -7,10 +7,37 @@
       {
         "target": {
           "predicate_type": "minecraft:block_match",
+          "block": "minecraft:basalt"
+        },
+        "state": {
+          "Name": "aoemod:basalt_gold_ore"
+        }
+      },
+      {
+        "target": {
+          "predicate_type": "minecraft:block_match",
+          "block": "minecraft:blackstone"
+        },
+        "state": {
+          "Name": "aoemod:blackstone_gold_ore"
+        }
+      },
+      {
+        "target": {
+          "predicate_type": "minecraft:block_match",
           "block": "minecraft:netherrack"
         },
         "state": {
           "Name": "minecraft:nether_gold_ore"
+        }
+      },
+      {
+        "target": {
+          "predicate_type": "minecraft:block_match",
+          "block": "minecraft:soul_soil"
+        },
+        "state": {
+          "Name": "aoemod:soul_soil_gold_ore"
         }
       }
     ]

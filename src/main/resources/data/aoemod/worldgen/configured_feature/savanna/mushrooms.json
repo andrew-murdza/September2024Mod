@@ -15,27 +15,6 @@
           "feature": "aoemod:mushrooms/red_mushroom_patch",
           "placement": []
         }
-      },
-      {
-        "chance": 0.16667,
-        "feature": {
-          "feature": "aoemod:mushrooms/green_mushroom_patch",
-          "placement": []
-        }
-      },
-      {
-        "chance": 0.16667,
-        "feature": {
-          "feature": "aoemod:mushrooms/wood_blewit_patch",
-          "placement": []
-        }
-      },
-      {
-        "chance": 0.16667,
-        "feature": {
-          "feature": "aoemod:mushrooms/weeping_milkcap_patch",
-          "placement": []
-        }
       }
     ]
   }

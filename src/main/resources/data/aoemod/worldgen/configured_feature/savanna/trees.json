@@ -8,27 +8,6 @@
           "feature": "minecraft:acacia",
           "placement": []
         }
-      },
-      {
-        "chance": 0.18,
-        "feature": {
-          "feature": "minecraft:oak_bees_005",
-          "placement": []
-        }
-      },
-      {
-        "chance": 0.05,
-        "feature": {
-          "feature": "minecraft:birch_bees_005",
-          "placement": []
-        }
-      },
-      {
-        "chance": 0.02,
-        "feature": {
-          "feature": "ecologics:walnut",
-          "placement": []
-        }
       }
     ]
   }

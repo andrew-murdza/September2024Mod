@@ -26,23 +26,6 @@ import static net.amurdza.examplemod.AOEMod.MOD_ID;
 @Mod.EventBusSubscriber(modid = MOD_ID, bus=Mod.EventBusSubscriber.Bus.FORGE)
 public class BerryDrops {
     @SubscribeEvent
-    public static void gatherFromGrapes(PlayerInteractEvent.RightClickBlock event){
-        Level pLevel=event.getLevel();
-        BlockPos pPos=event.getPos();
-        Player pEntity=event.getEntity();
-        BlockState pState=event.getLevel().getBlockState(pPos);
-        int numGrapes=Helper.isSpecialBiome(pLevel,pPos)?Config.NUM_GRAPES:1;
-        if(pState.is(ModBlocks.GRAPE_VINE.get())&&pState.getValue(BlockStateProperties.BERRIES)){
-            Block.popResource(pLevel, pPos, new ItemStack(ModBlocks.GRAPE_VINE.get().asItem(), numGrapes));
-            float f = Mth.randomBetween(pLevel.random, 0.8F, 1.2F);
-            pLevel.playSound(null, pPos, SoundEvents.CAVE_VINES_PICK_BERRIES, SoundSource.BLOCKS, 1.0F, f);
-            BlockState blockstate = pState.setValue(BlockStateProperties.BERRIES, false);
-            pLevel.setBlock(pPos, blockstate, 2);
-            pLevel.gameEvent(GameEvent.BLOCK_CHANGE, pPos, GameEvent.Context.of(pEntity, blockstate));
-        }
-    }
-
-    @SubscribeEvent
     public static void berriesFromUse(PlayerInteractEvent.RightClickBlock event){
         Level level=event.getLevel();
         BlockPos pos=event.getPos();
@@ -65,9 +48,6 @@ public class BerryDrops {
                 if(age==3){
                     amount = Config.SWEET_BERRIES_FULLY_GROWN;
                 }
-            }
-            if(state.is(ModBlocks.GRAPE_VINE.get())&&state.getValue(BlockStateProperties.BERRIES)){
-
             }
             if(amount>0){
                 Block.popResource(level, pos, new ItemStack(item,amount));

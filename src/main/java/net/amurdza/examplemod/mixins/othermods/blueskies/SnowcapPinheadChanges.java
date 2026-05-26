@@ -4,6 +4,8 @@ import com.legacy.blue_skies.blocks.natural.SnowcapPinheadBlock;
 import com.legacy.blue_skies.registries.SkiesConfiguredFeatures;
 import net.amurdza.examplemod.Config;
 import net.amurdza.examplemod.util.Helper;
+import net.amurdza.examplemod.worldgen.feature.ModConfiguredFeatures;
+import net.amurdza.examplemod.worldgen.feature.ModFeatures;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Holder;
 import net.minecraft.core.registries.Registries;
@@ -113,7 +115,7 @@ public class SnowcapPinheadChanges extends BushBlock {
         Optional<? extends Holder<ConfiguredFeature<?, ?>>> optional =
                 level.registryAccess()
                         .registryOrThrow(Registries.CONFIGURED_FEATURE)
-                        .getHolder(SkiesConfiguredFeatures.GIANT_SNOWCAP_MUSHROOM);
+                        .getHolder(ModFeatures.HUGE_SNOWCAP_MUSHROOM);
 
         if (optional.isEmpty()) {
             return;

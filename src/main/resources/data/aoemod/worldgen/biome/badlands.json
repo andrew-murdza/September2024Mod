@@ -51,9 +51,7 @@
       "minecraft:patch_sugar_cane_desert",
       "aoemod:desert/mushrooms",
       "aoemod:mountains/forest_floor",
-      "aoemod:desert/forest_floor",
-      "aoemod:mountains/seafloor",
-      "aoemod:desert/seafloor"
+      "aoemod:desert/forest_floor"
     ],
     [
       "minecraft:freeze_top_layer"
@@ -73,12 +71,6 @@
     "axolotls": [],
     "creature": [
       {
-        "type": "alexsmobs:jerboa",
-        "weight": 10,
-        "minCount": 2,
-        "maxCount": 5
-      },
-      {
         "type": "minecraft:rabbit",
         "weight": 4,
         "minCount": 2,
@@ -97,12 +89,6 @@
         "maxCount": 4
       },
       {
-        "type": "alexsmobs:komodo_dragon",
-        "weight": 2,
-        "minCount": 2,
-        "maxCount": 5
-      },
-      {
         "type": "alexsmobs:sunbird",
         "weight": 10,
         "minCount": 1,
@@ -111,18 +97,12 @@
     ],
     "misc": [],
     "monster": [
-      {
-        "type": "minecraft:skeleton",
-        "maxCount": 4,
-        "minCount": 4,
-        "weight": 100
-      },
-      {
-        "type": "minecraft:witch",
-        "maxCount": 1,
-        "minCount": 1,
-        "weight": 5
-      },
+//      {
+//        "type": "minecraft:skeleton",
+//        "maxCount": 4,
+//        "minCount": 4,
+//        "weight": 100
+//      },
       {
         "type": "minecraft:husk",
         "maxCount": 4,
@@ -145,25 +125,7 @@
     "underground_water_creature": [],
     "water_ambient": [
       {
-        "type": "alexsmobs:triops",
-        "weight": 5,
-        "minCount": 4,
-        "maxCount": 6
-      },
-      {
-        "type": "ambientadditions:blue_spotted_stingray",
-        "weight": 5,
-        "minCount": 4,
-        "maxCount": 6
-      },
-      {
-        "type": "finsandtails:golden_river_ray",
-        "weight": 5,
-        "minCount": 4,
-        "maxCount": 6
-      },
-      {
-        "type": "ambientadditions:shame_faced_crab",
+        "type": "blue_skies:charscale_moki",
         "weight": 5,
         "minCount": 2,
         "maxCount": 2

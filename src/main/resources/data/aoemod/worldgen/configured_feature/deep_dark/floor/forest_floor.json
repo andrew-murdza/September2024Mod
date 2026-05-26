@@ -25,7 +25,7 @@
         }
       },
       {
-        "chance": 0.01,
+        "chance": 0.002,
         "feature": {
           "feature": "minecraft:chorus_plant",
           "placement": [
@@ -47,7 +47,7 @@
         }
       },
       {
-        "chance": 0.954,
+        "chance": 0.962,
         "feature": {
           "feature": "aoemod:nothing",
           "placement": []

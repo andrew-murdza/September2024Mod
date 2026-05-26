@@ -7,6 +7,24 @@
       {
         "target": {
           "predicate_type": "minecraft:block_match",
+          "block": "minecraft:blackstone"
+        },
+        "state": {
+          "Name": "aoemod:blackstone_quartz_ore"
+        }
+      },
+      {
+        "target": {
+          "predicate_type": "minecraft:block_match",
+          "block": "minecraft:basalt"
+        },
+        "state": {
+          "Name": "aoemod:basalt_quartz_ore"
+        }
+      },
+      {
+        "target": {
+          "predicate_type": "minecraft:block_match",
           "block": "minecraft:netherrack"
         },
         "state": {

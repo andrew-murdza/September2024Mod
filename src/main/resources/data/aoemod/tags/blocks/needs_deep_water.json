@@ -1,13 +1,8 @@
 {
   "values": [
     "#minecraft:coral_plants",
-    "minecraft:seagrass",
     "minecraft:tall_seagrass",
-    "minecraft:mycelium",
-    "minecraft:moss_block",
     "alexscaves:ping_pong_sponge",
-    "#aoemod:charnia",
-    "nether_depths_upgrade:wet_lava_sponge",
     "nether_depths_upgrade:tall_crimson_seagrass",
     "nether_depths_upgrade:tall_warped_seagrass",
     "wet_sponge"

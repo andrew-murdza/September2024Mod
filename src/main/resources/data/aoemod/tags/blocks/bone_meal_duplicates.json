@@ -3,9 +3,6 @@
     "minecraft:lily_pad",
     "minecraft:spore_blossom",
     "minecraft:wet_sponge",
-    "trailsandtalesplus:wall_mushroom",
-    "trailsandtalesplus:red_wall_mushroom",
-    "trailsandtalesplus:glowing_torchflower",
     "#minecraft:corals",
     "#minecraft:coral_blocks",
     "#minecraft:small_flowers",
@@ -33,9 +30,6 @@
     "alexscaves:ping_pong_sponge",
     "alexscaves:bone_worms",
     "upgrade_aquatic:tall_pickerelweed",
-    "upgrade_aquatic:prismarine_coral",
-    "upgrade_aquatic:prismarine_coral_fan",
-    "aoemod:desert_grass",
-    "#aoemod:charnia"
+    "aoemod:desert_grass"
   ]
 }

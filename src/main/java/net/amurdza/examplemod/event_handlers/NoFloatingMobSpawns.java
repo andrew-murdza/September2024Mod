@@ -20,8 +20,6 @@ import net.minecraft.world.level.levelgen.Heightmap;
 import net.minecraftforge.event.entity.SpawnPlacementRegisterEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
-import samebutdifferent.ecologics.registry.ModEntityTypes;
-import teamdraco.finsandstails.registry.FTEntities;
 
 import static net.minecraft.world.entity.Mob.checkMobSpawnRules;
 import static net.minecraft.world.entity.monster.Monster.isDarkEnoughToSpawn;
@@ -39,16 +37,7 @@ public class NoFloatingMobSpawns {
         addSpawn(event, EntityType.CAMEL, false,
                 (p,q,r,s,t)->camel(q,s));
 
-        addSpawn(event, ModEntityTypes.COCONUT_CRAB.get(), false,
-                Animal::checkAnimalSpawnRules);
-
-        addSpawn(event, IafEntityRegistry.SEA_SERPENT.get(), true,
-                NoFloatingMobSpawns::checkSeaSerpentSpawnRules);
-
         addSpawn(event, IafEntityRegistry.HIPPOCAMPUS.get(), true,
-                NoFloatingMobSpawns::checkSeaSerpentSpawnRules);
-
-        addSpawn(event, IafEntityRegistry.SIREN.get(), true,
                 NoFloatingMobSpawns::checkSeaSerpentSpawnRules);
 
         addSpawn(event, IafEntityRegistry.DREAD_KNIGHT.get(), false,
@@ -60,14 +49,11 @@ public class NoFloatingMobSpawns {
         addSpawn(event, IafEntityRegistry.GORGON.get(), false,
                 Monster::checkMonsterSpawnRules);
 
-        addSpawn(event, FTEntities.RUBBER_BELLY_GLIDER.get(), true,
-                NoFloatingMobSpawns::checkSurfaceWaterAnimalSpawnRules);
-
         addSpawn(event, EntityType.AXOLOTL, true,
                 NoFloatingMobSpawns::checkSurfaceWaterAnimalSpawnRules);
 
         addSpawn(event, EntityType.TURTLE, true,
-                NoFloatingMobSpawns::checkWaterAnimalSpawnRules);
+                NoFloatingMobSpawns::checkSurfaceWaterAnimalSpawnRules);
 
         addSpawn(event, EntityType.GLOW_SQUID, true,
                 NoFloatingMobSpawns::checkWaterAnimalSpawnRules);
@@ -111,7 +97,7 @@ public class NoFloatingMobSpawns {
     }
 
     public static boolean checkSurfaceWaterAnimalSpawnRules(EntityType<? extends LivingEntity> pType, ServerLevelAccessor pLevel, MobSpawnType pSpawnType, BlockPos pPos, RandomSource pRandom) {
-        int i = pLevel.getSeaLevel();
+        int i = WorldGenUtils.getSeaLevelWorldGen(pPos,pLevel);
         int j = i - 13;
         return pPos.getY() >= j && pPos.getY() <= i && pLevel.getFluidState(pPos.below()).is(FluidTags.WATER) && pLevel.getBlockState(pPos.above()).is(Blocks.WATER);
     }
@@ -122,7 +108,7 @@ public class NoFloatingMobSpawns {
     }
     private static boolean camel(ServerLevelAccessor level, BlockPos pos) {
         BlockState state=level.getBlockState(pos.below());
-        return state.is(Blocks.SAND) || state.is(Blocks.GRASS_BLOCK) || state.is(Blocks.MOSS_BLOCK) && level.getRawBrightness(pos, 0) > 8;
+        return (state.is(Blocks.SAND) || state.is(Blocks.GRASS_BLOCK) || state.is(Blocks.MOSS_BLOCK)) && level.getRawBrightness(pos, 0) > 8;
     }
     private static boolean shulker(ServerLevelAccessor pLevel, BlockPos pPos, RandomSource pRandom) {
         for(Direction direction: Direction.values()){

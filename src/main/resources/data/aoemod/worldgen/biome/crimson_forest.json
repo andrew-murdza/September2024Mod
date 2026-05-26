@@ -38,10 +38,8 @@
     [],
     [],
     [
-      "aoemod:crimson_forest/blobs/magma",
       "aoemod:crimson_forest/blobs/glowstone",
       "aoemod:crimson_forest/blobs/blackstone",
-      "aoemod:crimson_forest/blobs/gravel",
       "aoemod:crimson_forest/blobs/basalt",
       "aoemod:crimson_forest/ores/ancient_debris",
       "aoemod:crimson_forest/ores/gold",
@@ -49,10 +47,7 @@
     ],
     [],
     [],
-    [
-      "aoemod:nether_cane",
-      "aoemod:crimson_forest/crimson_potato"
-    ]
+    []
   ],
   "has_precipitation": false,
   "spawn_costs": {},
@@ -74,72 +69,11 @@
       }
     ],
     "misc": [],
-    "monster": [
-      {
-        "type": "alexsmobs:crimson_mosquito",
-        "weight": 15,
-        "minCount": 4,
-        "maxCount": 4
-      },
-      {
-        "type": "alexsmobs:dropbear",
-        "weight": 10,
-        "minCount": 4,
-        "maxCount": 4
-      },
-      {
-        "type": "minecraft:piglin",
-        "maxCount": 4,
-        "minCount": 3,
-        "weight": 5
-      },
-      {
-        "type": "minecraft:piglin_brute",
-        "maxCount": 4,
-        "minCount": 3,
-        "weight": 5
-      }
-    ],
+    "monster": [],
     "underground_water_creature": [],
     "water_ambient": [
       {
-        "type": "unusualfishmod:amber_goby",
-        "weight": 5,
-        "minCount": 4,
-        "maxCount": 4
-      },
-      {
-        "type": "blue_skies:horizofin_tunid",
-        "weight": 10,
-        "minCount": 1,
-        "maxCount": 2
-      },
-      {
-        "type": "netherdepthsupgrade:bonefish",
-        "weight": 5,
-        "minCount": 2,
-        "maxCount": 4
-      },
-      {
-        "type": "blue_skies:charscale_moki",
-        "weight": 3,
-        "minCount": 2,
-        "maxCount": 4
-      },
-      {
-        "type": "netherdepthsupgrade:lava_pufferfish",
-        "weight": 5,
-        "minCount": 1,
-        "maxCount": 3
-      },
-      {
-        "type": "netherdepthsupgrade:searing_cod",
-        "weight": 15,
-        "minCount": 3,
-        "maxCount": 6
-      },
-      {
-        "type": "netherdepthsupgrade:glowdine",
+        "type": "unusualfishmod:crimsonshell_squid",
         "weight": 5,
         "minCount": 3,
         "maxCount": 6

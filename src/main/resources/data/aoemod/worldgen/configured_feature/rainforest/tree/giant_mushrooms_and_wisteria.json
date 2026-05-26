@@ -5,42 +5,7 @@
       {
         "chance": 0.1,
         "feature": {
-          "feature": "environmental:blue_wisteria_bees_005",
-          "placement": []
-        }
-      },
-      {
-        "chance": 0.1,
-        "feature": {
-          "feature": "environmental:pink_wisteria_bees_005",
-          "placement": []
-        }
-      },
-      {
-        "chance": 0.1,
-        "feature": {
-          "feature": "blue_skies:giant_snowcap_mushroom",
-          "placement": []
-        }
-      },
-      {
-        "chance": 0.1,
-        "feature": {
-          "feature": "biomeswevegone:huge_weeping_milkcap1",
-          "placement": []
-        }
-      },
-      {
-        "chance": 0.1,
-        "feature": {
-          "feature": "biomeswevegone:huge_wood_blewit1",
-          "placement": []
-        }
-      },
-      {
-        "chance": 0.1,
-        "feature": {
-          "feature": "biomeswevegone:huge_green_mushroom1",
+          "feature": "aoemod:giant_mushrooms/huge_snowcap_mushroom",
           "placement": []
         }
       },
@@ -55,13 +20,6 @@
         "chance": 0.1,
         "feature": {
           "feature": "minecraft:huge_red_mushroom",
-          "placement": []
-        }
-      },
-      {
-        "chance": 0.1,
-        "feature": {
-          "feature": "aoemod:giant_mushrooms/huge_lush_mushroom",
           "placement": []
         }
       },

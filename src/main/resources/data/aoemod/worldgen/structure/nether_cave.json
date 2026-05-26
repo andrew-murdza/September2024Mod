@@ -4,15 +4,14 @@
   "step": "underground_structures",
   "terrain_adaptation": "none",
   "spawn_overrides": {},
-  "horizontal_radius_multiplier": 36.0,
-  "vertical_radius_multiplier": 9.0,
-  "lava_level": -116,
+  "lower_horizontal_radius": 36.0,
+  "lower_vertical_radius": 9.0,
   "start_y": 70,
   "central_pillar_diameter": 60.0,
   "min_floor_thickness": 6.0,
-  "pitch_lower": 1.0,
-  "pitch_upper": 0.5,
-  "vertical_radius_upper": 5.0,
+  "upper_pitch": 0.5,
+  "upper_vertical_radius": 6.0,
+  "upper_horizontal_radius": 60.0,
   "liquid_radius": 8.0,
   "liquid_depth": 6.0,
   "max_deep_dark_y": 31,
@@ -205,29 +204,5 @@
       }
     }
   ],
-  "exact_surface_features": [
-    {
-      "feature": "aoemod:warped_forest/pitaya",
-      "min_y": -65,
-      "max_y": -32,
-      "count": 4,
-      "predicates": [
-        {
-          "type": "minecraft:matching_blocks",
-          "blocks": [
-            "minecraft:air",
-            "minecraft:cave_air",
-            "minecraft:void_air"
-          ]
-        },
-        {
-          "type": "minecraft:matching_blocks",
-          "offset": [0, -1, 0],
-          "blocks": [
-            "minecraft:warped_nylium"
-          ]
-        }
-      ]
-    }
-  ]
+  "exact_surface_features": []
 }

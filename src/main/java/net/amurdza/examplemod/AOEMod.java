@@ -99,37 +99,11 @@ public class AOEMod
 
         // NATURAL BLOCKS (plants, vegetation, ores-as-natural, etc.)
         if (tab == CreativeModeTabs.NATURAL_BLOCKS) {
-            // existing
-            event.accept(ModItems.GRAPES.get());
 
-
-            event.accept(ModItems.ASHEN_WHEAT_SEEDS.get());
             event.accept(ModItems.SOUL_BERRIES.get());
-            event.accept(ModItems.SOUL_BEET_SEEDS.get());
-            event.accept(ModItems.BEANS.get());
-
-            // remaining registerBlockAndItem blocks (from your list)
-            event.accept(ModBlocks.JUNGLE_GLOW_LICHEN.get());
-            event.accept(ModBlocks.NETHER_CANE.get());
-
             event.accept(ModBlocks.DESERT_GRASS.get());
             event.accept(ModBlocks.DESERT_TALL_GRASS.get());
 
-            event.accept(ModBlocks.WILD_CRYO_ROOTS.get());
-            event.accept(ModBlocks.WILD_WARPED_CARROTS.get());
-            event.accept(ModBlocks.WILD_CRIMSON_POTATOES.get());
-            event.accept(ModBlocks.WILD_SOUL_BEETS.get());
-            event.accept(ModBlocks.WILD_BEANS.get());
-            event.accept(ModBlocks.WILD_ASHEN_WHEAT.get());
-
-            event.accept(ModBlocks.PURPLE_CHARNIA.get());
-            event.accept(ModBlocks.GREEN_CHARNIA.get());
-            event.accept(ModBlocks.CYAN_CHARNIA.get());
-            event.accept(ModBlocks.LIGHT_BLUE_CHARNIA.get());
-            event.accept(ModBlocks.RED_CHARNIA.get());
-            event.accept(ModBlocks.ORANGE_CHARNIA.get());
-
-            // ores: vanilla puts ores under NATURAL_BLOCKS
             event.accept(ModBlocks.BASALT_QUARTZ_ORE.get());
             event.accept(ModBlocks.BLACKSTONE_QUARTZ_ORE.get());
             event.accept(ModBlocks.BASALT_GOLD_ORE.get());
@@ -139,72 +113,31 @@ public class AOEMod
 
         // FOOD AND DRINKS
         if (tab == CreativeModeTabs.FOOD_AND_DRINKS) {
-            // existing
-            event.accept(ModItems.GRAPES.get());
-            event.accept(ModItems.WARPED_CARROT.get());
-            event.accept(ModItems.CRIMSON_POTATO.get());
-            event.accept(ModItems.JUNGLE_SWEET_BERRIES.get());
-            event.accept(ModItems.BAKED_CRIMSON_POTATO.get());
             event.accept(ModItems.SOUL_BERRIES.get());
-            event.accept(ModItems.SOUL_BEET.get());
-            event.accept(ModItems.SOUL_BEET_SOUP.get());
-            event.accept(ModItems.CRYO_ROOT_SOUP.get());
 
             // fish & seafood (raw)
             event.accept(ModItems.END_FISH.get());
             event.accept(ModItems.CUBOZOA.get());
-            event.accept(ModItems.CUTTLEFISH.get());
-            event.accept(ModItems.FIREWORK_JELLYFISH.get());
-            event.accept(ModItems.WIZARD_JELLYFISH.get());
             event.accept(ModItems.ISOPOD.get());
-            event.accept(ModItems.SHRIMP.get());
             event.accept(ModItems.SQUAT_LOBSTER.get());
-            event.accept(ModItems.VAMPIRE_SQUID.get());
             event.accept(ModItems.CRAB_LEGS.get());
             event.accept(ModItems.NETHER_CRAB_CLAW.get());
             event.accept(ModItems.ARROW_SQUID.get());
-            event.accept(ModItems.WARPED_ARROW_SQUID.get());
-            event.accept(ModItems.FRILLED_SHARK.get());
-            event.accept(ModItems.HOUND_SHARK.get());
-            event.accept(ModItems.TRIOPS.get());
             event.accept(ModItems.DEVILS_HOLE_PUPFUSH.get());
 
             // cooked seafood
             event.accept(ModItems.COOKED_END_FISH.get());
             event.accept(ModItems.COOKED_CUBOZOA.get());
-            event.accept(ModItems.COOKED_CUTTLEFISH.get());
-            event.accept(ModItems.COOKED_FIREWORK_JELLYFISH.get());
-            event.accept(ModItems.COOKED_WIZARD_JELLYFISH.get());
             event.accept(ModItems.COOKED_ISOPOD.get());
-            event.accept(ModItems.COOKED_SHRIMP.get());
             event.accept(ModItems.COOKED_SQUAT_LOBSTER.get());
-            event.accept(ModItems.COOKED_VAMPIRE_SQUID.get());
             event.accept(ModItems.COOKED_CRAB_LEGS.get());
             event.accept(ModItems.COOKED_NETHER_CRAB_CLAW.get());
             event.accept(ModItems.COOKED_ARROW_SQUID.get());
-            event.accept(ModItems.COOKED_FRILLED_SHARK.get());
-            event.accept(ModItems.COOKED_HOUND_SHARK.get());
-            event.accept(ModItems.COOKED_TRIOPS.get());
             event.accept(ModItems.COOKED_DEVILS_HOLE_PUPFUSH.get());
-            event.accept(ModItems.COOKED_KOI.get());
             event.accept(ModItems.COOKED_LOST_TENTACLE.get());
-            event.accept(ModItems.COOKED_DRAGONFISH.get());
             event.accept(ModItems.COOKED_TUNA.get());
 
-            // other food
-            event.accept(ModItems.BEANS.get());
-            event.accept(ModItems.BEAN_SOUP.get());
-            event.accept(ModItems.ASHEN_BREAD.get());
         }
-
-        // INGREDIENTS
-        if (tab == CreativeModeTabs.INGREDIENTS) {
-            event.accept(ModItems.ASHEN_WHEAT.get());
-            event.accept(ModItems.ASHEN_WHEAT_SEEDS.get());
-            event.accept(ModItems.SOUL_BEET_SEEDS.get());
-            event.accept(ModItems.BEANS.get());
-        }
-
 
         // TOOLS AND UTILITIES
         if (tab == CreativeModeTabs.TOOLS_AND_UTILITIES) {
@@ -223,9 +156,6 @@ public class AOEMod
         }
 
         // BUILDING BLOCKS (farmland fits better here than NATURAL)
-        if (tab == CreativeModeTabs.BUILDING_BLOCKS) {
-            event.accept(ModBlocks.NETHER_FARMLAND.get());
-        }
         if (tab == CreativeModeTabs.SPAWN_EGGS) {
             event.accept(ModEntities.CUBOZOA_SPAWN_EGG.get());
             event.accept(ModEntities.END_FISH_SPAWN_EGG.get());

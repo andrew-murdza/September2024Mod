@@ -54,31 +54,12 @@
   "spawners": {
     "ambient": [],
     "axolotls": [],
-    "creature": [
-      {
-        "type": "alexsmobs:endergrade",
-        "weight": 10,
-        "minCount": 2,
-        "maxCount": 3
-      }
-    ],
+    "creature": [],
     "misc": [],
     "monster": [
       {
-        "type": "trailsandtalesplus:traverser",
-        "weight": 5,
-        "minCount": 2,
-        "maxCount": 3
-      },
-      {
         "type": "minecraft:enderman",
         "weight": 10,
-        "minCount": 2,
-        "maxCount": 3
-      },
-      {
-        "type": "trailsandtalesplus:blastling",
-        "weight": 5,
         "minCount": 2,
         "maxCount": 3
       },
@@ -99,19 +80,14 @@
     ],
     "water_ambient": [
       {
-        "type": "blue_skies:municipal_monkfish",
-        "weight": 5,
-        "minCount": 2,
-        "maxCount": 3
-      }
-    ],
-    "water_creature": [
-      {
         "type": "unusualfishmod:shockcat",
         "weight": 15,
         "minCount": 2,
         "maxCount": 3
       }
+    ],
+    "water_creature": [
+
     ]
   },
   "temperature": 2

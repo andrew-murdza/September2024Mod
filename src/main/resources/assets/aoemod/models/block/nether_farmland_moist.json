@@ -1,8 +1,0 @@
-{
-  "parent": "minecraft:block/template_farmland",
-  "textures": {
-    "dirt": "minecraft:block/netherrack",
-    "top": "aoemod:block/nether_farmland_moist"
-  },
-  "render_type": "cutout"
-}

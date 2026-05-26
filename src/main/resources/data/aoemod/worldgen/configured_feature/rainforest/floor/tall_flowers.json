@@ -7,60 +7,6 @@
         {
           "weight": 1,
           "data": {
-            "Name": "alexscaves:curly_fern",
-            "Properties": {
-              "half": "lower"
-            }
-          }
-        },
-//        {
-//          "weight": 1,
-//          "data": {
-//            "Name": "environmental:blue_delphinium"
-//          }
-//        },
-//        {
-//          "weight": 1,
-//          "data": {
-//            "Name": "environmental:pink_delphinium"
-//          }
-//        },
-//        {
-//          "weight": 1,
-//          "data": {
-//            "Name": "environmental:purple_delphinium"
-//          }
-//        },
-        {
-          "weight": 1,
-          "data": {
-            "Name": "bloomingnature:tall_silkgrass",
-            "Properties": {
-              "half": "lower"
-            }
-          }
-        },
-        //        {
-        //          "weight": 1,
-        //          "data": {
-        //            "Name": "bloomingnature:wild_sunflower",
-        //            "Properties": {
-        //              "half": "lower"
-        //            }
-        //          }
-        //        },
-//        {
-//          "weight": 1,
-//          "data": {
-//            "Name": "biomeswevegone:delphinium",
-//            "Properties": {
-//              "half": "lower"
-//            }
-//          }
-//        },
-        {
-          "weight": 1,
-          "data": {
             "Name": "biomeswevegone:foxglove",
             "Properties": {
               "half": "lower"
@@ -76,15 +22,6 @@
             }
           }
         },
-//        {
-//          "weight": 1,
-//          "data": {
-//            "Name": "biomeswevegone:tall_white_allium",
-//            "Properties": {
-//              "half": "lower"
-//            }
-//          }
-//        },
         {
           "weight": 1,
           "data": {

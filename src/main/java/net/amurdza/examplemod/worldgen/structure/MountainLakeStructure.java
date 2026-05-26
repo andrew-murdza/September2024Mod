@@ -3,12 +3,13 @@ package net.amurdza.examplemod.worldgen.structure;
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import net.minecraft.core.BlockPos;
-import net.minecraft.world.level.levelgen.Heightmap;
+import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.levelgen.structure.Structure;
 import net.minecraft.world.level.levelgen.structure.StructureType;
 import net.minecraft.world.level.levelgen.structure.pieces.StructurePiecesBuilder;
 import org.jetbrains.annotations.NotNull;
 
+import java.util.List;
 import java.util.Optional;
 
 public class MountainLakeStructure extends Structure {
@@ -16,15 +17,43 @@ public class MountainLakeStructure extends Structure {
     public static final Codec<MountainLakeStructure> CODEC = RecordCodecBuilder.create(instance ->
             instance.group(
                     settingsCodec(instance),
-                    MountainLakeConfig.CODEC.fieldOf("lake").forGetter(s -> s.lakeConfig)
+
+                    Codec.INT
+                            .fieldOf("radius")
+                            .forGetter(s -> s.radius),
+
+                    Codec.INT
+                            .fieldOf("depth")
+                            .forGetter(s -> s.depth),
+
+                    Codec.INT
+                            .fieldOf("water_y")
+                            .forGetter(s -> s.waterY),
+
+                    BlockState.CODEC
+                            .listOf()
+                            .fieldOf("seafloor_blocks")
+                            .forGetter(s -> s.seafloorBlocks)
             ).apply(instance, MountainLakeStructure::new)
     );
 
-    private final MountainLakeConfig lakeConfig;
+    private final int radius;
+    private final int depth;
+    private final int waterY;
+    private final List<BlockState> seafloorBlocks;
 
-    public MountainLakeStructure(StructureSettings settings, MountainLakeConfig lakeConfig) {
+    public MountainLakeStructure(
+            StructureSettings settings,
+            int radius,
+            int depth,
+            int waterY,
+            List<BlockState> seafloorBlocks
+    ) {
         super(settings);
-        this.lakeConfig = lakeConfig;
+        this.radius = radius;
+        this.depth = depth;
+        this.waterY = waterY;
+        this.seafloorBlocks = seafloorBlocks;
     }
 
     @Override
@@ -33,73 +62,25 @@ public class MountainLakeStructure extends Structure {
         BlockPos chunkCenter = ctx.chunkPos().getWorldPosition().offset(8, 0, 8);
 
         return Optional.of(new GenerationStub(chunkCenter, (StructurePiecesBuilder builder) -> {
-            int radius = lakeConfig.radius();
-            int depth  = lakeConfig.depth();
+            BlockPos origin = new BlockPos(chunkCenter.getX(), this.waterY, chunkCenter.getZ());
 
-            final int rampW = lakeConfig.rampW();
-
-            // ✅ constants (not in config)
-            final int waterlineOffset = -1; // water surface = minSurfaceY
-            final int rimH = 0;            // no extra "ceiling" carve above water via rimH
-
-            // ----------------------------
-            // Min scan ONLY near bowl edge (radius + 2) to ignore ramp
-            // ----------------------------
-            int minSurfaceY = Integer.MAX_VALUE;
-
-            final int scanR = radius + 2;
-            final int scanR2 = scanR * scanR;
-            final int step = 2;
-
-            for (int dx = -scanR; dx <= scanR; dx += step) {
-                for (int dz = -scanR; dz <= scanR; dz += step) {
-                    int d2 = dx * dx + dz * dz;
-                    if (d2 > scanR2) continue;
-
-                    int x = chunkCenter.getX() + dx;
-                    int z = chunkCenter.getZ() + dz;
-
-                    int h = ctx.chunkGenerator().getFirstOccupiedHeight(
-                            x, z,
-                            Heightmap.Types.WORLD_SURFACE_WG,
-                            ctx.heightAccessor(),
-                            ctx.randomState()
-                    );
-
-                    if (h < minSurfaceY) minSurfaceY = h;
-                }
-            }
-
-            if (minSurfaceY == Integer.MAX_VALUE) return;
-
-            BlockPos origin = new BlockPos(chunkCenter.getX(), minSurfaceY, chunkCenter.getZ());
-
-            // Water level is "level with land" (minSurfaceY), clamped to allowed range
-            int waterY = lakeConfig.waterY();
-
-            // ----------------------------
-            // Bounding box includes ramp + pad
-            // ----------------------------
-            final int pad = 10;
-            int rTotal = radius + rampW + pad;
+            final int pad = 4;
+            int rTotal = this.radius + pad;
 
             int minX = origin.getX() - rTotal;
             int maxX = origin.getX() + rTotal;
             int minZ = origin.getZ() - rTotal;
             int maxZ = origin.getZ() + rTotal;
 
-            int minY = waterY - depth - 16;
-            int maxY = waterY + rimH + 96;
+            int minY = this.waterY - this.depth - 8;
+            int maxY = this.waterY + 1;
 
             builder.addPiece(new MountainLakePiece(
                     origin,
-                    waterY,
-                    radius,
-                    depth,
-                    rimH,
-                    rampW,
-                    lakeConfig.seafloorBlocks(),
-                    lakeConfig.rampFill(),
+                    this.waterY,
+                    this.radius,
+                    this.depth,
+                    this.seafloorBlocks,
                     minX, minY, minZ, maxX, maxY, maxZ
             ));
         }));

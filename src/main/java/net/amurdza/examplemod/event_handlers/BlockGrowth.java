@@ -1,25 +1,24 @@
 package net.amurdza.examplemod.event_handlers;
 
 import net.amurdza.examplemod.AOEMod;
-import net.amurdza.examplemod.block.ModBlocks;
-import net.amurdza.examplemod.block.NetherCropBlock;
 import net.amurdza.examplemod.util.ModTags;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Holder;
-import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.tags.TagKey;
 import net.minecraft.util.Mth;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.biome.Biome;
-import net.minecraft.world.level.block.*;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.CropBlock;
+import net.minecraft.world.level.block.StemBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.block.state.properties.IntegerProperty;
 import net.minecraftforge.event.level.BlockEvent;
 import net.minecraftforge.eventbus.api.Event;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
-import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
 
 import java.util.Map;
@@ -63,15 +62,8 @@ public class BlockGrowth {
         if (mult < 0f) return; // not tracked, let vanilla/mods handle it
 
         // Beetroot global /3
-        if (block == Blocks.BEETROOTS || block==ModBlocks.SOUL_BEETS.get()) {
+        if (block == Blocks.BEETROOTS) {
             mult = mult / 3.0f;
-        }
-
-        if(block instanceof  NetherCropBlock){
-            BlockState state1=level.getBlockState(pos.below());
-            if (!state1.is(ModBlocks.NETHER_FARMLAND.get())||state1.getValue(FarmBlock.MOISTURE) == 0){
-                mult *= 0.5f;
-            }
         }
 
         // Optional: keep your "not fertile halves chance" rule for CropBlock / StemBlock
@@ -149,30 +141,26 @@ public class BlockGrowth {
             // Special case you had: sugar cane uses pos.above() in your old system
             // (but sugar cane doesn't use AGE properties; this is mostly harmless)
 
-            boolean columnPlant=state.is(Blocks.CACTUS)||state.is(ModBlocks.NETHER_CANE.get())||state.is(Blocks.SUGAR_CANE);
+            boolean columnPlant=state.is(Blocks.CACTUS)||state.is(Blocks.SUGAR_CANE);
 
             if(columnPlant){
-                if(state.is(Blocks.SUGAR_CANE)||state.is(Blocks.SUGAR_CANE)){
+                if(state.is(Blocks.SUGAR_CANE)||state.is(Blocks.CACTUS)){
                     pos=pos.above();
                 }
                 int k;
-                for(k = 1; level.getBlockState(pos.below(k+1)).is(state.getBlock()); ++k) {
-
+                for(k = 1; k < 4; k++) {
+                    if(!level.getBlockState(pos.below(k+1)).is(state.getBlock())){
+                        break;
+                    }
                 }
                 if(k<3){
                     if (newAge > max) {
-                        // Wrap-around behavior you used before:
-                        // reset this block to age 0 and "replant" default above/below logic.
-                        // For ordinary crops this rarely matters; for stems it can.
                         level.setBlockAndUpdate(pos.below(), state.setValue(prop, 0));
                         level.setBlockAndUpdate(pos, state.setValue(prop, 0));
                     }
                     else {
                         level.setBlockAndUpdate(pos.below(), state.setValue(prop, newAge));
                     }
-                }
-                if(k>=3&&state.is(Blocks.CACTUS)&&level.isEmptyBlock(pos)){
-                    level.setBlockAndUpdate(pos, samebutdifferent.ecologics.registry.ModBlocks.PRICKLY_PEAR.get().defaultBlockState());
                 }
             }
             else {
@@ -202,10 +190,8 @@ public class BlockGrowth {
 
         // Look up value
         Float v = null;
-        if (tag != null) {
-            Map<Block, Float> map = BlockGrowthConfig.GROWTH_MULTIPLIER_BY_TAG_BY_BLOCK.get(tag);
-            if (map != null) v = map.get(block);
-        }
+        Map<Block, Float> map = BlockGrowthConfig.GROWTH_MULTIPLIER_BY_TAG_BY_BLOCK.get(tag);
+        if (map != null) v = map.get(block);
 
         if (v == null) v = BlockGrowthConfig.DEFAULT_OTHER_BIOMES.get(block);
         return (v == null) ? -1f : v;

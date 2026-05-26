@@ -29,8 +29,6 @@ public abstract class MultiNoiseBiomeSourceLayeredNetherMixin {
             ResourceKey.create(Registries.BIOME, new ResourceLocation("aoemod", "savanna"));
     @Unique private static final ResourceKey<Biome> AOE_PLAINS =
             ResourceKey.create(Registries.BIOME, new ResourceLocation("aoemod", "plains"));
-    @Unique private static final ResourceKey<Biome> AOE_SNOWY_TAIGA =
-            ResourceKey.create(Registries.BIOME, new ResourceLocation("aoemod", "snowy_taiga"));
     @Unique private static final ResourceKey<Biome> AOE_GROVE =
             ResourceKey.create(Registries.BIOME, new ResourceLocation("aoemod", "grove"));
     @Unique private static final ResourceKey<Biome> AOE_MUSHROOM_CAVES =
@@ -69,7 +67,6 @@ public abstract class MultiNoiseBiomeSourceLayeredNetherMixin {
                 || !biomes.containsKey(AOE_JUNGLE)
                 || !biomes.containsKey(AOE_SAVANNA)
                 || !biomes.containsKey(AOE_PLAINS)
-                || !biomes.containsKey(AOE_SNOWY_TAIGA)
                 || !biomes.containsKey(AOE_GROVE)
                 || !biomes.containsKey(AOE_MUSHROOM_CAVES)
                 || !biomes.containsKey(AOE_BADLANDS)
@@ -104,7 +101,7 @@ public abstract class MultiNoiseBiomeSourceLayeredNetherMixin {
             cir.setReturnValue(biomes.get(AOE_PLAINS));
         }
         else if(bandPos < 4+bufferNormalized){
-            cir.setReturnValue(biomes.get(AOE_SNOWY_TAIGA));
+            cir.setReturnValue(biomes.get(AOE_GROVE));
         }
         else if(bandPos < 5-bufferNormalized){
             if(y < 120 && y> 61){
@@ -115,7 +112,7 @@ public abstract class MultiNoiseBiomeSourceLayeredNetherMixin {
             }
         }
         else if(bandPos < 5){
-            cir.setReturnValue(biomes.get(AOE_SNOWY_TAIGA));
+            cir.setReturnValue(biomes.get(AOE_GROVE));
         }
         else if(bandPos < 5 + bufferNormalized){
             cir.setReturnValue(biomes.get(AOE_BADLANDS));

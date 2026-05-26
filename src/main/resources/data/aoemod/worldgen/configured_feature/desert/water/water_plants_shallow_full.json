@@ -3,16 +3,9 @@
   "config": {
     "features": [
       {
-        "chance": 0.08,
+        "chance": 0.10,
         "feature": {
           "feature": "aoemod:water/short_seagrass",
-          "placement": []
-        }
-      },
-      {
-        "chance": 0.02,
-        "feature": {
-          "feature": "aoemod:desert/water/water_plants_shallow",
           "placement": []
         }
       },

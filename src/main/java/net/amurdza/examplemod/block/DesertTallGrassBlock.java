@@ -13,7 +13,6 @@ public class DesertTallGrassBlock extends DoublePlantBlock {
     }
 
     protected boolean mayPlaceOn(BlockState pState, BlockGetter pLevel, BlockPos pPos) {
-        return pState.is(Blocks.SAND) || pState.is(BlockTags.DIRT)
-                &&!pState.is(Blocks.GRASS_BLOCK)&&!pState.is(Blocks.MYCELIUM) || pState.is(Blocks.FARMLAND);
+        return pState.is(Blocks.SAND);
     }
 }

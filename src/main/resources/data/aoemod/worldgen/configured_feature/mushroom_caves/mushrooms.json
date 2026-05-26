@@ -3,7 +3,7 @@
   "config": {
     "features": [
       {
-        "chance": 0.20,
+        "chance": 0.25,
         "feature": {
           "feature": "aoemod:mushrooms/brown_mushroom_patch",
           "placement": [
@@ -19,7 +19,7 @@
         }
       },
       {
-        "chance": 0.20,
+        "chance": 0.25,
         "feature": {
           "feature": "aoemod:mushrooms/red_mushroom_patch",
           "placement": [
@@ -35,7 +35,7 @@
         }
       },
       {
-        "chance": 0.20,
+        "chance": 0.25,
         "feature": {
           "feature": "aoemod:mushrooms/snowcap_pinhead_patch",
           "placement": [
@@ -51,23 +51,7 @@
         }
       },
       {
-        "chance": 0.20,
-        "feature": {
-          "feature": "aoemod:mushrooms/mushgloom_patch",
-          "placement": [
-            {
-              "type": "minecraft:block_predicate_filter",
-              "predicate": {
-                "type": "minecraft:matching_blocks",
-                "offset": [0, -1, 0],
-                "blocks": ["minecraft:mycelium"]
-              }
-            }
-          ]
-        }
-      },
-      {
-        "chance": 0.20,
+        "chance": 0.25,
         "feature": {
           "feature": "aoemod:mushrooms/glow_shroom_patch",
           "placement": [
