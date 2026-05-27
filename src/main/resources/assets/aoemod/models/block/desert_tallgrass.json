@@ -1,7 +1,7 @@
 {
   "parent": "minecraft:block/cross",
   "textures": {
-    "cross": "aoemod:block/desert_tallgrass_top"
+    "cross": "aoemod:block/desert_tallgrass"
   },
   "render_type": "cutout"
 }

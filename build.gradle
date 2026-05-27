@@ -165,13 +165,33 @@ dependencies {
     implementation fg.deobf("curse.maven:farmersdelight-398521:5051242")
     implementation fg.deobf("curse.maven:nether-depths-upgrade-670011:5150560")
     implementation fg.deobf("curse.maven:netherific-479296:4718299")
-    implementation fg.deobf("curse.maven:frog-legs-633365:4722479")
 
     implementation fg.deobf("curse.maven:blue-skies-312918:5010316")
     implementation fg.deobf("curse.maven:structure-gel-api-378802:5278429")
 
     implementation fg.deobf("curse.maven:alexsmobs-426558:5698791")
     implementation fg.deobf("curse.maven:citadelforalexsmobs-331936:5633260")//NO TOML
+
+    implementation fg.deobf("curse.maven:naturalist-627986:4847009")
+    implementation fg.deobf("curse.maven:architectury-api-419699:4663010")
+
+    implementation fg.deobf("curse.maven:upgradeaquatic-326895:5615651")
+    implementation fg.deobf("curse.maven:blueprint-382216:6267669")//NO TOML
+
+    implementation fg.deobf("curse.maven:quark-243121:5594847")
+    implementation fg.deobf("curse.maven:zetaforquark-968868:5597406")//NO TOML
+
+    implementation fg.deobf("curse.maven:alexs-caves-924854:5633305")
+
+    implementation fg.deobf("curse.maven:drop-the-meat-404141:6564010")
+
+    implementation fg.deobf("curse.maven:unusual-fish-mod-568300:7127544")
+
+    // flowers
+    implementation fg.deobf("curse.maven:oh-the-biomes-weve-gone-1070751:6263908")
+    implementation fg.deobf("curse.maven:corgilib-693313:5691268")
+    implementation fg.deobf("curse.maven:terrablender-563928:5378180")
+    implementation fg.deobf("curse.maven:oh-the-trees-youll-grow-962544:6026960")
 
     ////////////////////////////////////////////////////////////////
     implementation fg.deobf("curse.maven:snow-real-magic-308663:5801189")
@@ -185,42 +205,29 @@ dependencies {
     runtimeOnly fg.deobf("curse.maven:huge-structure-blocks-474114:4803547")
 
     /////////////////////////////////////
-    implementation fg.deobf("curse.maven:unusual-fish-mod-568300:7127544")
+    implementation fg.deobf("curse.maven:simple-pies-965609:5055394")
+    implementation fg.deobf("curse.maven:better-carrots-548721:5306948")
+    implementation fg.deobf("curse.maven:cultural-delights-574622:6660005")
+    implementation fg.deobf("curse.maven:ecologics-570463:7457108")
+    implementation fg.deobf("curse.maven:wooden-bucket-585328:6773030")
+    implementation fg.deobf("curse.maven:bucketlib-560156:6632367")
+    implementation fg.deobf("curse.maven:wooden-shears-443192:6289965")
+
 
     implementation fg.deobf("curse.maven:geckolib-388172:6920925")//NO TOML
 
+
+
     //Animals and Meat
     implementation fg.deobf("curse.maven:iceandfire-264231:5633453")
-    implementation fg.deobf("curse.maven:faunify-1123041:7285646")
-    implementation fg.deobf("curse.maven:lets-do-wildernature-1071657:5623675")
-    implementation fg.deobf("curse.maven:drop-the-meat-404141:6564010")
 
     implementation fg.deobf("curse.maven:lithostitched-936015:6742615")
     implementation fg.deobf("curse.maven:kotlin-for-forge-351264:7291067")
     implementation fg.deobf("curse.maven:hybrid-aquatic-834427:7204568")
 
-    implementation fg.deobf("curse.maven:naturalist-627986:4847009")
-    implementation fg.deobf("curse.maven:architectury-api-419699:4663010")
-
     implementation fg.deobf("curse.maven:the-twilight-forest-227639:5468648")
 
-    //Mixed
-    implementation fg.deobf("curse.maven:upgradeaquatic-326895:5615651")
-    implementation fg.deobf("curse.maven:blueprint-382216:6267669")//NO TOML
 
-    implementation fg.deobf("curse.maven:quark-243121:5594847")
-    implementation fg.deobf("curse.maven:zetaforquark-968868:5597406")//NO TOML
-
-    implementation fg.deobf("curse.maven:alexs-caves-924854:5633305")
-
-    // flowers
-    implementation fg.deobf("curse.maven:lets-do-bloomingnature-962885:6172650")
-    implementation fg.deobf("curse.maven:curios-309927:5680164")
-
-    implementation fg.deobf("curse.maven:oh-the-biomes-weve-gone-1070751:6263908")
-    implementation fg.deobf("curse.maven:corgilib-693313:5691268")
-    implementation fg.deobf("curse.maven:terrablender-563928:5378180")
-    implementation fg.deobf("curse.maven:oh-the-trees-youll-grow-962544:6026960")
 
 //
 //    implementation fg.deobf("curse.maven:luminous-909107:5699118")

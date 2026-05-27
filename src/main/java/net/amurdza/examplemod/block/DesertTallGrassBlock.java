@@ -4,10 +4,11 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.BushBlock;
 import net.minecraft.world.level.block.DoublePlantBlock;
 import net.minecraft.world.level.block.state.BlockState;
 
-public class DesertTallGrassBlock extends DoublePlantBlock {
+public class DesertTallGrassBlock extends BushBlock {
     public DesertTallGrassBlock(Properties pProperties) {
         super(pProperties);
     }

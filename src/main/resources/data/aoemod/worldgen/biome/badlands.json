@@ -83,10 +83,10 @@
         "maxCount": 3
       },
       {
-        "type": "faunify:fennec_fox",
-        "weight": 5,
-        "minCount": 4,
-        "maxCount": 4
+        "type": "alexsmobs:roadrunner",
+        "weight": 10,
+        "minCount": 2,
+        "maxCount": 5
       },
       {
         "type": "alexsmobs:sunbird",

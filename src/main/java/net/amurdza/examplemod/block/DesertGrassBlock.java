@@ -5,6 +5,7 @@ import net.minecraft.server.level.ServerLevel;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.BlockGetter;
+import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.DoublePlantBlock;
 import net.minecraft.world.level.block.TallGrassBlock;
@@ -15,10 +16,10 @@ public class DesertGrassBlock extends TallGrassBlock {
         super(pProperties);
     }
     public void performBonemeal(ServerLevel pLevel, RandomSource pRandom, BlockPos pPos, BlockState pState) {
-//        DoublePlantBlock doubleplantblock = (DoublePlantBlock)ModBlocks.DESERT_TALL_GRASS.get();
-//        if (doubleplantblock.defaultBlockState().canSurvive(pLevel, pPos) && pLevel.isEmptyBlock(pPos.above())) {
-//            DoublePlantBlock.placeAt(pLevel, doubleplantblock.defaultBlockState(), pPos, 2);
-//        }
+        Block tallGrass = ModBlocks.DESERT_TALL_GRASS.get();
+        if (tallGrass.defaultBlockState().canSurvive(pLevel, pPos)) {
+            pLevel.setBlock(pPos,tallGrass.defaultBlockState(),2);
+        }
     }
     protected boolean mayPlaceOn(BlockState pState, BlockGetter pLevel, BlockPos pPos) {
         return pState.is(Blocks.SAND);

@@ -122,21 +122,20 @@ public class AOEMod
             event.accept(ModItems.SQUAT_LOBSTER.get());
             event.accept(ModItems.CRAB_LEGS.get());
             event.accept(ModItems.NETHER_CRAB_CLAW.get());
-            event.accept(ModItems.ARROW_SQUID.get());
-            event.accept(ModItems.DEVILS_HOLE_PUPFUSH.get());
 
             // cooked seafood
+            event.accept(ModItems.COOKED_PUFFERFISH.get());
             event.accept(ModItems.COOKED_END_FISH.get());
             event.accept(ModItems.COOKED_CUBOZOA.get());
             event.accept(ModItems.COOKED_ISOPOD.get());
             event.accept(ModItems.COOKED_SQUAT_LOBSTER.get());
             event.accept(ModItems.COOKED_CRAB_LEGS.get());
             event.accept(ModItems.COOKED_NETHER_CRAB_CLAW.get());
-            event.accept(ModItems.COOKED_ARROW_SQUID.get());
-            event.accept(ModItems.COOKED_DEVILS_HOLE_PUPFUSH.get());
-            event.accept(ModItems.COOKED_LOST_TENTACLE.get());
             event.accept(ModItems.COOKED_TUNA.get());
 
+            //Other
+            event.accept(ModItems.SOUL_BERRY_COOKIE.get());
+            event.accept(ModItems.GLOW_BERRY_JUICE.get());
         }
 
         // TOOLS AND UTILITIES

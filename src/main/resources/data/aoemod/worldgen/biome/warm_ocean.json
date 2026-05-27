@@ -40,7 +40,7 @@
     ],
     "creature": [
       {
-        "type": "alexsmobs:toucan",
+        "type": "ecologics:squirrel",
         "weight": 5,
         "minCount": 2,
         "maxCount": 5
@@ -48,18 +48,6 @@
       {
         "type": "alexsmobs:bison",
         "weight": 5,
-        "minCount": 2,
-        "maxCount": 5
-      },
-      {
-        "type": "alexsmobs:capuchin_monkey",
-        "weight": 5,
-        "minCount": 2,
-        "maxCount": 5
-      },
-      {
-        "type": "alexsmobs:elephant",
-        "weight": 10,
         "minCount": 2,
         "maxCount": 5
       },
@@ -82,26 +70,8 @@
         "maxCount": 5
       },
       {
-        "type": "alexsmobs:grizzly_bear",
-        "weight": 10,
-        "minCount": 2,
-        "maxCount": 5
-      },
-      {
-        "type": "alexsmobs:komodo_dragon",
-        "weight": 5,
-        "minCount": 2,
-        "maxCount": 5
-      },
-      {
         "type": "alexsmobs:roadrunner",
         "weight": 10,
-        "minCount": 2,
-        "maxCount": 5
-      },
-      {
-        "type": "alexsmobs:tiger",
-        "weight": 5,
         "minCount": 2,
         "maxCount": 5
       },
@@ -116,12 +86,6 @@
         "weight": 15,
         "minCount": 2,
         "maxCount": 5
-      },
-      {
-        "type": "faunify:fennec_fox",
-        "weight": 5,
-        "minCount": 4,
-        "maxCount": 4
       },
       {
         "type": "minecraft:chicken",
@@ -196,46 +160,10 @@
         "maxCount": 5
       },
       {
-        "type": "environmental:reindeer",
-        "weight": 10,
-        "minCount": 4,
-        "maxCount": 4
-      },
-      {
         "type": "quark:crab",
         "weight": 10,
         "minCount": 4,
         "maxCount": 4
-      },
-      {
-        "type": "alexscaves:tremorsaurus",
-        "weight": 5,
-        "minCount": 2,
-        "maxCount": 5
-      },
-      {
-        "type": "alexscaves:vallumraptor",
-        "weight": 5,
-        "minCount": 2,
-        "maxCount": 5
-      },
-      {
-        "type": "iceandfire:siren",
-        "weight": 10,
-        "minCount": 2,
-        "maxCount": 5
-      },
-      {
-        "type": "iceandfire:stymphalian_bird",
-        "weight": 5,
-        "minCount": 2,
-        "maxCount": 5
-      },
-      {
-        "type": "iceandfire:amphithere",
-        "weight": 5,
-        "minCount": 2,
-        "maxCount": 5
       }
     ],
     "misc": [],

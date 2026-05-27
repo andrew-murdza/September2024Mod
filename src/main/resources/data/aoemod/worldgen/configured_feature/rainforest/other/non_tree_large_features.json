@@ -5,7 +5,7 @@
       {
         "chance": 0.50,
         "feature": {
-          "feature": "aoemod:rainforest/tree/giant_mushrooms_and_wisteria",
+          "feature": "aoemod:rainforest/tree/giant_mushrooms",
           "placement": []
         }
       },

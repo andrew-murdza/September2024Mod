@@ -54,14 +54,14 @@
     "axolotls": [],
     "creature": [
       {
-        "type": "alexsmobs:bison",
-        "weight": 10,
+        "type": "ecologics:squirrel",
+        "weight": 5,
         "minCount": 2,
         "maxCount": 5
       },
       {
-        "type": "alexsmobs:elephant",
-        "weight": 5,
+        "type": "alexsmobs:bison",
+        "weight": 10,
         "minCount": 2,
         "maxCount": 5
       },
@@ -74,12 +74,6 @@
       {
         "type": "alexsmobs:gazelle",
         "weight": 10,
-        "minCount": 2,
-        "maxCount": 5
-      },
-      {
-        "type": "alexsmobs:komodo_dragon",
-        "weight": 5,
         "minCount": 2,
         "maxCount": 5
       },
@@ -164,12 +158,6 @@
       {
         "type": "quark:crab",
         "weight": 10,
-        "minCount": 4,
-        "maxCount": 4
-      },
-      {
-        "type": "faunify:fennec_fox",
-        "weight": 5,
         "minCount": 4,
         "maxCount": 4
       }

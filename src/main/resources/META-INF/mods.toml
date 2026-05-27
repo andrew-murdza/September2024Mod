@@ -98,6 +98,42 @@ versionRange = "[v1.3.31,)"
 ordering = "AFTER"
 side = "BOTH"
 
+[[dependencies."${mod_id}"]]
+modId = "snowrealmagic"
+mandatory = false
+versionRange = "[0,)"
+ordering = "AFTER"
+side = "BOTH"
+
+[[dependencies."${mod_id}"]]
+modId = "unusualfishmod"
+mandatory = false
+versionRange = "[0,)"
+ordering = "AFTER"
+side = "BOTH"
+
+[[dependencies."${mod_id}"]]
+modId = "woodenbucket"
+mandatory = false
+versionRange = "[0,)"
+ordering = "AFTER"
+side = "BOTH"
+
+[[dependencies."${mod_id}"]]
+modId = "woodenshears"
+mandatory = false
+versionRange = "[0,)"
+ordering = "AFTER"
+side = "BOTH"
+
+
+[[dependencies."${mod_id}"]]
+modId = "bucketlib"
+mandatory = false
+versionRange = "[0,)"
+ordering = "AFTER"
+side = "BOTH"
+
 #[[dependencies."${mod_id}"]]
 #modId = "born_in_chaos_v1"
 #mandatory = false
@@ -111,27 +147,6 @@ mandatory = false
 versionRange = "[0.16.1,)"
 ordering = "AFTER"
 side = "BOTH"
-
-#[[dependencies."${mod_id}"]]
-#modId = "dawnera"
-#mandatory = false
-#versionRange = "[0.58.94,)"
-#ordering = "AFTER"
-#side = "BOTH"
-#
-#[[dependencies."${mod_id}"]]
-#modId = "croptopia"
-#mandatory = false
-#versionRange = "[1.20.4-FORGE-3.0.4,)"
-#ordering = "AFTER"
-#side = "BOTH"
-
-#[[dependencies."${mod_id}"]]
-#modId = "delightful"
-#mandatory = false
-#versionRange = "[3.6,)"
-#ordering = "AFTER"
-#side = "BOTH"
 
 [[dependencies."${mod_id}"]]
 modId = "ecologics"
@@ -147,12 +162,6 @@ versionRange = "[1.20.1-1.2.4,)"
 ordering = "AFTER"
 side = "BOTH"
 
-[[dependencies."${mod_id}"]]
-modId = "hauntedharvest"
-mandatory = false
-versionRange = "[1.20-3.1.20,)"
-ordering = "AFTER"
-side = "BOTH"
 
 [[dependencies."${mod_id}"]]
 modId = "iceandfire"
@@ -161,17 +170,24 @@ versionRange = "[2.1.13-1.20.1-beta-5,)"
 ordering = "AFTER"
 side = "BOTH"
 
-[[dependencies."${mod_id}"]]
-modId = "luminousworld"
-mandatory = false
-versionRange = "[1.4.5,)"
-ordering = "AFTER"
-side = "BOTH"
+#[[dependencies."${mod_id}"]]
+#modId = "luminousworld"
+#mandatory = false
+#versionRange = "[1.4.5,)"
+#ordering = "AFTER"
+#side = "BOTH"
 
 [[dependencies."${mod_id}"]]
 modId = "quark"
 mandatory = false
 versionRange = "[4.0-460,)"
+ordering = "AFTER"
+side = "BOTH"
+
+[[dependencies."${mod_id}"]]
+modId = "nourished_nether"
+mandatory = false
+versionRange = "[0.2.5,)"
 ordering = "AFTER"
 side = "BOTH"
 
@@ -182,10 +198,24 @@ side = "BOTH"
 #ordering = "AFTER"
 #side = "BOTH"
 
+#[[dependencies."${mod_id}"]]
+#modId = "trailsandtalesplus"
+#mandatory = false
+#versionRange = "[1.20.1-8.0,)"
+#ordering = "AFTER"
+#side = "BOTH"
+
 [[dependencies."${mod_id}"]]
-modId = "trailsandtalesplus"
+modId = "bettercarrots"
 mandatory = false
-versionRange = "[1.20.1-8.0,)"
+versionRange = "[1.0.0,)"
+ordering = "AFTER"
+side = "BOTH"
+
+[[dependencies."${mod_id}"]]
+modId = "dropthemeat"
+mandatory = false
+versionRange = "[1.7,)"
 ordering = "AFTER"
 side = "BOTH"
 
@@ -203,19 +233,12 @@ versionRange = "[1.20.1 - 6.0.1,)"
 ordering = "AFTER"
 side = "BOTH"
 
-[[dependencies."${mod_id}"]]
-modId = "vintagedelight"
-mandatory = false
-versionRange = "[0.0.1,)"
-ordering = "AFTER"
-side = "BOTH"
-
-[[dependencies."${mod_id}"]]
-modId = "environmental"
-mandatory = false
-versionRange = "[4.0.1,)"
-ordering = "AFTER"
-side = "BOTH"
+#[[dependencies."${mod_id}"]]
+#modId = "environmental"
+#mandatory = false
+#versionRange = "[4.0.1,)"
+#ordering = "AFTER"
+#side = "BOTH"
 
 #[[dependencies."${mod_id}"]]
 #modId = "bloomingnature"
@@ -227,9 +250,30 @@ side = "BOTH"
 [[dependencies."${mod_id}"]]
 modId="hybrid_aquatic"
 mandatory=false
-versionRange="[0,)"
+versionRange="[1.5.3,)"
 ordering="AFTER"
 side="BOTH"
+
+[[dependencies."${mod_id}"]]
+modId="netherdepthsupgrade"
+mandatory=false
+versionRange="[3.1.4-1.20,)"
+ordering="AFTER"
+side="BOTH"
+
+[[dependencies."${mod_id}"]]
+modId="naturalist"
+mandatory=false
+versionRange="[4.0.3,)"
+ordering="AFTER"
+side="BOTH"
+
+[[dependencies."${mod_id}"]]
+modId = "pies"
+mandatory = false
+versionRange = "[1.20.1-1.1.0,)"
+ordering = "AFTER"
+side = "BOTH"
 
 # Features are specific properties of the game environment, that you may want to declare you require. This example declares
 # that your mod requires GL version 3.2 or higher. Other features will be added. They are side aware so declaring this won't

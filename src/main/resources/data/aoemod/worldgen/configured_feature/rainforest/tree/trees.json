@@ -5,21 +5,7 @@
       {
         "chance": 0.1,
         "feature": {
-          "feature": "aoemod:rainforest/tree/huge_acacia_tree",
-          "placement": []
-        }
-      },
-      {
-        "chance": 0.1,
-        "feature": {
           "feature": "aoemod:rainforest/tree/huge_azalea_tree",
-          "placement": []
-        }
-      },
-      {
-        "chance": 0.1,
-        "feature": {
-          "feature": "aoemod:rainforest/tree/huge_birch_tree",
           "placement": []
         }
       },
@@ -27,13 +13,6 @@
         "chance": 0.3,
         "feature": {
           "feature": "aoemod:rainforest/tree/huge_cherry_tree",
-          "placement": []
-        }
-      },
-      {
-        "chance": 0.1,
-        "feature": {
-          "feature": "aoemod:rainforest/tree/huge_coconut_tree",
           "placement": []
         }
       },
@@ -62,13 +41,6 @@
         "chance": 0.2,
         "feature": {
           "feature": "aoemod:rainforest/tree/huge_oak_tree",
-          "placement": []
-        }
-      },
-      {
-        "chance": 0.1,
-        "feature": {
-          "feature": "aoemod:rainforest/tree/huge_spruce_tree",
           "placement": []
         }
       }

@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "aoemod:item/shrimp"
+    "layer0": "aoemod:item/soul_berry_cookie"
   }
 }
