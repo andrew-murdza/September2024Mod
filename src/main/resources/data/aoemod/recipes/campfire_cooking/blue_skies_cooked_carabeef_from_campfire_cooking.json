@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:campfire_cooking",
+  "category": "food",
+  "ingredient": {
+    "item": "blue_skies:carabeef"
+  },
+  "result": "blue_skies:cooked_carabeef",
+  "experience": 0.35,
+  "cookingtime": 600
+}

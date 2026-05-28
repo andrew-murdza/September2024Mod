@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "farmersdelight:cabbage_leaf"
+    },
+    {
+      "item": "minecraft:wheat"
+    },
+    {
+      "item": "farmersdelight:onion"
+    },
+    {
+      "tag": "aoemod:food_wrappable"
+    }
+  ],
+  "result": {
+    "item": "farmersdelight:dumplings"
+  }
+}

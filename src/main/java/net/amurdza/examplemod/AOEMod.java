@@ -118,18 +118,12 @@ public class AOEMod
             // fish & seafood (raw)
             event.accept(ModItems.END_FISH.get());
             event.accept(ModItems.CUBOZOA.get());
-            event.accept(ModItems.ISOPOD.get());
-            event.accept(ModItems.SQUAT_LOBSTER.get());
-            event.accept(ModItems.CRAB_LEGS.get());
             event.accept(ModItems.NETHER_CRAB_CLAW.get());
 
             // cooked seafood
             event.accept(ModItems.COOKED_PUFFERFISH.get());
             event.accept(ModItems.COOKED_END_FISH.get());
             event.accept(ModItems.COOKED_CUBOZOA.get());
-            event.accept(ModItems.COOKED_ISOPOD.get());
-            event.accept(ModItems.COOKED_SQUAT_LOBSTER.get());
-            event.accept(ModItems.COOKED_CRAB_LEGS.get());
             event.accept(ModItems.COOKED_NETHER_CRAB_CLAW.get());
             event.accept(ModItems.COOKED_TUNA.get());
 
@@ -144,6 +138,7 @@ public class AOEMod
             event.accept(ModItems.BONE_SHOVEL.get());
             event.accept(ModItems.BONE_HOE.get());
             event.accept(ModItems.BONE_PICKAXE.get());
+            event.accept(ModItems.BONE_SHEARS.get());
             event.accept(ModItems.BUCKET_END_FISH.get());
             event.accept(ModItems.BUCKET_CUBOZOA.get());
         }

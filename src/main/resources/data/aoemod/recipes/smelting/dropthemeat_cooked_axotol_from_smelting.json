@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:smelting",
+  "category": "food",
+  "ingredient": {
+    "item": "dropthemeat:raw_axotol"
+  },
+  "result": "dropthemeat:cooked_axotol",
+  "experience": 0.35,
+  "cookingtime": 200
+}

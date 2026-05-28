@@ -28,18 +28,12 @@ public class ModItems {
     public static final RegistryObject<Item> COOKED_PUFFERFISH = ITEMS.register
             ("cooked_pufferfish", () -> new Item((new Item.Properties()).food(Foods.COOKED_SALMON)));
     public static final RegistryObject<Item> COOKED_TUNA = ITEMS.register("cooked_tuna", () -> new Item((new Item.Properties()).food((new FoodProperties.Builder()).nutrition(5).saturationMod(0.6F).build())));
-    public static final RegistryObject<Item> CRAB_LEGS = ITEMS.register("crab_legs", () -> new Item(new Item.Properties().food((new FoodProperties.Builder()).nutrition(3).saturationMod(0.3F).build())));
-    public static final RegistryObject<Item> COOKED_CRAB_LEGS = ITEMS.register("cooked_crab_legs", () -> new Item(new Item.Properties().food((new FoodProperties.Builder()).nutrition(8).saturationMod(0.8F).build())));
-     public static final RegistryObject<Item> CUBOZOA = ITEMS.register("cubozoa", () -> new Item(new Item.Properties().food((new FoodProperties.Builder()).nutrition(3).saturationMod(0.3F).build())));
+    public static final RegistryObject<Item> CUBOZOA = ITEMS.register("cubozoa", () -> new Item(new Item.Properties().food((new FoodProperties.Builder()).nutrition(3).saturationMod(0.3F).build())));
     public static final RegistryObject<Item> COOKED_CUBOZOA = ITEMS.register("cooked_cubozoa", () -> new Item(new Item.Properties().food((new FoodProperties.Builder()).nutrition(8).saturationMod(0.8F).build())));
     public static final RegistryObject<Item> END_FISH = ITEMS.register("end_fish", () -> new Item(new Item.Properties().food((new FoodProperties.Builder()).nutrition(3).saturationMod(0.3F).build())));
     public static final RegistryObject<Item> COOKED_END_FISH = ITEMS.register("cooked_end_fish", () -> new Item(new Item.Properties().food((new FoodProperties.Builder()).nutrition(8).saturationMod(0.8F).build())));
-    public static final RegistryObject<Item> ISOPOD = ITEMS.register("isopod", () -> new Item(new Item.Properties().food((new FoodProperties.Builder()).nutrition(3).saturationMod(0.3F).build())));
-    public static final RegistryObject<Item> COOKED_ISOPOD = ITEMS.register("cooked_isopod", () -> new Item(new Item.Properties().food((new FoodProperties.Builder()).nutrition(8).saturationMod(0.8F).build())));
     public static final RegistryObject<Item> NETHER_CRAB_CLAW = ITEMS.register("nether_crab_claw", () -> new Item(new Item.Properties().food((new FoodProperties.Builder()).nutrition(3).saturationMod(0.3F).build())));
     public static final RegistryObject<Item> COOKED_NETHER_CRAB_CLAW = ITEMS.register("cooked_nether_crab_claw", () -> new Item(new Item.Properties().food((new FoodProperties.Builder()).nutrition(8).saturationMod(0.8F).build())));
-    public static final RegistryObject<Item> SQUAT_LOBSTER = ITEMS.register("squat_lobster", () -> new Item(new Item.Properties().food((new FoodProperties.Builder()).nutrition(3).saturationMod(0.3F).build())));
-    public static final RegistryObject<Item> COOKED_SQUAT_LOBSTER = ITEMS.register("cooked_squat_lobster", () -> new Item(new Item.Properties().food((new FoodProperties.Builder()).nutrition(8).saturationMod(0.8F).build())));
 
     public static final  RegistryObject<Item> SOUL_BERRIES= ITEMS.register("soul_berries",()->new ItemNameBlockItem(ModBlocks.SOUL_BERRY_BUSH.get(),
             (new Item.Properties()).food((new FoodProperties.Builder()).nutrition(2).saturationMod(0.6F).build())));

@@ -1,7 +1,6 @@
 {
   "replace": false,
   "values": [
-    "#minecraft:animals_spawnable_on",
-    "minecraft:coarse_dirt"
+    "#minecraft:animals_spawnable_on"
   ]
 }

@@ -1,6 +1,0 @@
-{
-  "type": "forge:add_features",
-  "biomes": ["aoemod:plains"],
-  "features": "farmersdelight:patch_wild_carrots",
-  "step": "vegetal_decoration"
-}

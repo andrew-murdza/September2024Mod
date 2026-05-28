@@ -1,23 +1,26 @@
 {
-  "type": "minecraft:add",
-  "argument1": {
-    "type": "minecraft:mul",
+  "type": "minecraft:cache_2d",
+  "argument": {
+    "type": "minecraft:add",
     "argument1": {
-      "type": "minecraft:constant",
-      "argument": 2.0
+      "type": "minecraft:mul",
+      "argument1": {
+        "type": "minecraft:constant",
+        "argument": 2.0
+      },
+      "argument2": {
+        "type": "minecraft:abs",
+        "argument": {
+          "type": "minecraft:noise",
+          "noise": "aoemod:rivers",
+          "xz_scale": 0.3333333333333333,
+          "y_scale": 0.0
+        }
+      }
     },
     "argument2": {
-      "type": "minecraft:abs",
-      "argument": {
-        "type": "minecraft:noise",
-        "noise": "aoemod:rivers",
-        "xz_scale": 1.0,
-        "y_scale": 0.0
-      }
+      "type": "minecraft:constant",
+      "argument": -1.0
     }
-  },
-  "argument2": {
-    "type": "minecraft:constant",
-    "argument": -1.0
   }
 }
