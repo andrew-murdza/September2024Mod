@@ -25,18 +25,6 @@
         {
           "weight": 1,
           "data": {
-            "Name": "minecraft:pumpkin"
-          }
-        },
-        {
-          "weight": 1,
-          "data": {
-            "Name": "minecraft:melon"
-          }
-        },
-        {
-          "weight": 1,
-          "data": {
             "Name": "aoemod:jungle_sweet_berry_bush",
             "Properties": {
               "age": "3"

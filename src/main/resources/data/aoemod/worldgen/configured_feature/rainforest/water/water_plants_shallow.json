@@ -50,51 +50,6 @@
           }
         },
         {
-          "weight": 1,
-          "data": {
-            "Name": "upgrade_aquatic:acan_coral_fan",
-            "Properties": {
-              "waterlogged": "true"
-            }
-          }
-        },
-        {
-          "weight": 1,
-          "data": {
-            "Name": "upgrade_aquatic:finger_coral_fan",
-            "Properties": {
-              "waterlogged": "true"
-            }
-          }
-        },
-        {
-          "weight": 1,
-          "data": {
-            "Name": "upgrade_aquatic:petal_coral_fan",
-            "Properties": {
-              "waterlogged": "true"
-            }
-          }
-        },
-        {
-          "weight": 1,
-          "data": {
-            "Name": "upgrade_aquatic:silk_coral_fan",
-            "Properties": {
-              "waterlogged": "true"
-            }
-          }
-        },
-        {
-          "weight": 1,
-          "data": {
-            "Name": "upgrade_aquatic:star_coral_fan",
-            "Properties": {
-              "waterlogged": "true"
-            }
-          }
-        },
-        {
           "weight": 10,
           "data": {
             "Name": "minecraft:sea_pickle",

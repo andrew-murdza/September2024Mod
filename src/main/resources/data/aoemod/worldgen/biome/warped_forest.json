@@ -38,18 +38,13 @@
     [],
     [],
     [
-      "aoemod:warped_forest/blobs/glowstone",
-      "aoemod:warped_forest/blobs/blackstone",
-      "aoemod:warped_forest/blobs/basalt",
-      "aoemod:warped_forest/ores/ancient_debris",
-      "aoemod:warped_forest/ores/gold",
-      "aoemod:warped_forest/ores/quartz"
+      "aoemod:nether_ores/ancient_debris",
+      "aoemod:nether_ores/nether_gold",
+      "aoemod:nether_ores/quartz"
     ],
     [],
     [],
-    [
-      "aoemod:warped_forest/twisting_vines"
-    ]
+    []
   ],
   "has_precipitation": false,
   "spawn_costs": {

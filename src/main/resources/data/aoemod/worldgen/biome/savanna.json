@@ -22,19 +22,14 @@
     [],
     [],
     [],
+    [],
     [
-      "minecraft:spring_water"
-    ],
-    [
-      "aoemod:savanna/trees",
-      "minecraft:patch_sugar_cane",
-      "aoemod:savanna/mushrooms",
-      "aoemod:savanna/flowers",
       "aoemod:rainforest/forest_floor",
       "aoemod:savanna/forest_floor",
       "aoemod:plains/forest_floor",
       "aoemod:rainforest/seafloor",
-      "aoemod:savanna/seafloor"
+      "aoemod:savanna/seafloor",
+      "aoemod:plains/seafloor"
     ],
     [
       "minecraft:freeze_top_layer"

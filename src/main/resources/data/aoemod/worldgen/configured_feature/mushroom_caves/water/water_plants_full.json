@@ -1,66 +1,36 @@
 {
   "type": "aoemod:random_selector",
   "config": {
+    "placement": [
+      {
+        "type": "minecraft:block_predicate_filter",
+        "predicate": {
+          "type": "minecraft:has_sturdy_face",
+          "offset": [
+            0,
+            -1,
+            0
+          ],
+          "direction": "up"
+        }
+      }
+    ],
     "features": [
       {
-        "chance": 0.30,
-        "feature": {
-          "feature": "aoemod:mushroom_caves/water/water_plants",
-          "placement": [
-            {
-              "type": "minecraft:block_predicate_filter",
-              "predicate": {
-                "type": "minecraft:has_sturdy_face",
-                "offset": [
-                  0,
-                  -1,
-                  0
-                ],
-                "direction": "up"
-              }
-            }
-          ]
-        }
+        "chance": 0.16,
+        "feature": "aoemod:mountains/water/water_plants"
+      },
+      {
+        "chance": 0.02,
+        "feature": "aoemod:glow_lichen"
       },
       {
         "chance": 0.1,
-        "feature": {
-          "feature": "aoemod:water/kelp",
-          "placement": [
-            {
-              "type": "minecraft:block_predicate_filter",
-              "predicate": {
-                "type": "minecraft:has_sturdy_face",
-                "offset": [
-                  0,
-                  -1,
-                  0
-                ],
-                "direction": "up"
-              }
-            }
-          ]
-        }
+        "feature": "aoemod:water/kelp"
       },
       {
-        "chance": 0.60,
-        "feature": {
-          "feature": "aoemod:mushroom_caves/water/seagrass",
-          "placement": [
-            {
-              "type": "minecraft:block_predicate_filter",
-              "predicate": {
-                "type": "minecraft:has_sturdy_face",
-                "offset": [
-                  0,
-                  -1,
-                  0
-                ],
-                "direction": "up"
-              }
-            }
-          ]
-        }
+        "chance": 0.72,
+        "feature": "aoemod:mountains/water/seagrass"
       }
     ]
   }

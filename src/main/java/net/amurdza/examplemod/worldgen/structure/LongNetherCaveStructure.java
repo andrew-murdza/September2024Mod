@@ -3,10 +3,12 @@ package net.amurdza.examplemod.worldgen.structure;
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.MapCodec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
-import net.amurdza.examplemod.worldgen.feature.AllSurfacesFeatureConfig;
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.Holder;
+import net.minecraft.core.HolderSet;
 import net.minecraft.util.ExtraCodecs;
 import net.minecraft.world.level.ChunkPos;
+import net.minecraft.world.level.levelgen.placement.PlacedFeature;
 import net.minecraft.world.level.levelgen.structure.Structure;
 import net.minecraft.world.level.levelgen.structure.StructureType;
 import org.jetbrains.annotations.NotNull;
@@ -115,13 +117,9 @@ public class LongNetherCaveStructure extends Structure {
                                             s.maxBasaltDeltasY
                                     )),
 
-                            AllSurfacesFeatureConfig.CODEC.listOf()
-                                    .optionalFieldOf("all_surface_features", List.of())
-                                    .forGetter(s -> s.allSurfaceFeatures),
-
-                            ExactSurfaceFeatureConfig.CODEC.listOf()
-                                    .optionalFieldOf("exact_surface_features", List.of())
-                                    .forGetter(s -> s.exactSurfaceFeatures)
+                            PlacedFeature.LIST_CODEC
+                                    .optionalFieldOf("placed_features", HolderSet.direct(List.of()))
+                                    .forGetter(s -> s.placedFeatures)
                     ).apply(instance, LongNetherCaveStructure::new)
             );
 
@@ -147,8 +145,7 @@ public class LongNetherCaveStructure extends Structure {
     private final int maxCrimsonForestY;
     private final int maxBasaltDeltasY;
 
-    private final List<AllSurfacesFeatureConfig> allSurfaceFeatures;
-    private final List<ExactSurfaceFeatureConfig> exactSurfaceFeatures;
+    private final HolderSet<PlacedFeature> placedFeatures;
 
     public LongNetherCaveStructure(
             StructureSettings settings,
@@ -163,8 +160,7 @@ public class LongNetherCaveStructure extends Structure {
             float liquidDepth,
             float liquidRadius,
             BiomeCutoffs biomeCutoffs,
-            List<AllSurfacesFeatureConfig> allSurfaceFeatures,
-            List<ExactSurfaceFeatureConfig> exactSurfaceFeatures
+            HolderSet<PlacedFeature> placedFeatures
     ) {
         super(settings);
 
@@ -187,8 +183,7 @@ public class LongNetherCaveStructure extends Structure {
         this.maxCrimsonForestY = biomeCutoffs.maxCrimsonForestY();
         this.maxBasaltDeltasY = biomeCutoffs.maxBasaltDeltasY();
 
-        this.allSurfaceFeatures = allSurfaceFeatures;
-        this.exactSurfaceFeatures = exactSurfaceFeatures;
+        this.placedFeatures = placedFeatures;
     }
 
     @Override
@@ -221,8 +216,7 @@ public class LongNetherCaveStructure extends Structure {
                         this.maxWarpedForestY,
                         this.maxCrimsonForestY,
                         this.maxBasaltDeltasY,
-                        this.allSurfaceFeatures,
-                        this.exactSurfaceFeatures
+                        this.placedFeatures
                 )
         )));
     }

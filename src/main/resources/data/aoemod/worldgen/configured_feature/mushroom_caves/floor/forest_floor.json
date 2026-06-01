@@ -1,33 +1,28 @@
 {
   "type": "aoemod:random_selector",
   "config": {
+    "placement": [
+      {
+        "type": "minecraft:block_predicate_filter",
+        "predicate": {
+          "type": "minecraft:matching_blocks",
+          "offset": [
+            0,
+            -1,
+            0
+          ],
+          "blocks": "mycelium"
+        }
+      }
+    ],
     "features": [
       {
-        "chance": 0.10,
-        "feature": {
-          "feature": "aoemod:mushroom_caves/floor/grass",
-          "placement": [
-            {
-              "type": "minecraft:block_predicate_filter",
-              "predicate": {
-                "type": "minecraft:has_sturdy_face",
-                "offset": [
-                  0,
-                  -1,
-                  0
-                ],
-                "direction": "up"
-              }
-            }
-          ]
-        }
+        "chance": 0.1,
+        "feature": "aoemod:mushroom_caves/floor/grass"
       },
       {
-        "chance": 0.90,
-        "feature": {
-          "feature": "aoemod:nothing",
-          "placement": []
-        }
+        "chance": 0.9,
+        "feature": "aoemod:nothing"
       }
     ]
   }

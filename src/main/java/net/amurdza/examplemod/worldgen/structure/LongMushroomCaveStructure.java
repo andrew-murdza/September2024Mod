@@ -3,10 +3,12 @@ package net.amurdza.examplemod.worldgen.structure;
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.MapCodec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
-import net.amurdza.examplemod.worldgen.feature.AllSurfacesFeatureConfig;
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.Holder;
+import net.minecraft.core.HolderSet;
 import net.minecraft.util.ExtraCodecs;
 import net.minecraft.world.level.ChunkPos;
+import net.minecraft.world.level.levelgen.placement.PlacedFeature;
 import net.minecraft.world.level.levelgen.structure.Structure;
 import net.minecraft.world.level.levelgen.structure.StructureType;
 import org.jetbrains.annotations.NotNull;
@@ -65,13 +67,9 @@ public class LongMushroomCaveStructure extends Structure {
                                     .fieldOf("max_mushroom_caves")
                                     .forGetter(s -> s.maxMushroomCaves),
 
-                            AllSurfacesFeatureConfig.CODEC.listOf()
-                                    .optionalFieldOf("all_surface_features", List.of())
-                                    .forGetter(s -> s.allSurfaceFeatures),
-
-                            ExactSurfaceFeatureConfig.CODEC.listOf()
-                                    .optionalFieldOf("exact_surface_features", List.of())
-                                    .forGetter(s -> s.exactSurfaceFeatures)
+                            PlacedFeature.LIST_CODEC
+                                    .optionalFieldOf("placed_features", HolderSet.direct(List.of()))
+                                    .forGetter(s -> s.placedFeatures)
                     ).apply(instance, LongMushroomCaveStructure::new)
             );
 
@@ -91,8 +89,7 @@ public class LongMushroomCaveStructure extends Structure {
 
     private final int maxMushroomCaves;
 
-    private final List<AllSurfacesFeatureConfig> allSurfaceFeatures;
-    private final List<ExactSurfaceFeatureConfig> exactSurfaceFeatures;
+    private final HolderSet<PlacedFeature> placedFeatures;
 
     public LongMushroomCaveStructure(
             StructureSettings settings,
@@ -107,8 +104,7 @@ public class LongMushroomCaveStructure extends Structure {
             float liquidDepth,
             float liquidRadius,
             int maxMushroomCaves,
-            List<AllSurfacesFeatureConfig> allSurfaceFeatures,
-            List<ExactSurfaceFeatureConfig> exactSurfaceFeatures
+            HolderSet<PlacedFeature> placedFeatures
     ) {
         super(settings);
 
@@ -123,8 +119,7 @@ public class LongMushroomCaveStructure extends Structure {
         this.liquidDepth = liquidDepth;
         this.liquidRadius = liquidRadius;
         this.maxMushroomCaves = maxMushroomCaves;
-        this.allSurfaceFeatures = allSurfaceFeatures;
-        this.exactSurfaceFeatures = exactSurfaceFeatures;
+        this.placedFeatures = placedFeatures;
     }
 
     @Override
@@ -151,8 +146,7 @@ public class LongMushroomCaveStructure extends Structure {
                         this.liquidDepth,
                         this.liquidRadius,
                         this.maxMushroomCaves,
-                        this.allSurfaceFeatures,
-                        this.exactSurfaceFeatures
+                        this.placedFeatures
                 )
         )));
     }

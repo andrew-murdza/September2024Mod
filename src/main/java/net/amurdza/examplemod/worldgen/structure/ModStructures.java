@@ -16,12 +16,6 @@ public class ModStructures {
     public static final DeferredRegister<StructurePieceType> PIECE_TYPES =
             DeferredRegister.create(Registries.STRUCTURE_PIECE, AOEMod.MOD_ID);
 
-    public static final RegistryObject<StructureType<MountainLakeStructure>> MOUNTAIN_LAKE_STRUCTURE =
-            STRUCTURE_TYPES.register("mountain_lake", () -> () -> MountainLakeStructure.CODEC);
-
-    public static final RegistryObject<StructurePieceType> MOUNTAIN_LAKE_PIECE =
-            PIECE_TYPES.register("mountain_lake_piece", () -> MountainLakePiece::new);
-
     public static final RegistryObject<StructureType<LongNetherCaveStructure>> NETHER_CAVE =
             STRUCTURE_TYPES.register("nether_cave", () -> LongNetherCaveStructure.CODEC::codec);
 

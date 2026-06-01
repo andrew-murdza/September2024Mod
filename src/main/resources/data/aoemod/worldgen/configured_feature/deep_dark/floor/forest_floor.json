@@ -1,57 +1,30 @@
 {
   "type": "aoemod:random_selector",
   "config": {
+    "placement": [
+      {
+        "type": "minecraft:block_predicate_filter",
+        "predicate": {
+          "type": "minecraft:matching_blocks",
+          "offset": [
+            0,
+            -1,
+            0
+          ],
+          "blocks": [
+            "minecraft:sculk"
+          ]
+        }
+      }
+    ],
     "features": [
       {
         "chance": 0.036,
-        "feature": {
-          "feature": "aoemod:deep_dark/floor/grass",
-          "placement": [
-            {
-              "type": "minecraft:block_predicate_filter",
-              "predicate": {
-                "type": "minecraft:matching_blocks",
-                "offset": [
-                  0,
-                  -1,
-                  0
-                ],
-                "blocks": [
-                  "minecraft:sculk"
-                ]
-              }
-            }
-          ]
-        }
+        "feature": "aoemod:deep_dark/floor/grass"
       },
       {
-        "chance": 0.002,
-        "feature": {
-          "feature": "minecraft:chorus_plant",
-          "placement": [
-            {
-              "type": "minecraft:block_predicate_filter",
-              "predicate": {
-                "type": "minecraft:matching_blocks",
-                "offset": [
-                  0,
-                  -1,
-                  0
-                ],
-                "blocks": [
-                  "minecraft:sculk"
-                ]
-              }
-            }
-          ]
-        }
-      },
-      {
-        "chance": 0.962,
-        "feature": {
-          "feature": "aoemod:nothing",
-          "placement": []
-        }
+        "chance": 0.964,
+        "feature": "aoemod:nothing"
       }
     ]
   }

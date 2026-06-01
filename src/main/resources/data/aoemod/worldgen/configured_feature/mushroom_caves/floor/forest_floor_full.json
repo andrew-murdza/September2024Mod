@@ -2,9 +2,15 @@
   "type": "aoemod:all_surface",
   "config": {
     "feature": {
-      "feature": "aoemod:mushroom_caves/floor/forest_floor",
+      "feature": "aoemod:nothing",
       "placement": []
     },
+    "guaranteed_features": [
+      {
+        "feature": "aoemod:mushroom_caves/floor/grid_choice",
+        "placement": []
+      }
+    ],
      "target": "air",
     "all_layers": false,
     "max_y": 120,

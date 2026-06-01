@@ -1,0 +1,22 @@
+{
+  "type": "aoemod:mushroom_cave",
+  "biomes": "#aoemod:has_structure/mushroom_cave",
+  "step": "underground_structures",
+  "terrain_adaptation": "none",
+  "spawn_overrides": {},
+  "lower_horizontal_radius": 36.0,
+  "lower_vertical_radius": 9.0,
+  "start_y": 140,
+  "central_pillar_diameter": 60.0,
+  "min_floor_thickness": 6.0,
+  "upper_pitch": 0.5,
+  "upper_vertical_radius": 6.0,
+  "upper_horizontal_radius": 36.0,
+  "liquid_radius": 8.0,
+  "liquid_depth": 6.0,
+  "max_mushroom_caves": 124,
+  "placed_features": [
+//    "aoemod:mushroom_caves/seafloor",
+//    "aoemod:mushroom_caves/forest_floor"
+  ]
+}

@@ -1,47 +1,28 @@
 {
   "type": "aoemod:random_selector",
   "config": {
+    "placement": [
+      {
+        "type": "minecraft:block_predicate_filter",
+        "predicate": {
+          "type": "minecraft:has_sturdy_face",
+          "offset": [
+            0,
+            -1,
+            0
+          ],
+          "direction": "up"
+        }
+      }
+    ],
     "features": [
       {
-        "chance": 0.10,
-        "feature": {
-          "feature": "aoemod:desert/floor/sand_grass",
-          "placement": [
-            {
-              "type": "minecraft:block_predicate_filter",
-              "predicate": {
-                "type": "minecraft:matching_blocks",
-                "blocks": [
-                  "minecraft:sand"
-                ]
-              }
-            }
-          ]
-        }
+        "chance": 0.11,
+        "feature": "aoemod:plains/floor/grass"
       },
       {
-        "chance": 0.008,
-        "feature": {
-          "feature": "aoemod:desert/floor/red_sand_grass",
-          "placement": [
-            {
-              "type": "minecraft:block_predicate_filter",
-              "predicate": {
-                "type": "minecraft:matching_blocks",
-                "blocks": [
-                  "minecraft:red_sand"
-                ]
-              }
-            }
-          ]
-        }
-      },
-      {
-        "chance": 0.892,
-        "feature": {
-          "feature": "aoemod:nothing",
-          "placement": []
-        }
+        "chance": 0.89,
+        "feature": "aoemod:nothing"
       }
     ]
   }

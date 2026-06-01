@@ -1,0 +1,65 @@
+{
+  "type": "aoemod:grid_choice",
+  "config": {
+    "features": [
+      { "feature": "aoemod:trees/spruce" },
+      { "feature": "aoemod:trees/spruce" },
+      { "feature": "aoemod:trees/spruce" },
+      { "feature": "aoemod:trees/spruce" },
+      { "feature": "aoemod:trees/spruce" },
+      { "feature": "aoemod:trees/spruce" },
+      { "feature": "aoemod:trees/spruce" },
+
+      { "feature": "aoemod:trees/spruce" },
+      { "feature": "aoemod:crops/sweet_berry_bush_patch" },
+      { "feature": "aoemod:trees/spruce" },
+      { "feature": "aoemod:trees/spruce" },
+      { "feature": "aoemod:trees/spruce" },
+      { "feature": "aoemod:mushrooms/snowcap_pinhead_patch" },
+      { "feature": "aoemod:trees/spruce" },
+
+      { "feature": "aoemod:trees/spruce" },
+      { "feature": "aoemod:trees/spruce" },
+      { "feature": "aoemod:trees/spruce" },
+      { "feature": "aoemod:trees/spruce" },
+      { "feature": "aoemod:trees/spruce" },
+      { "feature": "aoemod:trees/spruce" },
+      { "feature": "aoemod:trees/spruce" },
+
+      { "feature": "aoemod:trees/spruce" },
+      { "feature": "aoemod:trees/spruce" },
+      { "feature": "aoemod:trees/spruce" },
+      { "feature": "aoemod:trees/spruce" },
+      { "feature": "aoemod:trees/spruce" },
+      { "feature": "aoemod:trees/spruce" },
+      { "feature": "aoemod:trees/spruce" },
+
+      { "feature": "aoemod:trees/spruce" },
+      { "feature": "aoemod:trees/spruce" },
+      { "feature": "aoemod:trees/spruce" },
+      { "feature": "aoemod:trees/spruce" },
+      { "feature": "aoemod:trees/spruce" },
+      { "feature": "aoemod:trees/spruce" },
+      { "feature": "aoemod:trees/spruce" },
+
+      { "feature": "aoemod:trees/spruce" },
+      { "feature": "aoemod:mushrooms/snowcap_pinhead_patch" },
+      { "feature": "aoemod:trees/spruce" },
+      { "feature": "aoemod:trees/spruce" },
+      { "feature": "aoemod:trees/spruce" },
+      { "feature": "aoemod:crops/sweet_berry_bush_patch" },
+      { "feature": "aoemod:trees/spruce" },
+
+      { "feature": "aoemod:trees/spruce" },
+      { "feature": "aoemod:trees/spruce" },
+      { "feature": "aoemod:trees/spruce" },
+      { "feature": "aoemod:trees/spruce" },
+      { "feature": "aoemod:trees/spruce" },
+      { "feature": "aoemod:trees/spruce" },
+      { "feature": "aoemod:trees/spruce" }
+    ],
+    "default_feature": "aoemod:nothing",
+    "placement": [],
+    "offset_type": "in_square"
+  }
+}

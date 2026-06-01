@@ -7,7 +7,7 @@
   ],
   "placement": {
     "type": "aoemod:band_polar",
-    "target_band_pos": 5.5,
+    "target_band_pos": 0.55,
     "arc_spacing": 900.0
   }
 }

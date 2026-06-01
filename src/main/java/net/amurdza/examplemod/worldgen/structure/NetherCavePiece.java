@@ -1,18 +1,17 @@
 package net.amurdza.examplemod.worldgen.structure;
 
-import net.amurdza.examplemod.worldgen.feature.AllSurfacesFeatureConfig;
 import net.mcreator.nourishednether.init.NourishedNetherModBlocks;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.core.HolderSet;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.world.level.WorldGenLevel;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.levelgen.placement.PlacedFeature;
 import net.minecraft.world.level.levelgen.structure.BoundingBox;
 import net.minecraft.world.level.levelgen.structure.pieces.StructurePieceSerializationContext;
-
-import java.util.List;
 
 public class NetherCavePiece extends AbstractSpiralCavePiece {
     private enum NetherLayer {
@@ -53,8 +52,7 @@ public class NetherCavePiece extends AbstractSpiralCavePiece {
             int maxWarpedForestY,
             int maxCrimsonForestY,
             int maxBasaltDeltasY,
-            List<AllSurfacesFeatureConfig> allSurfaceFeatures,
-            List<ExactSurfaceFeatureConfig> exactSurfaceFeatures
+            HolderSet<PlacedFeature> placedFeatures
     ) {
         super(
                 ModStructures.NETHER_CAVE_PIECE.get(),
@@ -69,8 +67,7 @@ public class NetherCavePiece extends AbstractSpiralCavePiece {
                 upperPitch,
                 liquidDepth,
                 liquidRadius,
-                allSurfaceFeatures,
-                exactSurfaceFeatures
+                placedFeatures
         );
 
         this.maxDeepDarkY = maxDeepDarkY;
@@ -175,18 +172,6 @@ public class NetherCavePiece extends AbstractSpiralCavePiece {
     ) {
         replaceFloorBelowLavaIfNeeded(level, box, new BlockPos(x, lowestPlacedFluidY, z));
         decorateDeepDarkRiverColumnSurfaces(level, box, x, z, minY, maxY, fluidCenterX, fluidCenterY, fluidCenterZ);
-    }
-
-    @Override
-    protected void decorateEntranceRiverFloor(
-            WorldGenLevel level,
-            BoundingBox box,
-            int x,
-            int lowestPlacedFluidY,
-            int z
-    ) {
-        placeEntranceBowlFloorLayer(level, box, x, lowestPlacedFluidY - 1, z);
-        replaceFloorBelowLavaIfNeeded(level, box, new BlockPos(x, lowestPlacedFluidY, z));
     }
 
     @Override

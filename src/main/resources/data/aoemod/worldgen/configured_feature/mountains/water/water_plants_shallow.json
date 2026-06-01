@@ -5,15 +5,13 @@
       "type": "minecraft:weighted_state_provider",
       "entries": [
         {
-          "weight": 1,
+          "weight": 10,
           "data": {
-            "Name": "alexscaves:bone_worms"
-          }
-        },
-        {
-          "weight": 1,
-          "data": {
-            "Name": "minecraft:seagrass"
+            "Name": "minecraft:sea_pickle",
+            "Properties": {
+              "pickles": "4",
+              "waterlogged": "true"
+            }
           }
         }
       ]

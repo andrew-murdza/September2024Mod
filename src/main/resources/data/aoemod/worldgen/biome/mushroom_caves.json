@@ -29,32 +29,20 @@
     [],
     [],
     [
-      "aoemod:mushroom_caves/stone_variants",
-      "aoemod:mushroom_caves/ores/ore_coal_lower",
-      "aoemod:mushroom_caves/ores/ore_coal_upper",
-      "aoemod:mushroom_caves/ores/ore_copper",
-      "aoemod:mushroom_caves/ores/ore_copper_large",
-      "aoemod:mushroom_caves/ores/ore_diamond",
-      "aoemod:mushroom_caves/ores/ore_diamond_buried",
-      "aoemod:mushroom_caves/ores/ore_diamond_large",
-      "aoemod:mushroom_caves/ores/ore_diamond_medium",
-      "aoemod:mushroom_caves/ores/ore_emerald",
-      "aoemod:mushroom_caves/ores/ore_gold",
-      "aoemod:mushroom_caves/ores/ore_iron_middle",
-      "aoemod:mushroom_caves/ores/ore_iron_small",
-      "aoemod:mushroom_caves/ores/ore_iron_upper",
-      "aoemod:mushroom_caves/ores/ore_lapis",
-      "aoemod:mushroom_caves/ores/ore_lapis_buried",
-      "aoemod:mushroom_caves/ores/ore_redstone",
-      "aoemod:mushroom_caves/ores/ore_redstone_lower"
+      "aoemod:blobs/mountain_stone_variants",
+      "aoemod:mountains/ores/iron_ore",
+      "aoemod:mountains/ores/copper_ore",
+      "aoemod:mountains/ores/coal_ore",
+      "aoemod:mountains/ores/lapis_ore",
+      "aoemod:mountains/ores/diamond_ore",
+      "aoemod:mountains/ores/gold_ore",
+      "aoemod:mountains/ores/emerald_ore",
+      "aoemod:mushroom_caves/ores/coal_ore_extra"
     ],
     [],
+    [],
     [
-      "minecraft:spring_water"
-    ],
-    [
-      "aoemod:mushroom_caves/trees",
-      "aoemod:mushroom_caves/mushrooms",
+      "aoemod:plains/forest_floor",
       "aoemod:plains/seafloor"
     ],
     [

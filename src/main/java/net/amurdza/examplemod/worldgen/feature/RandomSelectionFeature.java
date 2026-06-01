@@ -2,30 +2,41 @@ package net.amurdza.examplemod.worldgen.feature;
 
 import com.mojang.serialization.Codec;
 import net.amurdza.examplemod.util.RandomCollection;
+import net.minecraft.core.Holder;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
 import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
-import net.minecraft.world.level.levelgen.feature.WeightedPlacedFeature;
 import net.minecraft.world.level.levelgen.placement.PlacedFeature;
 
 import java.util.function.Predicate;
 
 public class RandomSelectionFeature extends Feature<RandomSelectionFeatureConfig> {
-    public RandomSelectionFeature(Codec<RandomSelectionFeatureConfig> p_66619_) {
-        super(p_66619_);
+    public RandomSelectionFeature(Codec<RandomSelectionFeatureConfig> codec) {
+        super(codec);
     }
 
+    @Override
     public boolean place(FeaturePlaceContext<RandomSelectionFeatureConfig> context) {
-        RandomSelectionFeatureConfig randomfeatureconfiguration = context.config();
-        RandomSource randomsource = context.random();
-        RandomCollection<PlacedFeature> features=new RandomCollection<>();
-        for(WeightedPlacedFeature weightedplacedfeature : randomfeatureconfiguration.features) {
-            features.add(weightedplacedfeature.chance,weightedplacedfeature.feature.value());
-        }
-        return features.next(randomsource).place(context.level(),context.chunkGenerator(),randomsource,context.origin());
-    }
+        RandomSelectionFeatureConfig config = context.config();
+        RandomSource random = context.random();
 
+        RandomCollection<Holder<ConfiguredFeature<?, ?>>> features = new RandomCollection<>();
+
+        for (WeightedConfiguredFeature weighted : config.features()) {
+            features.add(weighted.chance(), weighted.feature());
+        }
+
+        Holder<ConfiguredFeature<?, ?>> selected = features.next(random);
+        PlacedFeature placed = new PlacedFeature(selected, config.placement());
+
+        return placed.place(
+                context.level(),
+                context.chunkGenerator(),
+                random,
+                context.origin()
+        );
+    }
 
     public void placeSkippingFeatures(
             FeaturePlaceContext<RandomSelectionFeatureConfig> context,
@@ -35,20 +46,19 @@ public class RandomSelectionFeature extends Feature<RandomSelectionFeatureConfig
         RandomSelectionFeatureConfig config = context.config();
         RandomSource random = context.random();
 
-        RandomCollection<PlacedFeature> features = new RandomCollection<>();
+        RandomCollection<Holder<ConfiguredFeature<?, ?>>> features = new RandomCollection<>();
 
-        for (WeightedPlacedFeature weighted : config.features) {
-            features.add(weighted.chance, weighted.feature.value());
+        for (WeightedConfiguredFeature weighted : config.features()) {
+            features.add(weighted.chance(), weighted.feature());
         }
 
         for (int i = 0; i < maxRerolls; i++) {
-            PlacedFeature placed = features.next(random);
+            Holder<ConfiguredFeature<?, ?>> selected = features.next(random);
+            ConfiguredFeature<?, ?> configured = selected.value();
 
-            boolean bad = placed.getFeatures()
-                    .map(ConfiguredFeature::feature)
-                    .anyMatch(rejectedFeature);
+            if (!rejectedFeature.test(configured.feature())) {
+                PlacedFeature placed = new PlacedFeature(selected, config.placement());
 
-            if (!bad) {
                 placed.place(
                         context.level(),
                         context.chunkGenerator(),
@@ -58,6 +68,5 @@ public class RandomSelectionFeature extends Feature<RandomSelectionFeatureConfig
                 return;
             }
         }
-
     }
 }

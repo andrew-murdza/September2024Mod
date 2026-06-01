@@ -1,35 +1,30 @@
 {
   "type": "aoemod:random_selector",
   "config": {
-    "features": [
+    "placement": [
       {
-        "chance": 0.10,
-        "feature": {
-          "feature": "aoemod:deep_dark/water/water_plants",
-          "placement": [
-            {
-              "type": "minecraft:block_predicate_filter",
-              "predicate": {
-                "type": "minecraft:matching_blocks",
-                "offset": [
-                  0,
-                  -1,
-                  0
-                ],
-                "blocks": [
-                  "minecraft:sculk"
-                ]
-              }
-            }
+        "type": "minecraft:block_predicate_filter",
+        "predicate": {
+          "type": "minecraft:matching_blocks",
+          "offset": [
+            0,
+            -1,
+            0
+          ],
+          "blocks": [
+            "minecraft:sculk"
           ]
         }
+      }
+    ],
+    "features": [
+      {
+        "chance": 0.1,
+        "feature": "aoemod:deep_dark/water/water_plants"
       },
       {
-        "chance": 0.90,
-        "feature": {
-          "feature": "aoemod:nothing",
-          "placement": []
-        }
+        "chance": 0.9,
+        "feature": "aoemod:nothing"
       }
     ]
   }

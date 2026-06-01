@@ -14,8 +14,7 @@
     "predicate": {
       "type": "minecraft:matching_blocks",
       "blocks": [
-        "minecraft:gravel",
-        "minecraft:wet_sponge"
+        "minecraft:mud"
       ]
     },
     "biomes": "aoemod:mountain_biomes"

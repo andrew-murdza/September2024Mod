@@ -38,12 +38,9 @@
     [],
     [],
     [
-      "aoemod:crimson_forest/blobs/glowstone",
-      "aoemod:crimson_forest/blobs/blackstone",
-      "aoemod:crimson_forest/blobs/basalt",
-      "aoemod:crimson_forest/ores/ancient_debris",
-      "aoemod:crimson_forest/ores/gold",
-      "aoemod:crimson_forest/ores/quartz"
+      "aoemod:nether_ores/ancient_debris",
+      "aoemod:nether_ores/nether_gold",
+      "aoemod:nether_ores/quartz"
     ],
     [],
     [],
@@ -73,10 +70,10 @@
     "underground_water_creature": [],
     "water_ambient": [
       {
-        "type": "unusualfishmod:crimsonshell_squid",
+        "type": "blue_skies:charscale_moki",
         "weight": 5,
-        "minCount": 3,
-        "maxCount": 6
+        "minCount": 2,
+        "maxCount": 2
       }
     ],
     "water_creature": []

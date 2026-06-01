@@ -2,7 +2,6 @@ package net.amurdza.examplemod.event_handlers;
 
 import com.legacy.blue_skies.blocks.natural.SkyMushroomBlock;
 import com.legacy.blue_skies.world.general_features.BaseLargeMushroomFeature;
-import com.teamabnormals.upgrade_aquatic.core.registry.UABlocks;
 import dev.corgitaco.ohthetreesyoullgrow.world.level.levelgen.feature.TreeFromStructureNBTFeature;
 import net.amurdza.examplemod.AOEMod;
 import net.amurdza.examplemod.Config;
@@ -13,6 +12,7 @@ import net.amurdza.examplemod.util.RandomCollection;
 import net.amurdza.examplemod.worldgen.feature.ModConfiguredFeatures;
 import net.amurdza.examplemod.worldgen.feature.RandomSelectionFeature;
 import net.amurdza.examplemod.worldgen.feature.RandomSelectionFeatureConfig;
+import net.amurdza.examplemod.worldgen.feature.WeightedConfiguredFeature;
 import net.mcreator.nourishednether.init.NourishedNetherModBlocks;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -225,8 +225,6 @@ public class BoneMealEvent {
         if (block == Blocks.WET_SPONGE) return false;
         if (block == Blocks.SMALL_DRIPLEAF) return false;
 
-        if (block == UABlocks.TALL_PICKERELWEED.get()) return false;
-
         if (state.is(ModTags.Blocks.netherFlowers)) return false;
         if (state.is(ModTags.Blocks.netherRootsPlaceable)) return false;
         if (block instanceof SeaPickleBlock && state.getValue(SeaPickleBlock.PICKLES) < 4 && state.getValue(BlockStateProperties.WATERLOGGED)) return false;
@@ -288,7 +286,7 @@ public class BoneMealEvent {
             return true;
         }
 
-        if (block == UABlocks.TALL_PICKERELWEED.get() || block instanceof TallFlowerBlock) {
+        if (block instanceof TallFlowerBlock) {
             return true;
         }
 
@@ -964,25 +962,27 @@ public class BoneMealEvent {
                 && configured.config() instanceof RandomSelectionFeatureConfig config) {
 
             RandomCollection<PlacedFeature> choices = new RandomCollection<>();
+            boolean hasChoice = false;
 
-            for (WeightedPlacedFeature weighted : config.features) {
-                PlacedFeature placed = weighted.feature.value();
+            for (WeightedConfiguredFeature weighted : config.features()) {
+                ConfiguredFeature<?, ?> choiceConfigured = weighted.feature().value();
 
-                placed.getFeatures()
-                        .filter(cf -> cf.config() instanceof RandomPatchConfiguration)
-                        .map(cf -> ((RandomPatchConfiguration) cf.config()).feature().value())
-                        .findFirst().ifPresent(singleFlower -> choices.add(weighted.chance, singleFlower));
-
+                if (choiceConfigured.config() instanceof RandomPatchConfiguration patch) {
+                    choices.add(weighted.chance(), patch.feature().value());
+                    hasChoice = true;
+                }
             }
 
-            PlacedFeature chosen = choices.next(random);
-            chosen.place(level, chunkGenerator, random, pos);
+            if (hasChoice) {
+                PlacedFeature chosen = choices.next(random);
+                chosen.place(level, chunkGenerator, random, pos);
+            }
+
             return;
         }
 
         if (configured.config() instanceof RandomPatchConfiguration patch) {
             patch.feature().value().place(level, chunkGenerator, random, pos);
         }
-
     }
 }

@@ -1,0 +1,65 @@
+{
+  "type": "aoemod:grid_choice",
+  "config": {
+    "features": [
+      { "feature": "aoemod:nothing" },
+      { "feature": "aoemod:nothing" },
+      { "feature": "aoemod:nothing" },
+      { "feature": "aoemod:nothing" },
+      { "feature": "aoemod:nothing" },
+      { "feature": "aoemod:trees/oak" },
+      { "feature": "aoemod:nothing" },
+
+      { "feature": "aoemod:nothing" },
+      { "feature": "aoemod:nothing" },
+      { "feature": "aoemod:nothing" },
+      { "feature": "aoemod:nothing" },
+      { "feature": "aoemod:nothing" },
+      { "feature": "aoemod:nothing" },
+      { "feature": "aoemod:nothing" },
+
+      { "feature": "aoemod:nothing" },
+      { "feature": "aoemod:nothing" },
+      { "feature": "aoemod:nothing" },
+      { "feature": "aoemod:trees/birch" },
+      { "feature": "aoemod:nothing" },
+      { "feature": "aoemod:nothing" },
+      { "feature": "aoemod:nothing" },
+
+      { "feature": "aoemod:nothing" },
+      { "feature": "aoemod:nothing" },
+      { "feature": "aoemod:nothing" },
+      { "feature": "aoemod:nothing" },
+      { "feature": "aoemod:nothing" },
+      { "feature": "aoemod:nothing" },
+      { "feature": "aoemod:nothing" },
+
+      { "feature": "aoemod:nothing" },
+      { "feature": "aoemod:nothing" },
+      { "feature": "aoemod:nothing" },
+      { "feature": "aoemod:trees/oak" },
+      { "feature": "aoemod:nothing" },
+      { "feature": "aoemod:nothing" },
+      { "feature": "aoemod:nothing" },
+
+      { "feature": "aoemod:trees/oak_bees" },
+      { "feature": "aoemod:nothing" },
+      { "feature": "aoemod:nothing" },
+      { "feature": "aoemod:nothing" },
+      { "feature": "aoemod:nothing" },
+      { "feature": "aoemod:nothing" },
+      { "feature": "aoemod:nothing" },
+
+      { "feature": "aoemod:nothing" },
+      { "feature": "aoemod:nothing" },
+      { "feature": "aoemod:nothing" },
+      { "feature": "aoemod:nothing" },
+      { "feature": "aoemod:nothing" },
+      { "feature": "aoemod:nothing" },
+      { "feature": "aoemod:nothing" }
+    ],
+    "default_feature": "aoemod:nothing",
+    "placement": [],
+    "offset_type": "in_square"
+  }
+}

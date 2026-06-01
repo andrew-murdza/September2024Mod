@@ -2,9 +2,19 @@
   "type": "aoemod:all_surface",
   "config": {
     "feature": {
-      "feature": "aoemod:savanna/floor/forest_floor",
+      "feature": "aoemod:savanna/floor/grass",
       "placement": []
     },
+    "guaranteed_features": [
+      {
+        "feature": "aoemod:savanna/floor/tree_grid_choice",
+        "placement": []
+      },
+      {
+        "feature": "aoemod:savanna/floor/flower_grid_choice",
+        "placement": []
+      }
+    ],
      "target": "air",
     "all_layers": false,
     "predicate": {

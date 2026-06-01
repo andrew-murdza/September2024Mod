@@ -1,0 +1,28 @@
+{
+  "type": "minecraft:simple_block",
+  "config": {
+    "to_place": {
+      "type": "minecraft:weighted_state_provider",
+      "entries": [
+        {
+          "weight": 36,
+          "data": {
+            "Name": "aoemod:desert_grass"
+          }
+        },
+        {
+          "weight": 9,
+          "data": {
+            "Name": "aoemod:desert_tallgrass"
+          }
+        },
+        {
+          "weight": 1,
+          "data": {
+            "Name": "minecraft:dead_bush"
+          }
+        }
+      ]
+    }
+  }
+}

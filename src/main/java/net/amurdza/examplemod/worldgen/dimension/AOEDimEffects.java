@@ -21,7 +21,7 @@ import org.jetbrains.annotations.NotNull;
 public class AOEDimEffects extends DimensionSpecialEffects {
 
     public AOEDimEffects() {
-        super(192.0F, true, SkyType.NORMAL, false, false);
+        super(256.0F, true, SkyType.NORMAL, false, false);
     }
 
     private static boolean isNetherLayer() {

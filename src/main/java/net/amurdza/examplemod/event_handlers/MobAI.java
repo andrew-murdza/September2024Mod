@@ -7,9 +7,6 @@ import com.github.alexthe666.iceandfire.entity.EntityPixie;
 import com.github.alexthe666.iceandfire.entity.EntitySiren;
 import com.github.alexthe666.iceandfire.entity.ai.PixieAIFlee;
 import com.github.alexthe666.iceandfire.entity.ai.PixieAISteal;
-import com.teamabnormals.upgrade_aquatic.common.entity.ai.goal.pike.PikeAttackGoal;
-import com.teamabnormals.upgrade_aquatic.common.entity.ai.goal.pike.PikeSwimToItemsGoal;
-import com.teamabnormals.upgrade_aquatic.common.entity.animal.Lionfish;
 import net.amurdza.examplemod.AOEMod;
 import net.amurdza.examplemod.util.ModTags;
 import net.minecraft.tags.TagKey;
@@ -135,12 +132,6 @@ public class MobAI {
                             TameableAIDestroyTurtleEggs.class,CreatureAITargetItems.class);
                     //Quark
                     removeAI(mob, RaveGoal.class);
-                    //Upgrade Aquatic
-                    removeAI(mob, PikeAttackGoal.class, PikeSwimToItemsGoal.class);
-                }
-                if (entity instanceof Lionfish){
-                    removeAI(mob,
-                            Class.forName("com.teamabnormals.upgrade_aquatic.common.entity.animal.Lionfish$LionfishAttackGoal"));
                 }
 //                if (entity instanceof CherryShrimp){
 //                    removeAI(mob,

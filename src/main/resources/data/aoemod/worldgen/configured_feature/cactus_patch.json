@@ -1,0 +1,36 @@
+{
+  "type": "minecraft:random_patch",
+  "config": {
+    "feature": {
+      "feature": "aoemod:cactus",
+      "placement": [
+        {
+          "type": "minecraft:block_predicate_filter",
+          "predicate": {
+            "type": "minecraft:matching_blocks",
+            "offset": [
+              0,
+              -1,
+              0
+            ],
+            "blocks": "minecraft:moss_block"
+          }
+        },
+        {
+          "type": "minecraft:block_predicate_filter",
+          "predicate": {
+            "type": "minecraft:matching_blocks",
+            "blocks": [
+              "minecraft:air",
+              "minecraft:cave_air",
+              "minecraft:void_air"
+            ]
+          }
+        }
+      ]
+    },
+    "tries": 14,
+    "xz_spread": 7,
+    "y_spread": 0
+  }
+}

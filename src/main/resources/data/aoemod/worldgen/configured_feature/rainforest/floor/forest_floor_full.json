@@ -2,17 +2,24 @@
   "type": "aoemod:all_surface",
   "config": {
     "feature": {
-      "feature": "aoemod:rainforest/floor/forest_floor",
+      "feature": "aoemod:rainforest/floor/grass",
       "placement": []
     },
-     "target": "air",
-    "max_y": 70,
-    "min_y": 0,
+    "guaranteed_features": [
+      {
+        "feature": "aoemod:rainforest/floor/grid_choice",
+        "placement": []
+      }
+    ],
+    "target": "air",
     "all_layers": true,
+    "min_y": 64,
+    "max_y": 64,
     "predicate": {
       "type": "minecraft:matching_blocks",
-      "blocks": ["minecraft:moss_block"]
-    },
-    "biomes": "aoemod:tropical_biomes"
+      "blocks": [
+        "minecraft:moss_block"
+      ]
+    }
   }
 }

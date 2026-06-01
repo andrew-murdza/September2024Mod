@@ -1,22 +1,21 @@
 package net.amurdza.examplemod.worldgen.structure;
 
-import net.amurdza.examplemod.worldgen.feature.AllSurfacesFeatureConfig;
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.HolderSet;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.world.level.WorldGenLevel;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.levelgen.placement.PlacedFeature;
 import net.minecraft.world.level.levelgen.structure.BoundingBox;
 import net.minecraft.world.level.levelgen.structure.pieces.StructurePieceSerializationContext;
-
-import java.util.List;
 
 public class MushroomCavePiece extends AbstractSpiralCavePiece {
     private final int maxMushroomCaves;
 
     @Override
-    protected boolean shouldMakeBowl(){
+    protected boolean shouldMakeBowl() {
         return false;
     }
 
@@ -33,8 +32,7 @@ public class MushroomCavePiece extends AbstractSpiralCavePiece {
             float liquidDepth,
             float liquidRadius,
             int maxMushroomCaves,
-            List<AllSurfacesFeatureConfig> allSurfaceFeatures,
-            List<ExactSurfaceFeatureConfig> exactSurfaceFeatures
+            HolderSet<PlacedFeature> placedFeatures
     ) {
         super(
                 ModStructures.MUSHROOM_CAVE_PIECE.get(),
@@ -49,8 +47,7 @@ public class MushroomCavePiece extends AbstractSpiralCavePiece {
                 upperPitch,
                 liquidDepth,
                 liquidRadius,
-                allSurfaceFeatures,
-                exactSurfaceFeatures
+                placedFeatures
         );
 
         this.maxMushroomCaves = maxMushroomCaves;
@@ -107,17 +104,6 @@ public class MushroomCavePiece extends AbstractSpiralCavePiece {
     @Override
     protected BlockState getRiverFluidState(double landFloorY) {
         return Blocks.WATER.defaultBlockState();
-    }
-
-    @Override
-    protected void decorateEntranceRiverFloor(
-            WorldGenLevel level,
-            BoundingBox box,
-            int x,
-            int lowestPlacedFluidY,
-            int z
-    ) {
-        placeMudRiverFloor(level, box, new BlockPos(x, lowestPlacedFluidY - 1, z));
     }
 
     @Override

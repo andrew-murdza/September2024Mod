@@ -38,12 +38,11 @@
     [],
     [],
     [
-      "aoemod:basalt_deltas/blobs/magma",
-      "aoemod:basalt_deltas/blobs/glowstone",
-      "aoemod:basalt_deltas/blobs/basalt",
-      "aoemod:basalt_deltas/ores/ancient_debris",
-      "aoemod:basalt_deltas/ores/gold",
-      "aoemod:basalt_deltas/ores/quartz"
+      "aoemod:blobs/magma",
+      "aoemod:blobs/glowstone",
+      "aoemod:nether_ores/ancient_debris_extra",
+      "aoemod:nether_ores/nether_gold_extra",
+      "aoemod:nether_ores/quartz_extra"
     ],
     []
   ],

@@ -1,0 +1,64 @@
+{
+  "type": "aoemod:grid_choice",
+  "config": {
+    "features": [
+      { "feature": "aoemod:sugar_cane_patch" },
+      { "feature": "aoemod:sugar_cane_patch" },
+      { "feature": "aoemod:nothing" },
+      { "feature": "aoemod:flowers/sunflower_patch" },
+      { "feature": "aoemod:nothing" },
+      { "feature": "aoemod:nothing" },
+      { "feature": "aoemod:nothing" },
+
+      { "feature": "aoemod:nothing" },
+      { "feature": "aoemod:nothing" },
+      { "feature": "aoemod:flowers/poppy_patch" },
+      { "feature": "aoemod:nothing" },
+      { "feature": "aoemod:mushrooms/brown_mushroom_patch" },
+      { "feature": "aoemod:sugar_cane_patch" },
+      { "feature": "aoemod:flowers/dandelion_patch" },
+
+      { "feature": "aoemod:sugar_cane_patch" },
+      { "feature": "aoemod:flowers/oxeye_daisy_patch" },
+      { "feature": "aoemod:nothing" },
+      { "feature": "aoemod:nothing" },
+      { "feature": "aoemod:nothing" },
+      { "feature": "aoemod:flowers/azure_bluet_patch" },
+      { "feature": "aoemod:nothing" },
+
+      { "feature": "aoemod:flowers/cornflower_patch" },
+      { "feature": "aoemod:nothing" },
+      { "feature": "aoemod:nothing" },
+      { "feature": "aoemod:nothing" },
+      { "feature": "aoemod:flowers/lily_of_the_valley_patch" },
+      { "feature": "aoemod:sugar_cane_patch" },
+      { "feature": "aoemod:crops/wild_carrots_patch" },
+
+      { "feature": "aoemod:sugar_cane_patch" },
+      { "feature": "aoemod:flowers/red_tulip_patch" },
+      { "feature": "aoemod:nothing" },
+      { "feature": "aoemod:nothing" },
+      { "feature": "aoemod:nothing" },
+      { "feature": "aoemod:flowers/white_tulip_patch" },
+      { "feature": "aoemod:nothing" },
+
+      { "feature": "aoemod:nothing" },
+      { "feature": "aoemod:nothing" },
+      { "feature": "aoemod:mushrooms/red_mushroom_patch" },
+      { "feature": "aoemod:nothing" },
+      { "feature": "aoemod:flowers/pink_tulip_patch" },
+      { "feature": "aoemod:sugar_cane_patch" },
+      { "feature": "aoemod:flowers/orange_tulip_patch" },
+
+      { "feature": "aoemod:sugar_cane_patch" },
+      { "feature": "aoemod:crops/wild_potatoes_patch" },
+      { "feature": "aoemod:nothing" },
+      { "feature": "aoemod:nothing" },
+      { "feature": "aoemod:nothing" },
+      { "feature": "aoemod:flowers/sunflower_patch" },
+      { "feature": "aoemod:nothing" }
+    ],
+    "default_feature": "aoemod:nothing",
+    "placement": []
+  }
+}

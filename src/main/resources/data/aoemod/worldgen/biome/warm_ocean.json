@@ -88,31 +88,7 @@
         "maxCount": 5
       },
       {
-        "type": "minecraft:chicken",
-        "weight": 10,
-        "minCount": 2,
-        "maxCount": 5
-      },
-      {
-        "type": "minecraft:cow",
-        "weight": 10,
-        "minCount": 2,
-        "maxCount": 5
-      },
-      {
-        "type": "minecraft:pig",
-        "weight": 10,
-        "minCount": 2,
-        "maxCount": 5
-      },
-      {
         "type": "minecraft:rabbit",
-        "weight": 10,
-        "minCount": 2,
-        "maxCount": 5
-      },
-      {
-        "type": "minecraft:sheep",
         "weight": 10,
         "minCount": 2,
         "maxCount": 5
@@ -158,12 +134,6 @@
         "weight": 10,
         "minCount": 2,
         "maxCount": 5
-      },
-      {
-        "type": "quark:crab",
-        "weight": 10,
-        "minCount": 4,
-        "maxCount": 4
       }
     ],
     "misc": [],
@@ -271,10 +241,7 @@
     ],
     [
       "aoemod:rainforest/trees",
-      "aoemod:rainforest/non_tree_large_features",
       "aoemod:rainforest/forest_floor",
-      "aoemod:rainforest/patch_wild_rice",
-      "upgrade_aquatic:patch_pickerelweed_extra",
       "aoemod:rainforest/seafloor",
       "aoemod:rainforest/cave_vines",
       "aoemod:rainforest/lilypads"

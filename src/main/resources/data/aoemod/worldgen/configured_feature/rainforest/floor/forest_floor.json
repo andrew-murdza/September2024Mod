@@ -1,126 +1,64 @@
 {
   "type": "aoemod:random_selector",
   "config": {
+    "placement": [
+      {
+        "type": "minecraft:block_predicate_filter",
+        "predicate": {
+          "type": "minecraft:matching_blocks",
+          "offset": [
+            0,
+            -1,
+            0
+          ],
+          "blocks": "minecraft:moss_block"
+        }
+      }
+    ],
     "features": [
       {
-        "chance": 0.12,
-        "feature": {
-          "feature": "aoemod:rainforest/floor/flowers",
-          "placement": [
-            {
-              "type": "minecraft:block_predicate_filter",
-              "predicate": {
-                "type": "minecraft:matching_blocks",
-                "offset": [
-                  0,
-                  -1,
-                  0
-                ],
-                "blocks": "minecraft:moss_block"
-              }
-            }
-          ]
-        }
-      },
-      {
-        "chance": 0.03,
-        "feature": {
-          "feature": "aoemod:rainforest/floor/tall_flowers",
-          "placement": [
-            {
-              "type": "minecraft:block_predicate_filter",
-              "predicate": {
-                "type": "minecraft:matching_blocks",
-                "offset": [
-                  0,
-                  -1,
-                  0
-                ],
-                "blocks": "minecraft:moss_block"
-              }
-            }
-          ]
-        }
-      },
-      {
-        "chance": 0.03,
-        "feature": {
-          "feature": "aoemod:rainforest/floor/mushrooms",
-          "placement": [
-            {
-              "type": "minecraft:block_predicate_filter",
-              "predicate": {
-                "type": "minecraft:matching_blocks",
-                "offset": [
-                  0,
-                  -1,
-                  0
-                ],
-                "blocks": "minecraft:moss_block"
-              }
-            }
-          ]
-        }
-      },
-      {
-        "chance": 0.013,
-        "feature": {
-          "feature": "aoemod:rainforest/floor/crops",
-          "placement": [
-            {
-              "type": "minecraft:block_predicate_filter",
-              "predicate": {
-                "type": "minecraft:matching_blocks",
-                "offset": [
-                  0,
-                  -1,
-                  0
-                ],
-                "blocks": "minecraft:moss_block"
-              }
-            }
-          ]
-        }
-      },
-      {
         "chance": 0.79,
-        "feature": {
-          "feature": "aoemod:rainforest/floor/grass",
-          "placement": [
-            {
-              "type": "minecraft:block_predicate_filter",
-              "predicate": {
-                "type": "minecraft:matching_blocks",
-                "offset": [
-                  0,
-                  -1,
-                  0
-                ],
-                "blocks": "minecraft:moss_block"
-              }
-            }
-          ]
-        }
+        "feature": "aoemod:rainforest/floor/grass"
       },
       {
         "chance": 0.003,
-        "feature": {
-          "feature": "aoemod:sugar_cane",
-          "placement": [
-            {
-              "type": "minecraft:block_predicate_filter",
-              "predicate": {
-                "type": "minecraft:matching_blocks",
-                "offset": [
-                  0,
-                  -1,
-                  0
-                ],
-                "blocks": "minecraft:moss_block"
-              }
-            }
-          ]
-        }
+        "feature": "aoemod:cactus"
+      },
+      {
+        "chance": 0.003,
+        "feature": "aoemod:small_dripleaf"
+      },
+      {
+        "chance": 0.003,
+        "feature": "aoemod:big_dripleaf"
+      },
+      {
+        "chance": 0.003,
+        "feature": "aoemod:rainforest/floor/crops"
+      },
+      {
+        "chance": 0.003,
+        "feature": "aoemod:sugar_cane"
+      },
+      {
+        "chance": 0.015,
+        "feature": "minecraft:bamboo_no_podzol"
+      },
+      {
+        "chance": 0.013,
+        "feature": "aoemod:rainforest/floor/crops"
+      },
+      {
+        "chance": 0.03,
+        "feature": "aoemod:rainforest/floor/mushrooms"
+      },
+      {
+        "chance": 0.03,
+        "feature": "aoemod:rainforest/floor/tall_flowers"
+      },
+      {
+        "chance": 0.12,
+        "feature": "aoemod:rainforest/floor/flowers"
       }
     ]
   }

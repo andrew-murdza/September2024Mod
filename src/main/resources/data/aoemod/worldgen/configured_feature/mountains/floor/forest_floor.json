@@ -1,33 +1,42 @@
 {
   "type": "aoemod:random_selector",
   "config": {
+    "placement": [
+      {
+        "type": "minecraft:block_predicate_filter",
+        "predicate": {
+          "type": "minecraft:has_sturdy_face",
+          "offset": [
+            0,
+            -1,
+            0
+          ],
+          "direction": "up"
+        }
+      }
+    ],
     "features": [
       {
         "chance": 0.06,
+        "feature": "aoemod:mountains/floor/grass"
+      },
+      {
+        "chance": 0.0025,
         "feature": {
-          "feature": "aoemod:mountains/floor/grass",
-          "placement": [
-            {
-              "type": "minecraft:block_predicate_filter",
-              "predicate": {
-                "type": "minecraft:has_sturdy_face",
-                "offset": [
-                  0,
-                  -1,
-                  0
-                ],
-                "direction": "up"
+          "type": "minecraft:simple_block",
+          "config": {
+            "to_place": {
+              "type": "minecraft:simple_state_provider",
+              "state": {
+                "Name": "blueskies:snowcap_pinhead"
               }
             }
-          ]
+          }
         }
       },
       {
-        "chance": 0.94,
-        "feature": {
-          "feature": "aoemod:nothing",
-          "placement": []
-        }
+        "chance": 0.9375,
+        "feature": "aoemod:nothing"
       }
     ]
   }

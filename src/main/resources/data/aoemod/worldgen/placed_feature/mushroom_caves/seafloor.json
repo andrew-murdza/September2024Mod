@@ -1,8 +1,0 @@
-{
-  "feature": "aoemod:mushroom_caves/water/seafloor",
-  "placement": [
-    {
-      "type": "minecraft:biome"
-    }
-  ]
-}

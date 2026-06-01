@@ -1,9 +1,9 @@
 package net.amurdza.examplemod.worldgen.structure;
 
-import net.amurdza.examplemod.worldgen.feature.AllSurfacesFeatureConfig;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.Holder;
+import net.minecraft.core.HolderSet;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.util.Mth;
 import net.minecraft.util.RandomSource;
@@ -20,8 +20,6 @@ import net.minecraft.world.level.levelgen.structure.StructurePiece;
 import net.minecraft.world.level.levelgen.structure.pieces.StructurePieceSerializationContext;
 import net.minecraft.world.level.levelgen.structure.pieces.StructurePieceType;
 import org.jetbrains.annotations.NotNull;
-
-import java.util.List;
 
 public abstract class AbstractSpiralCavePiece extends StructurePiece {
     protected static final int TARGET_Y = -126;
@@ -42,8 +40,7 @@ public abstract class AbstractSpiralCavePiece extends StructurePiece {
     protected final float liquidDepth;
     protected final float liquidRadius;
 
-    protected final List<AllSurfacesFeatureConfig> allSurfaceFeatures;
-    protected final List<ExactSurfaceFeatureConfig> exactSurfaceFeatures;
+    protected final HolderSet<PlacedFeature> placedFeatures;
 
     protected AbstractSpiralCavePiece(
             StructurePieceType type,
@@ -58,8 +55,7 @@ public abstract class AbstractSpiralCavePiece extends StructurePiece {
             float upperPitch,
             float liquidDepth,
             float liquidRadius,
-            List<AllSurfacesFeatureConfig> allSurfaceFeatures,
-            List<ExactSurfaceFeatureConfig> exactSurfaceFeatures
+            HolderSet<PlacedFeature> placedFeatures
     ) {
         super(type, 0, makeBoundingBox(
                 origin,
@@ -82,8 +78,7 @@ public abstract class AbstractSpiralCavePiece extends StructurePiece {
         this.upperPitch = upperPitch;
         this.liquidDepth = liquidDepth;
         this.liquidRadius = liquidRadius;
-        this.allSurfaceFeatures = allSurfaceFeatures;
-        this.exactSurfaceFeatures = exactSurfaceFeatures;
+        this.placedFeatures = placedFeatures;
     }
 
     protected AbstractSpiralCavePiece(
@@ -121,12 +116,11 @@ public abstract class AbstractSpiralCavePiece extends StructurePiece {
                 : tag.getFloat("LiquidWidth");
 
         /*
-         * These feature lists normally come from the structure config when the
-         * piece is first created. They are not serialized into NBT because they
-         * contain holders/predicates/codecs.
+         * These normally come from the structure config when the piece is first
+         * created. They are not serialized into NBT because placed feature holders
+         * should be read from the config/registry instead.
          */
-        this.allSurfaceFeatures = List.of();
-        this.exactSurfaceFeatures = List.of();
+        this.placedFeatures = HolderSet.direct();
     }
 
     @Override
@@ -178,16 +172,6 @@ public abstract class AbstractSpiralCavePiece extends StructurePiece {
             double fluidCenterY,
             double fluidCenterZ
     );
-
-    protected void decorateEntranceRiverFloor(
-            WorldGenLevel level,
-            BoundingBox box,
-            int x,
-            int lowestPlacedFluidY,
-            int z
-    ) {
-        placeEntranceBowlFloorLayer(level, box, x, lowestPlacedFluidY - 1, z);
-    }
 
     protected float getLowerTunnelHorizontalRadius() {
         return this.lowerHorizontalRadius + this.liquidRadius;
@@ -249,8 +233,17 @@ public abstract class AbstractSpiralCavePiece extends StructurePiece {
         return canReplace(state) || state.is(Blocks.LAVA) || state.is(Blocks.WATER);
     }
 
-    protected void clearBlockAboveFluid(WorldGenLevel level, BoundingBox box, BlockPos fluidPos) {
+    protected void clearBlockAboveFluid(
+            WorldGenLevel level,
+            BoundingBox box,
+            BlockPos fluidPos,
+            int maxClearY
+    ) {
         BlockPos above = fluidPos.above();
+
+        if (above.getY() > maxClearY) {
+            return;
+        }
 
         if (!box.isInside(above)) {
             return;
@@ -278,8 +271,8 @@ public abstract class AbstractSpiralCavePiece extends StructurePiece {
                 && state.isFaceSturdy(level, pos, Direction.UP);
     }
 
-    protected boolean isNaturalReplaceableSolid(BlockState state){
-        return !state.is(Blocks.BEDROCK)&&state.getFluidState().isEmpty();
+    protected boolean isNaturalReplaceableSolid(BlockState state) {
+        return !state.is(Blocks.BEDROCK) && state.getFluidState().isEmpty();
     }
 
     protected static boolean isExposedToAir(WorldGenLevel level, BlockPos pos) {
@@ -292,302 +285,6 @@ public abstract class AbstractSpiralCavePiece extends StructurePiece {
         }
 
         return false;
-    }
-
-    protected void tryPlaceAllSurfaceFeatureConfigAt(
-            WorldGenLevel level,
-            ChunkGenerator generator,
-            RandomSource random,
-            BlockPos pos,
-            AllSurfacesFeatureConfig cfg
-    ) {
-        if (cfg.minY != null && pos.getY() < cfg.minY) {
-            return;
-        }
-
-        if (cfg.maxY != null && pos.getY() > cfg.maxY) {
-            return;
-        }
-
-        if (cfg.biomes != null && !level.getBiome(pos.below()).is(cfg.biomes)) {
-            return;
-        }
-
-        Holder<PlacedFeature> selectedFeature = getAllSurfaceFeatureForTargetPosition(level, pos, cfg);
-
-        if (selectedFeature == null) {
-            return;
-        }
-
-        if (!cfg.predicate.test(level, pos.below())) {
-            return;
-        }
-
-        if (cfg.target == AllSurfacesFeatureConfig.Target.AIR) {
-            if (!isSafeAirOrigin(level, pos)) {
-                return;
-            }
-        }
-
-        selectedFeature.value().place(level, generator, random, pos);
-    }
-
-    protected Holder<PlacedFeature> getAllSurfaceFeatureForTargetPosition(
-            WorldGenLevel level,
-            BlockPos pos,
-            AllSurfacesFeatureConfig cfg
-    ) {
-        BlockState state = level.getBlockState(pos);
-        BlockState above = level.getBlockState(pos.above());
-
-        return switch (cfg.target) {
-            case AIR -> {
-                boolean validAir =
-                        state.isAir()
-                                && level.getFluidState(pos).isEmpty()
-                                && level.getFluidState(pos.above()).isEmpty();
-
-                if (!validAir) {
-                    yield null;
-                }
-
-                yield cfg.feature;
-            }
-
-            case WATER -> {
-                boolean hereWater = state.is(Blocks.WATER);
-
-                if (!hereWater) {
-                    yield null;
-                }
-
-                boolean aboveWater = above.is(Blocks.WATER);
-
-                if (aboveWater) {
-                    yield cfg.deepFeature;
-                }
-
-                yield cfg.feature;
-            }
-
-            case LAVA -> {
-                boolean hereLava = state.is(Blocks.LAVA);
-
-                if (!hereLava) {
-                    yield null;
-                }
-
-                boolean aboveLava = above.is(Blocks.LAVA);
-
-                if (aboveLava) {
-                    yield cfg.deepFeature;
-                }
-
-                yield cfg.feature;
-            }
-        };
-    }
-
-    protected boolean isSafeAirOrigin(WorldGenLevel level, BlockPos pos) {
-        return level.getBlockState(pos).isAir()
-                && level.getFluidState(pos).isEmpty();
-    }
-
-    protected void placeExactSurfaceFeatureConfigs(
-            WorldGenLevel level,
-            ChunkGenerator generator,
-            BoundingBox currentBox
-    ) {
-        if (this.exactSurfaceFeatures.isEmpty()) {
-            return;
-        }
-
-        BoundingBox fullPieceBox = this.getBoundingBox();
-
-        for (int i = 0; i < this.exactSurfaceFeatures.size(); i++) {
-            ExactSurfaceFeatureConfig cfg = this.exactSurfaceFeatures.get(i);
-            placeExactSurfaceFeatureConfigForWholePiece(level, generator, currentBox, fullPieceBox, cfg, i);
-        }
-    }
-
-    protected void placeExactSurfaceFeatureConfigForWholePiece(
-            WorldGenLevel level,
-            ChunkGenerator generator,
-            BoundingBox currentBox,
-            BoundingBox fullPieceBox,
-            ExactSurfaceFeatureConfig cfg,
-            int configIndex
-    ) {
-        if (cfg.count <= 0) {
-            return;
-        }
-
-        int minY = Math.max(fullPieceBox.minY(), cfg.minY.orElse(fullPieceBox.minY()));
-        int maxY = Math.min(fullPieceBox.maxY(), cfg.maxY.orElse(fullPieceBox.maxY()));
-
-        if (minY > maxY) {
-            return;
-        }
-
-        List<BlockPos> selectedPositions = selectGlobalExactSurfaceFeaturePositions(
-                fullPieceBox,
-                cfg,
-                configIndex,
-                minY,
-                maxY
-        );
-
-        for (BlockPos selectedPos : selectedPositions) {
-            if (!currentBox.isInside(selectedPos)) {
-                continue;
-            }
-
-            if (!isValidExactSurfaceFeatureCandidate(level, selectedPos, cfg)) {
-                continue;
-            }
-
-            cfg.feature.value().place(
-                    level,
-                    generator,
-                    RandomSource.create(getExactSurfacePlacementSeed(fullPieceBox, configIndex)),
-                    selectedPos
-            );
-        }
-    }
-
-    protected List<BlockPos> selectGlobalExactSurfaceFeaturePositions(
-            BoundingBox fullPieceBox,
-            ExactSurfaceFeatureConfig cfg,
-            int configIndex,
-            int minY,
-            int maxY
-    ) {
-        RandomSource placementRandom = RandomSource.create(getExactSurfacePlacementSeed(fullPieceBox, configIndex));
-
-        List<BlockPos> selectedPositions = new java.util.ArrayList<>();
-
-        int attempts = 0;
-        int maxAttempts = Math.max(cfg.count * 5000, 20000);
-
-        while (selectedPositions.size() < cfg.count && attempts < maxAttempts) {
-            attempts++;
-
-            BlockPos selectedPos = randomLandRadialPositionInWholePiece(
-                    placementRandom,
-                    fullPieceBox,
-                    minY,
-                    maxY
-            );
-
-            if (selectedPositions.contains(selectedPos)) {
-                continue;
-            }
-
-            selectedPositions.add(selectedPos.immutable());
-        }
-
-        return selectedPositions;
-    }
-
-    protected BlockPos randomLandRadialPositionInWholePiece(
-            RandomSource random,
-            BoundingBox fullPieceBox,
-            int minY,
-            int maxY
-    ) {
-        double tunnelHorizontalRadius = getMaxTunnelHorizontalRadius();
-
-        double centralPillarRadius = this.centralPillarDiameter * 0.5D;
-        double pathRadius = centralPillarRadius + tunnelHorizontalRadius;
-
-        double innerOffset = this.liquidRadius + 1.0D;
-        double outerOffset = tunnelHorizontalRadius - 1.0D;
-
-        if (outerOffset <= innerOffset) {
-            innerOffset = 0.0D;
-            outerOffset = tunnelHorizontalRadius;
-        }
-
-        double pathAngle = random.nextDouble() * Math.PI * 2.0D;
-
-        double pathCenterX = this.origin.getX() + Math.cos(pathAngle) * pathRadius;
-        double pathCenterZ = this.origin.getZ() + Math.sin(pathAngle) * pathRadius;
-
-        double localAngle = random.nextDouble() * Math.PI * 2.0D;
-
-        double innerSquared = innerOffset * innerOffset;
-        double outerSquared = outerOffset * outerOffset;
-        double localRadius = Math.sqrt(innerSquared + random.nextDouble() * (outerSquared - innerSquared));
-
-        int x = Mth.floor(pathCenterX + Math.cos(localAngle) * localRadius);
-        int z = Mth.floor(pathCenterZ + Math.sin(localAngle) * localRadius);
-        int y = minY + random.nextInt(maxY - minY + 1);
-
-        x = Mth.clamp(x, fullPieceBox.minX(), fullPieceBox.maxX());
-        y = Mth.clamp(y, minY, maxY);
-        z = Mth.clamp(z, fullPieceBox.minZ(), fullPieceBox.maxZ());
-
-        return new BlockPos(x, y, z);
-    }
-
-    protected boolean isValidExactSurfaceFeatureCandidate(
-            WorldGenLevel level,
-            BlockPos pos,
-            ExactSurfaceFeatureConfig cfg
-    ) {
-        if (cfg.minY.isPresent() && pos.getY() < cfg.minY.get()) {
-            return false;
-        }
-
-        if (cfg.maxY.isPresent() && pos.getY() > cfg.maxY.get()) {
-            return false;
-        }
-
-        if (!isLandFeatureOrigin(level, pos)) {
-            return false;
-        }
-
-        for (int i = 0; i < cfg.predicates.size(); i++) {
-            if (!cfg.predicates.get(i).test(level, pos)) {
-                return false;
-            }
-        }
-
-        return true;
-    }
-
-    protected boolean isLandFeatureOrigin(WorldGenLevel level, BlockPos pos) {
-        if (!level.getFluidState(pos).isEmpty()) {
-            return false;
-        }
-
-        if (!level.getFluidState(pos.above()).isEmpty()) {
-            return false;
-        }
-
-        if (!level.getFluidState(pos.below()).isEmpty()) {
-            return false;
-        }
-
-        BlockState state = level.getBlockState(pos);
-
-        return state.isAir();
-    }
-
-    protected long getExactSurfacePlacementSeed(BoundingBox box, int configIndex) {
-        long result = this.seed;
-
-        result ^= (long) this.origin.getX() * 341873128712L;
-        result ^= (long) this.origin.getY() * 132897987541L;
-        result ^= (long) this.origin.getZ() * 42317861L;
-
-        result ^= (long) box.minX() * 73428767L;
-        result ^= (long) box.minY() * 912931L;
-        result ^= (long) box.minZ() * 1274126177L;
-
-        result ^= (long) configIndex * -7046029254386353131L;
-
-        return result;
     }
 
     @Override
@@ -606,8 +303,7 @@ public abstract class AbstractSpiralCavePiece extends StructurePiece {
         double turnPerStep = turnPerStepForPathRadius(pathRadius);
 
         double stepsPerTurn = (Math.PI * 2.0D) / Math.abs(turnPerStep);
-        int flatEntranceSteps = Math.max(1, Mth.ceil(stepsPerTurn * 0.75D));
-        int entranceRiverSteps = Math.max(1, Mth.ceil(stepsPerTurn * 0.25D));
+        int flatEntranceRiverSteps = Math.max(1, Mth.ceil(stepsPerTurn * 0.75D));
 
         double carvedHeight = 2.0D * Math.max(this.lowerVerticalRadius, this.upperVerticalRadius);
         double requiredVerticalSeparation = carvedHeight + this.minFloorThickness + 1.0D + this.liquidDepth;
@@ -620,32 +316,9 @@ public abstract class AbstractSpiralCavePiece extends StructurePiece {
         double yaw = FIXED_STARTING_YAW;
         double y = this.origin.getY();
 
-        if (shouldMakeBowl()) {
-            double entranceStartYaw = yaw;
-
-            for (int step = 0; step < flatEntranceSteps; step++) {
-                double x = this.origin.getX() + Math.cos(yaw) * pathRadius;
-                double z = this.origin.getZ() + Math.sin(yaw) * pathRadius;
-
-                boolean carveEntranceRiver = step < entranceRiverSteps;
-
-                carveOpenAirEntranceBowl(level, box, x, y, z, carveEntranceRiver);
-
-                yaw += turnPerStep;
-            }
-
-            /*
-             * This second pass fills/clears the whole entrance disk so the middle
-             * pillar above the sand is removed. It does not place river blocks.
-             */
-            carveFlatEntranceBowlInteriorDisk(
-                    level,
-                    box,
-                    pathRadius + getLocalTunnelHorizontalRadius(this.origin.getY()),
-                    entranceStartYaw,
-                    yaw
-            );
-        }
+        boolean makeBowl = shouldMakeBowl();
+        boolean flatEntranceStarted = !makeBowl;
+        int remainingFlatEntranceRiverSteps = 0;
 
         int maxSteps = 4096;
 
@@ -657,11 +330,25 @@ public abstract class AbstractSpiralCavePiece extends StructurePiece {
                 break;
             }
 
-            carveEllipsoid(level, box, x, y, z);
+            if (makeBowl && !flatEntranceStarted && getRiverSurfaceY(y) <= this.origin.getY()) {
+                flatEntranceStarted = true;
+                remainingFlatEntranceRiverSteps = flatEntranceRiverSteps;
+            }
+
+            boolean flatEntranceRiver = makeBowl && remainingFlatEntranceRiverSteps > 0;
+
+            int maxCarveY = flatEntranceRiver
+                    ? this.origin.getY()
+                    : Integer.MAX_VALUE;
+
+            carveEllipsoid(level, box, x, y, z, maxCarveY);
 
             double verticalStep;
 
-            if (useUpperPitch(y)) {
+            if (flatEntranceRiver) {
+                verticalStep = 0.0D;
+                remainingFlatEntranceRiverSteps--;
+            } else if (useUpperPitch(y)) {
                 verticalStep = -this.upperPitch;
             } else {
                 verticalStep = Mth.sin(lowerPitch);
@@ -671,12 +358,18 @@ public abstract class AbstractSpiralCavePiece extends StructurePiece {
             yaw += turnPerStep;
         }
 
-        placeExactSurfaceFeatureConfigs(level, generator, box);
-        placeAllSurfaceFeatureConfigs(level, generator, random, box);
+        placePlacedFeaturesForCurrentStructureChunk(level, generator, chunkPos);
     }
 
-    protected boolean shouldMakeBowl(){
+    protected boolean shouldMakeBowl() {
         return true;
+    }
+
+    protected double getRiverSurfaceY(double centerY) {
+        double bottomOfMainEllipsoid = centerY - getLocalVerticalRadius(centerY);
+        double fluidCenterY = bottomOfMainEllipsoid - 1.0D;
+
+        return Math.floor(fluidCenterY) + 1.0D;
     }
 
     protected static BoundingBox makeBoundingBox(
@@ -705,100 +398,59 @@ public abstract class AbstractSpiralCavePiece extends StructurePiece {
         );
     }
 
-    protected void placeAllSurfaceFeatureConfigs(
+    protected void placePlacedFeaturesForCurrentStructureChunk(
             WorldGenLevel level,
             ChunkGenerator generator,
-            RandomSource random,
-            BoundingBox box
+            ChunkPos chunkPos
     ) {
-        if (this.allSurfaceFeatures.isEmpty()) {
+        if (this.placedFeatures.size()==0) {
             return;
         }
 
-        BlockPos.MutableBlockPos pos = new BlockPos.MutableBlockPos();
+        int chunkMinX = chunkPos.getMinBlockX();
+        int chunkMaxX = chunkPos.getMaxBlockX();
+        int chunkMinZ = chunkPos.getMinBlockZ();
+        int chunkMaxZ = chunkPos.getMaxBlockZ();
 
-        for (AllSurfacesFeatureConfig cfg : this.allSurfaceFeatures) {
-            int minY = box.minY();
-            int maxY = box.maxY();
+        BoundingBox pieceBox = this.getBoundingBox();
 
-            if (cfg.minY != null) {
-                minY = Math.max(minY, cfg.minY);
-            }
+        boolean intersectsPiece =
+                chunkMaxX >= pieceBox.minX()
+                        && chunkMinX <= pieceBox.maxX()
+                        && chunkMaxZ >= pieceBox.minZ()
+                        && chunkMinZ <= pieceBox.maxZ();
 
-            if (cfg.maxY != null) {
-                maxY = Math.min(maxY, cfg.maxY);
-            }
+        if (!intersectsPiece) {
+            return;
+        }
 
-            if (minY > maxY) {
-                continue;
-            }
+        BlockPos chunkOrigin = new BlockPos(chunkMinX, 0, chunkMinZ);
 
-            for (int x = box.minX(); x <= box.maxX(); x++) {
-                for (int y = minY; y <= maxY; y++) {
-                    for (int z = box.minZ(); z <= box.maxZ(); z++) {
-                        pos.set(x, y, z);
-                        tryPlaceAllSurfaceFeatureConfigAt(level, generator, random, pos, cfg);
-                    }
-                }
-            }
+        for (int i = 0; i < this.placedFeatures.size(); i++) {
+            Holder<PlacedFeature> placedFeature = this.placedFeatures.get(i);
+
+            RandomSource featureRandom = RandomSource.create(getPlacedFeatureSeed(chunkPos, i));
+
+            placedFeature.value().place(
+                    level,
+                    generator,
+                    featureRandom,
+                    chunkOrigin
+            );
         }
     }
 
-    protected void carveFlatEntranceRiver(
-            WorldGenLevel level,
-            BoundingBox box,
-            double centerX,
-            int floorTopY,
-            double centerZ
-    ) {
-        if (this.liquidRadius <= 0.0F || this.liquidDepth <= 0.0F) {
-            return;
-        }
+    protected long getPlacedFeatureSeed(ChunkPos chunkPos, int featureIndex) {
+        long result = this.seed;
 
-        BlockState fluidState = getRiverFluidState(floorTopY);
+        result ^= (long) this.origin.getX() * 341873128712L;
+        result ^= (long) this.origin.getY() * 132897987541L;
+        result ^= (long) this.origin.getZ() * 42317861L;
 
-        if (fluidState == null) {
-            return;
-        }
+        result ^= chunkPos.toLong() * -7046029254386353131L;
+        result ^= (long) featureIndex * 82520L;
 
-        int minX = Mth.floor(centerX - this.liquidRadius) - 1;
-        int maxX = Mth.floor(centerX + this.liquidRadius) + 1;
-        int minZ = Mth.floor(centerZ - this.liquidRadius) - 1;
-        int maxZ = Mth.floor(centerZ + this.liquidRadius) + 1;
-
-        int fluidTopY = floorTopY;
-        int fluidBottomY = floorTopY - Mth.ceil(this.liquidDepth) + 1;
-
-        BlockPos.MutableBlockPos pos = new BlockPos.MutableBlockPos();
-
-        for (int x = minX; x <= maxX; x++) {
-            for (int z = minZ; z <= maxZ; z++) {
-                double relativeX = (x + 0.5D - centerX) / this.liquidRadius;
-                double relativeZ = (z + 0.5D - centerZ) / this.liquidRadius;
-
-                if (relativeX * relativeX + relativeZ * relativeZ > 1.0D) {
-                    continue;
-                }
-
-                for (int y = fluidBottomY; y <= fluidTopY; y++) {
-                    pos.set(x, y, z);
-
-                    if (!box.isInside(pos)) {
-                        continue;
-                    }
-
-                    BlockState oldState = level.getBlockState(pos);
-
-                    if (!canReplaceWithFluid(oldState)) {
-                        continue;
-                    }
-
-                    level.setBlock(pos, fluidState, Block.UPDATE_CLIENTS);
-                }
-
-                decorateEntranceRiverFloor(level, box, x, fluidBottomY, z);
-            }
-        }
+        return result;
     }
 
     protected boolean wouldBottomOfEllipsoidCarveIntoTargetYPlusOne(double centerY) {
@@ -811,7 +463,8 @@ public abstract class AbstractSpiralCavePiece extends StructurePiece {
             BoundingBox box,
             double centerX,
             double centerY,
-            double centerZ
+            double centerZ,
+            int maxCarveY
     ) {
         double localHorizontalRadius = getLocalTunnelHorizontalRadius(centerY);
         double localVerticalRadius = getLocalVerticalRadius(centerY);
@@ -826,6 +479,7 @@ public abstract class AbstractSpiralCavePiece extends StructurePiece {
         BlockPos.MutableBlockPos pos = new BlockPos.MutableBlockPos();
 
         minY = Math.max(minY, TARGET_Y);
+        maxY = Math.min(maxY, maxCarveY);
 
         for (int x = minX; x <= maxX; x++) {
             for (int y = minY; y <= maxY; y++) {
@@ -849,66 +503,15 @@ public abstract class AbstractSpiralCavePiece extends StructurePiece {
             }
         }
 
-        carveLowerFluidEllipsoid(level, box, centerX, centerY, centerZ, localVerticalRadius, false);
-    }
-
-    protected void carveOpenAirEntranceBowl(
-            WorldGenLevel level,
-            BoundingBox box,
-            double centerX,
-            double centerY,
-            double centerZ,
-            boolean carveEntranceRiver
-    ) {
-        double localHorizontalRadius = getLocalTunnelHorizontalRadius(centerY);
-
-        int minX = Mth.floor(centerX - localHorizontalRadius) - 1;
-        int maxX = Mth.floor(centerX + localHorizontalRadius) + 1;
-        int minZ = Mth.floor(centerZ - localHorizontalRadius) - 1;
-        int maxZ = Mth.floor(centerZ + localHorizontalRadius) + 1;
-
-        int floorTopY = getEntranceBowlFloorTopY();
-
-        BlockPos.MutableBlockPos pos = new BlockPos.MutableBlockPos();
-
-        for (int x = minX; x <= maxX; x++) {
-            for (int z = minZ; z <= maxZ; z++) {
-                double relativeX = (x + 0.5D - centerX) / localHorizontalRadius;
-                double relativeZ = (z + 0.5D - centerZ) / localHorizontalRadius;
-
-                double horizontalDistanceSquared = relativeX * relativeX + relativeZ * relativeZ;
-
-                if (horizontalDistanceSquared >= 1.0D) {
-                    continue;
-                }
-
-                placeEntranceBowlFloorLayer(level, box, x, floorTopY, z);
-
-                for (int y = floorTopY + 1; y <= box.maxY(); y++) {
-                    pos.set(x, y, z);
-
-                    if (!box.isInside(pos)) {
-                        continue;
-                    }
-
-                    BlockState oldState = level.getBlockState(pos);
-
-                    if (oldState.is(Blocks.BEDROCK)) {
-                        continue;
-                    }
-
-                    if (oldState.isAir()) {
-                        continue;
-                    }
-
-                    level.setBlock(pos, Blocks.AIR.defaultBlockState(), Block.UPDATE_CLIENTS);
-                }
-            }
-        }
-
-        if (carveEntranceRiver) {
-            carveFlatEntranceRiver(level, box, centerX, floorTopY, centerZ);
-        }
+        carveLowerFluidEllipsoid(
+                level,
+                box,
+                centerX,
+                centerY,
+                centerZ,
+                localVerticalRadius,
+                maxCarveY
+        );
     }
 
     protected void carveLowerFluidEllipsoid(
@@ -918,7 +521,7 @@ public abstract class AbstractSpiralCavePiece extends StructurePiece {
             double mainCenterY,
             double mainCenterZ,
             double mainVerticalRadius,
-            boolean useEntranceBowlFloor
+            int maxClearY
     ) {
         if (this.liquidRadius <= 0.0F || this.liquidDepth <= 0.0F) {
             return;
@@ -933,6 +536,8 @@ public abstract class AbstractSpiralCavePiece extends StructurePiece {
         int maxY = Mth.floor(fluidCenterY) + 1;
         int minZ = Mth.floor(mainCenterZ - this.liquidRadius) - 1;
         int maxZ = Mth.floor(mainCenterZ + this.liquidRadius) + 1;
+
+        maxY = Math.min(maxY, maxClearY);
 
         BlockPos.MutableBlockPos pos = new BlockPos.MutableBlockPos();
 
@@ -972,126 +577,28 @@ public abstract class AbstractSpiralCavePiece extends StructurePiece {
                     }
 
                     level.setBlock(pos, fluidState, Block.UPDATE_CLIENTS);
-                    clearBlockAboveFluid(level, box, pos);
+                    clearBlockAboveFluid(level, box, pos, maxClearY);
 
                     placedAnyFluidInColumn = true;
                     lowestPlacedFluidY = Math.min(lowestPlacedFluidY, y);
                 }
 
                 if (placedAnyFluidInColumn) {
-                    if (useEntranceBowlFloor) {
-                        decorateEntranceRiverFloor(level, box, x, lowestPlacedFluidY, z);
-                    } else {
-                        decorateRiverColumnSurfaces(
-                                level,
-                                box,
-                                x,
-                                z,
-                                minY,
-                                maxY,
-                                lowestPlacedFluidY,
-                                mainCenterX,
-                                fluidCenterY,
-                                mainCenterZ
-                        );
-                    }
+                    decorateRiverColumnSurfaces(
+                            level,
+                            box,
+                            x,
+                            z,
+                            minY,
+                            maxY,
+                            lowestPlacedFluidY,
+                            mainCenterX,
+                            fluidCenterY,
+                            mainCenterZ
+                    );
                 }
             }
         }
-    }
-
-    protected void placeEntranceBowlFloorLayer(
-            WorldGenLevel level,
-            BoundingBox box,
-            int x,
-            int topY,
-            int z
-    ) {
-        placeEntranceBowlFloorBlock(level, box, x, topY, z, Blocks.SAND.defaultBlockState());
-        placeEntranceBowlFloorBlock(level, box, x, topY - 1, z, Blocks.SAND.defaultBlockState());
-        placeEntranceBowlFloorBlock(level, box, x, topY - 2, z, Blocks.SANDSTONE.defaultBlockState());
-        placeEntranceBowlFloorBlock(level, box, x, topY - 3, z, Blocks.SANDSTONE.defaultBlockState());
-    }
-
-    protected void placeEntranceBowlFloorBlock(
-            WorldGenLevel level,
-            BoundingBox box,
-            int x,
-            int y,
-            int z,
-            BlockState replacement
-    ) {
-        BlockPos pos = new BlockPos(x, y, z);
-
-        if (!box.isInside(pos)) {
-            return;
-        }
-
-        BlockState oldState = level.getBlockState(pos);
-
-        if (!canReplaceEntranceBowlFloorBlock(oldState)) {
-            return;
-        }
-
-        level.setBlock(pos, replacement, Block.UPDATE_CLIENTS);
-    }
-
-    protected boolean canReplaceEntranceBowlFloorBlock(BlockState state) {
-        return !state.is(Blocks.BEDROCK)&&state.getFluidState().isEmpty();
-    }
-
-    protected void carveFlatEntranceBowlInteriorDisk(
-            WorldGenLevel level,
-            BoundingBox box,
-            double radius,
-            double startYaw,
-            double endYaw
-    ) {
-        int floorTopY = getEntranceBowlFloorTopY();
-
-        int minX = Mth.floor(this.origin.getX() - radius) - 1;
-        int maxX = Mth.floor(this.origin.getX() + radius) + 1;
-        int minZ = Mth.floor(this.origin.getZ() - radius) - 1;
-        int maxZ = Mth.floor(this.origin.getZ() + radius) + 1;
-
-        BlockPos.MutableBlockPos pos = new BlockPos.MutableBlockPos();
-
-        for (int x = minX; x <= maxX; x++) {
-            for (int z = minZ; z <= maxZ; z++) {
-                double dx = x + 0.5D - this.origin.getX();
-                double dz = z + 0.5D - this.origin.getZ();
-
-                if (dx * dx + dz * dz > radius * radius) {
-                    continue;
-                }
-
-                placeEntranceBowlFloorLayer(level, box, x, floorTopY, z);
-
-                for (int y = floorTopY + 1; y <= box.maxY(); y++) {
-                    pos.set(x, y, z);
-
-                    if (!box.isInside(pos)) {
-                        continue;
-                    }
-
-                    BlockState oldState = level.getBlockState(pos);
-
-                    if (oldState.is(Blocks.BEDROCK)) {
-                        continue;
-                    }
-
-                    if (oldState.isAir()) {
-                        continue;
-                    }
-
-                    level.setBlock(pos, Blocks.AIR.defaultBlockState(), Block.UPDATE_CLIENTS);
-                }
-            }
-        }
-    }
-
-    protected int getEntranceBowlFloorTopY() {
-        return this.origin.getY();
     }
 
     protected boolean isInsideLowerFluidEllipsoid(

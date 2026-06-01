@@ -13,16 +13,12 @@ import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.RegistryObject;
 import org.jetbrains.annotations.NotNull;
 
+import java.util.List;
+
 
 public final class AOEDensityFunctions {
     public static final DeferredRegister<Codec<? extends DensityFunction>> DENSITY_FUNCTION_TYPES =
             DeferredRegister.create(Registries.DENSITY_FUNCTION_TYPE, AOEMod.MOD_ID);
-
-    public static final RegistryObject<Codec<? extends DensityFunction>> SHIFT_DENSITY_FUNCTION_TYPE =
-            DENSITY_FUNCTION_TYPES.register("shift", Shift.CODEC::codec);
-
-    public static final RegistryObject<Codec<? extends DensityFunction>> DISTANCE_DENSITY_FUNCTION_TYPE =
-            DENSITY_FUNCTION_TYPES.register("distance", Distance.CODEC::codec);
 
     public static final RegistryObject<Codec<? extends DensityFunction>> MODULUS_DENSITY_FUNCTION_TYPE =
             DENSITY_FUNCTION_TYPES.register("modulus", Modulus.CODEC::codec);
@@ -30,21 +26,14 @@ public final class AOEDensityFunctions {
     public static final RegistryObject<Codec<? extends DensityFunction>> DIVIDE_DENSITY_FUNCTION_TYPE =
             DENSITY_FUNCTION_TYPES.register("divide", Divide.CODEC::codec);
 
+    public static final RegistryObject<Codec<? extends DensityFunction>> COORDINATE_DENSITY_FUNCTION_TYPE =
+            DENSITY_FUNCTION_TYPES.register("coordinate", Coordinate.CODEC::codec);
 
-    public static final RegistryObject<Codec<? extends DensityFunction>> VERTICAL_BIOME_COMPRESSION =
-            DENSITY_FUNCTION_TYPES.register(
-                    "vertical_biome_compression",
-                    VerticalBiomeCompressionDensityFunction.CODEC::codec
-            );
+    public static final RegistryObject<Codec<? extends DensityFunction>> LINEAR_SPLINE_DENSITY_FUNCTION_TYPE =
+            DENSITY_FUNCTION_TYPES.register("linear_spline", LinearSpline.CODEC::codec);
 
-    public static final RegistryObject<Codec<? extends DensityFunction>> CONTINENTALNESS_TERRAIN =
-            DENSITY_FUNCTION_TYPES.register("continentalness_terrain", ContinentalnessTerrainDensityFunction.CODEC::codec);
-
-    public static final RegistryObject<Codec<? extends DensityFunction>> CONTINENTAL_MOUNTAIN_LIFT =
-            DENSITY_FUNCTION_TYPES.register(
-                    "continental_mountain_lift",
-                    ContinentalMountainLiftDensityFunction.CODEC::codec
-            );
+    public static final RegistryObject<Codec<? extends DensityFunction>> RADIAL_RIVERS_DENSITY_FUNCTION_TYPE =
+            DENSITY_FUNCTION_TYPES.register("radial_rivers", RadialRivers.CODEC::codec);
 
     public static void register(IEventBus eventBus) {
         DENSITY_FUNCTION_TYPES.register(eventBus);
@@ -53,23 +42,34 @@ public final class AOEDensityFunctions {
     public static final Long2DoubleOpenHashMap heightmap = new Long2DoubleOpenHashMap();
     public static DensityFunction temperature;
 
-    protected record Shift(DensityFunction input, DensityFunction shiftX, DensityFunction shiftY, DensityFunction shiftZ) implements DensityFunction {
-        private static final MapCodec<Shift> DATA_CODEC = RecordCodecBuilder.mapCodec((data) -> data.group(
-                DensityFunction.HOLDER_HELPER_CODEC.fieldOf("input").forGetter(Shift::input),
-                DensityFunction.HOLDER_HELPER_CODEC.fieldOf("shift_x").forGetter(Shift::shiftX),
-                DensityFunction.HOLDER_HELPER_CODEC.fieldOf("shift_y").forGetter(Shift::shiftY),
-                DensityFunction.HOLDER_HELPER_CODEC.fieldOf("shift_z").forGetter(Shift::shiftZ)
-        ).apply(data, Shift::new));
+    /**
+     * aoemod:coordinate
+     * Returns one block coordinate minus an origin:
+     * x -> blockX - origin
+     * y -> blockY - origin
+     * z -> blockZ - origin
+     */
+    protected record Coordinate(String axis, DensityFunction origin) implements DensityFunction {
 
-        public static final KeyDispatchDataCodec<Shift> CODEC = AOEDensityFunctions.makeCodec(DATA_CODEC);
+        private static final MapCodec<Coordinate> DATA_CODEC =
+                RecordCodecBuilder.mapCodec((data) -> data.group(
+                        Codec.STRING.fieldOf("axis").forGetter(Coordinate::axis),
+                        DensityFunction.HOLDER_HELPER_CODEC.fieldOf("origin").forGetter(Coordinate::origin)
+                ).apply(data, Coordinate::new));
+
+        public static final KeyDispatchDataCodec<Coordinate> CODEC =
+                AOEDensityFunctions.makeCodec(DATA_CODEC);
 
         @Override
         public double compute(@NotNull FunctionContext context) {
-            return input.compute(new DensityFunction.SinglePointContext(
-                    (int) (context.blockX() + shiftX().compute(context)),
-                    (int) (context.blockY() + shiftY().compute(context)),
-                    (int) (context.blockZ() + shiftZ().compute(context))
-            ));
+            final double o = origin.compute(context);
+
+            return switch (axis) {
+                case "x" -> context.blockX() - o;
+                case "y" -> context.blockY() - o;
+                case "z" -> context.blockZ() - o;
+                default -> 0.0D;
+            };
         }
 
         @Override
@@ -79,16 +79,18 @@ public final class AOEDensityFunctions {
 
         @Override
         public @NotNull DensityFunction mapAll(Visitor visitor) {
-            return visitor.apply(new Shift(
-                    input().mapAll(visitor),
-                    shiftX().mapAll(visitor),
-                    shiftY().mapAll(visitor),
-                    shiftZ().mapAll(visitor)
-            ));
+            return visitor.apply(new Coordinate(axis, origin.mapAll(visitor)));
         }
 
-        @Override public double minValue() { return -1875000d; }
-        @Override public double maxValue() { return  1875000d; }
+        @Override
+        public double minValue() {
+            return -6.0e7;
+        }
+
+        @Override
+        public double maxValue() {
+            return 6.0e7;
+        }
 
         @Override
         public @NotNull KeyDispatchDataCodec<? extends DensityFunction> codec() {
@@ -97,25 +99,83 @@ public final class AOEDensityFunctions {
     }
 
     /**
-     * aoemod:distance
-     * sqrt((x - x0)^2 + (z - z0)^2)
+     * aoemod:linear_spline
+     * A simple piecewise-linear density function.
+     * JSON format:
+     * {
+     *   "type": "aoemod:linear_spline",
+     *   "coordinate": "aoemod:continents",
+     *   "points": [
+     *     { "location": 0.4, "value": -0.5 },
+     *     { "location": 0.405, "value": 0.25 }
+     *   ]
+     * }
+     * Behavior:
+     * - below the first point: returns first value
+     * - between points: true linear interpolation
+     * - above the last point: returns last value
      */
-    protected record Distance(DensityFunction x0, DensityFunction z0) implements DensityFunction {
+    protected record LinearSpline(
+            DensityFunction coordinate,
+            List<Point> points
+    ) implements DensityFunction {
 
-        private static final MapCodec<Distance> DATA_CODEC =
+        private static final Codec<List<Point>> POINTS_CODEC =
+                Point.CODEC.listOf().comapFlatMap(
+                        points -> {
+                            if (points.size() < 2) {
+                                return com.mojang.serialization.DataResult.error(
+                                        () -> "aoemod:linear_spline requires at least 2 points"
+                                );
+                            }
+
+                            for (int i = 1; i < points.size(); i++) {
+                                if (points.get(i).location() <= points.get(i - 1).location()) {
+                                    return com.mojang.serialization.DataResult.error(
+                                            () -> "aoemod:linear_spline points must be strictly increasing by location"
+                                    );
+                                }
+                            }
+
+                            return com.mojang.serialization.DataResult.success(points);
+                        },
+                        points -> points
+                );
+
+        private static final MapCodec<LinearSpline> DATA_CODEC =
                 RecordCodecBuilder.mapCodec((data) -> data.group(
-                        DensityFunction.HOLDER_HELPER_CODEC.fieldOf("x0").forGetter(Distance::x0),
-                        DensityFunction.HOLDER_HELPER_CODEC.fieldOf("z0").forGetter(Distance::z0)
-                ).apply(data, Distance::new));
+                        DensityFunction.HOLDER_HELPER_CODEC.fieldOf("coordinate").forGetter(LinearSpline::coordinate),
+                        POINTS_CODEC.fieldOf("points").forGetter(LinearSpline::points)
+                ).apply(data, LinearSpline::new));
 
-        public static final KeyDispatchDataCodec<Distance> CODEC =
+        public static final KeyDispatchDataCodec<LinearSpline> CODEC =
                 AOEDensityFunctions.makeCodec(DATA_CODEC);
 
         @Override
         public double compute(@NotNull FunctionContext context) {
-            final double dx = context.blockX() - x0.compute(context);
-            final double dz = context.blockZ() - z0.compute(context);
-            return Math.sqrt(dx * dx + dz * dz);
+            final double x = coordinate.compute(context);
+
+            final Point first = points.get(0);
+            if (x <= first.location()) {
+                return first.value();
+            }
+
+            final Point last = points.get(points.size() - 1);
+            if (x >= last.location()) {
+                return last.value();
+            }
+
+            for (int i = 1; i < points.size(); i++) {
+                final Point left = points.get(i - 1);
+                final Point right = points.get(i);
+
+                if (x <= right.location()) {
+                    final double t = (x - left.location()) / (right.location() - left.location());
+                    return left.value() + (right.value() - left.value()) * t;
+                }
+            }
+
+            return last.value();
         }
 
         @Override
@@ -125,26 +185,46 @@ public final class AOEDensityFunctions {
 
         @Override
         public @NotNull DensityFunction mapAll(Visitor visitor) {
-            return visitor.apply(new Distance(
-                    x0.mapAll(visitor),
-                    z0.mapAll(visitor)
+            return visitor.apply(new LinearSpline(
+                    coordinate.mapAll(visitor),
+                    points
             ));
         }
 
         @Override
         public double minValue() {
-            return 0.0;
+            double min = Double.POSITIVE_INFINITY;
+
+            for (Point point : points) {
+                min = Math.min(min, point.value());
+            }
+
+            return min;
         }
 
         @Override
         public double maxValue() {
-            // Same safety bound used elsewhere
-            return 6.0e7;
+            double max = Double.NEGATIVE_INFINITY;
+
+            for (Point point : points) {
+                max = Math.max(max, point.value());
+            }
+
+            return max;
         }
 
         @Override
         public @NotNull KeyDispatchDataCodec<? extends DensityFunction> codec() {
             return CODEC;
+        }
+
+        protected record Point(double location, double value) {
+
+            private static final Codec<Point> CODEC =
+                    RecordCodecBuilder.create((data) -> data.group(
+                            Codec.DOUBLE.fieldOf("location").forGetter(Point::location),
+                            Codec.DOUBLE.fieldOf("value").forGetter(Point::value)
+                    ).apply(data, Point::new));
         }
     }
 
@@ -276,6 +356,275 @@ public final class AOEDensityFunctions {
         @Override
         public @NotNull KeyDispatchDataCodec<? extends DensityFunction> codec() {
             return CODEC;
+        }
+    }
+
+
+    /**
+     * aoemod:radial_rivers
+     * Current test behavior:
+     * - continents controls the north/south biome-height bands
+     * - rivers repeat along x
+     * The JSON type is still called radial_rivers so existing JSONs do not need a codec rename,
+     * but this version intentionally uses linear x-based rivers instead of angular rivers.
+     */
+    protected record RadialRivers(
+            DensityFunction x0,
+            DensityFunction z0,
+            DensityFunction continents,
+            DensityFunction period,
+            DensityFunction arcSpacing
+    ) implements DensityFunction {
+
+        // 0.1 continents = 640 blocks, so 2 blocks = 0.1 * 2 / 640.
+        private static final double PROFILE_RAMP = 0.0003125D;
+
+        private static final double NORMAL_RIVER_START = 0.1D;
+        private static final double NORMAL_RIVER_END = 0.5D;
+
+        private static final double BADLANDS_RIVER_CUT_START = 0.5D;
+        private static final double BADLANDS_END = 1.0D;
+
+        private static final double RIVER_BANK_SLOPE = 0.5D;
+
+        private static final double BADLANDS_RIVER_RADIUS = 40.0D;
+        private static final double BADLANDS_RIVER_DEPTH = 4.0D;
+
+        /*
+         * Relative to base badlands height y=64:
+         * y=64 = lift 0
+         * y=68 = lift 4
+         *
+         * After the lower-slope area, the terrace keeps rising at slope 1/4
+         * instead of trying to reach a fixed target height.
+         */
+        private static final double BADLANDS_LOW_LIFT = 0.0D;
+        private static final double BADLANDS_MID_LIFT = 4.0D;
+        private static final double BADLANDS_TERRACE_SLOPE_AFTER_LOW_AREA = 0.25D;
+
+        private static final MapCodec<RadialRivers> DATA_CODEC =
+                RecordCodecBuilder.mapCodec((data) -> data.group(
+                        DensityFunction.HOLDER_HELPER_CODEC.fieldOf("x0").forGetter(RadialRivers::x0),
+                        DensityFunction.HOLDER_HELPER_CODEC.fieldOf("z0").forGetter(RadialRivers::z0),
+                        DensityFunction.HOLDER_HELPER_CODEC.fieldOf("continents").forGetter(RadialRivers::continents),
+                        DensityFunction.HOLDER_HELPER_CODEC.fieldOf("period").forGetter(RadialRivers::period),
+                        DensityFunction.HOLDER_HELPER_CODEC.fieldOf("arc_spacing").forGetter(RadialRivers::arcSpacing)
+                ).apply(data, RadialRivers::new));
+
+        public static final KeyDispatchDataCodec<RadialRivers> CODEC =
+                AOEDensityFunctions.makeCodec(DATA_CODEC);
+
+        @Override
+        public double compute(@NotNull FunctionContext context) {
+            final double continent = continents.compute(context);
+
+            final double cx = x0.compute(context);
+            final double spacing = Math.max(1.0D, Math.abs(arcSpacing.compute(context)));
+
+            /*
+             * Linear river layout:
+             * - continents varies by z
+             * - rivers repeat by x
+             *
+             * River centers are shifted by 0.5 so a radius of 40 gives exactly 80
+             * integer block columns instead of 81.
+             */
+            final double x = context.blockX() - cx;
+            final double nearestRiverCenterX = Math.round((x - 0.5D) / spacing) * spacing + 0.5D;
+            final double distanceFromRiverCenter = Math.abs(x - nearestRiverCenterX);
+
+            if (continent >= BADLANDS_RIVER_CUT_START && continent <= BADLANDS_END) {
+                return getBadlandsRiverValue(distanceFromRiverCenter, spacing);
+            }
+
+            final RiverProfile profile = getNormalRiverProfile(continent);
+
+            if (profile.maxDepth() <= 0.0D || profile.radius() <= 0.0D) {
+                return 0.0D;
+            }
+
+            if (distanceFromRiverCenter >= profile.radius()) {
+                return 0.0D;
+            }
+
+            /*
+             * Normal river behavior:
+             * - all normal rivers are exactly 80 blocks wide because radius = 40
+             * - depth increases from the edge toward the center
+             * - slope is 1 vertical block per 2 horizontal blocks
+             * - depth stops increasing once it reaches maxDepth
+             */
+            final double distanceInwardFromEdge = profile.radius() - distanceFromRiverCenter;
+
+            final double depth = Math.max(
+                    0.0D,
+                    Math.min(
+                            profile.maxDepth(),
+                            distanceInwardFromEdge * RIVER_BANK_SLOPE
+                    )
+            );
+
+            return -depth / 128.0D;
+        }
+
+        private static double getBadlandsRiverValue(
+                double distanceFromRiverCenter,
+                double arcSpacing
+        ) {
+            final double halfSpacing = arcSpacing * 0.5D;
+            final double d = Math.min(distanceFromRiverCenter, halfSpacing);
+
+            /*
+             * Badlands river:
+             * - exactly 80 blocks wide because radius = 40
+             * - no immediate 1-block drop at the shoreline
+             * - river descends at slope 1/2 until it reaches max depth
+             */
+            if (d < BADLANDS_RIVER_RADIUS) {
+                final double distanceInwardFromEdge = BADLANDS_RIVER_RADIUS - d;
+
+                final double depth = Math.max(
+                        0.0D,
+                        Math.min(
+                                BADLANDS_RIVER_DEPTH,
+                                distanceInwardFromEdge * RIVER_BANK_SLOPE
+                        )
+                );
+
+                return -depth / 128.0D;
+            }
+
+            /*
+             * Badlands terrace shaping outside the river:
+             * first lower-slope area, then a constant 1/4 slope.
+             */
+            final double distanceFromRiverEdge = d - BADLANDS_RIVER_RADIUS;
+
+            final double firstSlopeWidth = arcSpacing * 0.2D;
+
+            if (distanceFromRiverEdge <= firstSlopeWidth) {
+                final double t = distanceFromRiverEdge / firstSlopeWidth;
+                return lerp(BADLANDS_LOW_LIFT, BADLANDS_MID_LIFT, t) / 128.0D;
+            }
+
+            final double afterFirstSlope = distanceFromRiverEdge - firstSlopeWidth;
+            final double lift = BADLANDS_MID_LIFT
+                    + afterFirstSlope * BADLANDS_TERRACE_SLOPE_AFTER_LOW_AREA;
+
+            return lift / 128.0D;
+        }
+
+        private static RiverProfile getNormalRiverProfile(double continents) {
+            if (continents < NORMAL_RIVER_START || continents >= NORMAL_RIVER_END) {
+                return RiverProfile.NONE;
+            }
+
+            /*
+             * All normal rivers are radius 40, so full width is exactly 80
+             * because the river center is shifted by 0.5 in compute(...).
+             */
+            if (continents <= 0.2D) {
+                return new RiverProfile(40.0D, 10.0D);
+            }
+
+            if (continents < 0.2D + PROFILE_RAMP) {
+                final double t = inverseLerp(0.2D, 0.2D + PROFILE_RAMP, continents);
+                return RiverProfile.lerp(
+                        new RiverProfile(40.0D, 10.0D),
+                        new RiverProfile(40.0D, 8.0D),
+                        t
+                );
+            }
+
+            if (continents <= 0.3D) {
+                return new RiverProfile(40.0D, 8.0D);
+            }
+
+            if (continents < 0.3D + PROFILE_RAMP) {
+                final double t = inverseLerp(0.3D, 0.3D + PROFILE_RAMP, continents);
+                return RiverProfile.lerp(
+                        new RiverProfile(40.0D, 8.0D),
+                        new RiverProfile(40.0D, 6.0D),
+                        t
+                );
+            }
+
+            if (continents <= 0.4D) {
+                return new RiverProfile(40.0D, 6.0D);
+            }
+
+            if (continents < 0.4D + PROFILE_RAMP) {
+                final double t = inverseLerp(0.4D, 0.4D + PROFILE_RAMP, continents);
+                return RiverProfile.lerp(
+                        new RiverProfile(40.0D, 6.0D),
+                        new RiverProfile(40.0D, 10.0D),
+                        t
+                );
+            }
+
+            return new RiverProfile(40.0D, 10.0D);
+        }
+
+        private static double lerp(double start, double end, double t) {
+            return start + (end - start) * t;
+        }
+
+        private static double inverseLerp(double min, double max, double value) {
+            if (max == min) {
+                return 0.0D;
+            }
+
+            return clamp01((value - min) / (max - min));
+        }
+
+        private static double clamp01(double value) {
+            return Math.min(Math.max(value, 0.0D), 1.0D);
+        }
+
+        @Override
+        public void fillArray(double @NotNull [] densities, ContextProvider context) {
+            context.fillAllDirectly(densities, this);
+        }
+
+        @Override
+        public @NotNull DensityFunction mapAll(Visitor visitor) {
+            return visitor.apply(new RadialRivers(
+                    x0.mapAll(visitor),
+                    z0.mapAll(visitor),
+                    continents.mapAll(visitor),
+                    period.mapAll(visitor),
+                    arcSpacing.mapAll(visitor)
+            ));
+        }
+
+        @Override
+        public double minValue() {
+            return -10.0D / 128.0D;
+        }
+
+        @Override
+        public double maxValue() {
+            /*
+             * The badlands terrace can now continue rising at slope 1/4 instead of targeting
+             * a fixed maximum height, so use a safe conservative upper bound.
+             */
+            return 1.0D;
+        }
+
+        @Override
+        public @NotNull KeyDispatchDataCodec<? extends DensityFunction> codec() {
+            return CODEC;
+        }
+
+        private record RiverProfile(double radius, double maxDepth) {
+            private static final RiverProfile NONE = new RiverProfile(0.0D, 0.0D);
+
+            private static RiverProfile lerp(RiverProfile start, RiverProfile end, double t) {
+                return new RiverProfile(
+                        start.radius() + (end.radius() - start.radius()) * t,
+                        start.maxDepth() + (end.maxDepth() - start.maxDepth()) * t
+                );
+            }
         }
     }
 

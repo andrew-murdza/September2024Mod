@@ -2,7 +2,6 @@ package net.amurdza.examplemod.worldgen.structure;
 
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
-import net.amurdza.examplemod.Config;
 import net.minecraft.core.Vec3i;
 import net.minecraft.util.Mth;
 import net.minecraft.world.level.chunk.ChunkGeneratorStructureState;
@@ -13,17 +12,20 @@ import org.jetbrains.annotations.NotNull;
 import java.util.Optional;
 
 public class BandPolarStructurePlacement extends StructurePlacement {
-    public static final double BAND_PERIOD = 12.0D;
+    public static final double BAND_BLOCKS = 640.0D;
+    public static final double Z_START_BLOCKS = 7680.0D;
+    public static final double Z_PERIOD_BLOCKS = 7680.0D;
+    public static final double MAX_CONTINENTS = 0.6D;
 
     public static final Codec<BandPolarStructurePlacement> CODEC = RecordCodecBuilder.create(instance -> instance.group(
             Codec.DOUBLE.fieldOf("target_band_pos").forGetter(p -> p.targetBandPos),
-            Codec.DOUBLE.fieldOf("arc_spacing").forGetter(p -> p.arcSpacing)
+            Codec.DOUBLE.fieldOf("arc_spacing").forGetter(p -> p.xSpacing)
     ).apply(instance, BandPolarStructurePlacement::new));
 
     private final double targetBandPos;
-    private final double arcSpacing;
+    private final double xSpacing;
 
-    public BandPolarStructurePlacement(double targetBandPos, double arcSpacing) {
+    public BandPolarStructurePlacement(double targetBandPos, double xSpacing) {
         super(
                 Vec3i.ZERO,
                 FrequencyReductionMethod.DEFAULT,
@@ -32,8 +34,16 @@ public class BandPolarStructurePlacement extends StructurePlacement {
                 Optional.empty()
         );
 
+        if (targetBandPos < 0.0D || targetBandPos > MAX_CONTINENTS) {
+            throw new IllegalArgumentException("target_band_pos must be a continents value from 0.0 to 0.6");
+        }
+
+        if (xSpacing <= 0.0D) {
+            throw new IllegalArgumentException("x_spacing must be positive");
+        }
+
         this.targetBandPos = targetBandPos;
-        this.arcSpacing = arcSpacing;
+        this.xSpacing = xSpacing;
     }
 
     @Override
@@ -41,32 +51,17 @@ public class BandPolarStructurePlacement extends StructurePlacement {
         double chunkCenterX = chunkX * 16.0D + 8.0D;
         double chunkCenterZ = chunkZ * 16.0D + 8.0D;
 
-        double chunkCenterRadius = Math.sqrt(chunkCenterX * chunkCenterX + chunkCenterZ * chunkCenterZ);
-
-        if (chunkCenterRadius <= 0.000001D) {
+        if (chunkCenterZ < Z_START_BLOCKS) {
             return false;
         }
 
-        double targetRadius = this.getNearestTargetRadius(chunkCenterRadius);
+        double targetZ = this.getNearestTargetZFromContinents(chunkCenterZ);
 
-        if (targetRadius <= 0.0D) {
+        if (targetZ < Z_START_BLOCKS) {
             return false;
         }
 
-        double theta = Math.atan2(chunkCenterZ, chunkCenterX);
-
-        if (theta < 0.0D) {
-            theta += Math.PI * 2.0D;
-        }
-
-        int slotCount = this.getSlotCount(targetRadius);
-        double angleStep = (Math.PI * 2.0D) / slotCount;
-
-        int nearestSlot = Math.floorMod((int)Math.round(theta / angleStep), slotCount);
-        double targetAngle = nearestSlot * angleStep;
-
-        double targetX = Math.cos(targetAngle) * targetRadius;
-        double targetZ = Math.sin(targetAngle) * targetRadius;
+        double targetX = this.getNearestTargetX(chunkCenterX);
 
         targetX = cleanNearZero(targetX);
         targetZ = cleanNearZero(targetZ);
@@ -77,51 +72,56 @@ public class BandPolarStructurePlacement extends StructurePlacement {
         return chunkX == targetChunkX && chunkZ == targetChunkZ;
     }
 
-    private double getNearestTargetRadius(double radius) {
-        double bandWidth = Config.BAND_WIDTH;
-        double periodBlocks = bandWidth * BAND_PERIOD;
+    private double getNearestTargetZFromContinents(double z) {
+        double phaseA = continentsToPhaseA(this.targetBandPos);
+        double phaseB = continentsToPhaseB(this.targetBandPos);
 
-        double targetA = this.targetBandPos * bandWidth;
-        double targetB = (BAND_PERIOD - this.targetBandPos) * bandWidth;
+        double localTargetA = phaseA * BAND_BLOCKS;
+        double localTargetB = phaseB * BAND_BLOCKS;
 
-        double cycle = Math.floor(radius / periodBlocks);
+        double cycle = Math.floor((z - Z_START_BLOCKS) / Z_PERIOD_BLOCKS);
 
-        double bestRadius = -1.0D;
+        double bestZ = -1.0D;
         double bestDistance = Double.POSITIVE_INFINITY;
 
         for (int cycleOffset = -1; cycleOffset <= 1; cycleOffset++) {
-            double baseRadius = (cycle + cycleOffset) * periodBlocks;
+            double baseZ = Z_START_BLOCKS + (cycle + cycleOffset) * Z_PERIOD_BLOCKS;
 
-            double candidateA = baseRadius + targetA;
-            double candidateB = baseRadius + targetB;
+            double candidateA = baseZ + localTargetA;
+            double candidateB = baseZ + localTargetB;
 
-            if (candidateA > 0.0D) {
-                double distanceA = Math.abs(radius - candidateA);
+            if (candidateA >= Z_START_BLOCKS) {
+                double distanceA = Math.abs(z - candidateA);
 
                 if (distanceA < bestDistance) {
                     bestDistance = distanceA;
-                    bestRadius = candidateA;
+                    bestZ = candidateA;
                 }
             }
 
-            if (candidateB > 0.0D) {
-                double distanceB = Math.abs(radius - candidateB);
+            if (candidateB >= Z_START_BLOCKS) {
+                double distanceB = Math.abs(z - candidateB);
 
                 if (distanceB < bestDistance) {
                     bestDistance = distanceB;
-                    bestRadius = candidateB;
+                    bestZ = candidateB;
                 }
             }
         }
 
-        return bestRadius;
+        return bestZ;
     }
 
-    private int getSlotCount(double radius) {
-        double circumference = Math.PI * 2.0D * radius;
-        int approximateSlots = Math.max(4, (int)Math.round(circumference / this.arcSpacing));
+    private double getNearestTargetX(double x) {
+        return Math.round(x / this.xSpacing) * this.xSpacing;
+    }
 
-        return Math.max(4, Math.round(approximateSlots / 4.0F) * 4);
+    private static double continentsToPhaseA(double continents) {
+        return MAX_CONTINENTS * 10.0D - continents * 10.0D;
+    }
+
+    private static double continentsToPhaseB(double continents) {
+        return MAX_CONTINENTS * 10.0D + continents * 10.0D;
     }
 
     private static double cleanNearZero(double value) {

@@ -29,35 +29,20 @@
     [],
     [],
     [
-      "aoemod:mountains/stone_variants",
-      "aoemod:mountains/ores/ore_coal_lower",
-      "aoemod:mountains/ores/ore_coal_upper",
-      "aoemod:mountains/ores/ore_copper",
-      "aoemod:mountains/ores/ore_copper_large",
-      "aoemod:mountains/ores/ore_diamond",
-      "aoemod:mountains/ores/ore_diamond_buried",
-      "aoemod:mountains/ores/ore_diamond_large",
-      "aoemod:mountains/ores/ore_diamond_medium",
-      "aoemod:mountains/ores/ore_emerald",
-      "aoemod:mountains/ores/ore_gold",
-      "aoemod:mountains/ores/ore_iron_middle",
-      "aoemod:mountains/ores/ore_iron_small",
-      "aoemod:mountains/ores/ore_iron_upper",
-      "aoemod:mountains/ores/ore_lapis",
-      "aoemod:mountains/ores/ore_lapis_buried",
-      "aoemod:mountains/ores/ore_redstone",
-      "aoemod:mountains/ores/ore_redstone_lower"
+      "aoemod:blobs/mountain_stone_variants",
+      "aoemod:mountains/ores/iron_ore",
+      "aoemod:mountains/ores/copper_ore",
+      "aoemod:mountains/ores/coal_ore",
+      "aoemod:mountains/ores/lapis_ore",
+      "aoemod:mountains/ores/diamond_ore",
+      "aoemod:mountains/ores/gold_ore",
+      "aoemod:mountains/ores/emerald_ore"
     ],
     [],
+    [],
     [
-      "minecraft:spring_water"
-    ],
-    [
-      "aoemod:mountains/trees",
-      "aoemod:mountains/sweet_berry_bush_patch",
-      "aoemod:mountains/mushrooms",
       "aoemod:mountains/forest_floor",
-      "aoemod:plains/seafloor"
+      "aoemod:mountains/seafloor"
     ],
     [
       "minecraft:freeze_top_layer"

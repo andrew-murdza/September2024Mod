@@ -1,73 +1,32 @@
 {
   "type": "aoemod:random_selector",
   "config": {
+    "placement": [
+      {
+        "type": "minecraft:block_predicate_filter",
+        "predicate": {
+          "type": "minecraft:has_sturdy_face",
+          "offset": [
+            0,
+            -1,
+            0
+          ],
+          "direction": "up"
+        }
+      }
+    ],
     "features": [
       {
         "chance": 0.075,
-        "feature": {
-          "feature": "aoemod:savanna/water/water_plants_shallow",
-          "placement": [
-            {
-              "type": "minecraft:block_predicate_filter",
-              "predicate": {
-                "type": "minecraft:has_sturdy_face",
-                "offset": [
-                  0,
-                  -1,
-                  0
-                ],
-                "direction": "up"
-              }
-            }
-          ]
-        }
+        "feature": "aoemod:savanna/water/water_plants_shallow"
       },
       {
         "chance": 0.0375,
-        "feature": {
-          "feature": "aoemod:water/kelp",
-          "placement": [
-            {
-              "type": "minecraft:block_predicate_filter",
-              "predicate": {
-                "type": "minecraft:has_sturdy_face",
-                "offset": [
-                  0,
-                  -1,
-                  0
-                ],
-                "direction": "up"
-              }
-            }
-          ]
-        }
+        "feature": "aoemod:water/kelp"
       },
       {
-        "chance": 0.4875,
-        "feature": {
-          "feature": "aoemod:water/short_seagrass",
-          "placement": [
-            {
-              "type": "minecraft:block_predicate_filter",
-              "predicate": {
-                "type": "minecraft:has_sturdy_face",
-                "offset": [
-                  0,
-                  -1,
-                  0
-                ],
-                "direction": "up"
-              }
-            }
-          ]
-        }
-      },
-      {
-        "chance": 0.40,
-        "feature": {
-          "feature": "aoemod:nothing",
-          "placement": []
-        }
+        "chance": 0.8875,
+        "feature": "aoemod:water/short_seagrass"
       }
     ]
   }

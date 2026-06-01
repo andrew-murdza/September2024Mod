@@ -1,0 +1,105 @@
+{
+  "type": "aoemod:layered_all_surface",
+  "config": {
+    "features": [
+      {
+        "deep_feature": {
+          "feature": "aoemod:deep_dark/water/water_plants_full",
+          "placement": []
+        },
+        "feature": {
+          "feature": "aoemod:deep_dark/water/water_plants_shallow_full",
+          "placement": []
+        },
+        "target": "water",
+        "all_layers": true,
+        "skip_height": 30,
+        "max_y": 31,
+        "min_y": 1,
+        "predicate": {
+          "type": "minecraft:matching_blocks",
+          "blocks": "minecraft:sculk"
+        }
+      },
+      {
+        "deep_feature": {
+          "feature": "aoemod:soul_sand_valley/water/water_plants_full",
+          "placement": []
+        },
+        "feature": {
+          "feature": "aoemod:soul_sand_valley/water/water_plants_shallow_full",
+          "placement": []
+        },
+        "target": "lava",
+        "all_layers": true,
+        "skip_height": 30,
+        "min_y": -31,
+        "max_y": 0,
+        "predicate": {
+          "type": "minecraft:matching_block_tag",
+          "tag": "aoemod:soul_sediments"
+        }
+      },
+      {
+        "deep_feature": {
+          "feature": "aoemod:warped_forest/water/water_plants_full",
+          "placement": []
+        },
+        "feature": {
+          "feature": "aoemod:warped_forest/water/water_plants_shallow_full",
+          "placement": []
+        },
+        "target": "lava",
+        "all_layers": true,
+        "skip_height": 30,
+        "min_y": -63,
+        "max_y": -32,
+        "predicate": {
+          "type": "minecraft:matching_blocks",
+          "blocks": [
+            "minecraft:warped_nylium"
+          ]
+        }
+      },
+      {
+        "deep_feature": {
+          "feature": "aoemod:crimson_forest/water/water_plants_full",
+          "placement": []
+        },
+        "feature": {
+          "feature": "aoemod:crimson_forest/water/water_plants_shallow_full",
+          "placement": []
+        },
+        "target": "lava",
+        "all_layers": true,
+        "skip_height": 30,
+        "min_y": -95,
+        "max_y": -64,
+        "predicate": {
+          "type": "minecraft:matching_blocks",
+          "blocks": [
+            "minecraft:crimson_nylium"
+          ]
+        }
+      },
+      {
+        "deep_feature": {
+          "feature": "aoemod:basalt_deltas/water/water_plants_full",
+          "placement": []
+        },
+        "feature": {
+          "feature": "aoemod:basalt_deltas/water/water_plants_shallow_full",
+          "placement": []
+        },
+        "target": "lava",
+        "all_layers": true,
+        "skip_height": 30,
+        "max_y": -96,
+        "predicate": {
+          "type": "minecraft:matching_block_tag",
+          "tag": "aoemod:basalt_stones"
+        }
+      }
+    ]
+  }
+}

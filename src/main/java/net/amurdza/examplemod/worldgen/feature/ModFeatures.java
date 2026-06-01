@@ -32,6 +32,20 @@ public class ModFeatures {
     public static final RegistryObject<Feature<HugeMushroomFeatureConfiguration>> GIANT_GLOW_SHROOM=FEATURES.register("huge_glow_shroom",()->new GiantGlowshroomFeature(HugeMushroomFeatureConfiguration.CODEC));
     public static final RegistryObject<Feature<ProbabilityFeatureConfiguration>> CRIMSON_SEAGRASS=FEATURES.register("crimson_seagrass",()->new CrimsonSeaGrassFeature(ProbabilityFeatureConfiguration.CODEC));
     public static final RegistryObject<Feature<ProbabilityFeatureConfiguration>> WARPED_SEAGRASS=FEATURES.register("warped_seagrass",()->new WarpedSeagrassFeature(ProbabilityFeatureConfiguration.CODEC));
+    public static final RegistryObject<Feature<GridChoiceConfig>> GRID_CHOICE=FEATURES.register("grid_choice",
+            ()->new GridChoiceFeature(GridChoiceConfig.CODEC));
+    public static final RegistryObject<Feature<NoneFeatureConfiguration>> PIXIE_VILLAGE=FEATURES.register("pixie_village",
+            ()->new PixieVillageFeature(NoneFeatureConfiguration.CODEC));
+    public static final RegistryObject<Feature<NoneFeatureConfiguration>> LEAFCUTTER_ANTHILL=FEATURES.register("leafcutter_anthill",
+            ()->new LeafcutterAnthillFeature(NoneFeatureConfiguration.CODEC));
+
+    public static final RegistryObject<Feature<FixedCountRandomPatchConfiguration>> FIXED_COUNT_RANDOM_PATCH=FEATURES.register("fixed_count_random_patch",
+            ()->new FixedCountRandomPatchFeature(FixedCountRandomPatchConfiguration.CODEC));
+
+    public static final RegistryObject<Feature<AllSurfaceLayeredFeaturesConfig>> LAYERED_ALL_SURFACES_FEATURE =FEATURES.register("layered_all_surface",
+            ()->new AllSurfaceLayeredFeature(AllSurfaceLayeredFeaturesConfig.CODEC));
+
+
 
     public static final ResourceKey<ConfiguredFeature<?,?>> HUGE_GLOW_SHROOM = createKey("huge_glow_shroom");
     public static final ResourceKey<ConfiguredFeature<?,?>> HUGE_SNOWCAP_MUSHROOM = createKey("huge_snowcap_mushroom");

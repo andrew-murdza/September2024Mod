@@ -1,0 +1,21 @@
+{
+  "type": "aoemod:grid_choice",
+  "config": {
+    "features": [
+      {
+        "feature": "aoemod:crops/soul_berries",
+        "count": 1
+      },
+      {
+        "feature": "aoemod:crops/nether_wart",
+        "count": 1
+      },
+      {
+        "feature": "aoemod:nothing",
+        "count": 7
+      }
+    ],
+    "default_feature": "aoemod:nothing",
+    "placement": []
+  }
+}

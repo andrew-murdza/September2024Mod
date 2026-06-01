@@ -29,29 +29,21 @@
     [],
     [],
     [
-      "aoemod:desert/stone_variants",
-      "aoemod:desert/ores/ore_coal_lower",
-      "aoemod:desert/ores/ore_coal_upper",
-      "aoemod:desert/ores/ore_copper",
-      "aoemod:desert/ores/ore_copper_large",
-      "aoemod:desert/ores/ore_gold",
-      "aoemod:desert/ores/ore_gold_extra",
-      "aoemod:desert/ores/ore_iron_middle",
-      "aoemod:desert/ores/ore_iron_small",
-      "aoemod:desert/ores/ore_iron_upper",
-      "aoemod:desert/ores/ore_redstone",
-      "aoemod:desert/ores/ore_redstone_lower"
+      "aoemod:blobs/desert_stone_variants",
+      "aoemod:desert/ores/coal_ore",
+      "aoemod:desert/ores/copper_ore",
+      "aoemod:desert/ores/gold_ore",
+      "aoemod:desert/ores/iron_ore",
+      "aoemod:desert/ores/redstone_ore"
     ],
     [],
-    [
-      "minecraft:spring_lava"
-    ],
+    [],
     [
       "minecraft:glow_lichen",
-      "minecraft:patch_sugar_cane_desert",
-      "aoemod:desert/mushrooms",
       "aoemod:mountains/forest_floor",
-      "aoemod:desert/forest_floor"
+      "aoemod:desert/forest_floor",
+      "aoemod:mountains/seafloor",
+      "aoemod:desert/seafloor"
     ],
     [
       "minecraft:freeze_top_layer"
@@ -84,13 +76,13 @@
       },
       {
         "type": "alexsmobs:roadrunner",
-        "weight": 10,
+        "weight": 2,
         "minCount": 2,
         "maxCount": 5
       },
       {
         "type": "alexsmobs:sunbird",
-        "weight": 10,
+        "weight": 2,
         "minCount": 1,
         "maxCount": 1
       }
@@ -123,14 +115,7 @@
       }
     ],
     "underground_water_creature": [],
-    "water_ambient": [
-      {
-        "type": "blue_skies:charscale_moki",
-        "weight": 5,
-        "minCount": 2,
-        "maxCount": 2
-      }
-    ],
+    "water_ambient": [],
     "water_creature": []
   },
   "temperature": 2

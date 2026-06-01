@@ -5,12 +5,18 @@
       "feature": "aoemod:desert/floor/forest_floor",
       "placement": []
     },
+    "guaranteed_features": [
+      {
+        "feature": "aoemod:desert/floor/grid_choice",
+        "placement": []
+      }
+    ],
      "target": "air",
     "all_layers": false,
     "predicate": {
       "type": "minecraft:matching_blocks",
       "blocks": ["minecraft:sand","minecraft:red_sand"]
     },
-    "biomes": "aoemod:desert_biomes"
+    "biomes": "aoemod:badlands_biomes"
   }
 }

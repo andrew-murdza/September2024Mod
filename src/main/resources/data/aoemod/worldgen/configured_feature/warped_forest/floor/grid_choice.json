@@ -1,0 +1,18 @@
+{
+  "type": "aoemod:grid_choice",
+  "config": {
+    "features": [
+      {
+        "feature": "minecraft:twisting_vines",
+        "count": 1
+      },
+      {
+        "feature": "aoemod:giant_mushrooms/warped_fungus_tree",
+        "count": 15
+      }
+    ],
+    "default_feature": "aoemod:nothing",
+    "placement": [],
+    "offset_type": "in_square"
+  }
+}

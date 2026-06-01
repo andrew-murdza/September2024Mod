@@ -5,6 +5,16 @@
       "feature": "aoemod:plains/floor/forest_floor",
       "placement": []
     },
+    "guaranteed_features": [
+      {
+        "feature": "aoemod:plains/floor/tree_grid_choice",
+        "placement": []
+      },
+      {
+        "feature": "aoemod:plains/floor/flower_grid_choice",
+        "placement": []
+      }
+    ],
      "target": "air",
     "all_layers": false,
     "predicate": {

@@ -1,0 +1,65 @@
+{
+  "type": "aoemod:grid_choice",
+  "config": {
+    "features": [
+      { "feature": "aoemod:trees/acacia" },
+      { "feature": "aoemod:nothing" },
+      { "feature": "aoemod:nothing" },
+      { "feature": "aoemod:trees/acacia" },
+      { "feature": "aoemod:nothing" },
+      { "feature": "aoemod:nothing" },
+      { "feature": "aoemod:trees/acacia" },
+
+      { "feature": "aoemod:nothing" },
+      { "feature": "aoemod:nothing" },
+      { "feature": "aoemod:trees/acacia" },
+      { "feature": "aoemod:nothing" },
+      { "feature": "aoemod:nothing" },
+      { "feature": "aoemod:trees/acacia" },
+      { "feature": "aoemod:nothing" },
+
+      { "feature": "aoemod:nothing" },
+      { "feature": "aoemod:trees/acacia" },
+      { "feature": "aoemod:nothing" },
+      { "feature": "aoemod:nothing" },
+      { "feature": "aoemod:trees/acacia_bees" },
+      { "feature": "aoemod:nothing" },
+      { "feature": "aoemod:nothing" },
+
+      { "feature": "aoemod:trees/acacia" },
+      { "feature": "aoemod:nothing" },
+      { "feature": "aoemod:nothing" },
+      { "feature": "aoemod:nothing" },
+      { "feature": "aoemod:nothing" },
+      { "feature": "aoemod:nothing" },
+      { "feature": "aoemod:trees/acacia" },
+
+      { "feature": "aoemod:nothing" },
+      { "feature": "aoemod:trees/acacia" },
+      { "feature": "aoemod:nothing" },
+      { "feature": "aoemod:nothing" },
+      { "feature": "aoemod:trees/acacia" },
+      { "feature": "aoemod:nothing" },
+      { "feature": "aoemod:nothing" },
+
+      { "feature": "aoemod:nothing" },
+      { "feature": "aoemod:nothing" },
+      { "feature": "aoemod:trees/acacia" },
+      { "feature": "aoemod:nothing" },
+      { "feature": "aoemod:nothing" },
+      { "feature": "aoemod:trees/acacia" },
+      { "feature": "aoemod:nothing" },
+
+      { "feature": "aoemod:trees/acacia" },
+      { "feature": "aoemod:nothing" },
+      { "feature": "aoemod:nothing" },
+      { "feature": "aoemod:trees/acacia" },
+      { "feature": "aoemod:nothing" },
+      { "feature": "aoemod:nothing" },
+      { "feature": "aoemod:trees/acacia" }
+    ],
+    "default_feature": "aoemod:nothing",
+    "placement": [],
+    "offset_type": "in_square"
+  }
+}

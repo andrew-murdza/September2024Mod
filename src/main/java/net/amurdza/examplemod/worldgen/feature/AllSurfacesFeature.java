@@ -3,15 +3,23 @@ package net.amurdza.examplemod.worldgen.feature;
 import com.mojang.serialization.Codec;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Holder;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.ChunkPos;
 import net.minecraft.world.level.WorldGenLevel;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.chunk.ChunkAccess;
 import net.minecraft.world.level.levelgen.Heightmap;
+import net.minecraft.world.level.levelgen.placement.PlacedFeature;
+import net.minecraft.world.level.levelgen.placement.PlacementContext;
+import net.minecraft.world.level.levelgen.placement.PlacementModifier;
+import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
 import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
-import net.minecraft.world.level.levelgen.placement.PlacedFeature;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Optional;
 
 import static net.amurdza.examplemod.worldgen.feature.AllSurfacesFeatureConfig.Target.AIR;
 
@@ -42,6 +50,9 @@ public class AllSurfacesFeature extends Feature<AllSurfacesFeatureConfig> {
         }
 
         boolean placedAnything = false;
+
+        placedAnything |= placeGuaranteedFeatures(context, cfg, chunkPos, minY, maxY);
+
         BlockPos.MutableBlockPos pos = new BlockPos.MutableBlockPos();
 
         for (int dx = 0; dx < 16; dx++) {
@@ -51,11 +62,19 @@ public class AllSurfacesFeature extends Feature<AllSurfacesFeatureConfig> {
                 int z = minZ + dz;
 
                 if (cfg.allLayers) {
-                    for (int y = maxY; y >= minY; y--) {
+                    int y = maxY;
+
+                    while (y >= minY) {
                         pos.set(x, y, z);
 
-                        boolean placed = tryPlace(level, pos, context, cfg);
-                        placedAnything |= placed;
+                        PlacementResult result = tryPlace(level, pos, context, cfg);
+                        placedAnything |= result.placedAnything();
+
+                        if (result.foundLayer() && cfg.skipHeight > 0) {
+                            y -= cfg.skipHeight + 1;
+                        } else {
+                            y--;
+                        }
                     }
                 } else {
                     int y = getSurfaceStartY(chunk, cfg, dx, dz);
@@ -66,13 +85,194 @@ public class AllSurfacesFeature extends Feature<AllSurfacesFeatureConfig> {
 
                     pos.set(x, y, z);
 
-                    boolean placed = tryPlace(level, pos, context, cfg);
-                    placedAnything |= placed;
+                    PlacementResult result = tryPlace(level, pos, context, cfg);
+                    placedAnything |= result.placedAnything();
                 }
             }
         }
 
         return placedAnything;
+    }
+
+    private boolean placeGuaranteedFeatures(
+            FeaturePlaceContext<AllSurfacesFeatureConfig> context,
+            AllSurfacesFeatureConfig cfg,
+            ChunkPos chunkPos,
+            int minY,
+            int maxY
+    ) {
+        if (cfg.guaranteedFeatures.isEmpty()) {
+            return false;
+        }
+
+        boolean placedAnything = false;
+
+        WorldGenLevel level = context.level();
+        RandomSource random = context.random();
+
+        int minX = chunkPos.getMinBlockX();
+        int minZ = chunkPos.getMinBlockZ();
+
+        PlacementContext placementContext = new PlacementContext(
+                level,
+                context.chunkGenerator(),
+                Optional.empty()
+        );
+
+        BlockPos placementOrigin = new BlockPos(minX, maxY, minZ);
+
+        for (Holder<PlacedFeature> guaranteedFeatureHolder : cfg.guaranteedFeatures) {
+            PlacedFeature placedFeature = guaranteedFeatureHolder.value();
+
+            List<BlockPos> candidatePositions = applyPlacementModifiers(
+                    placementContext,
+                    random,
+                    placementOrigin,
+                    placedFeature
+            );
+
+            for (BlockPos candidatePos : candidatePositions) {
+                int x = candidatePos.getX();
+                int z = candidatePos.getZ();
+
+                if (x < minX || x > minX + 15 || z < minZ || z > minZ + 15) {
+                    continue;
+                }
+
+                placedAnything |= placeGuaranteedFeatureInColumn(
+                        level,
+                        context,
+                        cfg,
+                        placedFeature.feature(),
+                        x,
+                        z,
+                        minY,
+                        maxY
+                );
+            }
+        }
+
+        return placedAnything;
+    }
+
+    private List<BlockPos> applyPlacementModifiers(
+            PlacementContext placementContext,
+            RandomSource random,
+            BlockPos origin,
+            PlacedFeature placedFeature
+    ) {
+        List<BlockPos> positions = new ArrayList<>();
+        positions.add(origin);
+
+        for (PlacementModifier modifier : placedFeature.placement()) {
+            List<BlockPos> nextPositions = new ArrayList<>();
+
+            for (BlockPos pos : positions) {
+                modifier.getPositions(placementContext, random, pos).forEach(nextPositions::add);
+            }
+
+            positions = nextPositions;
+
+            if (positions.isEmpty()) {
+                break;
+            }
+        }
+
+        return positions;
+    }
+
+    private boolean placeGuaranteedFeatureInColumn(
+            WorldGenLevel level,
+            FeaturePlaceContext<AllSurfacesFeatureConfig> context,
+            AllSurfacesFeatureConfig cfg,
+            Holder<ConfiguredFeature<?, ?>> configuredFeature,
+            int x,
+            int z,
+            int minY,
+            int maxY
+    ) {
+        boolean placedAnything = false;
+
+        BlockPos.MutableBlockPos pos = new BlockPos.MutableBlockPos();
+
+        if (cfg.allLayers) {
+            int y = maxY;
+
+            while (y >= minY) {
+                pos.set(x, y, z);
+
+                PlacementResult result = tryPlaceGuaranteedFeatureAt(
+                        level,
+                        pos,
+                        context,
+                        cfg,
+                        configuredFeature
+                );
+
+                placedAnything |= result.placedAnything();
+
+                if (result.foundLayer()) {
+                    y -= Math.max(1, cfg.skipHeight);
+                } else {
+                    y--;
+                }
+            }
+        } else {
+            ChunkAccess chunk = level.getChunk(pos.set(x, maxY, z));
+            int localX = x & 15;
+            int localZ = z & 15;
+
+            int y = getSurfaceStartY(chunk, cfg, localX, localZ);
+
+            if (y >= minY && y <= maxY) {
+                pos.set(x, y, z);
+
+                PlacementResult result = tryPlaceGuaranteedFeatureAt(
+                        level,
+                        pos,
+                        context,
+                        cfg,
+                        configuredFeature
+                );
+
+                placedAnything |= result.placedAnything();
+            }
+        }
+
+        return placedAnything;
+    }
+
+    private PlacementResult tryPlaceGuaranteedFeatureAt(
+            WorldGenLevel level,
+            BlockPos pos,
+            FeaturePlaceContext<AllSurfacesFeatureConfig> context,
+            AllSurfacesFeatureConfig cfg,
+            Holder<ConfiguredFeature<?, ?>> configuredFeature
+    ) {
+        if (cfg.biomes != null && !level.getBiome(pos.below()).is(cfg.biomes)) {
+            return PlacementResult.NONE;
+        }
+
+        if (!isValidGuaranteedFeatureOrigin(level, pos, cfg)) {
+            return PlacementResult.NONE;
+        }
+
+        if (!cfg.predicate.test(level, pos.below())) {
+            return PlacementResult.NONE;
+        }
+
+        if (cfg.target == AIR && !isSafeAirOrigin(level, pos)) {
+            return PlacementResult.NONE;
+        }
+
+        boolean placedAnything = configuredFeature.value().place(
+                level,
+                context.chunkGenerator(),
+                context.random(),
+                pos
+        );
+
+        return new PlacementResult(true, placedAnything);
     }
 
     private int getSurfaceStartY(
@@ -91,33 +291,56 @@ public class AllSurfacesFeature extends Feature<AllSurfacesFeatureConfig> {
         return height + 1;
     }
 
-    private boolean tryPlace(
+    private PlacementResult tryPlace(
             WorldGenLevel level,
             BlockPos pos,
             FeaturePlaceContext<AllSurfacesFeatureConfig> context,
             AllSurfacesFeatureConfig cfg
     ) {
         if (cfg.biomes != null && !level.getBiome(pos.below()).is(cfg.biomes)) {
-            return false;
+            return PlacementResult.NONE;
         }
 
         Holder<PlacedFeature> selectedFeature = getFeatureForTargetPosition(level, pos, cfg);
 
         if (selectedFeature == null) {
-            return false;
+            return PlacementResult.NONE;
         }
 
         if (!cfg.predicate.test(level, pos.below())) {
-            return false;
+            return PlacementResult.NONE;
         }
 
-        if (cfg.target == AIR) {
-            if (!isSafeAirOrigin(level, pos)) {
-                return false;
-            }
+        if (cfg.target == AIR && !isSafeAirOrigin(level, pos)) {
+            return PlacementResult.NONE;
         }
 
-        return selectedFeature.value().place(level, context.chunkGenerator(), context.random(), pos);
+        boolean placedAnything = selectedFeature.value().place(
+                level,
+                context.chunkGenerator(),
+                context.random(),
+                pos
+        );
+
+        return new PlacementResult(true, placedAnything);
+    }
+
+    private boolean isValidGuaranteedFeatureOrigin(
+            WorldGenLevel level,
+            BlockPos pos,
+            AllSurfacesFeatureConfig cfg
+    ) {
+        BlockState state = level.getBlockState(pos);
+
+        return switch (cfg.target) {
+            case AIR -> state.isAir()
+                    && level.getFluidState(pos).isEmpty()
+                    && level.getFluidState(pos.above()).isEmpty();
+
+            case WATER -> state.is(Blocks.WATER);
+
+            case LAVA -> state.is(Blocks.LAVA);
+        };
     }
 
     private Holder<PlacedFeature> getFeatureForTargetPosition(
@@ -179,5 +402,9 @@ public class AllSurfacesFeature extends Feature<AllSurfacesFeatureConfig> {
     private boolean isSafeAirOrigin(WorldGenLevel level, BlockPos pos) {
         return level.getBlockState(pos).isAir()
                 && level.getFluidState(pos).isEmpty();
+    }
+
+    private record PlacementResult(boolean foundLayer, boolean placedAnything) {
+        private static final PlacementResult NONE = new PlacementResult(false, false);
     }
 }

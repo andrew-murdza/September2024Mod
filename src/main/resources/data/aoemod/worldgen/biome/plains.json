@@ -23,18 +23,16 @@
     [],
     [],
     [
-      "aoemod:plains/stone_variants"
+      "aoemod:blobs/stone_variants",
+      "aoemod:plains/ores/iron_ore",
+      "aoemod:plains/ores/copper_ore",
+      "aoemod:plains/ores/coal_ore",
+      "aoemod:plains/ores/gold_ore"
     ],
     [],
-    [
-      "minecraft:spring_water"
-    ],
+    [],
     [
       "minecraft:glow_lichen",
-      "aoemod:plains/trees",
-      "aoemod:plains/flowers",
-      "aoemod:plains/mushrooms",
-      "minecraft:patch_sugar_cane",
       "aoemod:savanna/forest_floor",
       "aoemod:plains/forest_floor",
       "aoemod:mountains/forest_floor",

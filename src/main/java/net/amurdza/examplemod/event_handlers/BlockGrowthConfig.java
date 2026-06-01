@@ -1,7 +1,6 @@
 package net.amurdza.examplemod.event_handlers;
 
 import com.legacy.blue_skies.registries.SkiesBlocks;
-import com.teamabnormals.upgrade_aquatic.core.registry.UABlocks;
 import net.amurdza.examplemod.block.ModBlocks;
 import net.amurdza.examplemod.util.ModTags;
 import net.minecraft.tags.TagKey;
@@ -459,29 +458,12 @@ public final class BlockGrowthConfig {
     private static void registerModdedBlocks() {
 
         addTropicalOnlyCocoaLike(ModBlocks.JUNGLE_SWEET_BERRY_BUSH.get());
-        addTropicalOnlyCocoaLike(UABlocks.MULBERRY_VINE.get()); // "copy from cocoa"
         addSoulBerries(ModBlocks.SOUL_BERRY_BUSH.get());
 
         addOverworldCrops(vectorwing.farmersdelight.common.registry.ModBlocks.ONION_CROP.get(), true);
         addOverworldCrops(vectorwing.farmersdelight.common.registry.ModBlocks.TOMATO_CROP.get(), true);
         addOverworldCrops(vectorwing.farmersdelight.common.registry.ModBlocks.CABBAGE_CROP.get(), true);
         addOverworldCrops(vectorwing.farmersdelight.common.registry.ModBlocks.RICE_CROP.get(), true);
-
-        // Pickerelweed: 0.6 in tropical, 0 otherwise (replace the existing addToMap for PICKERELWEED)
-        addToMap(UABlocks.PICKERELWEED.get(),
-                0.6f,  // tropical
-                0.0f,  // savanna
-                0.0f,  // mountains
-                0.0f,  // mountain caves
-                0.0f,  // desert
-                0.0f,   // deep dark
-                0.0f,  // nether generic
-                0.0f,  // basalt deltas
-                0.0f,  // crimson forest
-                0.0f,  // warped forest
-                0.0f,  // soul sand valley
-                0.0f   // other
-        );
 
         // BWG mushrooms etc (copy from mushrooms -> your mushroom rule)
         addMushroom(GlimmeringWealdModule.glow_shroom);

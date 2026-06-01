@@ -1,33 +1,28 @@
 {
   "type": "aoemod:random_selector",
   "config": {
+    "placement": [
+      {
+        "type": "minecraft:block_predicate_filter",
+        "predicate": {
+          "type": "minecraft:has_sturdy_face",
+          "offset": [
+            0,
+            -1,
+            0
+          ],
+          "direction": "up"
+        }
+      }
+    ],
     "features": [
       {
         "chance": 0.3,
-        "feature": {
-          "feature": "aoemod:plains/floor/grass",
-          "placement": [
-            {
-              "type": "minecraft:block_predicate_filter",
-              "predicate": {
-                "type": "minecraft:has_sturdy_face",
-                "offset": [
-                  0,
-                  -1,
-                  0
-                ],
-                "direction": "up"
-              }
-            }
-          ]
-        }
+        "feature": "aoemod:plains/floor/grass"
       },
       {
-        "chance": 0.70,
-        "feature": {
-          "feature": "aoemod:nothing",
-          "placement": []
-        }
+        "chance": 0.7,
+        "feature": "aoemod:nothing"
       }
     ]
   }

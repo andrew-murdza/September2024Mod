@@ -6,7 +6,8 @@ import net.minecraft.world.entity.EntityType;
 
 public final class LavaMobs {
     public static boolean isLavaMob(EntityType<?> type) {
-        return type == SkiesEntityTypes.MUNICIPAL_MONKFISH || type == SkiesEntityTypes.GRITTLE_FLATFISH;
+        return type == SkiesEntityTypes.MUNICIPAL_MONKFISH || type == SkiesEntityTypes.GRITTLE_FLATFISH
+                || type == SkiesEntityTypes.CHARSCALE_MOKI;
     }
 
     public static boolean isLavaMob(Object entity) {

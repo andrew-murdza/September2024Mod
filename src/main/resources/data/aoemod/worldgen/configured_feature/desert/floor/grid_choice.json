@@ -1,0 +1,65 @@
+{
+  "type": "aoemod:grid_choice",
+  "config": {
+    "features": [
+      { "feature": "aoemod:cactus" },
+      { "feature": "aoemod:sugar_cane_patch" },
+      { "feature": "aoemod:cactus" },
+      { "feature": "aoemod:sugar_cane_patch" },
+      { "feature": "aoemod:cactus" },
+      { "feature": "aoemod:sugar_cane_patch" },
+      { "feature": "aoemod:cactus" },
+
+      { "feature": "aoemod:sugar_cane_patch" },
+      { "feature": "aoemod:sugar_cane_patch" },
+      { "feature": "aoemod:sugar_cane_patch" },
+      { "feature": "aoemod:sugar_cane_patch" },
+      { "feature": "aoemod:sugar_cane_patch" },
+      { "feature": "aoemod:sugar_cane_patch" },
+      { "feature": "aoemod:sugar_cane_patch" },
+
+      { "feature": "aoemod:cactus" },
+      { "feature": "aoemod:sugar_cane_patch" },
+      { "feature": "aoemod:cactus" },
+      { "feature": "aoemod:sugar_cane_patch" },
+      { "feature": "aoemod:cactus" },
+      { "feature": "aoemod:sugar_cane_patch" },
+      { "feature": "aoemod:cactus" },
+
+      { "feature": "aoemod:sugar_cane_patch" },
+      { "feature": "aoemod:sugar_cane_patch" },
+      { "feature": "aoemod:sugar_cane_patch" },
+      { "feature": "aoemod:mushrooms/brown_mushroom_patch" },
+      { "feature": "aoemod:sugar_cane_patch" },
+      { "feature": "aoemod:sugar_cane_patch" },
+      { "feature": "aoemod:sugar_cane_patch" },
+
+      { "feature": "aoemod:cactus" },
+      { "feature": "aoemod:sugar_cane_patch" },
+      { "feature": "aoemod:cactus" },
+      { "feature": "aoemod:sugar_cane_patch" },
+      { "feature": "aoemod:cactus" },
+      { "feature": "aoemod:sugar_cane_patch" },
+      { "feature": "aoemod:cactus" },
+
+      { "feature": "aoemod:sugar_cane_patch" },
+      { "feature": "aoemod:mushrooms/red_mushroom_patch" },
+      { "feature": "aoemod:sugar_cane_patch" },
+      { "feature": "aoemod:sugar_cane_patch" },
+      { "feature": "aoemod:sugar_cane_patch" },
+      { "feature": "aoemod:sugar_cane_patch" },
+      { "feature": "aoemod:sugar_cane_patch" },
+
+      { "feature": "aoemod:cactus" },
+      { "feature": "aoemod:sugar_cane_patch" },
+      { "feature": "aoemod:cactus" },
+      { "feature": "aoemod:sugar_cane_patch" },
+      { "feature": "aoemod:cactus" },
+      { "feature": "aoemod:sugar_cane_patch" },
+      { "feature": "aoemod:cactus" }
+    ],
+    "default_feature": "aoemod:nothing",
+    "placement": [],
+    "offset_type": "in_square"
+  }
+}

@@ -1,85 +1,28 @@
 {
   "type": "aoemod:random_selector",
   "config": {
+    "placement": [
+      {
+        "type": "minecraft:block_predicate_filter",
+        "predicate": {
+          "type": "minecraft:has_sturdy_face",
+          "offset": [
+            0,
+            -1,
+            0
+          ],
+          "direction": "up"
+        }
+      }
+    ],
     "features": [
       {
-        "chance": 0.46,
-        "feature": {
-          "feature": "aoemod:basalt_deltas/water/crimson_seagrass",
-          "placement": [
-            {
-              "type": "minecraft:block_predicate_filter",
-              "predicate": {
-                "type": "minecraft:has_sturdy_face",
-                "offset": [0, -1, 0],
-                "direction": "up"
-              }
-            }
-          ]
-        }
+        "chance": 0.92,
+        "feature": "aoemod:basalt_deltas/water/crimson_seagrass"
       },
       {
-        "chance": 0.46,
-        "feature": {
-          "feature": "aoemod:basalt_deltas/water/warped_seagrass",
-          "placement": [
-            {
-              "type": "minecraft:block_predicate_filter",
-              "predicate": {
-                "type": "minecraft:has_sturdy_face",
-                "offset": [0, -1, 0],
-                "direction": "up"
-              }
-            }
-          ]
-        }
-      },
-      {
-        "chance": 0.04,
-        "feature": {
-          "feature": "aoemod:water/crimson_kelp",
-          "placement": [
-            {
-              "type": "minecraft:block_predicate_filter",
-              "predicate": {
-                "type": "minecraft:has_sturdy_face",
-                "offset": [
-                  0,
-                  -1,
-                  0
-                ],
-                "direction": "up"
-              }
-            }
-          ]
-        }
-      },
-      {
-        "chance": 0.04,
-        "feature": {
-          "feature": "aoemod:water/warped_kelp",
-          "placement": [
-            {
-              "type": "minecraft:block_predicate_filter",
-              "predicate": {
-                "type": "minecraft:has_sturdy_face",
-                "offset": [
-                  0,
-                  -1,
-                  0
-                ],
-                "direction": "up"
-              }
-            }
-          ]
-        }
-      },
-      {
-        "chance": 0.20,
-        "feature": {
-          "feature": "aoemod:nothing",
-          "placement": []
-        }
+        "chance": 0.08,
+        "feature": "aoemod:water/crimson_kelp"
       }
     ]
   }
