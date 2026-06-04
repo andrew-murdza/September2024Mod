@@ -22,10 +22,10 @@ public abstract class BiomeManagerPreciseYPosMixin {
     private Holder<Biome> aoe$useBlockYForNoiseBiomeY(
             BiomeManager.NoiseBiomeSource noiseBiomeSource,
             int x,
-            int originalY,
+            int y,
             int z,
             BlockPos pos
     ) {
-        return noiseBiomeSource.getNoiseBiome(x, QuartPos.fromBlock(pos.getY()), z);
+        return noiseBiomeSource.getNoiseBiome(QuartPos.fromBlock(pos.getX()), QuartPos.fromBlock(pos.getY()), QuartPos.fromBlock(pos.getZ()));
     }
 }

@@ -3,44 +3,100 @@ package net.amurdza.examplemod.worldgen.density_function;
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.MapCodec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
-import it.unimi.dsi.fastutil.longs.Long2DoubleOpenHashMap;
 import net.amurdza.examplemod.AOEMod;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.util.KeyDispatchDataCodec;
 import net.minecraft.world.level.levelgen.DensityFunction;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
-import net.minecraftforge.registries.RegistryObject;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.List;
-
 
 public final class AOEDensityFunctions {
     public static final DeferredRegister<Codec<? extends DensityFunction>> DENSITY_FUNCTION_TYPES =
             DeferredRegister.create(Registries.DENSITY_FUNCTION_TYPE, AOEMod.MOD_ID);
 
-    public static final RegistryObject<Codec<? extends DensityFunction>> MODULUS_DENSITY_FUNCTION_TYPE =
-            DENSITY_FUNCTION_TYPES.register("modulus", Modulus.CODEC::codec);
-
-    public static final RegistryObject<Codec<? extends DensityFunction>> DIVIDE_DENSITY_FUNCTION_TYPE =
-            DENSITY_FUNCTION_TYPES.register("divide", Divide.CODEC::codec);
-
-    public static final RegistryObject<Codec<? extends DensityFunction>> COORDINATE_DENSITY_FUNCTION_TYPE =
-            DENSITY_FUNCTION_TYPES.register("coordinate", Coordinate.CODEC::codec);
-
-    public static final RegistryObject<Codec<? extends DensityFunction>> LINEAR_SPLINE_DENSITY_FUNCTION_TYPE =
-            DENSITY_FUNCTION_TYPES.register("linear_spline", LinearSpline.CODEC::codec);
-
-    public static final RegistryObject<Codec<? extends DensityFunction>> RADIAL_RIVERS_DENSITY_FUNCTION_TYPE =
-            DENSITY_FUNCTION_TYPES.register("radial_rivers", RadialRivers.CODEC::codec);
+    static {
+        DENSITY_FUNCTION_TYPES.register("modulus", Modulus.CODEC::codec);
+        DENSITY_FUNCTION_TYPES.register("divide", Divide.CODEC::codec);
+        DENSITY_FUNCTION_TYPES.register("coordinate", Coordinate.CODEC::codec);
+        DENSITY_FUNCTION_TYPES.register("linear_spline", LinearSpline.CODEC::codec);
+        DENSITY_FUNCTION_TYPES.register("radial_rivers", RadialRivers.CODEC::codec);
+        DENSITY_FUNCTION_TYPES.register("stepped_mountain_offset", SteppedMountainOffset.CODEC::codec);
+        DENSITY_FUNCTION_TYPES.register("x_bands", XBands.CODEC::codec);
+    }
 
     public static void register(IEventBus eventBus) {
         DENSITY_FUNCTION_TYPES.register(eventBus);
     }
 
-    public static final Long2DoubleOpenHashMap heightmap = new Long2DoubleOpenHashMap();
-    public static DensityFunction temperature;
+    /**
+     * aoemod:river_distance_bands
+     * Returns horizontal distance from the nearest river water edge.
+     * With arc_spacing = 320 and river radius = 40:
+     *   0   = at/inside the river water area
+     *   120 = halfway between two rivers
+     * This is intended for things like flower color bands parallel to rivers.
+     */
+    protected record XBands (
+            DensityFunction x0,
+            DensityFunction arcSpacing
+    ) implements DensityFunction {
+        /*
+         * Match your current river cutoff.
+         * Normal rivers run until the mountain plateau ends.
+         * Badlands river/terrace logic takes over after this.
+         */
+        private static final MapCodec<XBands> DATA_CODEC =
+                RecordCodecBuilder.mapCodec((data) -> data.group(
+                        DensityFunction.HOLDER_HELPER_CODEC.fieldOf("x0").forGetter(XBands::x0),
+                        DensityFunction.HOLDER_HELPER_CODEC.fieldOf("arc_spacing").forGetter(XBands::arcSpacing)
+                ).apply(data, XBands::new));
+
+        public static final KeyDispatchDataCodec<XBands> CODEC =
+                AOEDensityFunctions.makeCodec(DATA_CODEC);
+
+        @Override
+        public double compute(@NotNull FunctionContext context) {
+            final double cx = x0.compute(context);
+            final double spacing = arcSpacing.compute(context);
+            final double x = context.blockX() - cx;
+            return x - spacing * Math.floor(x / spacing);
+        }
+
+        @Override
+        public void fillArray(double @NotNull [] densities, ContextProvider context) {
+            context.fillAllDirectly(densities, this);
+        }
+
+        @Override
+        public @NotNull DensityFunction mapAll(Visitor visitor) {
+            return visitor.apply(new XBands(
+                    x0.mapAll(visitor),
+                    arcSpacing.mapAll(visitor)
+            ));
+        }
+
+        @Override
+        public double minValue() {
+            return 0.0D;
+        }
+
+        @Override
+        public double maxValue() {
+            /*
+             * Safe upper bound.
+             * With arc_spacing = 320 and radius = 40, the actual max is 120.
+             */
+            return arcSpacing.maxValue();
+        }
+
+        @Override
+        public @NotNull KeyDispatchDataCodec<? extends DensityFunction> codec() {
+            return CODEC;
+        }
+    }
 
     /**
      * aoemod:coordinate
@@ -360,13 +416,341 @@ public final class AOEDensityFunctions {
     }
 
 
+    protected record SteppedMountainOffset(
+            DensityFunction continents,
+            DensityFunction rivers
+    ) implements DensityFunction {
+
+        private static final double OCEAN_OFFSET = -0.625D;
+        private static final double LOW_LAND_OFFSET = -0.5D;
+        private static final double MOUNTAIN_OFFSET = 0.25D;
+
+        private static final int OCEAN_HEIGHT = 48;
+        private static final int LOW_LAND_HEIGHT = 64;
+        private static final int MOUNTAIN_HEIGHT = 160;
+
+        /*
+         * 0.1 continents = 640 blocks,
+         * so 1 block = 0.1 / 640 = 0.00015625 continents.
+         */
+        private static final double ONE_BLOCK_CONTINENTS = 0.00015625D;
+
+        private static final double OCEAN_END = 0.100D;
+        private static final double LOW_LAND_START = 0.1025D;
+
+        private static final double MOUNTAIN_RISE_START = 0.400D;
+        private static final double MOUNTAIN_PLATEAU_START = 0.415D;
+        private static final double MOUNTAIN_PLATEAU_END = 0.485D;
+        private static final double MOUNTAIN_FALL_END = 0.500D;
+
+        /*
+         * River terrain timing now matches normal terrain timing exactly.
+         *
+         * The extra one-block lowering is handled separately in applyRivers.
+         */
+        private static final double RIVER_MOUNTAIN_RISE_START =
+                MOUNTAIN_RISE_START + ONE_BLOCK_CONTINENTS;
+
+        private static final double RIVER_MOUNTAIN_PLATEAU_START =
+                MOUNTAIN_PLATEAU_START + ONE_BLOCK_CONTINENTS;
+
+        private static final double RIVER_MOUNTAIN_PLATEAU_END =
+                MOUNTAIN_PLATEAU_END - ONE_BLOCK_CONTINENTS;
+
+        private static final double RIVER_MOUNTAIN_FALL_END =
+                MOUNTAIN_FALL_END - ONE_BLOCK_CONTINENTS;
+        /*
+         * Mountain river depth is 10 blocks, so full river cut is -10 / 128.
+         */
+        private static final double FULL_MOUNTAIN_RIVER_CUT = -10.0D / 128.0D;
+
+        /*
+         * Allow a tiny tolerance so floating point rounding does not stop the center
+         * of the river from being treated as full-depth.
+         */
+        private static final double FULL_CUT_EPSILON = 0.000001D;
+
+        /*
+         * Lowland river depths.
+         *
+         * Plains rivers are 6 blocks deep.
+         * Badlands/desert rivers are 4 blocks deep.
+         */
+        private static final int PLAINS_RIVER_DEPTH = 6;
+        private static final int DESERT_RIVER_DEPTH = 4;
+
+        private static final int PLAINS_LAND_HEIGHT = LOW_LAND_HEIGHT;
+        private static final int DESERT_LAND_HEIGHT = LOW_LAND_HEIGHT;
+
+        private static final double ONE_BLOCK_OFFSET = 1.0D / 128.0D;
+
+        /*
+         * Only apply the extra one-block lowering where the river cut is at least
+         * 1 block deep. This keeps the shallow land/bank blocks beside the river
+         * from dropping.
+         *
+         * If the bank still lowers too much, change this to -2.0D / 128.0D.
+         */
+        private static final double MIN_EXTRA_DROP_RIVER_CUT = -1.0D / 128.0D;
+
+        private static final double PLAINS_RIVER_FLOOR_OFFSET =
+                heightToOffset(PLAINS_LAND_HEIGHT - PLAINS_RIVER_DEPTH);
+
+        private static final double DESERT_RIVER_FLOOR_OFFSET =
+                heightToOffset(DESERT_LAND_HEIGHT - DESERT_RIVER_DEPTH);
+
+        private static final double POSITIVE_RIVER_START = MOUNTAIN_PLATEAU_END;
+        private static final double POSITIVE_RIVER_END = 1.0D;
+
+        private static final double EPSILON = 0.0000001D;
+
+        private static final MapCodec<SteppedMountainOffset> DATA_CODEC =
+                RecordCodecBuilder.mapCodec((data) -> data.group(
+                        DensityFunction.HOLDER_HELPER_CODEC
+                                .fieldOf("continents")
+                                .forGetter(SteppedMountainOffset::continents),
+                        DensityFunction.HOLDER_HELPER_CODEC
+                                .fieldOf("rivers")
+                                .forGetter(SteppedMountainOffset::rivers)
+                ).apply(data, SteppedMountainOffset::new));
+
+        public static final KeyDispatchDataCodec<SteppedMountainOffset> CODEC =
+                AOEDensityFunctions.makeCodec(DATA_CODEC);
+
+        @Override
+        public double compute(@NotNull FunctionContext context) {
+            final double c = continents.compute(context);
+            final double riverValue = rivers.compute(context);
+
+            final double normalBaseOffset = getBaseOffset(c);
+            final double riverBaseOffset = getRiverBaseOffset(c);
+
+            return applyRivers(c, normalBaseOffset, riverBaseOffset, riverValue);
+        }
+
+        private static double getBaseOffset(double c) {
+            if (c < OCEAN_END) {
+                return OCEAN_OFFSET;
+            }
+
+            if (c < LOW_LAND_START) {
+                int blocksIntoRamp = continentsToWholeBlocks(c - OCEAN_END);
+
+                return heightToOffset(clampInt(
+                        OCEAN_HEIGHT + blocksIntoRamp,
+                        OCEAN_HEIGHT,
+                        LOW_LAND_HEIGHT
+                ));
+            }
+
+            return getMountainOffset(
+                    c,
+                    MOUNTAIN_RISE_START,
+                    MOUNTAIN_PLATEAU_START,
+                    MOUNTAIN_PLATEAU_END,
+                    MOUNTAIN_FALL_END
+            );
+        }
+
+        private static double getRiverBaseOffset(double c) {
+            if (c < OCEAN_END) {
+                return OCEAN_OFFSET;
+            }
+
+            if (c < LOW_LAND_START) {
+                int blocksIntoRamp = continentsToWholeBlocks(c - OCEAN_END);
+
+                return heightToOffset(clampInt(
+                        OCEAN_HEIGHT + blocksIntoRamp,
+                        OCEAN_HEIGHT,
+                        LOW_LAND_HEIGHT
+                ));
+            }
+
+            return getMountainOffset(
+                    c,
+                    RIVER_MOUNTAIN_RISE_START,
+                    RIVER_MOUNTAIN_PLATEAU_START,
+                    RIVER_MOUNTAIN_PLATEAU_END,
+                    RIVER_MOUNTAIN_FALL_END
+            );
+        }
+
+        private static double getMountainOffset(
+                double c,
+                double mountainRiseStart,
+                double mountainPlateauStart,
+                double mountainPlateauEnd,
+                double mountainFallEnd
+        ) {
+            if (c < mountainRiseStart) {
+                return LOW_LAND_OFFSET;
+            }
+
+            if (c < mountainPlateauStart) {
+                int blocksIntoRamp = continentsToWholeBlocks(c - mountainRiseStart);
+
+                return heightToOffset(clampInt(
+                        LOW_LAND_HEIGHT + blocksIntoRamp,
+                        LOW_LAND_HEIGHT,
+                        MOUNTAIN_HEIGHT
+                ));
+            }
+
+            if (c < mountainPlateauEnd) {
+                return MOUNTAIN_OFFSET;
+            }
+
+            if (c < mountainFallEnd) {
+                int blocksIntoRamp = continentsToWholeBlocks(c - mountainPlateauEnd);
+
+                return heightToOffset(clampInt(
+                        MOUNTAIN_HEIGHT - blocksIntoRamp,
+                        LOW_LAND_HEIGHT,
+                        MOUNTAIN_HEIGHT
+                ));
+            }
+
+            return LOW_LAND_OFFSET;
+        }
+
+        private static double applyRivers(
+                double c,
+                double normalBaseOffset,
+                double riverBaseOffset,
+                double riverValue
+        ) {
+            final double negativeRiver = Math.min(riverValue, 0.0D);
+            final double positiveRiver = Math.max(riverValue, 0.0D);
+
+            /*
+             * Positive river values are badlands terrace/lift values.
+             * These should not use shifted river terrain.
+             */
+            double offsetWithPositiveRiver = normalBaseOffset;
+
+            if (positiveRiver > 0.0D && c >= POSITIVE_RIVER_START && c < POSITIVE_RIVER_END) {
+                offsetWithPositiveRiver = Math.max(
+                        normalBaseOffset,
+                        LOW_LAND_OFFSET + positiveRiver
+                );
+            }
+
+            /*
+             * No river cut.
+             */
+            if (negativeRiver >= 0.0D) {
+                return offsetWithPositiveRiver;
+            }
+
+            final boolean isMountainRegion =
+                    c >= MOUNTAIN_RISE_START
+                            && c <= MOUNTAIN_FALL_END;
+
+            final boolean isPlainsSideMountainTransition =
+                    c >= MOUNTAIN_RISE_START
+                            && c < RIVER_MOUNTAIN_PLATEAU_START;
+
+            final boolean isDesertSideMountainTransition =
+                    c >= MOUNTAIN_PLATEAU_END
+                            && c < MOUNTAIN_FALL_END;
+
+            /*
+             * These are the zones where the extra 1-block lowering is allowed.
+             *
+             * They are intentionally shifted one block toward the mountain center:
+             *
+             * - plains side starts at MOUNTAIN_RISE_START + 1 block
+             * - desert side starts at MOUNTAIN_PLATEAU_END - 1 block
+             */
+            final boolean isPlainsSideExtraDropZone =
+                    c >= RIVER_MOUNTAIN_RISE_START
+                            && c < RIVER_MOUNTAIN_PLATEAU_START;
+
+            final boolean isDesertSideExtraDropZone =
+                    c >= RIVER_MOUNTAIN_PLATEAU_END
+                            && c < MOUNTAIN_FALL_END;
+
+            /*
+             * Only use the river base in the extra-drop zones where the river is at
+             * least 1 block deep. This prevents the two shallow land/bank blocks
+             * beside the river from dropping.
+             *
+             * On the mountain plateau outside the edge transitions, only the full
+             * 10-block-deep river center uses the river base.
+             */
+            final boolean shouldUseMountainRiverBase =
+                    (isPlainsSideExtraDropZone
+                            && negativeRiver <= MIN_EXTRA_DROP_RIVER_CUT + FULL_CUT_EPSILON)
+                            || (isDesertSideExtraDropZone
+                            && negativeRiver <= MIN_EXTRA_DROP_RIVER_CUT + FULL_CUT_EPSILON)
+                            || (!isPlainsSideMountainTransition
+                            && !isDesertSideMountainTransition
+                            && isMountainRegion
+                            && negativeRiver <= FULL_MOUNTAIN_RIVER_CUT + FULL_CUT_EPSILON);
+
+            final double baseForRiverCut = shouldUseMountainRiverBase
+                    ? riverBaseOffset
+                    : offsetWithPositiveRiver;
+
+            double finalOffset = baseForRiverCut + negativeRiver;
+
+            if (c >= OCEAN_END && c < LOW_LAND_START) {
+                finalOffset = Math.max(finalOffset, OCEAN_OFFSET);
+            }
+
+            return finalOffset;
+        }
+
+        private static int continentsToWholeBlocks(double continentsDistance) {
+            return (int) Math.floor((continentsDistance / ONE_BLOCK_CONTINENTS) + EPSILON);
+        }
+
+        private static double heightToOffset(int height) {
+            return ((double) height / 128.0D) - 1.0D;
+        }
+
+        private static int clampInt(int value, int min, int max) {
+            return Math.min(Math.max(value, min), max);
+        }
+
+        @Override
+        public void fillArray(double @NotNull [] densities, ContextProvider context) {
+            context.fillAllDirectly(densities, this);
+        }
+
+        @Override
+        public @NotNull DensityFunction mapAll(Visitor visitor) {
+            return visitor.apply(new SteppedMountainOffset(
+                    continents.mapAll(visitor),
+                    rivers.mapAll(visitor)
+            ));
+        }
+
+        @Override
+        public double minValue() {
+            return OCEAN_OFFSET - (10.0D / 128.0D);
+        }
+
+        @Override
+        public double maxValue() {
+            return 1.0D;
+        }
+
+        @Override
+        public @NotNull KeyDispatchDataCodec<? extends DensityFunction> codec() {
+            return CODEC;
+        }
+    }
+
     /**
      * aoemod:radial_rivers
-     * Current test behavior:
+     * Current behavior:
      * - continents controls the north/south biome-height bands
      * - rivers repeat along x
-     * The JSON type is still called radial_rivers so existing JSONs do not need a codec rename,
-     * but this version intentionally uses linear x-based rivers instead of angular rivers.
+     * The JSON type is still called radial_rivers so existing JSONs do not need
+     * a codec rename, but this version intentionally uses linear x-based rivers
+     * instead of angular rivers.
      */
     protected record RadialRivers(
             DensityFunction x0,
@@ -376,16 +760,56 @@ public final class AOEDensityFunctions {
             DensityFunction arcSpacing
     ) implements DensityFunction {
 
-        // 0.1 continents = 640 blocks, so 2 blocks = 0.1 * 2 / 640.
+        /*
+         * 0.1 continents = 640 blocks, so 2 blocks = 0.1 * 2 / 640.
+         *
+         * This is used for the jungle/savanna/plains river-depth transitions.
+         */
         private static final double PROFILE_RAMP = 0.0003125D;
 
         private static final double NORMAL_RIVER_START = 0.1D;
-        private static final double NORMAL_RIVER_END = 0.5D;
 
-        private static final double BADLANDS_RIVER_CUT_START = 0.5D;
+        /*
+         * Mountain boundary cutoffs:
+         *
+         * terrain plains -> mountain ramp: 0.400 to 0.415
+         * terrain mountain plateau:        0.415 to 0.485
+         * terrain mountain -> badlands:    0.485 to 0.500
+         */
+        private static final double MOUNTAIN_RAMP_START = 0.400D;
+        private static final double MOUNTAIN_PLATEAU_START = 0.415D;
+        private static final double MOUNTAIN_PLATEAU_END = 0.485D;
+        private static final double ONE_BLOCK_CONTINENTS = 0.00015625D;
+
+
+        /*
+         * River mountain profile now matches terrain timing exactly.
+         * There is no one-block delay here.
+         */
+        private static final double RIVER_MOUNTAIN_RAMP_START =
+                MOUNTAIN_RAMP_START;
+
+        private static final double RIVER_MOUNTAIN_PLATEAU_START =
+                MOUNTAIN_PLATEAU_START - ONE_BLOCK_CONTINENTS;
+
+        private static final double NORMAL_RIVER_END =
+                MOUNTAIN_PLATEAU_END;
+
+        private static final double BADLANDS_RIVER_CUT_START =
+                MOUNTAIN_PLATEAU_END;
+
         private static final double BADLANDS_END = 1.0D;
 
+        /*
+         * River bank slope.
+         *
+         * 0.5 means:
+         *   2 horizontal blocks inward from the river edge = 1 vertical block deeper
+         * until maxDepth is reached.
+         */
         private static final double RIVER_BANK_SLOPE = 0.5D;
+
+        private static final double NORMAL_RIVER_RADIUS = 40.0D;
 
         private static final double BADLANDS_RIVER_RADIUS = 40.0D;
         private static final double BADLANDS_RIVER_DEPTH = 4.0D;
@@ -395,8 +819,7 @@ public final class AOEDensityFunctions {
          * y=64 = lift 0
          * y=68 = lift 4
          *
-         * After the lower-slope area, the terrace keeps rising at slope 1/4
-         * instead of trying to reach a fixed target height.
+         * After the lower-slope area, the terrace keeps rising at slope 1/4.
          */
         private static final double BADLANDS_LOW_LIFT = 0.0D;
         private static final double BADLANDS_MID_LIFT = 4.0D;
@@ -451,7 +874,7 @@ public final class AOEDensityFunctions {
              * Normal river behavior:
              * - all normal rivers are exactly 80 blocks wide because radius = 40
              * - depth increases from the edge toward the center
-             * - slope is 1 vertical block per 2 horizontal blocks
+             * - slope is controlled by RIVER_BANK_SLOPE
              * - depth stops increasing once it reaches maxDepth
              */
             final double distanceInwardFromEdge = profile.radius() - distanceFromRiverCenter;
@@ -477,8 +900,7 @@ public final class AOEDensityFunctions {
             /*
              * Badlands river:
              * - exactly 80 blocks wide because radius = 40
-             * - no immediate 1-block drop at the shoreline
-             * - river descends at slope 1/2 until it reaches max depth
+             * - river descends until it reaches max depth
              */
             if (d < BADLANDS_RIVER_RADIUS) {
                 final double distanceInwardFromEdge = BADLANDS_RIVER_RADIUS - d;
@@ -495,8 +917,7 @@ public final class AOEDensityFunctions {
             }
 
             /*
-             * Badlands terrace shaping outside the river:
-             * first lower-slope area, then a constant 1/4 slope.
+             * Badlands terrace shaping outside the river.
              */
             final double distanceFromRiverEdge = d - BADLANDS_RIVER_RADIUS;
 
@@ -520,49 +941,78 @@ public final class AOEDensityFunctions {
             }
 
             /*
-             * All normal rivers are radius 40, so full width is exactly 80
-             * because the river center is shifted by 0.5 in compute(...).
+             * Jungle rivers.
              */
             if (continents <= 0.2D) {
-                return new RiverProfile(40.0D, 10.0D);
+                return new RiverProfile(NORMAL_RIVER_RADIUS, 10.0D);
             }
 
             if (continents < 0.2D + PROFILE_RAMP) {
                 final double t = inverseLerp(0.2D, 0.2D + PROFILE_RAMP, continents);
+
                 return RiverProfile.lerp(
-                        new RiverProfile(40.0D, 10.0D),
-                        new RiverProfile(40.0D, 8.0D),
+                        new RiverProfile(NORMAL_RIVER_RADIUS, 10.0D),
+                        new RiverProfile(NORMAL_RIVER_RADIUS, 8.0D),
                         t
                 );
             }
 
+            /*
+             * Savanna rivers.
+             */
             if (continents <= 0.3D) {
-                return new RiverProfile(40.0D, 8.0D);
+                return new RiverProfile(NORMAL_RIVER_RADIUS, 8.0D);
             }
 
             if (continents < 0.3D + PROFILE_RAMP) {
                 final double t = inverseLerp(0.3D, 0.3D + PROFILE_RAMP, continents);
+
                 return RiverProfile.lerp(
-                        new RiverProfile(40.0D, 8.0D),
-                        new RiverProfile(40.0D, 6.0D),
+                        new RiverProfile(NORMAL_RIVER_RADIUS, 8.0D),
+                        new RiverProfile(NORMAL_RIVER_RADIUS, 6.0D),
                         t
                 );
             }
 
-            if (continents <= 0.4D) {
-                return new RiverProfile(40.0D, 6.0D);
+            /*
+             * Plains rivers.
+             *
+             * This continues until the terrain mountain ramp starts.
+             * There is no one-block delay.
+             */
+            if (continents < RIVER_MOUNTAIN_RAMP_START) {
+                return new RiverProfile(NORMAL_RIVER_RADIUS, 6.0D);
             }
 
-            if (continents < 0.4D + PROFILE_RAMP) {
-                final double t = inverseLerp(0.4D, 0.4D + PROFILE_RAMP, continents);
+            /*
+             * Plains -> mountain river depth transition.
+             *
+             * This matches the terrain mountain ramp exactly.
+             * The river changes from 6 blocks deep to 10 blocks deep over the same
+             * continents interval where the terrain changes from plains height to
+             * mountain plateau height.
+             */
+            if (continents < RIVER_MOUNTAIN_PLATEAU_START) {
+                final double t = inverseLerp(
+                        RIVER_MOUNTAIN_RAMP_START,
+                        RIVER_MOUNTAIN_PLATEAU_START,
+                        continents
+                );
+
                 return RiverProfile.lerp(
-                        new RiverProfile(40.0D, 6.0D),
-                        new RiverProfile(40.0D, 10.0D),
+                        new RiverProfile(NORMAL_RIVER_RADIUS, 6.0D),
+                        new RiverProfile(NORMAL_RIVER_RADIUS, 10.0D),
                         t
                 );
             }
 
-            return new RiverProfile(40.0D, 10.0D);
+            /*
+             * Mountain plateau rivers.
+             *
+             * These continue until the exact end of the mountain plateau.
+             * Badlands river/terrace logic takes over at MOUNTAIN_PLATEAU_END.
+             */
+            return new RiverProfile(NORMAL_RIVER_RADIUS, 10.0D);
         }
 
         private static double lerp(double start, double end, double t) {
@@ -605,8 +1055,8 @@ public final class AOEDensityFunctions {
         @Override
         public double maxValue() {
             /*
-             * The badlands terrace can now continue rising at slope 1/4 instead of targeting
-             * a fixed maximum height, so use a safe conservative upper bound.
+             * The badlands terrace can continue rising at slope 1/4 instead of
+             * targeting a fixed maximum height, so use a safe upper bound.
              */
             return 1.0D;
         }
@@ -621,9 +1071,13 @@ public final class AOEDensityFunctions {
 
             private static RiverProfile lerp(RiverProfile start, RiverProfile end, double t) {
                 return new RiverProfile(
-                        start.radius() + (end.radius() - start.radius()) * t,
-                        start.maxDepth() + (end.maxDepth() - start.maxDepth()) * t
+                        lerpDouble(start.radius(), end.radius(), t),
+                        lerpDouble(start.maxDepth(), end.maxDepth(), t)
                 );
+            }
+
+            private static double lerpDouble(double start, double end, double t) {
+                return start + (end - start) * t;
             }
         }
     }

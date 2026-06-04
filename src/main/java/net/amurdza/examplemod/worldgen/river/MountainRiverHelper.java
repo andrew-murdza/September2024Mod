@@ -1,43 +1,71 @@
 package net.amurdza.examplemod.worldgen.river;
 
 public final class MountainRiverHelper {
-    /*
-     * Low-side water level.
-     *
-     * This is 64 so the ramp from 64 -> 160 is exactly 96 blocks.
-     * With a 32-block horizontal boundary, that gives slope 3.
-     *
-     * If you want it to meet vanilla sea level exactly instead, change this to 63,
-     * but then the slope will not be exactly 3 unless the mountain level also changes.
-     */
     public static final int LOW_RIVER_WATER_LEVEL = 64;
-
     public static final int MOUNTAIN_RIVER_WATER_LEVEL = 160;
 
+
     /*
-     * These match the mountain boundary cutoffs:
-     *
-     * plains -> mountain ramp: 0.400 to 0.405
-     * mountain plateau:        0.405 to 0.495
-     * mountain -> badlands:    0.495 to 0.500
+     * 0.1 continents = 640 blocks
+     * so 1 block = 0.1 / 640 = 0.00015625 continents.
      */
-    private static final double MIN_CONTINENTS = 0.400D;
-    private static final double MOUNTAIN_START_CONTINENTS = 0.415D;
-    private static final double MOUNTAIN_END_CONTINENTS = 0.485D;
-    private static final double MAX_CONTINENTS = 0.500D;
+    private static final double ONE_BLOCK_CONTINENTS = 0.00015625D;
+
+    /*
+     * Terrain cutoffs from offset.json / SteppedMountainOffset:
+     *
+     * plains -> mountain ramp: 0.400 to 0.415
+     * mountain plateau:        0.415 to 0.485
+     * mountain -> badlands:    0.485 to 0.500
+     */
+    private static final double TERRAIN_MOUNTAIN_RISE_START_CONTINENTS = 0.400D;
+    private static final double TERRAIN_MOUNTAIN_PLATEAU_START_CONTINENTS = 0.415D;
+    private static final double TERRAIN_MOUNTAIN_PLATEAU_END_CONTINENTS = 0.485D;
+    private static final double TERRAIN_MOUNTAIN_FALL_END_CONTINENTS = 0.500D;
+
+    /*
+     * River mountain edges.
+     *
+     * These now match the terrain cutoffs exactly.
+     *
+     * The river floor is handled by SteppedMountainOffset.
+     * The water level is lowered by 1 block during the transition areas so the
+     * river keeps the same effective depth while the drop starts earlier.
+     */
+    public static final double RIVER_MOUNTAIN_RISE_START_CONTINENTS =
+            TERRAIN_MOUNTAIN_RISE_START_CONTINENTS + ONE_BLOCK_CONTINENTS;
+
+    public static final double RIVER_MOUNTAIN_PLATEAU_START_CONTINENTS =
+            TERRAIN_MOUNTAIN_PLATEAU_START_CONTINENTS + ONE_BLOCK_CONTINENTS;
+
+    public static final double RIVER_MOUNTAIN_FALL_START_CONTINENTS =
+            TERRAIN_MOUNTAIN_PLATEAU_END_CONTINENTS - ONE_BLOCK_CONTINENTS;
+
+    public static final double RIVER_MOUNTAIN_FALL_END_CONTINENTS =
+            TERRAIN_MOUNTAIN_FALL_END_CONTINENTS - ONE_BLOCK_CONTINENTS;
 
     private MountainRiverHelper() {
     }
 
     public static boolean isMountainRiverContinentsValue(double continents) {
-        return continents >= MIN_CONTINENTS && continents <= MAX_CONTINENTS;
+        return continents >= TERRAIN_MOUNTAIN_RISE_START_CONTINENTS
+                && continents <= TERRAIN_MOUNTAIN_FALL_END_CONTINENTS;
     }
 
     public static int getMountainRiverWaterLevel(double continents) {
-        if (continents <= MOUNTAIN_START_CONTINENTS) {
+        if (continents < RIVER_MOUNTAIN_RISE_START_CONTINENTS) {
+            return LOW_RIVER_WATER_LEVEL;
+        }
+
+        /*
+         * Plains -> mountain rise.
+         *
+         * This now starts exactly when the surrounding terrain rise starts.
+         */
+        if (continents < RIVER_MOUNTAIN_PLATEAU_START_CONTINENTS) {
             double t = inverseLerp(
-                    MIN_CONTINENTS,
-                    MOUNTAIN_START_CONTINENTS,
+                    RIVER_MOUNTAIN_RISE_START_CONTINENTS,
+                    RIVER_MOUNTAIN_PLATEAU_START_CONTINENTS,
                     continents
             );
 
@@ -48,21 +76,36 @@ public final class MountainRiverHelper {
             );
         }
 
-        if (continents <= MOUNTAIN_END_CONTINENTS) {
+        /*
+         * Mountain plateau.
+         *
+         * This now starts exactly when the terrain plateau starts
+         * and ends exactly when the terrain plateau ends.
+         */
+        if (continents < RIVER_MOUNTAIN_FALL_START_CONTINENTS) {
             return MOUNTAIN_RIVER_WATER_LEVEL;
         }
 
-        double t = inverseLerp(
-                MOUNTAIN_END_CONTINENTS,
-                MAX_CONTINENTS,
-                continents
-        );
+        /*
+         * Mountain -> badlands fall.
+         *
+         * This now starts exactly when the surrounding terrain fall starts.
+         */
+        if (continents < RIVER_MOUNTAIN_FALL_END_CONTINENTS) {
+            double t = inverseLerp(
+                    RIVER_MOUNTAIN_FALL_START_CONTINENTS,
+                    RIVER_MOUNTAIN_FALL_END_CONTINENTS,
+                    continents
+            );
 
-        return roundedLerp(
-                MOUNTAIN_RIVER_WATER_LEVEL,
-                LOW_RIVER_WATER_LEVEL,
-                t
-        );
+            return roundedLerp(
+                    MOUNTAIN_RIVER_WATER_LEVEL,
+                    LOW_RIVER_WATER_LEVEL,
+                    t
+            );
+        }
+
+        return LOW_RIVER_WATER_LEVEL;
     }
 
     private static int roundedLerp(int start, int end, double t) {
