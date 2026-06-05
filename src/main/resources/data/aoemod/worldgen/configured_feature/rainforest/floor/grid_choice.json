@@ -2,202 +2,47 @@
   "type": "aoemod:grid_choice",
   "config": {
     "features": [
-      {
-        "feature": "aoemod:crops/rainforest/jungle_sweet_berry_bush_patch",
-        "count": 1
-      },
-      {
-        "feature": "aoemod:flowers/rainforest/allium_patch",
-        "count": 1
-      },
-      {
-        "feature": "aoemod:flowers/rainforest/azalea_patch",
-        "count": 1
-      },
-      {
-        "feature": "aoemod:rainforest/other/pixie_village",
-        "count": 1
-      },
-      {
-        "feature": "aoemod:flowers/rainforest/azure_bluet_patch",
-        "count": 1
-      },
-      {
-        "feature": "aoemod:flowers/rainforest/big_dripleaf_patch",
-        "count": 1
-      },
-      {
-        "feature": "aoemod:rainforest/other/anthill",
-        "count": 1
-      },
-      {
-        "feature": "aoemod:flowers/rainforest/blue_orchid_patch",
-        "count": 1
-      },
-      {
-        "feature": "aoemod:giant_mushrooms/huge_brown_mushroom",
-        "count": 1
-      },
-      {
-        "feature": "aoemod:flowers/rainforest/cornflower_patch",
-        "count": 1
-      },
-      {
-        "feature": "aoemod:flowers/rainforest/cyan_amaranth_patch",
-        "count": 1
-      },
-      {
-        "feature": "aoemod:mushrooms/red_mushroom_patch",
-        "count": 1
-      },
-      {
-        "feature": "aoemod:flowers/rainforest/cyan_tulip_patch",
-        "count": 1
-      },
-      {
-        "feature": "aoemod:flowers/rainforest/dandelion_patch",
-        "count": 1
-      },
-      {
-        "feature": "aoemod:flowers/rainforest/fire_lily_patch",
-        "count": 1
-      },
-      {
-        "feature": "aoemod:flowers/rainforest/flowering_azalea_patch",
-        "count": 1
-      },
-      {
-        "feature": "aoemod:bamboo_patch",
-        "count": 1
-      },
-      {
-        "feature": "aoemod:flowers/rainforest/foxglove_patch",
-        "count": 1
-      },
-      {
-        "feature": "aoemod:flowers/rainforest/japanese_orchid_patch",
-        "count": 1
-      },
-      {
-        "feature": "aoemod:flowers/rainforest/lilac_patch",
-        "count": 1
-      },
-      {
-        "feature": "aoemod:giant_mushrooms/huge_snowcap_mushroom",
-        "count": 1
-      },
-      {
-        "feature": "aoemod:flowers/rainforest/lily_of_the_valley_patch",
-        "count": 1
-      },
-      {
-        "feature": "aoemod:crops/rainforest/wild_carrots_patch",
-        "count": 1
-      },
-      {
-        "feature": "aoemod:flowers/rainforest/magenta_amaranth_patch",
-        "count": 1
-      },
-      {
-        "feature": "aoemod:flowers/rainforest/orange_amaranth_patch",
-        "count": 1
-      },
-      {
-        "feature": "aoemod:crops/rainforest/wild_onions_patch",
-        "count": 1
-      },
-      {
-        "feature": "aoemod:cactus_patch",
-        "count": 1
-      },
-      {
-        "feature": "aoemod:flowers/rainforest/orange_tulip_patch",
-        "count": 1
-      },
-      {
-        "feature": "aoemod:flowers/rainforest/oxeye_daisy_patch",
-        "count": 1
-      },
-      {
-        "feature": "aoemod:flowers/rainforest/peony_patch",
-        "count": 1
-      },
-      {
-        "feature": "aoemod:mushrooms/brown_mushroom_patch",
-        "count": 1
-      },
-      {
-        "feature": "aoemod:flowers/rainforest/pink_petals_patch",
-        "count": 1
-      },
-      {
-        "feature": "aoemod:flowers/rainforest/pink_tulip_patch",
-        "count": 1
-      },
-      {
-        "feature": "aoemod:giant_mushrooms/huge_red_mushroom",
-        "count": 1
-      },
-      {
-        "feature": "aoemod:flowers/rainforest/pitcher_plant_patch",
-        "count": 1
-      },
-      {
-        "feature": "aoemod:flowers/rainforest/poppy_patch",
-        "count": 1
-      },
-      {
-        "feature": "aoemod:sugar_cane",
-        "count": 1
-      },
-      {
-        "feature": "aoemod:flowers/rainforest/purple_amaranth_patch",
-        "count": 1
-      },
-      {
-        "feature": "aoemod:flowers/rainforest/purple_tulip_patch",
-        "count": 1
-      },
-      {
-        "feature": "aoemod:flowers/rainforest/red_tulip_patch",
-        "count": 1
-      },
-      {
-        "feature": "aoemod:flowers/rainforest/rose_bush_patch",
-        "count": 1
-      },
-      {
-        "feature": "aoemod:flowers/rainforest/small_dripleaf_patch",
-        "count": 1
-      },
-      {
-        "feature": "aoemod:crops/rainforest/wild_potatoes_patch",
-        "count": 1
-      },
-      {
-        "feature": "aoemod:flowers/rainforest/sunflower_patch",
-        "count": 1
-      },
-      {
-        "feature": "aoemod:flowers/rainforest/torchflower_patch",
-        "count": 1
-      },
-      {
-        "feature": "aoemod:mushrooms/snowcap_pinhead_patch",
-        "count": 1
-      },
-      {
-        "feature": "aoemod:flowers/rainforest/white_allium_patch",
-        "count": 1
-      },
-      {
-        "feature": "aoemod:crops/rainforest/wild_rice_patch",
-        "count": 1
-      },
-      {
-        "feature": "aoemod:flowers/rainforest/white_tulip_patch",
-        "count": 1
-      }
+      { "feature": "aoemod:flowers/rainforest/sunflower_patch" },
+      { "feature": "aoemod:flowers/rainforest/allium_patch" },
+      { "feature": "aoemod:flowers/rainforest/azalea_patch" },
+      { "feature": "aoemod:flowers/rainforest/azure_bluet_patch" },
+      { "feature": "aoemod:mushrooms/brown_mushroom_patch" },
+      { "feature": "aoemod:flowers/rainforest/blue_orchid_patch" },
+
+      { "feature": "aoemod:cactus_patch" },
+      { "feature": "aoemod:flowers/rainforest/cornflower_patch" },
+      { "feature": "aoemod:flowers/rainforest/lilac_patch" },
+      { "feature": "aoemod:flowers/rainforest/cyan_amaranth_patch" },
+      { "feature": "aoemod:flowers/rainforest/flowering_azalea_patch" },
+      { "feature": "aoemod:flowers/rainforest/cyan_tulip_patch" },
+
+      { "feature": "aoemod:mushrooms/red_mushroom_patch" },
+      { "feature": "aoemod:flowers/rainforest/dandelion_patch" },
+      { "feature": "aoemod:flowers/rainforest/big_dripleaf_patch" },
+      { "feature": "aoemod:flowers/rainforest/fire_lily_patch" },
+      { "feature": "aoemod:flowers/rainforest/peony_patch" },
+      { "feature": "aoemod:flowers/rainforest/lily_of_the_valley_patch" },
+
+      { "feature": "aoemod:flowers/rainforest/orange_amaranth_patch" },
+      { "feature": "aoemod:mushrooms/brown_mushroom_patch" },
+      { "feature": "aoemod:flowers/rainforest/orange_tulip_patch" },
+      { "feature": "aoemod:flowers/rainforest/pitcher_plant_patch" },
+      { "feature": "aoemod:flowers/rainforest/oxeye_daisy_patch" },
+      { "feature": "aoemod:flowers/rainforest/small_dripleaf_patch" },
+
+      { "feature": "aoemod:flowers/rainforest/pink_petals_patch" },
+      { "feature": "aoemod:crops/rainforest/jungle_sweet_berry_bush_patch" },
+      { "feature": "aoemod:flowers/rainforest/pink_tulip_patch" },
+      { "feature": "aoemod:mushrooms/red_mushroom_patch" },
+      { "feature": "aoemod:flowers/rainforest/poppy_patch" },
+      { "feature": "aoemod:flowers/rainforest/rose_bush_patch" },
+
+      { "feature": "aoemod:flowers/rainforest/red_tulip_patch" },
+      { "feature": "aoemod:flowers/rainforest/torchflower_patch" },
+      { "feature": "aoemod:flowers/rainforest/japanese_orchid_patch" },
+      { "feature": "aoemod:flowers/rainforest/white_allium_patch" },
+      { "feature": "aoemod:flowers/rainforest/white_tulip_patch" },
+      { "feature": "aoemod:flowers/rainforest/japanese_orchid_patch" }
     ],
     "default_feature": "aoemod:nothing",
     "placement": []

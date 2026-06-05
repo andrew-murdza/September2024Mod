@@ -41,91 +41,85 @@
     "creature": [
       {
         "type": "ecologics:squirrel",
-        "weight": 5,
-        "minCount": 2,
-        "maxCount": 5
-      },
-      {
-        "type": "alexsmobs:bison",
-        "weight": 5,
+        "weight": 20,
         "minCount": 2,
         "maxCount": 5
       },
       {
         "type": "alexsmobs:emu",
-        "weight": 15,
+        "weight": 20,
         "minCount": 2,
         "maxCount": 5
       },
       {
         "type": "alexsmobs:gazelle",
-        "weight": 15,
+        "weight": 20,
         "minCount": 2,
         "maxCount": 5
       },
       {
         "type": "alexsmobs:gorilla",
-        "weight": 10,
+        "weight": 5,
         "minCount": 2,
         "maxCount": 5
       },
       {
         "type": "alexsmobs:roadrunner",
-        "weight": 10,
+        "weight": 20,
         "minCount": 2,
         "maxCount": 5
       },
       {
         "type": "naturalist:deer",
-        "weight": 15,
+        "weight": 20,
         "minCount": 2,
         "maxCount": 5
       },
       {
         "type": "quark:crab",
+        "weight": 20,
+        "minCount": 2,
+        "maxCount": 5
+      },
+      {
+        "type": "minecraft:cat",
+        "weight": 5,
+        "minCount": 2,
+        "maxCount": 5
+      },
+      {
+        "type": "minecraft:frog",
+        "weight": 15,
+        "minCount": 2,
+        "maxCount": 5
+      },
+      {
+        "type": "minecraft:ocelot",
+        "weight": 5,
+        "minCount": 2,
+        "maxCount": 5
+      },
+      {
+        "type": "minecraft:parrot",
         "weight": 15,
         "minCount": 2,
         "maxCount": 5
       },
       {
         "type": "minecraft:rabbit",
-        "weight": 10,
-        "minCount": 2,
-        "maxCount": 5
-      },
-      {
-        "type": "minecraft:frog",
-        "weight": 10,
-        "minCount": 2,
-        "maxCount": 5
-      },
-      {
-        "type": "minecraft:cat",
-        "weight": 10,
-        "minCount": 2,
-        "maxCount": 5
-      },
-      {
-        "type": "minecraft:ocelot",
-        "weight": 10,
-        "minCount": 2,
-        "maxCount": 5
-      },
-      {
-        "type": "minecraft:parrot",
-        "weight": 10,
+        "weight": 20,
         "minCount": 2,
         "maxCount": 5
       },
       {
         "type": "minecraft:sniffer",
-        "weight": 10,
+        "weight": 20,
         "minCount": 2,
         "maxCount": 5
       },
       {
         "type": "minecraft:fox",
-        "weight": 10,
+        "weight": 5,
         "minCount": 2,
         "maxCount": 5
       },
@@ -172,6 +166,18 @@
     "underground_water_creature": [],
     "water_ambient": [
       {
+        "type": "minecraft:cod",
+        "weight": 10,
+        "minCount": 8,
+        "maxCount": 8
+      },
+      {
+        "type": "minecraft:pufferfish",
+        "weight": 5,
+        "minCount": 8,
+        "maxCount": 8
+      },
+      {
         "type": "minecraft:tropical_fish",
         "weight": 25,
         "minCount": 8,
@@ -184,34 +190,22 @@
         "maxCount": 8
       },
       {
-        "type": "minecraft:cod",
-        "weight": 5,
-        "minCount": 8,
-        "maxCount": 8
-      },
-      {
-        "type": "minecraft:pufferfish",
-        "weight": 4,
-        "minCount": 8,
-        "maxCount": 8
-      },
-      {
         "type": "hybrid-aquatic:arrow_squid",
-        "weight": 20,
-        "minCount": 2,
+        "weight": 30,
+        "minCount": 5,
         "maxCount": 5
       }
     ],
     "water_creature": [
       {
-        "type": "minecraft:turtle",
-        "weight": 10,
+        "type": "minecraft:dolphin",
+        "weight": 5,
         "minCount": 4,
         "maxCount": 6
       },
       {
-        "type": "minecraft:dolphin",
-        "weight": 10,
+        "type": "minecraft:turtle",
+        "weight": 5,
         "minCount": 4,
         "maxCount": 6
       },
@@ -240,9 +234,11 @@
       "minecraft:spring_water"
     ],
     [
-      "aoemod:rainforest/trees",
       "aoemod:rainforest/forest_floor",
+      "aoemod:savanna/forest_floor",
       "aoemod:rainforest/seafloor",
+      "aoemod:savanna/seafloor",
+      "aoemod:rainforest/trees",
       "aoemod:rainforest/cave_vines",
       "aoemod:rainforest/lilypads"
     ],

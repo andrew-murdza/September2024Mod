@@ -62,6 +62,12 @@
     "axolotls": [],
     "creature": [
       {
+        "type": "alexsmobs:moose",
+        "weight": 10,
+        "minCount": 2,
+        "maxCount": 5
+      },
+      {
         "type": "blue_skies:reindeer",
         "weight": 10,
         "minCount": 2,

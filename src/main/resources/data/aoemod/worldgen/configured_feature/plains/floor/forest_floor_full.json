@@ -9,6 +9,10 @@
       {
         "feature": "aoemod:plains/floor/tree_grid_choice",
         "placement": []
+      },
+      {
+        "feature": "aoemod:plains/floor/flower_grid_choice",
+        "placement": []
       }
     ],
      "target": "air",

@@ -56,7 +56,7 @@
       },
       {
         "type": "alexsmobs:bison",
-        "weight": 10,
+        "weight": 30,
         "minCount": 2,
         "maxCount": 5
       },
@@ -68,7 +68,7 @@
       },
       {
         "type": "alexsmobs:gazelle",
-        "weight": 10,
+        "weight": 20,
         "minCount": 2,
         "maxCount": 5
       },
@@ -80,7 +80,7 @@
       },
       {
         "type": "naturalist:deer",
-        "weight": 20,
+        "weight": 10,
         "minCount": 2,
         "maxCount": 5
       },
@@ -92,25 +92,25 @@
       },
       {
         "type": "minecraft:chicken",
-        "weight": 20,
+        "weight": 10,
         "minCount": 2,
         "maxCount": 5
       },
       {
         "type": "minecraft:cow",
-        "weight": 20,
+        "weight": 15,
         "minCount": 2,
         "maxCount": 5
       },
       {
         "type": "minecraft:donkey",
-        "weight": 5,
+        "weight": 2,
         "minCount": 2,
         "maxCount": 5
       },
       {
         "type": "minecraft:horse",
-        "weight": 20,
+        "weight": 40,
         "minCount": 2,
         "maxCount": 5
       },
@@ -122,13 +122,13 @@
       },
       {
         "type": "minecraft:rabbit",
-        "weight": 20,
+        "weight": 10,
         "minCount": 2,
         "maxCount": 5
       },
       {
         "type": "minecraft:sheep",
-        "weight": 20,
+        "weight": 15,
         "minCount": 2,
         "maxCount": 5
       },

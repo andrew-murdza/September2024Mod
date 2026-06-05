@@ -1,5 +1,5 @@
 {
-  "type": "minecraft:random_patch",
+  "type": "aoemod:fixed_count_random_patch",
   "config": {
     "feature": {
       "feature": {
@@ -42,8 +42,8 @@
         }
       ]
     },
-    "tries": 4,
-    "xz_spread": 3,
+    "count": 4,
+    "xz_spread": 2,
     "y_spread": 0
   }
 }

@@ -50,7 +50,7 @@
       },
       {
         "feature": {
-          "feature": "aoemod:warped_forest/floor/grass",
+          "feature": "aoemod:warped_forest/floor/forest_floor",
           "placement": []
         },
         "guaranteed_features": [
@@ -66,12 +66,12 @@
         "all_layers": true,
         "predicate": {
           "type": "minecraft:matching_blocks",
-          "blocks": "minecraft:crimson_nylium"
+          "blocks": "minecraft:warped_nylium"
         }
       },
       {
         "feature": {
-          "feature": "aoemod:crimson_forest/floor/grass",
+          "feature": "aoemod:crimson_forest/floor/forest_floor",
           "placement": []
         },
         "guaranteed_features": [
@@ -96,7 +96,7 @@
       },
       {
         "feature": {
-          "feature": "aoemod:basalt_deltas/floor/grass",
+          "feature": "aoemod:basalt_deltas/floor/forest_floor",
           "placement": []
         },
         "target": "air",

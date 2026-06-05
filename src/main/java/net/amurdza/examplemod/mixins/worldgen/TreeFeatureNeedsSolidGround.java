@@ -1,6 +1,7 @@
 package net.amurdza.examplemod.mixins.worldgen;
 
 import net.minecraft.core.BlockPos;
+import net.minecraft.tags.BlockTags;
 import net.minecraft.world.level.WorldGenLevel;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
@@ -29,7 +30,7 @@ public class TreeFeatureNeedsSolidGround {
 
         BlockState groundState = level.getBlockState(groundPos);
 
-        if (!groundState.isSolid()) {
+        if (!groundState.is(BlockTags.DIRT)) {
             cir.setReturnValue(false);
         }
     }

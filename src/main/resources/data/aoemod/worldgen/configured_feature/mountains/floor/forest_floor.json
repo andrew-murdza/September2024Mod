@@ -21,21 +21,7 @@
         "feature": "aoemod:mountains/floor/grass"
       },
       {
-        "chance": 0.0025,
-        "feature": {
-          "type": "minecraft:simple_block",
-          "config": {
-            "to_place": {
-              "type": "minecraft:simple_state_provider",
-              "state": {
-                "Name": "blueskies:snowcap_pinhead"
-              }
-            }
-          }
-        }
-      },
-      {
-        "chance": 0.9375,
+        "chance": 0.94,
         "feature": "aoemod:nothing"
       }
     ]

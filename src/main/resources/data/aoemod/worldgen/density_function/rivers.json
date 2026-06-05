@@ -15,6 +15,6 @@
   },
   "arc_spacing": {
     "type": "minecraft:constant",
-    "argument": 320.0
+    "argument": 560.0
   }
 }

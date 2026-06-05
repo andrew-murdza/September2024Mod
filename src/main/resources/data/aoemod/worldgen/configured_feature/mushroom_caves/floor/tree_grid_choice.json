@@ -1,0 +1,64 @@
+{
+  "type": "aoemod:grid_choice",
+  "config": {
+    "features": [
+      {"feature": "aoemod:giant_mushrooms/huge_brown_mushroom"},
+      {"feature": "aoemod:giant_mushrooms/huge_red_mushroom"},
+      {"feature": "aoemod:giant_mushrooms/huge_glow_shroom"},
+      {"feature": "aoemod:giant_mushrooms/huge_brown_mushroom"},
+      {"feature": "aoemod:giant_mushrooms/huge_red_mushroom"},
+      {"feature": "aoemod:giant_mushrooms/huge_glow_shroom"},
+      {"feature": "aoemod:giant_mushrooms/huge_brown_mushroom"},
+
+      {"feature": "aoemod:giant_mushrooms/huge_glow_shroom"},
+      {"feature": "aoemod:giant_mushrooms/huge_brown_mushroom"},
+      {"feature": "aoemod:giant_mushrooms/huge_red_mushroom"},
+      {"feature": "aoemod:giant_mushrooms/huge_glow_shroom"},
+      {"feature": "aoemod:giant_mushrooms/huge_brown_mushroom"},
+      {"feature": "aoemod:giant_mushrooms/huge_red_mushroom"},
+      {"feature": "aoemod:giant_mushrooms/huge_glow_shroom"},
+
+      {"feature": "aoemod:giant_mushrooms/huge_red_mushroom"},
+      {"feature": "aoemod:giant_mushrooms/huge_glow_shroom"},
+      {"feature": "aoemod:giant_mushrooms/huge_brown_mushroom"},
+      {"feature": "aoemod:giant_mushrooms/huge_red_mushroom"},
+      {"feature": "aoemod:giant_mushrooms/huge_glow_shroom"},
+      {"feature": "aoemod:giant_mushrooms/huge_brown_mushroom"},
+      {"feature": "aoemod:giant_mushrooms/huge_red_mushroom"},
+
+      {"feature": "aoemod:giant_mushrooms/huge_brown_mushroom"},
+      {"feature": "aoemod:giant_mushrooms/huge_red_mushroom"},
+      {"feature": "aoemod:giant_mushrooms/huge_glow_shroom"},
+      {"feature": "aoemod:giant_mushrooms/huge_brown_mushroom"},
+      {"feature": "aoemod:giant_mushrooms/huge_red_mushroom"},
+      {"feature": "aoemod:giant_mushrooms/huge_glow_shroom"},
+      {"feature": "aoemod:giant_mushrooms/huge_brown_mushroom"},
+
+      {"feature": "aoemod:giant_mushrooms/huge_glow_shroom"},
+      {"feature": "aoemod:giant_mushrooms/huge_brown_mushroom"},
+      {"feature": "aoemod:giant_mushrooms/huge_red_mushroom"},
+      {"feature": "aoemod:giant_mushrooms/huge_glow_shroom"},
+      {"feature": "aoemod:giant_mushrooms/huge_brown_mushroom"},
+      {"feature": "aoemod:giant_mushrooms/huge_red_mushroom"},
+      {"feature": "aoemod:giant_mushrooms/huge_glow_shroom"},
+
+      {"feature": "aoemod:giant_mushrooms/huge_red_mushroom"},
+      {"feature": "aoemod:giant_mushrooms/huge_glow_shroom"},
+      {"feature": "aoemod:giant_mushrooms/huge_brown_mushroom"},
+      {"feature": "aoemod:giant_mushrooms/huge_red_mushroom"},
+      {"feature": "aoemod:giant_mushrooms/huge_glow_shroom"},
+      {"feature": "aoemod:giant_mushrooms/huge_brown_mushroom"},
+      {"feature": "aoemod:giant_mushrooms/huge_red_mushroom"},
+
+      {"feature": "aoemod:giant_mushrooms/huge_brown_mushroom"},
+      {"feature": "aoemod:giant_mushrooms/huge_red_mushroom"},
+      {"feature": "aoemod:giant_mushrooms/huge_brown_mushroom"},
+      {"feature": "aoemod:giant_mushrooms/huge_red_mushroom"},
+      {"feature": "aoemod:giant_mushrooms/huge_brown_mushroom"},
+      {"feature": "aoemod:giant_mushrooms/huge_red_mushroom"},
+      {"feature": "aoemod:giant_mushrooms/huge_brown_mushroom"}
+    ],
+    "default_feature": "aoemod:nothing",
+    "placement": []
+  }
+}

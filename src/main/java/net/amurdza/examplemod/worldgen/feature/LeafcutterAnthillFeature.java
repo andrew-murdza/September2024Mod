@@ -16,7 +16,7 @@ import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
 import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConfiguration;
 
 public class LeafcutterAnthillFeature extends Feature<NoneFeatureConfiguration> {
-    private static final int FLAGS = 4;
+    private static final int FLAGS = 3;
 
     private static final int X_OFFSET = 8;
     private static final int Z_OFFSET = 8;

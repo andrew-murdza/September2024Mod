@@ -1,5 +1,5 @@
 {
-  "type": "minecraft:random_patch",
+  "type": "aoemod:fixed_count_random_patch",
   "config": {
     "feature": {
       "feature": {
@@ -8,7 +8,7 @@
           "to_place": {
             "type": "minecraft:simple_state_provider",
             "state": {
-              "Name": "minecraft:grass"
+              "Name": "minecraft:dandelion"
             }
           }
         }
@@ -24,11 +24,25 @@
               "minecraft:void_air"
             ]
           }
+        },
+        {
+          "type": "minecraft:block_predicate_filter",
+          "predicate": {
+            "type": "minecraft:matching_blocks",
+            "offset": [
+              0,
+              -1,
+              0
+            ],
+            "blocks": [
+              "minecraft:grass_block"
+            ]
+          }
         }
       ]
     },
-    "tries": 32,
+    "count": 4,
     "xz_spread": 7,
-    "y_spread": 3
+    "y_spread": 0
   }
 }

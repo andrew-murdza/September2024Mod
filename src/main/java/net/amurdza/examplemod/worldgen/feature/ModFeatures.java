@@ -41,8 +41,8 @@ public class ModFeatures {
         FEATURES.register(eventBus);
     }
 
-    public static final ResourceKey<ConfiguredFeature<?,?>> HUGE_GLOW_SHROOM = createKey("huge_glow_shroom");
-    public static final ResourceKey<ConfiguredFeature<?,?>> HUGE_SNOWCAP_MUSHROOM = createKey("huge_snowcap_mushroom");
+    public static final ResourceKey<ConfiguredFeature<?,?>> HUGE_GLOW_SHROOM = createKey("giant_mushrooms/huge_glow_shroom");
+    public static final ResourceKey<ConfiguredFeature<?,?>> HUGE_SNOWCAP_MUSHROOM = createKey("giant_mushrooms/huge_snowcap_mushroom");
 
     public static ResourceKey<ConfiguredFeature<?, ?>> createKey(String p_255643_) {
         return ResourceKey.create(Registries.CONFIGURED_FEATURE, new ResourceLocation("aoemod", p_255643_));

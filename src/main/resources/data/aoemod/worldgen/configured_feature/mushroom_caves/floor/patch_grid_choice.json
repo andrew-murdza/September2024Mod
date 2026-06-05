@@ -1,0 +1,64 @@
+{
+  "type": "aoemod:grid_choice",
+  "config": {
+    "features": [
+      {"feature": "aoemod:mushrooms/brown_mushroom_patch"},
+      {"feature": "aoemod:mushrooms/red_mushroom_patch"},
+      {"feature": "aoemod:mushrooms/glow_shroom_patch"},
+      {"feature": "aoemod:mushrooms/brown_mushroom_patch"},
+      {"feature": "aoemod:mushrooms/red_mushroom_patch"},
+      {"feature": "aoemod:mushrooms/glow_shroom_patch"},
+      {"feature": "aoemod:mushrooms/brown_mushroom_patch"},
+
+      {"feature": "aoemod:mushrooms/glow_shroom_patch"},
+      {"feature": "aoemod:mushrooms/brown_mushroom_patch"},
+      {"feature": "aoemod:mushrooms/red_mushroom_patch"},
+      {"feature": "aoemod:mushrooms/glow_shroom_patch"},
+      {"feature": "aoemod:mushrooms/brown_mushroom_patch"},
+      {"feature": "aoemod:mushrooms/red_mushroom_patch"},
+      {"feature": "aoemod:mushrooms/glow_shroom_patch"},
+
+      {"feature": "aoemod:mushrooms/red_mushroom_patch"},
+      {"feature": "aoemod:mushrooms/glow_shroom_patch"},
+      {"feature": "aoemod:mushrooms/brown_mushroom_patch"},
+      {"feature": "aoemod:mushrooms/red_mushroom_patch"},
+      {"feature": "aoemod:mushrooms/glow_shroom_patch"},
+      {"feature": "aoemod:mushrooms/brown_mushroom_patch"},
+      {"feature": "aoemod:mushrooms/red_mushroom_patch"},
+
+      {"feature": "aoemod:mushrooms/brown_mushroom_patch"},
+      {"feature": "aoemod:mushrooms/red_mushroom_patch"},
+      {"feature": "aoemod:mushrooms/glow_shroom_patch"},
+      {"feature": "aoemod:mushrooms/brown_mushroom_patch"},
+      {"feature": "aoemod:mushrooms/red_mushroom_patch"},
+      {"feature": "aoemod:mushrooms/glow_shroom_patch"},
+      {"feature": "aoemod:mushrooms/brown_mushroom_patch"},
+
+      {"feature": "aoemod:mushrooms/glow_shroom_patch"},
+      {"feature": "aoemod:mushrooms/brown_mushroom_patch"},
+      {"feature": "aoemod:mushrooms/red_mushroom_patch"},
+      {"feature": "aoemod:mushrooms/glow_shroom_patch"},
+      {"feature": "aoemod:mushrooms/brown_mushroom_patch"},
+      {"feature": "aoemod:mushrooms/red_mushroom_patch"},
+      {"feature": "aoemod:mushrooms/glow_shroom_patch"},
+
+      {"feature": "aoemod:mushrooms/red_mushroom_patch"},
+      {"feature": "aoemod:mushrooms/glow_shroom_patch"},
+      {"feature": "aoemod:mushrooms/brown_mushroom_patch"},
+      {"feature": "aoemod:mushrooms/red_mushroom_patch"},
+      {"feature": "aoemod:mushrooms/glow_shroom_patch"},
+      {"feature": "aoemod:mushrooms/brown_mushroom_patch"},
+      {"feature": "aoemod:mushrooms/red_mushroom_patch"},
+
+      {"feature": "aoemod:mushrooms/brown_mushroom_patch"},
+      {"feature": "aoemod:mushrooms/red_mushroom_patch"},
+      {"feature": "aoemod:mushrooms/brown_mushroom_patch"},
+      {"feature": "aoemod:mushrooms/red_mushroom_patch"},
+      {"feature": "aoemod:mushrooms/brown_mushroom_patch"},
+      {"feature": "aoemod:mushrooms/red_mushroom_patch"},
+      {"feature": "aoemod:mushrooms/brown_mushroom_patch"}
+    ],
+    "default_feature": "aoemod:nothing",
+    "placement": []
+  }
+}

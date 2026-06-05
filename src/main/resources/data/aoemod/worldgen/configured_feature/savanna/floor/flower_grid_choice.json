@@ -28,10 +28,10 @@
 
       { "feature": "aoemod:nothing" },
       { "feature": "aoemod:nothing" },
-      { "feature": "aoemod:crops/wild_carrots_patch" },
+      { "feature": "aoemod:sugar_cane_patch" },
       { "feature": "aoemod:flowers/cornflower_patch" },
       { "feature": "aoemod:sugar_cane_patch" },
-      { "feature": "aoemod:crops/wild_potatoes_patch" },
+      { "feature": "aoemod:sugar_cane_patch" },
       { "feature": "aoemod:nothing" },
 
       { "feature": "aoemod:flowers/lily_of_the_valley_patch" },

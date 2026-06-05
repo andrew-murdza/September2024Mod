@@ -1,5 +1,5 @@
 {
-  "type": "minecraft:random_patch",
+  "type": "aoemod:fixed_count_random_patch",
   "config": {
     "feature": {
       "feature": "aoemod:cactus",
@@ -29,7 +29,7 @@
         }
       ]
     },
-    "tries": 14,
+    "count": 4,
     "xz_spread": 7,
     "y_spread": 0
   }

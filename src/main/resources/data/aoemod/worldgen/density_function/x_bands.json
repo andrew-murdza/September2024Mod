@@ -1,5 +1,5 @@
 {
-  "type": "aoemod:river_distance_bands",
+  "type": "aoemod:x_bands",
   "x0": {
     "type": "minecraft:constant",
     "argument": 0.0
@@ -15,6 +15,6 @@
   },
   "arc_spacing": {
     "type": "minecraft:constant",
-    "argument": 320.0
+    "argument": 560.0
   }
 }

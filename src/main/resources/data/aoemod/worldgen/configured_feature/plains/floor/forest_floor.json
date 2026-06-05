@@ -21,11 +21,7 @@
         "feature": "aoemod:plains/floor/grass"
       },
       {
-        "chance": 0.05,
-        "feature": "aoemod:plains/floor/flowers"
-      },
-      {
-        "chance": 0.65,
+        "chance": 0.70,
         "feature": "aoemod:nothing"
       }
     ]

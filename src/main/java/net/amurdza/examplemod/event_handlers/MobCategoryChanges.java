@@ -20,10 +20,6 @@ public class MobCategoryChanges {
         event.enqueueWork(() -> {
             setCategory(AMEntityRegistry.JERBOA.get(), MobCategory.CREATURE);
 
-            setCategory(HybridAquaticEntityTypes.INSTANCE.getMANTA_RAY().get(), MobCategory.WATER_CREATURE);
-            setCategory(HybridAquaticEntityTypes.INSTANCE.getTUNA().get(), MobCategory.WATER_CREATURE);
-            setCategory(ACEntityRegistry.HULLBREAKER.get(), MobCategory.WATER_CREATURE);
-
             if (FoxhoundModule.foxhoundType != null) {
                 setCategory(FoxhoundModule.foxhoundType, MobCategory.CREATURE);
             }

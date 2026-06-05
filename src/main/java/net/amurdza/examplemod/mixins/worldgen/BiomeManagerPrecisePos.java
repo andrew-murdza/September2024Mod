@@ -10,7 +10,7 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Redirect;
 
 @Mixin(BiomeManager.class)
-public abstract class BiomeManagerPreciseYPosMixin {
+public abstract class BiomeManagerPrecisePos {
 
     @Redirect(
             method = "getBiome",
