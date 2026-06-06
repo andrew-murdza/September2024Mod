@@ -2,7 +2,7 @@
   "type": "aoemod:radial_rivers",
   "x0": {
     "type": "minecraft:constant",
-    "argument": 0.0
+    "argument": 7.0
   },
   "z0": {
     "type": "minecraft:constant",

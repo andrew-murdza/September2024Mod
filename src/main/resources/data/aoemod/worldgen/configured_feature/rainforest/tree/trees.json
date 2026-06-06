@@ -60,6 +60,30 @@
     ],
     "default_feature": "aoemod:nothing",
     "offset_type": "corner",
-    "placement": []
+    "placement": [
+      {
+        "type": "minecraft:heightmap",
+        "heightmap": "OCEAN_FLOOR"
+      }//,
+//      {
+//        "type": "minecraft:surface_water_depth_filter",
+//        "max_water_depth": 0
+//      },
+//      {
+//        "type": "minecraft:biome"
+//      },
+//      {
+//        "type": "minecraft:block_predicate_filter",
+//        "predicate": {
+//          "type": "minecraft:would_survive",
+//          "state": {
+//            "Name": "minecraft:jungle_sapling",
+//            "Properties": {
+//              "stage": "0"
+//            }
+//          }
+//        }
+//      }
+    ]
   }
 }

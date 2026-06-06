@@ -2,6 +2,7 @@ package net.amurdza.examplemod.mixins.othermods.quark;
 
 import net.amurdza.examplemod.Config;
 import net.amurdza.examplemod.util.Helper;
+import net.amurdza.examplemod.worldgen.feature.ModConfiguredFeatures;
 import net.amurdza.examplemod.worldgen.feature.ModFeatures;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -115,7 +116,7 @@ public abstract class GlowShroomBlockChanges extends BushBlock {
         Optional<? extends Holder<ConfiguredFeature<?, ?>>> optional =
                 level.registryAccess()
                         .registryOrThrow(Registries.CONFIGURED_FEATURE)
-                        .getHolder(ModFeatures.HUGE_GLOW_SHROOM);
+                        .getHolder(ModConfiguredFeatures.HUGE_GLOW_SHROOM);
 
         if (optional.isEmpty()) {
             return;

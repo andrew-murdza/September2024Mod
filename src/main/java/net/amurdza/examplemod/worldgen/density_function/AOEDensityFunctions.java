@@ -697,7 +697,7 @@ public final class AOEDensityFunctions {
          */
         private static final double RIVER_BANK_SLOPE = 0.5D;
 
-        private static final double NORMAL_RIVER_RADIUS = 30.0D;
+        private static final double NORMAL_RIVER_RADIUS = 42.0D;
 
         private static final RiverProfile JUNGLE_RIVER =
                 new RiverProfile(NORMAL_RIVER_RADIUS, 10.0D);
@@ -711,7 +711,7 @@ public final class AOEDensityFunctions {
         private static final RiverProfile BADLANDS_EDGE_RIVER =
                 new RiverProfile(NORMAL_RIVER_RADIUS, 4.0D);
 
-        private static final double BADLANDS_RIVER_RADIUS = 30.0D;
+        private static final double BADLANDS_RIVER_RADIUS = NORMAL_RIVER_RADIUS;
         private static final double BADLANDS_RIVER_DEPTH = 4.0D;
 
         /*

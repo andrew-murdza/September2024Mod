@@ -63,4 +63,6 @@ public class ModConfiguredFeatures {
     public static final ResourceKey<ConfiguredFeature<?, ?>> WARPED_FOREST_FLOOR = key("warped_forest/floor/forest_floor");
     public static final ResourceKey<ConfiguredFeature<?, ?>> WARPED_FOREST_SEAFLOOR = key("warped_forest/water/water_plants_full");
     public static final ResourceKey<ConfiguredFeature<?, ?>> WARPED_FOREST_SEAFLOOR_SHALLOW = key("warped_forest/water/water_plants_shallow_full");
+
+    public static final ResourceKey<ConfiguredFeature<?,?>> HUGE_GLOW_SHROOM = key("giant_mushrooms/huge_glow_shroom");
 }
