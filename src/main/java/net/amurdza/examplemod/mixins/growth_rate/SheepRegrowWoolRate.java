@@ -22,10 +22,10 @@ public abstract class SheepRegrowWoolRate extends LivingEntity {
             String mobName=getEncodeId();
             int index= Config.SLOWER_GROWTH_MOBS.indexOf(mobName);
             int index1= Config.FASTER_GROWTH_MOBS.indexOf(mobName);
-            if(index>=0&& Helper.withChance(level(),Config.SLOWER_GROWTH_CHANCES.get(index))){
-                return Math.max(a,b+1);
+            if(index>=0&&Helper.withChance(level(),Config.SLOWER_GROWTH_CHANCES.get(index))){
+                return Math.max(a,b-1);
             }
-            else if(index1>=0){//Helper.withChance(level,Config.FASTER_GROWTH_CHANCE.get(index1))
+            else if(index1>=0){
                 return Math.max(a,b-Config.FASTER_GROWTH_AMOUNT.get(index1));
             }
         }

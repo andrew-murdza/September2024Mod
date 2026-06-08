@@ -1,0 +1,49 @@
+{
+  "type": "aoemod:grid_choice",
+  "config": {
+    "features": [
+      { "feature": "aoemod:sugar_cane_patch" },
+      { "feature": "aoemod:nothing" },
+      { "feature": "aoemod:nothing" },
+      { "feature": "aoemod:nothing" },
+      { "feature": "aoemod:nothing" },
+      { "feature": "aoemod:sugar_cane_patch" },
+
+      { "feature": "aoemod:nothing" },
+      { "feature": "aoemod:nothing" },
+      { "feature": "aoemod:nothing" },
+      { "feature": "aoemod:nothing" },
+      { "feature": "aoemod:nothing" },
+      { "feature": "aoemod:nothing" },
+
+      { "feature": "aoemod:nothing" },
+      { "feature": "aoemod:nothing" },
+      { "feature": "aoemod:nothing" },
+      { "feature": "aoemod:nothing" },
+      { "feature": "aoemod:nothing" },
+      { "feature": "aoemod:nothing" },
+
+      { "feature": "aoemod:nothing" },
+      { "feature": "aoemod:nothing" },
+      { "feature": "aoemod:nothing" },
+      { "feature": "aoemod:nothing" },
+      { "feature": "aoemod:nothing" },
+      { "feature": "aoemod:nothing" },
+
+      { "feature": "aoemod:nothing" },
+      { "feature": "aoemod:nothing" },
+      { "feature": "aoemod:nothing" },
+      { "feature": "aoemod:nothing" },
+      { "feature": "aoemod:nothing" },
+      { "feature": "aoemod:nothing" },
+
+      { "feature": "aoemod:nothing" },
+      { "feature": "aoemod:nothing" },
+      { "feature": "aoemod:nothing" },
+      { "feature": "aoemod:nothing" },
+      { "feature": "aoemod:nothing" },
+      { "feature": "aoemod:nothing" }
+    ],
+    "placement": []
+  }
+}

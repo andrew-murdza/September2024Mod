@@ -38,16 +38,11 @@ public class CorrectCaveVinesForTreeGen {
             remap = true
     )
     private void aoemod$skipCaveVinesTooCloseToMoss(TreeDecorator.Context context, BlockPos pos, BlockState state, Operation<Void> original) {
-        if ((state.is(Blocks.CAVE_VINES) || state.is(Blocks.CAVE_VINES_PLANT))) {
-            if(!september2024Mod$hasMossWithinFourBelow(context, pos)){
-                state=state.setValue(BlockStateProperties.WATERLOGGED,!context.level().isFluidAtPosition(pos, FluidState::isEmpty))
-                        .setValue(CaveVinesBlock.BERRIES,true);
-                if(state.is(Blocks.CAVE_VINES)){
-                    state=state.setValue(CaveVinesBlock.AGE,25);
-                }
-                context.setBlock(pos,state);
+        if(!september2024Mod$hasMossWithinFourBelow(context, pos)){
+            if(state.is(Blocks.CAVE_VINES)){
+                state=state.setValue(CaveVinesBlock.AGE,25);
             }
-            return;
+            context.setBlock(pos,state);
         }
         original.call(context,pos,state);
     }

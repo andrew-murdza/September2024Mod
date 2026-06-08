@@ -44,16 +44,8 @@ public class Config
     public static final int GLOW_BERRY_HARVEST_AMOUNT = 2;
     public static final int SWEET_BERRIES_PARTIALLY_GROWN = 2;
     public static final int SWEET_BERRIES_FULLY_GROWN = 5;
-//    public static final int CHANCE_OF_TALL_SEAGRASS_BONEMEAL = 4;
     public static final int MAX_MUSHROOMS_FOR_GROWTH = 5;
-//    public static final int MYCELIUM_GRASS_SPREAD_NUM_TRIES = 8;
     public static final double PLACE_CHORUS_FLOWER_CHANCE = 0.1;
-    public static final double CHORUS_FLOWER_GROW_CHANCE = 0.16;
-    public static final int MULBERRY_HARVEST_AMOUNT_IN_SPECIAL_BIOME = 4;
-    public static final int NUM_GRAPES = 3;
-    public static final double PUPA_CHANCE = 0.2;
-    public static final int ANT_FOOD_COUNT = 4;
-    public static final int LEAVES_SHED_CHANCE = 800;
     public static final HashMap<ResourceKey<Biome>,Integer>DIFF_MAP =new HashMap<>();
     public static final float PLAYER_DEFENSE_FACTOR = 1.05F;
     public static final float MONSTER_DEFENSE_FACTOR = 1.1F;
@@ -62,17 +54,12 @@ public class Config
     public static final int FARMLAND_DISTANCE = 14;
     public static final double GLOW_LICHEN_TRUNK_CHANCE = 0.1;
     public static final double VINE_TRUNK_CHANCE = 0.5;
+    public static final float PRICKLY_PEAR_CHANCE = 1.0F;
+    public static final int MYCELIUM_SPREAD_NUM_TRIES = 4;
+    public static final int GRASS_SPREAD_NUM_TRIES = 4;
     public static List<Item> BLACKLISTED_USE_ITEMS=List.of();
-//    public static final int BLOOD_MOON_FREQUENCY = 7;
-//    public static final float BLOOD_MOON_SPAWN_CAP_MULTIPLIER = 3.0f;
-//    public static int MAX_BEANSTALK_Y=320;
-
-
     public static final ForgeConfigSpec SPEC;
 
-    // Existing stuff you already have:
-    // public static final Set<Item> BLACKLISTED_USE_ITEMS = ...
-    // etc.
 
     /**
      * Each biome tag has two multipliers:
@@ -221,36 +208,6 @@ public class Config
     public static int MAX_LEAVES_DISTANCE=8;
 
     public static HashMap<Block,BlockInfoObject>BLOCK_GROWTH_DATA=new HashMap<>();
-    public static HashMap<Class<? extends LivingEntity>,List<ShedInfoObject>> SHED_DATA=new HashMap<>();
-    private static void addToMap(Block block, int i, double d){
-        BLOCK_GROWTH_DATA.put(block,new BlockInfoObject(i,d));
-    }
-//    private static void addToMap(Block block, int i){
-//        addToMap(block,i,1D);
-//    }
-    private static void addToMap(Block block, double d){
-        addToMap(block,1,d);
-    }
-    private static void addToMap(Block block){
-        addToMap(block,1,1D);
-    }
-    private static void addToMap(Class<? extends LivingEntity> entity, Item item, double d){
-        ShedInfoObject info=new ShedInfoObject(item,d);
-        if(SHED_DATA.containsKey(entity)){
-            SHED_DATA.get(entity).add(info);
-        }
-        else{
-            SHED_DATA.put(entity,new ArrayList<>(List.of(info)));
-        }
-    }
-    private static void addToMap(Class<? extends LivingEntity> entity, double d, Item... items){
-        for(Item item: items){
-            addToMap(entity,item,d);
-        }
-    }
-    private static void addToMap(Class<? extends LivingEntity> entity, Item... items){
-        addToMap(entity,0.1D,items);
-    }
 
     public static class BlockInfoObject{
         public int i;
@@ -259,45 +216,5 @@ public class Config
             this.i=i;
             this.d=d;
         }
-    }
-    public static class ShedInfoObject{
-        public Item item;
-        public double d;
-        public ShedInfoObject(Item item, double d){
-            this.item=item;
-            this.d=d;
-        }
-    }
-
-    private static float getOrDefault(ForgeConfigSpec.DoubleValue v, float fallback) {
-        try {
-            return v == null ? fallback : (float)(double)v.get();
-        } catch (IllegalStateException e) {
-            // config not loaded yet
-            return fallback;
-        }
-    }
-
-    @SubscribeEvent
-    static void onLoad(final FMLCommonSetupEvent event)
-    {
-        addToMap(EntityEmu.class, AMItemRegistry.EMU_FEATHER.get(),AMItemRegistry.EMU_EGG.get());
-        addToMap(Chicken.class, Items.FEATHER, Items.EGG);
-        addToMap(EntitySiren.class, 0, IafItemRegistry.SIREN_TEAR.get(),IafItemRegistry.SHINY_SCALES.get());
-        addToMap(EntitySeaSerpent.class,0,IafItemRegistry.SERPENT_FANG.get());
-        addToMap(EntityPixie.class,0,IafItemRegistry.PIXIE_DUST.get(),IafItemRegistry.PIXIE_WINGS.get());
-        addToMap(EntityPixie.class,0,IafItemRegistry.PIXIE_WINGS.get());
-        addToMap(EntityAnaconda.class,AMItemRegistry.SHED_SNAKE_SKIN.get());
-        addToMap(EntityGrizzlyBear.class,AMItemRegistry.BEAR_FUR.get());
-        addToMap(EntityMoose.class,AMItemRegistry.MOOSE_ANTLER.get());
-        addToMap(EntityCrocodile.class,AMItemRegistry.CROCODILE_SCUTE.get());
-        addToMap(EntityAlligatorSnappingTurtle.class,0,AMItemRegistry.SPIKED_SCUTE.get());
-
-
-        List<Block> saplings=List.of(Blocks.SPRUCE_SAPLING,Blocks.ACACIA_SAPLING,Blocks.CHERRY_SAPLING,Blocks.BIRCH_SAPLING,Blocks.DARK_OAK_SAPLING,Blocks.JUNGLE_SAPLING,Blocks.OAK_SAPLING,Blocks.MANGROVE_PROPAGULE, Objects.requireNonNull(BWGWood.BAOBAB.sapling()).getBlock());
-        for(Block block: saplings){
-            addToMap(block,0.45D);
-        }
-
     }
 }

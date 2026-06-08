@@ -11,10 +11,10 @@
   "continents": "aoemod:continents",
   "period": {
     "type": "minecraft:constant",
-    "argument": 7680.0
+    "argument": 9600.0
   },
   "arc_spacing": {
     "type": "minecraft:constant",
-    "argument": 560.0
+    "argument": 480.0
   }
 }

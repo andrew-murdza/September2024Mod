@@ -2,7 +2,7 @@
   "type": "minecraft:add",
   "argument1": {
     "type": "minecraft:constant",
-    "argument": 0.6
+    "argument": 0.5
   },
   "argument2": {
     "type": "minecraft:mul",
@@ -28,17 +28,17 @@
             },
             "argument2": {
               "type": "minecraft:constant",
-              "argument": 7680.0
+              "argument": 9600.0
             }
           },
           "argument2": {
             "type": "minecraft:constant",
-            "argument": 640.0
+            "argument": 960.0
           }
         },
         "argument2": {
           "type": "minecraft:constant",
-          "argument": -6.0
+          "argument": -5.0
         }
       }
     }

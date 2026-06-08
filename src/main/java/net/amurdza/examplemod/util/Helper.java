@@ -7,6 +7,7 @@ import net.minecraft.core.Holder;
 import net.minecraft.network.chat.MutableComponent;
 import net.minecraft.network.chat.contents.LiteralContents;
 import net.minecraft.resources.ResourceKey;
+import net.minecraft.tags.TagKey;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.Entity;
@@ -126,6 +127,20 @@ public class Helper {
     public static boolean isBlock(Block block, Block... blocks){
         return Arrays.asList(blocks).contains(block);
     }
+
+    public static boolean isBlock(BlockState block, Block... blocks){
+        return Arrays.asList(blocks).contains(block.getBlock());
+    }
+
+    public static boolean isBlockTag(BlockState state, TagKey<Block>... tags){
+        for(TagKey<Block> tag: tags){
+            if(state.is(tag)){
+                return true;
+            }
+        }
+        return false;
+    }
+
     public static int withChanceToInt(LevelAccessor level, double f){
         return withChance(level,f)?0:1;
     }

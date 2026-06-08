@@ -421,20 +421,13 @@ public final class AOEDensityFunctions {
             DensityFunction rivers
     ) implements DensityFunction {
 
-        private static final double OCEAN_OFFSET = -0.625D;
         private static final double LOW_LAND_OFFSET = -0.5D;
-
-        private static final int OCEAN_HEIGHT = 48;
-        private static final int LOW_LAND_HEIGHT = 64;
 
         /*
          * 0.1 continents = 640 blocks,
          * so 1 block = 0.1 / 640 = 0.00015625 continents.
          */
         private static final double ONE_BLOCK_CONTINENTS = 0.00015625D;
-
-        private static final double OCEAN_END = 0.100D;
-        private static final double LOW_LAND_START = 0.1025D;
 
         /*
          * Badlands/desert starts after the grove/old mountain band.
@@ -449,7 +442,7 @@ public final class AOEDensityFunctions {
          * After that, the allowed badlands lift increases at slope 1/2 until it
          * reaches the actual x-based terrace value from RadialRivers.
          */
-        private static final int DESERT_FLAT_ENTRY_BLOCKS = 40;
+        private static final int DESERT_FLAT_ENTRY_BLOCKS = 80;
         private static final double DESERT_ENTRY_SLOPE = 0.5D;
 
         private static final double EPSILON = 0.0000001D;
@@ -472,26 +465,10 @@ public final class AOEDensityFunctions {
             final double c = continents.compute(context);
             final double riverValue = rivers.compute(context);
 
-            final double baseOffset = getBaseOffset(c);
-
-            return applyRivers(c, baseOffset, riverValue);
+            return applyRivers(c, riverValue);
         }
 
         private static double getBaseOffset(double c) {
-            if (c < OCEAN_END) {
-                return OCEAN_OFFSET;
-            }
-
-            if (c < LOW_LAND_START) {
-                int blocksIntoRamp = continentsToWholeBlocks(c - OCEAN_END);
-
-                return heightToOffset(clampInt(
-                        OCEAN_HEIGHT + blocksIntoRamp,
-                        OCEAN_HEIGHT,
-                        LOW_LAND_HEIGHT
-                ));
-            }
-
             /*
              * Jungle, savanna, plains, grove/old mountains, and the start of the
              * badlands all use the same base height.
@@ -503,13 +480,12 @@ public final class AOEDensityFunctions {
 
         private static double applyRivers(
                 double c,
-                double baseOffset,
                 double riverValue
         ) {
             final double negativeRiver = Math.min(riverValue, 0.0D);
             final double positiveRiver = Math.max(riverValue, 0.0D);
 
-            double offset = baseOffset;
+            double offset = SteppedMountainOffset.LOW_LAND_OFFSET;
 
             /*
              * Positive river values are badlands terrace/lift values.
@@ -523,7 +499,7 @@ public final class AOEDensityFunctions {
                 final double cappedPositiveRiver = Math.min(positiveRiver, allowedEntryLift);
 
                 offset = Math.max(
-                        baseOffset,
+                        SteppedMountainOffset.LOW_LAND_OFFSET,
                         LOW_LAND_OFFSET + cappedPositiveRiver
                 );
             }
@@ -532,16 +508,7 @@ public final class AOEDensityFunctions {
                 return offset;
             }
 
-            double finalOffset = offset + negativeRiver;
-
-            /*
-             * Do not let rivers cut the ocean ramp below the ocean floor.
-             */
-            if (c >= OCEAN_END && c < LOW_LAND_START) {
-                finalOffset = Math.max(finalOffset, OCEAN_OFFSET);
-            }
-
-            return finalOffset;
+            return offset + negativeRiver;
         }
 
         private static double getDesertEntryLiftLimit(double c) {
@@ -560,14 +527,6 @@ public final class AOEDensityFunctions {
             return (int) Math.floor((continentsDistance / ONE_BLOCK_CONTINENTS) + EPSILON);
         }
 
-        private static double heightToOffset(int height) {
-            return ((double) height / 128.0D) - 1.0D;
-        }
-
-        private static int clampInt(int value, int min, int max) {
-            return Math.min(Math.max(value, min), max);
-        }
-
         @Override
         public void fillArray(double @NotNull [] densities, ContextProvider context) {
             context.fillAllDirectly(densities, this);
@@ -583,7 +542,7 @@ public final class AOEDensityFunctions {
 
         @Override
         public double minValue() {
-            return OCEAN_OFFSET - (10.0D / 128.0D);
+            return LOW_LAND_OFFSET - (10.0D / 128.0D);
         }
 
         @Override
@@ -602,7 +561,7 @@ public final class AOEDensityFunctions {
      *
      * Current behavior:
      * - continents controls the north/south biome bands
-     * - rivers repeat along x
+     * - rivers repeat along xA
      *
      * The JSON type is still called radial_rivers so existing JSONs do not need
      * a codec rename, but this version intentionally uses linear x-based rivers
@@ -648,8 +607,6 @@ public final class AOEDensityFunctions {
         private static final double MOUNTAIN_PROFILE_RAMP =
                 8.0D * ONE_BLOCK_CONTINENTS;
 
-        private static final double MOUNTAIN_TO_BADLANDS_PROFILE_RAMP =
-                12.0D * ONE_BLOCK_CONTINENTS;
         /*
          * Ramp shifts.
          *
@@ -659,10 +616,10 @@ public final class AOEDensityFunctions {
          * Plains -> grove ramp shifts 1 block toward positive continents.
          */
         private static final double LOWLAND_RAMP_SHIFT =
-                5.0D * ONE_BLOCK_CONTINENTS;
+                4.0D * ONE_BLOCK_CONTINENTS;
 
         private static final double MOUNTAIN_RAMP_SHIFT =
-                1.0D * ONE_BLOCK_CONTINENTS;
+                0.0D * ONE_BLOCK_CONTINENTS;
 
         private static final double JUNGLE_TO_SAVANNA_RAMP_END =
                 JUNGLE_END + LOWLAND_RAMP_SHIFT;
@@ -683,10 +640,10 @@ public final class AOEDensityFunctions {
                 PLAINS_TO_MOUNTAIN_RAMP_START + MOUNTAIN_PROFILE_RAMP;
 
         private static final double MOUNTAIN_TO_BADLANDS_RAMP_START =
-                BADLANDS_START + ONE_BLOCK_CONTINENTS - MOUNTAIN_TO_BADLANDS_PROFILE_RAMP;
+                BADLANDS_START + ONE_BLOCK_CONTINENTS - MOUNTAIN_PROFILE_RAMP;
 
         private static final double MOUNTAIN_TO_BADLANDS_RAMP_END =
-                BADLANDS_START;
+                BADLANDS_START + MOUNTAIN_PROFILE_RAMP;
 
         /*
          * River bank slope.
@@ -709,10 +666,10 @@ public final class AOEDensityFunctions {
                 new RiverProfile(NORMAL_RIVER_RADIUS, 6.0D);
 
         private static final RiverProfile BADLANDS_EDGE_RIVER =
-                new RiverProfile(NORMAL_RIVER_RADIUS, 4.0D);
+                new RiverProfile(NORMAL_RIVER_RADIUS, 6.0D);
 
         private static final double BADLANDS_RIVER_RADIUS = NORMAL_RIVER_RADIUS;
-        private static final double BADLANDS_RIVER_DEPTH = 4.0D;
+        private static final double BADLANDS_RIVER_DEPTH = 6.0D;
 
         /*
          * Desert terrace rules:
@@ -721,7 +678,7 @@ public final class AOEDensityFunctions {
          * - then 40 blocks stay flat on each side of the river
          * - after that, terrain rises at slope 1/2 until halfway between river centers
          */
-        private static final double BADLANDS_FLAT_AFTER_RIVER = 40.0D;
+        private static final double BADLANDS_FLAT_AFTER_RIVER = 80.0D;
         private static final double BADLANDS_TERRACE_SLOPE = 0.5D;
 
         private static final MapCodec<RadialRivers> DATA_CODEC =
@@ -735,6 +692,7 @@ public final class AOEDensityFunctions {
 
         public static final KeyDispatchDataCodec<RadialRivers> CODEC =
                 AOEDensityFunctions.makeCodec(DATA_CODEC);
+        private static final double MAX_TERRACE_HEIGHT = 64;
 
         @Override
         public double compute(@NotNull FunctionContext context) {
@@ -904,7 +862,7 @@ public final class AOEDensityFunctions {
             }
 
             final double terraceDistance = distanceFromRiverEdge - BADLANDS_FLAT_AFTER_RIVER;
-            final double lift = terraceDistance * BADLANDS_TERRACE_SLOPE;
+            final double lift = Math.min(terraceDistance * BADLANDS_TERRACE_SLOPE,MAX_TERRACE_HEIGHT);
 
             return lift / 128.0D;
         }

@@ -2,23 +2,32 @@ package net.amurdza.examplemod.worldgen.feature;
 
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
-import net.minecraft.util.ExtraCodecs;
-import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.util.valueproviders.IntProvider;
+import net.minecraft.world.level.levelgen.blockpredicates.BlockPredicate;
 import net.minecraft.world.level.levelgen.feature.configurations.FeatureConfiguration;
+import net.minecraft.world.level.levelgen.feature.stateproviders.BlockStateProvider;
+import net.minecraft.world.level.levelgen.feature.treedecorators.TreeDecorator;
+
+import java.util.List;
 
 public record RainforestTreeFeatureConfig(
-        int topY,
-        BlockState logState,
-        BlockState leavesState,
-        int caveVinesDistance
+        ResourceLocation canopyTemplate,
+        BlockStateProvider logProvider,
+        BlockStateProvider leavesProvider,
+        IntProvider height,
+        BlockPredicate validGround,
+        List<TreeDecorator> decorators
 ) implements FeatureConfiguration {
 
     public static final Codec<RainforestTreeFeatureConfig> CODEC = RecordCodecBuilder.create(instance ->
             instance.group(
-                    Codec.INT.fieldOf("top_y").forGetter(RainforestTreeFeatureConfig::topY),
-                    BlockState.CODEC.fieldOf("log_state").forGetter(RainforestTreeFeatureConfig::logState),
-                    BlockState.CODEC.fieldOf("leaves_state").forGetter(RainforestTreeFeatureConfig::leavesState),
-                    ExtraCodecs.POSITIVE_INT.fieldOf("cave_vines_distance").forGetter(RainforestTreeFeatureConfig::caveVinesDistance)
+                    ResourceLocation.CODEC.fieldOf("canopy_template").forGetter(RainforestTreeFeatureConfig::canopyTemplate),
+                    BlockStateProvider.CODEC.fieldOf("log_provider").forGetter(RainforestTreeFeatureConfig::logProvider),
+                    BlockStateProvider.CODEC.fieldOf("leaves_provider").forGetter(RainforestTreeFeatureConfig::leavesProvider),
+                    IntProvider.CODEC.fieldOf("height").forGetter(RainforestTreeFeatureConfig::height),
+                    BlockPredicate.CODEC.fieldOf("valid_ground").forGetter(RainforestTreeFeatureConfig::validGround),
+                    TreeDecorator.CODEC.listOf().optionalFieldOf("decorators", List.of()).forGetter(RainforestTreeFeatureConfig::decorators)
             ).apply(instance, RainforestTreeFeatureConfig::new)
     );
 }

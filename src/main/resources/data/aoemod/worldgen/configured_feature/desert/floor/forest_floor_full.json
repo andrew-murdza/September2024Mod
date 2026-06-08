@@ -17,6 +17,6 @@
       "type": "minecraft:matching_blocks",
       "blocks": ["minecraft:sand","minecraft:red_sand"]
     },
-    "biomes": "aoemod:badlands_biomes"
+    "biomes": "aoemod:desert_biomes"
   }
 }

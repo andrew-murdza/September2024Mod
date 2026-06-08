@@ -16,9 +16,7 @@ public class ModConfiguredFeatures {
         );
     }
 
-    public static final ResourceKey<ConfiguredFeature<?, ?>> PLAINS_FLOWERS = key("plains/flowers");
-    public static final ResourceKey<ConfiguredFeature<?, ?>> SAVANNA_FLOWERS = key("savanna/flowers");
-    public static final ResourceKey<ConfiguredFeature<?, ?>> SOUL_SAND_VALLEY_FLOWERS = key("soul_sand_valley/flowers");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> SMALL_DRIP_LEAF = key("small_dripleaf");
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> BASALT_DELTAS_FLOOR = key("basalt_deltas/floor/forest_floor");
     public static final ResourceKey<ConfiguredFeature<?, ?>> BASALT_DELTAS_SEAFLOOR = key("basalt_deltas/water/water_plants_full");

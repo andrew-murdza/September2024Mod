@@ -60,7 +60,7 @@ public class AOEMod
 
         //custom blocks
         ModBlocks.register(modEventBus);
-        ModTreeDecorators.register(modEventBus); // <-- add this
+        ModTreeDecorators.register(modEventBus);
 
 
         ModEntities.register(modEventBus);

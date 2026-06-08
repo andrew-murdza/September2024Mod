@@ -73,18 +73,6 @@
         "weight": 4,
         "minCount": 2,
         "maxCount": 3
-      },
-      {
-        "type": "alexsmobs:roadrunner",
-        "weight": 2,
-        "minCount": 2,
-        "maxCount": 5
-      },
-      {
-        "type": "alexsmobs:sunbird",
-        "weight": 2,
-        "minCount": 1,
-        "maxCount": 1
       }
     ],
     "misc": [],

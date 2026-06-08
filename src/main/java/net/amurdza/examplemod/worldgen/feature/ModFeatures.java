@@ -28,6 +28,9 @@ public class ModFeatures {
         FEATURES.register("fixed_count_random_patch", ()->new FixedCountRandomPatchFeature(FixedCountRandomPatchConfiguration.CODEC));
         FEATURES.register("layered_all_surface", ()->new AllSurfaceLayeredFeature(AllSurfaceLayeredFeaturesConfig.CODEC));
         FEATURES.register("rainforest_tree", ()->new RainforestTreeFeature(RainforestTreeFeatureConfig.CODEC));
+        FEATURES.register("cave_vines", ()->new CaveVineColumn(CaveVineConfig.CODEC));
+        FEATURES.register("sugar_cane", ()->new SugarCaneFeature(NoneFeatureConfiguration.CODEC));
+        FEATURES.register("chunk_patch", ()->new FixedCountChunkFeature(FixedCountRandomPatchConfiguration.CODEC));
     }
 
     public static void register(IEventBus eventBus){

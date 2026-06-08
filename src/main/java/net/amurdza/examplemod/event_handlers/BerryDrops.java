@@ -30,27 +30,17 @@ public class BerryDrops {
         Level level=event.getLevel();
         BlockPos pos=event.getPos();
         BlockState state=level.getBlockState(pos);
-        Block block=state.getBlock();
-        if(Helper.isSpecialBiome(level,pos)){
+        if(state.is(Blocks.SWEET_BERRY_BUSH)){
+            int age=state.getValue(BlockStateProperties.AGE_3);
             int amount=0;
-            Item item = null;
-            if((block instanceof CaveVines)&&state.getValue(BlockStateProperties.BERRIES)){
-                amount=Config.GLOW_BERRY_HARVEST_AMOUNT-1;
-                item=Items.GLOW_BERRIES;
+            if(age==2){
+                amount= Config.SWEET_BERRIES_PARTIALLY_GROWN;
             }
-            if(state.is(Blocks.SWEET_BERRY_BUSH)){
-                int age=state.getValue(BlockStateProperties.AGE_3);
-                item=Items.SWEET_BERRIES;
-                amount=0;
-                if(age==2){
-                    amount= Config.SWEET_BERRIES_PARTIALLY_GROWN;
-                }
-                if(age==3){
-                    amount = Config.SWEET_BERRIES_FULLY_GROWN;
-                }
+            if(age==3){
+                amount = Config.SWEET_BERRIES_FULLY_GROWN;
             }
             if(amount>0){
-                Block.popResource(level, pos, new ItemStack(item,amount));
+                Block.popResource(level, pos, new ItemStack(Items.SWEET_BERRIES,amount));
             }
         }
     }

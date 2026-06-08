@@ -1,0 +1,50 @@
+{
+  "type": "aoemod:grid_choice",
+  "config": {
+    "features": [
+      { "feature": "aoemod:trees/birch" },
+      { "feature": "aoemod:flowers/sunflower_patch" },
+      { "feature": "aoemod:nothing" },
+      { "feature": "aoemod:nothing" },
+      { "feature": "aoemod:flowers/poppy_patch" },
+      { "feature": "aoemod:nothing" },
+
+      { "feature": "aoemod:nothing" },
+      { "feature": "aoemod:nothing" },
+      { "feature": "aoemod:mushrooms/brown_mushroom_patch_small" },
+      { "feature": "aoemod:nothing" },
+      { "feature": "aoemod:trees/oak" },
+      { "feature": "aoemod:flowers/dandelion_patch" },
+
+      { "feature": "aoemod:flowers/oxeye_daisy_patch" },
+      { "feature": "aoemod:nothing" },
+      { "feature": "aoemod:nothing" },
+      { "feature": "aoemod:flowers/azure_bluet_patch" },
+      { "feature": "aoemod:nothing" },
+      { "feature": "aoemod:nothing" },
+
+      { "feature": "aoemod:trees/oak_bees" },
+      { "feature": "aoemod:nothing" },
+      { "feature": "aoemod:flowers/cornflower_patch" },
+      { "feature": "aoemod:nothing" },
+      { "feature": "aoemod:nothing" },
+      { "feature": "aoemod:flowers/red_tulip_patch" },
+
+      { "feature": "aoemod:nothing" },
+      { "feature": "aoemod:nothing" },
+      { "feature": "aoemod:flowers/white_tulip_patch" },
+      { "feature": "aoemod:nothing" },
+      { "feature": "aoemod:nothing" },
+      { "feature": "aoemod:mushrooms/red_mushroom_patch_small" },
+
+      { "feature": "aoemod:flowers/pink_tulip_patch" },
+      { "feature": "aoemod:nothing" },
+      { "feature": "aoemod:trees/oak" },
+      { "feature": "aoemod:flowers/orange_tulip_patch" },
+      { "feature": "aoemod:nothing" },
+      { "feature": "aoemod:nothing" }
+    ],
+    "default_feature": "aoemod:nothing",
+    "placement": []
+  }
+}

@@ -73,20 +73,8 @@
         "maxCount": 5
       },
       {
-        "type": "alexsmobs:roadrunner",
-        "weight": 10,
-        "minCount": 2,
-        "maxCount": 5
-      },
-      {
         "type": "naturalist:deer",
         "weight": 10,
-        "minCount": 2,
-        "maxCount": 5
-      },
-      {
-        "type": "minecraft:cat",
-        "weight": 5,
         "minCount": 2,
         "maxCount": 5
       },
@@ -103,8 +91,8 @@
         "maxCount": 5
       },
       {
-        "type": "minecraft:donkey",
-        "weight": 2,
+        "type": "minecraft:llama",
+        "weight": 5,
         "minCount": 2,
         "maxCount": 5
       },
@@ -133,28 +121,10 @@
         "maxCount": 5
       },
       {
-        "type": "minecraft:fox",
-        "weight": 5,
-        "minCount": 2,
-        "maxCount": 5
-      },
-      {
-        "type": "minecraft:llama",
-        "weight": 5,
-        "minCount": 2,
-        "maxCount": 5
-      },
-      {
         "type": "minecraft:wolf",
         "weight": 5,
         "minCount": 2,
         "maxCount": 5
-      },
-      {
-        "type": "quark:crab",
-        "weight": 10,
-        "minCount": 4,
-        "maxCount": 4
       }
     ],
     "misc": [],

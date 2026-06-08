@@ -1,5 +1,5 @@
 {
-  "type": "aoemod:fixed_count_random_patch",
+  "type": "aoemod:chunk_patch",
   "config": {
     "feature": {
       "feature": {

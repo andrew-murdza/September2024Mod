@@ -1,0 +1,13 @@
+{
+  "values": [
+    "#minecraft:mineable/pickaxe",
+    "#minecraft:mineable/shovel",
+    "#forge:glass",
+    "#forge:glass_panes",
+    "minecraft:comparator",
+    "minecraft:redstone_lamp",
+    "minecraft:redstone_repeater",
+    "minecraft:redstone",
+    "minecraft:comparator"
+  ]
+}

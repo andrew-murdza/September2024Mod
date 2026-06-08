@@ -1,22 +1,41 @@
 package net.amurdza.examplemod.mixins.block_placement;
 
 import net.amurdza.examplemod.util.ModTags;
-import net.minecraft.tags.TagKey;
-import net.minecraft.world.level.block.Block;
+import net.minecraft.core.BlockPos;
+import net.minecraft.core.Holder;
+import net.minecraft.world.level.BlockGetter;
+import net.minecraft.world.level.LevelReader;
+import net.minecraft.world.level.biome.Biome;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.BushBlock;
 import net.minecraft.world.level.block.RootsBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
-import org.spongepowered.asm.mixin.injection.Redirect;
+import org.spongepowered.asm.mixin.injection.Inject;
+import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
-@Mixin(value = RootsBlock.class,priority = 1001)
-public class NetherRootsPlacement {
-    @Redirect(method = "mayPlaceOn",at=@At(value = "INVOKE",target = "Lnet/minecraft/world/level/block/state/BlockState;is(Lnet/minecraft/world/level/block/Block;)Z"))
-    private boolean hi(BlockState instance, Block block){
-        return instance.is(ModTags.Blocks.netherRootsPlaceable);
+@Mixin(RootsBlock.class)
+public abstract class NetherRootsPlacement extends BushBlock {
+
+    protected NetherRootsPlacement(Properties properties) {
+        super(properties);
     }
-    @Redirect(method = "mayPlaceOn",at=@At(value = "INVOKE",target = "Lnet/minecraft/world/level/block/state/BlockState;is(Lnet/minecraft/tags/TagKey;)Z"))
-    private boolean hi(BlockState instance, TagKey tagKey){
-        return instance.is(ModTags.Blocks.netherRootsPlaceable);
+
+    @Inject(method = "mayPlaceOn", at = @At("HEAD"), cancellable = true)
+    protected void mayPlaceOn(BlockState pState, BlockGetter pLevel, BlockPos pPos, CallbackInfoReturnable<Boolean> cir) {
+        if (this == Blocks.WARPED_ROOTS) {
+            cir.setReturnValue(pState.is(Blocks.WARPED_NYLIUM)
+                    &&((LevelReader)pLevel).getBiome(pPos.above()).is(ModTags.Biomes.warpedForestBiomes));
+        }
+
+        if (this == Blocks.CRIMSON_ROOTS) {
+            Holder<Biome> biome = ((LevelReader)pLevel).getBiome(pPos.above());
+            cir.setReturnValue((pState.is(Blocks.CRIMSON_NYLIUM)
+                    || pState.is(ModTags.Blocks.soulSediments)
+                    || pState.is(ModTags.Blocks.basaltStones))
+                    &&(biome.is(ModTags.Biomes.crimsonForestBiomes)||
+                    biome.is(ModTags.Biomes.soulSandValleyBiomes)||biome.is(ModTags.Biomes.basaltDeltasBiomes)));
+        }
     }
 }

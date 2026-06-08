@@ -22,20 +22,17 @@ import net.minecraft.world.level.levelgen.structure.pieces.StructurePieceType;
 import org.jetbrains.annotations.NotNull;
 
 public abstract class AbstractSpiralCavePiece extends StructurePiece {
-    protected static final int TARGET_Y = -126;
-    private static final double FIXED_STARTING_YAW = 0.0D;
 
     protected final BlockPos origin;
     protected final long seed;
+    protected final int endY;
+    protected final int endX;
 
-    protected final float lowerHorizontalRadius;
-    protected final float lowerVerticalRadius;
-    protected final float upperHorizontalRadius;
-    protected final float upperVerticalRadius;
+    protected final float horizontalRadius;
+    protected final float verticalRadius;
 
     protected final float centralPillarDiameter;
     protected final float minFloorThickness;
-    protected final float upperPitch;
 
     protected final float liquidDepth;
     protected final float liquidRadius;
@@ -46,36 +43,34 @@ public abstract class AbstractSpiralCavePiece extends StructurePiece {
             StructurePieceType type,
             BlockPos origin,
             long seed,
-            float lowerHorizontalRadius,
-            float lowerVerticalRadius,
-            float upperHorizontalRadius,
-            float upperVerticalRadius,
+            int endY,
+            int endX,
+            float horizontalRadius,
+            float verticalRadius,
             float centralPillarDiameter,
             float minFloorThickness,
-            float upperPitch,
             float liquidDepth,
             float liquidRadius,
             HolderSet<PlacedFeature> placedFeatures
     ) {
         super(type, 0, makeBoundingBox(
                 origin,
-                lowerHorizontalRadius,
-                lowerVerticalRadius,
-                upperHorizontalRadius,
-                upperVerticalRadius,
+                horizontalRadius,
+                verticalRadius,
                 centralPillarDiameter,
-                liquidRadius
+                liquidRadius,
+                endY,
+                endX
         ));
 
         this.origin = origin;
+        this.endY = endY;
+        this.endX= endX;
         this.seed = seed;
-        this.lowerHorizontalRadius = lowerHorizontalRadius;
-        this.lowerVerticalRadius = lowerVerticalRadius;
-        this.upperHorizontalRadius = upperHorizontalRadius;
-        this.upperVerticalRadius = upperVerticalRadius;
+        this.horizontalRadius = horizontalRadius;
+        this.verticalRadius = verticalRadius;
         this.centralPillarDiameter = centralPillarDiameter;
         this.minFloorThickness = minFloorThickness;
-        this.upperPitch = upperPitch;
         this.liquidDepth = liquidDepth;
         this.liquidRadius = liquidRadius;
         this.placedFeatures = placedFeatures;
@@ -88,27 +83,20 @@ public abstract class AbstractSpiralCavePiece extends StructurePiece {
         super(type, tag);
 
         this.origin = new BlockPos(tag.getInt("OriginX"), tag.getInt("OriginY"), tag.getInt("OriginZ"));
+        this.endY = tag.getInt("EndY");
+        this.endX = tag.getInt("EndX");
         this.seed = tag.getLong("Seed");
 
-        this.lowerHorizontalRadius = tag.contains("LowerHorizontalRadius")
-                ? tag.getFloat("LowerHorizontalRadius")
-                : tag.getFloat("HorizontalRadius");
+        this.horizontalRadius = tag.contains("HorizontalRadius")
+                ? tag.getFloat("HorizontalRadius")
+                : tag.getFloat("LowerHorizontalRadius");
 
-        this.lowerVerticalRadius = tag.contains("LowerVerticalRadius")
-                ? tag.getFloat("LowerVerticalRadius")
-                : tag.getFloat("VerticalRadius");
-
-        this.upperHorizontalRadius = tag.contains("UpperHorizontalRadius")
-                ? tag.getFloat("UpperHorizontalRadius")
-                : this.lowerHorizontalRadius;
-
-        this.upperVerticalRadius = tag.contains("UpperVerticalRadius")
-                ? tag.getFloat("UpperVerticalRadius")
-                : tag.getFloat("VerticalRadiusUpper");
+        this.verticalRadius = tag.contains("VerticalRadius")
+                ? tag.getFloat("VerticalRadius")
+                : tag.getFloat("LowerVerticalRadius");
 
         this.centralPillarDiameter = tag.getFloat("CentralPillarDiameter");
         this.minFloorThickness = tag.getFloat("MinFloorThickness");
-        this.upperPitch = tag.getFloat("UpperPitch");
         this.liquidDepth = tag.getFloat("LiquidDepth");
 
         this.liquidRadius = tag.contains("LiquidRadius")
@@ -131,16 +119,14 @@ public abstract class AbstractSpiralCavePiece extends StructurePiece {
         tag.putInt("OriginX", this.origin.getX());
         tag.putInt("OriginY", this.origin.getY());
         tag.putInt("OriginZ", this.origin.getZ());
+        tag.putInt("EndY", this.endY);
         tag.putLong("Seed", this.seed);
 
-        tag.putFloat("LowerHorizontalRadius", this.lowerHorizontalRadius);
-        tag.putFloat("LowerVerticalRadius", this.lowerVerticalRadius);
-        tag.putFloat("UpperHorizontalRadius", this.upperHorizontalRadius);
-        tag.putFloat("UpperVerticalRadius", this.upperVerticalRadius);
+        tag.putFloat("HorizontalRadius", this.horizontalRadius);
+        tag.putFloat("VerticalRadius", this.verticalRadius);
 
         tag.putFloat("CentralPillarDiameter", this.centralPillarDiameter);
         tag.putFloat("MinFloorThickness", this.minFloorThickness);
-        tag.putFloat("UpperPitch", this.upperPitch);
         tag.putFloat("LiquidDepth", this.liquidDepth);
         tag.putFloat("LiquidRadius", this.liquidRadius);
 
@@ -151,10 +137,6 @@ public abstract class AbstractSpiralCavePiece extends StructurePiece {
             StructurePieceSerializationContext context,
             CompoundTag tag
     );
-
-    protected abstract boolean useUpperShape(double centerY);
-
-    protected abstract boolean useUpperPitch(double centerY);
 
     protected abstract void decorateCaveSurface(WorldGenLevel level, BlockPos carvedPos);
 
@@ -173,32 +155,8 @@ public abstract class AbstractSpiralCavePiece extends StructurePiece {
             double fluidCenterZ
     );
 
-    protected float getLowerTunnelHorizontalRadius() {
-        return this.lowerHorizontalRadius + this.liquidRadius;
-    }
-
-    protected float getUpperTunnelHorizontalRadius() {
-        return this.upperHorizontalRadius + this.liquidRadius;
-    }
-
-    protected float getMaxTunnelHorizontalRadius() {
-        return Math.max(getLowerTunnelHorizontalRadius(), getUpperTunnelHorizontalRadius());
-    }
-
-    protected double getLocalTunnelHorizontalRadius(double centerY) {
-        if (useUpperShape(centerY)) {
-            return getUpperTunnelHorizontalRadius();
-        }
-
-        return getLowerTunnelHorizontalRadius();
-    }
-
-    protected double getLocalVerticalRadius(double centerY) {
-        if (useUpperShape(centerY)) {
-            return this.upperVerticalRadius;
-        }
-
-        return this.lowerVerticalRadius;
+    protected float getTunnelHorizontalRadius() {
+        return this.horizontalRadius + this.liquidRadius;
     }
 
     protected boolean shouldSkip(double relativeX, double relativeY, double relativeZ) {
@@ -275,18 +233,6 @@ public abstract class AbstractSpiralCavePiece extends StructurePiece {
         return !state.is(Blocks.BEDROCK) && state.getFluidState().isEmpty();
     }
 
-    protected static boolean isExposedToAir(WorldGenLevel level, BlockPos pos) {
-        for (Direction direction : Direction.values()) {
-            BlockState state = level.getBlockState(pos.relative(direction));
-
-            if (state.isAir() || !state.getFluidState().isEmpty()) {
-                return true;
-            }
-        }
-
-        return false;
-    }
-
     @Override
     public void postProcess(
             @NotNull WorldGenLevel level,
@@ -297,28 +243,25 @@ public abstract class AbstractSpiralCavePiece extends StructurePiece {
             @NotNull ChunkPos chunkPos,
             @NotNull BlockPos pivot
     ) {
-        float tunnelHorizontalRadius = getMaxTunnelHorizontalRadius();
+        float tunnelHorizontalRadius = getTunnelHorizontalRadius();
 
         double pathRadius = this.centralPillarDiameter * 0.5D + tunnelHorizontalRadius;
         double turnPerStep = turnPerStepForPathRadius(pathRadius);
 
         double stepsPerTurn = (Math.PI * 2.0D) / Math.abs(turnPerStep);
-        int flatEntranceRiverSteps = Math.max(1, Mth.ceil(stepsPerTurn * 0.75D));
 
-        double carvedHeight = 2.0D * Math.max(this.lowerVerticalRadius, this.upperVerticalRadius);
+        double carvedHeight = 2.0D * this.verticalRadius;
         double requiredVerticalSeparation = carvedHeight + this.minFloorThickness + 1.0D + this.liquidDepth;
 
         double minDropPerStep = requiredVerticalSeparation / stepsPerTurn;
         minDropPerStep = Mth.clamp(minDropPerStep, 0.01D, 0.85D);
 
-        float lowerPitch = (float) -Math.asin(minDropPerStep);
-
-        double yaw = FIXED_STARTING_YAW;
+        double yaw = Math.PI * 0.5D;
         double y = this.origin.getY();
 
-        boolean makeBowl = shouldMakeBowl();
-        boolean flatEntranceStarted = !makeBowl;
-        int remainingFlatEntranceRiverSteps = 0;
+        double lastX = this.origin.getX() + Math.cos(yaw) * pathRadius;
+        double lastY = y;
+        double lastZ = this.origin.getZ() + Math.sin(yaw) * pathRadius;
 
         int maxSteps = 4096;
 
@@ -330,67 +273,166 @@ public abstract class AbstractSpiralCavePiece extends StructurePiece {
                 break;
             }
 
-            if (makeBowl && !flatEntranceStarted && getRiverSurfaceY(y) <= this.origin.getY()) {
-                flatEntranceStarted = true;
-                remainingFlatEntranceRiverSteps = flatEntranceRiverSteps;
-            }
-
-            boolean flatEntranceRiver = makeBowl && remainingFlatEntranceRiverSteps > 0;
-
-            int maxCarveY = flatEntranceRiver
-                    ? this.origin.getY()
-                    : Integer.MAX_VALUE;
+            int maxCarveY = this.origin.getY();
 
             carveEllipsoid(level, box, x, y, z, maxCarveY);
 
-            double verticalStep;
+            lastX = x;
+            lastY = y;
+            lastZ = z;
 
-            if (flatEntranceRiver) {
-                verticalStep = 0.0D;
-                remainingFlatEntranceRiverSteps--;
-            } else if (useUpperPitch(y)) {
-                verticalStep = -this.upperPitch;
-            } else {
-                verticalStep = Mth.sin(lowerPitch);
-            }
-
-            y += verticalStep;
+            y -= minDropPerStep;
             yaw += turnPerStep;
         }
+
+        double finalFluidCenterY = lastY - this.verticalRadius - 1.0D;
+
+        continueSurfaceRiverNegativeX(
+                level,
+                box,
+                lastX,
+                finalFluidCenterY,
+                lastZ
+        );
 
         placePlacedFeaturesForCurrentStructureChunk(level, generator, chunkPos);
     }
 
-    protected boolean shouldMakeBowl() {
-        return true;
+    protected void continueSurfaceRiverNegativeX(
+            WorldGenLevel level,
+            BoundingBox box,
+            double startX,
+            double fluidCenterY,
+            double centerZ
+    ) {
+        if (this.endX <= 0 || this.liquidRadius <= 0.0F || this.liquidDepth <= 0.0F) {
+            return;
+        }
+
+        double targetX = this.origin.getX() - this.endX;
+        int maxClearY = this.origin.getY();
+
+        for (double centerX = startX; centerX >= targetX; centerX -= 1.0D) {
+            carveStraightRiverColumn(level, box, centerX, fluidCenterY, centerZ, maxClearY);
+        }
     }
 
-    protected double getRiverSurfaceY(double centerY) {
-        double bottomOfMainEllipsoid = centerY - getLocalVerticalRadius(centerY);
-        double fluidCenterY = bottomOfMainEllipsoid - 1.0D;
+    protected void carveStraightRiverColumn(
+            WorldGenLevel level,
+            BoundingBox box,
+            double centerX,
+            double fluidCenterY,
+            double centerZ,
+            int maxClearY
+    ) {
+        int minX = Mth.floor(centerX - this.liquidRadius) - 1;
+        int maxX = Mth.floor(centerX + this.liquidRadius) + 1;
+        int minY = Mth.floor(fluidCenterY - this.liquidDepth);
+        int maxY = Mth.floor(fluidCenterY) + 1;
+        int minZ = Mth.floor(centerZ - this.liquidRadius) - 1;
+        int maxZ = Mth.floor(centerZ + this.liquidRadius) + 1;
 
-        return Math.floor(fluidCenterY) + 1.0D;
+        BlockPos.MutableBlockPos pos = new BlockPos.MutableBlockPos();
+
+        for (int x = minX; x <= maxX; x++) {
+            for (int z = minZ; z <= maxZ; z++) {
+                BlockState fluidState = getRiverFluidState(fluidCenterY);
+
+                if (fluidState == null) {
+                    continue;
+                }
+
+                boolean placedAnyFluidInColumn = false;
+                int lowestPlacedFluidY = Integer.MAX_VALUE;
+
+                for (int y = minY; y <= maxY; y++) {
+                    pos.set(x, y, z);
+
+                    if (!box.isInside(pos)) {
+                        continue;
+                    }
+
+                    if (!isInsideStraightRiverEllipsoid(
+                            x,
+                            y,
+                            z,
+                            centerX,
+                            fluidCenterY,
+                            centerZ
+                    )) {
+                        continue;
+                    }
+
+                    BlockState oldState = level.getBlockState(pos);
+
+                    if (!canReplaceWithFluid(oldState)) {
+                        continue;
+                    }
+
+                    level.setBlock(pos, fluidState, Block.UPDATE_CLIENTS);
+                    clearBlockAboveFluid(level, box, pos, maxClearY);
+
+                    placedAnyFluidInColumn = true;
+                    lowestPlacedFluidY = Math.min(lowestPlacedFluidY, y);
+                }
+
+                if (placedAnyFluidInColumn) {
+                    decorateRiverColumnSurfaces(
+                            level,
+                            box,
+                            x,
+                            z,
+                            minY,
+                            maxY,
+                            lowestPlacedFluidY,
+                            centerX,
+                            fluidCenterY,
+                            centerZ
+                    );
+                }
+            }
+        }
+    }
+
+    protected boolean isInsideStraightRiverEllipsoid(
+            int x,
+            int y,
+            int z,
+            double fluidCenterX,
+            double fluidCenterY,
+            double fluidCenterZ
+    ) {
+        double relativeX = (x + 0.5D - fluidCenterX) / this.liquidRadius;
+        double relativeY = (y + 0.5D - fluidCenterY) / this.liquidDepth;
+        double relativeZ = (z + 0.5D - fluidCenterZ) / this.liquidRadius;
+
+        if (relativeY > 0.0D) {
+            return false;
+        }
+
+        return relativeX * relativeX
+                + relativeY * relativeY * relativeY * relativeY
+                + relativeZ * relativeZ <= 1.0D;
     }
 
     protected static BoundingBox makeBoundingBox(
             BlockPos origin,
-            float lowerHorizontalRadius,
-            float lowerVerticalRadius,
-            float upperHorizontalRadius,
-            float upperVerticalRadius,
+            float horizontalRadius,
+            float verticalRadius,
             float centralPillarDiameter,
-            float liquidRadius
+            float liquidRadius,
+            int endY,
+            int endX
     ) {
-        float maxTunnelHorizontalRadius = Math.max(lowerHorizontalRadius, upperHorizontalRadius) + liquidRadius;
-        float maxVerticalRadius = Math.max(lowerVerticalRadius, upperVerticalRadius);
+        float tunnelHorizontalRadius = horizontalRadius + liquidRadius;
 
-        int totalRadius = Mth.ceil(centralPillarDiameter * 0.5F + 2.0F * maxTunnelHorizontalRadius);
+        int totalRadius = Mth.ceil(centralPillarDiameter * 0.5F + 2.0F * tunnelHorizontalRadius);
 
-        int maxY = origin.getY() + Mth.ceil(maxVerticalRadius) + 48;
+        int maxY = origin.getY() + Mth.ceil(verticalRadius) + 48;
 
         return new BoundingBox(
-                origin.getX() - totalRadius - 3,
-                TARGET_Y,
+                origin.getX() - 3 - Mth.ceil(Math.max(totalRadius, liquidRadius + endX)),
+                endY,
                 origin.getZ() - totalRadius - 3,
                 origin.getX() + totalRadius + 3,
                 maxY,
@@ -403,7 +445,7 @@ public abstract class AbstractSpiralCavePiece extends StructurePiece {
             ChunkGenerator generator,
             ChunkPos chunkPos
     ) {
-        if (this.placedFeatures.size()==0) {
+        if (this.placedFeatures.size() == 0) {
             return;
         }
 
@@ -454,8 +496,8 @@ public abstract class AbstractSpiralCavePiece extends StructurePiece {
     }
 
     protected boolean wouldBottomOfEllipsoidCarveIntoTargetYPlusOne(double centerY) {
-        double bottomOfEllipsoid = centerY - getLocalVerticalRadius(centerY);
-        return bottomOfEllipsoid <= TARGET_Y + 1;
+        double bottomOfEllipsoid = centerY - this.verticalRadius;
+        return bottomOfEllipsoid <= endY + 1;
     }
 
     protected void carveEllipsoid(
@@ -466,8 +508,8 @@ public abstract class AbstractSpiralCavePiece extends StructurePiece {
             double centerZ,
             int maxCarveY
     ) {
-        double localHorizontalRadius = getLocalTunnelHorizontalRadius(centerY);
-        double localVerticalRadius = getLocalVerticalRadius(centerY);
+        double localHorizontalRadius = getTunnelHorizontalRadius();
+        double localVerticalRadius = this.verticalRadius;
 
         int minX = Mth.floor(centerX - localHorizontalRadius) - 1;
         int maxX = Mth.floor(centerX + localHorizontalRadius) + 1;
@@ -478,7 +520,7 @@ public abstract class AbstractSpiralCavePiece extends StructurePiece {
 
         BlockPos.MutableBlockPos pos = new BlockPos.MutableBlockPos();
 
-        minY = Math.max(minY, TARGET_Y);
+        minY = Math.max(minY, endY);
         maxY = Math.min(maxY, maxCarveY);
 
         for (int x = minX; x <= maxX; x++) {

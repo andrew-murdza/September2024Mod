@@ -4,7 +4,6 @@ import com.mojang.serialization.Codec;
 import com.mojang.serialization.MapCodec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import net.minecraft.core.BlockPos;
-import net.minecraft.core.Holder;
 import net.minecraft.core.HolderSet;
 import net.minecraft.util.ExtraCodecs;
 import net.minecraft.world.level.ChunkPos;
@@ -27,21 +26,21 @@ public class LongMushroomCaveStructure extends Structure {
                                     .fieldOf("start_y")
                                     .forGetter(s -> s.startY),
 
-                            ExtraCodecs.POSITIVE_FLOAT
-                                    .fieldOf("lower_horizontal_radius")
-                                    .forGetter(s -> s.lowerHorizontalRadius),
+                            Codec.INT
+                                    .fieldOf("end_y")
+                                    .forGetter(s -> s.endY),
+
+                            ExtraCodecs.POSITIVE_INT
+                                    .fieldOf("end_x")
+                                    .forGetter(s -> s.endX),
 
                             ExtraCodecs.POSITIVE_FLOAT
-                                    .fieldOf("lower_vertical_radius")
-                                    .forGetter(s -> s.lowerVerticalRadius),
+                                    .fieldOf("horizontal_radius")
+                                    .forGetter(s -> s.horizontalRadius),
 
                             ExtraCodecs.POSITIVE_FLOAT
-                                    .fieldOf("upper_horizontal_radius")
-                                    .forGetter(s -> s.upperHorizontalRadius),
-
-                            ExtraCodecs.POSITIVE_FLOAT
-                                    .fieldOf("upper_vertical_radius")
-                                    .forGetter(s -> s.upperVerticalRadius),
+                                    .fieldOf("vertical_radius")
+                                    .forGetter(s -> s.verticalRadius),
 
                             Codec.floatRange(0.0F, Float.MAX_VALUE)
                                     .fieldOf("central_pillar_diameter")
@@ -50,10 +49,6 @@ public class LongMushroomCaveStructure extends Structure {
                             ExtraCodecs.POSITIVE_FLOAT
                                     .fieldOf("min_floor_thickness")
                                     .forGetter(s -> s.minFloorThickness),
-
-                            ExtraCodecs.POSITIVE_FLOAT
-                                    .fieldOf("upper_pitch")
-                                    .forGetter(s -> s.upperPitch),
 
                             ExtraCodecs.POSITIVE_FLOAT
                                     .fieldOf("liquid_depth")
@@ -74,15 +69,14 @@ public class LongMushroomCaveStructure extends Structure {
             );
 
     private final int startY;
+    private final int endY;
+    private final int endX;
 
-    private final float lowerHorizontalRadius;
-    private final float lowerVerticalRadius;
-    private final float upperHorizontalRadius;
-    private final float upperVerticalRadius;
+    private final float horizontalRadius;
+    private final float verticalRadius;
 
     private final float centralPillarDiameter;
     private final float minFloorThickness;
-    private final float upperPitch;
 
     private final float liquidDepth;
     private final float liquidRadius;
@@ -94,13 +88,12 @@ public class LongMushroomCaveStructure extends Structure {
     public LongMushroomCaveStructure(
             StructureSettings settings,
             int startY,
-            float lowerHorizontalRadius,
-            float lowerVerticalRadius,
-            float upperHorizontalRadius,
-            float upperVerticalRadius,
+            int endY,
+            int endX,
+            float horizontalRadius,
+            float verticalRadius,
             float centralPillarDiameter,
             float minFloorThickness,
-            float upperPitch,
             float liquidDepth,
             float liquidRadius,
             int maxMushroomCaves,
@@ -109,13 +102,12 @@ public class LongMushroomCaveStructure extends Structure {
         super(settings);
 
         this.startY = startY;
-        this.lowerHorizontalRadius = lowerHorizontalRadius;
-        this.lowerVerticalRadius = lowerVerticalRadius;
-        this.upperHorizontalRadius = upperHorizontalRadius;
-        this.upperVerticalRadius = upperVerticalRadius;
+        this.endY = endY;
+        this.endX = endX;
+        this.horizontalRadius = horizontalRadius;
+        this.verticalRadius = verticalRadius;
         this.centralPillarDiameter = centralPillarDiameter;
         this.minFloorThickness = minFloorThickness;
-        this.upperPitch = upperPitch;
         this.liquidDepth = liquidDepth;
         this.liquidRadius = liquidRadius;
         this.maxMushroomCaves = maxMushroomCaves;
@@ -127,7 +119,7 @@ public class LongMushroomCaveStructure extends Structure {
         ChunkPos chunkPos = context.chunkPos();
 
         BlockPos origin = new BlockPos(
-                chunkPos.getMiddleBlockX(),
+                chunkPos.getMiddleBlockX()+endX,
                 this.startY,
                 chunkPos.getMiddleBlockZ()
         );
@@ -136,13 +128,12 @@ public class LongMushroomCaveStructure extends Structure {
                 new MushroomCavePiece(
                         origin,
                         context.random().nextLong(),
-                        this.lowerHorizontalRadius,
-                        this.lowerVerticalRadius,
-                        this.upperHorizontalRadius,
-                        this.upperVerticalRadius,
+                        this.endY,
+                        this.endX,
+                        this.horizontalRadius,
+                        this.verticalRadius,
                         this.centralPillarDiameter,
                         this.minFloorThickness,
-                        this.upperPitch,
                         this.liquidDepth,
                         this.liquidRadius,
                         this.maxMushroomCaves,

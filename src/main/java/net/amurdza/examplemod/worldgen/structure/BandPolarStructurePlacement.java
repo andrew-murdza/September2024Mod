@@ -12,20 +12,22 @@ import org.jetbrains.annotations.NotNull;
 import java.util.Optional;
 
 public class BandPolarStructurePlacement extends StructurePlacement {
-    public static final double BAND_BLOCKS = 640.0D;
-    public static final double Z_START_BLOCKS = 7680.0D;
-    public static final double Z_PERIOD_BLOCKS = 7680.0D;
-    public static final double MAX_CONTINENTS = 0.6D;
+    public static final double BAND_BLOCKS = 960.0D;
+    public static final double Z_START_BLOCKS = 0.0D;
+    public static final double Z_PERIOD_BLOCKS = 9600.0D;
+    public static final double MAX_CONTINENTS = 0.5D;
 
     public static final Codec<BandPolarStructurePlacement> CODEC = RecordCodecBuilder.create(instance -> instance.group(
             Codec.DOUBLE.fieldOf("target_band_pos").forGetter(p -> p.targetBandPos),
-            Codec.DOUBLE.fieldOf("arc_spacing").forGetter(p -> p.xSpacing)
+            Codec.DOUBLE.fieldOf("x_start").forGetter(p -> p.xStart),
+            Codec.DOUBLE.fieldOf("x_spacing").forGetter(p -> p.xSpacing)
     ).apply(instance, BandPolarStructurePlacement::new));
 
     private final double targetBandPos;
     private final double xSpacing;
+    private final double xStart;
 
-    public BandPolarStructurePlacement(double targetBandPos, double xSpacing) {
+    public BandPolarStructurePlacement(double targetBandPos, double xStart, double xSpacing) {
         super(
                 Vec3i.ZERO,
                 FrequencyReductionMethod.DEFAULT,
@@ -35,7 +37,7 @@ public class BandPolarStructurePlacement extends StructurePlacement {
         );
 
         if (targetBandPos < 0.0D || targetBandPos > MAX_CONTINENTS) {
-            throw new IllegalArgumentException("target_band_pos must be a continents value from 0.0 to 0.6");
+            throw new IllegalArgumentException("target_band_pos must be a continents value from 0.0 to 0.5");
         }
 
         if (xSpacing <= 0.0D) {
@@ -43,6 +45,7 @@ public class BandPolarStructurePlacement extends StructurePlacement {
         }
 
         this.targetBandPos = targetBandPos;
+        this.xStart = xStart;
         this.xSpacing = xSpacing;
     }
 
@@ -113,7 +116,7 @@ public class BandPolarStructurePlacement extends StructurePlacement {
     }
 
     private double getNearestTargetX(double x) {
-        return Math.round(x / this.xSpacing) * this.xSpacing;
+        return this.xStart + Math.round((x - this.xStart) / this.xSpacing) * this.xSpacing;
     }
 
     private static double continentsToPhaseA(double continents) {

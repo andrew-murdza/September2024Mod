@@ -4,7 +4,6 @@ import com.mojang.serialization.Codec;
 import com.mojang.serialization.MapCodec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import net.minecraft.core.BlockPos;
-import net.minecraft.core.Holder;
 import net.minecraft.core.HolderSet;
 import net.minecraft.util.ExtraCodecs;
 import net.minecraft.world.level.ChunkPos;
@@ -20,9 +19,7 @@ public class LongNetherCaveStructure extends Structure {
 
     public record BiomeCutoffs(
             int maxDeepDarkY,
-            int maxSoulSludgeY,
-            int maxSoulSoilY,
-            int maxSoulSandY,
+            int maxSoulSandValleyY,
             int maxWarpedForestY,
             int maxCrimsonForestY,
             int maxBasaltDeltasY
@@ -35,16 +32,8 @@ public class LongNetherCaveStructure extends Structure {
                                         .forGetter(BiomeCutoffs::maxDeepDarkY),
 
                                 Codec.INT
-                                        .fieldOf("max_soul_sludge_y")
-                                        .forGetter(BiomeCutoffs::maxSoulSludgeY),
-
-                                Codec.INT
-                                        .fieldOf("max_soul_soil_y")
-                                        .forGetter(BiomeCutoffs::maxSoulSoilY),
-
-                                Codec.INT
-                                        .fieldOf("max_soul_sand_y")
-                                        .forGetter(BiomeCutoffs::maxSoulSandY),
+                                        .fieldOf("max_soul_sand_valley_y")
+                                        .forGetter(BiomeCutoffs::maxSoulSandValleyY),
 
                                 Codec.INT
                                         .fieldOf("max_warped_forest_y")
@@ -70,21 +59,22 @@ public class LongNetherCaveStructure extends Structure {
                                     .fieldOf("start_y")
                                     .forGetter(s -> s.startY),
 
-                            ExtraCodecs.POSITIVE_FLOAT
-                                    .fieldOf("lower_horizontal_radius")
-                                    .forGetter(s -> s.lowerHorizontalRadius),
+                            Codec.INT
+                                    .fieldOf("end_y")
+                                    .forGetter(s -> s.endY),
+
+                            ExtraCodecs.POSITIVE_INT
+                                    .fieldOf("end_x")
+                                    .forGetter(s -> s.endX),
+
 
                             ExtraCodecs.POSITIVE_FLOAT
-                                    .fieldOf("lower_vertical_radius")
-                                    .forGetter(s -> s.lowerVerticalRadius),
+                                    .fieldOf("horizontal_radius")
+                                    .forGetter(s -> s.horizontalRadius),
 
                             ExtraCodecs.POSITIVE_FLOAT
-                                    .fieldOf("upper_horizontal_radius")
-                                    .forGetter(s -> s.upperHorizontalRadius),
-
-                            ExtraCodecs.POSITIVE_FLOAT
-                                    .fieldOf("upper_vertical_radius")
-                                    .forGetter(s -> s.upperVerticalRadius),
+                                    .fieldOf("vertical_radius")
+                                    .forGetter(s -> s.verticalRadius),
 
                             Codec.floatRange(0.0F, Float.MAX_VALUE)
                                     .fieldOf("central_pillar_diameter")
@@ -93,10 +83,6 @@ public class LongNetherCaveStructure extends Structure {
                             ExtraCodecs.POSITIVE_FLOAT
                                     .fieldOf("min_floor_thickness")
                                     .forGetter(s -> s.minFloorThickness),
-
-                            ExtraCodecs.POSITIVE_FLOAT
-                                    .fieldOf("upper_pitch")
-                                    .forGetter(s -> s.upperPitch),
 
                             ExtraCodecs.POSITIVE_FLOAT
                                     .fieldOf("liquid_depth")
@@ -109,9 +95,7 @@ public class LongNetherCaveStructure extends Structure {
                             BiomeCutoffs.CODEC
                                     .forGetter(s -> new BiomeCutoffs(
                                             s.maxDeepDarkY,
-                                            s.maxSoulSludgeY,
-                                            s.maxSoulSoilY,
-                                            s.maxSoulSandY,
+                                            s.maxSoulSandValleyY,
                                             s.maxWarpedForestY,
                                             s.maxCrimsonForestY,
                                             s.maxBasaltDeltasY
@@ -124,23 +108,20 @@ public class LongNetherCaveStructure extends Structure {
             );
 
     private final int startY;
+    private final int endY;
+    private final int endX;
 
-    private final float lowerHorizontalRadius;
-    private final float lowerVerticalRadius;
-    private final float upperHorizontalRadius;
-    private final float upperVerticalRadius;
+    private final float horizontalRadius;
+    private final float verticalRadius;
 
     private final float centralPillarDiameter;
     private final float minFloorThickness;
-    private final float upperPitch;
 
     private final float liquidDepth;
     private final float liquidRadius;
 
     private final int maxDeepDarkY;
-    private final int maxSoulSludgeY;
-    private final int maxSoulSoilY;
-    private final int maxSoulSandY;
+    private final int maxSoulSandValleyY;
     private final int maxWarpedForestY;
     private final int maxCrimsonForestY;
     private final int maxBasaltDeltasY;
@@ -150,13 +131,12 @@ public class LongNetherCaveStructure extends Structure {
     public LongNetherCaveStructure(
             StructureSettings settings,
             int startY,
-            float lowerHorizontalRadius,
-            float lowerVerticalRadius,
-            float upperHorizontalRadius,
-            float upperVerticalRadius,
+            int endY,
+            int endX,
+            float horizontalRadius,
+            float verticalRadius,
             float centralPillarDiameter,
             float minFloorThickness,
-            float upperPitch,
             float liquidDepth,
             float liquidRadius,
             BiomeCutoffs biomeCutoffs,
@@ -165,20 +145,17 @@ public class LongNetherCaveStructure extends Structure {
         super(settings);
 
         this.startY = startY;
-        this.lowerHorizontalRadius = lowerHorizontalRadius;
-        this.lowerVerticalRadius = lowerVerticalRadius;
-        this.upperHorizontalRadius = upperHorizontalRadius;
-        this.upperVerticalRadius = upperVerticalRadius;
+        this.endY = endY;
+        this.endX= endX;
+        this.horizontalRadius = horizontalRadius;
+        this.verticalRadius = verticalRadius;
         this.centralPillarDiameter = centralPillarDiameter;
         this.minFloorThickness = minFloorThickness;
-        this.upperPitch = upperPitch;
         this.liquidDepth = liquidDepth;
         this.liquidRadius = liquidRadius;
 
         this.maxDeepDarkY = biomeCutoffs.maxDeepDarkY();
-        this.maxSoulSludgeY = biomeCutoffs.maxSoulSludgeY();
-        this.maxSoulSoilY = biomeCutoffs.maxSoulSoilY();
-        this.maxSoulSandY = biomeCutoffs.maxSoulSandY();
+        this.maxSoulSandValleyY = biomeCutoffs.maxSoulSandValleyY();
         this.maxWarpedForestY = biomeCutoffs.maxWarpedForestY();
         this.maxCrimsonForestY = biomeCutoffs.maxCrimsonForestY();
         this.maxBasaltDeltasY = biomeCutoffs.maxBasaltDeltasY();
@@ -191,7 +168,7 @@ public class LongNetherCaveStructure extends Structure {
         ChunkPos chunkPos = context.chunkPos();
 
         BlockPos origin = new BlockPos(
-                chunkPos.getMiddleBlockX(),
+                chunkPos.getMiddleBlockX()+this.endX,
                 this.startY,
                 chunkPos.getMiddleBlockZ()
         );
@@ -200,19 +177,16 @@ public class LongNetherCaveStructure extends Structure {
                 new NetherCavePiece(
                         origin,
                         context.random().nextLong(),
-                        this.lowerHorizontalRadius,
-                        this.lowerVerticalRadius,
-                        this.upperHorizontalRadius,
-                        this.upperVerticalRadius,
+                        endY,
+                        endX,
+                        this.horizontalRadius,
+                        this.verticalRadius,
                         this.centralPillarDiameter,
                         this.minFloorThickness,
-                        this.upperPitch,
                         this.liquidDepth,
                         this.liquidRadius,
                         this.maxDeepDarkY,
-                        this.maxSoulSludgeY,
-                        this.maxSoulSoilY,
-                        this.maxSoulSandY,
+                        this.maxSoulSandValleyY,
                         this.maxWarpedForestY,
                         this.maxCrimsonForestY,
                         this.maxBasaltDeltasY,

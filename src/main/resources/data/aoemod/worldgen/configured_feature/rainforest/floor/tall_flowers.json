@@ -5,16 +5,7 @@
       "type": "minecraft:weighted_state_provider",
       "entries": [
         {
-          "weight": 1,
-          "data": {
-            "Name": "biomeswevegone:foxglove",
-            "Properties": {
-              "half": "lower"
-            }
-          }
-        },
-        {
-          "weight": 1,
+          "weight": 2,
           "data": {
             "Name": "biomeswevegone:japanese_orchid",
             "Properties": {

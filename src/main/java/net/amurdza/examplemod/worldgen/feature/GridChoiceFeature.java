@@ -65,7 +65,7 @@ public class GridChoiceFeature extends Feature<GridChoiceConfig> {
 
         int weightedCount = expandedFeatures.size();
 
-        if (weightedCount <= 0 && cfg.defaultFeature == null) {
+        if (weightedCount == 0 && cfg.defaultFeature == null) {
             return new WeightedGrid(List.of(), 0, 0);
         }
 

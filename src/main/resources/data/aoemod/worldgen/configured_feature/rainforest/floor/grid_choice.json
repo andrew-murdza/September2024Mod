@@ -44,7 +44,6 @@
       { "feature": "aoemod:flowers/rainforest/white_tulip_patch" },
       { "feature": "aoemod:flowers/rainforest/japanese_orchid_patch" }
     ],
-    "default_feature": "aoemod:nothing",
     "placement": []
   }
 }

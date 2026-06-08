@@ -7,11 +7,7 @@
     },
     "guaranteed_features": [
       {
-        "feature": "aoemod:savanna/floor/tree_grid_choice",
-        "placement": []
-      },
-      {
-        "feature": "aoemod:savanna/floor/flower_grid_choice",
+        "feature": "aoemod:savanna/floor/grid_choice",
         "placement": []
       }
     ],

@@ -46,25 +46,7 @@
         "maxCount": 5
       },
       {
-        "type": "alexsmobs:emu",
-        "weight": 20,
-        "minCount": 2,
-        "maxCount": 5
-      },
-      {
-        "type": "alexsmobs:gazelle",
-        "weight": 20,
-        "minCount": 2,
-        "maxCount": 5
-      },
-      {
-        "type": "alexsmobs:gorilla",
-        "weight": 5,
-        "minCount": 2,
-        "maxCount": 5
-      },
-      {
-        "type": "alexsmobs:roadrunner",
+        "type": "minecraft:rabbit",
         "weight": 20,
         "minCount": 2,
         "maxCount": 5
@@ -76,25 +58,7 @@
         "maxCount": 5
       },
       {
-        "type": "quark:crab",
-        "weight": 20,
-        "minCount": 2,
-        "maxCount": 5
-      },
-      {
-        "type": "minecraft:cat",
-        "weight": 5,
-        "minCount": 2,
-        "maxCount": 5
-      },
-      {
-        "type": "minecraft:frog",
-        "weight": 15,
-        "minCount": 2,
-        "maxCount": 5
-      },
-      {
-        "type": "minecraft:ocelot",
+        "type": "alexsmobs:gorilla",
         "weight": 5,
         "minCount": 2,
         "maxCount": 5
@@ -106,19 +70,7 @@
         "maxCount": 5
       },
       {
-        "type": "minecraft:rabbit",
-        "weight": 20,
-        "minCount": 2,
-        "maxCount": 5
-      },
-      {
-        "type": "minecraft:sniffer",
-        "weight": 20,
-        "minCount": 2,
-        "maxCount": 5
-      },
-      {
-        "type": "minecraft:fox",
+        "type": "minecraft:cat",
         "weight": 5,
         "minCount": 2,
         "maxCount": 5

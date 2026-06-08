@@ -1,5 +1,8 @@
 package net.amurdza.examplemod.mixins.block_placement;
 
+import net.amurdza.examplemod.util.ModTags;
+import net.minecraft.core.BlockPos;
+import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.ChorusPlantBlock;
@@ -11,12 +14,12 @@ import org.spongepowered.asm.mixin.injection.Redirect;
 @Mixin(ChorusPlantBlock.class)
 public class ChorusPlantOnSculk {
     @Redirect(method = "canSurvive",at=@At(value = "INVOKE",target = "Lnet/minecraft/world/level/block/state/BlockState;is(Lnet/minecraft/world/level/block/Block;)Z",ordinal = 2))
-    private boolean hi(BlockState instance, Block block){
-        return aOEMod1_20_1V2$isSoil(instance,block);
+    private boolean hi(BlockState instance, Block block, BlockState pState, LevelReader pLevel, BlockPos pPos){
+        return aOEMod1_20_1V2$isSoil(instance,block)&&pLevel.getBiome(pPos).is(ModTags.Biomes.deepDarkBiomes);
     }
     @Redirect(method = "canSurvive",at=@At(value = "INVOKE",target = "Lnet/minecraft/world/level/block/state/BlockState;is(Lnet/minecraft/world/level/block/Block;)Z",ordinal = 4))
-    private boolean hi1(BlockState instance, Block block){
-        return aOEMod1_20_1V2$isSoil(instance,block);
+    private boolean hi1(BlockState instance, Block block, BlockState pState, LevelReader pLevel, BlockPos pPos){
+        return aOEMod1_20_1V2$isSoil(instance,block)&&pLevel.getBiome(pPos).is(ModTags.Biomes.deepDarkBiomes);
     }
 
     @Redirect(method = "updateShape",at=@At(value = "INVOKE",
@@ -35,6 +38,6 @@ public class ChorusPlantOnSculk {
 
     @Unique
     private boolean aOEMod1_20_1V2$isSoil(BlockState instance, Block block){
-        return instance.is(block)||instance.is(Blocks.SCULK)||instance.is(Blocks.SCULK_CATALYST);
+        return (instance.is(block)||instance.is(Blocks.SCULK)||instance.is(Blocks.SCULK_CATALYST));
     }
 }

@@ -48,9 +48,6 @@ public class ItemsPlaceModBlocks {
                     .setValue(DoublePlantBlock.HALF, DoubleBlockHalf.LOWER)
                     .setValue(HorizontalDirectionalBlock.FACING, facing);
         }
-        else if(stack.is(Items.SWEET_BERRIES)&&level.getBiome(pos).is(ModTags.Biomes.tropicalBiomes)){
-            state = ModBlocks.JUNGLE_SWEET_BERRY_BUSH.get().defaultBlockState();
-        }
         else {
             return;
         }

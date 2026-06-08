@@ -1,18 +1,11 @@
 package net.amurdza.examplemod.event_handlers;
 
-import com.legacy.blue_skies.blocks.natural.SkyMushroomBlock;
-import com.legacy.blue_skies.world.general_features.BaseLargeMushroomFeature;
-import dev.corgitaco.ohthetreesyoullgrow.world.level.levelgen.feature.TreeFromStructureNBTFeature;
 import net.amurdza.examplemod.AOEMod;
 import net.amurdza.examplemod.Config;
 import net.amurdza.examplemod.block.ModBlocks;
 import net.amurdza.examplemod.util.Helper;
 import net.amurdza.examplemod.util.ModTags;
-import net.amurdza.examplemod.util.RandomCollection;
 import net.amurdza.examplemod.worldgen.feature.ModConfiguredFeatures;
-import net.amurdza.examplemod.worldgen.feature.RandomSelectionFeature;
-import net.amurdza.examplemod.worldgen.feature.RandomSelectionFeatureConfig;
-import net.amurdza.examplemod.worldgen.feature.WeightedConfiguredFeature;
 import net.mcreator.nourishednether.init.NourishedNetherModBlocks;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -36,34 +29,20 @@ import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.block.state.properties.DoubleBlockHalf;
+import net.minecraft.world.level.block.state.properties.Half;
 import net.minecraft.world.level.chunk.ChunkGenerator;
 import net.minecraft.world.level.gameevent.GameEvent;
-import net.minecraft.world.level.levelgen.feature.*;
-import net.minecraft.world.level.levelgen.feature.configurations.RandomPatchConfiguration;
-import net.minecraft.world.level.levelgen.placement.PlacedFeature;
+import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
+import net.minecraft.world.level.material.FluidState;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import org.violetmoon.quark.content.world.module.GlimmeringWealdModule;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Optional;
-import java.util.function.BiFunction;
 import java.util.function.Function;
 
 @Mod.EventBusSubscriber(modid = AOEMod.MOD_ID, bus=Mod.EventBusSubscriber.Bus.FORGE)
 public class BoneMealEvent {
-
-    //Need to Update to Use Netherific Plants Instead of NetherWart
-    private static void growSoulSand(Level world, BlockPos pos) {
-        RandomCollection<BlockState> states=new RandomCollection<>();
-        states.add(1,NourishedNetherModBlocks.GHOULFLOWER.get().defaultBlockState());
-        states.add(4,NourishedNetherModBlocks.SOUL_WEEDS.get().defaultBlockState());
-        BiFunction<BlockPos, RandomSource, Boolean> func = (pos1,random) -> world.setBlockAndUpdate(pos1, states.next(random));
-        placeBoneMeal(world, pos, blockState -> blockState.is(Blocks.SOUL_SAND)||blockState.is(Blocks.SOUL_SOIL), 10, func);
-    }
-
 
     @SubscribeEvent
     public static void onRightClickBlock(PlayerInteractEvent.RightClickBlock event) {
@@ -77,20 +56,16 @@ public class BoneMealEvent {
         BlockState state = level.getBlockState(pos);
         Block block = state.getBlock();
 
-        // Blacklist: you said cancel outright.
+        // This is just for mushrooms in plains/savanna/desert
         if (Config.BLACKLISTED_USE_ITEMS.contains(block.asItem())) {
             event.setCanceled(true);
             event.setCancellationResult(InteractionResult.FAIL);
             return;
         }
 
-        if (block instanceof SaplingBlock) {
-            return;
-        }
-
         // If vanilla would not even consider this a bonemeal target and it's not one of your custom targets,
         // let vanilla handle it (we don't cancel).
-        if (isNotEligibleBonemealTarget(level, pos, state)) return;
+        if (!isEligibleBonemealTarget(level, pos, state)) return;
 
 
 
@@ -165,7 +140,7 @@ public class BoneMealEvent {
         Holder<Biome> biomeHolder = level.getBiome(pos);
         Block block=level.getBlockState(pos).getBlock();
         boolean mushroom=block instanceof MushroomBlock || block instanceof FungusBlock
-                || block instanceof SkyMushroomBlock || block == Blocks.MYCELIUM || block== GlimmeringWealdModule.glow_shroom;
+                || block == Blocks.MYCELIUM || block== GlimmeringWealdModule.glow_shroom;
         float best = -1f;
         for (var entry : Config.BIOME_TAG_TO_BONEMEAL_MULTIPLIERS.entrySet()) {
             TagKey<Biome> tag = entry.getKey();
@@ -209,50 +184,44 @@ public class BoneMealEvent {
      * - vanilla would treat it as bonemealable, OR
      * - it's one of your explicit special cases.
      */
-    private static boolean isNotEligibleBonemealTarget(ServerLevel level, BlockPos pos, BlockState state) {
+    private static boolean isEligibleBonemealTarget(ServerLevel level, BlockPos pos, BlockState state) {
         Block block = state.getBlock();
 
-        if (Config.BLACKLISTED_USE_ITEMS.contains(block.asItem())) return false;
-
-        if (state.is(ModTags.Blocks.duplicatedByBonemeal)) return false;
-        if (block == Blocks.MOSS_BLOCK) return false;
-        if (block == Blocks.RED_SAND || block == Blocks.SAND) return false;
-        if (block == Blocks.MYCELIUM) return false;
-        if (block == Blocks.SOUL_SAND) return false;
-        if (state.is(ModTags.Blocks.sugarCaneCactusLike)) return false;
-        if (block == Blocks.NETHER_WART) return false;
-        if (block == Blocks.ROOTED_DIRT) return false;
-        if (block == Blocks.WET_SPONGE) return false;
-        if (block == Blocks.SMALL_DRIPLEAF) return false;
-
-        if (state.is(ModTags.Blocks.netherFlowers)) return false;
-        if (state.is(ModTags.Blocks.netherRootsPlaceable)) return false;
-        if (block instanceof SeaPickleBlock && state.getValue(SeaPickleBlock.PICKLES) < 4 && state.getValue(BlockStateProperties.WATERLOGGED)) return false;
-
-        if (
-                ((block instanceof FlowerBlock
-                        || block instanceof DoublePlantBlock
-                        || block instanceof TallGrassBlock)
-                        && !(block instanceof TallSeagrassBlock)
-                        && !(block instanceof SmallDripleafBlock))
-                        || Helper.isBlock(
-                        block,
-                        ModBlocks.DESERT_TALL_GRASS.get(),
-                        Blocks.TALL_GRASS,
-                        Blocks.LARGE_FERN,
-                        Blocks.DEAD_BUSH
-                )
-        ) {
-            return false;
+        if(block instanceof BonemealableBlock block1){
+            return block1.isValidBonemealTarget(level,pos,state,false);
         }
 
-        if (block instanceof GrassBlock) return false;
+        if (state.is(ModTags.Blocks.duplicatedByBonemeal)) return true;
 
-        if (block instanceof BonemealableBlock b) {
-            return !b.isValidBonemealTarget(level, pos, state, false);
+        //Floors
+        if(Helper.isBlock(
+                state, Blocks.RED_SAND, Blocks.SAND, Blocks.MYCELIUM, Blocks.SCULK)){
+            return true;
+        }
+        if(Helper.isBlockTag(state, BlockTags.NYLIUM, ModTags.Blocks.soulSediments, ModTags.Blocks.basaltStones)){
+            return true;
         }
 
-        return true;
+        //Crops
+        if(Helper.isBlock(
+                state, Blocks.CACTUS, Blocks.SUGAR_CANE)){
+            return true;
+        }
+        if(state.is(Blocks.NETHER_WART)&&state.getValue(BlockStateProperties.AGE_3)<3){
+            return true;
+        }
+
+        return isFlowerLike(block);
+    }
+
+    private static boolean isFlowerLike(Block block){
+        return block instanceof FlowerBlock || block instanceof DoublePlantBlock
+                || Helper.isBlock(
+                block,
+                ModBlocks.DESERT_TALL_GRASS.get(),
+                Blocks.CRIMSON_ROOTS, Blocks.WARPED_ROOTS, Blocks.NETHER_SPROUTS,
+                NourishedNetherModBlocks.SOUL_WEEDS.get()
+        );
     }
 
     // ----------------------------
@@ -269,15 +238,10 @@ public class BoneMealEvent {
         }
 
         if (isBiomeSurfaceBonemealTarget(level, pos, state)) {
-            if (isCorrectLandGroundForBiome(level,pos)) {
-                Block.popResource(level, pos, new ItemStack(block));
-            }
+//            if (isCorrectLandGroundForBiome(level,pos)) {
+//                Block.popResource(level, pos, new ItemStack(block));
+//            }
             growBiomeSurface(level, pos);
-            return true;
-        }
-
-        if (block == Blocks.WET_SPONGE) {
-            growSponge(level, pos);
             return true;
         }
 
@@ -286,87 +250,24 @@ public class BoneMealEvent {
             return true;
         }
 
-        if (block instanceof TallFlowerBlock) {
-            return true;
-        }
-
         if (block == Blocks.SMALL_DRIPLEAF) {
             growSmallDripLeaf(level, pos);
             return true;
         }
 
-        if (state.is(ModTags.Blocks.netherFlowers)) {
-            List<Block> blocks = new ArrayList<>(List.of(
-                    Blocks.WARPED_NYLIUM,
-                    Blocks.CRIMSON_NYLIUM
-            ));
-
-            if (block == Blocks.CRIMSON_ROOTS) {
-                blocks.addAll(List.of(
-                        Blocks.BLACKSTONE,
-                        Blocks.BASALT,
-                        Blocks.POLISHED_BASALT,
-                        Blocks.SOUL_SOIL,
-                        NourishedNetherModBlocks.SOUL_SLUDGE.get()
-                ));
-            }
-
-            Function<BlockState, Boolean> func = state1 -> blocks.contains(state1.getBlock());
-            growFlowers(level, pos, func);
-            return true;
-        }
-
-        if (
-                ((block instanceof FlowerBlock
-                        || block instanceof DoublePlantBlock)
-                        && !(block instanceof TallSeagrassBlock)
-                        && !(block instanceof SmallDripleafBlock))
-                        || Helper.isBlock(
-                        block,
-                        ModBlocks.DESERT_TALL_GRASS.get(),
-                        Blocks.TALL_GRASS,
-                        Blocks.LARGE_FERN,
-                        Blocks.DEAD_BUSH
-                )
-        ) {
+        if (isFlowerLike(block)) {
             growFlowers(level, pos);
             return true;
         }
 
-        boolean waterAbove = isFluid(level, pos.above(), true);
-
-        if (!waterAbove) {
-            if (block == Blocks.RED_SAND || block == Blocks.SAND) {
-                growSand(level, pos, block != Blocks.SAND);
-                return true;
-            }
-
-            if (block == Blocks.SOUL_SAND) {
-                growSoulSand(level, pos);
-                return true;
-            }
-
-            if (state.is(ModTags.Blocks.sugarCaneCactusLike)) {
-                return growSugarcaneCactus(level, pos, block);
-            }
-
-            if (block == Blocks.NETHER_WART) {
-                return growNetherWart(pos, level);
-            }
-
-            if (block instanceof GrassBlock grassBlock) {
-                grassBlock.performBonemeal(level, level.random, pos, state);
-                return true;
-            }
-
-            if (block instanceof BonemealableBlock b) {
-                if (b.isValidBonemealTarget(level, pos, state, false)
-                        && b.isBonemealSuccess(level, level.random, pos, state)) {
-                    b.performBonemeal(level, level.random, pos, state);
-                    return true;
-                }
-            }
+        if (state.is(ModTags.Blocks.sugarCaneCactusLike)) {
+            return growSugarcaneCactus(level, pos, block);
         }
+
+        if (block == Blocks.NETHER_WART) {
+            return growNetherWart(pos, level);
+        }
+
         if (block instanceof SeaPickleBlock && state.getValue(SeaPickleBlock.PICKLES) < 4) {
             level.setBlockAndUpdate(
                     pos,
@@ -375,32 +276,44 @@ public class BoneMealEvent {
             return true;
         }
 
+        if (block instanceof BonemealableBlock b) {
+            if (b.isValidBonemealTarget(level, pos, state, false)) {
+                if(b.isBonemealSuccess(level, level.random, pos, state)){
+                    b.performBonemeal(level, level.random, pos, state);
+                }
+                return true;
+            }
+        }
         return false;
     }
 
-
-
-
-
-
-
-
-    private static void placeBoneMeal(Level world, BlockPos pos, Function<BlockState, Boolean> check, int tries, Function<BlockPos, Boolean> run) {
-        placeBoneMeal(world, pos, (state1, pos1) -> check.apply(state1), tries, (a,b)->run.apply(a), false, false);
-    }
-    private static void placeBoneMeal(Level world, BlockPos pos, Function<BlockState, Boolean> check, int tries, BiFunction<BlockPos, RandomSource, Boolean> run) {
-        placeBoneMeal(world, pos, (state1, pos1) -> check.apply(state1), tries, run, false, false);
-    }
-
-
-    private static boolean isFluid(Level level, BlockPos pos, boolean isWater) {
-        if(!isWater) {
-            return level.isEmptyBlock(pos);
+    private static boolean isFluid(Level level, BlockPos pos, FluidType fluidType) {
+        BlockState state = level.getBlockState(pos);
+        switch (fluidType){
+            case AIR -> {
+                return state.isAir();
+            }
+            case WATER -> {
+                return state.is(Blocks.WATER);
+            }
+            case LAVA -> {
+                return state.is(Blocks.LAVA);
+            }
+            case AIR_OR_WATER -> {
+                return state.isAir() || state.is(Blocks.WATER);
+            }
         }
-        return level.getBlockState(pos).is(Blocks.WATER);
+        return false;
     }
 
-    private static void placeBoneMeal(Level world, BlockPos pos, BiFunction<BlockState, BlockPos, Boolean> check, int tries, BiFunction<BlockPos, RandomSource, Boolean> run, boolean twoBlocks, boolean isWater) {
+    private enum FluidType {
+        WATER,
+        AIR_OR_WATER,
+        AIR,
+        LAVA
+    }
+
+    private static void placeBoneMeal(Level world, BlockPos pos, int tries, Function<BlockPos, Boolean> run, FluidType fluidType, boolean isDouble) {
         if(world instanceof ServerLevel&&!world.isClientSide) {
             BlockPos blockPos = pos.above();
             RandomSource random = world.random;
@@ -409,70 +322,26 @@ public class BoneMealEvent {
                 BlockPos blockPos2 = blockPos;
                 for(int j = 0; j < i / 4; ++j) {
                     blockPos2 = blockPos2.offset(random.nextInt(3) - 1, (random.nextInt(3) - 1) * random.nextInt(3) / 2, random.nextInt(3) - 1);
-                    if(!check.apply(world.getBlockState(blockPos2.below()),
-                            blockPos2.below()) || world.getBlockState(blockPos2).isFaceSturdy(world, blockPos2, Direction.UP)) {
+                    if(world.getBlockState(blockPos2).isFaceSturdy(world, blockPos2, Direction.UP)) {
                         continue label48;
                     }
                 }
-                if (isFluid(world, blockPos2, isWater)) {
-
-                    int requiredDepth = twoBlocks? 2: 1;
-
-                    BlockState originState = world.getBlockState(pos);
-                    boolean deepWater = originState.is(ModTags.Blocks.needsDeepWater);
-
-                    if(deepWater){
-                        requiredDepth++;
-                    }
-
-                    boolean valid = true;
-
-                    for (int k = 1; k < requiredDepth; k++) {
-                        if (!isFluid(world, blockPos2.above(k), isWater)) {
-                            valid = false;
-                            break;
-                        }
-                    }
-
-                    if (valid) {
-                        run.apply(blockPos2, random);
-                    }
+                if (isFluid(world, blockPos2, fluidType)&&(!isDouble||isFluid(world,blockPos2.above(),fluidType))) {
+                    run.apply(blockPos2);
                 }
             }
         }
-    }
-
-    private static void placeBoneMeal(
-            Level world,
-            BlockPos pos,
-            BiFunction<BlockState, BlockPos, Boolean> check,
-            int tries,
-            Function<BlockPos, Boolean> run,
-            boolean twoBlocks,
-            boolean isWater
-    ){
-        placeBoneMeal(
-                world,
-                pos,
-                check,
-                tries,
-                (p,r) -> run.apply(p),
-                twoBlocks,
-                isWater
-        );
     }
 
     //Cause block to increase in age
     private static boolean growNetherWart(BlockPos pos, Level world) {
-        boolean flag = false;
-        for(int i = 0; i < 2; i++) {
-            if(world.getBlockState(pos).getValue(BlockStateProperties.AGE_3) < 3) {
-                world.setBlockAndUpdate(pos, world.getBlockState(pos).cycle(BlockStateProperties.AGE_3));
-                flag = true;
-            }
+        if(world.getBlockState(pos).getValue(BlockStateProperties.AGE_3) < 3) {
+            world.setBlockAndUpdate(pos, world.getBlockState(pos).cycle(BlockStateProperties.AGE_3));
+            return true;
         }
-        return flag;
+        return false;
     }
+
     private static boolean growSugarcaneCactus(Level world, BlockPos pos, Block block) {
         if(world.getBlockState(pos.below()).is(block)) {
             if(world.getBlockState(pos.below().below()).is(block)) {
@@ -496,17 +365,6 @@ public class BoneMealEvent {
             return true;
         }
         return false;
-    }
-
-    //Specific growth methods to spread blocks
-    private static void growSand(Level world, BlockPos pos, boolean red) {
-        RandomCollection<BlockState> states=new RandomCollection<>();
-        if(!red){
-            states.add(3,ModBlocks.DESERT_GRASS.get().defaultBlockState());
-        }
-        states.add(1,Blocks.DEAD_BUSH.defaultBlockState());
-        BiFunction<BlockPos, RandomSource, Boolean> func = (pos1,random) -> world.setBlockAndUpdate(pos1, states.next(random));
-        placeBoneMeal(world, pos, blockState -> blockState.is(Blocks.SAND)||red&&blockState.is(Blocks.RED_SAND), 10, func);
     }
 
     private static void growRootedDirt(Level world, RandomSource random, BlockPos pos) {
@@ -541,77 +399,40 @@ public class BoneMealEvent {
         return successful;
     }
 
-    private static void growFlowers(Level world, BlockPos pos, BiFunction<BlockState, BlockPos, Boolean> check) {
-        BlockState state = world.getBlockState(pos);
-
-        boolean isWater = state.getFluidState().is(FluidTags.WATER);
-
-        Function<BlockPos, Boolean> func = (pos1) -> world.setBlockAndUpdate(pos1, state);
-
-        boolean b = state.getBlock() instanceof DoublePlantBlock;
-        if (b) {
-            BlockPos pos2 = pos.below();
-            BlockState state1 = world.getBlockState(pos2);
-
-            if (state1.isFaceSturdy(world, pos2, Direction.UP)) {
-                pos = pos.below();
-            }
-
-            func = (pos1) -> {
-                DoublePlantBlock.placeAt(world, state, pos1, 2);
-                return true;
-            };
-        }
-
-        placeBoneMeal(world, pos.below(), check, 10, func, b, isWater);
-    }
-
-
-    private static void growFlowers(Level world, BlockPos pos, Function<BlockState, Boolean> check) {
-        BlockState state = world.getBlockState(pos);
-
-        boolean isWater = state.getFluidState().is(FluidTags.WATER);
-
-        Function<BlockPos, Boolean> func = (pos1) -> world.setBlockAndUpdate(pos1, state);
-
-        boolean b = state.getBlock() instanceof DoublePlantBlock;
-        if (b) {
-            BlockPos pos2 = pos.below();
-            BlockState state1 = world.getBlockState(pos2);
-
-            if (state1.isFaceSturdy(world, pos2, Direction.UP)) {
-                pos = pos.below();
-            }
-
-            func = (pos1) -> {
-                DoublePlantBlock.placeAt(world, state, pos1, 2);
-                return true;
-            };
-        }
-
-        placeBoneMeal(world, pos.below(), check, func, b, isWater);
-    }
-
     private static void growFlowers(Level world, BlockPos pos) {
-        TagKey<Block> goalTag = world.getBlockState(pos).is(ModBlocks.DESERT_TALL_GRASS.get()) ? BlockTags.SAND : BlockTags.DIRT;
-        growFlowers(world, pos, blockState -> blockState.is(goalTag));
+        BlockState state = world.getBlockState(pos);
+
+        FluidType fluidType = FluidType.AIR;
+        FluidState fluidState = state.getFluidState();
+        if(fluidState.is(FluidTags.WATER)){
+            fluidType = FluidType.WATER;
+        }
+        else if(fluidState.is(FluidTags.LAVA)){
+            fluidType = FluidType.LAVA;
+        }
+
+        Function<BlockPos, Boolean> func = pos1 -> world.setBlockAndUpdate(pos1, state);
+
+        boolean doublePlantBlock = state.getBlock() instanceof DoublePlantBlock;
+        if (doublePlantBlock) {
+            if(state.getValue(BlockStateProperties.HALF)== Half.TOP){
+                pos = pos.below();
+            }
+            func = pos1 -> {
+                DoublePlantBlock.placeAt(world, state, pos1, 2);
+                return true;
+            };
+        }
+
+        placeBoneMeal(world, pos.below(), 20, func, fluidType, doublePlantBlock);
     }
 
     private static void growSmallDripLeaf(ServerLevel level, BlockPos pos) {
-        Function<BlockState,Boolean> check=state ->
-                state.is(Blocks.CLAY)||state.is(BlockTags.DIRT);
-        placeBoneMeal(level,pos,check, 10, pos1->createDripLeaf(level,pos1));
-    }
-
-    private static void growSponge(Level world, BlockPos pos) {
-        BlockState state = Blocks.WET_SPONGE.defaultBlockState();
-        Function<BlockPos, Boolean> func = (pos1) -> world.setBlockAndUpdate(pos1, state);
-        placeBoneMeal(world, pos.below(), (state1, pos1) -> state1.isFaceSturdy(world, pos1, Direction.UP), 10, func, false, true);
+        placeBoneMeal(level,pos, 10, pos1->createDripLeaf(level,pos1),FluidType.AIR_OR_WATER,false);
     }
 
     private record BiomeBonemealFeatures(
             ResourceKey<ConfiguredFeature<?, ?>> floor,
-            ResourceKey<ConfiguredFeature<?, ?>> flowers,
             ResourceKey<ConfiguredFeature<?, ?>> fullLiquid,
             ResourceKey<ConfiguredFeature<?, ?>> shallowLiquid,
             boolean lava
@@ -639,6 +460,10 @@ public class BoneMealEvent {
             return state.is(Blocks.SCULK);
         }
 
+        if(biome.is(ModTags.Biomes.desertBiomes)){
+            return state.is(Blocks.RED_SAND)||state.is(Blocks.SAND);
+        }
+
         if (biome.is(ModTags.Biomes.crimsonForestBiomes)) {
             return state.is(Blocks.CRIMSON_NYLIUM);
         }
@@ -648,13 +473,11 @@ public class BoneMealEvent {
         }
 
         if (biome.is(ModTags.Biomes.soulSandValleyBiomes)) {
-            return state.is(Blocks.SOUL_SAND) || state.is(Blocks.SOUL_SOIL);
+            return state.is(ModTags.Blocks.soulSediments);
         }
 
         if (biome.is(ModTags.Biomes.basaltDeltasBiomes)) {
-            return state.is(Blocks.BASALT)
-                    || state.is(Blocks.POLISHED_BASALT)
-                    || state.is(Blocks.BLACKSTONE);
+            return state.is(ModTags.Blocks.basaltStones);
         }
 
         return false;
@@ -696,14 +519,7 @@ public class BoneMealEvent {
 
             if (replaceState.isAir()) {
                 if (!isCorrectLandGroundForBiome(level, groundPos)) continue;
-
-                if (random.nextInt(8) == 0 && features.flowers() != null) {
-                    placeSingleFlowerFromPatch(level, chunkGenerator, random, target, features.flowers());
-                } else {
-                    placeConfiguredFeatureSkippingBadTypes(level, chunkGenerator, random, target, features.floor(), 16);
-                }
-
-                continue;
+                featureKey = features.floor();
             } else if (isCorrectLiquid(replaceState, features.lava())) {
                 if (!level.getBlockState(groundPos).isFaceSturdy(level, groundPos, Direction.UP)) continue;
 
@@ -713,7 +529,11 @@ public class BoneMealEvent {
                 continue;
             }
 
-            placeConfiguredFeatureSkippingBadTypes(level, chunkGenerator, random, target, featureKey, 16);
+            ConfiguredFeature<?, ?> configured = level.registryAccess()
+                    .registryOrThrow(Registries.CONFIGURED_FEATURE)
+                    .getOrThrow(featureKey);
+
+            configured.place(level,chunkGenerator,random,target);
         }
     }
 
@@ -784,7 +604,6 @@ public class BoneMealEvent {
         if (biome.is(ModTags.Biomes.mushroomCaves)) {
             return new BiomeBonemealFeatures(
                     ModConfiguredFeatures.MUSHROOM_CAVES_FLOOR,
-                    null,
                     ModConfiguredFeatures.MUSHROOM_CAVES_SEAFLOOR,
                     ModConfiguredFeatures.MUSHROOM_CAVES_SEAFLOOR_SHALLOW,
                     false
@@ -794,7 +613,6 @@ public class BoneMealEvent {
         if (biome.is(ModTags.Biomes.tropicalBiomes)) {
             return new BiomeBonemealFeatures(
                     ModConfiguredFeatures.RAINFOREST_FLOOR,
-                    null,
                     ModConfiguredFeatures.RAINFOREST_SEAFLOOR,
                     ModConfiguredFeatures.RAINFOREST_SEAFLOOR_SHALLOW,
                     false
@@ -804,7 +622,6 @@ public class BoneMealEvent {
         if (biome.is(ModTags.Biomes.savannaBiomes)) {
             return new BiomeBonemealFeatures(
                     ModConfiguredFeatures.SAVANNA_FLOOR,
-                    ModConfiguredFeatures.SAVANNA_FLOWERS,
                     ModConfiguredFeatures.SAVANNA_SEAFLOOR,
                     ModConfiguredFeatures.SAVANNA_SEAFLOOR_SHALLOW,
                     false
@@ -814,7 +631,6 @@ public class BoneMealEvent {
         if (biome.is(ModTags.Biomes.plainsBiomes)) {
             return new BiomeBonemealFeatures(
                     ModConfiguredFeatures.PLAINS_FLOOR,
-                    ModConfiguredFeatures.PLAINS_FLOWERS,
                     ModConfiguredFeatures.PLAINS_SEAFLOOR,
                     ModConfiguredFeatures.PLAINS_SEAFLOOR_SHALLOW,
                     false
@@ -824,7 +640,6 @@ public class BoneMealEvent {
         if (biome.is(ModTags.Biomes.mountainBiomes)) {
             return new BiomeBonemealFeatures(
                     ModConfiguredFeatures.MOUNTAINS_FLOOR,
-                    null,
                     ModConfiguredFeatures.MOUNTAINS_SEAFLOOR,
                     ModConfiguredFeatures.MOUNTAINS_SEAFLOOR_SHALLOW,
                     false
@@ -834,7 +649,6 @@ public class BoneMealEvent {
         if (biome.is(ModTags.Biomes.deepDarkBiomes)) {
             return new BiomeBonemealFeatures(
                     ModConfiguredFeatures.DEEP_DARK_FLOOR,
-                    null,
                     ModConfiguredFeatures.DEEP_DARK_SEAFLOOR,
                     ModConfiguredFeatures.DEEP_DARK_SEAFLOOR_SHALLOW,
                     false
@@ -844,7 +658,6 @@ public class BoneMealEvent {
         if (biome.is(ModTags.Biomes.desertBiomes)) {
             return new BiomeBonemealFeatures(
                     ModConfiguredFeatures.DESERT_FLOOR,
-                    null,
                     ModConfiguredFeatures.DESERT_SEAFLOOR,
                     ModConfiguredFeatures.DESERT_SEAFLOOR_SHALLOW,
                     false
@@ -854,7 +667,6 @@ public class BoneMealEvent {
         if (biome.is(ModTags.Biomes.crimsonForestBiomes)) {
             return new BiomeBonemealFeatures(
                     ModConfiguredFeatures.CRIMSON_FOREST_FLOOR,
-                    null,
                     ModConfiguredFeatures.CRIMSON_FOREST_SEAFLOOR,
                     ModConfiguredFeatures.CRIMSON_FOREST_SEAFLOOR_SHALLOW,
                     true
@@ -864,7 +676,6 @@ public class BoneMealEvent {
         if (biome.is(ModTags.Biomes.warpedForestBiomes)) {
             return new BiomeBonemealFeatures(
                     ModConfiguredFeatures.WARPED_FOREST_FLOOR,
-                    null,
                     ModConfiguredFeatures.WARPED_FOREST_SEAFLOOR,
                     ModConfiguredFeatures.WARPED_FOREST_SEAFLOOR_SHALLOW,
                     true
@@ -874,7 +685,6 @@ public class BoneMealEvent {
         if (biome.is(ModTags.Biomes.soulSandValleyBiomes)) {
             return new BiomeBonemealFeatures(
                     ModConfiguredFeatures.SOUL_SAND_VALLEY_FLOOR,
-                    ModConfiguredFeatures.SOUL_SAND_VALLEY_FLOWERS,
                     ModConfiguredFeatures.SOUL_SAND_VALLEY_SEAFLOOR,
                     ModConfiguredFeatures.SOUL_SAND_VALLEY_SEAFLOOR_SHALLOW,
                     true
@@ -884,7 +694,6 @@ public class BoneMealEvent {
         if (biome.is(ModTags.Biomes.basaltDeltasBiomes)) {
             return new BiomeBonemealFeatures(
                     ModConfiguredFeatures.BASALT_DELTAS_FLOOR,
-                    null,
                     ModConfiguredFeatures.BASALT_DELTAS_SEAFLOOR,
                     ModConfiguredFeatures.BASALT_DELTAS_SEAFLOOR_SHALLOW,
                     true
@@ -892,97 +701,5 @@ public class BoneMealEvent {
         }
 
         return null;
-    }
-
-
-    private static void placeConfiguredFeatureSkippingBadTypes(
-            ServerLevel level,
-            ChunkGenerator chunkGenerator,
-            RandomSource random,
-            BlockPos pos,
-            ResourceKey<ConfiguredFeature<?, ?>> key,
-            int maxRerolls
-    ) {
-        ConfiguredFeature<?, ?> configured = level.registryAccess()
-                .registryOrThrow(Registries.CONFIGURED_FEATURE)
-                .getOrThrow(key);
-
-        if (configured.feature() instanceof RandomSelectionFeature randomSelectionFeature
-                && configured.config() instanceof RandomSelectionFeatureConfig config) {
-
-            FeaturePlaceContext<RandomSelectionFeatureConfig> context =
-                    new FeaturePlaceContext<>(
-                            Optional.empty(),
-                            level,
-                            chunkGenerator,
-                            random,
-                            pos,
-                            config
-                    );
-
-            randomSelectionFeature.placeSkippingFeatures(
-                    context,
-                    BoneMealEvent::isBadBonemealFeature,
-                    maxRerolls
-            );
-            return;
-        }
-
-        if (isBadBonemealFeature(configured.feature())) {
-            return;
-        }
-
-        configured.place(level, chunkGenerator, random, pos);
-    }
-
-    private static boolean isBadBonemealFeature(Feature<?> feature) {
-        return feature instanceof NoOpFeature
-                || feature instanceof HugeFungusFeature
-                || feature instanceof AbstractHugeMushroomFeature
-                || feature instanceof BaseLargeMushroomFeature
-                || feature instanceof TreeFromStructureNBTFeature;
-    }
-
-    private static void placeBoneMeal(Level world, BlockPos pos, Function<BlockState, Boolean> check, Function<BlockPos, Boolean> run, boolean twoBlocks, boolean isWater) {
-        placeBoneMeal(world, pos, (state1, pos1) -> check.apply(state1), 10, (a, b) -> run.apply(a), twoBlocks, isWater);
-    }
-
-    private static void placeSingleFlowerFromPatch(
-            ServerLevel level,
-            ChunkGenerator chunkGenerator,
-            RandomSource random,
-            BlockPos pos,
-            ResourceKey<ConfiguredFeature<?, ?>> flowerPatchKey
-    ) {
-        ConfiguredFeature<?, ?> configured = level.registryAccess()
-                .registryOrThrow(Registries.CONFIGURED_FEATURE)
-                .getOrThrow(flowerPatchKey);
-
-        if (configured.feature() instanceof RandomSelectionFeature
-                && configured.config() instanceof RandomSelectionFeatureConfig config) {
-
-            RandomCollection<PlacedFeature> choices = new RandomCollection<>();
-            boolean hasChoice = false;
-
-            for (WeightedConfiguredFeature weighted : config.features()) {
-                ConfiguredFeature<?, ?> choiceConfigured = weighted.feature().value();
-
-                if (choiceConfigured.config() instanceof RandomPatchConfiguration patch) {
-                    choices.add(weighted.chance(), patch.feature().value());
-                    hasChoice = true;
-                }
-            }
-
-            if (hasChoice) {
-                PlacedFeature chosen = choices.next(random);
-                chosen.place(level, chunkGenerator, random, pos);
-            }
-
-            return;
-        }
-
-        if (configured.config() instanceof RandomPatchConfiguration patch) {
-            patch.feature().value().place(level, chunkGenerator, random, pos);
-        }
     }
 }

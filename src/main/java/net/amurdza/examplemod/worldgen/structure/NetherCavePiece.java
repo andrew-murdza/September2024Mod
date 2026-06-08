@@ -1,6 +1,6 @@
 package net.amurdza.examplemod.worldgen.structure;
 
-import net.mcreator.nourishednether.init.NourishedNetherModBlocks;
+import net.amurdza.examplemod.block.ModBlocks;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.HolderSet;
@@ -16,9 +16,7 @@ import net.minecraft.world.level.levelgen.structure.pieces.StructurePieceSeriali
 public class NetherCavePiece extends AbstractSpiralCavePiece {
     private enum NetherLayer {
         DEEP_DARK,
-        SOUL_SLUDGE,
-        SOUL_SOIL,
-        SOUL_SAND,
+        SOUL_SAND_VALLEY,
         WARPED_FOREST,
         CRIMSON_FOREST,
         BASALT_DELTAS,
@@ -26,9 +24,7 @@ public class NetherCavePiece extends AbstractSpiralCavePiece {
     }
 
     private final int maxDeepDarkY;
-    private final int maxSoulSludgeY;
-    private final int maxSoulSoilY;
-    private final int maxSoulSandY;
+    private final int maxSoulSandValleyY;
     private final int maxWarpedForestY;
     private final int maxCrimsonForestY;
     private final int maxBasaltDeltasY;
@@ -36,19 +32,16 @@ public class NetherCavePiece extends AbstractSpiralCavePiece {
     public NetherCavePiece(
             BlockPos origin,
             long seed,
-            float lowerHorizontalRadius,
-            float lowerVerticalRadius,
-            float upperHorizontalRadius,
-            float upperVerticalRadius,
+            int endY,
+            int endX,
+            float horizontalRadius,
+            float verticalRadius,
             float centralPillarDiameter,
             float minFloorThickness,
-            float upperPitch,
             float liquidDepth,
             float liquidRadius,
             int maxDeepDarkY,
-            int maxSoulSludgeY,
-            int maxSoulSoilY,
-            int maxSoulSandY,
+            int maxSoulSandValleyY,
             int maxWarpedForestY,
             int maxCrimsonForestY,
             int maxBasaltDeltasY,
@@ -58,22 +51,19 @@ public class NetherCavePiece extends AbstractSpiralCavePiece {
                 ModStructures.NETHER_CAVE_PIECE.get(),
                 origin,
                 seed,
-                lowerHorizontalRadius,
-                lowerVerticalRadius,
-                upperHorizontalRadius,
-                upperVerticalRadius,
+                endY,
+                endX,
+                horizontalRadius,
+                verticalRadius,
                 centralPillarDiameter,
                 minFloorThickness,
-                upperPitch,
                 liquidDepth,
                 liquidRadius,
                 placedFeatures
         );
 
         this.maxDeepDarkY = maxDeepDarkY;
-        this.maxSoulSludgeY = maxSoulSludgeY;
-        this.maxSoulSoilY = maxSoulSoilY;
-        this.maxSoulSandY = maxSoulSandY;
+        this.maxSoulSandValleyY = maxSoulSandValleyY;
         this.maxWarpedForestY = maxWarpedForestY;
         this.maxCrimsonForestY = maxCrimsonForestY;
         this.maxBasaltDeltasY = maxBasaltDeltasY;
@@ -84,9 +74,7 @@ public class NetherCavePiece extends AbstractSpiralCavePiece {
         super(ModStructures.NETHER_CAVE_PIECE.get(), tag);
 
         this.maxDeepDarkY = tag.getInt("MaxDeepDarkY");
-        this.maxSoulSludgeY = tag.getInt("MaxSoulSludgeY");
-        this.maxSoulSoilY = tag.getInt("MaxSoulSoilY");
-        this.maxSoulSandY = tag.getInt("MaxSoulSandY");
+        this.maxSoulSandValleyY = tag.getInt("MaxSoulSandValleyY");
         this.maxWarpedForestY = tag.getInt("MaxWarpedForestY");
         this.maxCrimsonForestY = tag.getInt("MaxCrimsonForestY");
         this.maxBasaltDeltasY = tag.getInt("MaxBasaltDeltasY");
@@ -98,23 +86,27 @@ public class NetherCavePiece extends AbstractSpiralCavePiece {
             CompoundTag tag
     ) {
         tag.putInt("MaxDeepDarkY", this.maxDeepDarkY);
-        tag.putInt("MaxSoulSludgeY", this.maxSoulSludgeY);
-        tag.putInt("MaxSoulSoilY", this.maxSoulSoilY);
-        tag.putInt("MaxSoulSandY", this.maxSoulSandY);
+        tag.putInt("MaxSoulSandValleyY", this.maxSoulSandValleyY);
         tag.putInt("MaxWarpedForestY", this.maxWarpedForestY);
         tag.putInt("MaxCrimsonForestY", this.maxCrimsonForestY);
         tag.putInt("MaxBasaltDeltasY", this.maxBasaltDeltasY);
     }
 
-    @Override
-    protected boolean useUpperShape(double centerY) {
-        return centerY > this.maxDeepDarkY;
+    protected boolean isNaturalReplaceableSurface(WorldGenLevel level, BlockPos pos, BlockState state) {
+        return isNaturalReplaceableSolid(state)
+                && state.isFaceSturdy(level, pos, Direction.UP);
     }
 
-    @Override
-    protected boolean useUpperPitch(double centerY) {
-        double bottomOfEllipsoid = centerY - getLocalVerticalRadius(centerY);
-        return bottomOfEllipsoid > this.maxDeepDarkY;
+    protected static boolean isExposedToAir(WorldGenLevel level, BlockPos pos) {
+        for (Direction direction : Direction.values()) {
+            BlockState state = level.getBlockState(pos.relative(direction));
+
+            if (state.isAir() || !state.getFluidState().isEmpty()) {
+                return true;
+            }
+        }
+
+        return false;
     }
 
     @Override
@@ -143,8 +135,8 @@ public class NetherCavePiece extends AbstractSpiralCavePiece {
 
     @Override
     protected BlockState getRiverFluidState(double landFloorY) {
-        boolean bottomIsInLavaRegion = landFloorY - this.liquidDepth <= this.maxSoulSludgeY;
-        boolean topIsInWaterRegion = landFloorY > this.maxSoulSludgeY + 1;
+        boolean bottomIsInLavaRegion = landFloorY - this.liquidDepth <= this.maxSoulSandValleyY;
+        boolean topIsInWaterRegion = landFloorY > this.maxSoulSandValleyY + 1;
 
         if (bottomIsInLavaRegion && topIsInWaterRegion) {
             return null;
@@ -174,7 +166,6 @@ public class NetherCavePiece extends AbstractSpiralCavePiece {
         decorateDeepDarkRiverColumnSurfaces(level, box, x, z, minY, maxY, fluidCenterX, fluidCenterY, fluidCenterZ);
     }
 
-    @Override
     protected boolean isNaturalReplaceableSolid(BlockState state) {
         return !state.isAir()
                 && state.getFluidState().isEmpty()
@@ -190,17 +181,11 @@ public class NetherCavePiece extends AbstractSpiralCavePiece {
         if (y > this.maxDeepDarkY) {
             return NetherLayer.NONE;
         }
-        if (y > this.maxSoulSludgeY) {
+        if (y > this.maxSoulSandValleyY) {
             return NetherLayer.DEEP_DARK;
         }
-        if (y > this.maxSoulSoilY) {
-            return NetherLayer.SOUL_SLUDGE;
-        }
-        if (y > this.maxSoulSandY) {
-            return NetherLayer.SOUL_SOIL;
-        }
         if (y > this.maxWarpedForestY) {
-            return NetherLayer.SOUL_SAND;
+            return NetherLayer.SOUL_SAND_VALLEY;
         }
         if (y > this.maxCrimsonForestY) {
             return NetherLayer.WARPED_FOREST;
@@ -213,12 +198,9 @@ public class NetherCavePiece extends AbstractSpiralCavePiece {
 
     private static BlockState getFloorState(NetherLayer layer) {
         return switch (layer) {
-            case SOUL_SLUDGE -> NourishedNetherModBlocks.SOUL_SLUDGE.get().defaultBlockState();
-            case SOUL_SOIL -> Blocks.SOUL_SOIL.defaultBlockState();
-            case SOUL_SAND -> Blocks.SOUL_SAND.defaultBlockState();
             case CRIMSON_FOREST -> Blocks.CRIMSON_NYLIUM.defaultBlockState();
             case WARPED_FOREST -> Blocks.WARPED_NYLIUM.defaultBlockState();
-            case BASALT_DELTAS, DEEP_DARK, NONE -> null;
+            case BASALT_DELTAS, DEEP_DARK, SOUL_SAND_VALLEY , NONE -> null;
         };
     }
 
@@ -268,7 +250,8 @@ public class NetherCavePiece extends AbstractSpiralCavePiece {
 
         BlockState lavaState = level.getBlockState(lavaPos);
 
-        if (!lavaState.is(Blocks.LAVA)) {
+        if (!lavaState.is(Blocks.LAVA)
+                &&(!lavaState.is(Blocks.WATER)||getLayerAtY(lavaPos.below().getY())!=NetherLayer.NONE)) {
             return;
         }
 
@@ -280,11 +263,11 @@ public class NetherCavePiece extends AbstractSpiralCavePiece {
 
         BlockState belowState = level.getBlockState(below);
 
-        if (!belowState.getFluidState().isEmpty()) {
+        if(shouldNotReplaceFluidFloor(belowState)){
             return;
         }
 
-        if (!shouldReplaceFluidFloor(belowState)) {
+        if (!belowState.getFluidState().isEmpty()) {
             return;
         }
 
@@ -293,19 +276,19 @@ public class NetherCavePiece extends AbstractSpiralCavePiece {
         level.setBlock(below, floorState, Block.UPDATE_CLIENTS);
     }
 
-    private static boolean shouldReplaceFluidFloor(BlockState state) {
-        return state.is(Blocks.GRAVEL) || state.is(Blocks.MAGMA_BLOCK) || state.is(Blocks.GLOWSTONE);
+    private static boolean shouldNotReplaceFluidFloor(BlockState state) {
+        return state.is(Blocks.BEDROCK) || state.is(ModBlocks.BASALT_GOLD_ORE.get())
+                || state.is(ModBlocks.BASALT_GOLD_ORE.get()) || state.is(ModBlocks.BLACKSTONE_GOLD_ORE.get())
+                || state.is(ModBlocks.BLACKSTONE_GOLD_ORE.get());
     }
 
     private BlockState getFluidFloorState(int y) {
         NetherLayer layer = getLayerAtY(y);
 
         return switch (layer) {
-            case SOUL_SLUDGE -> NourishedNetherModBlocks.SOUL_SLUDGE.get().defaultBlockState();
-            case SOUL_SOIL -> Blocks.SOUL_SOIL.defaultBlockState();
-            case SOUL_SAND -> Blocks.SOUL_SAND.defaultBlockState();
             case WARPED_FOREST -> Blocks.WARPED_NYLIUM.defaultBlockState();
             case CRIMSON_FOREST -> Blocks.CRIMSON_NYLIUM.defaultBlockState();
+            case NONE -> Blocks.SAND.defaultBlockState();
             default -> Blocks.BLACKSTONE.defaultBlockState();
         };
     }

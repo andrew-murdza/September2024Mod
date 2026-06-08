@@ -13,6 +13,6 @@ import org.spongepowered.asm.mixin.injection.Redirect;
 public class CocoaOnAnyOverworldLog {
     @Redirect(method = "canSurvive",at= @At(value = "INVOKE", target = "Lnet/minecraft/world/level/block/state/BlockState;is(Lnet/minecraft/tags/TagKey;)Z"))
     private boolean hi(BlockState instance, TagKey<Block> tagKey){
-        return instance.is(BlockTags.LOGS_THAT_BURN);//||instance.is(Blocks.MUSHROOM_STEM);
+        return instance.is(BlockTags.LOGS_THAT_BURN);
     }
 }

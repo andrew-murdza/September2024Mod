@@ -1,15 +1,12 @@
 package net.amurdza.examplemod.mixins.othermods.quark;
 
-import net.amurdza.examplemod.Config;
-import net.amurdza.examplemod.util.Helper;
+import net.amurdza.examplemod.block.BlockHelper;
 import net.amurdza.examplemod.worldgen.feature.ModConfiguredFeatures;
-import net.amurdza.examplemod.worldgen.feature.ModFeatures;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.Holder;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.server.level.ServerLevel;
-import net.minecraft.tags.BlockTags;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.LevelReader;
@@ -43,24 +40,6 @@ public abstract class GlowShroomBlockChanges extends BushBlock {
         cir.setReturnValue(state.isFaceSturdy(level, pos, Direction.UP));
     }
 
-    @Override
-    public void randomTick(@NotNull BlockState state, @NotNull ServerLevel level, @NotNull BlockPos pos,
-                           @NotNull RandomSource random) {
-        aoe$spreadLikeMushroom(state, level, pos, random);
-    }
-
-    @Override
-    public boolean canSurvive(@NotNull BlockState pState, LevelReader pLevel, BlockPos pPos) {
-        BlockPos blockpos = pPos.below();
-        BlockState blockstate = pLevel.getBlockState(blockpos);
-        if (blockstate.is(BlockTags.MUSHROOM_GROW_BLOCK)) {
-            return true;
-        } else {
-            return blockstate.canSustainPlant(pLevel, blockpos,
-                    net.minecraft.core.Direction.UP, this);
-        }
-    }
-
     @Inject(method = "performBonemeal", at = @At("HEAD"), cancellable = true)
     private void aoe$performBonemeal(ServerLevel level, RandomSource random, BlockPos pos,
                                      BlockState state, CallbackInfo ci) {
@@ -68,46 +47,10 @@ public abstract class GlowShroomBlockChanges extends BushBlock {
         aoe$growMushroom(level, pos, state, random);
     }
 
-    @Unique
-    private void aoe$spreadLikeMushroom(BlockState state, ServerLevel level, BlockPos pos, RandomSource random) {
-        if (Helper.nextIntCropsGrow(level, pos, state, random, 5) != 0) {
-            return;
-        }
-
-        int maxMushrooms = Helper.isSpecialBiome(level, pos)
-                ? Config.MAX_MUSHROOMS_FOR_GROWTH
-                : 5;
-
-        for (BlockPos nearby : BlockPos.betweenClosed(pos.offset(-4, -1, -4), pos.offset(4, 1, 4))) {
-            if (level.getBlockState(nearby).is(state.getBlock())) {
-                --maxMushrooms;
-                if (maxMushrooms <= 0) {
-                    return;
-                }
-            }
-        }
-
-        BlockPos target = pos.offset(
-                random.nextInt(3) - 1,
-                random.nextInt(2) - random.nextInt(2),
-                random.nextInt(3) - 1
-        );
-
-        for (int k = 0; k < 4; ++k) {
-            if (level.isEmptyBlock(target) && state.canSurvive(level, target)) {
-                pos = target;
-            }
-
-            target = pos.offset(
-                    random.nextInt(3) - 1,
-                    random.nextInt(2) - random.nextInt(2),
-                    random.nextInt(3) - 1
-            );
-        }
-
-        if (level.isEmptyBlock(target) && state.canSurvive(level, target)) {
-            level.setBlock(target, state, 2);
-        }
+    @Override
+    public void randomTick(@NotNull BlockState state, @NotNull ServerLevel level, @NotNull BlockPos pos,
+                           @NotNull RandomSource random) {
+        BlockHelper.spreadMushroom(state, level, pos, random, this::aoe$growMushroom);
     }
 
     @Unique

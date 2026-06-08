@@ -14,21 +14,15 @@ import net.minecraft.world.level.levelgen.structure.pieces.StructurePieceSeriali
 public class MushroomCavePiece extends AbstractSpiralCavePiece {
     private final int maxMushroomCaves;
 
-    @Override
-    protected boolean shouldMakeBowl() {
-        return false;
-    }
-
     public MushroomCavePiece(
             BlockPos origin,
             long seed,
-            float lowerHorizontalRadius,
-            float lowerVerticalRadius,
-            float upperHorizontalRadius,
-            float upperVerticalRadius,
+            int endY,
+            int endX,
+            float horizontalRadius,
+            float verticalRadius,
             float centralPillarDiameter,
             float minFloorThickness,
-            float upperPitch,
             float liquidDepth,
             float liquidRadius,
             int maxMushroomCaves,
@@ -38,13 +32,12 @@ public class MushroomCavePiece extends AbstractSpiralCavePiece {
                 ModStructures.MUSHROOM_CAVE_PIECE.get(),
                 origin,
                 seed,
-                lowerHorizontalRadius,
-                lowerVerticalRadius,
-                upperHorizontalRadius,
-                upperVerticalRadius,
+                endY,
+                endX,
+                horizontalRadius,
+                verticalRadius,
                 centralPillarDiameter,
                 minFloorThickness,
-                upperPitch,
                 liquidDepth,
                 liquidRadius,
                 placedFeatures
@@ -66,16 +59,6 @@ public class MushroomCavePiece extends AbstractSpiralCavePiece {
             CompoundTag tag
     ) {
         tag.putInt("MaxMushroomCaves", this.maxMushroomCaves);
-    }
-
-    @Override
-    protected boolean useUpperShape(double centerY) {
-        return centerY > this.maxMushroomCaves;
-    }
-
-    @Override
-    protected boolean useUpperPitch(double centerY) {
-        return centerY > this.maxMushroomCaves;
     }
 
     @Override

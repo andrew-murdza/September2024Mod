@@ -20,6 +20,7 @@ import net.minecraftforge.event.level.BlockEvent;
 import net.minecraftforge.eventbus.api.Event;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
+import samebutdifferent.ecologics.registry.ModBlocks;
 
 import java.util.Map;
 
@@ -48,10 +49,11 @@ public class BlockGrowth {
         Block block = state.getBlock();
 
         if(block==Blocks.AIR){
-            if(level.getBlockState(pos.below()).is(Blocks.CAVE_VINES)){
+            BlockState belowState = level.getBlockState(pos.below());
+            if(belowState.is(Blocks.CAVE_VINES)){
                 block=Blocks.CAVE_VINES;
             }
-            if(level.getBlockState(pos.below()).is(Blocks.CAVE_VINES_PLANT)){
+            if(belowState.is(Blocks.CAVE_VINES_PLANT)){
                 block=Blocks.CAVE_VINES_PLANT;
             }
         }
@@ -60,11 +62,6 @@ public class BlockGrowth {
         float mult = getMultiplier(level, pos, block);
 
         if (mult < 0f) return; // not tracked, let vanilla/mods handle it
-
-        // Beetroot global /3
-        if (block == Blocks.BEETROOTS) {
-            mult = mult / 3.0f;
-        }
 
         // Optional: keep your "not fertile halves chance" rule for CropBlock / StemBlock
         // (This scales the multiplier, which effectively scales the chance of allowing vanilla growth)
@@ -144,11 +141,11 @@ public class BlockGrowth {
             boolean columnPlant=state.is(Blocks.CACTUS)||state.is(Blocks.SUGAR_CANE);
 
             if(columnPlant){
-                if(state.is(Blocks.SUGAR_CANE)||state.is(Blocks.CACTUS)){
+                if(state.is(Blocks.SUGAR_CANE)){
                     pos=pos.above();
                 }
                 int k;
-                for(k = 1; k < 4; k++) {
+                for(k = 1; k < 5; k++) {
                     if(!level.getBlockState(pos.below(k+1)).is(state.getBlock())){
                         break;
                     }
@@ -161,6 +158,9 @@ public class BlockGrowth {
                     else {
                         level.setBlockAndUpdate(pos.below(), state.setValue(prop, newAge));
                     }
+                }
+                else if(state.is(Blocks.CACTUS)){
+                    level.setBlockAndUpdate(pos, ModBlocks.PRICKLY_PEAR.get().defaultBlockState());
                 }
             }
             else {

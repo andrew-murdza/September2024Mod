@@ -68,12 +68,6 @@
         "maxCount": 5
       },
       {
-        "type": "blue_skies:reindeer",
-        "weight": 10,
-        "minCount": 2,
-        "maxCount": 5
-      },
-      {
         "type": "minecraft:rabbit",
         "weight": 10,
         "minCount": 2,
