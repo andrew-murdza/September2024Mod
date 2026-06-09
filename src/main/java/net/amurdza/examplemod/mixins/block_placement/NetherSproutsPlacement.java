@@ -16,7 +16,6 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 public class NetherSproutsPlacement {
     @Inject(method = "mayPlaceOn", at = @At("HEAD"), cancellable = true)
     protected void mayPlaceOn(BlockState pState, BlockGetter pLevel, BlockPos pPos, CallbackInfoReturnable<Boolean> cir) {
-        cir.setReturnValue(pState.is(Blocks.WARPED_NYLIUM)
-                &&((LevelReader)pLevel).getBiome(pPos.above()).is(ModTags.Biomes.warpedForestBiomes));
+        cir.setReturnValue(pState.is(Blocks.WARPED_NYLIUM));
     }
 }

@@ -1,6 +1,8 @@
 package net.amurdza.examplemod.util;
 
+import com.google.common.collect.Maps;
 import net.amurdza.examplemod.Config;
+import net.minecraft.Util;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.Holder;
@@ -8,34 +10,68 @@ import net.minecraft.network.chat.MutableComponent;
 import net.minecraft.network.chat.contents.LiteralContents;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.tags.TagKey;
+import net.minecraft.util.Mth;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.Mob;
 import net.minecraft.world.entity.TamableAnimal;
 import net.minecraft.world.entity.animal.Animal;
+import net.minecraft.world.entity.animal.Sheep;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.DyeColor;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraftforge.common.ForgeHooks;
 
 import javax.annotation.Nullable;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Map;
 
 public class Helper {
 
-    public static int getLevel(Item item){
-        return 2;
+    private static final Map<DyeColor, ItemLike> ITEM_BY_DYE = Util.make(Maps.newEnumMap(DyeColor.class), (map) -> {
+        map.put(DyeColor.WHITE, Blocks.WHITE_WOOL);
+        map.put(DyeColor.ORANGE, Blocks.ORANGE_WOOL);
+        map.put(DyeColor.MAGENTA, Blocks.MAGENTA_WOOL);
+        map.put(DyeColor.LIGHT_BLUE, Blocks.LIGHT_BLUE_WOOL);
+        map.put(DyeColor.YELLOW, Blocks.YELLOW_WOOL);
+        map.put(DyeColor.LIME, Blocks.LIME_WOOL);
+        map.put(DyeColor.PINK, Blocks.PINK_WOOL);
+        map.put(DyeColor.GRAY, Blocks.GRAY_WOOL);
+        map.put(DyeColor.LIGHT_GRAY, Blocks.LIGHT_GRAY_WOOL);
+        map.put(DyeColor.CYAN, Blocks.CYAN_WOOL);
+        map.put(DyeColor.PURPLE, Blocks.PURPLE_WOOL);
+        map.put(DyeColor.BLUE, Blocks.BLUE_WOOL);
+        map.put(DyeColor.BROWN, Blocks.BROWN_WOOL);
+        map.put(DyeColor.GREEN, Blocks.GREEN_WOOL);
+        map.put(DyeColor.RED, Blocks.RED_WOOL);
+        map.put(DyeColor.BLACK, Blocks.BLACK_WOOL);
+    });
+
+    public static Item getWool(Sheep sheep){
+        return ITEM_BY_DYE.get(sheep.getColor()).asItem();
     }
 
-    public static boolean isBoss(Entity entity){
-        return false;
+    public static int computeIncrements(RandomSource rand, float mult) {
+        if(mult <= 0.0f){
+            return 0;
+        }
+        if (mult < 1.0f) {
+            return (rand.nextFloat() < mult) ? 1 : 0;
+        }
+        int base = 1 + Mth.floor(mult - 1.0f);
+        float frac = (mult - 1.0f) - Mth.floor(mult - 1.0f);
+        if (frac > 0.0f && rand.nextFloat() < frac) base += 1;
+        return base;
     }
 
     public static boolean isBlackListed(Block block){
@@ -46,9 +82,6 @@ public class Helper {
     }
     public static boolean isBlackListed(Mob mob){
         return mob.getEncodeId()!=null&&Config.BLACKLISTED_MOBS.contains(mob.getEncodeId());
-    }
-    public static <T> T select(RandomSource source, T... elements){
-        return elements[source.nextInt(elements.length)];
     }
     public static boolean isOkMob(Level level, BlockPos pos, Mob mob){
         return !Helper.isSpecialBiome(level, pos) || !isBlackListed(mob);
@@ -141,14 +174,8 @@ public class Helper {
         return false;
     }
 
-    public static int withChanceToInt(LevelAccessor level, double f){
-        return withChance(level,f)?0:1;
-    }
     public static boolean withChance(LevelAccessor level, double f){
         return level.getRandom().nextFloat()<f;
-    }
-    public static ResourceKey<Biome> getBiomeName(Holder<Biome> biome) {
-        return biome.unwrapKey().get();
     }
 
     public static <T> T select(LevelAccessor level, List<T> objects){

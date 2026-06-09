@@ -1,4 +1,4 @@
-package net.amurdza.examplemod.event_handlers;
+package net.amurdza.examplemod.config;
 
 import com.scouter.netherdepthsupgrade.blocks.NDUBlocks;
 import net.amurdza.examplemod.block.ModBlocks;

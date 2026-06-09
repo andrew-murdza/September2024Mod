@@ -1,13 +1,12 @@
 package net.amurdza.examplemod.event_handlers;
 
 import net.amurdza.examplemod.AOEMod;
+import net.amurdza.examplemod.config.BlockGrowthConfig;
 import net.amurdza.examplemod.util.ModTags;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Holder;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.tags.TagKey;
-import net.minecraft.util.Mth;
-import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
@@ -23,6 +22,8 @@ import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
 import samebutdifferent.ecologics.registry.ModBlocks;
 
 import java.util.Map;
+
+import net.amurdza.examplemod.util.Helper;
 
 @EventBusSubscriber(modid = AOEMod.MOD_ID, bus = EventBusSubscriber.Bus.FORGE)
 public class BlockGrowth {
@@ -81,7 +82,7 @@ public class BlockGrowth {
         // Compute how many "growth increments" we want on this tick:
         // - for 0<m<1: increments is either 0 or 1 (prob=m)
         // - for m>=1: increments is 1 + floor(m-1) + (rand < frac ? 1 : 0)
-        int increments = computeIncrements(level.random, mult);
+        int increments = Helper.computeIncrements(level.random, mult);
         if (increments <= 0) {
             event.setResult(Event.Result.DENY);
             return;
@@ -107,16 +108,6 @@ public class BlockGrowth {
         applyAgeIncrements(level, pos, state, increments);
         // Call Forge post hook similar to your old code
         net.minecraftforge.common.ForgeHooks.onCropsGrowPost(level, pos, state);
-    }
-
-    private static int computeIncrements(RandomSource rand, float mult) {
-        if (mult < 1.0f) {
-            return (rand.nextFloat() < mult) ? 1 : 0;
-        }
-        int base = 1 + Mth.floor(mult - 1.0f);
-        float frac = (mult - 1.0f) - Mth.floor(mult - 1.0f);
-        if (frac > 0.0f && rand.nextFloat() < frac) base += 1;
-        return base;
     }
 
     private static boolean hasAnyAgeProperty(BlockState state) {

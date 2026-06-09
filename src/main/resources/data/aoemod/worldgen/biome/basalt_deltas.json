@@ -53,10 +53,10 @@
     "axolotls": [],
     "creature": [
       {
-        "type": "quark:foxhound",
-        "weight": 4,
-        "minCount": 4,
-        "maxCount": 6
+        "type": "minecraft:strider",
+        "maxCount": 4,
+        "minCount": 2,
+        "weight": 60
       }
     ],
     "misc": [],

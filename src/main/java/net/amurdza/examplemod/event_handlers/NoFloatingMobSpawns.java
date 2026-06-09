@@ -12,7 +12,6 @@ import net.minecraft.world.Difficulty;
 import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.animal.Animal;
 import net.minecraft.world.entity.monster.Monster;
-import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.ServerLevelAccessor;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
@@ -34,11 +33,10 @@ public class NoFloatingMobSpawns {
 
         addSpawn(event, EntityType.SNIFFER, false, Animal::checkAnimalSpawnRules);
 
+        addSpawn(event, EntityType.STRIDER, false, (p,q,r,s,t)->strider());
+
         addSpawn(event, EntityType.CAMEL, false,
                 (p,q,r,s,t)->camel(q,s));
-
-        addSpawn(event, IafEntityRegistry.HIPPOCAMPUS.get(), true,
-                NoFloatingMobSpawns::checkSeaSerpentSpawnRules);
 
         addSpawn(event, IafEntityRegistry.DREAD_KNIGHT.get(), false,
                 Monster::checkMonsterSpawnRules);
@@ -88,8 +86,8 @@ public class NoFloatingMobSpawns {
         );
     }
 
-    public static boolean checkSeaSerpentSpawnRules(EntityType pWaterAnimal, LevelAccessor pLevel, MobSpawnType pSpawnType, BlockPos pPos, RandomSource pRandom) {
-        return WorldGenUtils.getTotalWaterInColumn(pPos,0,pLevel)>=6;//3, >=4
+    private static boolean strider(){
+        return true;
     }
 
     public static boolean checkMonsterSpawnRules(EntityType<? extends Mob> pType, ServerLevelAccessor pLevel, MobSpawnType pSpawnType, BlockPos pPos, RandomSource pRandom) {

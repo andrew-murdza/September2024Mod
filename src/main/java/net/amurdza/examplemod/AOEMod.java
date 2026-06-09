@@ -3,12 +3,11 @@ package net.amurdza.examplemod;
 import com.mojang.logging.LogUtils;
 import net.amurdza.examplemod.block.ModBlocks;
 import net.amurdza.examplemod.entity.ModEntities;
-import net.amurdza.examplemod.event_handlers.BlockGrowthConfig;
+import net.amurdza.examplemod.config.BlockGrowthConfig;
 import net.amurdza.examplemod.item.ModItems;
 import net.amurdza.examplemod.item.ModToolTiers;
 import net.amurdza.examplemod.mixins.mob_spawning.MobsSpawnOnGlowingMoss;
 import net.amurdza.examplemod.mixins.mob_spawning.MobsSpawnOnGlowingMoss1;
-import net.amurdza.examplemod.util.ConfigHelper;
 import net.amurdza.examplemod.worldgen.blockstates.ModBlockStateProviderTypes;
 import net.amurdza.examplemod.worldgen.density_function.AOEDensityFunctions;
 import net.amurdza.examplemod.worldgen.feature.ModFeatures;
@@ -27,9 +26,7 @@ import net.minecraftforge.event.BuildCreativeModeTabContentsEvent;
 import net.minecraftforge.event.server.ServerStartingEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
-import net.minecraftforge.fml.ModLoadingContext;
 import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.fml.config.ModConfig;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
@@ -69,7 +66,6 @@ public class AOEMod
         ModBlockStateProviderTypes.register(modEventBus);
 
         // Register our mod's ForgeConfigSpec so that Forge can create and load the config file for us
-        ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, ConfigHelper.SPEC);
 
         ModStructures.register(modEventBus);
 

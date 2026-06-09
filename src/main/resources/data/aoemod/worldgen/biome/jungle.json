@@ -71,13 +71,25 @@
       },
       {
         "type": "minecraft:cat",
-        "weight": 5,
+        "weight": 3,
         "minCount": 2,
         "maxCount": 5
       },
       {
         "type": "minecraft:panda",
         "weight": 10,
+        "minCount": 2,
+        "maxCount": 5
+      },
+      {
+        "type": "minecraft:frog",
+        "weight": 3,
+        "minCount": 2,
+        "maxCount": 5
+      },
+      {
+        "type": "minecraft:ocelot",
+        "weight": 2,
         "minCount": 2,
         "maxCount": 5
       }

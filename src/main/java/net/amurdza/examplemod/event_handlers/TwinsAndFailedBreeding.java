@@ -1,43 +1,51 @@
 package net.amurdza.examplemod.event_handlers;
 
 import net.amurdza.examplemod.AOEMod;
-import net.amurdza.examplemod.Config;
+import net.amurdza.examplemod.config.MobConfig;
 import net.amurdza.examplemod.util.Helper;
-import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.entity.AgeableMob;
 import net.minecraftforge.event.entity.living.BabyEntitySpawnEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 
-@Mod.EventBusSubscriber(modid = AOEMod.MOD_ID, bus=Mod.EventBusSubscriber.Bus.FORGE)
+@Mod.EventBusSubscriber(modid = AOEMod.MOD_ID, bus = Mod.EventBusSubscriber.Bus.FORGE)
 public class TwinsAndFailedBreeding {
     @SubscribeEvent
-    public static void twinsOrInfertile(BabyEntitySpawnEvent event){
-        AgeableMob parentA= (AgeableMob) event.getParentA();
-        AgeableMob parentB= (AgeableMob) event.getParentB();
-        ServerLevel world= (ServerLevel) parentA.level();
-        BlockPos pos=parentA.getOnPos();
-        if(event.getChild()!=null&&Helper.isSpecialBiome(world,pos)){
-            String mobName=event.getChild().getEncodeId();
-            if(mobName!=null){
-                int index=Config.TWIN_MOBS.indexOf(mobName);
-                int index1=Config.PARTIALLY_INFERTILE_MOBS.indexOf(mobName);
-                if(index1<0||!Helper.withChance(world,Config.INFERTILE_CHANCES.get(index1))){
-                    if(index>=0&&Helper.withChance(world,Config.TWIN_CHANCES.get(index))){
-                        event.getChild().addTag("aoe.bred");
-                        AgeableMob secondChild= parentA.getBreedOffspring(world, parentB);
-                        assert secondChild != null;
-                        secondChild.addTag("aoe.bred");
-                        secondChild.moveTo(parentA.getX(),parentA.getY(),parentA.getZ(),0.0F,0.0F);
-                        secondChild.setBaby(true);
-                        world.addFreshEntity(secondChild);
-                    }
-                }
-                else{
-                    event.setCanceled(true);
-                }
-            }
+    public static void twinsOrInfertile(BabyEntitySpawnEvent event) {
+        if (!(event.getParentA() instanceof AgeableMob parentA)) {
+            return;
         }
+
+        if (!(event.getParentB() instanceof AgeableMob parentB)) {
+            return;
+        }
+
+        if (!(parentA.level() instanceof ServerLevel world)) {
+            return;
+        }
+
+        if (event.getChild() == null) {
+            return;
+        }
+
+        float childMultiplier = MobConfig.mobTwinsChance(event.getChild());
+
+        int children = Helper.computeIncrements(parentA.getRandom(), childMultiplier);
+
+
+        // Vanilla already created one child.
+        // So only manually add children after the first one.
+        for (int i = 0; i < children; i++) {
+            AgeableMob extraChild = parentA.getBreedOffspring(world, parentB);
+
+            if (extraChild == null) {
+                continue;
+            }
+            extraChild.moveTo(parentA.getX(), parentA.getY(), parentA.getZ(), 0.0F, 0.0F);
+            extraChild.setBaby(true);
+            world.addFreshEntity(extraChild);
+        }
+        event.setCanceled(true);
     }
 }

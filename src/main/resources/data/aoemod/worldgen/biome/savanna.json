@@ -79,18 +79,6 @@
         "maxCount": 5
       },
       {
-        "type": "minecraft:chicken",
-        "weight": 10,
-        "minCount": 2,
-        "maxCount": 5
-      },
-      {
-        "type": "minecraft:cow",
-        "weight": 15,
-        "minCount": 2,
-        "maxCount": 5
-      },
-      {
         "type": "minecraft:llama",
         "weight": 5,
         "minCount": 2,
@@ -103,25 +91,19 @@
         "maxCount": 5
       },
       {
-        "type": "minecraft:pig",
-        "weight": 10,
-        "minCount": 2,
-        "maxCount": 5
-      },
-      {
         "type": "minecraft:rabbit",
         "weight": 10,
         "minCount": 2,
         "maxCount": 5
       },
       {
-        "type": "minecraft:sheep",
-        "weight": 15,
+        "type": "minecraft:wolf",
+        "weight": 5,
         "minCount": 2,
         "maxCount": 5
       },
       {
-        "type": "minecraft:wolf",
+        "type": "minecraft:cat",
         "weight": 5,
         "minCount": 2,
         "maxCount": 5

@@ -1,4 +1,4 @@
-package net.amurdza.examplemod.mixins.othermods.alexsmobs;
+package net.amurdza.examplemod.mixins.mob_behavior;
 
 import com.github.alexthe666.alexsmobs.entity.EntityEmu;
 import com.llamalad7.mixinextras.injector.wrapoperation.Operation;
@@ -10,7 +10,7 @@ import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
 
 @Mixin(value = EntityEmu.class, remap = false)
-public class EmuEggRate {
+public class ChickenEggRate {
     @Shadow public int timeUntilNextEgg;
 
     @WrapOperation(
@@ -20,16 +20,16 @@ public class EmuEggRate {
                     target = "Lcom/github/alexthe666/alexsmobs/entity/EntityEmu;isAlive()Z"
             )
     )
-    private boolean aoe$changeEggRate(EntityEmu emu, Operation<Boolean> original) {
-        if (!emu.isAlive()) {
+    private boolean aoe$changeEggRate(EntityEmu chicken, Operation<Boolean> original) {
+        if (!chicken.isAlive()) {
             return false;
         }
 
-        float multiplier = MobConfig.mobGrowthChance(emu);
-        int extraTicks = Helper.computeIncrements(emu.getRandom(),multiplier);
+        float multiplier = MobConfig.mobGrowthChance(chicken);
+        int ticks = Helper.computeIncrements(chicken.getRandom(),multiplier);
 
-        if (extraTicks > 0) {
-            this.timeUntilNextEgg -= extraTicks;
+        if (ticks > 0) {
+            this.timeUntilNextEgg -= ticks;
         }
 
         return false;

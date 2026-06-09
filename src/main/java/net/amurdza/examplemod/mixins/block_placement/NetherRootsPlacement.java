@@ -25,17 +25,13 @@ public abstract class NetherRootsPlacement extends BushBlock {
     @Inject(method = "mayPlaceOn", at = @At("HEAD"), cancellable = true)
     protected void mayPlaceOn(BlockState pState, BlockGetter pLevel, BlockPos pPos, CallbackInfoReturnable<Boolean> cir) {
         if (this == Blocks.WARPED_ROOTS) {
-            cir.setReturnValue(pState.is(Blocks.WARPED_NYLIUM)
-                    &&((LevelReader)pLevel).getBiome(pPos.above()).is(ModTags.Biomes.warpedForestBiomes));
+            cir.setReturnValue(pState.is(Blocks.WARPED_NYLIUM));
         }
 
         if (this == Blocks.CRIMSON_ROOTS) {
-            Holder<Biome> biome = ((LevelReader)pLevel).getBiome(pPos.above());
-            cir.setReturnValue((pState.is(Blocks.CRIMSON_NYLIUM)
+            cir.setReturnValue(pState.is(Blocks.CRIMSON_NYLIUM)
                     || pState.is(ModTags.Blocks.soulSediments)
-                    || pState.is(ModTags.Blocks.basaltStones))
-                    &&(biome.is(ModTags.Biomes.crimsonForestBiomes)||
-                    biome.is(ModTags.Biomes.soulSandValleyBiomes)||biome.is(ModTags.Biomes.basaltDeltasBiomes)));
+                    || pState.is(ModTags.Blocks.basaltStones));
         }
     }
 }
