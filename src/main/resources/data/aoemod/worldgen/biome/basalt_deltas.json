@@ -72,12 +72,6 @@
         "maxCount": 3,
         "minCount": 2,
         "weight": 100
-      },
-      {
-        "type": "blue_skies:emberback",
-        "weight": 70,
-        "minCount": 2,
-        "maxCount": 2
       }
     ],
     "underground_water_creature": [],

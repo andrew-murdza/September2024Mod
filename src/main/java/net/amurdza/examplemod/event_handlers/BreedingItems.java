@@ -2,9 +2,7 @@ package net.amurdza.examplemod.event_handlers;
 
 import com.github.alexthe666.alexsmobs.entity.*;
 import com.github.alexthe666.alexsmobs.item.AMItemRegistry;
-import net.amurdza.examplemod.util.Helper;
 import net.amurdza.examplemod.util.ModTags;
-import net.minecraft.core.BlockPos;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.Mob;
@@ -34,65 +32,59 @@ public class BreedingItems {
     @SubscribeEvent
     public static void extraOrCancelBreeding(PlayerInteractEvent.EntityInteract event){
         if(event.getTarget() instanceof Mob mob){
-            BlockPos pos=mob.getOnPos();
-            if(!Helper.isOkMob(event.getLevel(),pos,mob)){
-                event.setCanceled(true);
+            Player player=event.getEntity();
+            ItemStack stack=event.getItemStack();
+            if(mob instanceof MushroomCow){
+                useFood(mob, player, stack, ModTags.Items.mushrooms);
             }
-            else {
-                Player player=event.getEntity();
-                ItemStack stack=event.getItemStack();
-                if(mob instanceof MushroomCow){
-                    useFood(mob, player, stack, ModTags.Items.mushrooms);
-                }
-                else if(mob instanceof Rabbit&&!stack.is(Items.DANDELION)){
-                    useFood(mob,player,stack, ModTags.Items.smallerFlowers);
-                }
-                else if(mob instanceof Horse || mob instanceof Donkey){
-                    useFood(mob,player,stack,Items.HAY_BLOCK);
-                }
-                else if(mob instanceof Strider){
-                    useFood(mob,player,stack, Items.CRIMSON_ROOTS,Items.WARPED_ROOTS);
-                }
-                else if(mob instanceof Frog){
-                    useFood(mob,player,stack,Items.SEAGRASS);
-                }
-                else if(mob instanceof Ocelot ||mob instanceof Cat){
-                    useFood(mob, player, stack, ModTags.Items.rawFish);
-                }
-                else if(mob instanceof Fox){
-                    useFood(mob,player,stack, Items.CHICKEN,Items.RABBIT);
-                    useFood(mob, player, stack, ModTags.Items.rawFish);
-                }
-                else if(mob instanceof Parrot){
-                    useFood(mob,player,stack,Items.APPLE);
-                }
-                else if(mob instanceof PolarBear){
-                    useFood(mob,player,stack, Items.BEEF,Items.MUTTON);
-                    useFood(mob, player, stack, ModTags.Items.rawFish);
-                }
-                else if(mob instanceof EntityMoose&&!stack.is(Items.DANDELION)){
-                    useFood(mob,player,stack,ModTags.Items.smallerFlowers);
-                }
-                else if(mob instanceof EntityJerboa){
-                    useFood(mob,player,stack, Items.DEAD_BUSH,Items.GRASS,Items.FERN);
-                    useFood(mob,player,stack,ModTags.Items.smallerFlowers);
-                }
-                else if(mob instanceof EntityRoadrunner ||mob instanceof EntityBlueJay ||mob instanceof EntityMudskipper
-                        ||mob instanceof EntityPotoo){
-                    useFood(mob, player, stack, ModTags.Items.rawFish);
-                }
-                else if(mob instanceof EntityRainFrog){
-                    useFood(mob,  player,stack, Items.SEAGRASS);
-                }
-                else if(mob instanceof EntityBananaSlug&&!stack.is(Items.BROWN_MUSHROOM)){
-                    useFood(mob, player, stack, ModTags.Items.mushrooms);
-                }
-                else if(mob instanceof EntityKangaroo){
-                    useFood(mob,  player,stack, Items.FERN);
-                }
-                else if(mob instanceof EntityCapuchinMonkey){
-                    useFood(mob,  player,stack, AMItemRegistry.BANANA.get());
-                }
+            else if(mob instanceof Rabbit&&!stack.is(Items.DANDELION)){
+                useFood(mob,player,stack, ModTags.Items.smallerFlowers);
+            }
+            else if(mob instanceof Horse || mob instanceof Donkey){
+                useFood(mob,player,stack,Items.HAY_BLOCK);
+            }
+            else if(mob instanceof Strider){
+                useFood(mob,player,stack, Items.CRIMSON_ROOTS,Items.WARPED_ROOTS);
+            }
+            else if(mob instanceof Frog){
+                useFood(mob,player,stack,Items.SEAGRASS);
+            }
+            else if(mob instanceof Ocelot ||mob instanceof Cat){
+                useFood(mob, player, stack, ModTags.Items.rawFish);
+            }
+            else if(mob instanceof Fox){
+                useFood(mob,player,stack, Items.CHICKEN,Items.RABBIT);
+                useFood(mob, player, stack, ModTags.Items.rawFish);
+            }
+            else if(mob instanceof Parrot){
+                useFood(mob,player,stack,Items.APPLE);
+            }
+            else if(mob instanceof PolarBear){
+                useFood(mob,player,stack, Items.BEEF,Items.MUTTON);
+                useFood(mob, player, stack, ModTags.Items.rawFish);
+            }
+            else if(mob instanceof EntityMoose&&!stack.is(Items.DANDELION)){
+                useFood(mob,player,stack,ModTags.Items.smallerFlowers);
+            }
+            else if(mob instanceof EntityJerboa){
+                useFood(mob,player,stack, Items.DEAD_BUSH,Items.GRASS,Items.FERN);
+                useFood(mob,player,stack,ModTags.Items.smallerFlowers);
+            }
+            else if(mob instanceof EntityRoadrunner ||mob instanceof EntityBlueJay ||mob instanceof EntityMudskipper
+                    ||mob instanceof EntityPotoo){
+                useFood(mob, player, stack, ModTags.Items.rawFish);
+            }
+            else if(mob instanceof EntityRainFrog){
+                useFood(mob,  player,stack, Items.SEAGRASS);
+            }
+            else if(mob instanceof EntityBananaSlug&&!stack.is(Items.BROWN_MUSHROOM)){
+                useFood(mob, player, stack, ModTags.Items.mushrooms);
+            }
+            else if(mob instanceof EntityKangaroo){
+                useFood(mob,  player,stack, Items.FERN);
+            }
+            else if(mob instanceof EntityCapuchinMonkey){
+                useFood(mob,  player,stack, AMItemRegistry.BANANA.get());
             }
         }
     }

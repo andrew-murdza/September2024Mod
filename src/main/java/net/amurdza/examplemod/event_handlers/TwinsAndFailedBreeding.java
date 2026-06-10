@@ -5,6 +5,8 @@ import net.amurdza.examplemod.config.MobConfig;
 import net.amurdza.examplemod.util.Helper;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.entity.AgeableMob;
+import net.minecraft.world.entity.animal.Turtle;
+import net.minecraft.world.entity.animal.frog.Frog;
 import net.minecraftforge.event.entity.living.BabyEntitySpawnEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
@@ -33,6 +35,9 @@ public class TwinsAndFailedBreeding {
 
         int children = Helper.computeIncrements(parentA.getRandom(), childMultiplier);
 
+        if(children>0&&(parentA instanceof Turtle|| parentA instanceof Frog)){
+            return;
+        }
 
         // Vanilla already created one child.
         // So only manually add children after the first one.

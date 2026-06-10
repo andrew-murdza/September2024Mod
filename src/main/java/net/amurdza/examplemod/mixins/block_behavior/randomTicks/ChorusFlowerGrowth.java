@@ -1,6 +1,6 @@
 package net.amurdza.examplemod.mixins.block_behavior.randomTicks;
 
-import net.amurdza.examplemod.Config;
+import net.amurdza.examplemod.config.BlockConfig;
 import net.amurdza.examplemod.util.Helper;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -9,17 +9,13 @@ import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.ChorusFlowerBlock;
 import net.minecraft.world.level.block.ChorusPlantBlock;
-import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.IntegerProperty;
 import net.minecraftforge.common.ForgeHooks;
-import org.spongepowered.asm.mixin.Final;
-import org.spongepowered.asm.mixin.Mixin;
-import org.spongepowered.asm.mixin.Overwrite;
-import org.spongepowered.asm.mixin.Shadow;
-import org.spongepowered.asm.mixin.Unique;
+import org.spongepowered.asm.mixin.*;
 
 import javax.annotation.Nullable;
 
@@ -150,7 +146,7 @@ public abstract class ChorusFlowerGrowth extends Block {
 
         if (canGrowUp && allNeighborsEmpty(level, above, null) && level.isEmptyBlock(pos.above(2))) {
             level.setBlock(pos, this.plant.getStateForPlacement(level, pos), 2);
-            int newAge = Helper.isSpecialBiome(level, pos) && Helper.withChance(level, Config.PLACE_CHORUS_FLOWER_CHANCE)
+            int newAge = Helper.withChance(level, BlockConfig.PLACE_CHORUS_FLOWER_CHANCE)
                     ? age - 1
                     : age;
             placeGrownFlower(level, above, Math.max(0, newAge));

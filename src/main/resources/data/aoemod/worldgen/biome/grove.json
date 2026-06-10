@@ -101,24 +101,6 @@
         "maxCount": 2
       },
       {
-        "type": "alexsmobs:skelewag",
-        "weight": 10,
-        "minCount": 4,
-        "maxCount": 4
-      },
-      {
-        "type": "blue_skies:diophyde_prowler",
-        "weight": 10,
-        "minCount": 2,
-        "maxCount": 5
-      },
-      {
-        "type": "twilightforest:stable_ice_core",
-        "weight": 20,
-        "minCount": 2,
-        "maxCount": 5
-      },
-      {
         "type": "minecraft:stray",
         "maxCount": 4,
         "minCount": 4,

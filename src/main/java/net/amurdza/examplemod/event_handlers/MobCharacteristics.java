@@ -1,7 +1,7 @@
 package net.amurdza.examplemod.event_handlers;
 
 import net.amurdza.examplemod.AOEMod;
-import net.amurdza.examplemod.Config;
+import net.amurdza.examplemod.config.MobStatsConfig;
 import net.amurdza.examplemod.util.Helper;
 import net.amurdza.examplemod.util.ModTags;
 import net.minecraft.core.BlockPos;
@@ -10,10 +10,8 @@ import net.minecraft.network.syncher.EntityDataAccessor;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.Mob;
 import net.minecraft.world.entity.ai.attributes.Attributes;
-import net.minecraft.world.entity.animal.Fox;
 import net.minecraft.world.entity.animal.FrogVariant;
 import net.minecraft.world.entity.animal.MushroomCow;
-import net.minecraft.world.entity.animal.Rabbit;
 import net.minecraft.world.entity.animal.axolotl.Axolotl;
 import net.minecraft.world.entity.animal.frog.Frog;
 import net.minecraft.world.entity.animal.horse.Donkey;
@@ -62,17 +60,17 @@ public class MobCharacteristics {
                 Method setStrength=Llama.class.getDeclaredMethod("setStrength",int.class);
                 setStrength.setAccessible(true);
                 setStrength.invoke(mob,5);
-                mob.getAttribute(Attributes.MAX_HEALTH).setBaseValue(Config.LLAMA_HEALTH);
+                mob.getAttribute(Attributes.MAX_HEALTH).setBaseValue(MobStatsConfig.LLAMA_HEALTH);
             }
             else if(mob instanceof Horse){
-                mob.getAttribute(Attributes.MAX_HEALTH).setBaseValue(Config.HORSE_HEALTH);
-                mob.getAttribute(Attributes.MOVEMENT_SPEED).setBaseValue(Config.HORSE_SPEED);
-                mob.getAttribute(Attributes.JUMP_STRENGTH).setBaseValue(Config.HORSE_JUMP_STRENGTH);
+                mob.getAttribute(Attributes.MAX_HEALTH).setBaseValue(MobStatsConfig.HORSE_HEALTH);
+                mob.getAttribute(Attributes.MOVEMENT_SPEED).setBaseValue(MobStatsConfig.HORSE_SPEED);
+                mob.getAttribute(Attributes.JUMP_STRENGTH).setBaseValue(MobStatsConfig.HORSE_JUMP_STRENGTH);
             }
             else if(mob instanceof Donkey|| mob instanceof Mule){
-                mob.getAttribute(Attributes.MAX_HEALTH).setBaseValue(Config.DONKEY_HEALTH);
-                mob.getAttribute(Attributes.MOVEMENT_SPEED).setBaseValue(Config.DONKEY_SPEED);
-                mob.getAttribute(Attributes.JUMP_STRENGTH).setBaseValue(Config.DONKEY_JUMP_STRENGTH);
+                mob.getAttribute(Attributes.MAX_HEALTH).setBaseValue(MobStatsConfig.DONKEY_HEALTH);
+                mob.getAttribute(Attributes.MOVEMENT_SPEED).setBaseValue(MobStatsConfig.DONKEY_SPEED);
+                mob.getAttribute(Attributes.JUMP_STRENGTH).setBaseValue(MobStatsConfig.DONKEY_JUMP_STRENGTH);
             }
             if(mob instanceof MushroomCow){
                 Method setMushroomType=MushroomCow.class.getDeclaredMethod("setVariant", MushroomCow.MushroomType.class);

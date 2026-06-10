@@ -1,11 +1,8 @@
 package net.amurdza.examplemod.block;
 
-import net.amurdza.examplemod.Config;
-import net.amurdza.examplemod.item.ModItems;
+import net.amurdza.examplemod.config.BlockConfig;
 import net.amurdza.examplemod.util.QuadConsumer;
-import net.amurdza.examplemod.util.QuadFunction;
 import net.minecraft.core.BlockPos;
-import net.minecraft.core.Direction;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
@@ -19,13 +16,10 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.AxeItem;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
-import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.MushroomBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
-import net.minecraft.world.level.block.state.properties.Property;
 import net.minecraft.world.level.gameevent.GameEvent;
 import net.minecraftforge.common.ForgeHooks;
 import net.minecraftforge.common.Tags;
@@ -45,7 +39,7 @@ public class BlockHelper {
         }
         else if (pState.getValue(BlockStateProperties.BERRIES)) {
             blockState = pState.setValue(BlockStateProperties.BERRIES,false);
-            Block.popResource(pLevel, pPos, new ItemStack(Items.GLOW_BERRIES, Config.GLOW_BERRY_HARVEST_AMOUNT));
+            Block.popResource(pLevel, pPos, new ItemStack(Items.GLOW_BERRIES, BlockConfig.GLOW_BERRY_HARVEST_AMOUNT));
             sound=SoundEvents.CAVE_VINES_PICK_BERRIES;
         }
         if(blockState != null){
@@ -60,7 +54,7 @@ public class BlockHelper {
     public static void spreadMushroom(BlockState state, ServerLevel level, BlockPos pos, RandomSource random,
                                         QuadConsumer<ServerLevel,BlockPos,BlockState,RandomSource> growMushroom){
         if (ForgeHooks.onCropsGrowPre(level,pos,state,random.nextInt(25)==0)) {
-            int i = Config.MAX_MUSHROOMS_FOR_GROWTH;
+            int i = BlockConfig.MAX_MUSHROOMS_FOR_GROWTH;
 
             for (BlockPos scanPos : BlockPos.betweenClosed(pos.offset(-4, -1, -4), pos.offset(4, 1, 4))) {
                 if (level.getBlockState(scanPos).is(state.getBlock())) {

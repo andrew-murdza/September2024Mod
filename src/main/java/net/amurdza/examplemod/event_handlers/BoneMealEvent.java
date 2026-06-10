@@ -54,13 +54,17 @@ public class BoneMealEvent {
 
         BlockPos pos = event.getPos();
         BlockState state = level.getBlockState(pos);
-        Block block = state.getBlock();
+
+        Holder<Biome> biome = level.getBiome(pos);
 
         // This is just for mushrooms in plains/savanna/desert
-        if (Config.BLACKLISTED_USE_ITEMS.contains(block.asItem())) {
-            event.setCanceled(true);
-            event.setCancellationResult(InteractionResult.FAIL);
-            return;
+        if (state.is(Blocks.RED_MUSHROOM)||state.is(Blocks.BROWN_MUSHROOM)) {
+            if(!biome.is(ModTags.Biomes.tropicalBiomes)&&!biome.is(ModTags.Biomes.mushroomCaves)
+                    &&!biome.is(ModTags.Biomes.mountainBiomes)){
+                event.setCanceled(true);
+                event.setCancellationResult(InteractionResult.FAIL);
+                return;
+            }
         }
 
         // If vanilla would not even consider this a bonemeal target and it's not one of your custom targets,
@@ -139,7 +143,7 @@ public class BoneMealEvent {
     private static float getBiomeMultiplier(ServerLevel level, BlockPos pos) {
         Holder<Biome> biomeHolder = level.getBiome(pos);
         Block block=level.getBlockState(pos).getBlock();
-        boolean mushroom=block instanceof MushroomBlock || block instanceof FungusBlock
+        boolean mushroom=block instanceof MushroomBlock
                 || block == Blocks.MYCELIUM || block== GlimmeringWealdModule.glow_shroom;
         float best = -1f;
         for (var entry : Config.BIOME_TAG_TO_BONEMEAL_MULTIPLIERS.entrySet()) {
@@ -149,7 +153,7 @@ public class BoneMealEvent {
                 if (v > best) best = v;
             }
         }
-        return best<0?1f:best;
+        return best;
     }
 
     // ----------------------------
@@ -379,7 +383,7 @@ public class BoneMealEvent {
                         continue label48;
                     }
                 }
-                if(world.isEmptyBlock(blockPos2)&&Helper.isOkToPlace(world,blockPos2,Blocks.HANGING_ROOTS)) {
+                if(world.isEmptyBlock(blockPos2)) {
                     world.setBlockAndUpdate(blockPos2, Blocks.HANGING_ROOTS.defaultBlockState());
                 }
             }
@@ -391,12 +395,11 @@ public class BoneMealEvent {
     private static boolean createDripLeaf(Level level, BlockPos pos) {
         Direction direction = Helper.select(level,Helper.HORIZONTAL_DIRECTIONS);
         BlockState dripLeaf = Blocks.SMALL_DRIPLEAF.defaultBlockState().setValue(BlockStateProperties.HORIZONTAL_FACING, direction);
-        boolean successful=Helper.isOkToPlace(level,pos,dripLeaf)&&Helper.isOkToPlace(level,pos.above(),dripLeaf);
-        if(successful&&!level.isClientSide){
+        if(!level.isClientSide){
             level.setBlockAndUpdate(pos, dripLeaf);
             level.setBlockAndUpdate(pos.above(), dripLeaf.setValue(BlockStateProperties.DOUBLE_BLOCK_HALF, DoubleBlockHalf.UPPER));
         }
-        return successful;
+        return true;
     }
 
     private static void growFlowers(Level world, BlockPos pos) {

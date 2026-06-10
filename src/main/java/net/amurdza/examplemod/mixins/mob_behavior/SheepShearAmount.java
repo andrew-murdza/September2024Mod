@@ -6,6 +6,7 @@ import net.minecraft.util.RandomSource;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.animal.Sheep;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.level.Level;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
@@ -25,8 +26,13 @@ public abstract class SheepShearAmount extends Entity {
             )
     )
     private int aoe$modifyWoolAmount(RandomSource random, int bound) {
-        float multiplier = MobConfig.mobSkinAmount(this);
-        int newAmount = Helper.computeIncrements(random,multiplier);
+        float multiplier = MobConfig.mobAmountForItem(this, Items.WHITE_WOOL);
+
+        if (multiplier < 0.0F) {
+            return random.nextInt(bound);
+        }
+
+        int newAmount = Helper.computeIncrements(random, multiplier);
         return newAmount - 1;
     }
 }

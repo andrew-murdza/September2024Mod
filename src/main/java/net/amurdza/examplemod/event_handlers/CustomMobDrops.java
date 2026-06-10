@@ -8,9 +8,12 @@ import net.minecraft.world.entity.animal.Sheep;
 import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Items;
 import net.minecraftforge.event.entity.living.LivingDropsEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
+
+import java.util.List;
 
 @Mod.EventBusSubscriber(modid = AOEMod.MOD_ID, bus = Mod.EventBusSubscriber.Bus.FORGE)
 public class CustomMobDrops {
@@ -18,42 +21,28 @@ public class CustomMobDrops {
     public static void addConfiguredDrops(LivingDropsEvent event) {
         LivingEntity entity = event.getEntity();
 
-        DropInfo dropInfo = MobConfig.dropInfo(entity);
+        List<MobConfig.MobBiomeMultipliers> dropEntries = MobConfig.mobDropEntries(entity);
 
-        if(dropInfo == null){
+        if (dropEntries.isEmpty()) {
             return;
         }
 
         event.setCanceled(true);
 
-        dropItem(
-                event,
-                entity,
-                getMeatItem(entity, dropInfo),
-                MobConfig.mobMeatAmount(entity)
-        );
+        for (MobConfig.MobBiomeMultipliers entry : dropEntries) {
+            Item item = getDropItem(entity, entry);
+            float multiplier = MobConfig.mobAmount(entity, entry);
 
-        dropItem(
-                event,
-                entity,
-                entity instanceof Sheep sheep ? Helper.getWool(sheep) : dropInfo.skinItem(),
-                MobConfig.mobSkinAmount(entity)
-        );
-
-        dropItem(
-                event,
-                entity,
-                dropInfo.boneItem(),
-                MobConfig.mobBoneAmount(entity)
-        );
+            dropItem(event, entity, item, multiplier);
+        }
     }
 
-    private static Item getMeatItem(LivingEntity entity, DropInfo dropInfo) {
-        if (entity.isOnFire() && dropInfo.cookedMeatItem() != null) {
-            return dropInfo.cookedMeatItem();
+    private static Item getDropItem(LivingEntity entity, MobConfig.MobBiomeMultipliers entry) {
+        if (entity instanceof Sheep sheep && entry.hasItem(Items.WHITE_WOOL)) {
+            return Helper.getWool(sheep);
         }
 
-        return dropInfo.meatItem();
+        return entry.selectedItem(entity);
     }
 
     private static void dropItem(
@@ -62,7 +51,7 @@ public class CustomMobDrops {
             Item item,
             float multiplier
     ) {
-        if (item == null) {
+        if (item == null || multiplier <= 0.0F) {
             return;
         }
 

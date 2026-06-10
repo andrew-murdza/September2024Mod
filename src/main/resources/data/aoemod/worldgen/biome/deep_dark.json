@@ -70,14 +70,7 @@
         "weight": 10
       }
     ],
-    "water_ambient": [
-      {
-        "type": "unusualfishmod:shockcat",
-        "weight": 15,
-        "minCount": 2,
-        "maxCount": 3
-      }
-    ],
+    "water_ambient": [],
     "water_creature": [
 
     ]

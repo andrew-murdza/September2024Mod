@@ -116,17 +116,15 @@ public class AOEMod
             // fish & seafood (raw)
             event.accept(ModItems.END_FISH.get());
             event.accept(ModItems.CUBOZOA.get());
-            event.accept(ModItems.NETHER_CRAB_CLAW.get());
 
             // cooked seafood
             event.accept(ModItems.COOKED_PUFFERFISH.get());
             event.accept(ModItems.COOKED_END_FISH.get());
             event.accept(ModItems.COOKED_CUBOZOA.get());
-            event.accept(ModItems.COOKED_NETHER_CRAB_CLAW.get());
-            event.accept(ModItems.COOKED_TUNA.get());
 
             //Other
             event.accept(ModItems.SOUL_BERRY_COOKIE.get());
+            event.accept(ModItems.CHORUS_BREAD.get());
             event.accept(ModItems.GLOW_BERRY_JUICE.get());
         }
 

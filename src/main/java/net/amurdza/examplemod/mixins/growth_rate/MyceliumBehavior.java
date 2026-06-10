@@ -1,6 +1,6 @@
 package net.amurdza.examplemod.mixins.growth_rate;
 
-import net.amurdza.examplemod.Config;
+import net.amurdza.examplemod.config.BlockConfig;
 import net.amurdza.examplemod.util.ModTags;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -8,7 +8,10 @@ import net.minecraft.server.level.ServerLevel;
 import net.minecraft.tags.FluidTags;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.LevelReader;
-import net.minecraft.world.level.block.*;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.MyceliumBlock;
+import net.minecraft.world.level.block.SnowLayerBlock;
+import net.minecraft.world.level.block.SnowyDirtBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.lighting.LightEngine;
 import org.spongepowered.asm.mixin.Mixin;
@@ -22,7 +25,7 @@ public abstract class MyceliumBehavior extends MyceliumGrassSpreadRate {
 
     @Override
     public int randomTick1(int constant, BlockState state, ServerLevel world, BlockPos pos, RandomSource random){
-        return Config.MYCELIUM_SPREAD_NUM_TRIES;
+        return BlockConfig.MYCELIUM_SPREAD_NUM_TRIES;
     }
     private static boolean canBeGrass(BlockState pState, LevelReader pLevelReader, BlockPos pPos) {
         BlockPos blockpos = pPos.above();

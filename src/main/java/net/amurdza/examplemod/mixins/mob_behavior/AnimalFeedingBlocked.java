@@ -28,7 +28,7 @@ public abstract class AnimalFeedingBlocked {
             return;
         }
 
-        if (MobConfig.mobTwinsChance(animal) <= 0.0F) {
+        if (MobConfig.mobTwinsChance(animal) <= 0.0F&&MobConfig.mobGrowthChance(animal) <= 0.0F) {
             cir.setReturnValue(InteractionResult.FAIL);
         }
     }

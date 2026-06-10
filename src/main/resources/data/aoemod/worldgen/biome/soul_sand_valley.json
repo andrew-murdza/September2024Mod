@@ -47,63 +47,25 @@
     []
   ],
   "has_precipitation": false,
-  "spawn_costs": {
-    "minecraft:enderman": {
-      "charge": 0.7,
-      "energy_budget": 0.15
-    },
-    "minecraft:ghast": {
-      "charge": 0.7,
-      "energy_budget": 0.15
-    },
-    "minecraft:skeleton": {
-      "charge": 0.7,
-      "energy_budget": 0.15
-    },
-    "minecraft:strider": {
-      "charge": 0.7,
-      "energy_budget": 0.15
-    },
-    "alexsmobs:soul_vulture": {
-      "charge": 0.15,
-      "energy_budget": 1.2
-    },
-    "alexsmobs:spectre": {
-      "charge": 0.3,
-      "energy_budget": 0.9
-    },
-    "alexsmobs:guster": {
-      "charge": 0.2,
-      "energy_budget": 1.0
-    },
-    "alexsmobs:murmur": {
-      "charge": 0.25,
-      "energy_budget": 1.0
-    },
-    "minecraft:wither_skeleton": {
-      "charge": 0.35,
-      "energy_budget": 0.8
-    }
-  },
+  "spawn_costs": {},
   "spawners": {
     "ambient": [],
     "axolotls": [],
-    "creature": [
-      {
-        "type": "alexsmobs:spectre",
-        "weight": 15,
-        "minCount": 4,
-        "maxCount": 4
-      }
-    ],
+    "creature": [],
     "misc": [],
     "monster": [
-      {
-        "type": "alexsmobs:guster",
-        "weight": 10,
-        "minCount": 4,
-        "maxCount": 4
-      },
+//      {
+//        "type": "quark:wraith",
+//        "maxCount": 4,
+//        "minCount": 4,
+//        "weight": 20
+//      },
+//      {
+//        "type": "alexsmobs:guster",
+//        "weight": 10,
+//        "minCount": 4,
+//        "maxCount": 4
+//      },
       {
         "type": "iceandfire:dread_thrall",
         "weight": 10,
@@ -123,27 +85,9 @@
         "maxCount": 3
       },
       {
-        "type": "alexsmobs:murmur",
-        "weight": 20,
-        "minCount": 4,
-        "maxCount": 4
-      },
-      {
-        "type": "alexsmobs:soul_vulture",
-        "weight": 10,
-        "minCount": 4,
-        "maxCount": 4
-      },
-      {
         "type": "minecraft:skeleton",
         "maxCount": 5,
         "minCount": 5,
-        "weight": 20
-      },
-      {
-        "type": "quark:wraith",
-        "maxCount": 4,
-        "minCount": 4,
         "weight": 20
       },
       {
@@ -189,12 +133,6 @@
         "type": "netherdepthsupgrade:wither_bonefish",
         "weight": 10,
         "minCount": 2,
-        "maxCount": 4
-      },
-      {
-        "type": "unusualfishmod:amber_goby",
-        "weight": 5,
-        "minCount": 4,
         "maxCount": 4
       }
     ],

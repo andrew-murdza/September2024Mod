@@ -23,20 +23,10 @@ public class ShearingMobs {
     @SubscribeEvent
     public static void shearingMobs(PlayerInteractEvent.EntityInteract event){
         if(event.getTarget() instanceof Mob mob){
-            BlockPos pos=mob.getOnPos();
-            if(!Helper.isOkMob(event.getLevel(),pos,mob)){
-                event.setCanceled(true);
-            }
-            else {
-                if(mob instanceof MushroomCow){
-                    if(event.getItemStack().is(Items.SHEARS)){
-                        event.setCanceled(true);
-                    }
+            if(mob instanceof MushroomCow){
+                if(event.getItemStack().is(Items.SHEARS)){
+                    event.setCanceled(true);
                 }
-//                else if(mob instanceof Sheep sheep&&event.getItemStack().is(Items.SHEARS)){
-//                    Item wool=woolMap.get(sheep.getColor());
-//                    mob.spawnAtLocation(new ItemStack(wool, Math.max(0,Config.WOOL_FROM_SHEAR-1)));
-//                }
             }
         }
     }

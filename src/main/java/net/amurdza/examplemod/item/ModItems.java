@@ -35,6 +35,9 @@ public class ModItems {
     public static final  RegistryObject<Item> SOUL_BERRIES= ITEMS.register("soul_berries",()->new ItemNameBlockItem(ModBlocks.SOUL_BERRY_BUSH.get(),
             (new Item.Properties()).food((new FoodProperties.Builder()).nutrition(2).saturationMod(0.6F).build())));
 
+    public static final  RegistryObject<Item> CHORUS_BREAD= ITEMS.register("chorus_bread",() ->
+            new Item((new Item.Properties()).food((new FoodProperties.Builder()).nutrition(4).saturationMod(0.4F).build())));
+
     public static final  RegistryObject<Item> SOUL_BERRY_COOKIE= ITEMS.register("soul_berry_cookie",() ->
             new Item((new Item.Properties()).food(Foods.COOKIE)));
 

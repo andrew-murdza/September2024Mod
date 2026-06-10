@@ -1,6 +1,7 @@
 package net.amurdza.examplemod.mixins.growth_rate;
 
 import net.amurdza.examplemod.Config;
+import net.amurdza.examplemod.config.MobConfig;
 import net.amurdza.examplemod.util.Helper;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
@@ -18,17 +19,8 @@ public abstract class SheepRegrowWoolRate extends LivingEntity {
 
     @Redirect(method="aiStep",at = @At(value = "INVOKE", target = "Ljava/lang/Math;max(II)I"))
     private int hi(int a, int b){
-        if(Helper.isSpecialBiome(this)){
-            String mobName=getEncodeId();
-            int index= Config.SLOWER_GROWTH_MOBS.indexOf(mobName);
-            int index1= Config.FASTER_GROWTH_MOBS.indexOf(mobName);
-            if(index>=0&&Helper.withChance(level(),Config.SLOWER_GROWTH_CHANCES.get(index))){
-                return Math.max(a,b-1);
-            }
-            else if(index1>=0){
-                return Math.max(a,b-Config.FASTER_GROWTH_AMOUNT.get(index1));
-            }
-        }
-        return Math.max(a,b);
+        float multiplier = MobConfig.mobGrowthChance(this);
+        int ageAmount = Helper.computeIncrements(getRandom(),multiplier);
+        return Math.max(a,b - ageAmount);
     }
 }

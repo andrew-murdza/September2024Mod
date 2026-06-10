@@ -1,6 +1,6 @@
 package net.amurdza.examplemod.mixins.growth_rate;
 
-import net.amurdza.examplemod.Config;
+import net.amurdza.examplemod.config.BlockConfig;
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.util.RandomSource;
@@ -17,6 +17,6 @@ public abstract class GrassBlockSpreadRate extends MyceliumGrassSpreadRate {
 
     @Override
     public int randomTick1(int constant, BlockState state, ServerLevel world, BlockPos pos, RandomSource random){
-        return Config.GRASS_SPREAD_NUM_TRIES;
+        return BlockConfig.GRASS_SPREAD_NUM_TRIES;
     }
 }
