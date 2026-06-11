@@ -1,5 +1,6 @@
 package net.amurdza.examplemod.worldgen.structure;
 
+import net.amurdza.examplemod.registry.ModStructures;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.HolderSet;
 import net.minecraft.nbt.CompoundTag;

@@ -1,8 +1,7 @@
 package net.amurdza.examplemod.event_handlers;
 
 import net.amurdza.examplemod.AOEMod;
-import net.amurdza.examplemod.block.ModBlocks;
-import net.amurdza.examplemod.util.ModTags;
+import net.amurdza.examplemod.registry.ModBlocks;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.world.InteractionResult;

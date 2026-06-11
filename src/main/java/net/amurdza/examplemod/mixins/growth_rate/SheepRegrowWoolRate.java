@@ -1,6 +1,5 @@
 package net.amurdza.examplemod.mixins.growth_rate;
 
-import net.amurdza.examplemod.Config;
 import net.amurdza.examplemod.config.MobConfig;
 import net.amurdza.examplemod.util.Helper;
 import net.minecraft.world.entity.EntityType;

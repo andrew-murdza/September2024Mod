@@ -1,6 +1,7 @@
 package net.amurdza.examplemod.worldgen.structure;
 
-import net.amurdza.examplemod.block.ModBlocks;
+import net.amurdza.examplemod.registry.ModBlocks;
+import net.amurdza.examplemod.registry.ModStructures;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.HolderSet;

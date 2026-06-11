@@ -1,7 +1,7 @@
 package net.amurdza.examplemod.mixins.othermods.farmersdelight;
 
 import net.amurdza.examplemod.config.BlockConfig;
-import net.amurdza.examplemod.util.ModTags;
+import net.amurdza.examplemod.util.Helper;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.level.LevelReader;
 import org.spongepowered.asm.mixin.Mixin;
@@ -13,16 +13,12 @@ import vectorwing.farmersdelight.common.block.RichSoilFarmlandBlock;
 public class RichFarmlandFurtherFromWater {
     @ModifyConstant(method = "hasWater",constant = @Constant(intValue = 4),remap = false)
     private static int hi(int constant, LevelReader pLevel, BlockPos pPos){
-        if(pLevel.getBiome(pPos).is(ModTags.Biomes.tropicalBiomes)){
-            return BlockConfig.FARMLAND_DISTANCE;
-        }
-        return constant;
+        Integer value = Helper.getBiomeValue(pLevel, pPos, BlockConfig.BIOME_TO_MYCELIUM_SPREAD_NUM_TRIES);
+        return value != null ? value : constant;
     }
     @ModifyConstant(method = "hasWater",constant = @Constant(intValue = -4),remap = false)
     private static int hi1(int constant, LevelReader pLevel, BlockPos pPos){
-        if(pLevel.getBiome(pPos).is(ModTags.Biomes.tropicalBiomes)){
-            return -BlockConfig.FARMLAND_DISTANCE;
-        }
-        return constant;
+        Integer value = Helper.getBiomeValue(pLevel, pPos, BlockConfig.BIOME_TO_MYCELIUM_SPREAD_NUM_TRIES);
+        return value != null ? -value : constant;
     }
 }

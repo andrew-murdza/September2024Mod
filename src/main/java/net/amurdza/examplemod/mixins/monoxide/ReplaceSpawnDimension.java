@@ -1,6 +1,6 @@
 package net.amurdza.examplemod.mixins.monoxide;
 
-import net.amurdza.examplemod.worldgen.dimension.ModDimensions;
+import net.amurdza.examplemod.registry.ModDimensions;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.server.players.PlayerList;
 import net.minecraft.world.level.Level;

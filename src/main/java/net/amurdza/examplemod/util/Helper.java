@@ -4,6 +4,7 @@ import com.google.common.collect.Maps;
 import net.minecraft.Util;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.core.Holder;
 import net.minecraft.tags.TagKey;
 import net.minecraft.util.Mth;
 import net.minecraft.util.RandomSource;
@@ -14,6 +15,7 @@ import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.LevelReader;
+import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
@@ -60,27 +62,6 @@ public class Helper {
         if (frac > 0.0f && rand.nextFloat() < frac) base += 1;
         return base;
     }
-    public static Direction reverseDirection(Direction direction){
-        if(direction==Direction.UP){
-            return Direction.DOWN;
-        }
-        if(direction==Direction.DOWN){
-            return Direction.UP;
-        }
-        if(direction==Direction.NORTH){
-            return Direction.SOUTH;
-        }
-        if(direction==Direction.SOUTH){
-            return Direction.NORTH;
-        }
-        if(direction==Direction.EAST){
-            return Direction.WEST;
-        }
-        if(direction==Direction.WEST){
-            return Direction.EAST;
-        }
-        return Direction.EAST;
-    }
 
     public static boolean isBlock(Block block, Block... blocks){
         return Arrays.asList(blocks).contains(block);
@@ -123,5 +104,17 @@ public class Helper {
 
     public static boolean isSpecialBiome(LevelReader level, BlockPos pos){
         return level.getBiome(pos).is(ModTags.Biomes.tropicalBiomes);//isBiomeNameAtPos(level,pos,Config.SPECIAL_BIOME);
+    }
+
+
+    public static <T> T getBiomeValue(LevelReader level, BlockPos pos, Map<TagKey<Biome>,T> map) {
+        Holder<Biome> biomeHolder = level.getBiome(pos);
+        for (var entry : map.entrySet()) {
+            TagKey<Biome> tag = entry.getKey();
+            if (biomeHolder.is(tag)) {
+                return entry.getValue();
+            }
+        }
+        return null;
     }
 }

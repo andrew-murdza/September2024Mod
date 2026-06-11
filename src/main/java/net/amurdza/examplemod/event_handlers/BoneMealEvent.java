@@ -1,11 +1,11 @@
 package net.amurdza.examplemod.event_handlers;
 
 import net.amurdza.examplemod.AOEMod;
-import net.amurdza.examplemod.Config;
-import net.amurdza.examplemod.block.ModBlocks;
+import net.amurdza.examplemod.registry.ModBlocks;
+import net.amurdza.examplemod.config.BoneMealConfig;
 import net.amurdza.examplemod.util.Helper;
 import net.amurdza.examplemod.util.ModTags;
-import net.amurdza.examplemod.worldgen.feature.ModConfiguredFeatures;
+import net.amurdza.examplemod.registry.ModConfiguredFeatures;
 import net.mcreator.nourishednether.init.NourishedNetherModBlocks;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -146,7 +146,7 @@ public class BoneMealEvent {
         boolean mushroom=block instanceof MushroomBlock
                 || block == Blocks.MYCELIUM || block== GlimmeringWealdModule.glow_shroom;
         float best = -1f;
-        for (var entry : Config.BIOME_TAG_TO_BONEMEAL_MULTIPLIERS.entrySet()) {
+        for (var entry : BoneMealConfig.BIOME_TAG_TO_BONEMEAL_MULTIPLIERS.entrySet()) {
             TagKey<Biome> tag = entry.getKey();
             float v = mushroom ? entry.getValue().mushroom():entry.getValue().plant();
             if (biomeHolder.is(tag)) {

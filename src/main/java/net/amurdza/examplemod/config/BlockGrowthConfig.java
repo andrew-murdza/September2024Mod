@@ -1,7 +1,7 @@
 package net.amurdza.examplemod.config;
 
 import com.scouter.netherdepthsupgrade.blocks.NDUBlocks;
-import net.amurdza.examplemod.block.ModBlocks;
+import net.amurdza.examplemod.registry.ModBlocks;
 import net.amurdza.examplemod.util.ModTags;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.level.biome.Biome;
@@ -195,7 +195,7 @@ public final class BlockGrowthConfig {
                 0.0f,  // crimson forest
                 0.0f,  // warped forest
                 0.0f,  // soul sand valley
-                0.2f   // other
+                0.2f   // plains
         );
     }
 

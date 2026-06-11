@@ -2,6 +2,7 @@ package net.amurdza.examplemod.worldgen.structure;
 
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
+import net.amurdza.examplemod.registry.ModStructurePlacementTypes;
 import net.minecraft.core.Vec3i;
 import net.minecraft.util.Mth;
 import net.minecraft.world.level.chunk.ChunkGeneratorStructureState;

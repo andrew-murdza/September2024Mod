@@ -1,7 +1,7 @@
 package net.amurdza.examplemod.mixins.othermods.quark;
 
 import net.amurdza.examplemod.block.BlockHelper;
-import net.amurdza.examplemod.worldgen.feature.ModConfiguredFeatures;
+import net.amurdza.examplemod.registry.ModConfiguredFeatures;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.Holder;
@@ -9,7 +9,6 @@ import net.minecraft.core.registries.Registries;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.BlockGetter;
-import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.block.BushBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;

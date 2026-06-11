@@ -1,6 +1,7 @@
 package net.amurdza.examplemod.event_handlers;
 
 import net.amurdza.examplemod.config.BlockConfig;
+import net.amurdza.examplemod.util.Helper;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
@@ -26,10 +27,14 @@ public class BerryDrops {
             int age=state.getValue(BlockStateProperties.AGE_3);
             int amount=0;
             if(age==2){
-                amount= BlockConfig.SWEET_BERRIES_PARTIALLY_GROWN;
+                Float value = Helper.getBiomeValue(level, pos, BlockConfig.BIOME_TO_SWEET_BERRIES_PARTIALLY_GROWN_AMOUNTS);
+                float count = value != null ? value : 0;
+                amount = Helper.computeIncrements(level.random,count);
             }
             if(age==3){
-                amount = BlockConfig.SWEET_BERRIES_FULLY_GROWN;
+                Float value = Helper.getBiomeValue(level, pos, BlockConfig.BIOME_TO_MATURE_BERRY_AMOUNTS);
+                float count = value != null ? value : 0;
+                amount = Helper.computeIncrements(level.random,count);
             }
             if(amount>0){
                 Block.popResource(level, pos, new ItemStack(Items.SWEET_BERRIES,amount));

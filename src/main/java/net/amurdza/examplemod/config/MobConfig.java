@@ -6,7 +6,7 @@ import com.morallenplay.dropthemeat.init.ItemInit;
 import com.starfish_studios.naturalist.core.registry.NaturalistEntityTypes;
 import com.starfish_studios.naturalist.core.registry.NaturalistItems;
 import dev.hybridlabs.aquatic.entity.HybridAquaticEntityTypes;
-import net.amurdza.examplemod.item.ModItems;
+import net.amurdza.examplemod.registry.ModItems;
 import net.amurdza.examplemod.util.ModTags;
 import net.minecraft.core.Holder;
 import net.minecraft.tags.TagKey;
@@ -135,271 +135,150 @@ public final class MobConfig {
         // -------------------------------------------------------------------------
 
         addMobInfo(EntityType.COW,
-
                 m(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1),
-
                 m(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1),
-
                 m(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, Items.BEEF, Items.COOKED_BEEF),
-
                 m(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, Items.LEATHER));
 
 
         addMobInfo(EntityType.MOOSHROOM,
-
                 m(0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0),
-
                 m(0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0),
-
                 m(0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, Items.BEEF, Items.COOKED_BEEF),
-
                 m(0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, Items.LEATHER));
 
 
 
         addMobInfo(EntityType.PIG,
-
                 m(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1),
-
                 m(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1),
-
                 m(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, Items.PORKCHOP, Items.COOKED_PORKCHOP));
 
         addMobInfo(EntityType.SHEEP,
-
                 m(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1),
-
                 m(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1),
-
                 m(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, Items.MUTTON, Items.COOKED_MUTTON),
-
                 m(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, Items.WHITE_WOOL),
-
                 m(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, Items.BONE));
-
-
 
         addMobInfo(EntityType.CHICKEN,
-
                 m(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1),
-
                 m(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1),
-
                 m(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, Items.CHICKEN, Items.COOKED_CHICKEN),
-
                 m(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, Items.FEATHER),
-
                 m(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, Items.BONE));
 
-
-
         addMobInfo(EntityType.GOAT,
-
                 m(0, 0, 0.5F, 0.5F, 0, 0, 0, 0, 0, 0, 0),
-
                 m(0, 0, 0.5F, 0.5F, 0, 0, 0, 0, 0, 0, 0),
-
                 m(0, 0, 1, 0.5F, 0, 0, 0, 0, 0, 0, 0, ItemInit.RAW_GOAT.get(), ItemInit.COOKED_GOAT.get()),
-
                 m(0, 0, 1.5F, 1.5F, 0, 0, 0, 0, 0, 0, 0, Items.WHITE_WOOL),
-
                 m(0, 0, 0.5F, 0.5F, 0, 0, 0, 0, 0, 0, 0, Items.BONE));
 
-
-
         addMobInfo(EntityType.RABBIT,
-
                 m(3, 3, 0.8F, 0.8F, 0.4F, 0, 0, 0, 0, 0, 1),
-
                 m(2.5F, 3, 1, 1, 1, 0, 0, 0, 0, 0, 1),
-
                 m(1.25F, 1.25F, 0.4F, 0.4F, 0.2F, 0, 0, 0, 0, 0, 0.5F, Items.RABBIT, Items.COOKED_RABBIT),
-
                 m(1.25F, 1.25F, 0.4F, 0.4F, 0.3F, 0, 0, 0, 0, 0, 0.5F, Items.RABBIT_HIDE),
-
                 m(0.25F, 0.25F, 0.08F, 0.08F, 0.15F, 0, 0, 0, 0, 0, 0.1F, Items.RABBIT_FOOT),
-
                 m(0.25F, 0.5F, 0, 0, 0, 0, 0, 0, 0, 0, 0, Items.BONE));
 
-
-
         addMobInfo(EntityType.HOGLIN,
-
                 m(0, 0, 0, 0, 0, 0, 0.1F, 0.20F, 0, 0, 0),
-
                 m(0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0),
-
                 m(0, 0, 0, 0, 0, 0, 1, 3, 0, 0, 0, Items.PORKCHOP, Items.COOKED_PORKCHOP),
-
                 m(0, 0, 0, 0, 0, 0, 0.75F, 1, 0, 0, 0, Items.LEATHER));
 
         addMobInfo(EntityType.STRIDER,
-
                 m(0, 0, 0, 0, 0, 0, 0.20F, 0.15F, 0.10F, 0, 0),
-
                 m(0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 0),
-
                 m(0, 0, 0, 0, 0, 0, 1, 0.5F, 0.35F, 0, 0, Items.MUTTON, Items.COOKED_MUTTON),
-
                 m(0, 0, 0, 0, 0, 0, 3, 1.5F, 0.6F, 0, 0, Items.STRING));
 
-
         addMobInfo(EntityType.FOX,
-
                 m(1, 3, 0.5F, 0, 0, 0, 0, 0, 0, 0, 0),
-
                 m(1, 2, 1, 0, 0, 0, 0, 0, 0, 0, 0),
-
                 m(1, 1.5F, 0.5F, 0, 0, 0, 0, 0, 0, 0, 0, ItemInit.RAW_FOX.get(), ItemInit.COOKED_FOX.get()),
-
                 m(1, 2, 1, 0, 0, 0, 0, 0, 0, 0, 0, Items.ORANGE_WOOL),
-
                 m(0.25F, 0.5F, 0, 0, 0, 0, 0, 0, 0, 0, 0, Items.BONE));
-
-
 
         addMobInfo(EntityType.HORSE,
                 m(1, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0.8F),
-
                 m(1, 2, 0, 0, 0, 0, 0, 0, 0, 0, 1));
 
-
-
         addMobInfo(EntityType.DONKEY,
-
                 m(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1),
-
                 m(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1));
-
-
 
         addMobInfo(EntityType.MULE,
                 m(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1));
 
-
-
         addMobInfo(EntityType.CAMEL,
-
                 m(0, 0, 0, 0, 0.2F, 0, 0, 0, 0, 0, 0),
-
                 m(0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0));
 
-
-
         addMobInfo(EntityType.BEE,
-
                 m(1.5F, 1.5F, 0, 0, 0, 0, 0, 0, 0, 0, 0.5F),
-
                 m(2F, 1.5F, 0, 0, 0, 0, 0, 0, 0, 0, 1));
-
-
 
         addMobInfo(EntityType.ALLAY);
 
-
-
         addMobInfo(EntityType.LLAMA,
-
                 m(0, 1.5F, 0, 0, 0, 0, 0, 0, 0, 0, 0),
-
                 m(0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0));
-
-
 
         addMobInfo(EntityType.TRADER_LLAMA,
-
                 m(0, 1.5F, 0, 0, 0, 0, 0, 0, 0, 0, 0),
-
                 m(0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0));
-
-
 
         addMobInfo(EntityType.POLAR_BEAR,
                 m(0, 0, 0.5F, 0.5F, 0, 0, 0, 0, 0, 0, 0));
 
         addMobInfo(EntityType.WOLF,
-
                 m(1, 2, 0.3F, 0.3F, 0, 0, 0, 0, 0, 0, 1),
-
                 m(1, 2, 1, 1, 0, 0, 0, 0, 0, 0, 1));
 
         addMobInfo(EntityType.CAT,
-
                 m(1.5F, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0),
-
                 m(1.5F, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0));
 
-
-
         addMobInfo(EntityType.OCELOT,
-
                 m(2F, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
-
                 m(1.5F, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0));
 
-
-
         addMobInfo(EntityType.PANDA,
-
                 m(1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
-
                 m(1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0));
-
-
 
         addMobInfo(EntityType.DOLPHIN);
 
         addMobInfo(EntityType.TURTLE,
-
                 m(1.25F, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
-
                 m(1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0));
-
-
 
         addMobInfo(EntityType.BAT);
 
-
-
         addMobInfo(EntityType.FROG,
-
                 m(1.5F, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
-
                 m(1.0F, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0));
 
 
-
         addMobInfo(EntityType.AXOLOTL,
-
                 m(1.5F, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
-
                 m(1.5F, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0));
-
-
 
         addMobInfo(EntityType.PARROT);
 
-
-
         addMobInfo(EntityType.SNIFFER,
-
                 m(1.5F, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
-
                 m(1.5F, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0));
-
-
 
         addMobInfo(EntityType.TADPOLE,
                 m(1.5F, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0));
 
-
-
         addMobInfo(EntityType.VILLAGER,
-
                 m(2.5F, 2.5F, 0.75F, 0.75F, 0.4F, 0.4F, 0, 0.4F, 0.4F, 0.4F, 1),
-
                 m(2.5F, 2.5F, 0.75F, 0.75F, 0.4F, 0.4F, 0, 0.4F, 0.4F, 0.4F, 1));
-
 
 
         addMobInfo(EntityType.WANDERING_TRADER);
@@ -418,152 +297,85 @@ public final class MobConfig {
                 m(2, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, Items.TROPICAL_FISH, Items.TROPICAL_FISH),
                 m(0.2F, 0.05F, 0, 0, 0, 0, 0, 0, 0, 0, 0, Items.BONE_MEAL));
 
-
-
         addMobInfo(EntityType.PUFFERFISH,
                 m(2, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, Items.PUFFERFISH, ModItems.COOKED_PUFFERFISH.get()),
                 m(0.15F, 0.05F, 0, 0, 0, 0, 0, 0, 0, 0, 0, Items.BONE_MEAL));
-
-
 
         addMobInfo(EntityType.GLOW_SQUID,
                 m(0, 0, 2, 2, 0, 0.5F, 0, 0, 0, 0, 0, com.baisylia.culturaldelights.item.ModItems.GLOW_SQUID.get(), com.baisylia.culturaldelights.item.ModItems.COOKED_SQUID.get()),
                 m(0, 0, 3, 3, 0, 0.7F, 0, 0, 0, 0, 0, Items.GLOW_INK_SAC),
                 m(0, 0, 0.2F, 0.2F, 0, 0.05F, 0, 0, 0, 0, 0, Items.BONE_MEAL));
 
-
-
         addMobInfo(EntityType.SQUID,
                 m(2, 1, 2, 2, 0, 0, 0, 0, 0, 0, 1, com.baisylia.culturaldelights.item.ModItems.SQUID.get(), com.baisylia.culturaldelights.item.ModItems.COOKED_SQUID.get()),
                 m(3, 2, 3, 3, 0, 0, 0, 0, 0, 0, 1, Items.INK_SAC),
                 m(0, 0, 0.2F, 0.2F, 0, 0, 0, 0, 0, 0, 0.05F, Items.BONE_MEAL));
 
-
-
         addMobInfo(AMEntityRegistry.EMU.get(),
-
                 m(0, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0),
-
                 m(0, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0),
-
                 m(0, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, Items.CHICKEN, Items.COOKED_CHICKEN),
-
                 m(0, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, AMItemRegistry.EMU_FEATHER.get()),
-
                 m(0, 0.5F, 0, 0, 0, 0, 0, 0, 0, 0, 0, Items.BONE));
 
-
-
         addMobInfo(AMEntityRegistry.BISON.get(),
-
                 m(0, 1.5F, 0, 0, 0, 0, 0, 0, 0, 0, 0),
-
                 m(0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0),
-
                 m(0, 8, 0, 0, 0, 0, 0, 0, 0, 0, 0, Items.BEEF, Items.COOKED_BEEF),
-
                 m(0, 7, 0, 0, 0, 0, 0, 0, 0, 0, 0, Items.BROWN_WOOL),
-
                 m(0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, Items.BONE));
 
-
-
         addMobInfo(AMEntityRegistry.GAZELLE.get(),
-
                 m(0, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0),
-
                 m(0, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0),
-
                 m(0, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, Items.MUTTON, Items.COOKED_MUTTON),
-
                 m(0, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, Items.LEATHER),
-
                 m(0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, Items.BONE));
 
-
-
         addMobInfo(AMEntityRegistry.MOOSE.get(),
-
                 m(1.5F, 3, 0.5F, 0, 0, 0, 0, 0, 0, 0, 0),
-
                 m(1.25F, 2, 1, 0, 0, 0, 0, 0, 0, 0, 0),
-
                 m(1.5F, 2.5F, 1, 0, 0, 0, 0, 0, 0, 0, 0, ItemInit.RAW_BEAR.get(), ItemInit.COOKED_BEAR.get()),
-
                 m(2, 3, 2, 0, 0, 0, 0, 0, 0, 0, 0, Items.LEATHER),
-
                 m(1.5F, 2, 0.5F, 0, 0, 0, 0, 0, 0, 0, 0, Items.BONE));
 
-
-
         addMobInfo(AMEntityRegistry.WARPED_TOAD.get(),
-
                 m(0, 0, 0, 0, 0, 0, 0, 0.2F, 0.4F, 0, 0),
-
                 m(0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 0),
-
                 m(0, 0, 0, 0, 0, 0, 0, 0.5F, 1, 0, 0, ItemInit.RAW_SQUID.get(), ItemInit.COOKED_SQUID.get()),
-
                 m(0, 0, 0, 0, 0, 0, 0, 1.5F, 2.5F, 0, 0, Items.SHROOMLIGHT),
-
                 m(0, 0, 0, 0, 0, 0, 0F, 0.2F, 0.3F, 0, 1, Items.BONE));
-
-
 
         addMobInfo(AMEntityRegistry.LOBSTER.get(),
                 m(2, 1, 2, 2, 0, 0, 0, 0, 0, 0, 0, AMItemRegistry.LOBSTER_TAIL.get(), AMItemRegistry.COOKED_LOBSTER_TAIL.get()),
                 m(0.25F, 0.05F, 0.25F, 0.25F, 0, 0, 0, 0, 0, 0, 0, Items.BONE_MEAL));
 
-
-
         addMobInfo(AMEntityRegistry.GORILLA.get(),
-
                 m(1.5F, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
-
                 m(1.5F, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0));
 
-
-
         addMobInfo(ModEntityTypes.SQUIRREL.get(),
-
                 m(3, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0),
-
                 m(1.5F, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0),
-
                 m(1.5F, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, ItemInit.RAW_BAT.get(), ItemInit.COOKED_BAT.get()),
-
                 m(1.5F, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, Items.RABBIT_HIDE),
-
                 m(0.5F, 0.75F, 0, 0, 0, 0, 0, 0, 0, 0, 0, Items.BONE));
 
-
-
         addMobInfo(NaturalistEntityTypes.DEER.get(),
-
                 m(2, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0),
-
                 m(2, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0),
-
                 m(2, 5, 0, 0, 0, 0, 0, 0, 0, 0, 0, NaturalistItems.VENISON.get(), NaturalistItems.COOKED_VENISON.get()),
-
                 m(1.5F, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, Items.LEATHER),
-
                 m(1, 1.5F, 0, 0, 0, 0, 0, 0, 0, 0, 0, Items.BONE));
-
-
 
         addMobInfo(HybridAquaticEntityTypes.INSTANCE.getARROW_SQUID().get(),
                 m(2, 0, 2, 2, 0, 0, 0, 0, 0, 0, 0, ItemInit.RAW_DOLPHIN.get(), ItemInit.COOKED_DOLPHIN.get()),
                 m(2, 0, 2, 2, 0, 0, 0, 0, 0, 0, 0, Items.INK_SAC),
                 m(0.5F, 0, 0.4F, 0.4F, 0, 0, 0, 0, 0, 0, 0, Items.BONE_MEAL));
 
-
-
         addMobInfo(EntityType.ZOMBIE,
                 m(0, 0.8F, 1.5F, 1.5F, 2.5F, 1, 0, 0, 0, 0, 1, Items.ROTTEN_FLESH, Items.LEATHER),
                 m(0, 0, 0.2F, 0.2F, 0.3F, 0, 0, 0, 0, 0, 0, Items.BONE));
-
-
 
         addMobInfo(EntityType.ZOMBIE_VILLAGER,
                 m(0, 0.8F, 1.5F, 1.5F, 2.5F, 1, 0, 0, 0, 0, 1, Items.ROTTEN_FLESH, Items.LEATHER),
@@ -571,213 +383,145 @@ public final class MobConfig {
                 m(0, 0.2F, 0.7F, 0.7F, 0.4F, 0, 0, 0, 0, 0, 0.2F, Items.EMERALD),
                 m(0, 0.2F, 0, 0, 0.4F, 0, 0, 0, 0, 0, 0, Items.GOLD_INGOT));
 
-
-
         addMobInfo(EntityType.HUSK,
                 m(0, 0.8F, 1.5F, 1.5F, 2, 1, 0, 0, 0, 0, 1, Items.ROTTEN_FLESH, Items.LEATHER),
                 m(0, 0, 0, 0, 0.3F, 0, 0, 0, 0, 0, 0, Items.BONE),
                 m(0, 0, 0, 0, 0.4F, 0, 0, 0, 0, 0, 0.2F, Items.EMERALD),
                 m(0, 0, 0, 0, 0.4F, 0, 0, 0, 0, 0, 0, Items.GOLD_INGOT));
 
-
-
         addMobInfo(EntityType.DROWNED,
                 m(0, 0.7F, 2, 1, 3, 1, 1, 1, 1, 1, 1, Items.ROTTEN_FLESH, Items.LEATHER),
                 m(0, 0.7F, 2, 1, 3, 1, 1, 1, 1, 1, 1, Items.SEAGRASS),
                 m(0, 0.7F, 2, 1, 3, 1, 1, 1, 1, 1, 1, Items.BONE));
-
-
 
         addMobInfo(EntityType.ZOMBIFIED_PIGLIN,
                 m(0, 0, 0, 0, 0.2F, 0.7F, 0, 0.5F, 2, 1.25F, 0, Items.ROTTEN_FLESH),
                 m(0, 0, 0, 0, 0, 0, 0, 6, 9, 6, 0, Items.GOLD_NUGGET),
                 m(0, 0, 0, 0, 0.2F, 0.6F, 0, 1, 1.5F, 1, 0, Items.BONE));
 
-
-
         addMobInfo(EntityType.ZOGLIN,
                 m(0, 0, 0, 0, 0.35F, 0.6F, 0, 0.8F, 3, 1.7F, 0, Items.ROTTEN_FLESH),
                 m(0, 0, 0, 0, 0.2F, 0.6F, 0, 1, 1.5F, 1, 0, Items.BONE));
-
 
         addMobInfo(EntityType.ZOMBIE_HORSE,
                 m(0, 2, 1.5F, 1.5F, 3, 1, 1, 1, 1, 1, 1.5F, Items.ROTTEN_FLESH, Items.LEATHER),
                 m(0, 0.3F, 0.2F, 0.2F, 0.1F, 0.05F, 0, 0, 0, 0, 0.1F, Items.BONE));
 
-
         //Up to here
         addMobInfo(EntityType.SKELETON,
-                m(0, 0.7F, 2, 1, 3, 1, 1, 1, 1, 1, 1, Items.ARROW),
-                m(0F, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, Items.BOW),
-                m(0, 0.7F, 2, 1, 3, 1, 1, 1, 1, 1, 1, Items.BONE));
-
-
+                m(0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1, Items.ARROW),
+                m(0, 0.015f, 0, 0, 0, 0, 0, 0, 0, 0, 0.03f, Items.BOW),
+                m(0, 0.5f, 2, 1.25f, 2.25f, 1.0f, 2f, 1.5f, 1.25f, 3f, 1f, Items.BONE));
 
         addMobInfo(EntityType.STRAY,
-                m(0, 0, 2, 1, 0, 0, 0, 0, 0, 0, 0, Items.ARROW),
-                m(0F, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, Items.BOW),
-                m(0, 0, 2, 1, 0, 0, 0, 0, 0, 0, 0, Items.BONE));
-
-
+                m(0, 0, 2.5f, 1.5f, 0, 0, 0, 0, 0, 0, 0, Items.BONE));
 
         addMobInfo(EntityType.WITHER_SKELETON,
                 m(0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 0, Items.COAL),
-                m(0F, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, Items.STONE_SWORD),
-                m(0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 0, Items.BONE));
-
-
+                m(0, 0, 0, 0, 0, 1, 1, 1, 1, 2.5f, 0, Items.BONE));
 
         addMobInfo(EntityType.SKELETON_HORSE,
-                m(0F, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, Items.BONE));
-
-
+                m(0, 2, 3, 3, 2, 2, 2, 2, 2, 3, 1.5f, Items.BONE));
 
         addMobInfo(EntityType.SPIDER,
-                m(0.4F, 0.7F, 2, 1, 3, 1, 1, 1, 1, 1, 1, ItemInit.RAW_MONSTER_MEAT.get(), ItemInit.COOKED_MONSTER_MEAT.get()),
-                m(0.4F, 0.7F, 2, 1, 3, 1, 1, 1, 1, 1, 1, Items.STRING),
-                m(0.4F, 0.7F, 2, 1, 3, 1, 1, 1, 1, 1, 1, Items.SPIDER_EYE));
-
-
+                m(0.35F, 0.1F, 0.5f, 1f, 1.5f, 0.5f, 0.5f, 0.5f, 0.5f, 0.5f, 0.75f,
+                        ItemInit.RAW_MONSTER_MEAT.get(), ItemInit.COOKED_MONSTER_MEAT.get()),
+                m(3, 1.25F, 2, 1f, 3, 1f, 1f, 1f, 1f, 1f, 1f, Items.STRING),
+                m(0.8F, 0.6F, 0.2F, 1, 3, 1, 1, 1, 1, 1, 1, Items.SPIDER_EYE));
 
         addMobInfo(EntityType.CAVE_SPIDER,
-                m(0.4F, 0.7F, 2, 1, 3, 1, 1, 1, 1, 1, 1, ItemInit.RAW_MONSTER_MEAT.get(), ItemInit.COOKED_MONSTER_MEAT.get()),
+                m(0.4F, 0.7F, 2, 1, 3, 1, 1, 1, 1, 1, 1,
+                        ItemInit.RAW_MONSTER_MEAT.get(), ItemInit.COOKED_MONSTER_MEAT.get()),
                 m(0.4F, 0.7F, 2, 1, 3, 1, 1, 1, 1, 1, 1, Items.STRING),
-                m(0.4F, 0.7F, 2, 1, 3, 1, 1, 1, 1, 1, 1, Items.SPIDER_EYE));
-
-
+                m(1.5F, 0.1F, 0.1F, 0.1F, 1f, 1f, 0.3f, 0.3f, 0.3f, 0.3f, 0.3f,
+                        Items.SPIDER_EYE));
 
         addMobInfo(EntityType.SILVERFISH);
 
-
-
         addMobInfo(EntityType.ENDERMITE);
 
-
-
         addMobInfo(EntityType.CREEPER,
-                m(0F, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, Items.GUNPOWDER));
-
-
+                m(0, 0, 0, 0, 5f, 1.5f, 2.5f, 4f, 5f, 2f, 0, Items.GUNPOWDER));
 
         addMobInfo(EntityType.SLIME,
-                m(0.4F, 0.7F, 2, 1, 3, 1, 1, 1, 1, 1, 1, Items.SLIME_BALL));
-
-
+                m(0.1f, 0.15F, 0.15F, 0.15F, 1, 0.7f, 0.1f, 0.1f, 0.1f,
+                        0.1f, 0.1f, Items.SLIME_BALL));
 
         addMobInfo(EntityType.MAGMA_CUBE,
-                m(0F, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, Items.MAGMA_CREAM));
-
-
+                m(0, 0, 0, 0, 0, 0, 1.5f, 0.7f, 0.2f, 0.1f, 0, Items.MAGMA_CREAM));
 
         addMobInfo(EntityType.BLAZE,
-                m(0F, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, Items.GLOWSTONE_DUST),
-                m(0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0, Items.BLAZE_ROD));
-
-
+                m(0, 0, 0, 0, 0, 0, 2.0f, 1.25f, 0.2f, 0.25f, 0, Items.GLOWSTONE_DUST),
+                m(0, 0, 0, 0, 0, 0, 1.5f, 0.6f, 0.2f, 0.1f, 0, Items.BLAZE_ROD));
 
         addMobInfo(EntityType.GHAST,
-                m(0F, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, Items.GHAST_TEAR),
-                m(0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 0, Items.GUNPOWDER));
+                m(0, 0, 0, 0, 0, 0.5f, 0.25f, 0.5f, 1f, 2f, 0, Items.GHAST_TEAR),
+                m(0, 0, 0, 0, 0, 0.5f, 0.5f, 0.75f, 1.25f, 2.5f, 0, Items.GUNPOWDER));
 
-
-
-        addMobInfo(EntityType.PIGLIN_BRUTE,
-                m(0.4F, 0.7F, 2, 1, 3, 1, 1, 1, 1, 1, 1, Items.GOLD_INGOT),
-                m(0.4F, 0.7F, 2, 1, 3, 1, 1, 1, 1, 1, 1, Items.GOLDEN_AXE));
-
-
+        addMobInfo(EntityType.PIGLIN_BRUTE);
 
         addMobInfo(EntityType.ENDERMAN,
-                m(0F, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, Items.ENDER_PEARL));
-
-
+                m(0, 0, 0, 0, 0.65f, 1.5f, 0, 0, 0, 0.6f, 0, Items.ENDER_PEARL));
 
         addMobInfo(EntityType.SHULKER,
-                m(0F, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, Items.SHULKER_SHELL),
-                m(0, 0, 0, 0, 3, 1, 1, 1, 1, 1, 0, Items.PURPLE_TERRACOTTA));
-
-
+                m(0, 0, 0, 0, 1, 3, 0.1f, 0.1f, 0.1f, 0.1f, 0, Items.SHULKER_SHELL),
+                m(0, 0, 0, 0, 3, 3, 1, 1, 1, 1.5f, 0, Items.PURPLE_TERRACOTTA));
 
         addMobInfo(EntityType.ENDER_DRAGON);
 
-
-
         addMobInfo(EntityType.PILLAGER,
                 m(0.4F, 0.7F, 2, 1, 3, 1, 1, 1, 1, 1, 1, Items.CROSSBOW),
+                m(0.4F, 0.7F, 2, 1, 3, 1, 1, 1, 1, 1, 1, Items.ARROW),
                 m(0.4F, 0.7F, 2, 1, 3, 1, 1, 1, 1, 1, 1, Items.EMERALD));
-
-
 
         addMobInfo(EntityType.VINDICATOR,
                 m(0.4F, 0.7F, 2, 1, 3, 1, 1, 1, 1, 1, 1, Items.IRON_AXE),
                 m(0.4F, 0.7F, 2, 1, 3, 1, 1, 1, 1, 1, 1, Items.EMERALD));
 
-
-
         addMobInfo(EntityType.EVOKER,
                 m(0.4F, 0.7F, 2, 1, 3, 1, 1, 1, 1, 1, 1, Items.TOTEM_OF_UNDYING),
                 m(0.4F, 0.7F, 2, 1, 3, 1, 1, 1, 1, 1, 1, Items.EMERALD));
 
-
-
         addMobInfo(EntityType.ILLUSIONER,
                 m(0.4F, 0.7F, 2, 1, 3, 1, 1, 1, 1, 1, 1, Items.BOW),
                 m(0.4F, 0.7F, 2, 1, 3, 1, 1, 1, 1, 1, 1, Items.EMERALD));
-
-
 
         addMobInfo(EntityType.RAVAGER,
                 m(0.4F, 0.7F, 2, 1, 3, 1, 1, 1, 1, 1, 1, Items.LEATHER),
                 m(0.4F, 0.7F, 2, 1, 3, 1, 1, 1, 1, 1, 1, Items.SADDLE),
                 m(0.4F, 0.7F, 2, 1, 3, 1, 1, 1, 1, 1, 1, Items.BONE));
 
-
-
         addMobInfo(EntityType.VEX,
                 m(0.4F, 0.7F, 2, 1, 3, 1, 1, 1, 1, 1, 1, Items.IRON_SWORD));
-
-
 
         addMobInfo(EntityType.WITCH,
                 m(0.4F, 0.7F, 2, 1, 3, 1, 1, 1, 1, 1, 1, Items.GUNPOWDER),
                 m(0.4F, 0.7F, 2, 1, 3, 1, 1, 1, 1, 1, 1, Items.REDSTONE),
                 m(0.4F, 0.7F, 2, 1, 3, 1, 1, 1, 1, 1, 1, Items.GLOWSTONE_DUST));
 
-
-
         addMobInfo(EntityType.GUARDIAN,
                 m(0, 0, 2, 1, 0, 0, 0, 0, 0, 0, 0, ItemInit.RAW_MONSTER_MEAT.get(), ItemInit.COOKED_MONSTER_MEAT.get()),
                 m(0, 0, 2, 1, 0, 0, 0, 0, 0, 0, 0, Items.PRISMARINE_SHARD),
                 m(0, 0, 2, 1, 0, 0, 0, 0, 0, 0, 0, Items.PRISMARINE_CRYSTALS));
-
-
 
         addMobInfo(EntityType.ELDER_GUARDIAN,
                 m(0, 0, 2, 1, 0, 0, 0, 0, 0, 0, 0, ItemInit.RAW_MONSTER_MEAT.get(), ItemInit.COOKED_MONSTER_MEAT.get()),
                 m(0, 0, 2, 1, 0, 0, 0, 0, 0, 0, 0, Items.PRISMARINE_SHARD),
                 m(0, 0, 2, 1, 0, 0, 0, 0, 0, 0, 0, Items.PRISMARINE_CRYSTALS));
 
-
-
         addMobInfo(EntityType.PHANTOM,
                 m(0F, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, Items.PHANTOM_MEMBRANE),
                 m(0, 0.7F, 2, 1, 3, 1, 1, 1, 1, 1, 1, Items.BONE));
-
-
 
         addMobInfo(EntityType.WARDEN,
                 m(0.4F, 0.7F, 2, 1, 3, 1, 1, 1, 1, 1, 1, Items.SCULK),
                 m(0.4F, 0.7F, 2, 1, 3, 1, 1, 1, 1, 1, 1, Items.SCULK_CATALYST),
                 m(0.4F, 0.7F, 2, 1, 3, 1, 1, 1, 1, 1, 1, Items.SCULK_SENSOR));
 
-
-
         addMobInfo(EntityType.WITHER,
                 m(0, 0.7F, 2, 1, 3, 1, 1, 1, 1, 1, 1, Items.SOUL_SAND),
                 m(0F, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, Items.NETHER_STAR),
                 m(0, 0.7F, 2, 1, 3, 1, 1, 1, 1, 1, 1, Items.WITHER_SKELETON_SKULL));
-
-
 
         addMobInfo(EntityType.GIANT,
                 m(0, 0.7F, 2, 1, 3, 1, 1, 1, 1, 1, 1, Items.ROTTEN_FLESH),

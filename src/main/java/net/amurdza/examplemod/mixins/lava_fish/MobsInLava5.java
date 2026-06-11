@@ -4,7 +4,6 @@ import com.scouter.netherdepthsupgrade.entity.ai.LavaBoundPathNavigation;
 import net.amurdza.examplemod.lava_fish.LavaFishMoveControl;
 import net.amurdza.examplemod.lava_fish.LavaMobs;
 import net.amurdza.examplemod.lava_fish.LavaSwimmingGoal;
-import net.amurdza.examplemod.lava_fish.RandomLavaSwimmingGoal;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.ai.navigation.PathNavigation;
 import net.minecraft.world.entity.animal.AbstractFish;

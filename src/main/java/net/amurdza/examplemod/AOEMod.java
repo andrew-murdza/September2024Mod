@@ -1,20 +1,20 @@
 package net.amurdza.examplemod;
 
 import com.mojang.logging.LogUtils;
-import net.amurdza.examplemod.block.ModBlocks;
-import net.amurdza.examplemod.entity.ModEntities;
+import net.amurdza.examplemod.registry.ModBlocks;
+import net.amurdza.examplemod.registry.ModEntities;
 import net.amurdza.examplemod.config.BlockGrowthConfig;
-import net.amurdza.examplemod.item.ModItems;
+import net.amurdza.examplemod.registry.ModItems;
 import net.amurdza.examplemod.item.ModToolTiers;
 import net.amurdza.examplemod.mixins.mob_spawning.MobsSpawnOnGlowingMoss;
 import net.amurdza.examplemod.mixins.mob_spawning.MobsSpawnOnGlowingMoss1;
 import net.amurdza.examplemod.worldgen.blockstates.ModBlockStateProviderTypes;
-import net.amurdza.examplemod.worldgen.density_function.AOEDensityFunctions;
-import net.amurdza.examplemod.worldgen.feature.ModFeatures;
-import net.amurdza.examplemod.worldgen.feature.ModTreeDecorators;
-import net.amurdza.examplemod.worldgen.structure.ModStructurePlacementTypes;
-import net.amurdza.examplemod.worldgen.structure.ModStructures;
-import net.amurdza.examplemod.worldgen.surface_rule.ModSurfaceRules;
+import net.amurdza.examplemod.registry.ModDensityFunctions;
+import net.amurdza.examplemod.registry.ModFeatures;
+import net.amurdza.examplemod.registry.ModTreeDecorators;
+import net.amurdza.examplemod.registry.ModStructurePlacementTypes;
+import net.amurdza.examplemod.registry.ModStructures;
+import net.amurdza.examplemod.registry.ModSurfaceRules;
 import net.minecraft.core.Direction;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.CreativeModeTabs;
@@ -47,7 +47,7 @@ public class AOEMod
         // Register ourselves for server and other game events we are interested in
         MinecraftForge.EVENT_BUS.register(this);
 
-        AOEDensityFunctions.register(modEventBus);
+        ModDensityFunctions.register(modEventBus);
 
         // Register the item to a creative tab
         modEventBus.addListener(this::addCreative);
@@ -78,7 +78,6 @@ public class AOEMod
 
     private void commonSetup(final FMLCommonSetupEvent event) {
 //        ModSurfaceRuleConditions.bootstrap();
-        event.enqueueWork(Config::rebuildBiomeMultiplierCache);
         event.enqueueWork(BlockGrowthConfig::init);
         event.enqueueWork(() -> {
 

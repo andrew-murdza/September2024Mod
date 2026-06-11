@@ -1,20 +1,11 @@
 package net.amurdza.examplemod.event_handlers;
 
-import net.amurdza.examplemod.Config;
-import net.amurdza.examplemod.util.Helper;
-import net.minecraft.core.BlockPos;
 import net.minecraft.world.entity.Mob;
-import net.minecraft.world.entity.animal.*;
-import net.minecraft.world.item.DyeColor;
-import net.minecraft.world.item.Item;
-import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.entity.animal.MushroomCow;
 import net.minecraft.world.item.Items;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
-
-import java.util.HashMap;
-import java.util.Map;
 
 import static net.amurdza.examplemod.AOEMod.MOD_ID;
 
@@ -29,24 +20,5 @@ public class ShearingMobs {
                 }
             }
         }
-    }
-    private static final Map<DyeColor, Item> woolMap = new HashMap<>();
-    static {
-        woolMap.put(DyeColor.WHITE, Items.WHITE_WOOL);
-        woolMap.put(DyeColor.ORANGE, Items.ORANGE_WOOL);
-        woolMap.put(DyeColor.MAGENTA, Items.MAGENTA_WOOL);
-        woolMap.put(DyeColor.LIGHT_BLUE, Items.LIGHT_BLUE_WOOL);
-        woolMap.put(DyeColor.YELLOW, Items.YELLOW_WOOL);
-        woolMap.put(DyeColor.LIME, Items.LIME_WOOL);
-        woolMap.put(DyeColor.PINK, Items.PINK_WOOL);
-        woolMap.put(DyeColor.GRAY, Items.GRAY_WOOL);
-        woolMap.put(DyeColor.LIGHT_GRAY, Items.LIGHT_GRAY_WOOL);
-        woolMap.put(DyeColor.CYAN, Items.CYAN_WOOL);
-        woolMap.put(DyeColor.PURPLE, Items.PURPLE_WOOL);
-        woolMap.put(DyeColor.BLUE, Items.BLUE_WOOL);
-        woolMap.put(DyeColor.BROWN, Items.BROWN_WOOL);
-        woolMap.put(DyeColor.GREEN, Items.GREEN_WOOL);
-        woolMap.put(DyeColor.RED, Items.RED_WOOL);
-        woolMap.put(DyeColor.BLACK, Items.BLACK_WOOL);
     }
 }

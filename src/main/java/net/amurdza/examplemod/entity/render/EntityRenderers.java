@@ -1,7 +1,7 @@
 package net.amurdza.examplemod.entity.render;
 
 import net.amurdza.examplemod.AOEMod;
-import net.amurdza.examplemod.entity.ModEntities;
+import net.amurdza.examplemod.registry.ModEntities;
 import net.amurdza.examplemod.entity.model.CubozoaEntityModel;
 import net.amurdza.examplemod.entity.model.EndFishEntityModel;
 import net.amurdza.examplemod.entity.model.SeaSerpentEntityModel;

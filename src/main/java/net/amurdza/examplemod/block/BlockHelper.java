@@ -1,6 +1,7 @@
 package net.amurdza.examplemod.block;
 
 import net.amurdza.examplemod.config.BlockConfig;
+import net.amurdza.examplemod.util.Helper;
 import net.amurdza.examplemod.util.QuadConsumer;
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
@@ -39,7 +40,10 @@ public class BlockHelper {
         }
         else if (pState.getValue(BlockStateProperties.BERRIES)) {
             blockState = pState.setValue(BlockStateProperties.BERRIES,false);
-            Block.popResource(pLevel, pPos, new ItemStack(Items.GLOW_BERRIES, BlockConfig.GLOW_BERRY_HARVEST_AMOUNT));
+            Integer value = Helper.getBiomeValue(pLevel, pPos, BlockConfig.BIOME_TO_MYCELIUM_SPREAD_NUM_TRIES);
+            int count = value != null ? value : 0;
+
+            Block.popResource(pLevel, pPos, new ItemStack(Items.GLOW_BERRIES, count));
             sound=SoundEvents.CAVE_VINES_PICK_BERRIES;
         }
         if(blockState != null){

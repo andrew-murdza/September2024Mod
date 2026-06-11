@@ -1,6 +1,7 @@
 package net.amurdza.examplemod.mixins.growth_rate;
 
 import net.amurdza.examplemod.config.BlockConfig;
+import net.amurdza.examplemod.util.Helper;
 import net.amurdza.examplemod.util.ModTags;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -25,7 +26,8 @@ public abstract class MyceliumBehavior extends MyceliumGrassSpreadRate {
 
     @Override
     public int randomTick1(int constant, BlockState state, ServerLevel world, BlockPos pos, RandomSource random){
-        return BlockConfig.MYCELIUM_SPREAD_NUM_TRIES;
+        Integer value = Helper.getBiomeValue(world, pos, BlockConfig.BIOME_TO_MYCELIUM_SPREAD_NUM_TRIES);
+        return value != null ? value : 0;
     }
     private static boolean canBeGrass(BlockState pState, LevelReader pLevelReader, BlockPos pPos) {
         BlockPos blockpos = pPos.above();

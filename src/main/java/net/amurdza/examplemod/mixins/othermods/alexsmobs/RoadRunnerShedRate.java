@@ -1,8 +1,6 @@
 package net.amurdza.examplemod.mixins.othermods.alexsmobs;
 
-import com.github.alexthe666.alexsmobs.entity.EntityEmu;
 import com.github.alexthe666.alexsmobs.entity.EntityRoadrunner;
-import net.amurdza.examplemod.Config;
 import net.amurdza.examplemod.config.MobConfig;
 import net.amurdza.examplemod.util.Helper;
 import org.spongepowered.asm.mixin.Mixin;

@@ -1,6 +1,6 @@
 package net.amurdza.examplemod.block;
 
-import net.amurdza.examplemod.item.ModItems;
+import net.amurdza.examplemod.registry.ModItems;
 import net.amurdza.examplemod.util.ModTags;
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
