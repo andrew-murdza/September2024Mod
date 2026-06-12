@@ -28,7 +28,7 @@ public abstract class MyceliumGrassSpreadRate extends Block  {
         return 4;
     }
 
-    @Inject(method = "canBeGrass", at=@At(value = "HEAD"),cancellable = true)
+    @Inject(method = "canBeGrass", at=@At(value = "RETURN"),cancellable = true)
     private static void randomTick2(BlockState pState, LevelReader pLevelReader, BlockPos pPos,
                                     CallbackInfoReturnable<Boolean> cir){
         if(cir.getReturnValue()){

@@ -22,6 +22,6 @@ public abstract class MobsSpawnUnderTreesInRainforest {
 
     @Redirect(method = "checkAnimalSpawnRules",at= @At(value = "INVOKE", target = "Lnet/minecraft/world/entity/animal/Animal;isBrightEnoughToSpawn(Lnet/minecraft/world/level/BlockAndTintGetter;Lnet/minecraft/core/BlockPos;)Z"))
     private static boolean hi(BlockAndTintGetter pLevel, BlockPos pPos, EntityType<? extends Animal> pAnimal, LevelAccessor pLevel1, MobSpawnType pSpawnType, BlockPos pPos1, RandomSource pRandom){
-        return isBrightEnoughToSpawn(pLevel,pPos)|| Helper.isSpecialBiome(pLevel1,pPos1);
+        return isBrightEnoughToSpawn(pLevel,pPos) || Helper.isSpecialBiome(pLevel1,pPos1);
     }
 }

@@ -1,8 +1,6 @@
 package net.amurdza.examplemod.event_handlers;
 
-import com.github.alexmodguy.alexscaves.server.entity.ACEntityRegistry;
 import com.github.alexthe666.alexsmobs.entity.AMEntityRegistry;
-import dev.hybridlabs.aquatic.entity.HybridAquaticEntityTypes;
 import net.amurdza.examplemod.AOEMod;
 import net.amurdza.examplemod.mixins.mob_spawning.EntityTypeCategoryAccessor;
 import net.minecraft.world.entity.EntityType;

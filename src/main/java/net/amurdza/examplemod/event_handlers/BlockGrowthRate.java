@@ -26,7 +26,7 @@ import java.util.Map;
 import net.amurdza.examplemod.util.Helper;
 
 @EventBusSubscriber(modid = AOEMod.MOD_ID, bus = EventBusSubscriber.Bus.FORGE)
-public class BlockGrowth {
+public class BlockGrowthRate {
 
     private static final IntegerProperty[] AGE_PROPERTIES = new IntegerProperty[]{
             BlockStateProperties.AGE_1,

@@ -42,7 +42,7 @@ import org.violetmoon.quark.content.world.module.GlimmeringWealdModule;
 import java.util.function.Function;
 
 @Mod.EventBusSubscriber(modid = AOEMod.MOD_ID, bus=Mod.EventBusSubscriber.Bus.FORGE)
-public class BoneMealEvent {
+public class BoneMeal {
 
     @SubscribeEvent
     public static void onRightClickBlock(PlayerInteractEvent.RightClickBlock event) {

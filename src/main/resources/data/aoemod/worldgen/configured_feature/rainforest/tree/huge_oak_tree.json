@@ -1,36 +1,19 @@
 {
-  "type": "aoemod:rainforest_tree",
+  "type": "ohthetreesyoullgrow:tree_from_nbt_v1",
   "config": {
-    "canopy_template": "aoemod:template/rainforest_tree_canopy",
-
-    "log_provider": {
-      "type": "minecraft:simple_state_provider",
-      "state": {
-        "Name": "minecraft:oak_log"
-      }
+    "base_location": "biomeswevegone:features/trees/woodlands/woodlands_tree_large_trunk1",
+    "can_grow_on_filter": {
+      "type": "minecraft:matching_block_tag",
+      "tag": "minecraft:dirt"
     },
-
-    "leaves_provider": {
-      "type": "minecraft:simple_state_provider",
-      "state": {
-        "Name": "minecraft:oak_leaves"
-      }
+    "can_leaves_place_filter": {
+      "type": "minecraft:replaceable"
     },
-
-    "height": {
-      "type": "minecraft:constant",
-      "value": 14
-    },
-
-    "valid_ground": {
-      "type": "minecraft:matching_blocks",
-      "blocks": "minecraft:moss_block"
-    },
-
+    "canopy_location": "biomeswevegone:features/trees/woodlands/woodlands_tree_large_canopy1",
     "decorators": [
       {
-        "type": "aoemod:cave_vines",
-        "berries_probability": 1,
+        "type": "biomeswevegone:glow_berry_decorator",
+        "berries_probability": 1.0,
         "length": {
           "type": "minecraft:uniform",
           "value": {
@@ -39,6 +22,24 @@
           }
         },
         "probability": 0.1
+      },
+      {
+        "type": "ohthetreesyoullgrow:attached_to_logs",
+        "value": {
+          "block_provider": {
+            "type": "minecraft:simple_state_provider",
+            "state": {
+              "Name": "minecraft:moss_carpet"
+            }
+          },
+          "directions": [
+            "up"
+          ],
+          "exclusion_radius_xz": 0,
+          "exclusion_radius_y": 0,
+          "probability": 1.0,
+          "required_empty_blocks": 1
+        }
       },
       {
         "type": "ohthetreesyoullgrow:attached_to_logs",
@@ -74,6 +75,35 @@
         "max_log_y_delta": 2,
         "per_side_chance": 1.0
       }
-    ]
+    ],
+    "height": {
+      "type": "minecraft:biased_to_bottom",
+      "value": {
+        "max_inclusive": 15,
+        "min_inclusive": 5
+      }
+    },
+    "leaves_provider": {
+      "type": "minecraft:simple_state_provider",
+      "state": {
+        "Name": "minecraft:dark_oak_leaves"
+      }
+    },
+    "leaves_target": [
+      "minecraft:oak_leaves"
+    ],
+    "log_provider": {
+      "type": "minecraft:simple_state_provider",
+      "state": {
+        "Name": "minecraft:oak_wood",
+        "Properties": {
+          "axis": "y"
+        }
+      }
+    },
+    "log_target": [
+      "minecraft:oak_log"
+    ],
+    "place_from_nbt": []
   }
 }

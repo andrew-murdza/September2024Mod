@@ -103,7 +103,7 @@ public class Helper {
     }
 
     public static boolean isSpecialBiome(LevelReader level, BlockPos pos){
-        return level.getBiome(pos).is(ModTags.Biomes.tropicalBiomes);//isBiomeNameAtPos(level,pos,Config.SPECIAL_BIOME);
+        return level.getBiome(pos).is(ModTags.Biomes.tropicalBiomes);
     }
 
 

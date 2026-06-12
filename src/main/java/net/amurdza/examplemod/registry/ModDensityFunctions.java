@@ -434,7 +434,7 @@ public final class ModDensityFunctions {
          *
          * Before this, all land is functionally lowland at y=64.
          */
-        private static final double BADLANDS_START = 0.500D;
+        private static final double BADLANDS_START = 0.400D;
         private static final double BADLANDS_END = 1.0D;
 
         /*
@@ -579,9 +579,9 @@ public final class ModDensityFunctions {
          * 0.1 continents = 640 blocks,
          * so 1 block = 0.1 / 640 = 0.00015625 continents.
          */
-        private static final double ONE_BLOCK_CONTINENTS = 0.00015625D;
+        private static final double ONE_BLOCK_CONTINENTS = (double)1/960;
 
-        private static final double NORMAL_RIVER_START = 0.100D;
+        private static final double NORMAL_RIVER_START = 0;
 
         /*
          * Old biome-band boundaries:
@@ -592,10 +592,10 @@ public final class ModDensityFunctions {
          * 0.400 - 0.500 : grove/old mountains, now lowland height
          * 0.500 - 1.000 : badlands/desert
          */
-        private static final double JUNGLE_END = 0.200D;
-        private static final double SAVANNA_END = 0.300D;
-        private static final double MOUNTAIN_START = 0.400D;
-        private static final double BADLANDS_START = 0.500D;
+        private static final double JUNGLE_END = 0.100D;
+        private static final double SAVANNA_END = 0.200D;
+        private static final double MOUNTAIN_START = 0.300D;
+        private static final double BADLANDS_START = 0.400D;
         private static final double BADLANDS_END = 1.0D;
 
         /*
@@ -671,14 +671,7 @@ public final class ModDensityFunctions {
         private static final double BADLANDS_RIVER_RADIUS = NORMAL_RIVER_RADIUS;
         private static final double BADLANDS_RIVER_DEPTH = 6.0D;
 
-        /*
-         * Desert terrace rules:
-         *
-         * - river itself is still radius 40
-         * - then 40 blocks stay flat on each side of the river
-         * - after that, terrain rises at slope 1/2 until halfway between river centers
-         */
-        private static final double BADLANDS_FLAT_AFTER_RIVER = 80.0D;
+        private static final double BADLANDS_FLAT_AFTER_RIVER = 40.0D;
         private static final double BADLANDS_TERRACE_SLOPE = 0.5D;
 
         private static final MapCodec<RadialRivers> DATA_CODEC =

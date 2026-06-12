@@ -28,6 +28,7 @@ public final class MobConfig {
 
     public static final Map<TagKey<Biome>, Map<EntityType<?>, Float>> MOB_AGING_CHANCE_BY_TAG_BY_MOB = new HashMap<>();
     public static final Map<TagKey<Biome>, Map<EntityType<?>, Float>> MOB_BREEDING_CHANCE_BY_TAG_BY_MOB = new HashMap<>();
+    public static final Map<TagKey<Biome>,Float> BIOME_TO_NUGGETS_FROM_ARMOR = new HashMap<>();
 
     public static final Map<Item, Map<TagKey<Biome>, Map<EntityType<?>, Float>>> MOB_DROP_AMOUNT_BY_ITEM_BY_TAG_BY_MOB = new HashMap<>();
     public static final Map<EntityType<?>, MobInfo> MOB_INFO_BY_MOB = new HashMap<>();
@@ -35,6 +36,17 @@ public final class MobConfig {
     public static void init() {
         ensureAllTags(MOB_AGING_CHANCE_BY_TAG_BY_MOB);
         ensureAllTags(MOB_BREEDING_CHANCE_BY_TAG_BY_MOB);
+        BIOME_TO_NUGGETS_FROM_ARMOR.put(ModTags.Biomes.tropicalBiomes,0f);
+        BIOME_TO_NUGGETS_FROM_ARMOR.put(ModTags.Biomes.savannaBiomes,0f);
+        BIOME_TO_NUGGETS_FROM_ARMOR.put(ModTags.Biomes.plainsBiomes,1f);
+        BIOME_TO_NUGGETS_FROM_ARMOR.put(ModTags.Biomes.mountainBiomes,7f);
+        BIOME_TO_NUGGETS_FROM_ARMOR.put(ModTags.Biomes.mushroomCaves,7f);
+        BIOME_TO_NUGGETS_FROM_ARMOR.put(ModTags.Biomes.desertBiomes,3f);
+        BIOME_TO_NUGGETS_FROM_ARMOR.put(ModTags.Biomes.deepDarkBiomes,3f);
+        BIOME_TO_NUGGETS_FROM_ARMOR.put(ModTags.Biomes.soulSandValleyBiomes,1f);
+        BIOME_TO_NUGGETS_FROM_ARMOR.put(ModTags.Biomes.warpedForestBiomes,3f);
+        BIOME_TO_NUGGETS_FROM_ARMOR.put(ModTags.Biomes.crimsonForestBiomes,1f);
+        BIOME_TO_NUGGETS_FROM_ARMOR.put(ModTags.Biomes.basaltDeltasBiomes,1f);
         registerMobInfo();
     }
 
@@ -430,10 +442,10 @@ public final class MobConfig {
                 m(0.8F, 0.6F, 0.2F, 1, 3, 1, 1, 1, 1, 1, 1, Items.SPIDER_EYE));
 
         addMobInfo(EntityType.CAVE_SPIDER,
-                m(0.4F, 0.7F, 2, 1, 3, 1, 1, 1, 1, 1, 1,
+                m(0.1F, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
                         ItemInit.RAW_MONSTER_MEAT.get(), ItemInit.COOKED_MONSTER_MEAT.get()),
-                m(0.4F, 0.7F, 2, 1, 3, 1, 1, 1, 1, 1, 1, Items.STRING),
-                m(1.5F, 0.1F, 0.1F, 0.1F, 1f, 1f, 0.3f, 0.3f, 0.3f, 0.3f, 0.3f,
+                m(4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, Items.STRING),
+                m(1.6F, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
                         Items.SPIDER_EYE));
 
         addMobInfo(EntityType.SILVERFISH);
@@ -461,7 +473,7 @@ public final class MobConfig {
         addMobInfo(EntityType.PIGLIN_BRUTE);
 
         addMobInfo(EntityType.ENDERMAN,
-                m(0, 0, 0, 0, 0.65f, 1.5f, 0, 0, 0, 0.6f, 0, Items.ENDER_PEARL));
+                m(0, 0, 0, 0, 0.65f, 1.5f, 0.1f, 0.2f, 0.3f, 0.6f, 0, Items.ENDER_PEARL));
 
         addMobInfo(EntityType.SHULKER,
                 m(0, 0, 0, 0, 1, 3, 0.1f, 0.1f, 0.1f, 0.1f, 0, Items.SHULKER_SHELL),
@@ -470,102 +482,90 @@ public final class MobConfig {
         addMobInfo(EntityType.ENDER_DRAGON);
 
         addMobInfo(EntityType.PILLAGER,
-                m(0.4F, 0.7F, 2, 1, 3, 1, 1, 1, 1, 1, 1, Items.CROSSBOW),
-                m(0.4F, 0.7F, 2, 1, 3, 1, 1, 1, 1, 1, 1, Items.ARROW),
-                m(0.4F, 0.7F, 2, 1, 3, 1, 1, 1, 1, 1, 1, Items.EMERALD));
+                m(0, 0.02f, 0, 0, 0, 0, 0, 0, 0, 0, 0.08f, Items.CROSSBOW),
+                m(0, 0.25f, 0, 0, 0, 0, 0, 0, 0, 0, 0.5f, Items.ARROW),
+                m(0, 0.125f, 0, 0, 0, 0, 0, 0, 0, 0, 1, Items.EMERALD));
 
         addMobInfo(EntityType.VINDICATOR,
-                m(0.4F, 0.7F, 2, 1, 3, 1, 1, 1, 1, 1, 1, Items.IRON_AXE),
-                m(0.4F, 0.7F, 2, 1, 3, 1, 1, 1, 1, 1, 1, Items.EMERALD));
+                m(0, 0, 0.1f, 0.1f, 0, 0, 0, 0, 0, 0, 0.05f, Items.IRON_AXE),
+                m(0, 0, 0.75f, 0.75f, 0, 0, 0, 0, 0, 0, 0.2f, Items.EMERALD));
 
         addMobInfo(EntityType.EVOKER,
-                m(0.4F, 0.7F, 2, 1, 3, 1, 1, 1, 1, 1, 1, Items.TOTEM_OF_UNDYING),
-                m(0.4F, 0.7F, 2, 1, 3, 1, 1, 1, 1, 1, 1, Items.EMERALD));
+                m(0, 0.05f, 0.3f, 0.3f, 0, 0, 0, 0, 0, 0, 0.6f, Items.TOTEM_OF_UNDYING),
+                m(0, 0, 1.25f, 1.25f, 0, 0, 0, 0, 0, 0, 0.4f, Items.EMERALD));
 
         addMobInfo(EntityType.ILLUSIONER,
-                m(0.4F, 0.7F, 2, 1, 3, 1, 1, 1, 1, 1, 1, Items.BOW),
-                m(0.4F, 0.7F, 2, 1, 3, 1, 1, 1, 1, 1, 1, Items.EMERALD));
+                m(0, 1, 3, 3, 0, 0, 0, 0, 0, 0, 6, Items.EMERALD));
 
         addMobInfo(EntityType.RAVAGER,
-                m(0.4F, 0.7F, 2, 1, 3, 1, 1, 1, 1, 1, 1, Items.LEATHER),
-                m(0.4F, 0.7F, 2, 1, 3, 1, 1, 1, 1, 1, 1, Items.SADDLE),
-                m(0.4F, 0.7F, 2, 1, 3, 1, 1, 1, 1, 1, 1, Items.BONE));
+                m(0, 0.05f, 0.3f, 0.3f, 0, 0, 0, 0, 0, 0, 0.6f, Items.LEATHER),
+                m(0, 1f, 0, 0, 0, 0, 0, 0, 0, 0, 1f, Items.SADDLE),
+                m(0, 1.5f, 1f, 0.5f, 0, 0, 0, 0, 0, 0, 2.5f, Items.BONE));
 
-        addMobInfo(EntityType.VEX,
-                m(0.4F, 0.7F, 2, 1, 3, 1, 1, 1, 1, 1, 1, Items.IRON_SWORD));
+        addMobInfo(EntityType.VEX);
 
         addMobInfo(EntityType.WITCH,
-                m(0.4F, 0.7F, 2, 1, 3, 1, 1, 1, 1, 1, 1, Items.GUNPOWDER),
-                m(0.4F, 0.7F, 2, 1, 3, 1, 1, 1, 1, 1, 1, Items.REDSTONE),
-                m(0.4F, 0.7F, 2, 1, 3, 1, 1, 1, 1, 1, 1, Items.GLOWSTONE_DUST));
+                m(0, 0, 0, 0, 3, 1.5f, 1, 1, 1, 1, 0, Items.GUNPOWDER),
+                m(0, 0, 0, 0, 3, 1.5f, 1, 1, 1, 1, 0, Items.REDSTONE),
+                m(0, 0, 0, 0, 1, 0.4f, 1, 1, 0.35f, 0.3f, 0, Items.GLOWSTONE_DUST));
 
         addMobInfo(EntityType.GUARDIAN,
-                m(0, 0, 2, 1, 0, 0, 0, 0, 0, 0, 0, ItemInit.RAW_MONSTER_MEAT.get(), ItemInit.COOKED_MONSTER_MEAT.get()),
-                m(0, 0, 2, 1, 0, 0, 0, 0, 0, 0, 0, Items.PRISMARINE_SHARD),
-                m(0, 0, 2, 1, 0, 0, 0, 0, 0, 0, 0, Items.PRISMARINE_CRYSTALS));
+                m(0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, ItemInit.RAW_MONSTER_MEAT.get(), ItemInit.COOKED_MONSTER_MEAT.get()),
+                m(0, 0, 3, 3, 0, 0, 0, 0, 0, 0, 0, Items.PRISMARINE_SHARD),
+                m(0, 0, 3, 3, 0, 0, 0, 0, 0, 0, 0, Items.PRISMARINE_CRYSTALS));
 
         addMobInfo(EntityType.ELDER_GUARDIAN,
-                m(0, 0, 2, 1, 0, 0, 0, 0, 0, 0, 0, ItemInit.RAW_MONSTER_MEAT.get(), ItemInit.COOKED_MONSTER_MEAT.get()),
-                m(0, 0, 2, 1, 0, 0, 0, 0, 0, 0, 0, Items.PRISMARINE_SHARD),
-                m(0, 0, 2, 1, 0, 0, 0, 0, 0, 0, 0, Items.PRISMARINE_CRYSTALS));
+                m(0, 0, 4, 4, 0, 0, 0, 0, 0, 0, 0, ItemInit.RAW_MONSTER_MEAT.get(), ItemInit.COOKED_MONSTER_MEAT.get()),
+                m(0, 0, 12, 12, 0, 0, 0, 0, 0, 0, 0, Items.PRISMARINE_SHARD),
+                m(0, 0, 12, 12, 0, 0, 0, 0, 0, 0, 0, Items.PRISMARINE_CRYSTALS));
 
         addMobInfo(EntityType.PHANTOM,
-                m(0F, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, Items.PHANTOM_MEMBRANE),
-                m(0, 0.7F, 2, 1, 3, 1, 1, 1, 1, 1, 1, Items.BONE));
+                m(0, 0, 0, 0, 0.5f, 1, 0.5f, 1, 1, 2, 0, Items.PHANTOM_MEMBRANE),
+                m(0, 0, 0, 0, 0.5f, 0.5f, 0.25f, 0.5f, 0.5f, 1, 0, Items.BONE));
 
         addMobInfo(EntityType.WARDEN,
-                m(0.4F, 0.7F, 2, 1, 3, 1, 1, 1, 1, 1, 1, Items.SCULK),
-                m(0.4F, 0.7F, 2, 1, 3, 1, 1, 1, 1, 1, 1, Items.SCULK_CATALYST),
-                m(0.4F, 0.7F, 2, 1, 3, 1, 1, 1, 1, 1, 1, Items.SCULK_SENSOR));
+                m(0, 0, 0, 0, 8, 16, 1, 2, 4, 8, 0, Items.SCULK),
+                m(0, 0, 0, 0, 2, 4, 0.25f, 0.5f, 1, 2, 0, Items.SCULK_CATALYST),
+                m(0, 0, 0, 0, 2, 4, 0.25f, 0.5f, 1, 2, 0, Items.SCULK_SENSOR));
 
         addMobInfo(EntityType.WITHER,
-                m(0, 0.7F, 2, 1, 3, 1, 1, 1, 1, 1, 1, Items.SOUL_SAND),
-                m(0F, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, Items.NETHER_STAR),
-                m(0, 0.7F, 2, 1, 3, 1, 1, 1, 1, 1, 1, Items.WITHER_SKELETON_SKULL));
+                m(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, Items.SOUL_SAND),
+                m(0, 0, 0, 0, 1, 1, 0.15f, 0.3f, 0.5f, 2, 0, Items.NETHER_STAR),
+                m(0, 0, 0, 0, 1.5f, 3, 0.75f, 1.5f, 3, 6, 0, Items.WITHER_SKELETON_SKULL));
 
         addMobInfo(EntityType.GIANT,
-                m(0, 0.7F, 2, 1, 3, 1, 1, 1, 1, 1, 1, Items.ROTTEN_FLESH),
-                m(0F, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, Items.BONE));
+                m(0, 5, 25, 5, 15, 5, 0, 0, 0, 0, 15, Items.ROTTEN_FLESH, Items.LEATHER),
+                m(0, 0, 10, 2, 6, 2, 0, 0, 0, 0, 6, Items.BONE));
     }
 
     public static float mobGrowthChance(Entity entity) {
-        return mobItemlessValue(entity, 0);
+        MobInfo info = MOB_INFO_BY_MOB.get(entity.getType());
+
+        if (info == null || info.aging() == null) {
+            return -1F;
+        }
+
+        return valueForBiome(entity, info.aging());
     }
 
     public static float mobTwinsChance(Entity entity) {
-        return mobItemlessValue(entity, 1);
-    }
+        MobInfo info = MOB_INFO_BY_MOB.get(entity.getType());
 
-    private static float mobItemlessValue(Entity entity, int itemlessIndex) {
-        List<MobBiomeMultipliers> entries = MOB_INFO_BY_MOB.get(entity.getType()).drops();
-
-        if (entries == null) {
+        if (info == null || info.breeding() == null) {
             return -1F;
         }
 
-        int found = 0;
-
-        for (MobBiomeMultipliers entry : entries) {
-            if (!entry.hasItem()) {
-                if (found == itemlessIndex) {
-                    return valueForBiome(entity, entry);
-                }
-
-                found++;
-            }
-        }
-
-        return -1F;
+        return valueForBiome(entity, info.breeding());
     }
 
     public static float mobAmountForItem(Entity entity, Item item) {
-        List<MobBiomeMultipliers> entries = MOB_INFO_BY_MOB.get(entity.getType()).drops();
+        MobInfo info = MOB_INFO_BY_MOB.get(entity.getType());
 
-        if (entries == null) {
+        if (info == null) {
             return -1F;
         }
 
-        for (MobBiomeMultipliers entry : entries) {
+        for (MobBiomeMultipliers entry : info.drops()) {
             if (entry.hasItem(item)) {
                 return valueForBiome(entity, entry);
             }
@@ -575,13 +575,13 @@ public final class MobConfig {
     }
 
     public static List<MobBiomeMultipliers> mobDropEntries(Entity entity) {
-        List<MobBiomeMultipliers> entries = MOB_INFO_BY_MOB.get(entity.getType()).drops();
+        MobInfo info = MOB_INFO_BY_MOB.get(entity.getType());
 
-        if (entries == null) {
+        if (info == null) {
             return List.of();
         }
 
-        return entries.stream()
+        return info.drops().stream()
                 .filter(MobBiomeMultipliers::hasItem)
                 .toList();
     }
@@ -660,20 +660,24 @@ public final class MobConfig {
 
     private static void addDropMap(EntityType<?> mob, MobBiomeMultipliers multipliers) {
         if (multipliers.item() != null) {
-            Map<TagKey<Biome>, Map<EntityType<?>, Float>> map = MOB_DROP_AMOUNT_BY_ITEM_BY_TAG_BY_MOB.computeIfAbsent(multipliers.item(), item -> {
-                Map<TagKey<Biome>, Map<EntityType<?>, Float>> newMap = new HashMap<>();
-                ensureAllTags(newMap);
-                return newMap;
-            });
+            Map<TagKey<Biome>, Map<EntityType<?>, Float>> map =
+                    MOB_DROP_AMOUNT_BY_ITEM_BY_TAG_BY_MOB.computeIfAbsent(multipliers.item(), item -> {
+                        Map<TagKey<Biome>, Map<EntityType<?>, Float>> newMap = new HashMap<>();
+                        ensureAllTags(newMap);
+                        return newMap;
+                    });
+
             addToMap(map, mob, multipliers);
         }
 
         if (multipliers.cookedItem() != null) {
-            Map<TagKey<Biome>, Map<EntityType<?>, Float>> map = MOB_DROP_AMOUNT_BY_ITEM_BY_TAG_BY_MOB.computeIfAbsent(multipliers.cookedItem(), item -> {
-                Map<TagKey<Biome>, Map<EntityType<?>, Float>> newMap = new HashMap<>();
-                ensureAllTags(newMap);
-                return newMap;
-            });
+            Map<TagKey<Biome>, Map<EntityType<?>, Float>> map =
+                    MOB_DROP_AMOUNT_BY_ITEM_BY_TAG_BY_MOB.computeIfAbsent(multipliers.cookedItem(), item -> {
+                        Map<TagKey<Biome>, Map<EntityType<?>, Float>> newMap = new HashMap<>();
+                        ensureAllTags(newMap);
+                        return newMap;
+                    });
+
             addToMap(map, mob, multipliers);
         }
     }

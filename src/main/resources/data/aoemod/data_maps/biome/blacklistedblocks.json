@@ -1,6 +1,0 @@
-{
-  "values": {
-    "minecraft:plains": ["minecraft:gold_block"],
-    "minecraft:badlands": ["minecraft:diamond_block"]
-  }
-}

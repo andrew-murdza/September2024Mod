@@ -1,0 +1,10 @@
+{
+  "__comment": "Heals when given",
+  "replace": false,
+  "values": [
+    "#minecraft:leaves",
+    "minecraft:sugar_cane",
+    "minecraft:apple",
+    "minecraft:bamboo"
+  ]
+}

@@ -40,7 +40,6 @@
     "block_placement.NyliumOnlySurvivesInBiome",
     "block_placement.SporeBlossomOnLeaves",
     "block_placement.SugarcaneCanGrowWithoutWater",
-    "bonemeal.GlowLichenBoneMealEffectiveness",
     "despawning.ShulkersDespawnPart1",
     "despawning.ShulkersDespawnPart2",
     "disabled.DayTimeDoesntHurtMobs",
@@ -85,7 +84,7 @@
     "mob_spawning.MobsSpawnUnderTreesInRainforest",
     "mob_spawning.MooshroomCanSpawnInDarkness",
     "mob_spawning.SlimeSpawnsLikeMonsters",
-    "mob_spawning.StridersSpawnOnMoss",
+    "mob_spawning.StridersSpawnOnlyOnNylium",
     "mob_spawning.TurtlesSpawnInWater",
     "monoxide.BottlesAndStewsStackTo64",
     "monoxide.ReplaceSpawnDimension",
@@ -160,8 +159,7 @@
     "worldgen.MultiNoiseBiomeSourceLayeredNetherMixin",
     "worldgen.NoHangingVinesGen",
     "worldgen.RandomCollectionMixin",
-    "worldgen.TreeFeatureNeedsSolidGround",
-    "worldgen.VineGenerator"
+    "worldgen.TreeFeatureNeedsSolidGround"
   ],
   "minVersion": "0.8.5",
   "client": [

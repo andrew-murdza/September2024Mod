@@ -1,53 +1,56 @@
 {
-  "features": [
-    { "feature": "aoemod:rainforest/tree/huge_dark_oak_tree" },
-    { "feature": "aoemod:rainforest/tree/huge_azalea_tree" },
-    { "feature": "aoemod:rainforest/tree/huge_jungle_tree" },
-    { "feature": "aoemod:rainforest/tree/huge_mangrove_tree" },
-    { "feature": "aoemod:rainforest/tree/huge_cherry_tree" },
-    { "feature": "aoemod:rainforest/tree/huge_oak_tree" },
+  "type": "aoemod:grid_choice",
+  "config": {
+    "features": [
+      { "feature": "aoemod:rainforest/tree/huge_dark_oak_tree" },
+      { "feature": "aoemod:rainforest/tree/huge_azalea_tree" },
+      { "feature": "aoemod:rainforest/tree/huge_jungle_tree" },
+      { "feature": "aoemod:rainforest/tree/huge_mangrove_tree" },
+      { "feature": "aoemod:rainforest/tree/huge_cherry_tree" },
+      { "feature": "aoemod:rainforest/tree/huge_oak_tree" },
 
-    { "feature": "aoemod:rainforest/tree/huge_jungle_tree" },
-    { "feature": "aoemod:rainforest/tree/huge_mangrove_tree" },
-    { "feature": "aoemod:rainforest/tree/huge_cherry_tree" },
-    { "feature": "aoemod:rainforest/tree/huge_oak_tree" },
-    { "feature": "aoemod:rainforest/tree/huge_dark_oak_tree" },
-    { "feature": "aoemod:rainforest/tree/huge_azalea_tree" },
+      { "feature": "aoemod:rainforest/tree/huge_jungle_tree" },
+      { "feature": "aoemod:rainforest/tree/huge_mangrove_tree" },
+      { "feature": "aoemod:rainforest/tree/huge_cherry_tree" },
+      { "feature": "aoemod:rainforest/tree/huge_oak_tree" },
+      { "feature": "aoemod:rainforest/tree/huge_dark_oak_tree" },
+      { "feature": "aoemod:rainforest/tree/huge_azalea_tree" },
 
-    { "feature": "aoemod:rainforest/tree/huge_cherry_tree" },
-    { "feature": "aoemod:rainforest/tree/huge_oak_tree" },
-    { "feature": "aoemod:rainforest/tree/huge_dark_oak_tree" },
-    { "feature": "aoemod:rainforest/tree/huge_azalea_tree" },
-    { "feature": "aoemod:rainforest/tree/huge_jungle_tree" },
-    { "feature": "aoemod:rainforest/tree/huge_mangrove_tree" },
+      { "feature": "aoemod:rainforest/tree/huge_cherry_tree" },
+      { "feature": "aoemod:rainforest/tree/huge_oak_tree" },
+      { "feature": "aoemod:rainforest/tree/huge_dark_oak_tree" },
+      { "feature": "aoemod:rainforest/tree/huge_azalea_tree" },
+      { "feature": "aoemod:rainforest/tree/huge_jungle_tree" },
+      { "feature": "aoemod:rainforest/tree/huge_mangrove_tree" },
 
-    { "feature": "aoemod:rainforest/tree/huge_dark_oak_tree" },
-    { "feature": "aoemod:rainforest/tree/huge_azalea_tree" },
-    { "feature": "aoemod:rainforest/tree/huge_jungle_tree" },
-    { "feature": "aoemod:rainforest/tree/huge_mangrove_tree" },
-    { "feature": "aoemod:rainforest/tree/huge_cherry_tree" },
-    { "feature": "aoemod:rainforest/tree/huge_oak_tree" },
+      { "feature": "aoemod:rainforest/tree/huge_dark_oak_tree" },
+      { "feature": "aoemod:rainforest/tree/huge_azalea_tree" },
+      { "feature": "aoemod:rainforest/tree/huge_jungle_tree" },
+      { "feature": "aoemod:rainforest/tree/huge_mangrove_tree" },
+      { "feature": "aoemod:rainforest/tree/huge_cherry_tree" },
+      { "feature": "aoemod:rainforest/tree/huge_oak_tree" },
 
-    { "feature": "aoemod:rainforest/tree/huge_jungle_tree" },
-    { "feature": "aoemod:rainforest/tree/huge_mangrove_tree" },
-    { "feature": "aoemod:rainforest/tree/huge_cherry_tree" },
-    { "feature": "aoemod:rainforest/tree/huge_oak_tree" },
-    { "feature": "aoemod:rainforest/tree/huge_dark_oak_tree" },
-    { "feature": "aoemod:rainforest/tree/huge_azalea_tree" },
+      { "feature": "aoemod:rainforest/tree/huge_jungle_tree" },
+      { "feature": "aoemod:rainforest/tree/huge_mangrove_tree" },
+      { "feature": "aoemod:rainforest/tree/huge_cherry_tree" },
+      { "feature": "aoemod:rainforest/tree/huge_oak_tree" },
+      { "feature": "aoemod:rainforest/tree/huge_dark_oak_tree" },
+      { "feature": "aoemod:rainforest/tree/huge_azalea_tree" },
 
-    { "feature": "aoemod:rainforest/tree/huge_cherry_tree" },
-    { "feature": "aoemod:rainforest/tree/huge_oak_tree" },
-    { "feature": "aoemod:rainforest/tree/huge_dark_oak_tree" },
-    { "feature": "aoemod:rainforest/tree/huge_azalea_tree" },
-    { "feature": "aoemod:rainforest/tree/huge_jungle_tree" },
-    { "feature": "aoemod:rainforest/tree/huge_mangrove_tree" }
-  ],
-  "default_feature": "aoemod:nothing",
-  "offset_type": "corner",
-  "placement": [
-    {
-      "type": "minecraft:heightmap",
-      "heightmap": "OCEAN_FLOOR"
-    }
-  ]
+      { "feature": "aoemod:rainforest/tree/huge_cherry_tree" },
+      { "feature": "aoemod:rainforest/tree/huge_oak_tree" },
+      { "feature": "aoemod:rainforest/tree/huge_dark_oak_tree" },
+      { "feature": "aoemod:rainforest/tree/huge_azalea_tree" },
+      { "feature": "aoemod:rainforest/tree/huge_jungle_tree" },
+      { "feature": "aoemod:rainforest/tree/huge_mangrove_tree" }
+    ],
+    "default_feature": "aoemod:nothing",
+    "offset_type": "corner",
+    "placement": [
+      {
+        "type": "minecraft:heightmap",
+        "heightmap": "OCEAN_FLOOR"
+      }
+    ]
+  }
 }

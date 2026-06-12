@@ -23,14 +23,14 @@ import java.util.Objects;
 public class FluidsNotPlaceableInWrongBiomes {
     @Redirect(method = "emptyContents(Lnet/minecraft/world/entity/player/Player;Lnet/minecraft/world/level/Level;Lnet/minecraft/core/BlockPos;Lnet/minecraft/world/phys/BlockHitResult;Lnet/minecraft/world/item/ItemStack;)Z",at= @At(value = "INVOKE", target = "Lnet/minecraft/world/level/dimension/DimensionType;ultraWarm()Z"))
     private boolean hi(DimensionType instance, @Nullable Player pPlayer, Level pLevel, BlockPos pPos, @Nullable BlockHitResult pResult, @Nullable ItemStack container){
-        return september2024Mod$shouldPrevent(pLevel,pPos,container);
+        return aoemod$shouldPrevent(pLevel,pPos,container);
     }
     @Redirect(method = "emptyContents(Lnet/minecraft/world/entity/player/Player;Lnet/minecraft/world/level/Level;Lnet/minecraft/core/BlockPos;Lnet/minecraft/world/phys/BlockHitResult;Lnet/minecraft/world/item/ItemStack;)Z",at= @At(value = "INVOKE", target = "Lnet/minecraft/world/level/material/Fluid;is(Lnet/minecraft/tags/TagKey;)Z"))
     private boolean hi(Fluid instance, TagKey<Fluid> pTag, @Nullable Player pPlayer, Level pLevel, BlockPos pPos, @Nullable BlockHitResult pResult, @Nullable ItemStack container){
-        return september2024Mod$shouldPrevent(pLevel,pPos,container);
+        return aoemod$shouldPrevent(pLevel,pPos,container);
     }
     @Unique
-    private boolean september2024Mod$shouldPrevent(Level pLevel, BlockPos pPos, @Nullable ItemStack container){
+    private boolean aoemod$shouldPrevent(Level pLevel, BlockPos pPos, @Nullable ItemStack container){
         if (pLevel.getBiome(pPos).is(ModTags.Biomes.tropicalBiomes) && Objects.requireNonNull(container).is(Items.LAVA_BUCKET))
             return true;
         if (!pLevel.getBiome(pPos).is(ModTags.Biomes.netherBiomes)) return false;

@@ -23,6 +23,8 @@ public class SlimeSpawnsLikeMonsters {
     public static boolean checkSlimeSpawnRules(EntityType<Slime> pSlime, LevelAccessor pLevel, MobSpawnType pSpawnType, BlockPos pPos, RandomSource pRandom){
         if(!(pLevel instanceof ServerLevelAccessor serverLevelAccessor))
             return false;
-        return pLevel.getDifficulty() != Difficulty.PEACEFUL && Monster.isDarkEnoughToSpawn(serverLevelAccessor, pPos, pRandom) && Mob.checkMobSpawnRules(pSlime, pLevel, pSpawnType, pPos, pRandom);
+        return pLevel.getDifficulty() != Difficulty.PEACEFUL
+                && Monster.isDarkEnoughToSpawn(serverLevelAccessor, pPos, pRandom)
+                && Mob.checkMobSpawnRules(pSlime, pLevel, pSpawnType, pPos, pRandom);
     }
 }

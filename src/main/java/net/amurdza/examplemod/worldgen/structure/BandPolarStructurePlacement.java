@@ -121,11 +121,11 @@ public class BandPolarStructurePlacement extends StructurePlacement {
     }
 
     private static double continentsToPhaseA(double continents) {
-        return MAX_CONTINENTS * 10.0D - continents * 10.0D;
+        return continents * 10.0D;
     }
 
     private static double continentsToPhaseB(double continents) {
-        return MAX_CONTINENTS * 10.0D + continents * 10.0D;
+        return 10.0D - continents * 10.0D;
     }
 
     private static double cleanNearZero(double value) {

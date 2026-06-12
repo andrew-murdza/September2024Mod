@@ -79,6 +79,7 @@ public abstract class MultiNoiseBiomeSourceLayeredNetherMixin {
          * the density/noise-router values used by the JSON.
          */
         int blockZ = z * 4;
+        y *= 4;
 
         double cyclePos = (blockZ % 9600.0D)/960.0D;
         double continentalness = 0.5D - 0.1D * Math.abs(cyclePos - 5.0D);

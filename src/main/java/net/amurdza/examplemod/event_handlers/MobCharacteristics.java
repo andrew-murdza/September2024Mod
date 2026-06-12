@@ -48,47 +48,56 @@ public class MobCharacteristics {
             else if(mob instanceof Frog){
                 ((Frog) mob).setVariant(Helper.select(level,FrogVariant.COLD,FrogVariant.TEMPERATE,FrogVariant.WARM));
             }
-//            else if(mob instanceof Rabbit){
-//                ((Rabbit)mob).setVariant(Rabbit.Variant.byId(level.random.nextInt(5)));
-//            }
-//            else if(mob instanceof Fox){
-//                Method setFoxType=Fox.class.getDeclaredMethod("setVariant", Fox.Type.class);
-//                setFoxType.setAccessible(true);
-//                setFoxType.invoke(mob,Helper.select(level,Fox.Type.RED,Fox.Type.SNOW));
-//            }
             else if(mob instanceof Llama){
                 Method setStrength=Llama.class.getDeclaredMethod("setStrength",int.class);
                 setStrength.setAccessible(true);
                 setStrength.invoke(mob,5);
-                mob.getAttribute(Attributes.MAX_HEALTH).setBaseValue(MobStatsConfig.LLAMA_HEALTH);
+                Integer hp = Helper.getBiomeValue(mob.level(),mob.blockPosition(),MobStatsConfig.BIOME_TO_LLAMA_HEALTH);
+                if(hp!= null){
+                    mob.getAttribute(Attributes.MAX_HEALTH).setBaseValue(hp);
+                }
+
+                Float speed = Helper.getBiomeValue(mob.level(),mob.blockPosition(),MobStatsConfig.BIOME_TO_LLAMA_SPEED);
+                if(speed!= null){
+                    mob.getAttribute(Attributes.MOVEMENT_SPEED).setBaseValue(speed);
+                }
             }
             else if(mob instanceof Horse){
-                mob.getAttribute(Attributes.MAX_HEALTH).setBaseValue(MobStatsConfig.HORSE_HEALTH);
-                mob.getAttribute(Attributes.MOVEMENT_SPEED).setBaseValue(MobStatsConfig.HORSE_SPEED);
-                mob.getAttribute(Attributes.JUMP_STRENGTH).setBaseValue(MobStatsConfig.HORSE_JUMP_STRENGTH);
+                Integer value = Helper.getBiomeValue(mob.level(),mob.blockPosition(),MobStatsConfig.BIOME_TO_HORSE_HEALTH);
+                if(value!= null){
+                    mob.getAttribute(Attributes.MAX_HEALTH).setBaseValue(value);
+                }
+
+                Float speed = Helper.getBiomeValue(mob.level(),mob.blockPosition(),MobStatsConfig.BIOME_TO_HORSE_SPEED);
+                if(speed != null){
+                    mob.getAttribute(Attributes.MOVEMENT_SPEED).setBaseValue(speed);
+                }
+
+                Float jumpStrength = Helper.getBiomeValue(mob.level(),mob.blockPosition(),MobStatsConfig.BIOME_TO_HORSE_JUMP_STRENGTH);
+                if(jumpStrength != null){
+                    mob.getAttribute(Attributes.JUMP_STRENGTH).setBaseValue(jumpStrength);
+                }
             }
             else if(mob instanceof Donkey|| mob instanceof Mule){
-                mob.getAttribute(Attributes.MAX_HEALTH).setBaseValue(MobStatsConfig.DONKEY_HEALTH);
-                mob.getAttribute(Attributes.MOVEMENT_SPEED).setBaseValue(MobStatsConfig.DONKEY_SPEED);
-                mob.getAttribute(Attributes.JUMP_STRENGTH).setBaseValue(MobStatsConfig.DONKEY_JUMP_STRENGTH);
+                Integer value = Helper.getBiomeValue(mob.level(),mob.blockPosition(),MobStatsConfig.BIOME_TO_DONKEY_HEALTH);
+                if(value!= null){
+                    mob.getAttribute(Attributes.MAX_HEALTH).setBaseValue(value);
+                }
+
+                Float speed = Helper.getBiomeValue(mob.level(),mob.blockPosition(),MobStatsConfig.BIOME_TO_DONKEY_SPEED);
+                if(speed != null){
+                    mob.getAttribute(Attributes.MOVEMENT_SPEED).setBaseValue(speed);
+                }
+
+                Float jumpStrength = Helper.getBiomeValue(mob.level(),mob.blockPosition(),MobStatsConfig.BIOME_TO_DONKEY_JUMP_STRENGTH);
+                if(jumpStrength != null){
+                    mob.getAttribute(Attributes.JUMP_STRENGTH).setBaseValue(jumpStrength);
+                }
             }
             if(mob instanceof MushroomCow){
                 Method setMushroomType=MushroomCow.class.getDeclaredMethod("setVariant", MushroomCow.MushroomType.class);
                 setMushroomType.setAccessible(true);
                 setMushroomType.invoke(mob, Helper.select(level,MushroomCow.MushroomType.RED,MushroomCow.MushroomType.BROWN));
-            }
-            if(mob instanceof Crab crab){
-                Holder<Biome> biome=level.getBiome(pos);
-                int variant=0;
-                if(biome.is(ModTags.Biomes.tropicalBiomes)){
-                    variant=mob.getRandom().nextInt(3);
-                }
-                else if(biome.is(ModTags.Biomes.mountainBiomes)||biome.is(ModTags.Biomes.mushroomCaves)){
-                    variant=mob.getRandom().nextInt(2);
-                }
-                Field variantField = Crab.class.getDeclaredField("VARIANT");
-                variantField.setAccessible(true);
-                crab.getEntityData().set((EntityDataAccessor<Integer>) variantField.get(crab), variant);
             }
         }
     }

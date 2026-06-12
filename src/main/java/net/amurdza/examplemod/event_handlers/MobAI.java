@@ -2,11 +2,7 @@ package net.amurdza.examplemod.event_handlers;
 
 import com.github.alexthe666.alexsmobs.entity.*;
 import com.github.alexthe666.alexsmobs.entity.ai.*;
-import com.github.alexthe666.alexsmobs.item.AMItemRegistry;
-import com.github.alexthe666.iceandfire.entity.EntityPixie;
 import com.github.alexthe666.iceandfire.entity.EntitySiren;
-import com.github.alexthe666.iceandfire.entity.ai.PixieAIFlee;
-import com.github.alexthe666.iceandfire.entity.ai.PixieAISteal;
 import net.amurdza.examplemod.AOEMod;
 import net.amurdza.examplemod.util.ModTags;
 import net.minecraft.tags.TagKey;
@@ -32,7 +28,6 @@ import net.minecraftforge.event.entity.EntityJoinLevelEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import org.violetmoon.quark.content.mobs.ai.RaveGoal;
-import org.violetmoon.quark.content.mobs.entity.Crab;
 
 import java.lang.reflect.Field;
 import java.util.ArrayList;
@@ -69,7 +64,7 @@ public class MobAI {
                 } else if (entity instanceof Parrot) {
                     addTempt(1, mob, Items.WHEAT_SEEDS, Items.BEETROOT_SEEDS, Items.MELON_SEEDS, Items.PUMPKIN_SEEDS, Items.APPLE);
                     //parrot breeding
-                    addBreeding(0, mob);
+                    addBreeding(mob);
                 }
                 else if (entity instanceof MushroomCow) {
                     addTempt(mob, ModTags.Items.mushrooms);
@@ -80,30 +75,6 @@ public class MobAI {
                 else if(entity instanceof Frog) {
                     addTempt(mob, Items.SEAGRASS);
                 }
-                else if(entity instanceof EntityJerboa){
-                    addTempt(mob,Items.DEAD_BUSH,Items.GRASS,Items.FERN);
-                    addTempt(mob, ModTags.Items.smallerFlowers);
-                }
-                else if(entity instanceof EntityRoadrunner||entity instanceof EntityBlueJay||entity instanceof EntityMudskipper
-                        ||entity instanceof EntityPotoo){
-                    addTempt(mob, ModTags.Items.rawFish);
-                }
-                else if(entity instanceof EntityRainFrog){
-                    addTempt(mob, Items.SEAGRASS);
-                }
-                else if(entity instanceof EntityMoose){
-                    addTempt(mob, ModTags.Items.smallerFlowers);
-                }
-                else if(entity instanceof EntityKangaroo){
-                    addTempt(mob, Items.FERN);
-                }
-                else if(mob instanceof EntityCapuchinMonkey){
-                    addTempt(mob,AMItemRegistry.BANANA.get());
-                }
-                else if(mob instanceof EntityBananaSlug){
-                    addTempt(mob,ModTags.Items.mushrooms);
-                }
-
                 //Protect Turtle
                 if (entity instanceof Zombie) {
                     removeAI(mob, Class.forName("net.minecraft.world.entity.monster.Zombie$ZombieAttackTurtleEggGoal"));
@@ -117,10 +88,6 @@ public class MobAI {
                     removeAI(mob,Class.forName("net.minecraft.world.entity.animal.Rabbit$RaidGardenGoal"));
                 }
 
-                //Make passive and not running away
-                //Goat Ramming requires brain
-                //Axotol hunting passive fish will be fixed with the datapack and requires brain
-                //Piglin brute not attacking players with gold armor requires brain
                 if(mob instanceof Animal || mob instanceof WaterAnimal || mob instanceof EntitySiren){
                     //Vanilla
                     removeAI(mob, NearestAttackableTargetGoal.class, AvoidEntityGoal.class,
@@ -133,44 +100,10 @@ public class MobAI {
                     //Quark
                     removeAI(mob, RaveGoal.class);
                 }
-//                if (entity instanceof CherryShrimp){
-//                    removeAI(mob,
-//                            Class.forName("superlord.cherry_shrimp.common.entity.CherryShrimp$ShrimpAvoidEntityGoal"),
-//                            Class.forName("superlord.cherry_shrimp.common.entity.CherryShrimp$ShrimpPanicGoal"));
-//                }
-                else if(entity instanceof EntitySkelewag){
-                    removeAI(MobAI::removeDolphinAttack,mob);
-                }
-                else if(entity instanceof EntityGiantSquid){
-                    removeAI(mob, Class.forName("com.github.alexthe666.alexsmobs.entity.EntityGiantSquid$AIAvoidWhales"));
-                }
-                else if(entity instanceof EntityGrizzlyBear){
-                    removeAI(mob,
-                            Class.forName("com.github.alexthe666.alexsmobs.entity.EntityGrizzlyBear$AttackPlayerGoal"));
-                }
-                else if(entity instanceof EntityAnteater){
-                    removeAI(mob, AnteaterAIRaidNest.class,
-                            Class.forName("com.github.alexthe666.alexsmobs.entity.EntityAnteater$AITargetAnts"));
-                }
                 else if(entity instanceof EntityBison){
                     removeAI(mob,
                             Class.forName("com.github.alexthe666.alexsmobs.entity.EntityBison$AIAttackNearPlayers"),
                             Class.forName("com.github.alexthe666.alexsmobs.entity.EntityBison$AIChargeFurthest"));
-                }
-                else if(entity instanceof EntityLeafcutterAnt){
-                    removeAI(mob, Class.forName("com.github.alexthe666.alexsmobs.entity.EntityLeafcutterAnt$AngerGoal"));
-                }
-                else if(entity instanceof EntityRaccoon){
-                    removeAI(mob, Class.forName("com.github.alexthe666.alexsmobs.entity.EntityRaccoon$AIStealFromVillagers"));
-                }
-                else if(entity instanceof EntityRattlesnake){
-                    removeAI(mob, Class.forName("com.github.alexthe666.alexsmobs.entity.EntityRattlesnake$ShortDistanceTarget"));
-                }
-                else if(entity instanceof EntityRhinoceros){
-                    removeAI(mob, Class.forName("com.github.alexthe666.alexsmobs.entity.EntityRhinoceros$AIAttackNearPlayers"));
-                }
-                else if(entity instanceof EntityPixie){
-                    removeAI(mob, PixieAIFlee.class, PixieAISteal.class);
                 }
                 else if(entity instanceof Bee){
                     removeAI(p->true,mob.targetSelector);
@@ -190,11 +123,8 @@ public class MobAI {
                             Class.forName("net.minecraft.world.entity.animal.Fox$PerchAndSearchGoal"),
                             Class.forName("net.minecraft.world.entity.animal.Fox$StalkPreyGoal"));
                 }
-
-
-
                 //Make Hostile
-                else if(mob instanceof ZombifiedPiglin|| mob instanceof EntityBunfungus || mob instanceof EntityEnderiophage){
+                else if(mob instanceof ZombifiedPiglin){
                     makeHostileToPlayers(mob);
                 }
             }
@@ -219,30 +149,11 @@ public class MobAI {
         return false;
     }
 
-    private static boolean removeDolphinAttack(Goal goal) {
-        Field getTargetType;
-        if(goal instanceof NearestAttackableTargetGoal){
-            try {
-                getTargetType=NearestAttackableTargetGoal.class.getDeclaredField("targetType");
-                getTargetType.setAccessible(true);
-                return getTargetType.get(goal)== Dolphin.class;
-            } catch (NoSuchFieldException e) {
-                e.printStackTrace();
-            } catch (IllegalAccessException e) {
-                throw new RuntimeException(e);
-            }
-        }
-        return false;
-    }
-
     private static void makeHostileToPlayers(PathfinderMob mob){
         new NearestAttackableTargetGoal<>(mob, Player.class, true);
     }
     private static void addBreeding(PathfinderMob mob) {
-        addBreeding(2,mob);
-    }
-    private static void addBreeding(int priority,PathfinderMob mob) {
-        mob.goalSelector.addGoal(priority, new BreedGoal((Animal) mob, 1.0D));
+        mob.goalSelector.addGoal(0, new BreedGoal((Animal) mob, 1.0D));
     }
     private static void addTempt(PathfinderMob mob, Item... items){
         addTempt(3,mob,items);
@@ -250,18 +161,15 @@ public class MobAI {
     private static void addTempt(int priority,PathfinderMob mob, Item... items){
         mob.goalSelector.addGoal(priority, new TemptGoal(mob, 1.0D, Ingredient.of(items), false));
     }
-    private static void addTempt(int priority, PathfinderMob mob, TagKey<Item> tagKey){
-        mob.goalSelector.addGoal(priority, new TemptGoal(mob, 1.0D, Ingredient.of(tagKey), false));
-    }
     private static void addTempt(PathfinderMob mob, TagKey<Item> tagKey){
-        addTempt(3,mob,tagKey);
+        mob.goalSelector.addGoal(3, new TemptGoal(mob, 1.0D, Ingredient.of(tagKey), false));
     }
     private static void removeAI(Predicate<Goal> shouldRemove, PathfinderMob mob){
         removeAI(shouldRemove,mob.goalSelector);
         removeAI(shouldRemove,mob.targetSelector);
     }
-    private static void removeAI(PathfinderMob mob,Class... classes){
-        for(Class class1:classes){
+    private static void removeAI(PathfinderMob mob,Class<?>... classes){
+        for(Class<?> class1:classes){
             removeAI(p->p.getClass()==class1,mob);
         }
     }

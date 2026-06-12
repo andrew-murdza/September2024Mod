@@ -80,6 +80,18 @@ public class RainforestTreeFeature extends Feature<RainforestTreeFeatureConfig> 
 
         Set<BlockPos> logPositions = new HashSet<>();
         Set<BlockPos> leafPositions = new HashSet<>();
+        // Place trunk here
+        for (int y = 0; y < trunkHeight; y++) {
+            for (int dx = 0; dx <= 1; dx++) {
+                for (int dz = 0; dz <= 1; dz++) {
+                    BlockPos trunkPos = origin.offset(dx, y, dz);
+                    BlockState trunkState = config.logProvider().getState(random, trunkPos);
+
+                    level.setBlock(trunkPos, trunkState, 19);
+                    logPositions.add(trunkPos.immutable());
+                }
+            }
+        }
 
         StructurePlaceSettings settings = new StructurePlaceSettings()
                 .setIgnoreEntities(true);
