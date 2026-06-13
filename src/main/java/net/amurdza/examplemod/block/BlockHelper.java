@@ -1,6 +1,6 @@
 package net.amurdza.examplemod.block;
 
-import net.amurdza.examplemod.config.BlockConfig;
+import net.amurdza.examplemod.config.BlockBehaviorConfig;
 import net.amurdza.examplemod.util.Helper;
 import net.amurdza.examplemod.util.QuadConsumer;
 import net.minecraft.core.BlockPos;
@@ -40,7 +40,7 @@ public class BlockHelper {
         }
         else if (pState.getValue(BlockStateProperties.BERRIES)) {
             blockState = pState.setValue(BlockStateProperties.BERRIES,false);
-            Integer value = Helper.getBiomeValue(pLevel, pPos, BlockConfig.BIOME_TO_MYCELIUM_SPREAD_NUM_TRIES);
+            Integer value = Helper.getBiomeValue(pLevel, pPos, BlockBehaviorConfig.BIOME_TO_MYCELIUM_SPREAD_NUM_TRIES);
             int count = value != null ? value : 0;
 
             Block.popResource(pLevel, pPos, new ItemStack(Items.GLOW_BERRIES, count));
@@ -58,7 +58,7 @@ public class BlockHelper {
     public static void spreadMushroom(BlockState state, ServerLevel level, BlockPos pos, RandomSource random,
                                         QuadConsumer<ServerLevel,BlockPos,BlockState,RandomSource> growMushroom){
         if (ForgeHooks.onCropsGrowPre(level,pos,state,random.nextInt(25)==0)) {
-            int i = BlockConfig.MAX_MUSHROOMS_FOR_GROWTH;
+            int i = BlockBehaviorConfig.MAX_MUSHROOMS_FOR_GROWTH;
 
             for (BlockPos scanPos : BlockPos.betweenClosed(pos.offset(-4, -1, -4), pos.offset(4, 1, 4))) {
                 if (level.getBlockState(scanPos).is(state.getBlock())) {

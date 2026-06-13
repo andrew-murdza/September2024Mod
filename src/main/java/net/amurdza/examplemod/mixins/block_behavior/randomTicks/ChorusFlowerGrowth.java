@@ -1,6 +1,6 @@
 package net.amurdza.examplemod.mixins.block_behavior.randomTicks;
 
-import net.amurdza.examplemod.config.BlockConfig;
+import net.amurdza.examplemod.config.BlockBehaviorConfig;
 import net.amurdza.examplemod.util.Helper;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -146,7 +146,7 @@ public abstract class ChorusFlowerGrowth extends Block {
 
         if (canGrowUp && allNeighborsEmpty(level, above, null) && level.isEmptyBlock(pos.above(2))) {
             level.setBlock(pos, this.plant.getStateForPlacement(level, pos), 2);
-            int newAge = Helper.withChance(level, BlockConfig.PLACE_CHORUS_FLOWER_CHANCE)
+            int newAge = Helper.withChance(level, BlockBehaviorConfig.PLACE_CHORUS_FLOWER_CHANCE)
                     ? age - 1
                     : age;
             placeGrownFlower(level, above, Math.max(0, newAge));
