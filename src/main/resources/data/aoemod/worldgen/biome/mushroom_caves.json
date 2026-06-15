@@ -30,13 +30,20 @@
     [],
     [
       "aoemod:blobs/mountain_stone_variants",
-      "aoemod:mountains/ores/iron_ore",
-      "aoemod:mountains/ores/copper_ore",
-      "aoemod:mountains/ores/coal_ore",
-      "aoemod:mountains/ores/lapis_ore",
-      "aoemod:mountains/ores/diamond_ore",
-      "aoemod:mountains/ores/gold_ore",
-      "aoemod:mountains/ores/emerald_ore",
+      "aoemod:mountains/ores/iron_upper",
+      "aoemod:mountains/ores/copper_upper",
+      "aoemod:mountains/ores/coal_upper",
+      "aoemod:mountains/ores/lapis_upper",
+      "aoemod:mountains/ores/diamond_upper",
+      "aoemod:mountains/ores/gold_upper",
+      "aoemod:mountains/ores/emerald_upper",
+      "aoemod:mountains/ores/iron_lower",
+      "aoemod:mountains/ores/copper_lower",
+      "aoemod:mountains/ores/coal_lower",
+      "aoemod:mountains/ores/lapis_lower",
+      "aoemod:mountains/ores/diamond_lower",
+      "aoemod:mountains/ores/gold_lower",
+      "aoemod:mountains/ores/emerald_lower",
       "aoemod:mushroom_caves/ores/coal_ore_extra"
     ],
     [],
@@ -72,22 +79,34 @@
     "misc": [],
     "monster": [
       {
-        "type": "iceandfire:troll",
-        "weight": 10,
-        "minCount": 2,
-        "maxCount": 2
-      },
-      {
         "type": "minecraft:stray",
         "maxCount": 4,
         "minCount": 4,
         "weight": 100
       },
       {
-        "type": "minecraft:guardian",
-        "weight": 15,
+        "type": "minecraft:drowned",
+        "maxCount": 4,
         "minCount": 4,
-        "maxCount": 4
+        "weight": 100
+      },
+      {
+        "type": "iceandfire:troll",
+        "weight": 20,
+        "minCount": 2,
+        "maxCount": 2
+      },
+      {
+        "type": "iceandfire:dread_knight",
+        "maxCount": 4,
+        "minCount": 4,
+        "weight": 20
+      },
+      {
+        "type": "iceandfire:dread_lich",
+        "maxCount": 4,
+        "minCount": 4,
+        "weight": 20
       }
     ],
     "underground_water_creature": [

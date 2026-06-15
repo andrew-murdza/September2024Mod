@@ -5,15 +5,6 @@
       "type": "minecraft:weighted_state_provider",
       "entries": [
         {
-          "weight": 2,
-          "data": {
-            "Name": "biomeswevegone:japanese_orchid",
-            "Properties": {
-              "half": "lower"
-            }
-          }
-        },
-        {
           "weight": 1,
           "data": {
             "Name": "minecraft:lilac",

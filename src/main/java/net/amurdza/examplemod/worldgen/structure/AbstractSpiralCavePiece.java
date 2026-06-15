@@ -1,5 +1,6 @@
 package net.amurdza.examplemod.worldgen.structure;
 
+import net.amurdza.examplemod.AOEMod;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.Holder;
@@ -36,6 +37,9 @@ public abstract class AbstractSpiralCavePiece extends StructurePiece {
 
     protected final float liquidDepth;
     protected final float liquidRadius;
+
+    protected final double pillarCenterX;
+    protected final double pillarCenterZ;
 
     protected final HolderSet<PlacedFeature> placedFeatures;
 
@@ -74,6 +78,15 @@ public abstract class AbstractSpiralCavePiece extends StructurePiece {
         this.liquidDepth = liquidDepth;
         this.liquidRadius = liquidRadius;
         this.placedFeatures = placedFeatures;
+
+        double pathRadius = getPathRadius(
+                horizontalRadius,
+                centralPillarDiameter,
+                liquidRadius
+        );
+
+        this.pillarCenterX = origin.getX();
+        this.pillarCenterZ = origin.getZ() + pathRadius;
     }
 
     protected AbstractSpiralCavePiece(
@@ -109,6 +122,15 @@ public abstract class AbstractSpiralCavePiece extends StructurePiece {
          * should be read from the config/registry instead.
          */
         this.placedFeatures = HolderSet.direct();
+
+        double pathRadius = getPathRadius(
+                horizontalRadius,
+                centralPillarDiameter,
+                liquidRadius
+        );
+
+        this.pillarCenterX = origin.getX();
+        this.pillarCenterZ = origin.getZ() + pathRadius;
     }
 
     @Override
@@ -119,7 +141,10 @@ public abstract class AbstractSpiralCavePiece extends StructurePiece {
         tag.putInt("OriginX", this.origin.getX());
         tag.putInt("OriginY", this.origin.getY());
         tag.putInt("OriginZ", this.origin.getZ());
+
         tag.putInt("EndY", this.endY);
+        tag.putInt("EndX", this.endX); // <-- missing
+
         tag.putLong("Seed", this.seed);
 
         tag.putFloat("HorizontalRadius", this.horizontalRadius);
@@ -246,7 +271,7 @@ public abstract class AbstractSpiralCavePiece extends StructurePiece {
         float tunnelHorizontalRadius = getTunnelHorizontalRadius();
 
         double pathRadius = this.centralPillarDiameter * 0.5D + tunnelHorizontalRadius;
-        double turnPerStep = turnPerStepForPathRadius(pathRadius);
+        double turnPerStep = -turnPerStepForPathRadius(pathRadius);
 
         double stepsPerTurn = (Math.PI * 2.0D) / Math.abs(turnPerStep);
 
@@ -256,18 +281,18 @@ public abstract class AbstractSpiralCavePiece extends StructurePiece {
         double minDropPerStep = requiredVerticalSeparation / stepsPerTurn;
         minDropPerStep = Mth.clamp(minDropPerStep, 0.01D, 0.85D);
 
-        double yaw = Math.PI * 0.5D;
+        double yaw = 3 * Math.PI * 0.5D;
         double y = this.origin.getY();
 
-        double lastX = this.origin.getX() + Math.cos(yaw) * pathRadius;
+        double lastX = this.pillarCenterX + Math.cos(yaw) * pathRadius;
         double lastY = y;
-        double lastZ = this.origin.getZ() + Math.sin(yaw) * pathRadius;
+        double lastZ = this.pillarCenterZ + Math.sin(yaw) * pathRadius;
 
         int maxSteps = 4096;
 
         for (int step = 0; step < maxSteps; step++) {
-            double x = this.origin.getX() + Math.cos(yaw) * pathRadius;
-            double z = this.origin.getZ() + Math.sin(yaw) * pathRadius;
+            double x = this.pillarCenterX + Math.cos(yaw) * pathRadius;
+            double z = this.pillarCenterZ + Math.sin(yaw) * pathRadius;
 
             if (wouldBottomOfEllipsoidCarveIntoTargetYPlusOne(y)) {
                 break;
@@ -287,7 +312,7 @@ public abstract class AbstractSpiralCavePiece extends StructurePiece {
 
         double finalFluidCenterY = lastY - this.verticalRadius - 1.0D;
 
-        continueSurfaceRiverNegativeX(
+        continueSurfaceRiverPositiveX(
                 level,
                 box,
                 lastX,
@@ -296,9 +321,23 @@ public abstract class AbstractSpiralCavePiece extends StructurePiece {
         );
 
         placePlacedFeaturesForCurrentStructureChunk(level, generator, chunkPos);
+
+        AOEMod.LOGGER.info(
+                "postProcess chunk=({}, {}), passedBox=[{}..{}, {}..{}], pieceBox=[{}..{}, {}..{}]",
+                chunkPos.x,
+                chunkPos.z,
+                box.minX(),
+                box.maxX(),
+                box.minZ(),
+                box.maxZ(),
+                this.getBoundingBox().minX(),
+                this.getBoundingBox().maxX(),
+                this.getBoundingBox().minZ(),
+                this.getBoundingBox().maxZ()
+        );
     }
 
-    protected void continueSurfaceRiverNegativeX(
+    protected void continueSurfaceRiverPositiveX(
             WorldGenLevel level,
             BoundingBox box,
             double startX,
@@ -309,10 +348,10 @@ public abstract class AbstractSpiralCavePiece extends StructurePiece {
             return;
         }
 
-        double targetX = this.origin.getX() - this.endX;
+        double targetX = startX + this.endX;
         int maxClearY = this.origin.getY();
 
-        for (double centerX = startX; centerX >= targetX; centerX -= 1.0D) {
+        for (double centerX = startX; centerX <= targetX; centerX += 1.0D) {
             carveStraightRiverColumn(level, box, centerX, fluidCenterY, centerZ, maxClearY);
         }
     }
@@ -424,19 +463,61 @@ public abstract class AbstractSpiralCavePiece extends StructurePiece {
             int endY,
             int endX
     ) {
-        float tunnelHorizontalRadius = horizontalRadius + liquidRadius;
+        double tunnelHorizontalRadius = horizontalRadius + liquidRadius;
 
-        int totalRadius = Mth.ceil(centralPillarDiameter * 0.5F + 2.0F * tunnelHorizontalRadius);
+        double pathRadius = getPathRadius(
+                horizontalRadius,
+                centralPillarDiameter,
+                liquidRadius
+        );
+
+        double pillarCenterX = origin.getX();
+        double pillarCenterZ = origin.getZ() + pathRadius;
+
+        double spiralOuterRadius = pathRadius + tunnelHorizontalRadius;
+
+        int padding = 3;
+
+        int spiralMinX = Mth.floor(pillarCenterX - spiralOuterRadius) - padding;
+        int spiralMaxX = Mth.ceil(pillarCenterX + spiralOuterRadius) + padding;
+        int spiralMinZ = Mth.floor(pillarCenterZ - spiralOuterRadius) - padding;
+        int spiralMaxZ = Mth.ceil(pillarCenterZ + spiralOuterRadius) + padding;
+
+        int minX = spiralMinX;
+        int maxX = spiralMaxX;
+        int minZ = spiralMinZ;
+        int maxZ = spiralMaxZ;
+
+        if (endX > 0 && liquidRadius > 0.0F) {
+            int riverPadding = Mth.ceil(liquidRadius) + padding;
+
+            minX = Math.min(minX, spiralMinX - riverPadding);
+            maxX = Math.max(maxX, spiralMaxX + endX + riverPadding);
+
+            minZ = Math.min(minZ, spiralMinZ - riverPadding);
+            maxZ = Math.max(maxZ, spiralMaxZ + riverPadding);
+        }
+
+        AOEMod.LOGGER.info(
+                "Spiral box: origin=({}, {}, {}), pillar=({}, {}), pathRadius={}, tunnelRadius={}, outerRadius={}, box=[{}..{}, {}..{}]",
+                origin.getX(), origin.getY(), origin.getZ(),
+                pillarCenterX, pillarCenterZ,
+                pathRadius,
+                tunnelHorizontalRadius,
+                spiralOuterRadius,
+                minX, maxX,
+                minZ, maxZ
+        );
 
         int maxY = origin.getY() + Mth.ceil(verticalRadius) + 48;
 
         return new BoundingBox(
-                origin.getX() - 3 - Mth.ceil(Math.max(totalRadius, liquidRadius + endX)),
+                minX,
                 endY,
-                origin.getZ() - totalRadius - 3,
-                origin.getX() + totalRadius + 3,
+                minZ,
+                maxX,
                 maxY,
-                origin.getZ() + totalRadius + 3
+                maxZ
         );
     }
 
@@ -480,6 +561,15 @@ public abstract class AbstractSpiralCavePiece extends StructurePiece {
                     chunkOrigin
             );
         }
+    }
+
+    protected static double getPathRadius(
+            float horizontalRadius,
+            float centralPillarDiameter,
+            float liquidRadius
+    ) {
+        float tunnelHorizontalRadius = horizontalRadius + liquidRadius;
+        return centralPillarDiameter * 0.5D + tunnelHorizontalRadius;
     }
 
     protected long getPlacedFeatureSeed(ChunkPos chunkPos, int featureIndex) {

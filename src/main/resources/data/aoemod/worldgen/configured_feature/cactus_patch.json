@@ -19,18 +19,12 @@
         {
           "type": "minecraft:block_predicate_filter",
           "predicate": {
-            "type": "minecraft:matching_blocks",
-            "blocks": [
-              "minecraft:air",
-              "minecraft:cave_air",
-              "minecraft:void_air"
-            ]
+            "type": "minecraft:replaceable"
           }
         }
       ]
     },
-    "count": 4,
-    "xz_spread": 8,
+    "count": 8,
     "y_spread": 0
   }
 }

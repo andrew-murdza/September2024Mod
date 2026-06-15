@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smoking",
+  "ingredient": {
+    "item": "minecraft:pufferfish"
+  },
+  "result": "aoemod:cooked_pufferfish",
+  "experience": 0.35,
+  "cookingtime": 100
+}

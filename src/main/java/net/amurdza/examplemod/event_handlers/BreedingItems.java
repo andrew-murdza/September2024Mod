@@ -1,7 +1,7 @@
 package net.amurdza.examplemod.event_handlers;
 
-import com.github.alexthe666.alexsmobs.entity.*;
-import com.github.alexthe666.alexsmobs.item.AMItemRegistry;
+import com.github.alexthe666.alexsmobs.entity.EntityGorilla;
+import com.github.alexthe666.alexsmobs.entity.EntityMoose;
 import net.amurdza.examplemod.util.ModTags;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.entity.Entity;
@@ -21,7 +21,6 @@ import net.minecraft.world.level.gameevent.GameEvent;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
-import vectorwing.farmersdelight.common.registry.ModItems;
 
 import java.util.Arrays;
 import java.util.function.Function;

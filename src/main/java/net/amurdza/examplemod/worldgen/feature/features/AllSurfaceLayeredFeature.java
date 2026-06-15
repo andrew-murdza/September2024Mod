@@ -165,7 +165,7 @@ public class AllSurfaceLayeredFeature extends Feature<AllSurfaceLayeredFeaturesC
             placedAnything |= result.placedAnything();
 
             if (result.foundLayer() && result.skipHeight() > 0) {
-                y -= result.skipHeight() + 1;
+                y -= result.skipHeight();
             } else {
                 y--;
             }

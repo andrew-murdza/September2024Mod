@@ -12,18 +12,14 @@
       { "feature": "aoemod:cactus_patch" },
       { "feature": "aoemod:flowers/rainforest/cornflower_patch" },
       { "feature": "aoemod:flowers/rainforest/lilac_patch" },
-      { "feature": "aoemod:flowers/rainforest/cyan_amaranth_patch" },
       { "feature": "aoemod:flowers/rainforest/flowering_azalea_patch" },
-      { "feature": "aoemod:flowers/rainforest/cyan_tulip_patch" },
 
       { "feature": "aoemod:mushrooms/red_mushroom_patch" },
       { "feature": "aoemod:flowers/rainforest/dandelion_patch" },
       { "feature": "aoemod:flowers/rainforest/big_dripleaf_patch" },
-      { "feature": "aoemod:flowers/rainforest/fire_lily_patch" },
       { "feature": "aoemod:flowers/rainforest/peony_patch" },
       { "feature": "aoemod:flowers/rainforest/lily_of_the_valley_patch" },
 
-      { "feature": "aoemod:flowers/rainforest/orange_amaranth_patch" },
       { "feature": "aoemod:mushrooms/brown_mushroom_patch" },
       { "feature": "aoemod:flowers/rainforest/orange_tulip_patch" },
       { "feature": "aoemod:flowers/rainforest/pitcher_plant_patch" },
@@ -31,7 +27,7 @@
       { "feature": "aoemod:flowers/rainforest/small_dripleaf_patch" },
 
       { "feature": "aoemod:flowers/rainforest/pink_petals_patch" },
-      { "feature": "aoemod:crops/rainforest/jungle_sweet_berry_bush_patch" },
+      { "feature": "aoemod:crops/rainforest/sweet_berry_bush_patch" },
       { "feature": "aoemod:flowers/rainforest/pink_tulip_patch" },
       { "feature": "aoemod:mushrooms/red_mushroom_patch" },
       { "feature": "aoemod:flowers/rainforest/poppy_patch" },
@@ -39,11 +35,9 @@
 
       { "feature": "aoemod:flowers/rainforest/red_tulip_patch" },
       { "feature": "aoemod:flowers/rainforest/torchflower_patch" },
-      { "feature": "aoemod:flowers/rainforest/japanese_orchid_patch" },
-      { "feature": "aoemod:flowers/rainforest/white_allium_patch" },
-      { "feature": "aoemod:flowers/rainforest/white_tulip_patch" },
-      { "feature": "aoemod:flowers/rainforest/japanese_orchid_patch" }
+      { "feature": "aoemod:flowers/rainforest/white_tulip_patch" }
     ],
+    "offset_type": "center",
     "placement": []
   }
 }

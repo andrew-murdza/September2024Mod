@@ -38,7 +38,7 @@ public class EmusShedFeathers {
         }
         float multiplier = MobConfig.mobGrowthChance(emu);
         int count = Helper.computeIncrements(emu.getRandom(),multiplier);
-        this.aoemod$featherTime =- count;
+        this.aoemod$featherTime -= count;
 
         if (this.aoemod$featherTime <= 0) {
             if(count >0){

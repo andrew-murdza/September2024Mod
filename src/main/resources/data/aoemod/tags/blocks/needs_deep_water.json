@@ -2,9 +2,8 @@
   "values": [
     "#minecraft:coral_plants",
     "minecraft:tall_seagrass",
-    "alexscaves:ping_pong_sponge",
     "nether_depths_upgrade:tall_crimson_seagrass",
     "nether_depths_upgrade:tall_warped_seagrass",
-    "wet_sponge"
+    "minecraft:wet_sponge"
   ]
 }

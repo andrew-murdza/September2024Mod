@@ -97,25 +97,7 @@
     "misc": [],
     "monster": [
       {
-        "type": "alexsmobs:centipede_head",
-        "weight": 10,
-        "minCount": 2,
-        "maxCount": 5
-      },
-      {
-        "type": "iceandfire:gorgon",
-        "weight": 5,
-        "minCount": 1,
-        "maxCount": 2
-      },
-      {
         "type": "minecraft:spider",
-        "weight": 100,
-        "minCount": 4,
-        "maxCount": 4
-      },
-      {
-        "type": "minecraft:cave_spider",
         "weight": 100,
         "minCount": 4,
         "maxCount": 4
@@ -125,6 +107,18 @@
         "weight": 100,
         "minCount": 4,
         "maxCount": 4
+      },
+      {
+        "type": "minecraft:cave_spider",
+        "weight": 20,
+        "minCount": 4,
+        "maxCount": 4
+      },
+      {
+        "type": "alexsmobs:centipede_head",
+        "weight": 20,
+        "minCount": 2,
+        "maxCount": 2
       }
     ],
     "underground_water_creature": [],

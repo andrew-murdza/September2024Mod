@@ -19,8 +19,8 @@
         ],
         "target": "air",
         "skip_height": 30,
-        "min_y": 1,
-        "max_y": 31,
+        "min_y": 33,
+        "max_y": 56,
         "all_layers": true,
         "predicate": {
           "type": "minecraft:matching_blocks",
@@ -29,7 +29,7 @@
       },
       {
         "feature": {
-          "feature": "aoemod:soul_sand_valley/floor/grass",
+          "feature": "aoemod:soul_sand_valley/floor/forest_floor",
           "placement": []
         },
         "guaranteed_features": [
@@ -40,8 +40,8 @@
         ],
         "target": "air",
         "skip_height": 30,
-        "min_y": -31,
-        "max_y": 0,
+        "min_y": 9,
+        "max_y": 32,
         "all_layers": true,
         "predicate": {
           "type": "minecraft:matching_block_tag",
@@ -61,8 +61,8 @@
         ],
         "target": "air",
         "skip_height": 30,
-        "min_y": -63,
-        "max_y": -32,
+        "min_y": -15,
+        "max_y": 8,
         "all_layers": true,
         "predicate": {
           "type": "minecraft:matching_blocks",
@@ -86,8 +86,8 @@
         ],
         "target": "air",
         "skip_height": 30,
-        "min_y": -95,
-        "max_y": -64,
+        "min_y": -39,
+        "max_y": -16,
         "all_layers": true,
         "predicate": {
           "type": "minecraft:matching_blocks",
@@ -101,7 +101,7 @@
         },
         "target": "air",
         "skip_height": 30,
-        "max_y": -96,
+        "max_y": -40,
         "all_layers": true,
         "predicate": {
           "type": "minecraft:matching_block_tag",

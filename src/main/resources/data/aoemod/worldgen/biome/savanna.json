@@ -124,16 +124,22 @@
         "weight": 100
       },
       {
-        "type": "minecraft:spider",
+        "type": "born_in_chaos_v1:senor_pumpkin",
         "maxCount": 4,
         "minCount": 4,
         "weight": 100
       },
       {
-        "type": "minecraft:slime",
+        "type": "born_in_chaos_v1:sir_pumpkinhead",
         "maxCount": 4,
         "minCount": 4,
-        "weight": 100
+        "weight": 20
+      },
+      {
+        "type": "born_in_chaos_v1:lord_pumpkinhead",
+        "maxCount": 1,
+        "minCount": 1,
+        "weight": 1
       }
     ],
     "underground_water_creature": [

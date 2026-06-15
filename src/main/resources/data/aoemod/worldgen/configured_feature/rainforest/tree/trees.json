@@ -45,7 +45,7 @@
       { "feature": "aoemod:rainforest/tree/huge_mangrove_tree" }
     ],
     "default_feature": "aoemod:nothing",
-    "offset_type": "corner",
+    "offset_type": "center",
     "placement": [
       {
         "type": "minecraft:heightmap",

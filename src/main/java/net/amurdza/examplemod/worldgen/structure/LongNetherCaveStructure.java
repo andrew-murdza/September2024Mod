@@ -7,6 +7,7 @@ import net.amurdza.examplemod.registry.ModStructures;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.HolderSet;
 import net.minecraft.util.ExtraCodecs;
+import net.minecraft.util.Mth;
 import net.minecraft.world.level.ChunkPos;
 import net.minecraft.world.level.levelgen.placement.PlacedFeature;
 import net.minecraft.world.level.levelgen.structure.Structure;
@@ -64,7 +65,7 @@ public class LongNetherCaveStructure extends Structure {
                                     .fieldOf("end_y")
                                     .forGetter(s -> s.endY),
 
-                            ExtraCodecs.POSITIVE_INT
+                            Codec.INT
                                     .fieldOf("end_x")
                                     .forGetter(s -> s.endX),
 
@@ -168,9 +169,11 @@ public class LongNetherCaveStructure extends Structure {
     public @NotNull Optional<GenerationStub> findGenerationPoint(GenerationContext context) {
         ChunkPos chunkPos = context.chunkPos();
 
+        int tunnelStartY = this.startY + Mth.ceil(this.verticalRadius + 1.5F);
+
         BlockPos origin = new BlockPos(
-                chunkPos.getMiddleBlockX()+this.endX,
-                this.startY,
+                chunkPos.getMiddleBlockX() - this.endX,
+                tunnelStartY,
                 chunkPos.getMiddleBlockZ()
         );
 

@@ -7,42 +7,6 @@
         {
           "weight": 1,
           "data": {
-            "Name": "iceandfire:fire_lily"
-          }
-        },
-        {
-          "weight": 1,
-          "data": {
-            "Name": "biomeswevegone:cyan_tulip"
-          }
-        },
-        {
-          "weight": 1,
-          "data": {
-            "Name": "biomeswevegone:purple_tulip"
-          }
-        },
-        {
-          "weight": 1,
-          "data": {
-            "Name": "biomeswevegone:cyan_amaranth"
-          }
-        },
-        {
-          "weight": 1,
-          "data": {
-            "Name": "biomeswevegone:orange_amaranth"
-          }
-        },
-        {
-          "weight": 1,
-          "data": {
-            "Name": "biomeswevegone:white_allium"
-          }
-        },
-        {
-          "weight": 1,
-          "data": {
             "Name": "minecraft:poppy"
           }
         },

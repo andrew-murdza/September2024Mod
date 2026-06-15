@@ -55,21 +55,14 @@
       {
         "type": "minecraft:hoglin",
         "maxCount": 4,
-        "minCount": 3,
+        "minCount": 4,
         "weight": 10
       }
     ],
     "misc": [],
     "monster": [],
     "underground_water_creature": [],
-    "water_ambient": [
-      {
-        "type": "blue_skies:charscale_moki",
-        "weight": 5,
-        "minCount": 2,
-        "maxCount": 2
-      }
-    ],
+    "water_ambient": [],
     "water_creature": []
   },
   "temperature": 2

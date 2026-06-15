@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smoking",
+  "ingredient": {
+    "item": "aoemod:raw_squid"
+  },
+  "result": "aoemod:cooked_squid",
+  "experience": 0.35,
+  "cookingtime": 100
+}

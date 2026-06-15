@@ -210,7 +210,8 @@ public class NetherCavePiece extends AbstractSpiralCavePiece {
             BlockPos sculkPos = carvedPos.relative(direction);
             BlockState sculkState = level.getBlockState(sculkPos);
 
-            if (!isNaturalReplaceableSurface(level, sculkPos, sculkState)) {
+            if (!isNaturalReplaceableSurface(level, sculkPos, sculkState)
+                    || getLayerAtY(sculkPos.getY()) != NetherLayer.DEEP_DARK) {
                 continue;
             }
 

@@ -6,9 +6,10 @@
     }
   ],
   "placement": {
-    "type": "aoemod:band_polar",
-    "target_band_pos": 0.45,
-    "x_start": 36.0,
-    "x_spacing": 960.0
+    "type": "aoemod:z_bands",
+    "target_continents": 0.45,
+    "biome_width": 60,
+    "x_start": 0,
+    "x_spacing": 60
   }
 }

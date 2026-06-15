@@ -7,23 +7,11 @@
       "type": "minecraft:multi_noise",
       "biomes": [
         {
-          "biome": "aoemod:warm_ocean",
-          "parameters": {
-            "temperature": [-0.6, 0.6],
-            "humidity": [-1, 1],
-            "continentalness": [0, 0.1],
-            "erosion": [-1, 1],
-            "weirdness": [-1, 1],
-            "depth": [-1, 1],
-            "offset": 0
-          }
-        },
-        {
           "biome": "aoemod:jungle",
           "parameters": {
             "temperature": [-0.6, 0.6],
             "humidity": [-1, 1],
-            "continentalness": [0.1, 0.2],
+            "continentalness": [0, 0.2],
             "erosion": [-1, 1],
             "weirdness": [-1, 1],
             "depth": [-1, 1],

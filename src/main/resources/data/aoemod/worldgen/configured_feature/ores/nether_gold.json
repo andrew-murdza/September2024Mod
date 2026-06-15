@@ -39,6 +39,15 @@
         "state": {
           "Name": "aoemod:soul_soil_gold_ore"
         }
+      },
+      {
+        "target": {
+          "predicate_type": "minecraft:block_match",
+          "block": "minecraft:soul_sand"
+        },
+        "state": {
+          "Name": "aoemod:soul_sand_gold_ore"
+        }
       }
     ]
   }

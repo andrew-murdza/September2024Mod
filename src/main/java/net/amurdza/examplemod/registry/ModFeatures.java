@@ -32,7 +32,7 @@ public class ModFeatures {
         FEATURES.register("rainforest_tree", ()->new RainforestTreeFeature(RainforestTreeFeatureConfig.CODEC));
         FEATURES.register("cave_vines", ()->new CaveVineColumn(CaveVineConfig.CODEC));
         FEATURES.register("sugar_cane", ()->new SugarCaneFeature(NoneFeatureConfiguration.CODEC));
-        FEATURES.register("chunk_patch", ()->new FixedCountChunkFeature(FixedCountRandomPatchConfiguration.CODEC));
+        FEATURES.register("chunk_patch", ()->new FixedCountChunkFeature(FixedCountChunkPatchConfiguration.CODEC));
     }
 
     public static void register(IEventBus eventBus){

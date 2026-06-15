@@ -1,6 +1,8 @@
 package net.amurdza.examplemod;
 
 import com.mojang.logging.LogUtils;
+import net.amurdza.examplemod.config.BlockConfig;
+import net.amurdza.examplemod.config.MobConfig;
 import net.amurdza.examplemod.registry.ModBlocks;
 import net.amurdza.examplemod.registry.ModEntities;
 import net.amurdza.examplemod.config.BlockGrowthConfig;
@@ -80,6 +82,9 @@ public class AOEMod
 //        ModSurfaceRuleConditions.bootstrap();
         event.enqueueWork(BlockGrowthConfig::init);
         event.enqueueWork(() -> {
+            BlockConfig.init();
+            MobConfig.init();
+
 
             BlockBehaviour.Properties props =
                     ((MobsSpawnOnGlowingMoss1) Blocks.MOSS_BLOCK).getProperties();
@@ -94,10 +99,16 @@ public class AOEMod
     private void addCreative(BuildCreativeModeTabContentsEvent event) {
         var tab = event.getTabKey();
 
-        // NATURAL BLOCKS (plants, vegetation, ores-as-natural, etc.)
+// NATURAL BLOCKS (plants, vegetation, ores-as-natural, etc.)
         if (tab == CreativeModeTabs.NATURAL_BLOCKS) {
 
             event.accept(ModItems.SOUL_BERRIES.get());
+
+            event.accept(ModItems.CARROT_SEEDS.get());
+            event.accept(ModItems.POTATO_SEEDS.get());
+            event.accept(ModItems.ONION_SEEDS.get());
+            event.accept(ModItems.RICE_SEEDS.get());
+
             event.accept(ModBlocks.DESERT_GRASS.get());
             event.accept(ModBlocks.DESERT_TALL_GRASS.get());
 
@@ -106,25 +117,61 @@ public class AOEMod
             event.accept(ModBlocks.BASALT_GOLD_ORE.get());
             event.accept(ModBlocks.BLACKSTONE_GOLD_ORE.get());
             event.accept(ModBlocks.SOUL_SOIL_GOLD_ORE.get());
+            event.accept(ModBlocks.SOUL_SAND_GOLD_ORE.get());
+            event.accept(ModBlocks.SOUL_SOIL_QUARTZ_ORE.get());
+            event.accept(ModBlocks.SOUL_SAND_QUARTZ_ORE.get());
         }
 
-        // FOOD AND DRINKS
+// FOOD AND DRINKS
         if (tab == CreativeModeTabs.FOOD_AND_DRINKS) {
             event.accept(ModItems.SOUL_BERRIES.get());
 
-            // fish & seafood (raw)
+            //Raw Meat
+            event.accept(ModItems.RAW_FOX.get());
+            event.accept(ModItems.RAW_SQUIRREL.get());
+            event.accept(ModItems.RAW_MOOSE.get());
+            event.accept(ModItems.RAW_WARPED_TOAD.get());
+
+            // raw seafood
+            event.accept(ModItems.RAW_SQUID.get());
+            event.accept(ModItems.RAW_GLOW_SQUID.get());
+            event.accept(ModItems.RAW_ARROW_SQUID.get());
             event.accept(ModItems.END_FISH.get());
             event.accept(ModItems.CUBOZOA.get());
 
+            //Cooked Meat
+            event.accept(ModItems.COOKED_FOX.get());
+            event.accept(ModItems.COOKED_SQUIRREL.get());
+            event.accept(ModItems.COOKED_MOOSE.get());
+            event.accept(ModItems.COOKED_WARPED_TOAD.get());
+
             // cooked seafood
             event.accept(ModItems.COOKED_PUFFERFISH.get());
+            event.accept(ModItems.COOKED_TROPICAL_FISH.get());
+            event.accept(ModItems.COOKED_SQUID.get());
             event.accept(ModItems.COOKED_END_FISH.get());
             event.accept(ModItems.COOKED_CUBOZOA.get());
+            event.accept(ModItems.COOKED_ARROW_SQUID.get());
 
-            //Other
+            // pies
+            event.accept(ModItems.MELON_PIE.get());
+            event.accept(ModItems.GLOW_BERRY_PIE.get());
+            event.accept(ModItems.PEAR_PIE.get());
+            event.accept(ModItems.BANANA_PIE.get());
+            event.accept(ModItems.PLUM_PIE.get());
+            event.accept(ModItems.CHERRY_PIE.get());
+
+            // other
+            event.accept(ModItems.ORANGE_JUICE.get());
             event.accept(ModItems.SOUL_BERRY_COOKIE.get());
             event.accept(ModItems.CHORUS_BREAD.get());
-            event.accept(ModItems.GLOW_BERRY_JUICE.get());
+            event.accept(ModItems.NETHER_FUNGUS_STEW.get());
+
+            // fruit
+            event.accept(ModItems.PEAR.get());
+            event.accept(ModItems.PLUM.get());
+            event.accept(ModItems.ORANGE.get());
+            event.accept(ModItems.CHERRIES.get());
         }
 
         // TOOLS AND UTILITIES
@@ -155,8 +202,7 @@ public class AOEMod
 
     // You can use SubscribeEvent and let the Event Bus discover methods to call
     @SubscribeEvent
-    public void onServerStarting(ServerStartingEvent event)
-    {
+    public void onServerStarting(ServerStartingEvent event) {
 
     }
 
@@ -170,8 +216,7 @@ public class AOEMod
 
     // You can use EventBusSubscriber to automatically register all static methods in the class annotated with @SubscribeEvent
     @Mod.EventBusSubscriber(modid = MOD_ID, bus = Mod.EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
-    public static class ClientModEvents
-    {
+    public static class ClientModEvents {
         @SubscribeEvent
         public static void onClientSetup(FMLClientSetupEvent event) {
 

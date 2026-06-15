@@ -1,20 +1,9 @@
 {
-  "type": "aoemod:radial_rivers",
-  "x0": {
-    "type": "minecraft:constant",
-    "argument": 0.0
-  },
-  "z0": {
-    "type": "minecraft:constant",
-    "argument": 0.0
-  },
+  "type": "aoemod:rivers",
+  "x0": 0,
+  "z0": 0,
   "continents": "aoemod:continents",
-  "period": {
-    "type": "minecraft:constant",
-    "argument": 9600.0
-  },
-  "arc_spacing": {
-    "type": "minecraft:constant",
-    "argument": 480.0
-  }
+  "biome_width": 60,
+  "width": 6,
+  "x_spacing": 30
 }

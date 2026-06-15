@@ -1,13 +1,10 @@
 package net.amurdza.examplemod.event_handlers;
 
 import net.amurdza.examplemod.AOEMod;
-import net.amurdza.examplemod.config.BlockGrowthConfig;
-import net.amurdza.examplemod.util.ModTags;
+import net.amurdza.examplemod.config.BlockConfig;
+import net.amurdza.examplemod.util.Helper;
 import net.minecraft.core.BlockPos;
-import net.minecraft.core.Holder;
 import net.minecraft.server.level.ServerLevel;
-import net.minecraft.tags.TagKey;
-import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.CropBlock;
@@ -20,10 +17,6 @@ import net.minecraftforge.eventbus.api.Event;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
 import samebutdifferent.ecologics.registry.ModBlocks;
-
-import java.util.Map;
-
-import net.amurdza.examplemod.util.Helper;
 
 @EventBusSubscriber(modid = AOEMod.MOD_ID, bus = EventBusSubscriber.Bus.FORGE)
 public class BlockGrowthRate {
@@ -49,165 +42,123 @@ public class BlockGrowthRate {
         BlockState state = event.getState();
         Block block = state.getBlock();
 
-        if(block==Blocks.AIR){
+        if (block == Blocks.AIR) {
             BlockState belowState = level.getBlockState(pos.below());
-            if(belowState.is(Blocks.CAVE_VINES)){
-                block=Blocks.CAVE_VINES;
-            }
-            if(belowState.is(Blocks.CAVE_VINES_PLANT)){
-                block=Blocks.CAVE_VINES_PLANT;
+
+            if (belowState.is(Blocks.CAVE_VINES)) {
+                state = belowState;
+                block = Blocks.CAVE_VINES;
+                pos = pos.below();
+            } else if (belowState.is(Blocks.CAVE_VINES_PLANT)) {
+                state = belowState;
+                block = Blocks.CAVE_VINES_PLANT;
+                pos = pos.below();
             }
         }
 
-        // Only handle blocks we know about:
-        float mult = getMultiplier(level, pos, block);
+        float mult = BlockConfig.blockGrowthChance(level, pos, state);
 
-        if (mult < 0f) return; // not tracked, let vanilla/mods handle it
+        /*
+         * Your new BlockConfig returns 0.0F when the block has no configured
+         * growth entries or does not grow in this biome.
+         *
+         * So we need this extra check:
+         * - untracked block: let vanilla/modded behavior happen
+         * - tracked block with 0 growth here: deny
+         */
+        if (!BlockConfig.BLOCK_INFO_BY_BLOCK.containsKey(block)
+                || BlockConfig.BLOCK_INFO_BY_BLOCK.get(block).growth().isEmpty()) {
+            return;
+        }
 
-        // Optional: keep your "not fertile halves chance" rule for CropBlock / StemBlock
-        // (This scales the multiplier, which effectively scales the chance of allowing vanilla growth)
         if (block instanceof CropBlock || block instanceof StemBlock) {
             BlockPos below = pos.below();
+
             if (!level.getBlockState(below).isFertile(level, below)) {
-                mult *= 0.5f;
+                mult *= 0.5F;
             }
         }
 
-        // If it doesn't grow here:
-        if (mult <= 0.0f) {
+        if (mult <= 0.0F) {
             event.setResult(Event.Result.DENY);
             return;
         }
 
-        // Compute how many "growth increments" we want on this tick:
-        // - for 0<m<1: increments is either 0 or 1 (prob=m)
-        // - for m>=1: increments is 1 + floor(m-1) + (rand < frac ? 1 : 0)
         int increments = Helper.computeIncrements(level.random, mult);
+
         if (increments <= 0) {
             event.setResult(Event.Result.DENY);
             return;
         }
 
         if (increments == 1) {
-            // Let vanilla proceed normally this tick.
             event.setResult(Event.Result.ALLOW);
             return;
         }
 
-        // If we want >1 increments, we must apply ourselves (for age-based blocks).
-        // For non-age blocks (cactus/sugarcane/bamboo/etc), we can't safely "multi-grow" here;
-        // so we simply allow vanilla once.
         if (!hasAnyAgeProperty(state)) {
             event.setResult(Event.Result.ALLOW);
             return;
         }
 
-        // Apply multi-increment by denying vanilla growth and setting the age forward ourselves.
         event.setResult(Event.Result.DENY);
 
         applyAgeIncrements(level, pos, state, increments);
-        // Call Forge post hook similar to your old code
         net.minecraftforge.common.ForgeHooks.onCropsGrowPost(level, pos, state);
     }
 
     private static boolean hasAnyAgeProperty(BlockState state) {
-        for (IntegerProperty p : AGE_PROPERTIES) {
-            if (state.hasProperty(p)) return true;
+        for (IntegerProperty property : AGE_PROPERTIES) {
+            if (state.hasProperty(property)) {
+                return true;
+            }
         }
+
         return false;
     }
 
     private static void applyAgeIncrements(ServerLevel level, BlockPos pos, BlockState state, int increments) {
         for (int i = 0; i < AGE_PROPERTIES.length; i++) {
             IntegerProperty prop = AGE_PROPERTIES[i];
-            if (!state.hasProperty(prop)) continue;
+
+            if (!state.hasProperty(prop)) {
+                continue;
+            }
 
             int max = MAX_AGES[i];
             int oldAge = state.getValue(prop);
             int newAge = oldAge + increments;
 
-            // Special case you had: sugar cane uses pos.above() in your old system
-            // (but sugar cane doesn't use AGE properties; this is mostly harmless)
+            boolean columnPlant = state.is(Blocks.CACTUS) || state.is(Blocks.SUGAR_CANE);
 
-            boolean columnPlant=state.is(Blocks.CACTUS)||state.is(Blocks.SUGAR_CANE);
-
-            if(columnPlant){
-                if(state.is(Blocks.SUGAR_CANE)){
-                    pos=pos.above();
+            if (columnPlant) {
+                if (state.is(Blocks.SUGAR_CANE)) {
+                    pos = pos.above();
                 }
+
                 int k;
-                for(k = 1; k < 5; k++) {
-                    if(!level.getBlockState(pos.below(k+1)).is(state.getBlock())){
+
+                for (k = 1; k < 5; k++) {
+                    if (!level.getBlockState(pos.below(k + 1)).is(state.getBlock())) {
                         break;
                     }
                 }
-                if(k<3){
+
+                if (k < 3) {
                     if (newAge > max) {
                         level.setBlockAndUpdate(pos.below(), state.setValue(prop, 0));
                         level.setBlockAndUpdate(pos, state.setValue(prop, 0));
-                    }
-                    else {
+                    } else {
                         level.setBlockAndUpdate(pos.below(), state.setValue(prop, newAge));
                     }
-                }
-                else if(state.is(Blocks.CACTUS)){
+                } else if (state.is(Blocks.CACTUS)) {
                     level.setBlockAndUpdate(pos, ModBlocks.PRICKLY_PEAR.get().defaultBlockState());
                 }
+            } else {
+                level.setBlock(pos, state.setValue(prop, Math.min(newAge, max)), 4);
             }
-            else {
-                level.setBlock(pos, state.setValue(prop, Math.min(newAge,max)), 4);
-            }
+
             return;
         }
-    }
-
-    /**
-     * Returns:
-     * - >=0 : multiplier for this block in this biome bucket
-     * - -1  : not tracked, let vanilla/mod behavior happen
-     */
-    private static float getMultiplier(ServerLevel level, BlockPos pos, Block block) {
-        // If we didn't initialize, treat as untracked
-        if (BlockGrowthConfig.GROWTH_MULTIPLIER_BY_TAG_BY_BLOCK.isEmpty() && BlockGrowthConfig.DEFAULT_OTHER_BIOMES.isEmpty()) {
-            return -1f;
-        }
-
-        Holder<Biome> biome = level.getBiome(pos);
-
-        // Determine which bucket/tag to use (priority order)
-        TagKey<Biome> tag = pickBucket(biome);
-
-        assert tag != null;
-
-        // Look up value
-        Float v = null;
-        Map<Block, Float> map = BlockGrowthConfig.GROWTH_MULTIPLIER_BY_TAG_BY_BLOCK.get(tag);
-        if (map != null) v = map.get(block);
-
-        if (v == null) v = BlockGrowthConfig.DEFAULT_OTHER_BIOMES.get(block);
-        return (v == null) ? -1f : v;
-    }
-
-    private static TagKey<Biome> pickBucket(Holder<Biome> biome) {
-        // Nether sub-biomes (specific)
-        if (biome.is(ModTags.Biomes.deepDarkBiomes)) return ModTags.Biomes.deepDarkBiomes;
-        if (biome.is(ModTags.Biomes.basaltDeltasBiomes)) return ModTags.Biomes.basaltDeltasBiomes;
-        if (biome.is(ModTags.Biomes.crimsonForestBiomes)) return ModTags.Biomes.crimsonForestBiomes;
-        if (biome.is(ModTags.Biomes.warpedForestBiomes)) return ModTags.Biomes.warpedForestBiomes;
-        if (biome.is(ModTags.Biomes.soulSandValleyBiomes)) return ModTags.Biomes.soulSandValleyBiomes;
-
-        // Big buckets
-        if (biome.is(ModTags.Biomes.tropicalBiomes)) return ModTags.Biomes.tropicalBiomes;
-        if (biome.is(ModTags.Biomes.savannaBiomes)) return ModTags.Biomes.savannaBiomes;
-
-        // Mountain caves before mountains
-        if (biome.is(ModTags.Biomes.mushroomCaves)) return ModTags.Biomes.mushroomCaves;
-        if (biome.is(ModTags.Biomes.mountainBiomes)) return ModTags.Biomes.mountainBiomes;
-
-        if (biome.is(ModTags.Biomes.desertBiomes)) return ModTags.Biomes.desertBiomes;
-        if (biome.is(ModTags.Biomes.netherBiomes)) return ModTags.Biomes.netherBiomes;
-
-        // else: use DEFAULT_OTHER_BIOMES
-        return null;
     }
 }

@@ -162,30 +162,44 @@ dependencies {
     // http://www.gradle.org/docs/current/userguide/dependency_management.html
 
 
+    //Tools
+    implementation fg.deobf("curse.maven:wooden-bucket-585328:6773030")
+    implementation fg.deobf("curse.maven:bucketlib-560156:6632367")
+    implementation fg.deobf("curse.maven:wooden-shears-443192:6289965")
+
+    //Plants
     implementation fg.deobf("curse.maven:farmersdelight-398521:5051242")
-    implementation fg.deobf("curse.maven:nether-depths-upgrade-670011:5150560")
+
     implementation fg.deobf("curse.maven:netherific-479296:4718299")
 
-    implementation fg.deobf("curse.maven:blue-skies-312918:5010316")
-    implementation fg.deobf("curse.maven:structure-gel-api-378802:5278429")
+    implementation fg.deobf("curse.maven:snow-real-magic-308663:5801189")
+    implementation fg.deobf("curse.maven:kiwi-303657:5603816")
 
-    implementation fg.deobf("curse.maven:alexsmobs-426558:5698791")
-    implementation fg.deobf("curse.maven:citadelforalexsmobs-331936:5633260")//NO TOML
-
+    //Animals
     implementation fg.deobf("curse.maven:naturalist-627986:4847009")
     implementation fg.deobf("curse.maven:architectury-api-419699:4663010")
 
-    implementation fg.deobf("curse.maven:upgradeaquatic-326895:5615651")
-    implementation fg.deobf("curse.maven:blueprint-382216:6267669")//NO TOML
+    implementation fg.deobf("curse.maven:lithostitched-936015:6742615")
+    implementation fg.deobf("curse.maven:kotlin-for-forge-351264:7291067")
+    implementation fg.deobf("curse.maven:hybrid-aquatic-834427:7204568")
+
+//    Multiple
+    implementation fg.deobf("curse.maven:nether-depths-upgrade-670011:5150560")
 
     implementation fg.deobf("curse.maven:quark-243121:5594847")
     implementation fg.deobf("curse.maven:zetaforquark-968868:5597406")//NO TOML
 
-    implementation fg.deobf("curse.maven:alexs-caves-924854:5633305")
+    implementation fg.deobf("curse.maven:alexsmobs-426558:5698791")
+    implementation fg.deobf("curse.maven:citadelforalexsmobs-331936:5633260")//NO TOML
 
-    implementation fg.deobf("curse.maven:drop-the-meat-404141:6564010")
+    implementation fg.deobf("curse.maven:ecologics-570463:7457108")
 
-    implementation fg.deobf("curse.maven:unusual-fish-mod-568300:7127544")
+    implementation fg.deobf("curse.maven:geckolib-388172:6920925")//NO TOML
+
+//    Monsters
+    implementation fg.deobf("curse.maven:iceandfire-264231:5633453")
+
+    implementation fg.deobf("curse.maven:born-in-chaos-686437:7917933")
 
     // flowers
     implementation fg.deobf("curse.maven:oh-the-biomes-weve-gone-1070751:6263908")
@@ -193,9 +207,8 @@ dependencies {
     implementation fg.deobf("curse.maven:terrablender-563928:5378180")
     implementation fg.deobf("curse.maven:oh-the-trees-youll-grow-962544:6026960")
 
+    //Behavior
     ////////////////////////////////////////////////////////////////
-    implementation fg.deobf("curse.maven:snow-real-magic-308663:5801189")
-    implementation fg.deobf("curse.maven:kiwi-303657:5603816")
     runtimeOnly fg.deobf("curse.maven:snow-under-trees-353942:5801187")
 
     implementation fg.deobf("curse.maven:wthit-forge-455982:5681116")//NO TOML
@@ -205,95 +218,7 @@ dependencies {
     runtimeOnly fg.deobf("curse.maven:huge-structure-blocks-474114:4803547")
 
     /////////////////////////////////////
-    implementation fg.deobf("curse.maven:simple-pies-965609:5055394")
-    implementation fg.deobf("curse.maven:better-carrots-548721:5306948")
-    implementation fg.deobf("curse.maven:cultural-delights-574622:6660005")
-    implementation fg.deobf("curse.maven:ecologics-570463:7457108")
-    implementation fg.deobf("curse.maven:wooden-bucket-585328:6773030")
-    implementation fg.deobf("curse.maven:bucketlib-560156:6632367")
-    implementation fg.deobf("curse.maven:wooden-shears-443192:6289965")
 
-
-    implementation fg.deobf("curse.maven:geckolib-388172:6920925")//NO TOML
-
-
-
-    //Animals and Meat
-    implementation fg.deobf("curse.maven:iceandfire-264231:5633453")
-
-    implementation fg.deobf("curse.maven:lithostitched-936015:6742615")
-    implementation fg.deobf("curse.maven:kotlin-for-forge-351264:7291067")
-    implementation fg.deobf("curse.maven:hybrid-aquatic-834427:7204568")
-
-    implementation fg.deobf("curse.maven:the-twilight-forest-227639:5468648")
-
-
-
-//
-//    implementation fg.deobf("curse.maven:luminous-909107:5699118")
-//
-
-//
-
-//
-//    implementation fg.deobf("curse.maven:mokels-rpg-2-sunrise-971989:5203317")
-
-
-
-//
-
-
-//
-
-
-
-
-//
-
-    //New
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    //TEST LATER
-//    implementation fg.deobf("curse.maven:kitteh6660s-morecraft-59648:4855867")
-
-    //Born in Chaos: Supreme Bonescaller, Skeleton Thrasher, Bonescaller, Infernal Spirit, Barrel Zombie, Restless Spirit,
-    //(Pumpkin Spirit?), Seared Spirit, Dire hound, Dire hound leader, Fallen Chaos Knight, Lifestealer, Mr. Pumpkin,
-    //Sir Pumpkinhead, Senor Pumpkin, Lord Pumpkinhead,
-
-    //Staff of Magic Arrows, Bonecaller staff, Pumpkin staff, pumpkin pistol + bullet, Death Totem (prevents death and gives power
-    //in exchange for hunger, nightmare scythe, nightmare reaper axe, soul saber, dark war blade, scull breaker hammer, soulbean, dark ritual dagger, spirit divider
-    //sharpened dark metal sword
-    //Dark metal armor; nightmare armor (robe-like), spiny shell helmet and chestplate, lord pumpkin head's cap (casts soul-life on attackers)
-    //Monster flesh
-
-//    implementation fg.deobf("curse.maven:born-in-chaos-686437:5369688")
-
-    //Marium's Soulslike Weaponry: Day Stalker, Night Prowler, Withered Demon, Forlorn, Soulmass, Frost Giant, Rime Spectre
-    //The Decaying King, The Old Champion's Remains, The Returning Knight, The Fallen Icon, The Monarch of Chaos,
-    //
-//    implementation fg.deobf("curse.maven:mariums-soulslike-weaponry-632066:5662104")
-//    implementation fg.deobf("curse.maven:projectile-damage-attribute-643780:4597791")
-//    implementation fg.deobf("curse.maven:attributefix-280510:4911084")
-
-
-//    implementation fg.deobf("curse.maven:bossominium-694188:5287096")
-//    implementation fg.deobf("curse.maven:monsters-girls-secrets-of-mermaids-1068569:5566096"
 
 }
 

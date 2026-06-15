@@ -1,7 +1,6 @@
 {
   "values": [
     "minecraft:soul_sand",
-    "minecraft:soul_soil",
-    "nourished_nether:soul_sludge"
+    "minecraft:soul_soil"
   ]
 }

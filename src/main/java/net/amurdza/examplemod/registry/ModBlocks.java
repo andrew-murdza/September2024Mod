@@ -27,6 +27,9 @@ public class ModBlocks {
     public static final RegistryObject<Block> BASALT_GOLD_ORE = registerBlockAndItem("basalt_gold_ore", ()->new DropExperiencePillarBlock(BlockBehaviour.Properties.copy(Blocks.NETHER_GOLD_ORE).mapColor(MapColor.COLOR_BLACK), UniformInt.of(0, 1)));
     public static final RegistryObject<Block> BLACKSTONE_GOLD_ORE = registerBlockAndItem("blackstone_gold_ore", ()->new DropExperienceBlock(BlockBehaviour.Properties.copy(Blocks.NETHER_GOLD_ORE).mapColor(MapColor.COLOR_BLACK), UniformInt.of(0, 1)));
     public static final RegistryObject<Block> SOUL_SOIL_GOLD_ORE = registerBlockAndItem("soul_soil_gold_ore", ()->new DropExperienceBlock(BlockBehaviour.Properties.copy(Blocks.NETHER_GOLD_ORE).mapColor(MapColor.COLOR_BROWN), UniformInt.of(0, 1)));
+    public static final RegistryObject<Block> SOUL_SAND_GOLD_ORE = registerBlockAndItem("soul_sand_gold_ore", ()->new DropExperienceBlock(BlockBehaviour.Properties.copy(Blocks.NETHER_GOLD_ORE).mapColor(MapColor.COLOR_BROWN), UniformInt.of(0, 1)));
+    public static final RegistryObject<Block> SOUL_SOIL_QUARTZ_ORE = registerBlockAndItem("soul_soil_quartz_ore", ()->new DropExperienceBlock(BlockBehaviour.Properties.copy(Blocks.NETHER_GOLD_ORE).mapColor(MapColor.COLOR_BROWN), UniformInt.of(0, 1)));
+    public static final RegistryObject<Block> SOUL_SAND_QUARTZ_ORE = registerBlockAndItem("soul_sand_quartz_ore", ()->new DropExperienceBlock(BlockBehaviour.Properties.copy(Blocks.NETHER_GOLD_ORE).mapColor(MapColor.COLOR_BROWN), UniformInt.of(0, 1)));
 
     public static final RegistryObject<Block> SUNFLOWER = registerBlock("sunflower", () -> new RotateableSunflower(
             BlockBehaviour.Properties.copy(Blocks.SUNFLOWER)));

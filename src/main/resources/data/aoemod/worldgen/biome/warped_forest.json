@@ -76,24 +76,17 @@
         "type": "minecraft:zoglin",
         "maxCount": 4,
         "minCount": 4,
-        "weight": 50
+        "weight": 100
       },
       {
         "type": "minecraft:zombified_piglin",
         "maxCount": 4,
         "minCount": 4,
-        "weight": 100
+        "weight": 20
       }
     ],
     "underground_water_creature": [],
-    "water_ambient": [
-      {
-        "type": "blue_skies:municipal_monkfish",
-        "weight": 3,
-        "minCount": 2,
-        "maxCount": 4
-      }
-    ],
+    "water_ambient": [],
     "water_creature": []
   },
   "temperature": 2

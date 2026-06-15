@@ -8,6 +8,8 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 
 public class BlockBehaviorConfig {
+    private BlockBehaviorConfig() {}
+
     public static final Map<TagKey<Biome>, Float> BIOME_TO_GLOW_BERRY_AMOUNTS = new LinkedHashMap<>();
     public static final Map<TagKey<Biome>, Float> BIOME_TO_SWEET_BERRIES_PARTIALLY_GROWN_AMOUNTS = new LinkedHashMap<>();
     public static final Map<TagKey<Biome>, Float> BIOME_TO_MATURE_BERRY_AMOUNTS = new LinkedHashMap<>();

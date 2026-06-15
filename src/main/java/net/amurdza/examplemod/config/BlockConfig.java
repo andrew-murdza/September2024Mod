@@ -1,6 +1,8 @@
 package net.amurdza.examplemod.config;
 
+import com.github.alexthe666.alexsmobs.item.AMItemRegistry;
 import net.amurdza.examplemod.registry.ModBlocks;
+import net.amurdza.examplemod.registry.ModItems;
 import net.amurdza.examplemod.util.ModTags;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Holder;
@@ -9,16 +11,14 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.biome.Biome;
-import net.minecraft.world.level.block.*;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.DoublePlantBlock;
+import net.minecraft.world.level.block.SweetBerryBushBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
-import vectorwing.farmersdelight.common.registry.ModItems;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 import java.util.function.Function;
 
 public final class BlockConfig {
@@ -31,8 +31,8 @@ public final class BlockConfig {
     public static final Map<Block, BlockInfo> BLOCK_INFO_BY_BLOCK = new HashMap<>();
 
     public static void init() {
-        ensureAllGrowthTags(BLOCK_GROWTH_CHANCE_BY_BLOCK_BY_TAG);
-        ensureAllLootTags(BLOCK_LOOT_ENTRIES_BY_BLOCK_BY_ITEM_BY_TAG);
+        ensureAllGrowthTags();
+        ensureAllLootTags();
         registerBlockInfo();
     }
 
@@ -128,40 +128,40 @@ public final class BlockConfig {
                 .add(entry);
     }
 
-    private static void ensureAllGrowthTags(Map<TagKey<Biome>, Map<Block, Float>> map) {
-        ensureGrowthTag(map, ModTags.Biomes.tropicalBiomes);
-        ensureGrowthTag(map, ModTags.Biomes.savannaBiomes);
-        ensureGrowthTag(map, ModTags.Biomes.mountainBiomes);
-        ensureGrowthTag(map, ModTags.Biomes.mushroomCaves);
-        ensureGrowthTag(map, ModTags.Biomes.desertBiomes);
-        ensureGrowthTag(map, ModTags.Biomes.deepDarkBiomes);
-        ensureGrowthTag(map, ModTags.Biomes.basaltDeltasBiomes);
-        ensureGrowthTag(map, ModTags.Biomes.crimsonForestBiomes);
-        ensureGrowthTag(map, ModTags.Biomes.warpedForestBiomes);
-        ensureGrowthTag(map, ModTags.Biomes.soulSandValleyBiomes);
-        ensureGrowthTag(map, ModTags.Biomes.plainsBiomes);
+    private static void ensureAllGrowthTags() {
+        ensureGrowthTag(ModTags.Biomes.tropicalBiomes);
+        ensureGrowthTag(ModTags.Biomes.savannaBiomes);
+        ensureGrowthTag(ModTags.Biomes.mountainBiomes);
+        ensureGrowthTag(ModTags.Biomes.mushroomCaves);
+        ensureGrowthTag(ModTags.Biomes.desertBiomes);
+        ensureGrowthTag(ModTags.Biomes.deepDarkBiomes);
+        ensureGrowthTag(ModTags.Biomes.basaltDeltasBiomes);
+        ensureGrowthTag(ModTags.Biomes.crimsonForestBiomes);
+        ensureGrowthTag(ModTags.Biomes.warpedForestBiomes);
+        ensureGrowthTag(ModTags.Biomes.soulSandValleyBiomes);
+        ensureGrowthTag(ModTags.Biomes.plainsBiomes);
     }
 
-    private static void ensureAllLootTags(Map<TagKey<Biome>, Map<Item, Map<Block, List<BlockLootEntry>>>> map) {
-        ensureLootTag(map, ModTags.Biomes.tropicalBiomes);
-        ensureLootTag(map, ModTags.Biomes.savannaBiomes);
-        ensureLootTag(map, ModTags.Biomes.mountainBiomes);
-        ensureLootTag(map, ModTags.Biomes.mushroomCaves);
-        ensureLootTag(map, ModTags.Biomes.desertBiomes);
-        ensureLootTag(map, ModTags.Biomes.deepDarkBiomes);
-        ensureLootTag(map, ModTags.Biomes.basaltDeltasBiomes);
-        ensureLootTag(map, ModTags.Biomes.crimsonForestBiomes);
-        ensureLootTag(map, ModTags.Biomes.warpedForestBiomes);
-        ensureLootTag(map, ModTags.Biomes.soulSandValleyBiomes);
-        ensureLootTag(map, ModTags.Biomes.plainsBiomes);
+    private static void ensureAllLootTags() {
+        ensureLootTag(ModTags.Biomes.tropicalBiomes);
+        ensureLootTag(ModTags.Biomes.savannaBiomes);
+        ensureLootTag(ModTags.Biomes.mountainBiomes);
+        ensureLootTag(ModTags.Biomes.mushroomCaves);
+        ensureLootTag(ModTags.Biomes.desertBiomes);
+        ensureLootTag(ModTags.Biomes.deepDarkBiomes);
+        ensureLootTag(ModTags.Biomes.basaltDeltasBiomes);
+        ensureLootTag(ModTags.Biomes.crimsonForestBiomes);
+        ensureLootTag(ModTags.Biomes.warpedForestBiomes);
+        ensureLootTag(ModTags.Biomes.soulSandValleyBiomes);
+        ensureLootTag(ModTags.Biomes.plainsBiomes);
     }
 
-    private static void ensureGrowthTag(Map<TagKey<Biome>, Map<Block, Float>> map, TagKey<Biome> tag) {
-        map.computeIfAbsent(tag, t -> new HashMap<>());
+    private static void ensureGrowthTag(TagKey<Biome> tag) {
+        BlockConfig.BLOCK_GROWTH_CHANCE_BY_BLOCK_BY_TAG.computeIfAbsent(tag, t -> new HashMap<>());
     }
 
-    private static void ensureLootTag(Map<TagKey<Biome>, Map<Item, Map<Block, List<BlockLootEntry>>>> map, TagKey<Biome> tag) {
-        map.computeIfAbsent(tag, t -> new HashMap<>());
+    private static void ensureLootTag(TagKey<Biome> tag) {
+        BlockConfig.BLOCK_LOOT_ENTRIES_BY_BLOCK_BY_ITEM_BY_TAG.computeIfAbsent(tag, t -> new HashMap<>());
     }
 
     private static BlockGrowthEntry g(TagKey<Biome> biomeTag, float value) {
@@ -170,10 +170,6 @@ public final class BlockConfig {
 
     private static BlockLootEntry drop(TagKey<Biome> biomeTag, Item item) {
         return new BlockLootEntry(biomeTag, item, state -> 1.0F, false);
-    }
-
-    private static BlockLootEntry drop(TagKey<Biome> biomeTag, Item item, boolean affectedByFortune) {
-        return new BlockLootEntry(biomeTag, item, state -> 1.0F, affectedByFortune);
     }
 
     private static BlockLootEntry drop(TagKey<Biome> biomeTag, Item item, float amount) {
@@ -186,10 +182,6 @@ public final class BlockConfig {
 
     private static BlockLootEntry drop(TagKey<Biome> biomeTag, Item item, Function<BlockState, Float> dropAmount) {
         return new BlockLootEntry(biomeTag, item, dropAmount, false);
-    }
-
-    private static BlockLootEntry drop(TagKey<Biome> biomeTag, Item item, Function<BlockState, Float> dropAmount, boolean affectedByFortune) {
-        return new BlockLootEntry(biomeTag, item, dropAmount, affectedByFortune);
     }
 
     private static void registerBlockInfo() {
@@ -385,88 +377,112 @@ public final class BlockConfig {
 
     private static void registerVanillaOres() {
         // Coal: separate because you said coal is the exception.
-        addOre(Blocks.COAL_ORE, ModTags.Biomes.mountainBiomes, Items.COAL, 1.0F, true);
-        addOre(Blocks.COAL_ORE, ModTags.Biomes.mushroomCaves, Items.COAL, 1.0F, true);
-        addOre(Blocks.COAL_ORE, ModTags.Biomes.plainsBiomes, Items.COAL, 1.0F, true);
-        addOreDesertAndDeepDark(Blocks.COAL_ORE, Items.COAL, 1.0F, true);
+        addOre(Blocks.COAL_ORE, ModTags.Biomes.mountainBiomes, Items.COAL, 2.5F);
+        addOre(Blocks.COAL_ORE, ModTags.Biomes.mushroomCaves, Items.COAL, 4);
+        addOre(Blocks.COAL_ORE, ModTags.Biomes.plainsBiomes, Items.COAL, 1);
+        addOreDesertAndDeepDark(Blocks.COAL_ORE, Items.COAL, 1.5f);
 
-        addOre(Blocks.DEEPSLATE_COAL_ORE, ModTags.Biomes.mountainBiomes, Items.COAL, 1.0F, true);
-        addOre(Blocks.DEEPSLATE_COAL_ORE, ModTags.Biomes.mushroomCaves, Items.COAL, 1.0F, true);
-        addOre(Blocks.DEEPSLATE_COAL_ORE, ModTags.Biomes.plainsBiomes, Items.COAL, 1.0F, true);
-        addOreDesertAndDeepDark(Blocks.DEEPSLATE_COAL_ORE, Items.COAL, 1.0F, true);
+        addOre(Blocks.DEEPSLATE_COAL_ORE, ModTags.Biomes.mountainBiomes, Items.COAL, 2.5f);
+        addOre(Blocks.DEEPSLATE_COAL_ORE, ModTags.Biomes.mushroomCaves, Items.COAL, 2.5f);
+        addOre(Blocks.DEEPSLATE_COAL_ORE, ModTags.Biomes.plainsBiomes, Items.COAL, 1);
+        addOreDesertAndDeepDark(Blocks.DEEPSLATE_COAL_ORE, Items.COAL, 1.5f);
 
         // Copper
-        addOreMountainsAndMushroomCaves(Blocks.COPPER_ORE, Items.RAW_COPPER, 3.0F, true);
-        addOre(Blocks.COPPER_ORE, ModTags.Biomes.plainsBiomes, Items.RAW_COPPER, 3.0F, true);
-        addOreDesertAndDeepDark(Blocks.COPPER_ORE, Items.RAW_COPPER, 3.0F, true);
+        addOreMountainsAndMushroomCaves(Blocks.COPPER_ORE, Items.RAW_COPPER, 3);
+        addOre(Blocks.COPPER_ORE, ModTags.Biomes.plainsBiomes, Items.RAW_COPPER, 3);
+        addOreDesertAndDeepDark(Blocks.COPPER_ORE, Items.RAW_COPPER, 3);
 
-        addOreMountainsAndMushroomCaves(Blocks.DEEPSLATE_COPPER_ORE, Items.RAW_COPPER, 3.0F, true);
-        addOre(Blocks.DEEPSLATE_COPPER_ORE, ModTags.Biomes.plainsBiomes, Items.RAW_COPPER, 3.0F, true);
-        addOreDesertAndDeepDark(Blocks.DEEPSLATE_COPPER_ORE, Items.RAW_COPPER, 3.0F, true);
+        addOreMountainsAndMushroomCaves(Blocks.DEEPSLATE_COPPER_ORE, Items.RAW_COPPER, 3);
+        addOre(Blocks.DEEPSLATE_COPPER_ORE, ModTags.Biomes.plainsBiomes, Items.RAW_COPPER, 3);
+        addOreDesertAndDeepDark(Blocks.DEEPSLATE_COPPER_ORE, Items.RAW_COPPER, 3);
 
         // Gold
-        addOreMountainsAndMushroomCaves(Blocks.GOLD_ORE, Items.RAW_GOLD, 1.0F, false);
-        addOre(Blocks.GOLD_ORE, ModTags.Biomes.plainsBiomes, Items.RAW_GOLD, 1.0F, false);
-        addOreDesertAndDeepDark(Blocks.GOLD_ORE, Items.RAW_GOLD, 1.0F, false);
+        addOreMountainsAndMushroomCaves(Blocks.GOLD_ORE, Items.RAW_GOLD, 2.5F);
+        addOre(Blocks.GOLD_ORE, ModTags.Biomes.plainsBiomes, Items.RAW_GOLD, 1);
+        addOreDesertAndDeepDark(Blocks.GOLD_ORE, Items.RAW_GOLD, 3);
 
-        addOreMountainsAndMushroomCaves(Blocks.DEEPSLATE_GOLD_ORE, Items.RAW_GOLD, 1.0F, false);
-        addOre(Blocks.DEEPSLATE_GOLD_ORE, ModTags.Biomes.plainsBiomes, Items.RAW_GOLD, 1.0F, false);
-        addOreDesertAndDeepDark(Blocks.DEEPSLATE_GOLD_ORE, Items.RAW_GOLD, 1.0F, false);
+        addOreMountainsAndMushroomCaves(Blocks.DEEPSLATE_GOLD_ORE, Items.RAW_GOLD, 2.5F);
+        addOre(Blocks.DEEPSLATE_GOLD_ORE, ModTags.Biomes.plainsBiomes, Items.RAW_GOLD, 1.0F);
+        addOreDesertAndDeepDark(Blocks.DEEPSLATE_GOLD_ORE, Items.RAW_GOLD, 3);
 
         // Iron: mountains, mushroom caves, plains only.
-        addOreMountainsAndMushroomCaves(Blocks.IRON_ORE, Items.RAW_IRON, 1.0F, false);
-        addOre(Blocks.IRON_ORE, ModTags.Biomes.plainsBiomes, Items.RAW_IRON, 1.0F, false);
+        addOreMountainsAndMushroomCaves(Blocks.IRON_ORE, Items.RAW_IRON, 3);
+        addOre(Blocks.IRON_ORE, ModTags.Biomes.plainsBiomes, Items.RAW_IRON, 1);
 
-        addOreMountainsAndMushroomCaves(Blocks.DEEPSLATE_IRON_ORE, Items.RAW_IRON, 1.0F, false);
-        addOre(Blocks.DEEPSLATE_IRON_ORE, ModTags.Biomes.plainsBiomes, Items.RAW_IRON, 1.0F, false);
+        addOreMountainsAndMushroomCaves(Blocks.DEEPSLATE_IRON_ORE, Items.RAW_IRON, 1);
+        addOre(Blocks.DEEPSLATE_IRON_ORE, ModTags.Biomes.plainsBiomes, Items.RAW_IRON, 1);
 
         // Lapis: mountains and mushroom caves only.
-        addOreMountainsAndMushroomCaves(Blocks.LAPIS_ORE, Items.LAPIS_LAZULI, 6.5F, true);
-        addOreMountainsAndMushroomCaves(Blocks.DEEPSLATE_LAPIS_ORE, Items.LAPIS_LAZULI, 6.5F, true);
+        addOreMountainsAndMushroomCaves(Blocks.LAPIS_ORE, Items.LAPIS_LAZULI, 26);
+        addOreMountainsAndMushroomCaves(Blocks.DEEPSLATE_LAPIS_ORE, Items.LAPIS_LAZULI, 26);
 
         // Diamond: mountains and mushroom caves only.
-        addOreMountainsAndMushroomCaves(Blocks.DIAMOND_ORE, Items.DIAMOND, 1.0F, true);
-        addOreMountainsAndMushroomCaves(Blocks.DEEPSLATE_DIAMOND_ORE, Items.DIAMOND, 1.0F, true);
+        addOreMountainsAndMushroomCaves(Blocks.DIAMOND_ORE, Items.DIAMOND, 4);
+        addOreMountainsAndMushroomCaves(Blocks.DEEPSLATE_DIAMOND_ORE, Items.DIAMOND, 4);
 
         // Emerald: mountains and mushroom caves only.
-        addOreMountainsAndMushroomCaves(Blocks.EMERALD_ORE, Items.EMERALD, 1.0F, true);
-        addOreMountainsAndMushroomCaves(Blocks.DEEPSLATE_EMERALD_ORE, Items.EMERALD, 1.0F, true);
+        addOreMountainsAndMushroomCaves(Blocks.EMERALD_ORE, Items.EMERALD, 4);
+        addOreMountainsAndMushroomCaves(Blocks.DEEPSLATE_EMERALD_ORE, Items.EMERALD, 4);
 
         // Redstone: desert and deep dark only.
-        addOreDesertAndDeepDark(Blocks.REDSTONE_ORE, Items.REDSTONE, 4.5F, true);
-        addOreDesertAndDeepDark(Blocks.DEEPSLATE_REDSTONE_ORE, Items.REDSTONE, 4.5F, true);
+        addOreDesertAndDeepDark(Blocks.REDSTONE_ORE, Items.REDSTONE, 13.5f);
+        addOreDesertAndDeepDark(Blocks.DEEPSLATE_REDSTONE_ORE, Items.REDSTONE, 13.5f);
 
         // Nether ores: each nether biome gets its own separate call.
-        addOre(Blocks.NETHER_QUARTZ_ORE, ModTags.Biomes.basaltDeltasBiomes, Items.QUARTZ, 1.0F, true);
-        addOre(Blocks.NETHER_QUARTZ_ORE, ModTags.Biomes.crimsonForestBiomes, Items.QUARTZ, 1.0F, true);
-        addOre(Blocks.NETHER_QUARTZ_ORE, ModTags.Biomes.warpedForestBiomes, Items.QUARTZ, 1.0F, true);
-        addOre(Blocks.NETHER_QUARTZ_ORE, ModTags.Biomes.soulSandValleyBiomes, Items.QUARTZ, 1.0F, true);
+        addOre(Blocks.NETHER_QUARTZ_ORE, ModTags.Biomes.basaltDeltasBiomes, Items.QUARTZ, 1.25f);
+        addOre(Blocks.NETHER_QUARTZ_ORE, ModTags.Biomes.crimsonForestBiomes, Items.QUARTZ, 1.25f);
+        addOre(Blocks.NETHER_QUARTZ_ORE, ModTags.Biomes.warpedForestBiomes, Items.QUARTZ, 1.25f);
+        addOre(Blocks.NETHER_QUARTZ_ORE, ModTags.Biomes.soulSandValleyBiomes, Items.QUARTZ, 1);
 
-        addOre(Blocks.NETHER_GOLD_ORE, ModTags.Biomes.basaltDeltasBiomes, Items.GOLD_NUGGET, 4F, true);
-        addOre(Blocks.NETHER_GOLD_ORE, ModTags.Biomes.crimsonForestBiomes, Items.GOLD_NUGGET, 1.5F, true);
-        addOre(Blocks.NETHER_GOLD_ORE, ModTags.Biomes.warpedForestBiomes, Items.GOLD_INGOT, 1.5F, true);
-        addOre(Blocks.NETHER_GOLD_ORE, ModTags.Biomes.soulSandValleyBiomes, Items.GOLD_INGOT, 1.5F, true);
+        addOre(ModBlocks.BLACKSTONE_QUARTZ_ORE.get(), ModTags.Biomes.basaltDeltasBiomes, Items.QUARTZ, 2.5f);
+        addOre(ModBlocks.BLACKSTONE_QUARTZ_ORE.get(), ModTags.Biomes.crimsonForestBiomes, Items.QUARTZ, 1.25f);
+        addOre(ModBlocks.BLACKSTONE_QUARTZ_ORE.get(), ModTags.Biomes.warpedForestBiomes, Items.QUARTZ, 1.25f);
+        addOre(ModBlocks.BLACKSTONE_QUARTZ_ORE.get(), ModTags.Biomes.soulSandValleyBiomes, Items.QUARTZ, 1);
 
-        addOre(ModBlocks.BASALT_GOLD_ORE.get(), ModTags.Biomes.basaltDeltasBiomes, Items.GOLD_NUGGET, 4F, true);
-        addOre(ModBlocks.BASALT_GOLD_ORE.get(), ModTags.Biomes.crimsonForestBiomes, Items.GOLD_NUGGET, 1.5F, true);
-        addOre(ModBlocks.BASALT_GOLD_ORE.get(), ModTags.Biomes.warpedForestBiomes, Items.GOLD_INGOT, 1.5F, true);
-        addOre(ModBlocks.BASALT_GOLD_ORE.get(), ModTags.Biomes.soulSandValleyBiomes, Items.GOLD_INGOT, 1.5F, true);
+        addOre(ModBlocks.BASALT_QUARTZ_ORE.get(), ModTags.Biomes.basaltDeltasBiomes, Items.QUARTZ, 2.5f);
+        addOre(ModBlocks.BASALT_QUARTZ_ORE.get(), ModTags.Biomes.crimsonForestBiomes, Items.QUARTZ, 1.25f);
+        addOre(ModBlocks.BASALT_QUARTZ_ORE.get(), ModTags.Biomes.warpedForestBiomes, Items.QUARTZ, 1.25f);
+        addOre(ModBlocks.BASALT_QUARTZ_ORE.get(), ModTags.Biomes.soulSandValleyBiomes, Items.QUARTZ, 1);
 
-        addOre(ModBlocks.BLACKSTONE_GOLD_ORE.get(), ModTags.Biomes.basaltDeltasBiomes, Items.GOLD_NUGGET, 4F, true);
-        addOre(ModBlocks.BLACKSTONE_GOLD_ORE.get(), ModTags.Biomes.crimsonForestBiomes, Items.GOLD_NUGGET, 1.5F, true);
-        addOre(ModBlocks.BLACKSTONE_GOLD_ORE.get(), ModTags.Biomes.warpedForestBiomes, Items.GOLD_INGOT, 1.5F, true);
-        addOre(ModBlocks.BLACKSTONE_GOLD_ORE.get(), ModTags.Biomes.soulSandValleyBiomes, Items.GOLD_INGOT, 1.5F, true);
+        addOre(ModBlocks.SOUL_SOIL_QUARTZ_ORE.get(), ModTags.Biomes.basaltDeltasBiomes, Items.QUARTZ, 1);
+        addOre(ModBlocks.SOUL_SOIL_QUARTZ_ORE.get(), ModTags.Biomes.crimsonForestBiomes, Items.QUARTZ, 1);
+        addOre(ModBlocks.SOUL_SOIL_QUARTZ_ORE.get(), ModTags.Biomes.warpedForestBiomes, Items.QUARTZ, 1);
+        addOre(ModBlocks.SOUL_SOIL_QUARTZ_ORE.get(), ModTags.Biomes.soulSandValleyBiomes, Items.QUARTZ, 1);
 
-        addOre(ModBlocks.BLACKSTONE_GOLD_ORE.get(), ModTags.Biomes.basaltDeltasBiomes, Items.GOLD_NUGGET, 4F, true);
-        addOre(ModBlocks.BLACKSTONE_GOLD_ORE.get(), ModTags.Biomes.crimsonForestBiomes, Items.GOLD_NUGGET, 1.5F, true);
-        addOre(ModBlocks.BLACKSTONE_GOLD_ORE.get(), ModTags.Biomes.warpedForestBiomes, Items.GOLD_INGOT, 1.5F, true);
-        addOre(ModBlocks.BLACKSTONE_GOLD_ORE.get(), ModTags.Biomes.soulSandValleyBiomes, Items.GOLD_INGOT, 1.5F, true);
+        addOre(ModBlocks.SOUL_SAND_QUARTZ_ORE.get(), ModTags.Biomes.basaltDeltasBiomes, Items.QUARTZ, 1);
+        addOre(ModBlocks.SOUL_SAND_QUARTZ_ORE.get(), ModTags.Biomes.crimsonForestBiomes, Items.QUARTZ, 1);
+        addOre(ModBlocks.SOUL_SAND_QUARTZ_ORE.get(), ModTags.Biomes.warpedForestBiomes, Items.QUARTZ, 1);
+        addOre(ModBlocks.SOUL_SAND_QUARTZ_ORE.get(), ModTags.Biomes.soulSandValleyBiomes, Items.QUARTZ, 1);
 
-        
-        addOre(Blocks.ANCIENT_DEBRIS, ModTags.Biomes.basaltDeltasBiomes, Items.ANCIENT_DEBRIS, 1.0F, false);
-        addOre(Blocks.ANCIENT_DEBRIS, ModTags.Biomes.crimsonForestBiomes, Items.ANCIENT_DEBRIS, 1.0F, false);
-        addOre(Blocks.ANCIENT_DEBRIS, ModTags.Biomes.warpedForestBiomes, Items.ANCIENT_DEBRIS, 1.0F, false);
-        addOre(Blocks.ANCIENT_DEBRIS, ModTags.Biomes.soulSandValleyBiomes, Items.ANCIENT_DEBRIS, 1.0F, false);
+        addOre(Blocks.NETHER_GOLD_ORE, ModTags.Biomes.basaltDeltasBiomes, Items.GOLD_INGOT, 1.5f);
+        addOre(Blocks.NETHER_GOLD_ORE, ModTags.Biomes.crimsonForestBiomes, Items.GOLD_INGOT, 1.5f);
+        addOre(Blocks.NETHER_GOLD_ORE, ModTags.Biomes.warpedForestBiomes, Items.GOLD_INGOT, 1.5f);
+        addOre(Blocks.NETHER_GOLD_ORE, ModTags.Biomes.soulSandValleyBiomes, Items.GOLD_INGOT, 1);
+
+        addOre(ModBlocks.BLACKSTONE_GOLD_ORE.get(), ModTags.Biomes.basaltDeltasBiomes, Items.GOLD_INGOT, 4);
+        addOre(ModBlocks.BLACKSTONE_GOLD_ORE.get(), ModTags.Biomes.crimsonForestBiomes, Items.GOLD_INGOT, 1.5f);
+        addOre(ModBlocks.BLACKSTONE_GOLD_ORE.get(), ModTags.Biomes.warpedForestBiomes, Items.GOLD_INGOT, 1.5f);
+        addOre(ModBlocks.BLACKSTONE_GOLD_ORE.get(), ModTags.Biomes.soulSandValleyBiomes, Items.GOLD_INGOT, 1);
+
+        addOre(ModBlocks.BASALT_GOLD_ORE.get(), ModTags.Biomes.basaltDeltasBiomes, Items.GOLD_INGOT, 4);
+        addOre(ModBlocks.BASALT_GOLD_ORE.get(), ModTags.Biomes.crimsonForestBiomes, Items.GOLD_INGOT, 1.5f);
+        addOre(ModBlocks.BASALT_GOLD_ORE.get(), ModTags.Biomes.warpedForestBiomes, Items.GOLD_INGOT, 1.5f);
+        addOre(ModBlocks.BASALT_GOLD_ORE.get(), ModTags.Biomes.soulSandValleyBiomes, Items.GOLD_INGOT, 1);
+
+        addOre(ModBlocks.SOUL_SOIL_GOLD_ORE.get(), ModTags.Biomes.basaltDeltasBiomes, Items.GOLD_INGOT, 1);
+        addOre(ModBlocks.SOUL_SOIL_GOLD_ORE.get(), ModTags.Biomes.crimsonForestBiomes, Items.GOLD_INGOT, 1);
+        addOre(ModBlocks.SOUL_SOIL_GOLD_ORE.get(), ModTags.Biomes.warpedForestBiomes, Items.GOLD_INGOT, 1);
+        addOre(ModBlocks.SOUL_SOIL_GOLD_ORE.get(), ModTags.Biomes.soulSandValleyBiomes, Items.GOLD_INGOT, 1);
+
+        addOre(ModBlocks.SOUL_SAND_GOLD_ORE.get(), ModTags.Biomes.basaltDeltasBiomes, Items.GOLD_INGOT, 1);
+        addOre(ModBlocks.SOUL_SAND_GOLD_ORE.get(), ModTags.Biomes.crimsonForestBiomes, Items.GOLD_INGOT, 1);
+        addOre(ModBlocks.SOUL_SAND_GOLD_ORE.get(), ModTags.Biomes.warpedForestBiomes, Items.GOLD_INGOT, 1);
+        addOre(ModBlocks.SOUL_SAND_GOLD_ORE.get(), ModTags.Biomes.soulSandValleyBiomes, Items.GOLD_INGOT, 1);
+
+        addOre(Blocks.ANCIENT_DEBRIS, ModTags.Biomes.basaltDeltasBiomes, Items.NETHERITE_SCRAP, 2);
+        addOre(Blocks.ANCIENT_DEBRIS, ModTags.Biomes.crimsonForestBiomes, Items.NETHERITE_SCRAP, 1);
+        addOre(Blocks.ANCIENT_DEBRIS, ModTags.Biomes.warpedForestBiomes, Items.NETHERITE_SCRAP, 1);
+        addOre(Blocks.ANCIENT_DEBRIS, ModTags.Biomes.soulSandValleyBiomes, Items.NETHERITE_SCRAP, 1);
     }
 
     private static void registerVanillaLeaves() {
@@ -499,37 +515,37 @@ public final class BlockConfig {
         addLoot(Blocks.DARK_OAK_LEAVES,
                 leaf(ModTags.Biomes.tropicalBiomes, Items.DARK_OAK_SAPLING),
                 stick(ModTags.Biomes.tropicalBiomes),
-                fruit(ModTags.Biomes.tropicalBiomes,Items.APPLE)
+                fruit(ModTags.Biomes.tropicalBiomes, ModItems.PLUM.get())
         );
 
         addLoot(Blocks.CHERRY_LEAVES,
                 leaf(ModTags.Biomes.tropicalBiomes, Items.CHERRY_SAPLING),
                 stick(ModTags.Biomes.tropicalBiomes),
-                fruit(ModTags.Biomes.tropicalBiomes,Items.APPLE)
+                fruit(ModTags.Biomes.tropicalBiomes, ModItems.CHERRIES.get())
         );
 
         addLoot(Blocks.MANGROVE_LEAVES,
                 leaf(ModTags.Biomes.tropicalBiomes, Items.MANGROVE_PROPAGULE),
                 stick(ModTags.Biomes.tropicalBiomes),
-                fruit(ModTags.Biomes.tropicalBiomes,Items.APPLE)
+                fruit(ModTags.Biomes.tropicalBiomes,ModItems.ORANGE.get())
         );
 
         addLoot(Blocks.AZALEA_LEAVES,
                 leaf(ModTags.Biomes.tropicalBiomes, Items.AZALEA),
                 stick(ModTags.Biomes.tropicalBiomes),
-                fruit(ModTags.Biomes.tropicalBiomes,Items.APPLE)
+                fruit(ModTags.Biomes.tropicalBiomes,ModItems.PEAR.get())
         );
 
         addLoot(Blocks.FLOWERING_AZALEA_LEAVES,
                 leaf(ModTags.Biomes.tropicalBiomes, Items.FLOWERING_AZALEA),
                 stick(ModTags.Biomes.tropicalBiomes),
-                fruit(ModTags.Biomes.tropicalBiomes,Items.APPLE)
+                fruit(ModTags.Biomes.tropicalBiomes,ModItems.PEAR.get())
         );
 
         addLoot(Blocks.JUNGLE_LEAVES,
                 leaf(ModTags.Biomes.tropicalBiomes, Items.JUNGLE_SAPLING),
                 stick(ModTags.Biomes.tropicalBiomes),
-                fruit(ModTags.Biomes.tropicalBiomes,Items.APPLE)
+                fruit(ModTags.Biomes.tropicalBiomes, AMItemRegistry.BANANA.get())
         );
 
         addLoot(Blocks.WARPED_WART_BLOCK,
@@ -643,21 +659,21 @@ public final class BlockConfig {
         );
 
         addLoot(vectorwing.farmersdelight.common.registry.ModBlocks.ONION_CROP.get(),
-                drop(ModTags.Biomes.tropicalBiomes, ModItems.ONION.get(), matureAge7Amount(8.5f))
+                drop(ModTags.Biomes.tropicalBiomes, vectorwing.farmersdelight.common.registry.ModItems.ONION.get(), matureAge7Amount(8.5f))
         );
 
         addLoot(vectorwing.farmersdelight.common.registry.ModBlocks.RICE_CROP.get(),
-                drop(ModTags.Biomes.tropicalBiomes, ModItems.RICE.get(), matureAge7Amount(7))
+                drop(ModTags.Biomes.tropicalBiomes, vectorwing.farmersdelight.common.registry.ModItems.RICE.get(), matureAge7Amount(7))
         );
 
         addLoot(vectorwing.farmersdelight.common.registry.ModBlocks.TOMATO_CROP.get(),
-                drop(ModTags.Biomes.tropicalBiomes, ModItems.TOMATO.get(), matureAge7Amount(3,0)),
-                drop(ModTags.Biomes.tropicalBiomes, ModItems.TOMATO_SEEDS.get(), matureAge7Amount(5))
+                drop(ModTags.Biomes.tropicalBiomes, vectorwing.farmersdelight.common.registry.ModItems.TOMATO.get(), matureAge7Amount(3,0)),
+                drop(ModTags.Biomes.tropicalBiomes, vectorwing.farmersdelight.common.registry.ModItems.TOMATO_SEEDS.get(), matureAge7Amount(5))
         );
 
         addLoot(vectorwing.farmersdelight.common.registry.ModBlocks.CABBAGE_CROP.get(),
-                drop(ModTags.Biomes.tropicalBiomes, ModItems.CABBAGE.get(), matureAge7Amount(3,0)),
-                drop(ModTags.Biomes.tropicalBiomes, ModItems.CABBAGE_SEEDS.get(), matureAge7Amount(5))
+                drop(ModTags.Biomes.tropicalBiomes, vectorwing.farmersdelight.common.registry.ModItems.CABBAGE.get(), matureAge7Amount(3,0)),
+                drop(ModTags.Biomes.tropicalBiomes, vectorwing.farmersdelight.common.registry.ModItems.CABBAGE_SEEDS.get(), matureAge7Amount(5))
         );
 
         addLoot(samebutdifferent.ecologics.registry.ModBlocks.PRICKLY_PEAR.get(),
@@ -673,7 +689,7 @@ public final class BlockConfig {
     }
 
     private static Function<BlockState, Float> matureAge7Amount(float amountWhenMature, float nonMatureAmount) {
-        return state -> state.getValue(BlockStateProperties.AGE_7) >= 7 ? amountWhenMature : 0.0F;
+        return state -> state.getValue(BlockStateProperties.AGE_7) >= 7 ? amountWhenMature : nonMatureAmount;
     }
 
     private static Function<BlockState, Float> matureAge3Amount(float amountWhenMature) {
@@ -686,7 +702,7 @@ public final class BlockConfig {
     }
 
     private static Function<BlockState, Float> matureAge2Amount(float amountWhenMature) {
-        return matureAge3Amount(amountWhenMature,1f);
+        return matureAge3Amount(amountWhenMature,1);
     }
 
     private static void registerVanillaPlants() {
@@ -697,46 +713,10 @@ public final class BlockConfig {
         addSeeds(ModBlocks.DESERT_GRASS.get(), ModTags.Biomes.desertBiomes);
         addSeeds(ModBlocks.DESERT_TALL_GRASS.get(), ModTags.Biomes.desertBiomes);
 
-        addLoot(Blocks.GRASS,
-                plantSeed(ModTags.Biomes.tropicalBiomes),
-                plantSeed(ModTags.Biomes.savannaBiomes),
-                plantSeed(ModTags.Biomes.plainsBiomes),
-                plantSeed(ModTags.Biomes.mountainBiomes),
-                plantSeed(ModTags.Biomes.mushroomCaves)
-        );
-
-        addLoot(Blocks.TALL_GRASS,
-                plantSeed(ModTags.Biomes.tropicalBiomes),
-                plantSeed(ModTags.Biomes.savannaBiomes),
-                plantSeed(ModTags.Biomes.plainsBiomes),
-                plantSeed(ModTags.Biomes.mountainBiomes),
-                plantSeed(ModTags.Biomes.mushroomCaves)
-        );
-
-        addLoot(Blocks.FERN,
-                drop(ModTags.Biomes.mountainBiomes, Items.FERN),
-                drop(ModTags.Biomes.mushroomCaves, Items.FERN),
-                drop(ModTags.Biomes.plainsBiomes, Items.FERN)
-        );
-
-        addLoot(Blocks.LARGE_FERN,
-                drop(ModTags.Biomes.mountainBiomes, Items.LARGE_FERN),
-                drop(ModTags.Biomes.mushroomCaves, Items.LARGE_FERN),
-                drop(ModTags.Biomes.plainsBiomes, Items.LARGE_FERN)
-        );
-
-        addLoot(Blocks.SWEET_BERRY_BUSH,
-                sweetBerryAmount(ModTags.Biomes.tropicalBiomes),
-                sweetBerryAmount(ModTags.Biomes.mountainBiomes),
-                sweetBerryAmount(ModTags.Biomes.mushroomCaves)
-        );
-
         addCaveVines(Blocks.CAVE_VINES_PLANT);
         addCaveVines(Blocks.CAVE_VINES);
 
-        addLoot(Blocks.DEAD_BUSH,
-                drop(ModTags.Biomes.desertBiomes, Items.STICK, 1F)
-        );
+        addLoot(Blocks.DEAD_BUSH, drop(ModTags.Biomes.desertBiomes, Items.STICK, 1F));
     }
 
     private static void addCaveVines(Block block){
@@ -753,45 +733,46 @@ public final class BlockConfig {
 
     private static void addSeeds(Block block, TagKey<Biome> biome){
         float mult = block instanceof DoublePlantBlock || block == ModBlocks.DESERT_TALL_GRASS.get() ? 2 : 1;
+
         if(biome.equals(ModTags.Biomes.tropicalBiomes)){
-            float val = 0.1f * mult;
+            float val = 0.05f * mult;
             addLoot(block,
-                    drop(biome,Items.WHEAT_SEEDS,val),
-                    drop(biome,Items.BEETROOT_SEEDS,val),
-                    drop(biome,Items.PUMPKIN_SEEDS,val),
-                    drop(biome,Items.POTATO,val),
-                    drop(biome,Items.CARROT,val),
-                    drop(biome,Items.MELON_SEEDS,val),
-                    drop(biome, ModItems.RICE.get(),val),
-                    drop(biome, ModItems.CABBAGE_SEEDS.get(),val),
-                    drop(biome, ModItems.TOMATO_SEEDS.get(),val),
-                    drop(biome, ModItems.ONION.get(),val)
+                    seedDrop(biome, Items.WHEAT_SEEDS, val),
+                    seedDrop(biome, Items.BEETROOT_SEEDS, val),
+                    seedDrop(biome, Items.PUMPKIN_SEEDS, val),
+                    seedDrop(biome, ModItems.POTATO_SEEDS.get(), val),
+                    seedDrop(biome, ModItems.CARROT_SEEDS.get(), val),
+                    seedDrop(biome, Items.MELON_SEEDS, val),
+                    seedDrop(biome, ModItems.RICE_SEEDS.get(), val),
+                    seedDrop(biome, vectorwing.farmersdelight.common.registry.ModItems.CABBAGE_SEEDS.get(), val),
+                    seedDrop(biome, vectorwing.farmersdelight.common.registry.ModItems.TOMATO_SEEDS.get(), val),
+                    seedDrop(biome, ModItems.ONION_SEEDS.get(), val)
             );
         }
         else if (biome.equals(ModTags.Biomes.savannaBiomes)){
             addLoot(block,
-                    drop(biome,Items.WHEAT_SEEDS,0.35f * mult),
-                    drop(biome,Items.PUMPKIN_SEEDS,0.05f * mult),
-                    drop(biome,Items.POTATO,0.05f * mult),
-                    drop(biome,Items.CARROT,0.05f * mult)
+                    seedDrop(biome, Items.WHEAT_SEEDS, 0.25f * mult),
+                    seedDrop(biome, Items.PUMPKIN_SEEDS, 0.015f * mult),
+                    seedDrop(biome, Items.POTATO, 0.03f * mult),
+                    seedDrop(biome, Items.CARROT, 0.03f * mult)
             );
         }
         else if (biome.equals(ModTags.Biomes.plainsBiomes)){
             addLoot(block,
-                    drop(biome,Items.WHEAT_SEEDS,0.125f * mult),
-                    drop(biome,Items.PUMPKIN_SEEDS,0.025f * mult),
-                    drop(biome,Items.POTATO,0.05f * mult),
-                    drop(biome,Items.CARROT,0.05f * mult)
+                    seedDrop(biome, Items.WHEAT_SEEDS, 0.0625f * mult),
+                    seedDrop(biome, Items.PUMPKIN_SEEDS, 0.0125f * mult),
+                    seedDrop(biome, Items.POTATO, 0.025f * mult),
+                    seedDrop(biome, Items.CARROT, 0.025f * mult)
             );
         }
         else if (biome.equals(ModTags.Biomes.mountainBiomes)){
-            addLoot(block,drop(biome,Items.BEETROOT_SEEDS,0.1f));
+            addLoot(block, seedDrop(biome, Items.BEETROOT_SEEDS, 0.1f * mult));
         }
         else if (biome.equals(ModTags.Biomes.mushroomCaves)){
-            addLoot(block,drop(biome,Items.BEETROOT_SEEDS,0.1f));
+            addLoot(block, seedDrop(biome, Items.BEETROOT_SEEDS, 0.1f * mult));
         }
         else if (biome.equals(ModTags.Biomes.desertBiomes)){
-            addLoot(block,drop(biome,Items.WHEAT_SEEDS,0.05f));
+            addLoot(block, seedDrop(biome, Items.WHEAT_SEEDS, 0.05f * mult));
         }
     }
 
@@ -799,30 +780,27 @@ public final class BlockConfig {
             Block block,
             TagKey<Biome> biomeTag,
             Item item,
-            float amount,
-            boolean affectedByFortune
+            float amount
     ) {
-        addLoot(block, drop(biomeTag, item, amount, affectedByFortune));
+        addLoot(block, drop(biomeTag, item, amount, true));
     }
 
     private static void addOreMountainsAndMushroomCaves(
             Block block,
             Item item,
-            float amount,
-            boolean affectedByFortune
+            float amount
     ) {
-        addOre(block, ModTags.Biomes.mountainBiomes, item, amount, affectedByFortune);
-        addOre(block, ModTags.Biomes.mushroomCaves, item, amount, affectedByFortune);
+        addOre(block, ModTags.Biomes.mountainBiomes, item, amount);
+        addOre(block, ModTags.Biomes.mushroomCaves, item, amount);
     }
 
     private static void addOreDesertAndDeepDark(
             Block block,
             Item item,
-            float amount,
-            boolean affectedByFortune
+            float amount
     ) {
-        addOre(block, ModTags.Biomes.desertBiomes, item, amount, affectedByFortune);
-        addOre(block, ModTags.Biomes.deepDarkBiomes, item, amount, affectedByFortune);
+        addOre(block, ModTags.Biomes.desertBiomes, item, amount);
+        addOre(block, ModTags.Biomes.deepDarkBiomes, item, amount);
     }
 
     private static BlockLootEntry plantSeed(TagKey<Biome> biomeTag) {
@@ -843,6 +821,10 @@ public final class BlockConfig {
         });
     }
 
+    private static BlockLootEntry seedDrop(TagKey<Biome> biomeTag, Item item, float amount) {
+        return new BlockLootEntry(biomeTag, item, state -> amount, false, true);
+    }
+
     public record BlockInfo(
             List<BlockGrowthEntry> growth,
             List<BlockLootEntry> drops
@@ -857,8 +839,18 @@ public final class BlockConfig {
             TagKey<Biome> biomeTag,
             Item item,
             Function<BlockState, Float> dropAmount,
-            boolean affectedByFortune
+            boolean affectedByFortune,
+            boolean groupedSeedRoll
     ) {
+        public BlockLootEntry(
+                TagKey<Biome> biomeTag,
+                Item item,
+                Function<BlockState, Float> dropAmount,
+                boolean affectedByFortune
+        ) {
+            this(biomeTag, item, dropAmount, affectedByFortune, false);
+        }
+
         public BlockLootEntry {
             if (dropAmount == null) {
                 dropAmount = state -> 1.0F;

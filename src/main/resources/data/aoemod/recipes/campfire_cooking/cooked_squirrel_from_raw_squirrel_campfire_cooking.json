@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:campfire_cooking",
+  "ingredient": {
+    "item": "aoemod:raw_squirrel"
+  },
+  "result": "aoemod:cooked_squirrel",
+  "experience": 0.35,
+  "cookingtime": 600
+}

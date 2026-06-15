@@ -2,7 +2,7 @@
   "type": "minecraft:ore",
   "config": {
     "discard_chance_on_air_exposure": 0.0,
-    "size": 14,
+    "size": 10,
     "targets": [
       {
         "target": {
@@ -34,10 +34,19 @@
       {
         "target": {
           "predicate_type": "minecraft:block_match",
-          "block": "nourished_nether:soul_sludge"
+          "block": "minecraft:soul_sand"
         },
         "state": {
-          "Name": "nourished_nether:rich_soul_sludge"
+          "Name": "aoemod:soul_sand_quartz_ore"
+        }
+      },
+      {
+        "target": {
+          "predicate_type": "minecraft:block_match",
+          "block": "minecraft:soul_soil"
+        },
+        "state": {
+          "Name": "aoemod:soul_soil_quartz_ore"
         }
       }
     ]

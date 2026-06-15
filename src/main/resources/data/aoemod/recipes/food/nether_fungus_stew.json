@@ -2,16 +2,16 @@
   "type": "minecraft:crafting_shapeless",
   "ingredients": [
     {
-      "item": "minecraft:warped_fungus"
+      "item": "minecraft:bowl"
     },
     {
       "item": "minecraft:crimson_fungus"
     },
     {
-      "item": "minecraft:bowl"
+      "item": "minecraft:warped_fungus"
     }
   ],
   "result": {
-    "item": "nourished_nether:nether_fungus_stew"
+    "item": "aoemod:nether_fungus_stew"
   }
 }

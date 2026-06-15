@@ -1,5 +1,6 @@
 {
-  "type": "aoemod:stepped_mountain_offset",
+  "type": "aoemod:offset",
   "continents": "aoemod:continents",
-  "rivers": "aoemod:rivers"
+  "rivers": "aoemod:rivers",
+  "biome_width": 60
 }

@@ -17,13 +17,7 @@
           }
         },
         {
-          "weight": 2,
-          "data": {
-            "Name": "blue_skies:snowcap_pinhead"
-          }
-        },
-        {
-          "weight": 2,
+          "weight": 4,
           "data": {
             "Name": "quark:glow_shroom"
           }

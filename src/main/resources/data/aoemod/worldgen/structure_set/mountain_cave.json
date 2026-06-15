@@ -3,9 +3,10 @@
     { "structure": "aoemod:mushroom_cave", "weight": 1 }
   ],
   "placement": {
-    "type": "aoemod:band_polar",
-    "target_band_pos": 0.35,
+    "type": "aoemod:z_bands",
+    "target_continents": 0.35,
+    "biome_width": 60,
     "x_start": 28.0,
-    "x_spacing": 960.0
+    "x_spacing": 60
   }
 }

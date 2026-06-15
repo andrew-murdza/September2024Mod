@@ -30,11 +30,14 @@
     [],
     [
       "aoemod:blobs/desert_stone_variants",
-      "aoemod:desert/ores/coal_ore",
-      "aoemod:desert/ores/copper_ore",
-      "aoemod:desert/ores/gold_ore",
-      "aoemod:desert/ores/iron_ore",
-      "aoemod:desert/ores/redstone_ore"
+      "aoemod:desert/ores/coal_upper",
+      "aoemod:desert/ores/copper_upper",
+      "aoemod:desert/ores/gold_upper",
+      "aoemod:desert/ores/redstone_upper",
+      "aoemod:desert/ores/coal_lower",
+      "aoemod:desert/ores/copper_lower",
+      "aoemod:desert/ores/gold_lower",
+      "aoemod:desert/ores/redstone_lower"
     ],
     [],
     [],
@@ -64,36 +67,24 @@
     "creature": [
       {
         "type": "minecraft:camel",
-        "weight": 4,
-        "minCount": 2,
-        "maxCount": 3
+        "weight": 15,
+        "minCount": 4,
+        "maxCount": 4
       }
     ],
     "misc": [],
     "monster": [
-//      {
-//        "type": "minecraft:skeleton",
-//        "maxCount": 4,
-//        "minCount": 4,
-//        "weight": 100
-//      },
       {
         "type": "minecraft:husk",
         "maxCount": 4,
         "minCount": 4,
-        "weight": 80
-      },
-      {
-        "type": "minecraft:shulker",
-        "maxCount": 1,
-        "minCount": 1,
         "weight": 100
       },
       {
-        "type": "minecraft:creeper",
+        "type": "alexsmobs:guster",
         "maxCount": 4,
         "minCount": 4,
-        "weight": 200
+        "weight": 100
       }
     ],
     "underground_water_creature": [],

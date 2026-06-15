@@ -24,10 +24,14 @@
     [],
     [
       "aoemod:blobs/stone_variants",
-      "aoemod:plains/ores/iron_ore",
-      "aoemod:plains/ores/copper_ore",
-      "aoemod:plains/ores/coal_ore",
-      "aoemod:plains/ores/gold_ore"
+      "aoemod:plains/ores/iron_upper",
+      "aoemod:plains/ores/copper_upper",
+      "aoemod:plains/ores/coal_upper",
+      "aoemod:plains/ores/gold_upper",
+      "aoemod:plains/ores/iron_lower",
+      "aoemod:plains/ores/copper_lower",
+      "aoemod:plains/ores/coal_lower",
+      "aoemod:plains/ores/gold_lower"
     ],
     [],
     [],
@@ -102,34 +106,46 @@
     "misc": [],
     "monster": [
       {
-        "type": "minecraft:spider",
-        "maxCount": 4,
-        "minCount": 4,
-        "weight": 100
-      },
-      {
-        "type": "minecraft:zombie",
-        "maxCount": 4,
-        "minCount": 4,
-        "weight": 95
-      },
-      {
         "type": "minecraft:zombie_villager",
         "maxCount": 1,
         "minCount": 1,
-        "weight": 5
+        "weight": 100
       },
       {
-        "type": "minecraft:skeleton",
+        "type": "minecraft:pillager",
         "maxCount": 4,
         "minCount": 4,
         "weight": 100
       },
       {
-        "type": "minecraft:slime",
+        "type": "minecraft:witch",
+        "maxCount": 1,
+        "minCount": 1,
+        "weight": 100
+      },
+      {
+        "type": "minecraft:ravager",
+        "maxCount": 3,
+        "minCount": 3,
+        "weight": 20
+      },
+      {
+        "type": "minecraft:evoker",
+        "maxCount": 3,
+        "minCount": 3,
+        "weight": 20
+      },
+      {
+        "type": "minecraft:vindicator",
         "maxCount": 4,
         "minCount": 4,
-        "weight": 100
+        "weight": 20
+      },
+      {
+        "type": "minecraft:illusioner",
+        "maxCount": 1,
+        "minCount": 1,
+        "weight": 1
       }
     ],
     "underground_water_creature": [],

@@ -28,11 +28,14 @@
     [],
     [
       "aoemod:blobs/desert_stone_variants",
-      "aoemod:desert/ores/coal_ore",
-      "aoemod:desert/ores/copper_ore",
-      "aoemod:desert/ores/gold_ore",
-      "aoemod:desert/ores/iron_ore",
-      "aoemod:desert/ores/redstone_ore"
+      "aoemod:desert/ores/coal_upper",
+      "aoemod:desert/ores/copper_upper",
+      "aoemod:desert/ores/gold_upper",
+      "aoemod:desert/ores/redstone_upper",
+      "aoemod:desert/ores/coal_lower",
+      "aoemod:desert/ores/copper_lower",
+      "aoemod:desert/ores/gold_lower",
+      "aoemod:desert/ores/redstone_lower"
     ],
     [],
     [],
@@ -51,15 +54,21 @@
     "monster": [
       {
         "type": "minecraft:enderman",
-        "weight": 10,
-        "minCount": 2,
-        "maxCount": 3
+        "weight": 100,
+        "minCount": 4,
+        "maxCount": 4
       },
       {
-        "type": "alexsmobs:mimicube",
-        "weight": 5,
+        "type": "minecraft:shulker",
+        "weight": 100,
+        "minCount": 4,
+        "maxCount": 4
+      },
+      {
+        "type": "minecraft:warden",
+        "weight": 20,
         "minCount": 2,
-        "maxCount": 3
+        "maxCount": 2
       }
     ],
     "underground_water_creature": [
