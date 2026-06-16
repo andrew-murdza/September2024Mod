@@ -29,16 +29,16 @@
     ],
     "features": [
       {
-        "chance": 0.3,
-        "feature": "aoemod:rainforest/water/water_plants_shallow"
+        "chance": 0.125,
+        "feature": "aoemod:rainforest/water/water_plants"
       },
       {
-        "chance": 0.08,
+        "chance": 0.09,
         "feature": "aoemod:water/kelp"
       },
       {
-        "chance": 0.62,
-        "feature": "aoemod:water/seagrass"
+        "chance": 0.6975,
+        "feature": "aoemod:rainforest/water/seagrass"
       }
     ]
   }

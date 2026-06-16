@@ -17,12 +17,20 @@
     ],
     "features": [
       {
-        "chance": 0.92,
+        "chance": 0.835,
         "feature": "aoemod:crimson_forest/water/crimson_seagrass"
       },
       {
-        "chance": 0.08,
+        "chance": 0.125,
+        "feature": "aoemod:crimson_forest/water/warped_seagrass"
+      },
+      {
+        "chance": 0.035,
         "feature": "aoemod:water/crimson_kelp"
+      },
+      {
+        "chance": 0.005,
+        "feature": "aoemod:water/warped_kelp"
       }
     ]
   }

@@ -1,0 +1,19 @@
+{
+  "type": "aoemod:grid_choice",
+  "config": {
+    "features": [
+      { "feature": "aoemod:water/rainforest/horn_coral_patch" },
+      { "feature": "aoemod:water/rainforest/tube_coral_patch" },
+      { "feature": "aoemod:water/rainforest/fire_coral_patch" },
+      { "feature": "aoemod:water/rainforest/brain_coral_patch" },
+      { "feature": "aoemod:water/rainforest/bubble_coral_patch" },
+      { "feature": "aoemod:water/rainforest/horn_coral_fan_patch" },
+      { "feature": "aoemod:water/rainforest/tube_coral_fan_patch" },
+      { "feature": "aoemod:water/rainforest/fire_coral_fan_patch" },
+      { "feature": "aoemod:water/rainforest/brain_coral_fan_patch" },
+      { "feature": "aoemod:water/rainforest/bubble_coral_fan_patch" }
+    ],
+    "offset_type": "center",
+    "placement": []
+  }
+}

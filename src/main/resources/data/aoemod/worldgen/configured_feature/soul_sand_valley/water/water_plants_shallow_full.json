@@ -17,11 +17,19 @@
     ],
     "features": [
       {
-        "chance": 0.92,
+        "chance": 0.46,
+        "feature": "aoemod:soul_sand_valley/water/crimson_seagrass"
+      },
+      {
+        "chance": 0.04,
+        "feature": "aoemod:water/crimson_kelp"
+      },
+      {
+        "chance": 0.46,
         "feature": "aoemod:soul_sand_valley/water/warped_seagrass"
       },
       {
-        "chance": 0.08,
+        "chance": 0.04,
         "feature": "aoemod:water/warped_kelp"
       }
     ]

@@ -9,19 +9,24 @@
           "predicates": [
             {
               "type": "minecraft:matching_blocks",
+              "blocks": [
+                "minecraft:moss_block",
+                "minecraft:wet_sponge"
+              ],
               "offset": [
                 0,
                 -1,
                 0
-              ],
-              "blocks": [
-                "minecraft:moss_block",
-                "minecraft:wet_sponge"
               ]
             },
             {
               "type": "minecraft:matching_block_tag",
-              "tag": "minecraft:coral_blocks"
+              "tag": "minecraft:coral_blocks",
+              "offset": [
+                0,
+                -1,
+                0
+              ]
             }
           ]
         }
@@ -29,16 +34,16 @@
     ],
     "features": [
       {
-        "chance": 0.3,
-        "feature": "aoemod:rainforest/water/water_plants_shallow"
+        "chance": 0.125,
+        "feature": "aoemod:rainforest/water/water_plants"
       },
       {
-        "chance": 0.08,
+        "chance": 0.09,
         "feature": "aoemod:water/kelp"
       },
       {
-        "chance": 0.62,
-        "feature": "aoemod:water/seagrass"
+        "chance": 0.6975,
+        "feature": "aoemod:rainforest/water/seagrass"
       }
     ]
   }

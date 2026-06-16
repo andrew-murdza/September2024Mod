@@ -2,11 +2,11 @@
   "type": "aoemod:all_surface",
   "config": {
     "deep_feature": {
-      "feature": "aoemod:rainforest/water/water_plants_full",
+      "feature": "aoemod:rainforest/water/water_plants_no_coral_full",
       "placement": []
     },
     "feature": {
-      "feature": "aoemod:rainforest/water/water_plants_shallow_full",
+      "feature": "aoemod:rainforest/water/water_plants_no_coral_shallow_full",
       "placement": []
     },
     "target": "water",
