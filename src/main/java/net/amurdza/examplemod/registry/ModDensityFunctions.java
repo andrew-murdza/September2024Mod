@@ -91,7 +91,7 @@ public final class ModDensityFunctions {
         private static final double BADLANDS_START = 0.400D;
 
         private static final int DESERT_FLAT_ENTRY_BLOCKS = 48;
-        private static final double DESERT_ENTRY_SLOPE = 0.5D;
+        private static final double DESERT_ENTRY_SLOPE = 1D/3;
 
         private static final MapCodec<SteppedMountainOffset> DATA_CODEC =
                 RecordCodecBuilder.mapCodec((data) -> data.group(
@@ -191,6 +191,8 @@ public final class ModDensityFunctions {
         }
     }
 
+
+
     /**
      * aoemod:rivers
      * New behavior:
@@ -217,6 +219,35 @@ public final class ModDensityFunctions {
             int xSpacing
     ) implements DensityFunction {
 
+
+        private static RiverProfile steppedDepthRamp(
+                RiverProfile start,
+                RiverProfile end,
+                double rampStart,
+                double oneBlockContinents,
+                double continents
+        ) {
+            int blocksPastStart = (int) Math.round(
+                    (continents - rampStart) / oneBlockContinents
+            );
+
+            blocksPastStart = Math.max(0, blocksPastStart);
+
+            double startDepth = start.maxDepth();
+            double endDepth = end.maxDepth();
+
+            double direction = Math.signum(endDepth - startDepth);
+            double depthChange = Math.abs(endDepth - startDepth);
+
+            int wholeDepthSteps = blocksPastStart / 2;
+
+            double newDepth = startDepth + direction * Math.min(
+                    depthChange,
+                    wholeDepthSteps
+            );
+
+            return new RiverProfile(newDepth);
+        }
         private static final double NORMAL_RIVER_START = 0;
 
         private static final double JUNGLE_END = 0.100D;
@@ -241,7 +272,7 @@ public final class ModDensityFunctions {
         private static final double BADLANDS_RIVER_DEPTH = 6.0D;
 
         private static final double BADLANDS_FLAT_AFTER_RIVER = 48.0D;
-        private static final double BADLANDS_TERRACE_SLOPE = 0.5D;
+        private static final double BADLANDS_TERRACE_SLOPE = 1D/3;
 
         private static final double MAX_TERRACE_HEIGHT = 64.0D;
 
@@ -341,8 +372,6 @@ public final class ModDensityFunctions {
 
             final double LOWLAND_RAMP_SHIFT = oneBlockContinents;
 
-//            final double MOUNTAIN_RAMP_SHIFT =
-//                    0.0D * oneBlockContinents;
 
             final double JUNGLE_TO_SAVANNA_RAMP_END =
                     JUNGLE_END - LOWLAND_RAMP_SHIFT;
@@ -362,11 +391,11 @@ public final class ModDensityFunctions {
             final double PLAINS_TO_MOUNTAIN_RAMP_END =
                     PLAINS_TO_MOUNTAIN_RAMP_START + MOUNTAIN_PROFILE_RAMP;
 
-            final double MOUNTAIN_TO_BADLANDS_RAMP_START =
-                    BADLANDS_START + oneBlockContinents - MOUNTAIN_PROFILE_RAMP;
-
             final double MOUNTAIN_TO_BADLANDS_RAMP_END =
-                    BADLANDS_START + MOUNTAIN_PROFILE_RAMP;
+                    BADLANDS_START - 2 * oneBlockContinents;
+
+            final double MOUNTAIN_TO_BADLANDS_RAMP_START =
+                    MOUNTAIN_TO_BADLANDS_RAMP_END - MOUNTAIN_PROFILE_RAMP;
 
             if (continents < JUNGLE_TO_SAVANNA_RAMP_START) {
                 return JUNGLE_RIVER;
@@ -409,30 +438,22 @@ public final class ModDensityFunctions {
             }
 
             if (continents < PLAINS_TO_MOUNTAIN_RAMP_END) {
-                final double t = inverseLerp(
-                        PLAINS_TO_MOUNTAIN_RAMP_START,
-                        PLAINS_TO_MOUNTAIN_RAMP_END,
-                        continents
-                );
-
-                return RiverProfile.lerp(
+                return steppedDepthRamp(
                         PLAINS_RIVER,
                         JUNGLE_RIVER,
-                        t
+                        PLAINS_TO_MOUNTAIN_RAMP_START,
+                        oneBlockContinents,
+                        continents
                 );
             }
 
             if (continents >= MOUNTAIN_TO_BADLANDS_RAMP_START) {
-                final double t = inverseLerp(
-                        MOUNTAIN_TO_BADLANDS_RAMP_START,
-                        MOUNTAIN_TO_BADLANDS_RAMP_END,
-                        continents
-                );
-
-                return RiverProfile.lerp(
+                return steppedDepthRamp(
                         JUNGLE_RIVER,
                         BADLANDS_EDGE_RIVER,
-                        t
+                        MOUNTAIN_TO_BADLANDS_RAMP_START,
+                        oneBlockContinents,
+                        continents
                 );
             }
 

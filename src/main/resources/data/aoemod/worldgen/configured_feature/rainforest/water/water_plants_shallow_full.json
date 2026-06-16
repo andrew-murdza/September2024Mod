@@ -38,7 +38,7 @@
       },
       {
         "chance": 0.62,
-        "feature": "aoemod:water/seagrass"
+        "feature": "aoemod:water/short_seagrass"
       }
     ]
   }

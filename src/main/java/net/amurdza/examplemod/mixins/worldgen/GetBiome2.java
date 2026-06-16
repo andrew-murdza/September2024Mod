@@ -82,7 +82,7 @@ public abstract class GetBiome2 extends BiomeSource {
          * z = 4800    -> cyclePos = 5.0
          * z = 9599    -> cyclePos ~= 9.999
          */
-        int biomeWidth=960;
+        int biomeWidth=1024;
 
         int cyclePos = z % (biomeWidth * 10);
         if(cyclePos >= biomeWidth * 5){

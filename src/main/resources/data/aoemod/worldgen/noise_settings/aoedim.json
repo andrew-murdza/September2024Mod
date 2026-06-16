@@ -449,7 +449,10 @@
                       "surface_depth_multiplier": 0
                     },
                     "then_run": {
-                      "type": "minecraft:bandlands"
+                      "type": "aoemod:bandlands",
+                      "start_y": 69,
+                      "band_height": 2,
+                      "surface_depth": 4
                     }
                   },
                   {

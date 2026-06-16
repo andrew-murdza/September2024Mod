@@ -2,10 +2,7 @@ package net.amurdza.examplemod.mixins.block_placement;
 
 import net.amurdza.examplemod.util.ModTags;
 import net.minecraft.core.BlockPos;
-import net.minecraft.core.Holder;
 import net.minecraft.world.level.BlockGetter;
-import net.minecraft.world.level.LevelReader;
-import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.BushBlock;
 import net.minecraft.world.level.block.RootsBlock;
@@ -25,7 +22,8 @@ public abstract class NetherRootsPlacement extends BushBlock {
     @Inject(method = "mayPlaceOn", at = @At("HEAD"), cancellable = true)
     protected void mayPlaceOn(BlockState pState, BlockGetter pLevel, BlockPos pPos, CallbackInfoReturnable<Boolean> cir) {
         if (this == Blocks.WARPED_ROOTS) {
-            cir.setReturnValue(pState.is(Blocks.WARPED_NYLIUM));
+            cir.setReturnValue(pState.is(Blocks.WARPED_NYLIUM)
+                    || pState.is(ModTags.Blocks.soulSediments));
         }
 
         if (this == Blocks.CRIMSON_ROOTS) {
