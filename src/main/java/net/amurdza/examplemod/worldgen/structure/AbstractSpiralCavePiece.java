@@ -309,32 +309,7 @@ public abstract class AbstractSpiralCavePiece extends StructurePiece {
             y -= minDropPerStep;
             yaw += turnPerStep;
         }
-
-        double finalFluidCenterY = lastY - this.verticalRadius - 1.0D;
-
-        continueSurfaceRiverPositiveX(
-                level,
-                box,
-                lastX,
-                finalFluidCenterY,
-                lastZ
-        );
-
         placePlacedFeaturesForCurrentStructureChunk(level, generator, chunkPos);
-
-        AOEMod.LOGGER.info(
-                "postProcess chunk=({}, {}), passedBox=[{}..{}, {}..{}], pieceBox=[{}..{}, {}..{}]",
-                chunkPos.x,
-                chunkPos.z,
-                box.minX(),
-                box.maxX(),
-                box.minZ(),
-                box.maxZ(),
-                this.getBoundingBox().minX(),
-                this.getBoundingBox().maxX(),
-                this.getBoundingBox().minZ(),
-                this.getBoundingBox().maxZ()
-        );
     }
 
     protected void continueSurfaceRiverPositiveX(
@@ -478,42 +453,21 @@ public abstract class AbstractSpiralCavePiece extends StructurePiece {
 
         int padding = 3;
 
-        int spiralMinX = Mth.floor(pillarCenterX - spiralOuterRadius) - padding;
-        int spiralMaxX = Mth.ceil(pillarCenterX + spiralOuterRadius) + padding;
-        int spiralMinZ = Mth.floor(pillarCenterZ - spiralOuterRadius) - padding;
-        int spiralMaxZ = Mth.ceil(pillarCenterZ + spiralOuterRadius) + padding;
+        int minX = Mth.floor(pillarCenterX - spiralOuterRadius) - padding;
+        int maxX = Mth.ceil(pillarCenterX + spiralOuterRadius) + padding;
+        int minZ = Mth.floor(pillarCenterZ - spiralOuterRadius) - padding;
+        int maxZ = Mth.ceil(pillarCenterZ + spiralOuterRadius) + padding;
 
-        int minX = spiralMinX;
-        int maxX = spiralMaxX;
-        int minZ = spiralMinZ;
-        int maxZ = spiralMaxZ;
-
-        if (endX > 0 && liquidRadius > 0.0F) {
-            int riverPadding = Mth.ceil(liquidRadius) + padding;
-
-            minX = Math.min(minX, spiralMinX - riverPadding);
-            maxX = Math.max(maxX, spiralMaxX + endX + riverPadding);
-
-            minZ = Math.min(minZ, spiralMinZ - riverPadding);
-            maxZ = Math.max(maxZ, spiralMaxZ + riverPadding);
-        }
-
-        AOEMod.LOGGER.info(
-                "Spiral box: origin=({}, {}, {}), pillar=({}, {}), pathRadius={}, tunnelRadius={}, outerRadius={}, box=[{}..{}, {}..{}]",
-                origin.getX(), origin.getY(), origin.getZ(),
-                pillarCenterX, pillarCenterZ,
-                pathRadius,
-                tunnelHorizontalRadius,
-                spiralOuterRadius,
-                minX, maxX,
-                minZ, maxZ
-        );
+        int minY = endY
+                - Mth.ceil(verticalRadius)
+                - Mth.ceil(liquidRadius)
+                - padding;
 
         int maxY = origin.getY() + Mth.ceil(verticalRadius) + 48;
 
         return new BoundingBox(
                 minX,
-                endY,
+                minY,
                 minZ,
                 maxX,
                 maxY,
