@@ -64,20 +64,22 @@ public class MushroomCavePiece extends AbstractSpiralCavePiece {
 
     @Override
     protected void decorateCaveSurface(WorldGenLevel level, BlockPos carvedPos) {
-        if (carvedPos.getY() > this.maxMushroomCaves) {
+        boolean isMushroomLayer = carvedPos.getY() <= this.maxMushroomCaves;
+
+        BlockPos top = carvedPos.below();
+        BlockState topState = level.getBlockState(top);
+
+        if (!isNaturalReplaceableSurface(level, top, topState)) {
             return;
         }
 
-        BlockPos below = carvedPos.below();
-        BlockState belowState = level.getBlockState(below);
+        BlockState surfaceState = isMushroomLayer
+                ? Blocks.MYCELIUM.defaultBlockState()
+                : Blocks.GRASS_BLOCK.defaultBlockState();
 
-        if (!isNaturalReplaceableSurface(level, below, belowState)) {
-            return;
-        }
+        level.setBlock(top, surfaceState, Block.UPDATE_CLIENTS);
 
-        level.setBlock(below, Blocks.MYCELIUM.defaultBlockState(), Block.UPDATE_CLIENTS);
-
-        BlockPos backing = below.below();
+        BlockPos backing = top.below();
         BlockState backingState = level.getBlockState(backing);
 
         if (isNaturalReplaceableSolid(backingState)) {
@@ -103,7 +105,11 @@ public class MushroomCavePiece extends AbstractSpiralCavePiece {
             double fluidCenterY,
             double fluidCenterZ
     ) {
-        placeMudRiverFloor(level, box, new BlockPos(x, lowestPlacedFluidY - 1, z));
+        BlockPos riverFloor = new BlockPos(x, lowestPlacedFluidY - 1, z);
+
+        placeMudRiverFloor(level, box, riverFloor);
+        placeMudRiverFloor(level, box, riverFloor.below());
+        placeMudRiverFloor(level, box, riverFloor.below(2));
     }
 
     private void placeMudRiverFloor(

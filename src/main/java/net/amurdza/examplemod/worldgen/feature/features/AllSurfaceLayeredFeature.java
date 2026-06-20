@@ -5,6 +5,7 @@ import net.amurdza.examplemod.worldgen.feature.configs.AllSurfaceLayeredFeatures
 import net.amurdza.examplemod.worldgen.feature.configs.AllSurfacesFeatureConfig;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Holder;
+import net.minecraft.util.Mth;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.ChunkPos;
 import net.minecraft.world.level.WorldGenLevel;
@@ -93,6 +94,80 @@ public class AllSurfaceLayeredFeature extends Feature<AllSurfaceLayeredFeaturesC
         }
 
         return placedAnything;
+    }
+
+    private PlacementResult tryPlaceGuaranteedFeatureNearY(
+            WorldGenLevel level,
+            FeaturePlaceContext<AllSurfaceLayeredFeaturesConfig> context,
+            AllSurfacesFeatureConfig cfg,
+            Holder<ConfiguredFeature<?, ?>> configuredFeature,
+            int x,
+            int y,
+            int z,
+            int minY,
+            int maxY
+    ) {
+        int maxOffset = Math.max(Mth.ceil(cfg.skipHeight / 2.0F), 1);
+
+        BlockPos.MutableBlockPos pos = new BlockPos.MutableBlockPos();
+
+        for (int i = 0; i <= maxOffset; i++) {
+            if (i == 0) {
+                if (y >= minY && y <= maxY) {
+                    pos.set(x, y, z);
+
+                    PlacementResult result = tryPlaceGuaranteedFeatureAt(
+                            level,
+                            pos,
+                            context,
+                            cfg,
+                            configuredFeature
+                    );
+
+                    if (result.foundLayer()) {
+                        return result;
+                    }
+                }
+
+                continue;
+            }
+
+            int upY = y + i;
+            if (upY <= maxY) {
+                pos.set(x, upY, z);
+
+                PlacementResult result = tryPlaceGuaranteedFeatureAt(
+                        level,
+                        pos,
+                        context,
+                        cfg,
+                        configuredFeature
+                );
+
+                if (result.foundLayer()) {
+                    return result;
+                }
+            }
+
+            int downY = y - i;
+            if (downY >= minY) {
+                pos.set(x, downY, z);
+
+                PlacementResult result = tryPlaceGuaranteedFeatureAt(
+                        level,
+                        pos,
+                        context,
+                        cfg,
+                        configuredFeature
+                );
+
+                if (result.foundLayer()) {
+                    return result;
+                }
+            }
+        }
+
+        return PlacementResult.NONE;
     }
 
     private boolean placeRegularFeaturesInColumn(
@@ -336,20 +411,22 @@ public class AllSurfaceLayeredFeature extends Feature<AllSurfaceLayeredFeaturesC
             int y = maxY;
 
             while (y >= minY) {
-                pos.set(x, y, z);
-
-                PlacementResult result = tryPlaceGuaranteedFeatureAt(
+                PlacementResult result = tryPlaceGuaranteedFeatureNearY(
                         level,
-                        pos,
                         context,
                         cfg,
-                        configuredFeature
+                        configuredFeature,
+                        x,
+                        y,
+                        z,
+                        minY,
+                        maxY
                 );
 
                 placedAnything |= result.placedAnything();
 
-                if (result.foundLayer() && result.skipHeight() > 0) {
-                    y -= result.skipHeight();
+                if (result.foundLayer()) {
+                    y -= Math.max(1, cfg.skipHeight);
                 } else {
                     y--;
                 }

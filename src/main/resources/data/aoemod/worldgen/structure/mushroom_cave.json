@@ -7,13 +7,13 @@
   "horizontal_radius": 36.0,
   "vertical_radius": 8.0,
   "start_y": 64,
-  "end_y": 16,
+  "end_y": 4,
   "end_x": 174,
   "central_pillar_diameter": 60.0,
   "min_floor_thickness": 6.0,
   "liquid_radius": 8.0,
   "liquid_depth": 6.0,
-  "max_mushroom_caves": 56,
+  "max_mushroom_caves": 45,
   "placed_features": [
     "aoemod:mushroom_caves/seafloor",
     "aoemod:mushroom_caves/forest_floor"

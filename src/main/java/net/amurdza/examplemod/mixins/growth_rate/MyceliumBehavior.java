@@ -32,9 +32,6 @@ public abstract class MyceliumBehavior extends MyceliumGrassSpreadRate {
     private static boolean canBeGrass(BlockState pState, LevelReader pLevelReader, BlockPos pPos) {
         BlockPos blockpos = pPos.above();
         BlockState blockstate = pLevelReader.getBlockState(blockpos);
-        if(!pLevelReader.getBiome(pPos).is(ModTags.Biomes.mushroomCaves)){
-            return false;
-        }
         if (blockstate.is(Blocks.SNOW) && blockstate.getValue(SnowLayerBlock.LAYERS) == 1) {
             return true;
         } else if (blockstate.getFluidState().getAmount() == 8) {

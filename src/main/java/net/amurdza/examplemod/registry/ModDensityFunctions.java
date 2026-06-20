@@ -267,9 +267,9 @@ public final class ModDensityFunctions {
                 new RiverProfile(6.0D);
 
         private static final RiverProfile BADLANDS_EDGE_RIVER =
-                new RiverProfile(6.0D);
+                new RiverProfile(4.0D);
 
-        private static final double BADLANDS_RIVER_DEPTH = 6.0D;
+        private static final double BADLANDS_RIVER_DEPTH = 4.0D;
 
         private static final double BADLANDS_FLAT_AFTER_RIVER = 48.0D;
         private static final double BADLANDS_TERRACE_SLOPE = 1D/3;
@@ -367,8 +367,11 @@ public final class ModDensityFunctions {
             final double SMALL_PROFILE_RAMP =
                     4.0D * oneBlockContinents;
 
-            final double MOUNTAIN_PROFILE_RAMP =
+            final double PLAINS_TO_MOUNTAINS_RAMP =
                     8.0D * oneBlockContinents;
+
+            final double MOUNTAIN_TO_BADLANDS_RAMP =
+                    12.0D * oneBlockContinents;
 
             final double LOWLAND_RAMP_SHIFT = oneBlockContinents;
 
@@ -389,13 +392,13 @@ public final class ModDensityFunctions {
                     MOUNTAIN_START;
 
             final double PLAINS_TO_MOUNTAIN_RAMP_END =
-                    PLAINS_TO_MOUNTAIN_RAMP_START + MOUNTAIN_PROFILE_RAMP;
+                    PLAINS_TO_MOUNTAIN_RAMP_START + PLAINS_TO_MOUNTAINS_RAMP;
 
             final double MOUNTAIN_TO_BADLANDS_RAMP_END =
                     BADLANDS_START - 2 * oneBlockContinents;
 
             final double MOUNTAIN_TO_BADLANDS_RAMP_START =
-                    MOUNTAIN_TO_BADLANDS_RAMP_END - MOUNTAIN_PROFILE_RAMP;
+                    MOUNTAIN_TO_BADLANDS_RAMP_END - MOUNTAIN_TO_BADLANDS_RAMP;
 
             if (continents < JUNGLE_TO_SAVANNA_RAMP_START) {
                 return JUNGLE_RIVER;

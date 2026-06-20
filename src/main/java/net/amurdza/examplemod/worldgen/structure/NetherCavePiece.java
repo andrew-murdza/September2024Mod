@@ -170,6 +170,7 @@ public class NetherCavePiece extends AbstractSpiralCavePiece {
     protected boolean isNaturalReplaceableSolid(BlockState state) {
         return !state.isAir()
                 && state.getFluidState().isEmpty()
+                && state.isSolid()
                 && !state.is(Blocks.NETHER_WART)
                 && !state.is(Blocks.CHORUS_PLANT)
                 && !state.is(Blocks.CHORUS_FLOWER)
@@ -254,19 +255,20 @@ public class NetherCavePiece extends AbstractSpiralCavePiece {
         BlockState lavaState = level.getBlockState(lavaPos);
 
         if (!lavaState.is(Blocks.LAVA)
-                &&(!lavaState.is(Blocks.WATER)||getLayerAtY(lavaPos.below().getY())!=NetherLayer.NONE)) {
+                && (!lavaState.is(Blocks.WATER)
+                || getLayerAtY(lavaPos.below().getY()) != NetherLayer.NONE)) {
             return;
         }
 
         BlockPos below = lavaPos.below();
 
-        if (!box.isInside(below)) {
+        if (!box.isInside(below) || level.isOutsideBuildHeight(below)) {
             return;
         }
 
         BlockState belowState = level.getBlockState(below);
 
-        if(shouldNotReplaceFluidFloor(belowState)){
+        if (shouldNotReplaceFluidFloor(belowState)) {
             return;
         }
 
@@ -275,6 +277,10 @@ public class NetherCavePiece extends AbstractSpiralCavePiece {
         }
 
         BlockState floorState = getFluidFloorState(below.getY());
+
+        if (floorState == null) {
+            return;
+        }
 
         level.setBlock(below, floorState, Block.UPDATE_CLIENTS);
     }

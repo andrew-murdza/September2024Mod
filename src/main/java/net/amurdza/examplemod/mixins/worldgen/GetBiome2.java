@@ -99,7 +99,7 @@ public abstract class GetBiome2 extends BiomeSource {
             cir.setReturnValue(biomes.get(AOE_PLAINS));
         }
         else if (cyclePos < 4 * biomeWidth) {
-            if (y <= 56 && y > 24) {
+            if (y <= 56 && y > 12) {
                 cir.setReturnValue(biomes.get(AOE_MUSHROOM_CAVES));
             } else {
                 cir.setReturnValue(biomes.get(AOE_GROVE));
