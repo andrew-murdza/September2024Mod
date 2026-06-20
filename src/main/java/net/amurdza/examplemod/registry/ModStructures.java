@@ -5,7 +5,6 @@ import net.amurdza.examplemod.worldgen.structure.LongMushroomCaveStructure;
 import net.amurdza.examplemod.worldgen.structure.LongNetherCaveStructure;
 import net.amurdza.examplemod.worldgen.structure.MushroomCavePiece;
 import net.amurdza.examplemod.worldgen.structure.NetherCavePiece;
-import net.amurdza.examplemod.worldgen.structure.NetherCaveStraightRiverPiece;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.world.level.levelgen.structure.StructureType;
 import net.minecraft.world.level.levelgen.structure.pieces.StructurePieceType;
@@ -26,9 +25,6 @@ public class ModStructures {
 
     public static final RegistryObject<StructurePieceType> NETHER_CAVE_PIECE =
             PIECE_TYPES.register("nether_cave_piece", () -> NetherCavePiece::new);
-
-    public static final RegistryObject<StructurePieceType> NETHER_CAVE_STRAIGHT_RIVER_PIECE =
-            PIECE_TYPES.register("nether_cave_straight_river_piece", () -> NetherCaveStraightRiverPiece::new);
 
     public static final RegistryObject<StructureType<LongMushroomCaveStructure>> MUSHROOM_CAVE =
             STRUCTURE_TYPES.register("mushroom_cave", () -> LongMushroomCaveStructure.CODEC::codec);

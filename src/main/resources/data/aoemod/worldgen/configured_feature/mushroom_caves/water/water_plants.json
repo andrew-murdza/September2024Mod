@@ -5,21 +5,19 @@
       "type": "minecraft:weighted_state_provider",
       "entries": [
         {
-          "weight": 10,
+          "weight": 2,
           "data": {
             "Name": "minecraft:wet_sponge"
           }
         },
         {
-          "weight": 50,
+          "weight": 10,
           "data": {
-            "Name": "alexscaves:bone_worms"
-          }
-        },
-        {
-          "weight": 40,
-          "data": {
-            "Name": "alexscaves:ping_pong_sponge"
+            "Name": "minecraft:sea_pickle",
+            "Properties": {
+              "pickles": "4",
+              "waterlogged": "true"
+            }
           }
         }
       ]

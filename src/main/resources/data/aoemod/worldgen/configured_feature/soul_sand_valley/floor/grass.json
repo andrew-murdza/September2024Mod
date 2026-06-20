@@ -6,12 +6,6 @@
       "entries": [
         {
           "data": {
-            "Name": "nourished_nether:soul_weeds"
-          },
-          "weight": 50
-        },
-        {
-          "data": {
             "Name": "minecraft:crimson_roots"
           },
           "weight": 50

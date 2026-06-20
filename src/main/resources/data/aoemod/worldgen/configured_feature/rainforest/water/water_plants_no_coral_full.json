@@ -35,7 +35,7 @@
     "features": [
       {
         "chance": 0.125,
-        "feature": "aoemod:rainforest/water/water_plants"
+        "feature": "aoemod:rainforest/water/water_plants_no_coral"
       },
       {
         "chance": 0.09,

@@ -18,7 +18,7 @@
      "target": "air",
     "all_layers": true,
     "skip_height": 30,
-    "max_y": 57,
+    "max_y": 45,
     "min_y": 24,
     "predicate": {
       "type": "minecraft:matching_blocks",

@@ -17,20 +17,16 @@
     ],
     "features": [
       {
-        "chance": 0.16,
-        "feature": "aoemod:mountains/water/water_plants"
+        "chance": 0.075,
+        "feature": "aoemod:mushroom_caves/water/water_plants"
       },
       {
-        "chance": 0.02,
-        "feature": "aoemod:glow_lichen"
-      },
-      {
-        "chance": 0.1,
+        "chance": 0.0375,
         "feature": "aoemod:water/kelp"
       },
       {
-        "chance": 0.72,
-        "feature": "aoemod:mountains/water/seagrass"
+        "chance": 0.8875,
+        "feature": "aoemod:mushroom_caves/water/seagrass"
       }
     ]
   }

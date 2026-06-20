@@ -11,13 +11,11 @@
     },
     "target": "water",
     "all_layers": true,
-    "skip_height": 30,
-    "max_y": 20,
-    "min_y": 57,
     "predicate": {
       "type": "minecraft:matching_blocks",
       "blocks": [
-        "minecraft:mud"
+        "minecraft:mud",
+        "minecraft:wet_sponge"
       ]
     },
     "biomes": "aoemod:mountain_biomes"

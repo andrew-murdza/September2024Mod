@@ -136,8 +136,8 @@ public class NetherCavePiece extends AbstractSpiralCavePiece {
 
     @Override
     protected BlockState getRiverFluidState(double landFloorY) {
-        boolean bottomIsInLavaRegion = landFloorY - this.liquidDepth <= this.maxSoulSandValleyY;
-        boolean topIsInWaterRegion = landFloorY > this.maxSoulSandValleyY + 1;
+        boolean bottomIsInLavaRegion = landFloorY - this.liquidDepth - 2 <= this.maxSoulSandValleyY;
+        boolean topIsInWaterRegion = landFloorY > this.maxSoulSandValleyY - 2;
 
         if (bottomIsInLavaRegion && topIsInWaterRegion) {
             return null;
@@ -170,6 +170,7 @@ public class NetherCavePiece extends AbstractSpiralCavePiece {
     protected boolean isNaturalReplaceableSolid(BlockState state) {
         return !state.isAir()
                 && state.getFluidState().isEmpty()
+                && !state.is(Blocks.NETHER_WART)
                 && !state.is(Blocks.CHORUS_PLANT)
                 && !state.is(Blocks.CHORUS_FLOWER)
                 && !state.is(Blocks.SCULK_CATALYST)
@@ -291,6 +292,7 @@ public class NetherCavePiece extends AbstractSpiralCavePiece {
             case WARPED_FOREST -> Blocks.WARPED_NYLIUM.defaultBlockState();
             case CRIMSON_FOREST -> Blocks.CRIMSON_NYLIUM.defaultBlockState();
             case NONE -> Blocks.SAND.defaultBlockState();
+            case SOUL_SAND_VALLEY -> null;
             default -> Blocks.BLACKSTONE.defaultBlockState();
         };
     }

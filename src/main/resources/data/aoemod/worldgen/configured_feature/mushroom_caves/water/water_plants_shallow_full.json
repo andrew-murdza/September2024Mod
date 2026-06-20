@@ -5,31 +5,27 @@
       {
         "type": "minecraft:block_predicate_filter",
         "predicate": {
-          "type": "minecraft:matching_blocks",
+          "type": "minecraft:has_sturdy_face",
           "offset": [
             0,
             -1,
             0
           ],
-          "blocks": "minecraft:clay"
+          "direction": "up"
         }
       }
     ],
     "features": [
       {
-        "chance": 0.12,
-        "feature": "aoemod:glow_lichen"
+        "chance": 0.075,
+        "feature": "aoemod:mushroom_caves/water/water_plants_shallow"
       },
       {
-        "chance": 0.14,
-        "feature": "aoemod:mountains/water/water_plants_shallow"
-      },
-      {
-        "chance": 0.1,
+        "chance": 0.0375,
         "feature": "aoemod:water/kelp"
       },
       {
-        "chance": 0.64,
+        "chance": 0.8875,
         "feature": "aoemod:water/short_seagrass"
       }
     ]

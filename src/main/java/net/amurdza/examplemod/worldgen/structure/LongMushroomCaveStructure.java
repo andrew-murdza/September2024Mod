@@ -7,6 +7,7 @@ import net.amurdza.examplemod.registry.ModStructures;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.HolderSet;
 import net.minecraft.util.ExtraCodecs;
+import net.minecraft.util.Mth;
 import net.minecraft.world.level.ChunkPos;
 import net.minecraft.world.level.levelgen.placement.PlacedFeature;
 import net.minecraft.world.level.levelgen.structure.Structure;
@@ -119,14 +120,17 @@ public class LongMushroomCaveStructure extends Structure {
     public @NotNull Optional<GenerationStub> findGenerationPoint(GenerationContext context) {
         ChunkPos chunkPos = context.chunkPos();
 
+        int tunnelStartY = this.startY + Mth.ceil(this.verticalRadius + 1.5F);
+
         BlockPos origin = new BlockPos(
-                chunkPos.getMiddleBlockX()+endX,
-                this.startY,
+                chunkPos.getMiddleBlockX(),
+                tunnelStartY,
                 chunkPos.getMiddleBlockZ()
         );
 
-        return Optional.of(new GenerationStub(origin, builder -> builder.addPiece(
-                new MushroomCavePiece(
+        return Optional.of(new GenerationStub(
+                new BlockPos(chunkPos.getMiddleBlockX(), tunnelStartY, chunkPos.getMiddleBlockZ()),
+                builder -> builder.addPiece(new MushroomCavePiece(
                         origin,
                         context.random().nextLong(),
                         this.endY,
@@ -139,8 +143,8 @@ public class LongMushroomCaveStructure extends Structure {
                         this.liquidRadius,
                         this.maxMushroomCaves,
                         this.placedFeatures
-                )
-        )));
+                ))
+        ));
     }
 
     @Override

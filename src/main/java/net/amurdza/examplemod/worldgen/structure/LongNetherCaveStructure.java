@@ -52,14 +52,6 @@ public class LongNetherCaveStructure extends Structure {
                 );
     }
 
-    private record SpiralExit(
-            double x,
-            double y,
-            double z,
-            double fluidCenterY
-    ) {
-    }
-
     public static final MapCodec<LongNetherCaveStructure> CODEC =
             RecordCodecBuilder.mapCodec(instance ->
                     instance.group(
@@ -186,166 +178,33 @@ public class LongNetherCaveStructure extends Structure {
 
         int tunnelStartY = this.startY + Mth.ceil(this.verticalRadius + 1.5F);
 
-        int riverEndX = chunkPos.getMiddleBlockX() + this.riverEndOffsetX;
-
-        double exitOffsetX = computeSpiralExitOffsetX(
-                tunnelStartY,
-                this.endY,
-                this.horizontalRadius,
-                this.verticalRadius,
-                this.centralPillarDiameter,
-                this.minFloorThickness,
-                this.liquidDepth,
-                this.liquidRadius
-        );
-
-        int originX = Mth.floor(riverEndX - this.endX - exitOffsetX);
-
         BlockPos origin = new BlockPos(
-                originX,
+                chunkPos.getMiddleBlockX(),
                 tunnelStartY,
                 chunkPos.getMiddleBlockZ()
         );
 
-        SpiralExit exit = computeSpiralExit(
-                origin,
-                this.endY,
-                this.horizontalRadius,
-                this.verticalRadius,
-                this.centralPillarDiameter,
-                this.minFloorThickness,
-                this.liquidDepth,
-                this.liquidRadius
-        );
-
-        double riverStartX = exit.x();
-        double riverEnd = riverStartX + this.endX;
-
         return Optional.of(new GenerationStub(
                 new BlockPos(chunkPos.getMiddleBlockX(), tunnelStartY, chunkPos.getMiddleBlockZ()),
-                builder -> {
-                    builder.addPiece(new NetherCavePiece(
-                            origin,
-                            context.random().nextLong(),
-                            this.endY,
-                            this.endX,
-                            this.horizontalRadius,
-                            this.verticalRadius,
-                            this.centralPillarDiameter,
-                            this.minFloorThickness,
-                            this.liquidDepth,
-                            this.liquidRadius,
-                            this.maxDeepDarkY,
-                            this.maxSoulSandValleyY,
-                            this.maxWarpedForestY,
-                            this.maxCrimsonForestY,
-                            this.maxBasaltDeltasY,
-                            this.placedFeatures
-                    ));
-
-                    builder.addPiece(new NetherCaveStraightRiverPiece(
-                            riverStartX,
-                            riverEnd,
-                            exit.fluidCenterY(),
-                            exit.z(),
-                            origin.getY(),
-                            this.liquidDepth,
-                            this.liquidRadius,
-                            this.maxSoulSandValleyY,
-                            this.maxDeepDarkY,
-                            this.maxWarpedForestY,
-                            this.maxCrimsonForestY,
-                            this.maxBasaltDeltasY
-                    ));
-                }
+                builder -> builder.addPiece(new NetherCavePiece(
+                        origin,
+                        context.random().nextLong(),
+                        this.endY,
+                        this.endX,
+                        this.horizontalRadius,
+                        this.verticalRadius,
+                        this.centralPillarDiameter,
+                        this.minFloorThickness,
+                        this.liquidDepth,
+                        this.liquidRadius,
+                        this.maxDeepDarkY,
+                        this.maxSoulSandValleyY,
+                        this.maxWarpedForestY,
+                        this.maxCrimsonForestY,
+                        this.maxBasaltDeltasY,
+                        this.placedFeatures
+                ))
         ));
-    }
-
-    private static double computeSpiralExitOffsetX(
-            int startY,
-            int endY,
-            float horizontalRadius,
-            float verticalRadius,
-            float centralPillarDiameter,
-            float minFloorThickness,
-            float liquidDepth,
-            float liquidRadius
-    ) {
-        SpiralExit exit = computeSpiralExit(
-                new BlockPos(0, startY, 0),
-                endY,
-                horizontalRadius,
-                verticalRadius,
-                centralPillarDiameter,
-                minFloorThickness,
-                liquidDepth,
-                liquidRadius
-        );
-
-        return exit.x();
-    }
-
-    private static SpiralExit computeSpiralExit(
-            BlockPos origin,
-            int endY,
-            float horizontalRadius,
-            float verticalRadius,
-            float centralPillarDiameter,
-            float minFloorThickness,
-            float liquidDepth,
-            float liquidRadius
-    ) {
-        float tunnelHorizontalRadius = horizontalRadius + liquidRadius;
-
-        double pathRadius = centralPillarDiameter * 0.5D + tunnelHorizontalRadius;
-        double turnPerStep = -AbstractSpiralCavePiece.turnPerStepForPathRadius(pathRadius);
-
-        double stepsPerTurn = (Math.PI * 2.0D) / Math.abs(turnPerStep);
-
-        double carvedHeight = 2.0D * verticalRadius;
-        double requiredVerticalSeparation = carvedHeight + minFloorThickness + 1.0D + liquidDepth;
-
-        double minDropPerStep = requiredVerticalSeparation / stepsPerTurn;
-        minDropPerStep = Mth.clamp(minDropPerStep, 0.01D, 0.85D);
-
-        double pillarCenterX = origin.getX();
-        double pillarCenterZ = origin.getZ() + pathRadius;
-
-        double yaw = 3.0D * Math.PI * 0.5D;
-        double y = origin.getY();
-
-        double lastX = pillarCenterX + Math.cos(yaw) * pathRadius;
-        double lastY = y;
-        double lastZ = pillarCenterZ + Math.sin(yaw) * pathRadius;
-
-        int maxSteps = 4096;
-
-        for (int step = 0; step < maxSteps; step++) {
-            double x = pillarCenterX + Math.cos(yaw) * pathRadius;
-            double z = pillarCenterZ + Math.sin(yaw) * pathRadius;
-
-            double bottomOfEllipsoid = y - verticalRadius;
-
-            if (bottomOfEllipsoid <= endY + 1) {
-                break;
-            }
-
-            lastX = x;
-            lastY = y;
-            lastZ = z;
-
-            y -= minDropPerStep;
-            yaw += turnPerStep;
-        }
-
-        double finalFluidCenterY = lastY - verticalRadius - 1.0D;
-
-        return new SpiralExit(
-                lastX,
-                lastY,
-                lastZ,
-                finalFluidCenterY
-        );
     }
 
     @Override

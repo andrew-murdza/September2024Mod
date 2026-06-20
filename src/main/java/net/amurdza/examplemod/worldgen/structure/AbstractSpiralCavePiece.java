@@ -1,6 +1,5 @@
 package net.amurdza.examplemod.worldgen.structure;
 
-import net.amurdza.examplemod.AOEMod;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.Holder;
@@ -62,6 +61,7 @@ public abstract class AbstractSpiralCavePiece extends StructurePiece {
                 horizontalRadius,
                 verticalRadius,
                 centralPillarDiameter,
+                liquidDepth,
                 liquidRadius,
                 endY,
                 endX
@@ -79,14 +79,8 @@ public abstract class AbstractSpiralCavePiece extends StructurePiece {
         this.liquidRadius = liquidRadius;
         this.placedFeatures = placedFeatures;
 
-        double pathRadius = getPathRadius(
-                horizontalRadius,
-                centralPillarDiameter,
-                liquidRadius
-        );
-
         this.pillarCenterX = origin.getX();
-        this.pillarCenterZ = origin.getZ() + pathRadius;
+        this.pillarCenterZ = origin.getZ();
     }
 
     protected AbstractSpiralCavePiece(
@@ -123,14 +117,8 @@ public abstract class AbstractSpiralCavePiece extends StructurePiece {
          */
         this.placedFeatures = HolderSet.direct();
 
-        double pathRadius = getPathRadius(
-                horizontalRadius,
-                centralPillarDiameter,
-                liquidRadius
-        );
-
         this.pillarCenterX = origin.getX();
-        this.pillarCenterZ = origin.getZ() + pathRadius;
+        this.pillarCenterZ = origin.getZ();
     }
 
     @Override
@@ -288,11 +276,23 @@ public abstract class AbstractSpiralCavePiece extends StructurePiece {
         double lastY = y;
         double lastZ = this.pillarCenterZ + Math.sin(yaw) * pathRadius;
 
+        double firstX = lastX;
+        double firstY = lastY;
+        double firstZ = lastZ;
+        boolean capturedFirstStep = false;
+
         int maxSteps = 4096;
 
         for (int step = 0; step < maxSteps; step++) {
             double x = this.pillarCenterX + Math.cos(yaw) * pathRadius;
             double z = this.pillarCenterZ + Math.sin(yaw) * pathRadius;
+
+            if (!capturedFirstStep) {
+                firstX = x;
+                firstY = y;
+                firstZ = z;
+                capturedFirstStep = true;
+            }
 
             if (wouldBottomOfEllipsoidCarveIntoTargetYPlusOne(y)) {
                 break;
@@ -302,131 +302,42 @@ public abstract class AbstractSpiralCavePiece extends StructurePiece {
 
             carveEllipsoid(level, box, x, y, z, maxCarveY);
 
-            lastX = x;
-            lastY = y;
-            lastZ = z;
-
             y -= minDropPerStep;
             yaw += turnPerStep;
         }
+
+        continueStraightExitTunnelPositiveX(
+                level,
+                box,
+                firstX,
+                firstY,
+                firstZ
+        );
+
+
         placePlacedFeaturesForCurrentStructureChunk(level, generator, chunkPos);
     }
 
-    protected void continueSurfaceRiverPositiveX(
+    protected void continueStraightExitTunnelPositiveX(
             WorldGenLevel level,
             BoundingBox box,
             double startX,
-            double fluidCenterY,
+            double centerY,
             double centerZ
     ) {
-        if (this.endX <= 0 || this.liquidRadius <= 0.0F || this.liquidDepth <= 0.0F) {
+        if (this.endX <= 0) {
             return;
         }
 
         double targetX = startX + this.endX;
-        int maxClearY = this.origin.getY();
+        int maxCarveY = Math.max(
+                this.origin.getY(),
+                Mth.ceil(centerY + this.verticalRadius + 2.0D)
+        );
 
         for (double centerX = startX; centerX <= targetX; centerX += 1.0D) {
-            carveStraightRiverColumn(level, box, centerX, fluidCenterY, centerZ, maxClearY);
+            carveEllipsoid(level, box, centerX, centerY, centerZ, maxCarveY);
         }
-    }
-
-    protected void carveStraightRiverColumn(
-            WorldGenLevel level,
-            BoundingBox box,
-            double centerX,
-            double fluidCenterY,
-            double centerZ,
-            int maxClearY
-    ) {
-        int minX = Mth.floor(centerX - this.liquidRadius) - 1;
-        int maxX = Mth.floor(centerX + this.liquidRadius) + 1;
-        int minY = Mth.floor(fluidCenterY - this.liquidDepth);
-        int maxY = Mth.floor(fluidCenterY) + 1;
-        int minZ = Mth.floor(centerZ - this.liquidRadius) - 1;
-        int maxZ = Mth.floor(centerZ + this.liquidRadius) + 1;
-
-        BlockPos.MutableBlockPos pos = new BlockPos.MutableBlockPos();
-
-        for (int x = minX; x <= maxX; x++) {
-            for (int z = minZ; z <= maxZ; z++) {
-                BlockState fluidState = getRiverFluidState(fluidCenterY);
-
-                if (fluidState == null) {
-                    continue;
-                }
-
-                boolean placedAnyFluidInColumn = false;
-                int lowestPlacedFluidY = Integer.MAX_VALUE;
-
-                for (int y = minY; y <= maxY; y++) {
-                    pos.set(x, y, z);
-
-                    if (!box.isInside(pos)) {
-                        continue;
-                    }
-
-                    if (!isInsideStraightRiverEllipsoid(
-                            x,
-                            y,
-                            z,
-                            centerX,
-                            fluidCenterY,
-                            centerZ
-                    )) {
-                        continue;
-                    }
-
-                    BlockState oldState = level.getBlockState(pos);
-
-                    if (!canReplaceWithFluid(oldState)) {
-                        continue;
-                    }
-
-                    level.setBlock(pos, fluidState, Block.UPDATE_CLIENTS);
-                    clearBlockAboveFluid(level, box, pos, maxClearY);
-
-                    placedAnyFluidInColumn = true;
-                    lowestPlacedFluidY = Math.min(lowestPlacedFluidY, y);
-                }
-
-                if (placedAnyFluidInColumn) {
-                    decorateRiverColumnSurfaces(
-                            level,
-                            box,
-                            x,
-                            z,
-                            minY,
-                            maxY,
-                            lowestPlacedFluidY,
-                            centerX,
-                            fluidCenterY,
-                            centerZ
-                    );
-                }
-            }
-        }
-    }
-
-    protected boolean isInsideStraightRiverEllipsoid(
-            int x,
-            int y,
-            int z,
-            double fluidCenterX,
-            double fluidCenterY,
-            double fluidCenterZ
-    ) {
-        double relativeX = (x + 0.5D - fluidCenterX) / this.liquidRadius;
-        double relativeY = (y + 0.5D - fluidCenterY) / this.liquidDepth;
-        double relativeZ = (z + 0.5D - fluidCenterZ) / this.liquidRadius;
-
-        if (relativeY > 0.0D) {
-            return false;
-        }
-
-        return relativeX * relativeX
-                + relativeY * relativeY * relativeY * relativeY
-                + relativeZ * relativeZ <= 1.0D;
     }
 
     protected static BoundingBox makeBoundingBox(
@@ -434,6 +345,7 @@ public abstract class AbstractSpiralCavePiece extends StructurePiece {
             float horizontalRadius,
             float verticalRadius,
             float centralPillarDiameter,
+            float liquidDepth,
             float liquidRadius,
             int endY,
             int endX
@@ -446,24 +358,69 @@ public abstract class AbstractSpiralCavePiece extends StructurePiece {
                 liquidRadius
         );
 
+        /*
+         * This must match the center used by postProcess(). If this uses originZ
+         * directly, the spiral can be clipped on the two sides that extend around
+         * the real pillar center.
+         */
         double pillarCenterX = origin.getX();
-        double pillarCenterZ = origin.getZ() + pathRadius;
+        double pillarCenterZ = origin.getZ();// + pathRadius;
 
+        /*
+         * Centerline radius plus the full carved tunnel radius. This covers the
+         * whole circle traced by the spiral, not only the pillar itself.
+         */
         double spiralOuterRadius = pathRadius + tunnelHorizontalRadius;
 
-        int padding = 3;
+        /*
+         * A tight padding of 3 is easy to undercount because carving checks block
+         * centers, uses floor/ceil, and also places a lower fluid ellipsoid. Use a
+         * chunk-sized safety margin while debugging; after confirming the cutoff is
+         * gone, this can usually be reduced to 8 or 12.
+         */
+        int padding = 16;
 
-        int minX = Mth.floor(pillarCenterX - spiralOuterRadius) - padding;
-        int maxX = Mth.ceil(pillarCenterX + spiralOuterRadius) + padding;
-        int minZ = Mth.floor(pillarCenterZ - spiralOuterRadius) - padding;
-        int maxZ = Mth.ceil(pillarCenterZ + spiralOuterRadius) + padding;
+        int spiralMinX = Mth.floor(pillarCenterX - spiralOuterRadius) - padding;
+        int spiralMaxX = Mth.ceil(pillarCenterX + spiralOuterRadius) + padding;
+        int spiralMinZ = Mth.floor(pillarCenterZ - spiralOuterRadius) - padding;
+        int spiralMaxZ = Mth.ceil(pillarCenterZ + spiralOuterRadius) + padding;
 
+        int minX = spiralMinX;
+        int maxX = spiralMaxX;
+        int minZ = spiralMinZ;
+        int maxZ = spiralMaxZ;
+
+        /*
+         * The optional straight river is carved in +X from a point on/near the
+         * spiral. Since makeBoundingBox() does not know the exact startX that the
+         * subclass will pass to continueSurfaceRiverPositiveX(), the safe bound is
+         * the whole spiral X span plus endX.
+         */
+        int riverExtraRadius = Mth.ceil(liquidRadius) + padding;
+
+        if (endX > 0) {
+            maxX = Math.max(maxX, spiralMaxX + endX + riverExtraRadius);
+            minZ = Math.min(minZ, spiralMinZ - riverExtraRadius);
+            maxZ = Math.max(maxZ, spiralMaxZ + riverExtraRadius);
+        } else if (endX < 0) {
+            minX = Math.min(minX, spiralMinX + endX - riverExtraRadius);
+            minZ = Math.min(minZ, spiralMinZ - riverExtraRadius);
+            maxZ = Math.max(maxZ, spiralMaxZ + riverExtraRadius);
+        }
+
+        /*
+         * Main tunnel carving clamps its lower bound to endY, but the lower fluid
+         * ellipsoid can extend below that by liquidDepth.
+         */
         int minY = endY
-                - Mth.ceil(verticalRadius)
-                - Mth.ceil(liquidRadius)
-                - padding;
+                - Mth.ceil(liquidDepth)
+                - padding
+                - 2;
 
-        int maxY = origin.getY() + Mth.ceil(verticalRadius) + 48;
+        int maxY = origin.getY()
+                + Mth.ceil(verticalRadius)
+                + padding
+                + 2;
 
         return new BoundingBox(
                 minX,
@@ -540,8 +497,8 @@ public abstract class AbstractSpiralCavePiece extends StructurePiece {
     }
 
     protected boolean wouldBottomOfEllipsoidCarveIntoTargetYPlusOne(double centerY) {
-        double bottomOfEllipsoid = centerY - this.verticalRadius;
-        return bottomOfEllipsoid <= endY + 1;
+        double bottomOfEllipsoid = centerY - this.verticalRadius - this.liquidRadius - 2;
+        return bottomOfEllipsoid <= endY;
     }
 
     protected void carveEllipsoid(
@@ -593,7 +550,7 @@ public abstract class AbstractSpiralCavePiece extends StructurePiece {
                 level,
                 box,
                 centerX,
-                centerY,
+                centerY - 1,
                 centerZ,
                 localVerticalRadius,
                 maxCarveY
@@ -664,6 +621,7 @@ public abstract class AbstractSpiralCavePiece extends StructurePiece {
 
                     level.setBlock(pos, fluidState, Block.UPDATE_CLIENTS);
                     clearBlockAboveFluid(level, box, pos, maxClearY);
+                    clearBlockAboveFluid(level, box, pos.above(), maxClearY);
 
                     placedAnyFluidInColumn = true;
                     lowestPlacedFluidY = Math.min(lowestPlacedFluidY, y);
