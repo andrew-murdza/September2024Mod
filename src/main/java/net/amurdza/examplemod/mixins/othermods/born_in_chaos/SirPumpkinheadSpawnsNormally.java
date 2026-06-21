@@ -14,6 +14,9 @@ public abstract class SirPumpkinheadSpawnsNormally {
 
     /**
      * Replaces Born in Chaos' seasonal spawn predicate with vanilla monster spawn rules.
+     * @author amurdza
+     *
+     * @reason simplest way to do what I wanted
      */
     @Overwrite(remap = false)
     public static void init() {

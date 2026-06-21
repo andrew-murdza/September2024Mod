@@ -45,6 +45,17 @@ public class ModItems {
             () -> new Item(new Item.Properties().food(Foods.RABBIT))
     );
 
+    public static final RegistryObject<Item> RAW_VENISON = ITEMS.register(
+            "raw_venison",
+            () -> new Item(new Item.Properties().food(Foods.MUTTON))
+    );
+
+    public static final RegistryObject<Item> COOKED_VENISON = ITEMS.register(
+            "cooked_venison",
+            () -> new Item(new Item.Properties().food(Foods.COOKED_MUTTON))
+    );
+
+
 
     public static final RegistryObject<Item> COOKED_SQUIRREL = ITEMS.register(
             "cooked_squirrel",

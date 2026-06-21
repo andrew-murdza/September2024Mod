@@ -2,6 +2,7 @@ package net.amurdza.examplemod.event_handlers;
 
 import com.github.alexthe666.iceandfire.entity.IafEntityRegistry;
 import net.amurdza.examplemod.AOEMod;
+import net.amurdza.examplemod.util.ModTags;
 import net.amurdza.examplemod.worldgen.WorldGenUtils;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -12,6 +13,7 @@ import net.minecraft.world.Difficulty;
 import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.animal.Animal;
 import net.minecraft.world.entity.monster.Monster;
+import net.minecraft.world.entity.monster.Strider;
 import net.minecraft.world.level.ServerLevelAccessor;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
@@ -33,7 +35,7 @@ public class NoFloatingMobSpawns {
 
         addSpawn(event, EntityType.SNIFFER, false, Animal::checkAnimalSpawnRules);
 
-        addSpawn(event, EntityType.STRIDER, false, (p,q,r,s,t)->strider());
+        addSpawn(event, EntityType.STRIDER, false, NoFloatingMobSpawns::strider);
 
         addSpawn(event, EntityType.CAMEL, false,
                 (p,q,r,s,t)->camel(q,s));
@@ -51,6 +53,9 @@ public class NoFloatingMobSpawns {
                 NoFloatingMobSpawns::checkSurfaceWaterAnimalSpawnRules);
 
         addSpawn(event, EntityType.TURTLE, true,
+                NoFloatingMobSpawns::checkSurfaceWaterAnimalSpawnRules);
+
+        addSpawn(event, EntityType.AXOLOTL, true,
                 NoFloatingMobSpawns::checkSurfaceWaterAnimalSpawnRules);
 
         addSpawn(event, EntityType.GLOW_SQUID, true,
@@ -86,8 +91,9 @@ public class NoFloatingMobSpawns {
         );
     }
 
-    private static boolean strider(){
-        return true;
+    private static boolean strider(EntityType<Strider> pEntityType, ServerLevelAccessor pServerLevel, MobSpawnType pSpawnType, BlockPos pPos, RandomSource pRandom){
+        BlockState state=pServerLevel.getBlockState(pPos.below());
+        return state.is(BlockTags.NYLIUM)||state.is(ModTags.Blocks.basaltStones);
     }
 
     public static boolean checkMonsterSpawnRules(EntityType<? extends Mob> pType, ServerLevelAccessor pLevel, MobSpawnType pSpawnType, BlockPos pPos, RandomSource pRandom) {
@@ -95,9 +101,8 @@ public class NoFloatingMobSpawns {
     }
 
     public static boolean checkSurfaceWaterAnimalSpawnRules(EntityType<? extends LivingEntity> pType, ServerLevelAccessor pLevel, MobSpawnType pSpawnType, BlockPos pPos, RandomSource pRandom) {
-        int i = WorldGenUtils.getSeaLevelWorldGen(pPos,pLevel);
-        int j = i - 13;
-        return pPos.getY() >= j && pPos.getY() <= i && pLevel.getFluidState(pPos.below()).is(FluidTags.WATER) && pLevel.getBlockState(pPos.above()).is(Blocks.WATER);
+        int h=WorldGenUtils.getTotalWaterAbove(pPos,pLevel,14);
+        return h>=0&&h<=13;
     }
 
     public static boolean checkWaterAnimalSpawnRules(EntityType<? extends LivingEntity> pType, ServerLevelAccessor pLevel, MobSpawnType pSpawnType, BlockPos pPos, RandomSource pRandom) {

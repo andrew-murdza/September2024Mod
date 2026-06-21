@@ -10,6 +10,7 @@ import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
+import net.minecraft.world.level.gameevent.GameEvent;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
@@ -25,19 +26,19 @@ public class BerryDrops {
         BlockState state=level.getBlockState(pos);
         if(state.is(Blocks.SWEET_BERRY_BUSH)){
             int age=state.getValue(BlockStateProperties.AGE_3);
-            int amount=0;
-            if(age==2){
-                Float value = Helper.getBiomeValue(level, pos, BlockBehaviorConfig.BIOME_TO_SWEET_BERRIES_PARTIALLY_GROWN_AMOUNTS);
-                float count = value != null ? value : 0;
-                amount = Helper.computeIncrements(level.random,count);
+            Float value = null;
+            if(age==2&&!event.getItemStack().is(Items.BONE_MEAL)){
+                value = Helper.getBiomeValue(level, pos, BlockBehaviorConfig.BIOME_TO_SWEET_BERRIES_PARTIALLY_GROWN_AMOUNTS);
             }
             if(age==3){
-                Float value = Helper.getBiomeValue(level, pos, BlockBehaviorConfig.BIOME_TO_MATURE_BERRY_AMOUNTS);
-                float count = value != null ? value : 0;
-                amount = Helper.computeIncrements(level.random,count);
+                value = Helper.getBiomeValue(level, pos, BlockBehaviorConfig.BIOME_TO_MATURE_SWEET_BERRY_AMOUNTS);
             }
+            float count = value != null ? value : 0;
+            int amount = Helper.computeIncrements(level.random,count);
             if(amount>0){
+                level.gameEvent(GameEvent.BLOCK_CHANGE, pos, GameEvent.Context.of(event.getEntity(), state));
                 Block.popResource(level, pos, new ItemStack(Items.SWEET_BERRIES,amount));
+                event.setCanceled(true);
             }
         }
     }

@@ -17,10 +17,6 @@ public abstract class Drowned1 extends Entity {
         super(pEntityType, pLevel);
     }
 
-    @Redirect(method = "addBehaviourGoals",at= @At(value = "INVOKE", target = "Lnet/minecraft/world/level/Level;getSeaLevel()I"))
-    private int hi(Level instance){
-        return WorldGenUtils.getSeaLevelWorldGen(blockPosition(),level());
-    }
     @Redirect(method = "isDeepEnoughToSpawn",at= @At(value = "INVOKE", target = "Lnet/minecraft/world/level/LevelAccessor;getSeaLevel()I"))
     private static int hi1(LevelAccessor instance, LevelAccessor pLevel, BlockPos pPos){
         return WorldGenUtils.getTotalWaterAbove(pPos,pLevel)>=5?300:-300;

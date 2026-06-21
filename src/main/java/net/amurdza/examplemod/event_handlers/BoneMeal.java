@@ -6,7 +6,6 @@ import net.amurdza.examplemod.config.BoneMealConfig;
 import net.amurdza.examplemod.util.Helper;
 import net.amurdza.examplemod.util.ModTags;
 import net.amurdza.examplemod.registry.ModConfiguredFeatures;
-import net.mcreator.nourishednether.init.NourishedNetherModBlocks;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.Holder;
@@ -223,8 +222,7 @@ public class BoneMeal {
                 || Helper.isBlock(
                 block,
                 ModBlocks.DESERT_TALL_GRASS.get(),
-                Blocks.CRIMSON_ROOTS, Blocks.WARPED_ROOTS, Blocks.NETHER_SPROUTS,
-                NourishedNetherModBlocks.SOUL_WEEDS.get()
+                Blocks.CRIMSON_ROOTS, Blocks.WARPED_ROOTS, Blocks.NETHER_SPROUTS
         );
     }
 

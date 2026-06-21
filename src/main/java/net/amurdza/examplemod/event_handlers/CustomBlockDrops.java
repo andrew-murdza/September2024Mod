@@ -2,14 +2,17 @@ package net.amurdza.examplemod.event_handlers;
 
 import net.amurdza.examplemod.AOEMod;
 import net.amurdza.examplemod.config.BlockConfig;
+import net.amurdza.examplemod.registry.ModBlocks;
 import net.amurdza.examplemod.util.Helper;
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
+import net.minecraft.tags.BlockTags;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.ShearsItem;
 import net.minecraft.world.item.enchantment.EnchantmentHelper;
 import net.minecraft.world.item.enchantment.Enchantments;
 import net.minecraft.world.level.block.Block;
@@ -18,6 +21,7 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraftforge.event.level.BlockEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
+import org.violetmoon.quark.content.world.module.GlimmeringWealdModule;
 
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
@@ -56,6 +60,19 @@ public class CustomBlockDrops {
         }
 
         ItemStack tool = player.getMainHandItem();
+
+        if(tool.getItem() instanceof ShearsItem){
+            if(state.is(Blocks.FERN)||state.is(Blocks.GRASS)
+                    ||state.is(Blocks.DEAD_BUSH)||state.is(BlockTags.LEAVES)
+                    ||state.is(Blocks.TALL_GRASS)||state.is(Blocks.LARGE_FERN)
+                    ||state.is(ModBlocks.DESERT_GRASS.get())||state.is(ModBlocks.DESERT_TALL_GRASS.get())){
+                return;
+            }
+            if(state.is(Blocks.RED_MUSHROOM_BLOCK)||state.is(Blocks.BROWN_MUSHROOM_BLOCK)
+            ||state.is(GlimmeringWealdModule.glow_shroom_block)||state.is(GlimmeringWealdModule.glow_shroom_stem)){
+                dropItem(level, pos, state.getBlock().asItem());
+            }
+        }
 
         level.levelEvent(player, 2001, pos, Block.getId(state));
         level.setBlock(pos, Blocks.AIR.defaultBlockState(), 35);
@@ -149,6 +166,10 @@ public class CustomBlockDrops {
         }
 
         dropStack(level, pos, new ItemStack(item, amount));
+    }
+
+    private static void dropItem(ServerLevel level, BlockPos pos, Item item) {
+        dropItem(level, pos, item, 1);
     }
 
     private static void dropGroupedSeeds(ServerLevel level, BlockPos pos, List<WeightedDrop> seedDrops) {

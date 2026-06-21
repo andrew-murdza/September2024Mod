@@ -9,6 +9,7 @@ import net.minecraft.world.entity.Mob;
 import net.minecraft.world.entity.TamableAnimal;
 import net.minecraft.world.entity.animal.*;
 import net.minecraft.world.entity.animal.frog.Frog;
+import net.minecraft.world.entity.animal.goat.Goat;
 import net.minecraft.world.entity.animal.horse.AbstractHorse;
 import net.minecraft.world.entity.animal.horse.Donkey;
 import net.minecraft.world.entity.animal.horse.Horse;
@@ -21,6 +22,7 @@ import net.minecraft.world.level.gameevent.GameEvent;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
+import vectorwing.farmersdelight.common.registry.ModItems;
 
 import java.util.Arrays;
 import java.util.function.Function;
@@ -40,6 +42,9 @@ public class BreedingItems {
             else if(mob instanceof Rabbit&&!stack.is(Items.DANDELION)){
                 useFood(mob,player,stack, ModTags.Items.smallerFlowers);
                 useFood(mob,player,stack,Items.BEETROOT);
+                useFood(mob,player,stack,Items.CARROT);
+                useFood(mob,player,stack,Items.POTATO);
+                useFood(mob, player, stack, ModItems.ONION.get());
             }
             else if(mob instanceof Horse || mob instanceof Donkey){
                 useFood(mob,player,stack,Items.HAY_BLOCK);
@@ -49,6 +54,9 @@ public class BreedingItems {
             }
             else if(mob instanceof Frog){
                 useFood(mob,player,stack,Items.SEAGRASS);
+            }
+            else if(mob instanceof Goat){
+                useFood(mob,player,stack,Items.BEETROOT);
             }
             else if((mob instanceof Ocelot ||mob instanceof Cat)&&!stack.is(Items.COD)&&!stack.is(Items.SALMON)){
                 useFood(mob, player, stack, ModTags.Items.rawFish);
@@ -66,6 +74,11 @@ public class BreedingItems {
             }
             else if(mob instanceof EntityMoose&&!stack.is(Items.DANDELION)){
                 useFood(mob,player,stack,ModTags.Items.smallerFlowers);
+                useFood(mob,player,stack,Items.BEETROOT);
+                useFood(mob,player,stack,Items.CARROT);
+                useFood(mob,player,stack,Items.POTATO);
+                useFood(mob,player,stack,Items.WHEAT);
+                useFood(mob, player, stack, ModItems.ONION.get());
             }
             else if(mob instanceof EntityGorilla){
                 useFood(mob,player,stack,Items.BAMBOO);

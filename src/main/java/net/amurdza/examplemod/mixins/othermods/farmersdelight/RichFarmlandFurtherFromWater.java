@@ -13,12 +13,12 @@ import vectorwing.farmersdelight.common.block.RichSoilFarmlandBlock;
 public class RichFarmlandFurtherFromWater {
     @ModifyConstant(method = "hasWater",constant = @Constant(intValue = 4),remap = false)
     private static int hi(int constant, LevelReader pLevel, BlockPos pPos){
-        Integer value = Helper.getBiomeValue(pLevel, pPos, BlockBehaviorConfig.BIOME_TO_MYCELIUM_SPREAD_NUM_TRIES);
+        Integer value = Helper.getBiomeValue(pLevel, pPos, BlockBehaviorConfig.BIOME_TO_FARMLAND_DISTANCE);
         return value != null ? value : constant;
     }
     @ModifyConstant(method = "hasWater",constant = @Constant(intValue = -4),remap = false)
     private static int hi1(int constant, LevelReader pLevel, BlockPos pPos){
-        Integer value = Helper.getBiomeValue(pLevel, pPos, BlockBehaviorConfig.BIOME_TO_MYCELIUM_SPREAD_NUM_TRIES);
+        Integer value = Helper.getBiomeValue(pLevel, pPos, BlockBehaviorConfig.BIOME_TO_FARMLAND_DISTANCE);
         return value != null ? -value : constant;
     }
 }

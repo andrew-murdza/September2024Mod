@@ -4,7 +4,6 @@ import net.amurdza.examplemod.config.MobConfig;
 import net.amurdza.examplemod.util.Helper;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.world.entity.animal.Chicken;
-import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.gameevent.GameEvent;
 import org.spongepowered.asm.mixin.Mixin;

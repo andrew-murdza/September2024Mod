@@ -17,6 +17,7 @@ import net.minecraft.world.level.block.DoublePlantBlock;
 import net.minecraft.world.level.block.SweetBerryBushBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
+import org.violetmoon.quark.content.world.module.GlimmeringWealdModule;
 
 import java.util.*;
 import java.util.function.Function;
@@ -565,6 +566,28 @@ public final class BlockConfig {
                 drop(ModTags.Biomes.warpedForestBiomes, Items.CRIMSON_FUNGUS,0.02f),
                 drop(ModTags.Biomes.soulSandValleyBiomes, Items.CRIMSON_FUNGUS,0.06f)
         );
+
+        addLoot(Blocks.RED_MUSHROOM_BLOCK,
+                drop(ModTags.Biomes.tropicalBiomes, Items.RED_MUSHROOM,1.5f),
+                drop(ModTags.Biomes.mushroomCaves, Items.RED_MUSHROOM,2f),
+                drop(ModTags.Biomes.mountainBiomes, Items.RED_MUSHROOM,1f)
+        );
+
+        addLoot(Blocks.BROWN_MUSHROOM_BLOCK,
+                drop(ModTags.Biomes.tropicalBiomes, Items.BROWN_MUSHROOM,0.5f),
+                drop(ModTags.Biomes.mushroomCaves, Items.BROWN_MUSHROOM,0.75f),
+                drop(ModTags.Biomes.mountainBiomes, Items.BROWN_MUSHROOM,0.375f)
+        );
+
+        addLoot(GlimmeringWealdModule.glow_shroom_block,
+                drop(ModTags.Biomes.mushroomCaves, GlimmeringWealdModule.glow_shroom.asItem(),0.75f),
+                drop(ModTags.Biomes.mountainBiomes, GlimmeringWealdModule.glow_shroom.asItem(),0.375f)
+        );
+
+        addLoot(GlimmeringWealdModule.glow_shroom_stem,
+                drop(ModTags.Biomes.mushroomCaves, GlimmeringWealdModule.glow_shroom.asItem(),0.75f),
+                drop(ModTags.Biomes.mountainBiomes, GlimmeringWealdModule.glow_shroom.asItem(),0.375f)
+        );
     }
 
     private static BlockLootEntry leaf(TagKey<Biome> biome, Item saplingItem) {
@@ -817,7 +840,7 @@ public final class BlockConfig {
                     if(age==2){
                         return 1 + BlockBehaviorConfig.BIOME_TO_SWEET_BERRIES_PARTIALLY_GROWN_AMOUNTS.get(biome);
                     }
-                    return 1 + BlockBehaviorConfig.BIOME_TO_MATURE_BERRY_AMOUNTS.get(biome);
+                    return 1 + BlockBehaviorConfig.BIOME_TO_MATURE_SWEET_BERRY_AMOUNTS.get(biome);
         });
     }
 

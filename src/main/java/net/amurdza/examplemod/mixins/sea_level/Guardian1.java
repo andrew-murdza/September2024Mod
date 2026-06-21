@@ -14,13 +14,9 @@ import org.spongepowered.asm.mixin.Overwrite;
 
 @Mixin(Guardian.class)
 public class Guardian1 {
-//    @Redirect(method = "checkGuardianSpawnRules",at= @At(value = "INVOKE", target = "Lnet/minecraft/world/level/LevelAccessor;canSeeSkyFromBelowWater(Lnet/minecraft/core/BlockPos;)Z"))
-//    private static boolean hi(LevelAccessor instance, BlockPos blockPos){
-//        return true;
-//    }
 /**
- * @author
- * @reason
+ * @author amurdza
+ * @reason simplest way to do what I wanted
  */
 @Overwrite
     public static boolean checkGuardianSpawnRules(EntityType<? extends Guardian> pGuardian, LevelAccessor pLevel, MobSpawnType pSpawnType, BlockPos pPos, RandomSource pRandom) {

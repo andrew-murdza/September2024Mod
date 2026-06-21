@@ -28,11 +28,7 @@ public abstract class SheepShearAmount extends Entity {
     private int aoe$modifyWoolAmount(RandomSource random, int bound) {
         float multiplier = MobConfig.mobAmountForItem(this, Items.WHITE_WOOL);
 
-        if (multiplier < 0.0F) {
-            return random.nextInt(bound);
-        }
-
         int newAmount = Helper.computeIncrements(random, multiplier);
-        return newAmount - 1;
+        return Math.max(newAmount - 1,0);
     }
 }

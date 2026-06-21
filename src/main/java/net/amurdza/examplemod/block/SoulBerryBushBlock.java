@@ -1,6 +1,8 @@
 package net.amurdza.examplemod.block;
 
+import net.amurdza.examplemod.config.BlockBehaviorConfig;
 import net.amurdza.examplemod.registry.ModItems;
+import net.amurdza.examplemod.util.Helper;
 import net.amurdza.examplemod.util.ModTags;
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
@@ -14,8 +16,10 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.SweetBerryBushBlock;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.gameevent.GameEvent;
 import net.minecraft.world.phys.BlockHitResult;
 
@@ -30,19 +34,30 @@ public class SoulBerryBushBlock extends SweetBerryBushBlock {
         return new ItemStack(ModItems.SOUL_BERRIES.get());
     }
     public InteractionResult use(BlockState pState, Level pLevel, BlockPos pPos, Player pPlayer, InteractionHand pHand, BlockHitResult pHit) {
-        int i = pState.getValue(AGE);
-        boolean flag = i == 3;
-        if (!flag && pPlayer.getItemInHand(pHand).is(Items.BONE_MEAL)) {
+        int age = pState.getValue(AGE);
+        if (age < 3 && pPlayer.getItemInHand(pHand).is(Items.BONE_MEAL)) {
             return InteractionResult.PASS;
-        } else if (i > 1) {
-            int j = 1 + pLevel.random.nextInt(2);
-            popResource(pLevel, pPos, new ItemStack(ModItems.SOUL_BERRIES.get(), j + (flag ? 1 : 0)));
-            pLevel.playSound(null, pPos, SoundEvents.SWEET_BERRY_BUSH_PICK_BERRIES, SoundSource.BLOCKS, 1.0F, 0.8F + pLevel.random.nextFloat() * 0.4F);
-            BlockState blockstate = pState.setValue(AGE, 1);
-            pLevel.setBlock(pPos, blockstate, 2);
-            pLevel.gameEvent(GameEvent.BLOCK_CHANGE, pPos, GameEvent.Context.of(pPlayer, blockstate));
+        }
+        else if(age > 1){
+            Float value = null;
+            if(age==2){
+                value = Helper.getBiomeValue(pLevel, pPos, BlockBehaviorConfig.BIOME_TO_SOUL_BERRIES_PARTIALLY_GROWN_AMOUNTS);
+            }
+            else if (age == 3) {
+                value = Helper.getBiomeValue(pLevel, pPos, BlockBehaviorConfig.BIOME_TO_MATURE_SOUL_BERRY_AMOUNTS);
+            }
+            float count = value != null ? value : 0;
+            int amount = Helper.computeIncrements(pLevel.random,count);
+            if(amount > 0){
+                pLevel.gameEvent(GameEvent.BLOCK_CHANGE, pPos, GameEvent.Context.of(pPlayer, pState));
+                Block.popResource(pLevel, pPos, new ItemStack(ModItems.SOUL_BERRIES.get(),amount));
+                pLevel.playSound(null, pPos, SoundEvents.SWEET_BERRY_BUSH_PICK_BERRIES, SoundSource.BLOCKS, 1.0F, 0.8F + pLevel.random.nextFloat() * 0.4F);
+                BlockState blockstate = pState.setValue(AGE, 1);
+                pLevel.setBlock(pPos, blockstate, 2);
+            }
             return InteractionResult.sidedSuccess(pLevel.isClientSide);
-        } else {
+        }
+        else {
             return super.use(pState, pLevel, pPos, pPlayer, pHand, pHit);
         }
     }

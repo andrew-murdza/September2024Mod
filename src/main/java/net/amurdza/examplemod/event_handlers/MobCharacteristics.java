@@ -34,7 +34,6 @@ public class MobCharacteristics {
     public static void CharacteristicChangesEventHandler(EntityJoinLevelEvent event) throws NoSuchMethodException, InvocationTargetException, IllegalAccessException, NoSuchFieldException {
         Entity entity=event.getEntity();
         Level level=event.getLevel();
-        BlockPos pos=entity.getOnPos();
 
         if(!level.isClientSide&&entity instanceof Mob mob){
             if(mob.getTags().contains("aoe.checkedCharacteristics")){//||mob.getTags().contains("aoe.bred")){

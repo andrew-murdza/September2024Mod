@@ -1,5 +1,6 @@
 package net.amurdza.examplemod.mixins.mob_spawning;
 
+import net.amurdza.examplemod.util.ModTags;
 import net.minecraft.core.BlockPos;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.util.RandomSource;
@@ -22,6 +23,6 @@ public class StridersSpawnOnlyOnNylium {
     }
     private static boolean striderCond(EntityType pEntityType, ServerLevelAccessor pServerLevel, MobSpawnType pSpawnType, BlockPos pPos, RandomSource pRandom){
         BlockState state=pServerLevel.getBlockState(pPos.below());
-        return state.is(BlockTags.NYLIUM);
+        return state.is(BlockTags.NYLIUM)||state.is(ModTags.Blocks.basaltStones);
     }
 }

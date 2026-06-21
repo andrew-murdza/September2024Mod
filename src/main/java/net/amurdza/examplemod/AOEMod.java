@@ -8,9 +8,8 @@ import net.amurdza.examplemod.registry.ModEntities;
 import net.amurdza.examplemod.config.BlockGrowthConfig;
 import net.amurdza.examplemod.registry.ModItems;
 import net.amurdza.examplemod.item.ModToolTiers;
-import net.amurdza.examplemod.mixins.mob_spawning.MobsSpawnOnGlowingMoss;
-import net.amurdza.examplemod.mixins.mob_spawning.MobsSpawnOnGlowingMoss1;
-import net.amurdza.examplemod.worldgen.blockstates.ModBlockStateProviderTypes;
+import net.amurdza.examplemod.mixins.accessor.MobsSpawnOnGlowingMoss;
+import net.amurdza.examplemod.mixins.accessor.MobsSpawnOnGlowingMoss1;
 import net.amurdza.examplemod.registry.ModDensityFunctions;
 import net.amurdza.examplemod.registry.ModFeatures;
 import net.amurdza.examplemod.registry.ModTreeDecorators;
@@ -65,8 +64,6 @@ public class AOEMod
         ModEntities.register(modEventBus);
 
         ModFeatures.register(modEventBus);
-        ModBlockStateProviderTypes.register(modEventBus);
-
         // Register our mod's ForgeConfigSpec so that Forge can create and load the config file for us
 
         ModStructures.register(modEventBus);

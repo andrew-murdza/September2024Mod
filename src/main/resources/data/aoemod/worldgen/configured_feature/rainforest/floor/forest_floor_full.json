@@ -7,10 +7,6 @@
     },
     "guaranteed_features": [
       {
-        "feature": "aoemod:rainforest/tree/trees",
-        "placement": []
-      },
-      {
         "feature": "aoemod:rainforest/floor/grid_choice",
         "placement": []
       }

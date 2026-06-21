@@ -14,6 +14,7 @@ import net.minecraft.world.entity.ai.goal.target.NearestAttackableTargetGoal;
 import net.minecraft.world.entity.ai.goal.target.NonTameRandomTargetGoal;
 import net.minecraft.world.entity.animal.*;
 import net.minecraft.world.entity.animal.frog.Frog;
+import net.minecraft.world.entity.animal.goat.Goat;
 import net.minecraft.world.entity.animal.horse.AbstractChestedHorse;
 import net.minecraft.world.entity.animal.horse.Horse;
 import net.minecraft.world.entity.monster.AbstractSkeleton;
@@ -28,6 +29,7 @@ import net.minecraftforge.event.entity.EntityJoinLevelEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import org.violetmoon.quark.content.mobs.ai.RaveGoal;
+import vectorwing.farmersdelight.common.registry.ModItems;
 
 import java.lang.reflect.Field;
 import java.util.ArrayList;
@@ -52,6 +54,10 @@ public class MobAI {
                     addTempt(mob, ModTags.Items.rawFish);
                 } else if (entity instanceof Rabbit) {
                     addTempt(mob, ModTags.Items.smallerFlowers);
+                    addTempt(mob, Items.BEETROOT);
+                    addTempt(mob, Items.WHEAT);
+                    addTempt(mob, Items.POTATO);
+                    addTempt(mob, ModItems.ONION.get());
                 } else if (entity instanceof Horse || entity instanceof AbstractChestedHorse) {
                     addTempt(mob, Items.HAY_BLOCK);
                 } else if (entity instanceof Cat||entity instanceof Ocelot) {
@@ -74,6 +80,20 @@ public class MobAI {
                 }
                 else if(entity instanceof Frog) {
                     addTempt(mob, Items.SEAGRASS);
+                }
+                else if(entity instanceof Goat){
+                    addTempt(mob, Items.BEETROOT);
+                    addTempt(mob, Items.POTATO);
+                    addTempt(mob, Items.CARROT);
+                    addTempt(mob, ModItems.ONION.get());
+                }
+                else if(entity instanceof EntityMoose) {
+                    addTempt(mob, ModTags.Items.smallerFlowers);
+                    addTempt(mob, Items.BEETROOT);
+                    addTempt(mob, Items.POTATO);
+                    addTempt(mob, Items.CARROT);
+                    addTempt(mob, Items.WHEAT);
+                    addTempt(mob, ModItems.ONION.get());
                 }
                 //Protect Turtle
                 if (entity instanceof Zombie) {

@@ -165,26 +165,18 @@ dependencies {
     //Tools
     implementation fg.deobf("curse.maven:wooden-bucket-585328:6773030")
     implementation fg.deobf("curse.maven:bucketlib-560156:6632367")
+
     implementation fg.deobf("curse.maven:wooden-shears-443192:6289965")
 
     //Plants
     implementation fg.deobf("curse.maven:farmersdelight-398521:5051242")
 
-    implementation fg.deobf("curse.maven:netherific-479296:4718299")
-
     implementation fg.deobf("curse.maven:snow-real-magic-308663:5801189")
     implementation fg.deobf("curse.maven:kiwi-303657:5603816")
 
-    //Animals
-    implementation fg.deobf("curse.maven:naturalist-627986:4847009")
-    implementation fg.deobf("curse.maven:architectury-api-419699:4663010")
-
-    implementation fg.deobf("curse.maven:lithostitched-936015:6742615")
-    implementation fg.deobf("curse.maven:kotlin-for-forge-351264:7291067")
-    implementation fg.deobf("curse.maven:hybrid-aquatic-834427:7204568")
-
 //    Multiple
     implementation fg.deobf("curse.maven:nether-depths-upgrade-670011:5150560")
+    implementation fg.deobf("curse.maven:geckolib-388172:6920925")//NO TOML
 
     implementation fg.deobf("curse.maven:quark-243121:5594847")
     implementation fg.deobf("curse.maven:zetaforquark-968868:5597406")//NO TOML
@@ -194,27 +186,19 @@ dependencies {
 
     implementation fg.deobf("curse.maven:ecologics-570463:7457108")
 
-    implementation fg.deobf("curse.maven:geckolib-388172:6920925")//NO TOML
 
 //    Monsters
     implementation fg.deobf("curse.maven:iceandfire-264231:5633453")
 
     implementation fg.deobf("curse.maven:born-in-chaos-686437:7917933")
 
-    // flowers
-    implementation fg.deobf("curse.maven:oh-the-biomes-weve-gone-1070751:6263908")
-    implementation fg.deobf("curse.maven:corgilib-693313:5691268")
-    implementation fg.deobf("curse.maven:terrablender-563928:5378180")
-    implementation fg.deobf("curse.maven:oh-the-trees-youll-grow-962544:6026960")
 
     //Behavior
     ////////////////////////////////////////////////////////////////
-    runtimeOnly fg.deobf("curse.maven:snow-under-trees-353942:5801187")
-
     implementation fg.deobf("curse.maven:wthit-forge-455982:5681116")//NO TOML
     implementation fg.deobf("curse.maven:badpackets-615134:4784395")//NO TOML
     runtimeOnly fg.deobf("curse.maven:worldedit-225608:4586218")
-    runtimeOnly fg.deobf("curse.maven:notrample-914018:4764989")
+    runtimeOnly fg.deobf("curse.maven:snow-under-trees-353942:5801187")
     runtimeOnly fg.deobf("curse.maven:huge-structure-blocks-474114:4803547")
 
     /////////////////////////////////////

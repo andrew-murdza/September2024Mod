@@ -1,6 +1,5 @@
 package net.amurdza.examplemod.lava_fish;
 
-import com.mojang.logging.LogUtils;
 import net.minecraft.core.BlockPos;
 import net.minecraft.tags.FluidTags;
 import net.minecraft.world.entity.PathfinderMob;
@@ -8,11 +7,8 @@ import net.minecraft.world.entity.ai.goal.RandomStrollGoal;
 import net.minecraft.world.entity.ai.util.DefaultRandomPos;
 import net.minecraft.world.phys.Vec3;
 import org.jetbrains.annotations.Nullable;
-import org.slf4j.Logger;
 
 public class LavaSwimmingGoal extends RandomStrollGoal {
-    private static final Logger LOGGER = LogUtils.getLogger();
-
     public LavaSwimmingGoal(PathfinderMob mob) {
         super(mob, 1.0D, 40);
     }

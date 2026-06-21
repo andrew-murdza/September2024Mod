@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:campfire_cooking",
+  "category": "food",
+  "ingredient": {
+    "item": "aoemod:venison"
+  },
+  "result": "aoemod:cooked_venison",
+  "experience": 0.35,
+  "cookingtime": 600
+}

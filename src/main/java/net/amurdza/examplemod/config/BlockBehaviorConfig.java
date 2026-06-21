@@ -12,8 +12,10 @@ public class BlockBehaviorConfig {
 
     public static final Map<TagKey<Biome>, Float> BIOME_TO_GLOW_BERRY_AMOUNTS = new LinkedHashMap<>();
     public static final Map<TagKey<Biome>, Float> BIOME_TO_SWEET_BERRIES_PARTIALLY_GROWN_AMOUNTS = new LinkedHashMap<>();
-    public static final Map<TagKey<Biome>, Float> BIOME_TO_MATURE_BERRY_AMOUNTS = new LinkedHashMap<>();
-    public static final Map<TagKey<Biome>, Float> BIOME_TO_FARMLAND_DISTANCE = new LinkedHashMap<>();
+    public static final Map<TagKey<Biome>, Float> BIOME_TO_MATURE_SWEET_BERRY_AMOUNTS = new LinkedHashMap<>();
+    public static final Map<TagKey<Biome>, Float> BIOME_TO_SOUL_BERRIES_PARTIALLY_GROWN_AMOUNTS = new LinkedHashMap<>();
+    public static final Map<TagKey<Biome>, Float> BIOME_TO_MATURE_SOUL_BERRY_AMOUNTS = new LinkedHashMap<>();
+    public static final Map<TagKey<Biome>, Integer> BIOME_TO_FARMLAND_DISTANCE = new LinkedHashMap<>();
     public static final Map<TagKey<Biome>, Integer> BIOME_TO_MYCELIUM_SPREAD_NUM_TRIES = new LinkedHashMap<>();
     public static final Map<TagKey<Biome>, Integer> BIOME_TO_GRASS_SPREAD_NUM_TRIES = new LinkedHashMap<>();
 
@@ -43,31 +45,55 @@ public class BlockBehaviorConfig {
         BIOME_TO_SWEET_BERRIES_PARTIALLY_GROWN_AMOUNTS.put(ModTags.Biomes.crimsonForestBiomes, 0f);
         BIOME_TO_SWEET_BERRIES_PARTIALLY_GROWN_AMOUNTS.put(ModTags.Biomes.basaltDeltasBiomes, 0f);
 
+        BIOME_TO_SOUL_BERRIES_PARTIALLY_GROWN_AMOUNTS.put(ModTags.Biomes.tropicalBiomes, 0f);
+        BIOME_TO_SOUL_BERRIES_PARTIALLY_GROWN_AMOUNTS.put(ModTags.Biomes.savannaBiomes, 0f);
+        BIOME_TO_SOUL_BERRIES_PARTIALLY_GROWN_AMOUNTS.put(ModTags.Biomes.plainsBiomes, 0f);
+        BIOME_TO_SOUL_BERRIES_PARTIALLY_GROWN_AMOUNTS.put(ModTags.Biomes.mountainBiomes, 0f);
+        BIOME_TO_SOUL_BERRIES_PARTIALLY_GROWN_AMOUNTS.put(ModTags.Biomes.mushroomCaves, 0f);
+        BIOME_TO_SOUL_BERRIES_PARTIALLY_GROWN_AMOUNTS.put(ModTags.Biomes.desertBiomes, 1f);
+        BIOME_TO_SOUL_BERRIES_PARTIALLY_GROWN_AMOUNTS.put(ModTags.Biomes.deepDarkBiomes, 1f);
+        BIOME_TO_SOUL_BERRIES_PARTIALLY_GROWN_AMOUNTS.put(ModTags.Biomes.soulSandValleyBiomes, 1f);
+        BIOME_TO_SOUL_BERRIES_PARTIALLY_GROWN_AMOUNTS.put(ModTags.Biomes.warpedForestBiomes, 1f);
+        BIOME_TO_SOUL_BERRIES_PARTIALLY_GROWN_AMOUNTS.put(ModTags.Biomes.crimsonForestBiomes, 1f);
+        BIOME_TO_SOUL_BERRIES_PARTIALLY_GROWN_AMOUNTS.put(ModTags.Biomes.basaltDeltasBiomes, 1f);
 
-        BIOME_TO_MATURE_BERRY_AMOUNTS.put(ModTags.Biomes.tropicalBiomes, 4f);
-        BIOME_TO_MATURE_BERRY_AMOUNTS.put(ModTags.Biomes.savannaBiomes, 0f);
-        BIOME_TO_MATURE_BERRY_AMOUNTS.put(ModTags.Biomes.plainsBiomes, 0f);
-        BIOME_TO_MATURE_BERRY_AMOUNTS.put(ModTags.Biomes.mountainBiomes, 2f);
-        BIOME_TO_MATURE_BERRY_AMOUNTS.put(ModTags.Biomes.mushroomCaves, 2f);
-        BIOME_TO_MATURE_BERRY_AMOUNTS.put(ModTags.Biomes.desertBiomes, 0f);
-        BIOME_TO_MATURE_BERRY_AMOUNTS.put(ModTags.Biomes.deepDarkBiomes, 0f);
-        BIOME_TO_MATURE_BERRY_AMOUNTS.put(ModTags.Biomes.soulSandValleyBiomes, 0f);
-        BIOME_TO_MATURE_BERRY_AMOUNTS.put(ModTags.Biomes.warpedForestBiomes, 0f);
-        BIOME_TO_MATURE_BERRY_AMOUNTS.put(ModTags.Biomes.crimsonForestBiomes, 0f);
-        BIOME_TO_MATURE_BERRY_AMOUNTS.put(ModTags.Biomes.basaltDeltasBiomes, 0f);
+
+        BIOME_TO_MATURE_SWEET_BERRY_AMOUNTS.put(ModTags.Biomes.tropicalBiomes, 4f);
+        BIOME_TO_MATURE_SWEET_BERRY_AMOUNTS.put(ModTags.Biomes.savannaBiomes, 0f);
+        BIOME_TO_MATURE_SWEET_BERRY_AMOUNTS.put(ModTags.Biomes.plainsBiomes, 0f);
+        BIOME_TO_MATURE_SWEET_BERRY_AMOUNTS.put(ModTags.Biomes.mountainBiomes, 2f);
+        BIOME_TO_MATURE_SWEET_BERRY_AMOUNTS.put(ModTags.Biomes.mushroomCaves, 2f);
+        BIOME_TO_MATURE_SWEET_BERRY_AMOUNTS.put(ModTags.Biomes.desertBiomes, 0f);
+        BIOME_TO_MATURE_SWEET_BERRY_AMOUNTS.put(ModTags.Biomes.deepDarkBiomes, 0f);
+        BIOME_TO_MATURE_SWEET_BERRY_AMOUNTS.put(ModTags.Biomes.soulSandValleyBiomes, 0f);
+        BIOME_TO_MATURE_SWEET_BERRY_AMOUNTS.put(ModTags.Biomes.warpedForestBiomes, 0f);
+        BIOME_TO_MATURE_SWEET_BERRY_AMOUNTS.put(ModTags.Biomes.crimsonForestBiomes, 0f);
+        BIOME_TO_MATURE_SWEET_BERRY_AMOUNTS.put(ModTags.Biomes.basaltDeltasBiomes, 0f);
+
+        BIOME_TO_MATURE_SOUL_BERRY_AMOUNTS.put(ModTags.Biomes.tropicalBiomes, 0f);
+        BIOME_TO_MATURE_SOUL_BERRY_AMOUNTS.put(ModTags.Biomes.savannaBiomes, 0f);
+        BIOME_TO_MATURE_SOUL_BERRY_AMOUNTS.put(ModTags.Biomes.plainsBiomes, 0f);
+        BIOME_TO_MATURE_SOUL_BERRY_AMOUNTS.put(ModTags.Biomes.mountainBiomes, 0f);
+        BIOME_TO_MATURE_SOUL_BERRY_AMOUNTS.put(ModTags.Biomes.mushroomCaves, 0f);
+        BIOME_TO_MATURE_SOUL_BERRY_AMOUNTS.put(ModTags.Biomes.desertBiomes, 1f);
+        BIOME_TO_MATURE_SOUL_BERRY_AMOUNTS.put(ModTags.Biomes.deepDarkBiomes, 1f);
+        BIOME_TO_MATURE_SOUL_BERRY_AMOUNTS.put(ModTags.Biomes.soulSandValleyBiomes, 2f);
+        BIOME_TO_MATURE_SOUL_BERRY_AMOUNTS.put(ModTags.Biomes.warpedForestBiomes, 1f);
+        BIOME_TO_MATURE_SOUL_BERRY_AMOUNTS.put(ModTags.Biomes.crimsonForestBiomes, 1f);
+        BIOME_TO_MATURE_SOUL_BERRY_AMOUNTS.put(ModTags.Biomes.basaltDeltasBiomes, 1f);
 
 
-        BIOME_TO_FARMLAND_DISTANCE.put(ModTags.Biomes.tropicalBiomes, 14f);
-        BIOME_TO_FARMLAND_DISTANCE.put(ModTags.Biomes.savannaBiomes, 8f);
-        BIOME_TO_FARMLAND_DISTANCE.put(ModTags.Biomes.plainsBiomes, 4f);
-        BIOME_TO_FARMLAND_DISTANCE.put(ModTags.Biomes.mountainBiomes, 4f);
-        BIOME_TO_FARMLAND_DISTANCE.put(ModTags.Biomes.mushroomCaves, 4f);
-        BIOME_TO_FARMLAND_DISTANCE.put(ModTags.Biomes.desertBiomes, 2f);
-        BIOME_TO_FARMLAND_DISTANCE.put(ModTags.Biomes.deepDarkBiomes, 0f);
-        BIOME_TO_FARMLAND_DISTANCE.put(ModTags.Biomes.soulSandValleyBiomes, 0f);
-        BIOME_TO_FARMLAND_DISTANCE.put(ModTags.Biomes.warpedForestBiomes, 0f);
-        BIOME_TO_FARMLAND_DISTANCE.put(ModTags.Biomes.crimsonForestBiomes, 0f);
-        BIOME_TO_FARMLAND_DISTANCE.put(ModTags.Biomes.basaltDeltasBiomes, 0f);
+        BIOME_TO_FARMLAND_DISTANCE.put(ModTags.Biomes.tropicalBiomes, 14);
+        BIOME_TO_FARMLAND_DISTANCE.put(ModTags.Biomes.savannaBiomes, 8);
+        BIOME_TO_FARMLAND_DISTANCE.put(ModTags.Biomes.plainsBiomes, 4);
+        BIOME_TO_FARMLAND_DISTANCE.put(ModTags.Biomes.mountainBiomes, 4);
+        BIOME_TO_FARMLAND_DISTANCE.put(ModTags.Biomes.mushroomCaves, 4);
+        BIOME_TO_FARMLAND_DISTANCE.put(ModTags.Biomes.desertBiomes, 2);
+        BIOME_TO_FARMLAND_DISTANCE.put(ModTags.Biomes.deepDarkBiomes, 0);
+        BIOME_TO_FARMLAND_DISTANCE.put(ModTags.Biomes.soulSandValleyBiomes, 0);
+        BIOME_TO_FARMLAND_DISTANCE.put(ModTags.Biomes.warpedForestBiomes, 0);
+        BIOME_TO_FARMLAND_DISTANCE.put(ModTags.Biomes.crimsonForestBiomes, 0);
+        BIOME_TO_FARMLAND_DISTANCE.put(ModTags.Biomes.basaltDeltasBiomes, 0);
 
 
         BIOME_TO_MYCELIUM_SPREAD_NUM_TRIES.put(ModTags.Biomes.tropicalBiomes, 0);

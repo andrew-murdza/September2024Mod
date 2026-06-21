@@ -1,27 +1,19 @@
 package net.amurdza.examplemod.event_handlers;
 
-import com.github.alexthe666.alexsmobs.entity.AMEntityRegistry;
 import net.amurdza.examplemod.AOEMod;
-import net.amurdza.examplemod.mixins.mob_spawning.EntityTypeCategoryAccessor;
+import net.amurdza.examplemod.mixins.accessor.EntityTypeCategoryAccessor;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.MobCategory;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
-import org.violetmoon.quark.content.mobs.module.FoxhoundModule;
 
 @Mod.EventBusSubscriber(modid = AOEMod.MOD_ID, bus = Mod.EventBusSubscriber.Bus.MOD)
 public class MobCategoryChanges {
 
     @SubscribeEvent
     public static void commonSetup(FMLCommonSetupEvent event) {
-        event.enqueueWork(() -> {
-            setCategory(AMEntityRegistry.JERBOA.get(), MobCategory.CREATURE);
-
-            if (FoxhoundModule.foxhoundType != null) {
-                setCategory(FoxhoundModule.foxhoundType, MobCategory.CREATURE);
-            }
-        });
+        event.enqueueWork(() -> setCategory(EntityType.HOGLIN, MobCategory.CREATURE));
     }
 
     private static void setCategory(EntityType<?> type, MobCategory category) {

@@ -3,9 +3,6 @@ package net.amurdza.examplemod.config;
 import com.github.alexthe666.alexsmobs.entity.AMEntityRegistry;
 import com.github.alexthe666.alexsmobs.item.AMItemRegistry;
 import com.github.alexthe666.iceandfire.entity.IafEntityRegistry;
-import com.starfish_studios.naturalist.core.registry.NaturalistEntityTypes;
-import com.starfish_studios.naturalist.core.registry.NaturalistItems;
-import dev.hybridlabs.aquatic.entity.HybridAquaticEntityTypes;
 import org.violetmoon.quark.content.mobs.module.WraithModule;
 import samebutdifferent.ecologics.registry.ModEntityTypes;
 import net.mcreator.borninchaosv.init.BornInChaosV1ModEntities;
@@ -487,17 +484,17 @@ public final class MobConfig {
                 m(1.5F, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, Items.RABBIT_HIDE),
                 m(0.5F, 0.75F, 0, 0, 0, 0, 0, 0, 0, 0, 0, Items.BONE));
 
-        addMobInfo(NaturalistEntityTypes.DEER.get(),
-                m(2, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0),
-                m(2, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0),
-                m(2, 5, 0, 0, 0, 0, 0, 0, 0, 0, 0, NaturalistItems.VENISON.get(), NaturalistItems.COOKED_VENISON.get()),
-                m(1.5F, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, Items.LEATHER),
-                m(1, 1.5F, 0, 0, 0, 0, 0, 0, 0, 0, 0, Items.BONE));
+//        addMobInfo(NaturalistEntityTypes.DEER.get(),
+//                m(2, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+//                m(2, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+//                m(2, 5, 0, 0, 0, 0, 0, 0, 0, 0, 0, NaturalistItems.VENISON.get(), NaturalistItems.COOKED_VENISON.get()),
+//                m(1.5F, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, Items.LEATHER),
+//                m(1, 1.5F, 0, 0, 0, 0, 0, 0, 0, 0, 0, Items.BONE));
 
-        addMobInfo(HybridAquaticEntityTypes.INSTANCE.getARROW_SQUID().get(),
-                m(2, 0, 0, 2, 2, 0, 0, 0, 0, 0, 0, ModItems.RAW_ARROW_SQUID.get(), ModItems.COOKED_ARROW_SQUID.get()),
-                m(2, 0, 0, 2, 2, 0, 0, 0, 0, 0, 0, Items.INK_SAC),
-                m(0.5F, 0, 0, 0.4F, 0.4F, 0, 0, 0, 0, 0, 0, Items.BONE_MEAL));
+//        addMobInfo(HybridAquaticEntityTypes.INSTANCE.getARROW_SQUID().get(),
+//                m(2, 0, 0, 2, 2, 0, 0, 0, 0, 0, 0, ModItems.RAW_ARROW_SQUID.get(), ModItems.COOKED_ARROW_SQUID.get()),
+//                m(2, 0, 0, 2, 2, 0, 0, 0, 0, 0, 0, Items.INK_SAC),
+//                m(0.5F, 0, 0, 0.4F, 0.4F, 0, 0, 0, 0, 0, 0, Items.BONE_MEAL));
 
         addMobInfo(EntityType.ZOMBIE,
                 m(0, 1F, 1, 0, 0, 0, 0, 0, 0, 0, 0, Items.ROTTEN_FLESH, Items.LEATHER),
