@@ -190,6 +190,7 @@ public class AOEMod
 
         // BUILDING BLOCKS (farmland fits better here than NATURAL)
         if (tab == CreativeModeTabs.SPAWN_EGGS) {
+            event.accept(ModEntities.ARCHLICH_SPAWN_EGG.get());
             event.accept(ModEntities.CUBOZOA_SPAWN_EGG.get());
             event.accept(ModEntities.END_FISH_SPAWN_EGG.get());
             event.accept(ModEntities.SEA_SERPENT_SPAWN_EGG.get());

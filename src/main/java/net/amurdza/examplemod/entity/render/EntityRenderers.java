@@ -28,6 +28,7 @@ public class EntityRenderers {
 
     @SubscribeEvent
     public static void registerRenderers(EntityRenderersEvent.RegisterRenderers event) {
+        event.registerEntityRenderer(ModEntities.ARCHLICH.get(), ArchlichRenderer::new);
         event.registerEntityRenderer(ModEntities.END_FISH.get(), EndFishEntityRenderer::new);
         event.registerEntityRenderer(ModEntities.CUBOZOA.get(), CubozoaEntityRenderer::new);
         event.registerEntityRenderer(ModEntities.SEA_SERPENT.get(), SeaSerpentEntityRenderer::new);

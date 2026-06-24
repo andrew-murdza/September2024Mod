@@ -63,5 +63,7 @@
   "item.aoemod.raw_glow_squid": "Glow Squid",
   "item.aoemod.cooked_squid": "Cooked Squid",
   "item.aoemod.nether_fungus_stew": "Nether Fungus Stew",
+  "entity.aoemod.archlich": "Archlich",
+  "item.aoemod.spawn_egg_archlich": "Archlich Spawn Egg",
   "item.farmersdelight.salmon_roll": "Tropical Fish Roll"
 }

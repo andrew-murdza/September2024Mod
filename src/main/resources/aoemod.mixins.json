@@ -68,6 +68,8 @@
     "mob_behavior.NoPufferfishPoison",
     "mob_behavior.NoStriderShiver",
     "mob_behavior.SheepShearAmount",
+    "mob_behavior.WitherProjectileExplosionBehavior",
+    "mob_behavior.WitherProjectileBehavior",
     "accessor.EntityTypeCategoryAccessor",
     "accessor.MobsSpawnOnGlowingMoss",
     "accessor.MobsSpawnOnGlowingMoss1",

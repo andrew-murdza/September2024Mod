@@ -1,6 +1,7 @@
 package net.amurdza.examplemod.registry;
 
 import net.amurdza.examplemod.AOEMod;
+import net.amurdza.examplemod.entity.ArchlichEntity;
 import net.amurdza.examplemod.entity.CubozoaEntity;
 import net.amurdza.examplemod.entity.EndFishEntity;
 import net.amurdza.examplemod.entity.sea_serpent.SeaSerpentEntity;
@@ -55,6 +56,14 @@ public final class ModEntities {
             CubozoaEntity::new
     );
 
+    public static final RegistryObject<EntityType<ArchlichEntity>> ARCHLICH = registerMob(
+            "archlich",
+            MobCategory.MONSTER,
+            0.6F,
+            1.99F,
+            ArchlichEntity::new
+    );
+
     public static final RegistryObject<EntityType<SeaSerpentEntity>> SEA_SERPENT =
             ENTITY_TYPES.register("sea_serpent", () ->
                     EntityType.Builder.of(SeaSerpentEntity::new, MobCategory.WATER_CREATURE)
@@ -102,6 +111,16 @@ public final class ModEntities {
                     )
             );
 
+    public static final RegistryObject<ForgeSpawnEggItem> ARCHLICH_SPAWN_EGG =
+            ModItems.ITEMS.register("spawn_egg_archlich",
+                    () -> new ForgeSpawnEggItem(
+                            ARCHLICH,
+                            ColorUtil.color(29, 38, 59),
+                            ColorUtil.color(117, 210, 232),
+                            new net.minecraft.world.item.Item.Properties()
+                    )
+            );
+
     // ---------------------
     // Public init/register
     // ---------------------
@@ -130,6 +149,7 @@ public final class ModEntities {
         event.put(END_FISH.get(), EndFishEntity.createMobAttributes().build());
         event.put(CUBOZOA.get(), CubozoaEntity.createMobAttributes().build());
         event.put(ModEntities.SEA_SERPENT.get(), SeaSerpentEntity.createAttributes().build());
+        event.put(ARCHLICH.get(), ArchlichEntity.createAttributes().build());
     }
 
     @SubscribeEvent
