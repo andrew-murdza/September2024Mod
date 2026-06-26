@@ -1,19 +1,63 @@
 {
-  "type": "aoemod:grid_choice",
+  "type": "aoemod:regional_grid_choice",
   "config": {
-    "features": [
-      { "feature": "aoemod:water/rainforest/horn_coral_patch" },
-      { "feature": "aoemod:water/rainforest/tube_coral_patch" },
-      { "feature": "aoemod:water/rainforest/fire_coral_patch" },
-      { "feature": "aoemod:water/rainforest/brain_coral_patch" },
-      { "feature": "aoemod:water/rainforest/bubble_coral_patch" },
-      { "feature": "aoemod:water/rainforest/horn_coral_fan_patch" },
-      { "feature": "aoemod:water/rainforest/tube_coral_fan_patch" },
-      { "feature": "aoemod:water/rainforest/fire_coral_fan_patch" },
-      { "feature": "aoemod:water/rainforest/brain_coral_fan_patch" },
-      { "feature": "aoemod:water/rainforest/bubble_coral_fan_patch" }
+    "features": [],
+    "groups": [
+      {
+        "features": [
+          "aoemod:water/rainforest/horn_coral_patch",
+          "aoemod:water/rainforest/tube_coral_patch",
+          "aoemod:water/rainforest/fire_coral_patch",
+          "aoemod:water/rainforest/brain_coral_patch",
+          "aoemod:water/rainforest/bubble_coral_patch",
+          "aoemod:water/rainforest/horn_coral_fan_patch",
+          "aoemod:water/rainforest/tube_coral_fan_patch",
+          "aoemod:water/rainforest/fire_coral_fan_patch",
+          "aoemod:water/rainforest/brain_coral_fan_patch",
+          "aoemod:water/rainforest/bubble_coral_fan_patch"
+        ],
+        "count": 10,
+        "extra_count": -1,
+        "extra_feature_count": 4
+      }
     ],
+    "minimum_sections": [
+      {
+        "section_width": 6,
+        "section_depth": 6,
+        "features": [
+          { "feature": "aoemod:water/rainforest/horn_coral_patch", "count": 1 },
+          { "feature": "aoemod:water/rainforest/tube_coral_patch", "count": 1 },
+          { "feature": "aoemod:water/rainforest/fire_coral_patch", "count": 1 },
+          { "feature": "aoemod:water/rainforest/brain_coral_patch", "count": 1 },
+          { "feature": "aoemod:water/rainforest/bubble_coral_patch", "count": 1 },
+          { "feature": "aoemod:water/rainforest/horn_coral_fan_patch", "count": 1 },
+          { "feature": "aoemod:water/rainforest/tube_coral_fan_patch", "count": 1 },
+          { "feature": "aoemod:water/rainforest/fire_coral_fan_patch", "count": 1 },
+          { "feature": "aoemod:water/rainforest/brain_coral_fan_patch", "count": 1 },
+          { "feature": "aoemod:water/rainforest/bubble_coral_fan_patch", "count": 1 }
+        ]
+      }
+    ],
+    "cell_rules": [
+      {
+        "local_x": [0, 5],
+        "allowed_features": [
+          "aoemod:water/rainforest/horn_coral_fan_patch",
+          "aoemod:water/rainforest/tube_coral_fan_patch",
+          "aoemod:water/rainforest/fire_coral_fan_patch",
+          "aoemod:water/rainforest/brain_coral_fan_patch",
+          "aoemod:water/rainforest/bubble_coral_fan_patch"
+        ]
+      }
+    ],
+    "default_feature": "aoemod:nothing",
     "offset_type": "center",
-    "placement": []
+    "placement": [],
+    "region_width": 30,
+    "region_depth": 64,
+    "section_width": 6,
+    "section_depth": 16,
+    "salt": "rainforest_coral"
   }
 }

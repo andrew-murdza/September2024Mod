@@ -4,6 +4,30 @@
     "features": [
       {
         "feature": {
+          "feature": "aoemod:nothing",
+          "placement": []
+        },
+        "guaranteed_features": [
+          {
+            "feature": "aoemod:nether_cave/floor/mushroom_grid_choice",
+            "placement": []
+          }
+        ],
+        "target": "air",
+        "skip_height": 30,
+        "min_y": 56,
+        "all_layers": true,
+        "predicate": {
+          "type": "minecraft:matching_blocks",
+          "blocks": [
+            "minecraft:deepslate",
+            "minecraft:clay",
+            "minecraft:stone"
+          ]
+        }
+      },
+      {
+        "feature": {
           "feature": "aoemod:deep_dark/floor/forest_floor",
           "placement": []
         },
@@ -19,8 +43,8 @@
         ],
         "target": "air",
         "skip_height": 30,
-        "min_y": 33,
-        "max_y": 56,
+        "min_y": 32,
+        "max_y": 55,
         "all_layers": true,
         "predicate": {
           "type": "minecraft:matching_blocks",
@@ -29,7 +53,7 @@
       },
       {
         "feature": {
-          "feature": "aoemod:soul_sand_valley/floor/forest_floor",
+          "feature": "aoemod:nothing",
           "placement": []
         },
         "guaranteed_features": [
@@ -40,8 +64,8 @@
         ],
         "target": "air",
         "skip_height": 30,
-        "min_y": 9,
-        "max_y": 32,
+        "min_y": 8,
+        "max_y": 31,
         "all_layers": true,
         "predicate": {
           "type": "minecraft:matching_block_tag",
@@ -61,8 +85,8 @@
         ],
         "target": "air",
         "skip_height": 30,
-        "min_y": -15,
-        "max_y": 8,
+        "min_y": -16,
+        "max_y": 7,
         "all_layers": true,
         "predicate": {
           "type": "minecraft:matching_blocks",
@@ -76,7 +100,7 @@
         },
         "guaranteed_features": [
           {
-            "feature": "aoemod:giant_mushrooms/crimson_fungus_tree",
+            "feature": "aoemod:giant_mushrooms/crimson_fungus_tree_worldgen",
             "placement": [
               {
                 "type": "minecraft:in_square"
@@ -86,8 +110,8 @@
         ],
         "target": "air",
         "skip_height": 30,
-        "min_y": -39,
-        "max_y": -16,
+        "min_y": -40,
+        "max_y": -17,
         "all_layers": true,
         "predicate": {
           "type": "minecraft:matching_blocks",
@@ -101,7 +125,7 @@
         },
         "target": "air",
         "skip_height": 30,
-        "max_y": -40,
+        "max_y": -41,
         "all_layers": true,
         "predicate": {
           "type": "minecraft:matching_block_tag",

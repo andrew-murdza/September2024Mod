@@ -1,5 +1,10 @@
 {
   "values": [
-    "aoemod:badlands"
+    "aoemod:badlands",
+    "aoemod:deep_dark",
+    "aoemod:soul_sand_valley",
+    "aoemod:warped_forest",
+    "aoemod:crimson_forest",
+    "aoemod:basalt_deltas"
   ]
 }

@@ -1,6 +1,16 @@
 {
   "replace": false,
   "values": [
-    "aoemod:bone_block"
+    "aoemod:bone_block",
+    "#aoemod:pale_oak_logs",
+    "aoemod:pale_oak_planks",
+    "aoemod:pale_oak_stairs",
+    "aoemod:pale_oak_slab",
+    "aoemod:pale_oak_fence",
+    "aoemod:pale_oak_fence_gate",
+    "aoemod:pale_oak_door",
+    "aoemod:pale_oak_trapdoor",
+    "aoemod:pale_oak_pressure_plate",
+    "aoemod:pale_oak_button"
   ]
 }

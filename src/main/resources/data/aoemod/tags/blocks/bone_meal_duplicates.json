@@ -5,25 +5,11 @@
     "minecraft:wet_sponge",
     "#minecraft:corals",
     "#minecraft:coral_blocks",
-    "#minecraft:small_flowers",
-    "#minecraft:tall_flowers",
-    "minecraft:torchflower",
-    "minecraft:large_fern",
-    "minecraft:tall_grass",
-    "minecraft:dead_bush",
-    "minecraft:hanging_roots",
     "minecraft:mangrove_roots",
-    "minecraft:pitcher_plant",
-    "minecraft:small_dripleaf",
-    "#aoemod:nether_sprouts",
-    "minecraft:crimson_roots",
-    "minecraft:warped_roots",
-    "minecraft:shroomlight",
     "minecraft:sculk",
     "minecraft:sculk_vein",
     "minecraft:sculk_shrieker",
     "minecraft:sculk_sensor",
-    "minecraft:sculk_catalyst",
-    "aoemod:desert_tallgrass"
+    "minecraft:sculk_catalyst"
   ]
 }

@@ -14,10 +14,7 @@
                 -1,
                 0
               ],
-              "blocks": [
-                "minecraft:moss_block",
-                "minecraft:wet_sponge"
-              ]
+              "blocks": "minecraft:moss_block"
             },
             {
               "type": "minecraft:matching_block_tag",

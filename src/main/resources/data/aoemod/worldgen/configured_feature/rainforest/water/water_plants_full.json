@@ -9,10 +9,7 @@
           "predicates": [
             {
               "type": "minecraft:matching_blocks",
-              "blocks": [
-                "minecraft:moss_block",
-                "minecraft:wet_sponge"
-              ],
+              "blocks": "minecraft:moss_block",
               "offset": [
                 0,
                 -1,

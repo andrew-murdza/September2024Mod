@@ -22,14 +22,12 @@
   "features": [
     [],
     [],
-    [
-      "minecraft:amethyst_geode"
-    ],
+    [],
     [],
     [],
     [],
     [
-      "aoemod:blobs/mountain_stone_variants",
+      "aoemod:blobs/clay",
       "aoemod:mountains/ores/iron_upper",
       "aoemod:mountains/ores/copper_upper",
       "aoemod:mountains/ores/coal_upper",
@@ -129,6 +127,12 @@
         "weight": 15,
         "minCount": 8,
         "maxCount": 8
+      },
+      {
+        "type": "hybrid-aquatic:arrow_squid",
+        "weight": 10,
+        "minCount": 4,
+        "maxCount": 4
       }
     ],
     "water_creature": [

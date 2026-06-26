@@ -5,9 +5,9 @@ import net.amurdza.examplemod.block.*;
 import net.minecraft.util.valueproviders.UniformInt;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
-import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.Blocks;
-import net.minecraft.world.level.block.DropExperienceBlock;
+import net.minecraft.world.level.block.*;
+import net.minecraft.world.level.block.state.properties.BlockSetType;
+import net.minecraft.world.level.block.state.properties.WoodType;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.material.MapColor;
 import net.minecraftforge.eventbus.api.IEventBus;
@@ -36,6 +36,49 @@ public class ModBlocks {
 
     public static final RegistryObject<Block> DESERT_GRASS = registerBlockAndItem("desert_grass", ()->new DesertGrassBlock(BlockBehaviour.Properties.copy(Blocks.GRASS).mapColor(MapColor.SAND)));
     public static final RegistryObject<Block> DESERT_TALL_GRASS = registerBlockAndItem("desert_tallgrass", ()->new DesertTallGrassBlock(BlockBehaviour.Properties.copy(Blocks.TALL_GRASS).mapColor(MapColor.SAND)));
+
+    public static final RegistryObject<Block> PALE_MOSS_BLOCK = registerBlockAndItem("pale_moss_block",
+            () -> new PaleMossBlock(BlockBehaviour.Properties.copy(Blocks.MOSS_BLOCK)));
+    public static final RegistryObject<Block> PALE_MOSS_CARPET = registerBlockAndItem("pale_moss_carpet",
+            () -> new CarpetBlock(BlockBehaviour.Properties.copy(Blocks.MOSS_CARPET)));
+    public static final RegistryObject<Block> PALE_HANGING_MOSS = registerBlockAndItem("pale_hanging_moss",
+            () -> new PaleHangingMossBlock(BlockBehaviour.Properties.copy(Blocks.VINE).sound(SoundType.MOSS_CARPET)));
+    public static final RegistryObject<Block> OPEN_EYEBLOSSOM = registerBlockAndItem("open_eyeblossom",
+            () -> new EyeblossomBlock(true, BlockBehaviour.Properties.copy(Blocks.POPPY).randomTicks().lightLevel(state -> 3)));
+    public static final RegistryObject<Block> CLOSED_EYEBLOSSOM = registerBlockAndItem("closed_eyeblossom",
+            () -> new EyeblossomBlock(false, BlockBehaviour.Properties.copy(Blocks.POPPY).randomTicks()));
+
+    public static final RegistryObject<RotatedPillarBlock> STRIPPED_PALE_OAK_LOG = registerBlockAndItem("stripped_pale_oak_log",
+            () -> new RotatedPillarBlock(BlockBehaviour.Properties.copy(Blocks.STRIPPED_DARK_OAK_LOG)));
+    public static final RegistryObject<RotatedPillarBlock> PALE_OAK_LOG = registerBlockAndItem("pale_oak_log",
+            () -> new StrippableRotatedPillarBlock(BlockBehaviour.Properties.copy(Blocks.DARK_OAK_LOG), STRIPPED_PALE_OAK_LOG));
+    public static final RegistryObject<RotatedPillarBlock> STRIPPED_PALE_OAK_WOOD = registerBlockAndItem("stripped_pale_oak_wood",
+            () -> new RotatedPillarBlock(BlockBehaviour.Properties.copy(Blocks.STRIPPED_DARK_OAK_WOOD)));
+    public static final RegistryObject<RotatedPillarBlock> PALE_OAK_WOOD = registerBlockAndItem("pale_oak_wood",
+            () -> new StrippableRotatedPillarBlock(BlockBehaviour.Properties.copy(Blocks.DARK_OAK_WOOD), STRIPPED_PALE_OAK_WOOD));
+    public static final RegistryObject<Block> PALE_OAK_PLANKS = registerBlockAndItem("pale_oak_planks",
+            () -> new Block(BlockBehaviour.Properties.copy(Blocks.DARK_OAK_PLANKS)));
+    public static final RegistryObject<StairBlock> PALE_OAK_STAIRS = registerBlockAndItem("pale_oak_stairs",
+            () -> new StairBlock(PALE_OAK_PLANKS.get().defaultBlockState(), BlockBehaviour.Properties.copy(Blocks.DARK_OAK_STAIRS)));
+    public static final RegistryObject<SlabBlock> PALE_OAK_SLAB = registerBlockAndItem("pale_oak_slab",
+            () -> new SlabBlock(BlockBehaviour.Properties.copy(Blocks.DARK_OAK_SLAB)));
+    public static final RegistryObject<FenceBlock> PALE_OAK_FENCE = registerBlockAndItem("pale_oak_fence",
+            () -> new FenceBlock(BlockBehaviour.Properties.copy(Blocks.DARK_OAK_FENCE)));
+    public static final RegistryObject<FenceGateBlock> PALE_OAK_FENCE_GATE = registerBlockAndItem("pale_oak_fence_gate",
+            () -> new FenceGateBlock(BlockBehaviour.Properties.copy(Blocks.DARK_OAK_FENCE_GATE), WoodType.OAK));
+    public static final RegistryObject<DoorBlock> PALE_OAK_DOOR = registerBlockAndItem("pale_oak_door",
+            () -> new DoorBlock(BlockBehaviour.Properties.copy(Blocks.DARK_OAK_DOOR), BlockSetType.OAK));
+    public static final RegistryObject<TrapDoorBlock> PALE_OAK_TRAPDOOR = registerBlockAndItem("pale_oak_trapdoor",
+            () -> new TrapDoorBlock(BlockBehaviour.Properties.copy(Blocks.DARK_OAK_TRAPDOOR), BlockSetType.OAK));
+    public static final RegistryObject<PressurePlateBlock> PALE_OAK_PRESSURE_PLATE = registerBlockAndItem("pale_oak_pressure_plate",
+            () -> new PressurePlateBlock(PressurePlateBlock.Sensitivity.EVERYTHING,
+                    BlockBehaviour.Properties.copy(Blocks.DARK_OAK_PRESSURE_PLATE), BlockSetType.OAK));
+    public static final RegistryObject<ButtonBlock> PALE_OAK_BUTTON = registerBlockAndItem("pale_oak_button",
+            () -> new ButtonBlock(BlockBehaviour.Properties.copy(Blocks.DARK_OAK_BUTTON), BlockSetType.OAK, 30, true));
+    public static final RegistryObject<LeavesBlock> PALE_OAK_LEAVES = registerBlockAndItem("pale_oak_leaves",
+            () -> new LeavesBlock(BlockBehaviour.Properties.copy(Blocks.DARK_OAK_LEAVES)));
+    public static final RegistryObject<PaleOakSaplingBlock> PALE_OAK_SAPLING = registerBlockAndItem("pale_oak_sapling",
+            () -> new PaleOakSaplingBlock(BlockBehaviour.Properties.copy(Blocks.DARK_OAK_SAPLING)));
 
 
     public static void register(IEventBus eventBus){

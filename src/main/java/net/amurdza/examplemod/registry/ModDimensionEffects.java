@@ -59,6 +59,6 @@ public class ModDimensionEffects extends DimensionSpecialEffects {
 
     @SubscribeEvent
     public static void hi(RegisterDimensionSpecialEffectsEvent event){
-        event.register(new ResourceLocation(AOEMod.MOD_ID,"aoedim"),new ModDimensionEffects());
+        event.register(new ResourceLocation("minecraft","overworld"),new ModDimensionEffects());
     }
 }

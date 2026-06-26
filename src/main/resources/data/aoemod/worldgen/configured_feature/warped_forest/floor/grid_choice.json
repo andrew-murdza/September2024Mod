@@ -1,5 +1,5 @@
 {
-  "type": "aoemod:grid_choice",
+  "type": "aoemod:regional_grid_choice",
   "config": {
     "features": [
       {
@@ -7,12 +7,17 @@
         "count": 1
       },
       {
-        "feature": "aoemod:giant_mushrooms/warped_fungus_tree",
-        "count": 15
+        "feature": "aoemod:giant_mushrooms/warped_fungus_tree_worldgen",
+        "count": 11
       }
     ],
     "default_feature": "aoemod:nothing",
     "placement": [],
-    "offset_type": "in_square"
+    "offset_type": "in_square",
+    "region_width": 12,
+    "region_depth": 16,
+    "section_width": 3,
+    "section_depth": 4,
+    "salt": "warped_forest_floor"
   }
 }

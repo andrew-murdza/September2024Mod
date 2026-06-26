@@ -5,27 +5,43 @@ import com.github.alexthe666.alexsmobs.entity.ai.*;
 import com.github.alexthe666.iceandfire.entity.EntitySiren;
 import net.amurdza.examplemod.AOEMod;
 import net.amurdza.examplemod.util.ModTags;
+import net.minecraft.core.BlockPos;
+import net.minecraft.server.level.ServerLevel;
+import net.minecraft.tags.BlockTags;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.Mob;
 import net.minecraft.world.entity.PathfinderMob;
+import net.minecraft.world.entity.TamableAnimal;
+import net.minecraft.world.entity.ai.Brain;
 import net.minecraft.world.entity.ai.goal.*;
 import net.minecraft.world.entity.ai.goal.target.HurtByTargetGoal;
 import net.minecraft.world.entity.ai.goal.target.NearestAttackableTargetGoal;
 import net.minecraft.world.entity.ai.goal.target.NonTameRandomTargetGoal;
+import net.minecraft.world.entity.ai.memory.MemoryModuleType;
 import net.minecraft.world.entity.animal.*;
 import net.minecraft.world.entity.animal.frog.Frog;
 import net.minecraft.world.entity.animal.goat.Goat;
 import net.minecraft.world.entity.animal.horse.AbstractChestedHorse;
+import net.minecraft.world.entity.animal.horse.AbstractHorse;
 import net.minecraft.world.entity.animal.horse.Horse;
 import net.minecraft.world.entity.monster.AbstractSkeleton;
 import net.minecraft.world.entity.monster.Strider;
 import net.minecraft.world.entity.monster.Zombie;
+import net.minecraft.world.entity.monster.Zoglin;
 import net.minecraft.world.entity.monster.ZombifiedPiglin;
+import net.minecraft.world.entity.monster.piglin.Piglin;
+import net.minecraft.world.entity.monster.piglin.PiglinBrute;
+import net.minecraft.world.entity.monster.warden.Warden;
+import net.minecraft.world.entity.npc.Villager;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Ingredient;
+import net.minecraft.world.level.levelgen.Heightmap;
 import net.minecraftforge.event.entity.EntityJoinLevelEvent;
+import net.minecraftforge.event.entity.living.LivingEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import org.violetmoon.quark.content.mobs.ai.RaveGoal;
@@ -34,6 +50,8 @@ import vectorwing.farmersdelight.common.registry.ModItems;
 import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
+import java.util.UUID;
 import java.util.function.Predicate;
 @Mod.EventBusSubscriber(modid = AOEMod.MOD_ID, bus=Mod.EventBusSubscriber.Bus.FORGE)
 public class MobAI {
@@ -153,6 +171,169 @@ public class MobAI {
             e.printStackTrace();
         }
     }
+
+    @SubscribeEvent
+    public static void onLivingTick(LivingEvent.LivingTickEvent event) {
+        LivingEntity entity = event.getEntity();
+        if (!(entity.level() instanceof ServerLevel level)) {
+            return;
+        }
+
+        if (entity instanceof Mob mob) {
+            clearForbiddenBrainTargets(level, mob);
+        }
+
+        if (entity instanceof Turtle turtle) {
+            redirectPregnantTurtleHome(level, turtle);
+        }
+    }
+
+    private static void clearForbiddenBrainTargets(ServerLevel level, Mob mob) {
+        LivingEntity target = mob.getTarget();
+        if (target != null && isNotAllowedMobTarget(mob, target)) {
+            mob.setTarget(null);
+            clearSpecialAnger(mob, target);
+        }
+
+        clearLivingMemoryIfForbidden(mob, MemoryModuleType.ATTACK_TARGET);
+        clearLivingMemoryIfForbidden(mob, MemoryModuleType.NEAREST_ATTACKABLE);
+        clearLivingMemoryIfForbidden(mob, MemoryModuleType.HURT_BY_ENTITY);
+        clearIdleZoglinCombatMemories(mob);
+
+        Brain<?> brain = mob.getBrain();
+        getMemorySafely(brain, MemoryModuleType.ANGRY_AT).ifPresent(uuid -> {
+            Entity angryAt = level.getEntity(uuid);
+            if (angryAt instanceof LivingEntity living && isNotAllowedMobTarget(mob, living)) {
+                eraseMemorySafely(brain, MemoryModuleType.ANGRY_AT);
+                clearSpecialAnger(mob, living);
+            }
+        });
+    }
+
+    private static <T extends LivingEntity> void clearLivingMemoryIfForbidden(Mob mob, MemoryModuleType<T> memoryType) {
+        Brain<?> brain = mob.getBrain();
+        getMemorySafely(brain, memoryType).ifPresent(target -> {
+            if (isNotAllowedMobTarget(mob, target)) {
+                eraseMemorySafely(brain, memoryType);
+                clearSpecialAnger(mob, target);
+            }
+        });
+    }
+
+    private static void clearIdleZoglinCombatMemories(Mob mob) {
+        if (!(mob instanceof Zoglin) || mob.getTarget() != null) {
+            return;
+        }
+
+        Brain<?> brain = mob.getBrain();
+        eraseMemorySafely(brain, MemoryModuleType.ATTACK_TARGET);
+        eraseMemorySafely(brain, MemoryModuleType.NEAREST_ATTACKABLE);
+        eraseMemorySafely(brain, MemoryModuleType.HURT_BY_ENTITY);
+        eraseMemorySafely(brain, MemoryModuleType.ANGRY_AT);
+        eraseMemorySafely(brain, MemoryModuleType.NEAREST_VISIBLE_LIVING_ENTITIES);
+    }
+
+    private static void eraseMemorySafely(Brain<?> brain, MemoryModuleType<?> memoryType) {
+        try {
+            brain.eraseMemory(memoryType);
+        } catch (IllegalStateException | NullPointerException ignored) {
+        }
+    }
+
+    private static <T> Optional<T> getMemorySafely(Brain<?> brain, MemoryModuleType<T> memoryType) {
+        try {
+            return brain.getMemory(memoryType);
+        } catch (IllegalStateException | NullPointerException ignored) {
+            return Optional.empty();
+        }
+    }
+
+    private static void clearSpecialAnger(Mob mob, LivingEntity target) {
+        if (mob instanceof Warden warden) {
+            warden.clearAnger(target);
+        }
+    }
+
+    private static boolean isNotAllowedMobTarget(Mob attacker, LivingEntity target) {
+        return isNotProtectedCombatEntity(attacker) && isNotProtectedCombatEntity(target);
+    }
+
+    private static boolean isNotProtectedCombatEntity(LivingEntity entity) {
+        if (entity instanceof Player) {
+            return false;
+        }
+
+        if (entity instanceof Villager) {
+            return false;
+        }
+
+        if (entity instanceof Piglin) {
+            return false;
+        }
+
+        if (entity instanceof PiglinBrute) {
+            return false;
+        }
+
+        if (entity instanceof TamableAnimal tamableAnimal && tamableAnimal.isTame()) {
+            return false;
+        }
+
+        if (entity instanceof AbstractHorse abstractHorse && abstractHorse.isTamed()) {
+            return false;
+        }
+
+        return true;
+    }
+
+    private static void redirectPregnantTurtleHome(ServerLevel level, Turtle turtle) {
+        if (!turtle.hasEgg() || turtle.tickCount % 100 != 0) {
+            return;
+        }
+
+        BlockPos nearestLand = findNearestTurtleLand(level, turtle.blockPosition(), 48);
+        if (nearestLand != null) {
+            turtle.setHomePos(nearestLand);
+        }
+    }
+
+    private static BlockPos findNearestTurtleLand(ServerLevel level, BlockPos origin, int radius) {
+        BlockPos best = null;
+        double bestDistance = Double.MAX_VALUE;
+
+        for (int dx = -radius; dx <= radius; dx++) {
+            for (int dz = -radius; dz <= radius; dz++) {
+                int x = origin.getX() + dx;
+                int z = origin.getZ() + dz;
+                int y = level.getHeight(Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, x, z) - 1;
+
+                if (Math.abs(y - origin.getY()) > 24) {
+                    continue;
+                }
+
+                BlockPos land = new BlockPos(x, y, z);
+                if (!isValidTurtleLand(level, land)) {
+                    continue;
+                }
+
+                double distance = land.distSqr(origin);
+                if (distance < bestDistance) {
+                    bestDistance = distance;
+                    best = land;
+                }
+            }
+        }
+
+        return best;
+    }
+
+    private static boolean isValidTurtleLand(ServerLevel level, BlockPos land) {
+        BlockPos eggPos = land.above();
+        return level.getBlockState(land).is(BlockTags.SAND)
+                && level.isEmptyBlock(eggPos)
+                && level.getFluidState(eggPos).isEmpty();
+    }
+
     private static boolean removeTurtleAttack(Goal goal) {
         Field getTargetType;
         if(goal instanceof NearestAttackableTargetGoal){
@@ -170,7 +351,7 @@ public class MobAI {
     }
 
     private static void makeHostileToPlayers(PathfinderMob mob){
-        new NearestAttackableTargetGoal<>(mob, Player.class, true);
+        mob.targetSelector.addGoal(3, new NearestAttackableTargetGoal<>(mob, Player.class, true));
     }
     private static void addBreeding(PathfinderMob mob) {
         mob.goalSelector.addGoal(0, new BreedGoal((Animal) mob, 1.0D));

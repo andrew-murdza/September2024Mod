@@ -63,4 +63,20 @@ public class ModConfiguredFeatures {
     public static final ResourceKey<ConfiguredFeature<?, ?>> WARPED_FOREST_SEAFLOOR_SHALLOW = key("warped_forest/water/water_plants_shallow_full");
 
     public static final ResourceKey<ConfiguredFeature<?,?>> HUGE_GLOW_SHROOM = key("giant_mushrooms/huge_glow_shroom");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> CRIMSON_FUNGUS_TREE_FROM_FUNGUS = key("giant_mushrooms/crimson_fungus_tree_from_fungus");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> CRIMSON_FUNGUS_TREE_WORLDGEN = key("giant_mushrooms/crimson_fungus_tree_worldgen");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> WARPED_FUNGUS_TREE_FROM_FUNGUS = key("giant_mushrooms/warped_fungus_tree_from_fungus");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> WARPED_FUNGUS_TREE_WORLDGEN = key("giant_mushrooms/warped_fungus_tree_worldgen");
+
+    public static final ResourceKey<ConfiguredFeature<?, ?>> OAK_TREE = key("trees/oak");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> BIRCH_TREE = key("trees/birch");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> SPRUCE_TREE = key("trees/spruce");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> ACACIA_TREE = key("trees/acacia");
+
+    public static final ResourceKey<ConfiguredFeature<?, ?>> OAK_LARGE_TREE_FROM_SAPLING = key("rainforest/tree/oak_large_tree_from_sapling");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> DARK_OAK_LARGE_TREE_FROM_SAPLING = key("rainforest/tree/dark_oak_large_tree_from_sapling");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> MANGROVE_LARGE_TREE_FROM_SAPLING = key("rainforest/tree/mangrove_large_tree_from_sapling");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> CHERRY_LARGE_TREE_FROM_SAPLING = key("rainforest/tree/cherry_large_tree_from_sapling");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> AZALEA_LARGE_TREE_FROM_SAPLING = key("rainforest/tree/azalea_large_tree_from_sapling");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> JUNGLE_LARGE_TREE_FROM_SAPLING = key("rainforest/tree/jungle_large_tree_from_sapling");
 }

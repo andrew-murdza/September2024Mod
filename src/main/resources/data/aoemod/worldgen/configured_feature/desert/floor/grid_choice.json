@@ -1,48 +1,26 @@
 {
-  "type": "aoemod:grid_choice",
+  "type": "aoemod:regional_grid_choice",
   "config": {
     "features": [
-      { "feature": "aoemod:cactus" },
-      { "feature": "aoemod:nothing" },
-      { "feature": "aoemod:nothing" },
-      { "feature": "aoemod:cactus" },
-      { "feature": "aoemod:nothing" },
-      { "feature": "aoemod:nothing" },
-
-      { "feature": "aoemod:nothing" },
-      { "feature": "aoemod:cactus" },
-      { "feature": "aoemod:nothing" },
-      { "feature": "aoemod:nothing" },
-      { "feature": "aoemod:cactus" },
-      { "feature": "aoemod:mushrooms/red_mushroom_patch" },
-
-      { "feature": "aoemod:nothing" },
-      { "feature": "aoemod:nothing" },
-      { "feature": "aoemod:cactus" },
-      { "feature": "aoemod:nothing" },
-      { "feature": "aoemod:nothing" },
-      { "feature": "aoemod:cactus" },
-
-      { "feature": "aoemod:cactus" },
-      { "feature": "aoemod:nothing" },
-      { "feature": "aoemod:nothing" },
-      { "feature": "aoemod:cactus" },
-      { "feature": "aoemod:nothing" },
-      { "feature": "aoemod:nothing" },
-
-      { "feature": "aoemod:nothing" },
-      { "feature": "aoemod:cactus" },
-      { "feature": "aoemod:mushrooms/brown_mushroom_patch" },
-      { "feature": "aoemod:nothing" },
-      { "feature": "aoemod:cactus" },
-      { "feature": "aoemod:nothing" },
-
-      { "feature": "aoemod:nothing" },
-      { "feature": "aoemod:nothing" },
-      { "feature": "aoemod:cactus" },
-      { "feature": "aoemod:nothing" },
-      { "feature": "aoemod:nothing" },
-      { "feature": "aoemod:cactus" }
+      { "feature": "aoemod:sugar_cane_patch", "count": 2 },
+      { "feature": "aoemod:cactus", "count": 48 },
+      { "feature": "aoemod:nothing", "count": 142 }
+    ],
+    "pinned_features": [
+      {
+        "feature": "aoemod:sugar_cane_patch",
+        "count": 2,
+        "region_x": [5, 29]
+      }
+    ],
+    "minimum_sections": [
+      {
+        "section_width": 3,
+        "section_depth": 4,
+        "features": [
+          { "feature": "aoemod:cactus", "count": 3 }
+        ]
+      }
     ],
     "default_feature": "aoemod:nothing",
     "placement": [
@@ -59,6 +37,11 @@
         }
       }
     ],
-    "offset_type": "in_square"
+    "offset_type": "in_square",
+    "region_width": 12,
+    "region_depth": 16,
+    "section_width": 12,
+    "section_depth": 16,
+    "salt": "desert_floor"
   }
 }

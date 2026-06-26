@@ -12,7 +12,7 @@ public class HugeMushroomsNotTooShort {
             at = @At(value = "INVOKE",
                     target ="Lnet/minecraft/util/RandomSource;nextInt(I)I",ordinal = 0))
     private int getHeight(RandomSource random, int n){
-        return Math.max(random.nextInt(3), 1);
+        return 2;
     }
     @Redirect(method = "getTreeHeight",at= @At(value = "INVOKE", target = "Lnet/minecraft/util/RandomSource;nextInt(I)I",ordinal = 1))
     private int hi(RandomSource instance, int i){

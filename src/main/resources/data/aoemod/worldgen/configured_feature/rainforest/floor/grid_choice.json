@@ -1,43 +1,60 @@
 {
-  "type": "aoemod:grid_choice",
+  "type": "aoemod:regional_grid_choice",
   "config": {
     "features": [
-      { "feature": "aoemod:flowers/rainforest/sunflower_patch" },
-      { "feature": "aoemod:flowers/rainforest/allium_patch" },
-      { "feature": "aoemod:flowers/rainforest/azalea_patch" },
-      { "feature": "aoemod:flowers/rainforest/azure_bluet_patch" },
-      { "feature": "aoemod:mushrooms/brown_mushroom_patch" },
-      { "feature": "aoemod:flowers/rainforest/blue_orchid_patch" },
-
-      { "feature": "aoemod:cactus_patch" },
-      { "feature": "aoemod:flowers/rainforest/cornflower_patch" },
-      { "feature": "aoemod:flowers/rainforest/lilac_patch" },
-      { "feature": "aoemod:flowers/rainforest/flowering_azalea_patch" },
-
-      { "feature": "aoemod:mushrooms/red_mushroom_patch" },
-      { "feature": "aoemod:flowers/rainforest/dandelion_patch" },
-      { "feature": "aoemod:flowers/rainforest/big_dripleaf_patch" },
-      { "feature": "aoemod:flowers/rainforest/peony_patch" },
-      { "feature": "aoemod:flowers/rainforest/lily_of_the_valley_patch" },
-
-      { "feature": "aoemod:mushrooms/brown_mushroom_patch" },
-      { "feature": "aoemod:flowers/rainforest/orange_tulip_patch" },
-      { "feature": "aoemod:flowers/rainforest/pitcher_plant_patch" },
-      { "feature": "aoemod:flowers/rainforest/oxeye_daisy_patch" },
-      { "feature": "aoemod:flowers/rainforest/small_dripleaf_patch" },
-
-      { "feature": "aoemod:flowers/rainforest/pink_petals_patch" },
-      { "feature": "aoemod:crops/rainforest/sweet_berry_bush_patch" },
-      { "feature": "aoemod:flowers/rainforest/pink_tulip_patch" },
-      { "feature": "aoemod:mushrooms/red_mushroom_patch" },
-      { "feature": "aoemod:flowers/rainforest/poppy_patch" },
-      { "feature": "aoemod:flowers/rainforest/rose_bush_patch" },
-
-      { "feature": "aoemod:flowers/rainforest/red_tulip_patch" },
-      { "feature": "aoemod:flowers/rainforest/torchflower_patch" },
-      { "feature": "aoemod:flowers/rainforest/white_tulip_patch" }
+      { "feature": "aoemod:sugar_cane_patch", "count": 2 },
+      { "feature": "aoemod:crops/rainforest/sweet_berry_bush_patch", "count": 4 },
+      { "feature": "aoemod:cactus_patch", "count": 2 },
+      { "feature": "aoemod:mushrooms/rainforest/red_mushroom_patch", "count": 4 },
+      { "feature": "aoemod:mushrooms/rainforest/brown_mushroom_patch", "count": 4 },
+      { "feature": "aoemod:flowers/rainforest/big_dripleaf_patch", "count": 2 },
+      { "feature": "aoemod:flowers/rainforest/small_dripleaf_patch", "count": 2 },
+      { "feature": "aoemod:flowers/rainforest/flowering_azalea_patch", "count": 2 },
+      { "feature": "aoemod:flowers/rainforest/azalea_patch", "count": 4 },
+      { "feature": "aoemod:nothing", "count": 2 }
     ],
+    "pinned_features": [
+      {
+        "feature": "aoemod:sugar_cane_patch",
+        "count": 2,
+        "region_x": [5, 29]
+      }
+    ],
+    "groups": [
+      {
+        "features": [
+          "aoemod:flowers/rainforest/azure_bluet_patch",
+          "aoemod:flowers/rainforest/cornflower_patch",
+          "aoemod:flowers/rainforest/dandelion_patch",
+          "aoemod:flowers/rainforest/lily_of_the_valley_patch",
+          "aoemod:flowers/rainforest/orange_tulip_patch",
+          "aoemod:flowers/rainforest/oxeye_daisy_patch",
+          "aoemod:flowers/rainforest/pink_tulip_patch",
+          "aoemod:flowers/rainforest/poppy_patch",
+          "aoemod:flowers/rainforest/red_tulip_patch",
+          "aoemod:flowers/rainforest/sunflower_patch",
+          "aoemod:flowers/rainforest/allium_patch",
+          "aoemod:flowers/rainforest/blue_orchid_patch",
+          "aoemod:flowers/rainforest/white_tulip_patch",
+          "aoemod:flowers/rainforest/pink_petals_patch",
+          "aoemod:flowers/rainforest/torchflower_patch",
+          "aoemod:flowers/rainforest/lilac_patch",
+          "aoemod:flowers/rainforest/peony_patch",
+          "aoemod:flowers/rainforest/pitcher_plant_patch",
+          "aoemod:flowers/rainforest/rose_bush_patch"
+        ],
+        "count": 8,
+        "extra_count": 1,
+        "extra_feature_count": 12
+      }
+    ],
+    "default_feature": "aoemod:nothing",
     "offset_type": "center",
-    "placement": []
+    "placement": [],
+    "region_width": 30,
+    "region_depth": 64,
+    "section_width": 12,
+    "section_depth": 16,
+    "salt": "rainforest_floor"
   }
 }

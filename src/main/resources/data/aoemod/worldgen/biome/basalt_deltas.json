@@ -68,16 +68,10 @@
         "weight": 100
       },
       {
-        "type": "minecraft:wither_skeleton",
-        "maxCount": 4,
-        "minCount": 4,
-        "weight": 100
-      },
-      {
         "type": "minecraft:blaze",
         "maxCount": 4,
         "minCount": 4,
-        "weight": 20
+        "weight": 100
       }
     ],
     "underground_water_creature": [],

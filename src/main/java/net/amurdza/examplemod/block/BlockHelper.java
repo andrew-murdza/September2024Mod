@@ -66,10 +66,12 @@ public class BlockHelper {
                 }
             }
 
-            if (i <= 0 && random.nextInt(4) == 0) {
-                BlockState floorState = level.getBlockState(pos.below());
-                if(floorState.is(BlockTags.MUSHROOM_GROW_BLOCK)){
-                    growMushroom.accept(level, pos, state, random);
+            if (i <= 0) {
+                if(random.nextInt(4) == 0){
+                    BlockState floorState = level.getBlockState(pos.below());
+                    if(floorState.is(BlockTags.MUSHROOM_GROW_BLOCK)){
+                        growMushroom.accept(level, pos, state, random);
+                    }
                 }
                 return;
             }

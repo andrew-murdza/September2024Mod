@@ -23,6 +23,13 @@ import org.jetbrains.annotations.NotNull;
 
 public abstract class AbstractSpiralCavePiece extends StructurePiece {
 
+    private static final Direction[] HORIZONTAL_DIRECTIONS = new Direction[] {
+            Direction.NORTH,
+            Direction.SOUTH,
+            Direction.WEST,
+            Direction.EAST
+    };
+
     protected final BlockPos origin;
     protected final long seed;
     protected final int endY;
@@ -41,6 +48,12 @@ public abstract class AbstractSpiralCavePiece extends StructurePiece {
     protected final double pillarCenterZ;
 
     protected final HolderSet<PlacedFeature> placedFeatures;
+
+    protected double activeCarveCenterX;
+    protected double activeCarveCenterY;
+    protected double activeCarveCenterZ;
+    protected double activeCarveHorizontalRadius;
+    protected double activeCarveVerticalRadius;
 
     protected AbstractSpiralCavePiece(
             StructurePieceType type,
@@ -69,7 +82,7 @@ public abstract class AbstractSpiralCavePiece extends StructurePiece {
 
         this.origin = origin;
         this.endY = endY;
-        this.endX= endX;
+        this.endX = endX;
         this.seed = seed;
         this.horizontalRadius = horizontalRadius;
         this.verticalRadius = verticalRadius;
@@ -131,7 +144,7 @@ public abstract class AbstractSpiralCavePiece extends StructurePiece {
         tag.putInt("OriginZ", this.origin.getZ());
 
         tag.putInt("EndY", this.endY);
-        tag.putInt("EndX", this.endX); // <-- missing
+        tag.putInt("EndX", this.endX);
 
         tag.putLong("Seed", this.seed);
 
@@ -151,22 +164,27 @@ public abstract class AbstractSpiralCavePiece extends StructurePiece {
             CompoundTag tag
     );
 
-    protected abstract void decorateCaveSurface(WorldGenLevel level, BlockPos carvedPos);
+    /*
+     * These methods now receive the actual block position to decorate.
+     *
+     * surfacePos is already carvedPos.below().
+     * wallPos is already carvedPos.relative(wallDirection).
+     * ceilingPos is already carvedPos.above().
+     *
+     * The shared solid/natural/replaceable check has already passed before
+     * these methods are called.
+     */
+    protected abstract void decorateCaveFloor(WorldGenLevel level, BlockPos surfacePos);
+
+    protected abstract void decorateRiverFloor(WorldGenLevel level, BlockPos surfacePos);
+
+    protected abstract void decorateCaveWall(WorldGenLevel level, BlockPos wallPos, Direction wallDirection);
+
+    protected abstract void decorateRiverWall(WorldGenLevel level, BlockPos wallPos, Direction wallDirection);
+
+    protected abstract void decorateCaveCeiling(WorldGenLevel level, BlockPos ceilingPos);
 
     protected abstract BlockState getRiverFluidState(double landFloorY);
-
-    protected abstract void decorateRiverColumnSurfaces(
-            WorldGenLevel level,
-            BoundingBox box,
-            int x,
-            int z,
-            int minY,
-            int maxY,
-            int lowestPlacedFluidY,
-            double fluidCenterX,
-            double fluidCenterY,
-            double fluidCenterZ
-    );
 
     protected float getTunnelHorizontalRadius() {
         return this.horizontalRadius + this.liquidRadius;
@@ -176,6 +194,18 @@ public abstract class AbstractSpiralCavePiece extends StructurePiece {
         return relativeX * relativeX
                 + relativeY * relativeY * relativeY * relativeY
                 + relativeZ * relativeZ >= 1.0D;
+    }
+
+    protected boolean activeEllipsoidWouldCarve(BlockPos pos) {
+        if (this.activeCarveHorizontalRadius <= 0.0D || this.activeCarveVerticalRadius <= 0.0D) {
+            return false;
+        }
+
+        double relativeX = (pos.getX() + 0.5D - this.activeCarveCenterX) / this.activeCarveHorizontalRadius;
+        double relativeY = (pos.getY() + 0.5D - this.activeCarveCenterY) / this.activeCarveVerticalRadius;
+        double relativeZ = (pos.getZ() + 0.5D - this.activeCarveCenterZ) / this.activeCarveHorizontalRadius;
+
+        return !shouldSkip(relativeX, relativeY, relativeZ);
     }
 
     protected static double turnPerStepForPathRadius(double pathRadius) {
@@ -193,15 +223,69 @@ public abstract class AbstractSpiralCavePiece extends StructurePiece {
         }
 
         level.setBlock(pos, Blocks.AIR.defaultBlockState(), Block.UPDATE_CLIENTS);
-        decorateCaveSurface(level, pos);
+        decorateCaveBoundaries(level, pos);
+    }
+
+    protected void setBlock(WorldGenLevel level, BlockPos pos, Block block){
+        if(canReplace(level,pos)){
+            level.setBlock(pos,block.defaultBlockState(),Block.UPDATE_CLIENTS);
+        }
+    }
+
+    protected void decorateCaveBoundaries(WorldGenLevel level, BlockPos carvedPos) {
+        BlockPos surfacePos = carvedPos.below();
+
+        if (canReplace(level, surfacePos)) {
+            decorateCaveFloor(level, surfacePos);
+        }
+
+        for (Direction direction : HORIZONTAL_DIRECTIONS) {
+            BlockPos wallPos = carvedPos.relative(direction);
+
+            if (canReplace(level, wallPos)) {
+                decorateCaveWall(level, wallPos, direction);
+            }
+        }
+
+        BlockPos ceilingPos = carvedPos.above();
+
+        if (canReplace(level, ceilingPos)) {
+            decorateCaveCeiling(level, ceilingPos);
+        }
+    }
+
+    protected void decorateRiverColumnBoundaries(WorldGenLevel level, BlockPos carvedPos) {
+        BlockPos surfacePos = carvedPos.below();
+
+        if (canReplace(level, surfacePos)) {
+            decorateRiverFloor(level, surfacePos);
+        }
+
+        for (Direction direction : HORIZONTAL_DIRECTIONS) {
+            BlockPos wallPos = carvedPos.relative(direction);
+
+            if (canReplace(level, wallPos)) {
+                decorateRiverWall(level, wallPos, direction);
+            }
+        }
+
+        /*
+         * No river-column ceiling decoration.
+         *
+         * River columns are assumed to never be directly underneath a ceiling.
+         */
     }
 
     protected boolean canReplace(BlockState state) {
-        return !state.is(Blocks.BEDROCK) && state.getFluidState().isEmpty();
+        return !state.is(Blocks.BEDROCK) && state.getFluidState().isEmpty() && state.isSolid();
+    }
+
+    protected boolean canReplace(WorldGenLevel level, BlockPos pos) {
+        return canReplace(level.getBlockState(pos));
     }
 
     protected boolean canReplaceWithFluid(BlockState state) {
-        return canReplace(state) || state.is(Blocks.LAVA) || state.is(Blocks.WATER);
+        return !state.is(Blocks.BEDROCK);
     }
 
     protected void clearBlockAboveFluid(
@@ -235,15 +319,6 @@ public abstract class AbstractSpiralCavePiece extends StructurePiece {
         }
 
         level.setBlock(above, Blocks.AIR.defaultBlockState(), Block.UPDATE_CLIENTS);
-    }
-
-    protected boolean isNaturalReplaceableSurface(WorldGenLevel level, BlockPos pos, BlockState state) {
-        return isNaturalReplaceableSolid(state)
-                && state.isFaceSturdy(level, pos, Direction.UP);
-    }
-
-    protected boolean isNaturalReplaceableSolid(BlockState state) {
-        return !state.is(Blocks.BEDROCK) && state.getFluidState().isEmpty();
     }
 
     @Override
@@ -314,7 +389,6 @@ public abstract class AbstractSpiralCavePiece extends StructurePiece {
                 firstZ
         );
 
-
         placePlacedFeaturesForCurrentStructureChunk(level, generator, chunkPos);
     }
 
@@ -364,7 +438,7 @@ public abstract class AbstractSpiralCavePiece extends StructurePiece {
          * the real pillar center.
          */
         double pillarCenterX = origin.getX();
-        double pillarCenterZ = origin.getZ();// + pathRadius;
+        double pillarCenterZ = origin.getZ();
 
         /*
          * Centerline radius plus the full carved tunnel radius. This covers the
@@ -512,6 +586,12 @@ public abstract class AbstractSpiralCavePiece extends StructurePiece {
         double localHorizontalRadius = getTunnelHorizontalRadius();
         double localVerticalRadius = this.verticalRadius;
 
+        this.activeCarveCenterX = centerX;
+        this.activeCarveCenterY = centerY;
+        this.activeCarveCenterZ = centerZ;
+        this.activeCarveHorizontalRadius = localHorizontalRadius;
+        this.activeCarveVerticalRadius = localVerticalRadius;
+
         int minX = Mth.floor(centerX - localHorizontalRadius) - 1;
         int maxX = Mth.floor(centerX + localHorizontalRadius) + 1;
         int minY = Mth.floor(centerY - localVerticalRadius) - 1;
@@ -642,6 +722,37 @@ public abstract class AbstractSpiralCavePiece extends StructurePiece {
                     );
                 }
             }
+        }
+    }
+
+    protected void decorateRiverColumnSurfaces(
+            WorldGenLevel level,
+            BoundingBox box,
+            int x,
+            int z,
+            int minY,
+            int maxY,
+            int lowestPlacedFluidY,
+            double fluidCenterX,
+            double fluidCenterY,
+            double fluidCenterZ
+    ) {
+        BlockPos.MutableBlockPos pos = new BlockPos.MutableBlockPos();
+
+        for (int y = lowestPlacedFluidY; y <= maxY; y++) {
+            pos.set(x, y, z);
+
+            if (!box.isInside(pos)) {
+                continue;
+            }
+
+            BlockState state = level.getBlockState(pos);
+
+            if (state.getFluidState().isEmpty()) {
+                break;
+            }
+
+            decorateRiverColumnBoundaries(level, pos);
         }
     }
 

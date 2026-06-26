@@ -12,8 +12,9 @@ import net.minecraft.world.level.block.Block;
 
 public class ModTags {
     public static class Blocks {
-        public static final TagKey<Block> sugarCaneCactusLike = tag("sugarcane_cactus_like");
         public static final TagKey<Block> duplicatedByBonemeal = tag("bone_meal_duplicates");
+        public static final TagKey<Block> deepslateOres = tag("deepslate_ores");
+        public static final TagKey<Block> stoneOres = tag("stone_ores");
         public static final TagKey<Block> basaltStones = tag("basalt_stones");
         public static final TagKey<Block> soulSediments = tag("soul_sediments");
 
@@ -33,6 +34,7 @@ public class ModTags {
     }
     public static class Biomes{
         public static final TagKey<Biome> tropicalBiomes=tag("tropical_biomes");
+        public static final TagKey<Biome> rainforestBiomes=tropicalBiomes;
         public static final TagKey<Biome> mountainBiomes=tag("mountain_biomes");
         public static final TagKey<Biome> netherBiomes=tag("nether_biomes");
         public static final TagKey<Biome> desertBiomes=tag("desert_biomes");

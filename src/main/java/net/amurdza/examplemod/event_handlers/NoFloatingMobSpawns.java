@@ -55,13 +55,16 @@ public class NoFloatingMobSpawns {
         addSpawn(event, EntityType.TURTLE, true,
                 NoFloatingMobSpawns::checkSurfaceWaterAnimalSpawnRules);
 
-        addSpawn(event, EntityType.AXOLOTL, true,
-                NoFloatingMobSpawns::checkSurfaceWaterAnimalSpawnRules);
-
         addSpawn(event, EntityType.GLOW_SQUID, true,
                 NoFloatingMobSpawns::checkWaterAnimalSpawnRules);
 
         addSpawn(event, EntityType.SLIME, false,
+                NoFloatingMobSpawns::checkMonsterSpawnRules);
+
+        addSpawn(event, EntityType.HUSK, false,
+                NoFloatingMobSpawns::checkMonsterSpawnRules);
+
+        addSpawn(event, EntityType.STRAY, false,
                 NoFloatingMobSpawns::checkMonsterSpawnRules);
 
         addSpawn(event, EntityType.PILLAGER, false,

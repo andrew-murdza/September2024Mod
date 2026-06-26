@@ -1,9 +1,9 @@
 {
   "type": "minecraft:smoking",
   "ingredient": {
-    "item": "aoemod:raw_arrow_squid"
+    "item": "dropthemeat:raw_dolphin"
   },
-  "result": "aoemod:cooked_arrow_squid",
+  "result": "dropthemeat:cooked_dolphin",
   "experience": 0.35,
   "cookingtime": 100
 }

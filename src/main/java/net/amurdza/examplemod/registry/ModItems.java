@@ -2,7 +2,9 @@ package net.amurdza.examplemod.registry;
 
 import com.github.alexthe666.alexsmobs.item.ItemModFishBucket;
 import net.amurdza.examplemod.AOEMod;
+import net.amurdza.examplemod.item.CopperArmorMaterial;
 import net.amurdza.examplemod.item.ModToolTiers;
+import net.amurdza.examplemod.item.SpearItem;
 import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.food.Foods;
 import net.minecraft.world.item.*;
@@ -40,11 +42,6 @@ public class ModItems {
             () -> new Item(new Item.Properties().food(Foods.COOKED_COD))
     );
 
-    public static final RegistryObject<Item> RAW_SQUIRREL = ITEMS.register(
-            "raw_squirrel",
-            () -> new Item(new Item.Properties().food(Foods.RABBIT))
-    );
-
     public static final RegistryObject<Item> RAW_VENISON = ITEMS.register(
             "raw_venison",
             () -> new Item(new Item.Properties().food(Foods.MUTTON))
@@ -53,76 +50,6 @@ public class ModItems {
     public static final RegistryObject<Item> COOKED_VENISON = ITEMS.register(
             "cooked_venison",
             () -> new Item(new Item.Properties().food(Foods.COOKED_MUTTON))
-    );
-
-
-
-    public static final RegistryObject<Item> COOKED_SQUIRREL = ITEMS.register(
-            "cooked_squirrel",
-            () -> new Item(new Item.Properties().food(Foods.COOKED_RABBIT))
-    );
-
-    public static final RegistryObject<Item> RAW_FOX = ITEMS.register(
-            "raw_fox",
-            () -> new Item(new Item.Properties().food(Foods.CHICKEN))
-    );
-
-
-    public static final RegistryObject<Item> COOKED_FOX = ITEMS.register(
-            "cooked_fox",
-            () -> new Item(new Item.Properties().food(Foods.COOKED_CHICKEN))
-    );
-
-    public static final RegistryObject<Item> RAW_MOOSE = ITEMS.register(
-            "raw_moose",
-            () -> new Item(new Item.Properties().food(Foods.BEEF))
-    );
-
-
-    public static final RegistryObject<Item> COOKED_MOOSE = ITEMS.register(
-            "cooked_moose",
-            () -> new Item(new Item.Properties().food(Foods.COOKED_BEEF))
-    );
-
-    public static final RegistryObject<Item> RAW_WARPED_TOAD = ITEMS.register(
-            "raw_warped_toad",
-            () -> new Item(new Item.Properties().food(Foods.CHICKEN))
-    );
-
-
-    public static final RegistryObject<Item> COOKED_WARPED_TOAD = ITEMS.register(
-            "cooked_warped_toad",
-            () -> new Item(new Item.Properties().food(Foods.COOKED_CHICKEN))
-    );
-
-    public static final RegistryObject<Item> RAW_SQUID = ITEMS.register(
-            "raw_squid",
-            () -> new Item(new Item.Properties().food(Foods.CHICKEN))
-    );
-
-    public static final RegistryObject<Item> RAW_GLOW_SQUID = ITEMS.register(
-            "raw_glow_squid",
-            () -> new Item(new Item.Properties().food(Foods.CHICKEN))
-    );
-
-    public static final RegistryObject<Item> COOKED_SQUID = ITEMS.register(
-            "cooked_squid",
-            () -> new Item(new Item.Properties().food(Foods.COOKED_CHICKEN))
-    );
-
-    public static final RegistryObject<Item> RAW_ARROW_SQUID = ITEMS.register(
-            "raw_arrow_squid",
-            () -> new Item(new Item.Properties().food(Foods.CHICKEN))
-    );
-
-    public static final RegistryObject<Item> COOKED_ARROW_SQUID = ITEMS.register(
-            "cooked_arrow_squid",
-            () -> new Item(new Item.Properties().food(Foods.COOKED_CHICKEN))
-    );
-
-    public static final RegistryObject<Item> NETHER_FUNGUS_STEW = ITEMS.register(
-            "nether_fungus_stew",
-            () -> new BowlFoodItem(new Item.Properties().food(Foods.MUSHROOM_STEW))
     );
 
     public static final RegistryObject<Item> CUBOZOA = ITEMS.register(
@@ -302,4 +229,40 @@ public class ModItems {
             "bone_shears",
             () -> new ShearsItem(new Item.Properties().durability(400))
     );
+
+    public static final RegistryObject<Item> COPPER_SWORD = ITEMS.register(
+            "copper_sword", () -> new SwordItem(ModToolTiers.COPPER, 3, -2.4F, new Item.Properties()));
+    public static final RegistryObject<Item> COPPER_SHOVEL = ITEMS.register(
+            "copper_shovel", () -> new ShovelItem(ModToolTiers.COPPER, 1.5F, -3.0F, new Item.Properties()));
+    public static final RegistryObject<Item> COPPER_PICKAXE = ITEMS.register(
+            "copper_pickaxe", () -> new PickaxeItem(ModToolTiers.COPPER, 1, -2.8F, new Item.Properties()));
+    public static final RegistryObject<Item> COPPER_AXE = ITEMS.register(
+            "copper_axe", () -> new AxeItem(ModToolTiers.COPPER, 7.0F, -3.2F, new Item.Properties()));
+    public static final RegistryObject<Item> COPPER_HOE = ITEMS.register(
+            "copper_hoe", () -> new HoeItem(ModToolTiers.COPPER, -1, -2.0F, new Item.Properties()));
+
+    public static final RegistryObject<Item> COPPER_HELMET = ITEMS.register(
+            "copper_helmet", () -> new ArmorItem(CopperArmorMaterial.INSTANCE, ArmorItem.Type.HELMET, new Item.Properties()));
+    public static final RegistryObject<Item> COPPER_CHESTPLATE = ITEMS.register(
+            "copper_chestplate", () -> new ArmorItem(CopperArmorMaterial.INSTANCE, ArmorItem.Type.CHESTPLATE, new Item.Properties()));
+    public static final RegistryObject<Item> COPPER_LEGGINGS = ITEMS.register(
+            "copper_leggings", () -> new ArmorItem(CopperArmorMaterial.INSTANCE, ArmorItem.Type.LEGGINGS, new Item.Properties()));
+    public static final RegistryObject<Item> COPPER_BOOTS = ITEMS.register(
+            "copper_boots", () -> new ArmorItem(CopperArmorMaterial.INSTANCE, ArmorItem.Type.BOOTS, new Item.Properties()));
+
+    public static final RegistryObject<Item> WOODEN_SPEAR = ITEMS.register("wooden_spear",
+            () -> new SpearItem(Tiers.WOOD, 0.65F, 0.70F, 0.75F, 14.0F, 10.0F, 4.6F, new Item.Properties()));
+    public static final RegistryObject<Item> STONE_SPEAR = ITEMS.register("stone_spear",
+            () -> new SpearItem(Tiers.STONE, 0.75F, 0.82F, 0.70F, 13.0F, 9.0F, 4.6F, new Item.Properties()));
+    public static final RegistryObject<Item> COPPER_SPEAR = ITEMS.register("copper_spear",
+            () -> new SpearItem(ModToolTiers.COPPER, 0.85F, 0.82F, 0.65F, 12.0F, 8.25F, 4.6F, new Item.Properties()));
+    public static final RegistryObject<Item> IRON_SPEAR = ITEMS.register("iron_spear",
+            () -> new SpearItem(Tiers.IRON, 0.95F, 0.95F, 0.60F, 11.0F, 6.75F, 4.6F, new Item.Properties()));
+    public static final RegistryObject<Item> GOLDEN_SPEAR = ITEMS.register("golden_spear",
+            () -> new SpearItem(Tiers.GOLD, 0.95F, 0.70F, 0.70F, 13.0F, 8.50F, 4.6F, new Item.Properties()));
+    public static final RegistryObject<Item> DIAMOND_SPEAR = ITEMS.register("diamond_spear",
+            () -> new SpearItem(Tiers.DIAMOND, 1.05F, 1.075F, 0.50F, 10.0F, 6.50F, 4.6F, new Item.Properties()));
+    public static final RegistryObject<Item> NETHERITE_SPEAR = ITEMS.register("netherite_spear",
+            () -> new SpearItem(Tiers.NETHERITE, 1.15F, 1.20F, 0.40F, 9.0F, 5.50F, 4.6F,
+                    new Item.Properties().fireResistant()));
 }

@@ -237,6 +237,8 @@ public final class BlockConfig {
                 g(ModTags.Biomes.tropicalBiomes, 0.6F),
                 g(ModTags.Biomes.savannaBiomes, 0.2F),
                 g(ModTags.Biomes.mushroomCaves, 0.6F),
+                g(ModTags.Biomes.mountainBiomes, 0.2F),
+                g(ModTags.Biomes.desertBiomes, 0.1F),
                 g(ModTags.Biomes.plainsBiomes, 0.2F)
         );
 
@@ -244,6 +246,8 @@ public final class BlockConfig {
                 g(ModTags.Biomes.tropicalBiomes, 0.6F),
                 g(ModTags.Biomes.savannaBiomes, 0.2F),
                 g(ModTags.Biomes.mushroomCaves, 0.6F),
+                g(ModTags.Biomes.mountainBiomes, 0.2F),
+                g(ModTags.Biomes.desertBiomes, 0.1F),
                 g(ModTags.Biomes.plainsBiomes, 0.2F)
         );
 
@@ -373,6 +377,19 @@ public final class BlockConfig {
 
         addGrowth(Blocks.JUNGLE_SAPLING,
                 g(ModTags.Biomes.tropicalBiomes, 0.56F)
+        );
+
+        addGrowth(ModBlocks.PALE_OAK_SAPLING.get(),
+                g(ModTags.Biomes.soulSandValleyBiomes, 0.10F),
+                g(ModTags.Biomes.deepDarkBiomes, 0.02F),
+                g(ModTags.Biomes.warpedForestBiomes, 0.05F),
+                g(ModTags.Biomes.crimsonForestBiomes, 0.05F),
+                g(ModTags.Biomes.basaltDeltasBiomes, 0.02F)
+        );
+
+        addGrowth(GlimmeringWealdModule.glow_shroom,
+                g(ModTags.Biomes.mushroomCaves, 0.6F),
+                g(ModTags.Biomes.mountainBiomes, 0.2F)
         );
     }
 
@@ -677,6 +694,12 @@ public final class BlockConfig {
                 drop(ModTags.Biomes.tropicalBiomes, Items.COCOA_BEANS, matureAge2Amount(7))
         );
 
+        addLoot(Blocks.SWEET_BERRY_BUSH,
+                sweetBerryAmount(ModTags.Biomes.tropicalBiomes),
+                sweetBerryAmount(ModTags.Biomes.mountainBiomes),
+                sweetBerryAmount(ModTags.Biomes.mushroomCaves)
+        );
+
         addLoot(Blocks.NETHER_WART,
                 drop(ModTags.Biomes.soulSandValleyBiomes, Items.NETHER_WART, matureAge3Amount(3))
         );
@@ -824,10 +847,6 @@ public final class BlockConfig {
     ) {
         addOre(block, ModTags.Biomes.desertBiomes, item, amount);
         addOre(block, ModTags.Biomes.deepDarkBiomes, item, amount);
-    }
-
-    private static BlockLootEntry plantSeed(TagKey<Biome> biomeTag) {
-        return drop(biomeTag, Items.WHEAT_SEEDS, 0.125F);
     }
 
     private static BlockLootEntry sweetBerryAmount(TagKey<Biome> biome) {

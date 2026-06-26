@@ -38,7 +38,7 @@ public class ChickensShedFeathers {
         }
         float multiplier = MobConfig.mobGrowthChance(chicken);
         int count = Helper.computeIncrements(chicken.getRandom(),multiplier);
-        this.aoemod$featherTime =- count;
+        this.aoemod$featherTime -= count;
 
         if (this.aoemod$featherTime <= 0) {
             chicken.spawnAtLocation(Items.FEATHER);
@@ -48,14 +48,14 @@ public class ChickensShedFeathers {
     }
 
     @Inject(method = "addAdditionalSaveData", at = @At("TAIL"))
-    private void aoemod$saveFeatherTime(CompoundTag tag, CallbackInfo ci) {
-        tag.putInt("AOEModFeatherDropTime", this.aoemod$featherTime);
+    private void aoemod$saveFeatherTime(CompoundTag pCompound, CallbackInfo ci) {
+        pCompound.putInt("AOEModFeatherDropTime", this.aoemod$featherTime);
     }
 
     @Inject(method = "readAdditionalSaveData", at = @At("TAIL"))
-    private void aoemod$loadFeatherTime(CompoundTag tag, CallbackInfo ci) {
-        if (tag.contains("AOEModFeatherDropTime")) {
-            this.aoemod$featherTime = tag.getInt("AOEModFeatherDropTime");
+    private void aoemod$loadFeatherTime(CompoundTag pCompound, CallbackInfo ci) {
+        if (pCompound.contains("AOEModFeatherDropTime")) {
+            this.aoemod$featherTime = pCompound.getInt("AOEModFeatherDropTime");
         }
     }
 }

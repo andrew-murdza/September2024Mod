@@ -13,7 +13,9 @@ public class MobCategoryChanges {
 
     @SubscribeEvent
     public static void commonSetup(FMLCommonSetupEvent event) {
-        event.enqueueWork(() -> setCategory(EntityType.HOGLIN, MobCategory.CREATURE));
+        event.enqueueWork(() -> {
+            setCategory(EntityType.HOGLIN, MobCategory.CREATURE);
+        });
     }
 
     private static void setCategory(EntityType<?> type, MobCategory category) {

@@ -1,50 +1,56 @@
 {
-  "type": "aoemod:grid_choice",
+  "type": "aoemod:regional_grid_choice",
   "config": {
     "features": [
-      { "feature": "aoemod:trees/acacia" },
-      { "feature": "aoemod:flowers/sunflower_patch" },
-      { "feature": "aoemod:nothing" },
-      { "feature": "aoemod:trees/acacia" },
-      { "feature": "aoemod:flowers/poppy_patch" },
-      { "feature": "aoemod:nothing" },
-
-      { "feature": "aoemod:nothing" },
-      { "feature": "aoemod:trees/acacia" },
-      { "feature": "aoemod:mushrooms/brown_mushroom_patch_small" },
-      { "feature": "aoemod:nothing" },
-      { "feature": "aoemod:trees/acacia" },
-      { "feature": "aoemod:flowers/dandelion_patch" },
-
-      { "feature": "aoemod:flowers/oxeye_daisy_patch" },
-      { "feature": "aoemod:nothing" },
-      { "feature": "aoemod:trees/acacia" },
-      { "feature": "aoemod:flowers/azure_bluet_patch" },
-      { "feature": "aoemod:nothing" },
-      { "feature": "aoemod:trees/acacia" },
-
-      { "feature": "aoemod:trees/acacia" },
-      { "feature": "aoemod:nothing" },
-      { "feature": "aoemod:flowers/cornflower_patch" },
-      { "feature": "aoemod:trees/acacia" },
-      { "feature": "aoemod:nothing" },
-      { "feature": "aoemod:flowers/red_tulip_patch" },
-
-      { "feature": "aoemod:nothing" },
-      { "feature": "aoemod:trees/acacia" },
-      { "feature": "aoemod:flowers/white_tulip_patch" },
-      { "feature": "aoemod:nothing" },
-      { "feature": "aoemod:trees/acacia" },
-      { "feature": "aoemod:mushrooms/red_mushroom_patch_small" },
-
-      { "feature": "aoemod:flowers/pink_tulip_patch" },
-      { "feature": "aoemod:nothing" },
-      { "feature": "aoemod:trees/acacia" },
-      { "feature": "aoemod:flowers/orange_tulip_patch" },
-      { "feature": "aoemod:nothing" },
-      { "feature": "aoemod:trees/acacia" }
+      { "feature": "aoemod:trees/acacia", "count": 48 },
+      { "feature": "aoemod:sugar_cane_patch", "count": 2 },
+      { "feature": "aoemod:mushrooms/red_mushroom_patch_small", "count": 2 },
+      { "feature": "aoemod:mushrooms/brown_mushroom_patch_small", "count": 2 },
+      { "feature": "aoemod:flowers/azure_bluet_patch", "count": 5 },
+      { "feature": "aoemod:flowers/cornflower_patch", "count": 5 },
+      { "feature": "aoemod:flowers/dandelion_patch", "count": 5 },
+      { "feature": "aoemod:flowers/lily_of_the_valley_patch", "count": 5 },
+      { "feature": "aoemod:flowers/orange_tulip_patch", "count": 5 },
+      { "feature": "aoemod:flowers/oxeye_daisy_patch", "count": 5 },
+      { "feature": "aoemod:flowers/pink_tulip_patch", "count": 5 },
+      { "feature": "aoemod:flowers/poppy_patch", "count": 5 },
+      { "feature": "aoemod:flowers/red_tulip_patch", "count": 5 },
+      { "feature": "aoemod:flowers/sunflower_patch", "count": 5 },
+      { "feature": "aoemod:nothing", "count": 88 }
+    ],
+    "pinned_features": [
+      {
+        "feature": "aoemod:sugar_cane_patch",
+        "count": 2,
+        "region_x": [5, 29]
+      }
+    ],
+    "minimum_sections": [
+      {
+        "section_width": 6,
+        "section_depth": 8,
+        "features": [
+          { "feature": "aoemod:trees/acacia", "count": 10 },
+          { "feature": "aoemod:flowers/azure_bluet_patch", "count": 1 },
+          { "feature": "aoemod:flowers/cornflower_patch", "count": 1 },
+          { "feature": "aoemod:flowers/dandelion_patch", "count": 1 },
+          { "feature": "aoemod:flowers/lily_of_the_valley_patch", "count": 1 },
+          { "feature": "aoemod:flowers/orange_tulip_patch", "count": 1 },
+          { "feature": "aoemod:flowers/oxeye_daisy_patch", "count": 1 },
+          { "feature": "aoemod:flowers/pink_tulip_patch", "count": 1 },
+          { "feature": "aoemod:flowers/poppy_patch", "count": 1 },
+          { "feature": "aoemod:flowers/red_tulip_patch", "count": 1 },
+          { "feature": "aoemod:flowers/sunflower_patch", "count": 1 }
+        ]
+      }
     ],
     "default_feature": "aoemod:nothing",
-    "placement": []
+    "placement": [],
+    "offset_type": "center",
+    "region_width": 30,
+    "region_depth": 64,
+    "section_width": 12,
+    "section_depth": 16,
+    "salt": "savanna_floor"
   }
 }

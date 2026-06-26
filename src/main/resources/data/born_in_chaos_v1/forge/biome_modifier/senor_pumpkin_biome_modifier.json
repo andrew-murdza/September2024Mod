@@ -1,8 +1,6 @@
 {
   "type": "forge:add_spawns",
-  "biomes": {
-    "type": "forge:any"
-  },
+  "biomes": [],
   "spawners": {
     "type": "born_in_chaos_v1:senor_pumpkin",
     "weight": 10,

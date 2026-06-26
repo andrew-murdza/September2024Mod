@@ -424,7 +424,8 @@
         "if_true": {
           "type": "minecraft:biome",
           "biome_is": [
-            "aoemod:badlands"
+            "aoemod:badlands",
+            "aoemod:deep_dark"
           ]
         },
         "then_run": {
@@ -588,6 +589,24 @@
         "if_true": {
           "type": "minecraft:biome",
           "biome_is": [
+            "aoemod:deep_dark"
+          ]
+        },
+        "then_run": {
+          "type": "minecraft:block",
+          "result_state": {
+            "Name": "minecraft:deepslate",
+            "Properties": {
+              "axis": "y"
+            }
+          }
+        }
+      },
+      {
+        "type": "minecraft:condition",
+        "if_true": {
+          "type": "aoemod:biome_above",
+          "biome_is": [
             "aoemod:warped_forest",
             "aoemod:crimson_forest"
           ]
@@ -602,7 +621,7 @@
       {
         "type": "minecraft:condition",
         "if_true": {
-          "type": "minecraft:biome",
+          "type": "aoemod:biome_above",
           "biome_is": [
             "aoemod:basalt_deltas"
           ]
@@ -640,7 +659,7 @@
       {
         "type": "minecraft:condition",
         "if_true": {
-          "type": "minecraft:biome",
+          "type": "aoemod:biome_above",
           "biome_is": [
             "aoemod:soul_sand_valley"
           ]

@@ -1,19 +1,27 @@
 package net.amurdza.examplemod.worldgen.structure;
 
 import net.amurdza.examplemod.registry.ModStructures;
+import net.amurdza.examplemod.util.ModTags;
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
 import net.minecraft.core.HolderSet;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.world.level.WorldGenLevel;
-import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.levelgen.placement.PlacedFeature;
-import net.minecraft.world.level.levelgen.structure.BoundingBox;
 import net.minecraft.world.level.levelgen.structure.pieces.StructurePieceSerializationContext;
 
 public class MushroomCavePiece extends AbstractSpiralCavePiece {
     private final int maxMushroomCaves;
+    private final int minMushroomCaves;
+
+    private boolean hasCeilingAbove(WorldGenLevel level, BlockPos pos) {
+        int maxY = 63;
+        BlockPos pos1 = new BlockPos(pos.getX(), maxY, pos.getZ());
+        BlockState state = level.getBlockState(pos1);
+        return !state.isAir();
+    }
 
     public MushroomCavePiece(
             BlockPos origin,
@@ -27,6 +35,7 @@ public class MushroomCavePiece extends AbstractSpiralCavePiece {
             float liquidDepth,
             float liquidRadius,
             int maxMushroomCaves,
+            int minMushroomCaves,
             HolderSet<PlacedFeature> placedFeatures
     ) {
         super(
@@ -45,6 +54,7 @@ public class MushroomCavePiece extends AbstractSpiralCavePiece {
         );
 
         this.maxMushroomCaves = maxMushroomCaves;
+        this.minMushroomCaves = minMushroomCaves;
     }
 
     @SuppressWarnings("unused")
@@ -52,6 +62,7 @@ public class MushroomCavePiece extends AbstractSpiralCavePiece {
         super(ModStructures.MUSHROOM_CAVE_PIECE.get(), tag);
 
         this.maxMushroomCaves = tag.getInt("MaxMushroomCaves");
+        this.minMushroomCaves = tag.getInt("MinMushroomCaves");
     }
 
     @Override
@@ -60,77 +71,82 @@ public class MushroomCavePiece extends AbstractSpiralCavePiece {
             CompoundTag tag
     ) {
         tag.putInt("MaxMushroomCaves", this.maxMushroomCaves);
+        tag.putInt("MinMushroomCaves", this.minMushroomCaves);
     }
 
     @Override
-    protected void decorateCaveSurface(WorldGenLevel level, BlockPos carvedPos) {
-        boolean isMushroomLayer = carvedPos.getY() <= this.maxMushroomCaves;
+    protected void decorateCaveFloor(WorldGenLevel level, BlockPos top) {
+        boolean isMushroomLayer =
+                top.above().getY() <= this.maxMushroomCaves &&
+                        top.above().getY() >= this.minMushroomCaves;
 
-        BlockPos top = carvedPos.below();
-        BlockState topState = level.getBlockState(top);
-
-        if (!isNaturalReplaceableSurface(level, top, topState)) {
-            return;
+        if (isMushroomLayer) {
+            setBlock(level, top, Blocks.MYCELIUM);
+            setBlock(level, top.below(), Blocks.DIRT);
+            setBlock(level, top.below(2), Blocks.CLAY);
         }
 
-        BlockState surfaceState = isMushroomLayer
-                ? Blocks.MYCELIUM.defaultBlockState()
-                : Blocks.GRASS_BLOCK.defaultBlockState();
+        else if (top.above().getY() > minMushroomCaves && !hasCeilingAbove(level, top)) {
+            setBlock(level, top, Blocks.GRASS_BLOCK);
+            setBlock(level, top.below(), Blocks.DIRT);
+        }
 
-        level.setBlock(top, surfaceState, Block.UPDATE_CLIENTS);
+        else if (top.above().getY() == minMushroomCaves - 1) {
+            setBlock(level, top, Blocks.SMOOTH_BASALT);
+            setBlock(level, top.below(), Blocks.CALCITE);
+            setBlock(level, top.below(2), Blocks.CALCITE);
+            setBlock(level, top.below(3), Blocks.CALCITE);
+            setBlock(level, top.below(4), Blocks.SMOOTH_BASALT);
+        }
 
-        BlockPos backing = top.below();
-        BlockState backingState = level.getBlockState(backing);
+        else if (top.above().getY() == minMushroomCaves - 2) {
+            setBlock(level, top, Blocks.CALCITE);
+            setBlock(level, top.below(), Blocks.CALCITE);
+            setBlock(level, top.below(2), Blocks.CALCITE);
+            setBlock(level, top.below(3), Blocks.SMOOTH_BASALT);
+            setBlock(level, top.below(4), Blocks.SMOOTH_BASALT);
+            setBlock(level, top.below(5), Blocks.SMOOTH_BASALT);
+        }
 
-        if (isNaturalReplaceableSolid(backingState)) {
-            level.setBlock(backing, Blocks.DIRT.defaultBlockState(), Block.UPDATE_CLIENTS);
+        else if (top.above().getY() == minMushroomCaves - 3) {
+            setBlock(level, top, bordersOneBlockHigher(top) ? Blocks.BUDDING_AMETHYST : Blocks.AMETHYST_BLOCK);
+            setBlock(level, top.below(), Blocks.CALCITE);
+            setBlock(level, top.below(2), Blocks.CALCITE);
+            setBlock(level, top.below(3), Blocks.SMOOTH_BASALT);
+            setBlock(level, top.below(4), Blocks.SMOOTH_BASALT);
+            setBlock(level, top.below(5), Blocks.SMOOTH_BASALT);
         }
     }
+
+    private boolean bordersOneBlockHigher(BlockPos top) {
+        for (int dx = -1; dx <= 1; dx++) {
+            for (int dz = -1; dz <= 1; dz++) {
+                if (!activeEllipsoidWouldCarve(top.offset(dx, 1, dz))) {
+                    return true;
+                }
+            }
+        }
+
+        return false;
+    }
+
+    @Override
+    protected void decorateRiverFloor(WorldGenLevel level, BlockPos surfacePos) {
+        setBlock(level, surfacePos, Blocks.MUD);
+        setBlock(level, surfacePos.below(), Blocks.MUD);
+    }
+
+    @Override
+    protected void decorateCaveWall(WorldGenLevel level, BlockPos wallPos, Direction wallDirection) {}
+
+    @Override
+    protected void decorateRiverWall(WorldGenLevel level, BlockPos wallPos, Direction wallDirection) {}
+
+    @Override
+    protected void decorateCaveCeiling(WorldGenLevel level, BlockPos ceilingPos) {}
 
     @Override
     protected BlockState getRiverFluidState(double landFloorY) {
         return Blocks.WATER.defaultBlockState();
-    }
-
-    @Override
-    protected void decorateRiverColumnSurfaces(
-            WorldGenLevel level,
-            BoundingBox box,
-            int x,
-            int z,
-            int minY,
-            int maxY,
-            int lowestPlacedFluidY,
-            double fluidCenterX,
-            double fluidCenterY,
-            double fluidCenterZ
-    ) {
-        BlockPos riverFloor = new BlockPos(x, lowestPlacedFluidY - 1, z);
-
-        placeMudRiverFloor(level, box, riverFloor);
-        placeMudRiverFloor(level, box, riverFloor.below());
-        placeMudRiverFloor(level, box, riverFloor.below(2));
-    }
-
-    private void placeMudRiverFloor(
-            WorldGenLevel level,
-            BoundingBox box,
-            BlockPos pos
-    ) {
-        if (!box.isInside(pos)) {
-            return;
-        }
-
-        BlockState state = level.getBlockState(pos);
-
-        if (!canReplaceMudRiverFloorBlock(state)) {
-            return;
-        }
-
-        level.setBlock(pos, Blocks.MUD.defaultBlockState(), Block.UPDATE_CLIENTS);
-    }
-
-    private boolean canReplaceMudRiverFloorBlock(BlockState state) {
-        return !state.is(Blocks.BEDROCK) && state.getFluidState().isEmpty();
     }
 }

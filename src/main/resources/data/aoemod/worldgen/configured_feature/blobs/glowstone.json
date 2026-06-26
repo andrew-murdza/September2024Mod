@@ -6,8 +6,17 @@
     "targets": [
       {
         "target": {
-          "predicate_type": "minecraft:tag_match",
-          "tag": "aoemod:nether_land"
+          "predicate_type": "minecraft:block_match",
+          "block": "minecraft:blackstone"
+        },
+        "state": {
+          "Name": "minecraft:glowstone"
+        }
+      },
+      {
+        "target": {
+          "predicate_type": "minecraft:block_match",
+          "block": "minecraft:basalt"
         },
         "state": {
           "Name": "minecraft:glowstone"

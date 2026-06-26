@@ -23,7 +23,8 @@
     [],
     [],
     [
-      "aoemod:blobs/stone_variants",
+      "aoemod:blobs/clay",
+      "aoemod:blobs/gravel",
       "aoemod:plains/ores/iron_upper",
       "aoemod:plains/ores/copper_upper",
       "aoemod:plains/ores/coal_upper",
@@ -118,34 +119,10 @@
         "weight": 100
       },
       {
-        "type": "minecraft:witch",
-        "maxCount": 1,
-        "minCount": 1,
-        "weight": 100
-      },
-      {
         "type": "minecraft:ravager",
         "maxCount": 3,
         "minCount": 3,
         "weight": 20
-      },
-      {
-        "type": "minecraft:evoker",
-        "maxCount": 3,
-        "minCount": 3,
-        "weight": 20
-      },
-      {
-        "type": "minecraft:vindicator",
-        "maxCount": 4,
-        "minCount": 4,
-        "weight": 20
-      },
-      {
-        "type": "minecraft:illusioner",
-        "maxCount": 1,
-        "minCount": 1,
-        "weight": 1
       }
     ],
     "underground_water_creature": [],

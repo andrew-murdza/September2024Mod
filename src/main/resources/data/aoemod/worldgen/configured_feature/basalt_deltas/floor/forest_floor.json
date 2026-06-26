@@ -17,11 +17,11 @@
     ],
     "features": [
       {
-        "chance": 0.1,
+        "chance": 0.025,
         "feature": "aoemod:basalt_deltas/floor/grass"
       },
       {
-        "chance": 0.9,
+        "chance": 0.975,
         "feature": "aoemod:nothing"
       }
     ]

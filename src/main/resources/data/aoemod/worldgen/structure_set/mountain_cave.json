@@ -5,7 +5,7 @@
   "placement": {
     "type": "aoemod:z_bands",
     "target_continents": 0.35,
-    "biome_width": 60,
+    "biome_width": 64,
     "x_start": -128,
     "x_spacing": 60
   }

@@ -54,6 +54,18 @@ public abstract class GetBiome2 extends BiomeSource {
     private static final ResourceKey<Biome> AOE_BASALT =
             ResourceKey.create(Registries.BIOME, new ResourceLocation("aoemod", "basalt_deltas"));
 
+    /*
+     * Must match your density function JSON:
+     *
+     * "biome_width": 64 means 64 chunks = 1024 blocks.
+     * "z_0": 0 means the jungle/jungle wrap seam is centered at z = 0.
+     */
+    @Unique
+    private static final int AOE_BIOME_WIDTH_BLOCKS = 64 * 16;
+
+    @Unique
+    private static final int AOE_Z_0 = 0;
+
     @Unique
     private Map<ResourceKey<Biome>, Holder<Biome>> aoe$biomeCache;
 
@@ -63,62 +75,80 @@ public abstract class GetBiome2 extends BiomeSource {
             cancellable = true
     )
     private void aoe$useBlockYForBiome(
-            int x, int y, int z, Climate.Sampler pSampler, CallbackInfoReturnable<Holder<Biome>> cir
+            int x, int y, int z, Climate.Sampler sampler, CallbackInfoReturnable<Holder<Biome>> cir
     ) {
         Map<ResourceKey<Biome>, Holder<Biome>> biomes = this.aoe$getBiomeCache();
-        y *= 4;
-        z *= 4;
 
         if (!aoe$hasRequiredBiomes(biomes)) {
             return;
         }
 
         /*
-         * IMPORTANT:
-         * Use floorMod, not %, or negative Z values produce negative cycle positions.
-         *
-         * This gives:
-         * z = 0       -> cyclePos = 0.0
-         * z = 4800    -> cyclePos = 5.0
-         * z = 9599    -> cyclePos ~= 9.999
+         * getNoiseBiome receives quart coordinates.
+         * Convert Y and Z back to block coordinates.
          */
-        int biomeWidth=1024;
+        int blockY = y * 4;
+        int blockZ = z * 4;
 
-        int cyclePos = z % (biomeWidth * 10);
-        if(cyclePos >= biomeWidth * 5){
-            cyclePos = cyclePos - 5 * biomeWidth;
-        }
+        int periodBlocks = AOE_BIOME_WIDTH_BLOCKS * 10;
+        int shiftedZ = blockZ - AOE_Z_0;
+        int wrappedZ = Math.floorMod(shiftedZ, periodBlocks);
 
-        if (cyclePos < biomeWidth) {
-            cir.setReturnValue(biomes.get(AOE_JUNGLE));
-        }
-        else if (cyclePos < 2 * biomeWidth) {
-            cir.setReturnValue(biomes.get(AOE_SAVANNA));
-        }
-        else if (cyclePos < 3 * biomeWidth) {
-            cir.setReturnValue(biomes.get(AOE_PLAINS));
-        }
-        else if (cyclePos < 4 * biomeWidth) {
-            if (y <= 56 && y > 12) {
-                cir.setReturnValue(biomes.get(AOE_MUSHROOM_CAVES));
-            } else {
-                cir.setReturnValue(biomes.get(AOE_GROVE));
+        int band = wrappedZ / AOE_BIOME_WIDTH_BLOCKS;
+
+        /*
+         * Band order:
+         *
+         * 0: jungle
+         * 1: savanna
+         * 2: plains
+         * 3: grove / mushroom caves
+         * 4: badlands / nether layers
+         * 5: badlands / nether layers
+         * 6: grove / mushroom caves
+         * 7: plains
+         * 8: savanna
+         * 9: jungle
+         *
+         * Because bands 9 and 0 touch across the wrap, jungle is 2 bands wide.
+         * Because bands 4 and 5 touch in the middle, badlands is 2 bands wide.
+         */
+        switch (band) {
+            case 0, 9 -> cir.setReturnValue(biomes.get(AOE_JUNGLE));
+
+            case 1, 8 -> cir.setReturnValue(biomes.get(AOE_SAVANNA));
+
+            case 2, 7 -> cir.setReturnValue(biomes.get(AOE_PLAINS));
+
+            case 3, 6 -> {
+                if (blockY <= 39) {
+                    cir.setReturnValue(biomes.get(AOE_MUSHROOM_CAVES));
+                } else {
+                    cir.setReturnValue(biomes.get(AOE_GROVE));
+                }
             }
+
+            case 4, 5 -> cir.setReturnValue(aoe$getBadlandsLayerBiome(biomes, blockY));
         }
-        else {
-            if (y < -40) {
-                cir.setReturnValue(biomes.get(AOE_BASALT));
-            } else if (y < -16) {
-                cir.setReturnValue(biomes.get(AOE_CRIMSON));
-            } else if (y < 8) {
-                cir.setReturnValue(biomes.get(AOE_WARPED));
-            } else if (y < 32) {
-                cir.setReturnValue(biomes.get(AOE_SOUL));
-            } else if (y < 56) {
-                cir.setReturnValue(biomes.get(AOE_DEEP_DARK));
-            } else {
-                cir.setReturnValue(biomes.get(AOE_BADLANDS));
-            }
+    }
+
+    @Unique
+    private static Holder<Biome> aoe$getBadlandsLayerBiome(
+            Map<ResourceKey<Biome>, Holder<Biome>> biomes,
+            int blockY
+    ) {
+        if (blockY < -40) {
+            return biomes.get(AOE_BASALT);
+        } else if (blockY < -16) {
+            return biomes.get(AOE_CRIMSON);
+        } else if (blockY < 8) {
+            return biomes.get(AOE_WARPED);
+        } else if (blockY < 32) {
+            return biomes.get(AOE_SOUL);
+        } else if (blockY < 56) {
+            return biomes.get(AOE_DEEP_DARK);
+        } else {
+            return biomes.get(AOE_BADLANDS);
         }
     }
 

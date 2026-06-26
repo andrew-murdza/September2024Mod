@@ -1,65 +1,17 @@
 {
-  "type": "aoemod:grid_choice",
+  "type": "aoemod:regional_grid_choice",
   "config": {
     "features": [
-      { "feature": "aoemod:trees/spruce" },
-      { "feature": "aoemod:trees/spruce" },
-      { "feature": "aoemod:trees/spruce" },
-      { "feature": "aoemod:trees/spruce" },
-      { "feature": "aoemod:trees/spruce" },
-      { "feature": "aoemod:trees/spruce" },
-      { "feature": "aoemod:trees/spruce" },
-
-      { "feature": "aoemod:trees/spruce" },
-      { "feature": "aoemod:crops/sweet_berry_bush_patch" },
-      { "feature": "aoemod:trees/spruce" },
-      { "feature": "aoemod:trees/spruce" },
-      { "feature": "aoemod:trees/spruce" },
-      { "feature": "aoemod:trees/spruce" },
-      { "feature": "aoemod:trees/spruce" },
-
-      { "feature": "aoemod:trees/spruce" },
-      { "feature": "aoemod:trees/spruce" },
-      { "feature": "aoemod:trees/spruce" },
-      { "feature": "aoemod:trees/spruce" },
-      { "feature": "aoemod:trees/spruce" },
-      { "feature": "aoemod:trees/spruce" },
-      { "feature": "aoemod:trees/spruce" },
-
-      { "feature": "aoemod:trees/spruce" },
-      { "feature": "aoemod:trees/spruce" },
-      { "feature": "aoemod:trees/spruce" },
-      { "feature": "aoemod:trees/spruce" },
-      { "feature": "aoemod:trees/spruce" },
-      { "feature": "aoemod:trees/spruce" },
-      { "feature": "aoemod:trees/spruce" },
-
-      { "feature": "aoemod:trees/spruce" },
-      { "feature": "aoemod:trees/spruce" },
-      { "feature": "aoemod:trees/spruce" },
-      { "feature": "aoemod:trees/spruce" },
-      { "feature": "aoemod:trees/spruce" },
-      { "feature": "aoemod:trees/spruce" },
-      { "feature": "aoemod:trees/spruce" },
-
-      { "feature": "aoemod:trees/spruce" },
-      { "feature": "aoemod:trees/spruce" },
-      { "feature": "aoemod:trees/spruce" },
-      { "feature": "aoemod:trees/spruce" },
-      { "feature": "aoemod:trees/spruce" },
-      { "feature": "aoemod:crops/sweet_berry_bush_patch" },
-      { "feature": "aoemod:trees/spruce" },
-
-      { "feature": "aoemod:trees/spruce" },
-      { "feature": "aoemod:trees/spruce" },
-      { "feature": "aoemod:trees/spruce" },
-      { "feature": "aoemod:trees/spruce" },
-      { "feature": "aoemod:trees/spruce" },
-      { "feature": "aoemod:trees/spruce" },
-      { "feature": "aoemod:trees/spruce" }
+      { "feature": "aoemod:crops/sweet_berry_bush_patch", "count": 1 },
+      { "feature": "aoemod:trees/spruce", "count": 47 }
     ],
     "default_feature": "aoemod:nothing",
     "placement": [],
-    "offset_type": "in_square"
+    "offset_type": "in_square",
+    "region_width": 12,
+    "region_depth": 16,
+    "section_width": 6,
+    "section_depth": 8,
+    "salt": "mountains_floor"
   }
 }

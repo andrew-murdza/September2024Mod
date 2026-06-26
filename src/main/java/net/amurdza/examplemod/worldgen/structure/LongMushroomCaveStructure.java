@@ -64,6 +64,10 @@ public class LongMushroomCaveStructure extends Structure {
                                     .fieldOf("max_mushroom_caves")
                                     .forGetter(s -> s.maxMushroomCaves),
 
+                            Codec.INT
+                                    .fieldOf("min_mushroom_caves")
+                                    .forGetter(s -> s.minMushroomCaves),
+
                             PlacedFeature.LIST_CODEC
                                     .optionalFieldOf("placed_features", HolderSet.direct(List.of()))
                                     .forGetter(s -> s.placedFeatures)
@@ -84,6 +88,7 @@ public class LongMushroomCaveStructure extends Structure {
     private final float liquidRadius;
 
     private final int maxMushroomCaves;
+    private final int minMushroomCaves;
 
     private final HolderSet<PlacedFeature> placedFeatures;
 
@@ -99,6 +104,7 @@ public class LongMushroomCaveStructure extends Structure {
             float liquidDepth,
             float liquidRadius,
             int maxMushroomCaves,
+            int minMushroomCaves,
             HolderSet<PlacedFeature> placedFeatures
     ) {
         super(settings);
@@ -113,6 +119,7 @@ public class LongMushroomCaveStructure extends Structure {
         this.liquidDepth = liquidDepth;
         this.liquidRadius = liquidRadius;
         this.maxMushroomCaves = maxMushroomCaves;
+        this.minMushroomCaves = minMushroomCaves;
         this.placedFeatures = placedFeatures;
     }
 
@@ -142,6 +149,7 @@ public class LongMushroomCaveStructure extends Structure {
                         this.liquidDepth,
                         this.liquidRadius,
                         this.maxMushroomCaves,
+                        this.minMushroomCaves,
                         this.placedFeatures
                 ))
         ));

@@ -16,7 +16,7 @@
         "target": "air",
         "all_layers": true,
         "max_y": 63,
-        "min_y": 45,
+        "min_y": 40,
         "predicate": {
           "type": "minecraft:matching_blocks",
           "blocks": ["minecraft:grass_block"]
@@ -30,19 +30,15 @@
         },
         "guaranteed_features": [
           {
-            "feature": "aoemod:mushroom_caves/floor/tree_grid_choice",
-            "placement": []
-          },
-          {
-            "feature": "aoemod:mushroom_caves/floor/patch_grid_choice",
+            "feature": "aoemod:mushroom_caves/floor/mushroom_patch_tree_regional_grid_choice",
             "placement": []
           }
         ],
         "target": "air",
         "all_layers": true,
         "skip_height": 30,
-        "max_y": 46,
-        "min_y": 24,
+        "max_y": 39,
+        "min_y": 16,
         "predicate": {
           "type": "minecraft:matching_blocks",
           "blocks": ["minecraft:mycelium"]

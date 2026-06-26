@@ -327,7 +327,7 @@ public class AllSurfacesFeature extends Feature<AllSurfacesFeatureConfig> {
             AllSurfacesFeatureConfig cfg,
             Holder<ConfiguredFeature<?, ?>> configuredFeature
     ) {
-        if (cfg.biomes != null && !level.getBiome(pos.below()).is(cfg.biomes)) {
+        if (cfg.biomes != null && !level.getBiome(pos).is(cfg.biomes)) {
             return PlacementResult.NONE;
         }
 
@@ -375,7 +375,7 @@ public class AllSurfacesFeature extends Feature<AllSurfacesFeatureConfig> {
             FeaturePlaceContext<AllSurfacesFeatureConfig> context,
             AllSurfacesFeatureConfig cfg
     ) {
-        if (cfg.biomes != null && !level.getBiome(pos.below()).is(cfg.biomes)) {
+        if (cfg.biomes != null && !level.getBiome(pos).is(cfg.biomes)) {
             return PlacementResult.NONE;
         }
 

@@ -27,7 +27,6 @@
     [],
     [],
     [
-      "aoemod:blobs/desert_stone_variants",
       "aoemod:desert/ores/coal_upper",
       "aoemod:desert/ores/copper_upper",
       "aoemod:desert/ores/gold_upper",
@@ -63,12 +62,6 @@
         "weight": 100,
         "minCount": 4,
         "maxCount": 4
-      },
-      {
-        "type": "minecraft:warden",
-        "weight": 20,
-        "minCount": 2,
-        "maxCount": 2
       }
     ],
     "underground_water_creature": [

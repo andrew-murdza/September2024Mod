@@ -1,21 +1,35 @@
 {
-  "type": "aoemod:grid_choice",
+  "type": "aoemod:regional_grid_choice",
   "config": {
     "features": [
+      {
+        "feature": "aoemod:soul_sand_valley/pale_oak",
+        "count": 4
+      },
       {
         "feature": "aoemod:crops/soul_berries",
         "count": 1
       },
       {
         "feature": "aoemod:crops/nether_wart",
+        "count": 2
+      },
+      {
+        "feature": "aoemod:flowers/soul_sand_valley/eyeblossom_patch",
         "count": 1
       },
       {
         "feature": "aoemod:nothing",
-        "count": 7
+        "count": 4
       }
     ],
     "default_feature": "aoemod:nothing",
-    "placement": []
+    "placement": [],
+    "offset_type": "center",
+    "region_width": 12,
+    "region_depth": 16,
+    "section_width": 3,
+    "section_depth": 4,
+    "salt": "soul_sand_valley_floor"
   }
 }

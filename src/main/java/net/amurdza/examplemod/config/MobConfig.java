@@ -3,6 +3,10 @@ package net.amurdza.examplemod.config;
 import com.github.alexthe666.alexsmobs.entity.AMEntityRegistry;
 import com.github.alexthe666.alexsmobs.item.AMItemRegistry;
 import com.github.alexthe666.iceandfire.entity.IafEntityRegistry;
+import com.morallenplay.dropthemeat.init.ItemInit;
+import com.starfish_studios.naturalist.core.registry.NaturalistEntityTypes;
+import com.starfish_studios.naturalist.core.registry.NaturalistItems;
+import dev.hybridlabs.aquatic.entity.HybridAquaticEntityTypes;
 import org.violetmoon.quark.content.mobs.module.WraithModule;
 import samebutdifferent.ecologics.registry.ModEntityTypes;
 import net.mcreator.borninchaosv.init.BornInChaosV1ModEntities;
@@ -319,7 +323,7 @@ public final class MobConfig {
         addMobInfo(EntityType.FOX,
                 m(1, 3, 0, 0.5F, 0, 0, 0, 0, 0, 0, 0),
                 m(1, 2, 0, 1, 0, 0, 0, 0, 0, 0, 0),
-                m(1, 1.5F, 0, 0.5F, 0, 0, 0, 0, 0, 0, 0, ModItems.RAW_FOX.get(), ModItems.COOKED_FOX.get()),
+                m(1, 1.5F, 0, 0.5F, 0, 0, 0, 0, 0, 0, 0, ItemInit.RAW_TURTLE.get(), ItemInit.COOKED_TURTLE.get()),
                 m(1, 2, 0, 1, 0, 0, 0, 0, 0, 0, 0, Items.ORANGE_WOOL),
                 m(0.25F, 0.5F, 0, 0, 0, 0, 0, 0, 0, 0, 0, Items.BONE));
 
@@ -425,12 +429,12 @@ public final class MobConfig {
                 m(0.15F, 0.05F, 0, 0, 0, 0, 0, 0, 0, 0, 0, Items.BONE_MEAL));
 
         addMobInfo(EntityType.GLOW_SQUID,
-                m(0, 0, 0, 2, 2, 0, 0.5F, 0, 0, 0, 0, ModItems.RAW_GLOW_SQUID.get(), ModItems.COOKED_SQUID.get()),
+                m(0, 0, 0, 2, 2, 0, 0.5F, 0, 0, 0, 0, com.ncpbails.culturaldelights.item.ModItems.GLOW_SQUID.get(), com.ncpbails.culturaldelights.item.ModItems.COOKED_SQUID.get()),
                 m(0, 0, 0, 3, 3, 0, 0.7F, 0, 0, 0, 0, Items.GLOW_INK_SAC),
                 m(0, 0, 0, 0.2F, 0.2F, 0, 0.05F, 0, 0, 0, 0, Items.BONE_MEAL));
 
         addMobInfo(EntityType.SQUID,
-                m(2, 1, 1, 2, 2, 0, 0, 0, 0, 0, 0, ModItems.RAW_SQUID.get(), ModItems.COOKED_SQUID.get()),
+                m(2, 1, 1, 2, 2, 0, 0, 0, 0, 0, 0, com.ncpbails.culturaldelights.item.ModItems.SQUID.get(), com.ncpbails.culturaldelights.item.ModItems.COOKED_SQUID.get()),
                 m(3, 2, 1, 3, 3, 0, 0, 0, 0, 0, 0, Items.INK_SAC),
                 m(0, 0, 0.05F, 0.2F, 0.2F, 0, 0, 0, 0, 0, 0, Items.BONE_MEAL));
 
@@ -458,14 +462,14 @@ public final class MobConfig {
         addMobInfo(AMEntityRegistry.MOOSE.get(),
                 m(1.5F, 3, 0, 0.5F, 0, 0, 0, 0, 0, 0, 0),
                 m(1.25F, 2, 0, 1, 0, 0, 0, 0, 0, 0, 0),
-                m(1.5F, 2.5F, 0, 1, 0, 0, 0, 0, 0, 0, 0, ModItems.RAW_MOOSE.get(), ModItems.COOKED_MOOSE.get()),
+                m(1.5F, 2.5F, 0, 1, 0, 0, 0, 0, 0, 0, 0, ItemInit.RAW_LLAMA.get(), ItemInit.COOKED_LLAMA.get()),
                 m(2, 3, 0, 2, 0, 0, 0, 0, 0, 0, 0, Items.LEATHER),
                 m(1.5F, 2, 0, 0.5F, 0, 0, 0, 0, 0, 0, 0, Items.BONE));
 
         addMobInfo(AMEntityRegistry.WARPED_TOAD.get(),
                 desertM(0, 0, 0, 0.4F, 0.2F, 0),
                 desertM(0, 0, 1, 1, 1, 0),
-                desertM(0, 0, 0, 1, 0.5F, 0, ModItems.RAW_WARPED_TOAD.get(), ModItems.COOKED_WARPED_TOAD.get()),
+                desertM(0, 0, 0, 1, 0.5F, 0, ItemInit.RAW_SQUID.get(), ItemInit.COOKED_SQUID.get()),
                 desertM(0, 0, 0, 2.5F, 1.5F, 0, Items.SHROOMLIGHT),
                 m(0, 0, 1, 0, 0, 0, 0, 0, 0.3F, 0.2F, 0, Items.BONE));
 
@@ -480,7 +484,7 @@ public final class MobConfig {
         addMobInfo(ModEntityTypes.SQUIRREL.get(),
                 m(3, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0),
                 m(1.5F, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0),
-                m(1.5F, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, ModItems.RAW_SQUIRREL.get(), ModItems.COOKED_SQUIRREL.get()),
+                m(1.5F, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, ItemInit.RAW_WOLF.get(), ItemInit.COOKED_WOLF.get()),
                 m(1.5F, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, Items.RABBIT_HIDE),
                 m(0.5F, 0.75F, 0, 0, 0, 0, 0, 0, 0, 0, 0, Items.BONE));
 
@@ -491,10 +495,10 @@ public final class MobConfig {
 //                m(1.5F, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, Items.LEATHER),
 //                m(1, 1.5F, 0, 0, 0, 0, 0, 0, 0, 0, 0, Items.BONE));
 
-//        addMobInfo(HybridAquaticEntityTypes.INSTANCE.getARROW_SQUID().get(),
-//                m(2, 0, 0, 2, 2, 0, 0, 0, 0, 0, 0, ModItems.RAW_ARROW_SQUID.get(), ModItems.COOKED_ARROW_SQUID.get()),
-//                m(2, 0, 0, 2, 2, 0, 0, 0, 0, 0, 0, Items.INK_SAC),
-//                m(0.5F, 0, 0, 0.4F, 0.4F, 0, 0, 0, 0, 0, 0, Items.BONE_MEAL));
+        addMobInfo(HybridAquaticEntityTypes.INSTANCE.getARROW_SQUID().get(),
+                m(2, 0, 0, 2, 2, 0, 0, 0, 0, 0, 0, ItemInit.RAW_DOLPHIN.get(), ItemInit.COOKED_DOLPHIN.get()),
+                m(2, 0, 0, 2, 2, 0, 0, 0, 0, 0, 0, Items.INK_SAC),
+                m(0.5F, 0, 0, 0.4F, 0.4F, 0, 0, 0, 0, 0, 0, Items.BONE_MEAL));
 
         addMobInfo(EntityType.ZOMBIE,
                 m(0, 1F, 1, 0, 0, 0, 0, 0, 0, 0, 0, Items.ROTTEN_FLESH, Items.LEATHER),

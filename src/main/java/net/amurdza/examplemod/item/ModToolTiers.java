@@ -23,12 +23,29 @@ public class ModToolTiers {
             () -> Ingredient.of(Items.BONE)
     );
 
+    /** Post-1.20 copper tier: stone harvest level with improved speed, durability and enchantability. */
+    public static final ForgeTier COPPER = new ForgeTier(
+            1,
+            190,
+            5.0F,
+            1.0F,
+            13,
+            BlockTags.NEEDS_STONE_TOOL,
+            () -> Ingredient.of(Items.COPPER_INGOT)
+    );
+
     public static void register() {
         TierSortingRegistry.registerTier(
                 BONE,
                 new ResourceLocation(AOEMod.MOD_ID, "bone"),
                 List.of(Tiers.WOOD), // after
                 List.of(Tiers.IRON)                                          // before
+        );
+        TierSortingRegistry.registerTier(
+                COPPER,
+                new ResourceLocation(AOEMod.MOD_ID, "copper"),
+                List.of(Tiers.STONE),
+                List.of(Tiers.IRON)
         );
     }
 }

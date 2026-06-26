@@ -27,6 +27,8 @@ public class ModFeatures {
         FEATURES.register("crimson_seagrass",()->new CrimsonSeaGrassFeature(ProbabilityFeatureConfiguration.CODEC));
         FEATURES.register("warped_seagrass",()->new WarpedSeagrassFeature(ProbabilityFeatureConfiguration.CODEC));
         FEATURES.register("grid_choice", ()->new GridChoiceFeature(GridChoiceConfig.CODEC));
+        FEATURES.register("regional_grid_choice", ()->new RegionalGridChoiceFeature(RegionalGridChoiceConfig.CODEC));
+        FEATURES.register("feature_sequence", ()->new FeatureSequenceFeature(FeatureSequenceConfig.CODEC));
         FEATURES.register("fixed_count_random_patch", ()->new FixedCountRandomPatchFeature(FixedCountRandomPatchConfiguration.CODEC));
         FEATURES.register("layered_all_surface", ()->new AllSurfaceLayeredFeature(AllSurfaceLayeredFeaturesConfig.CODEC));
         FEATURES.register("rainforest_tree", ()->new RainforestTreeFeature(RainforestTreeFeatureConfig.CODEC));

@@ -161,6 +161,11 @@ dependencies {
     // http://www.gradle.org/docs/current/userguide/artifact_dependencies_tutorial.html
     // http://www.gradle.org/docs/current/userguide/dependency_management.html
 
+    //Meats
+    implementation fg.deobf("curse.maven:drop-the-meat-404141:6564010")
+
+    implementation fg.deobf("curse.maven:cultural-delights-574622:6029441")
+
 
     //Tools
     implementation fg.deobf("curse.maven:wooden-bucket-585328:6773030")
@@ -186,6 +191,13 @@ dependencies {
 
     implementation fg.deobf("curse.maven:ecologics-570463:7457108")
 
+    //Animals
+    implementation fg.deobf("curse.maven:naturalist-627986:4847009")
+    implementation fg.deobf("curse.maven:architectury-api-419699:4663010")
+
+    implementation fg.deobf("curse.maven:lithostitched-936015:6742615")
+    implementation fg.deobf("curse.maven:kotlin-for-forge-351264:7291067")
+    implementation fg.deobf("curse.maven:hybrid-aquatic-834427:7204568")
 
 //    Monsters
     implementation fg.deobf("curse.maven:iceandfire-264231:5633453")

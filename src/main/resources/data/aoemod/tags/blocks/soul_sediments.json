@@ -1,6 +1,10 @@
 {
   "values": [
     "minecraft:soul_sand",
-    "minecraft:soul_soil"
+    "minecraft:soul_soil",
+    "aoemod:soul_sand_gold_ore",
+    "aoemod:soul_soil_gold_ore",
+    "aoemod:soul_sand_quartz_ore",
+    "aoemod:soul_soil_quartz_ore"
   ]
 }

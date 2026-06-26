@@ -22,14 +22,12 @@
   "features": [
     [],
     [],
-    [
-      "minecraft:amethyst_geode"
-    ],
+    [],
     [],
     [],
     [],
     [
-      "aoemod:blobs/mountain_stone_variants",
+      "aoemod:blobs/clay",
       "aoemod:mountains/ores/iron_upper",
       "aoemod:mountains/ores/copper_upper",
       "aoemod:mountains/ores/coal_upper",
@@ -114,22 +112,10 @@
         "weight": 100
       },
       {
-        "type": "iceandfire:troll",
-        "weight": 20,
-        "minCount": 2,
-        "maxCount": 2
-      },
-      {
-        "type": "iceandfire:dread_knight",
-        "maxCount": 4,
-        "minCount": 4,
-        "weight": 20
-      },
-      {
-        "type": "iceandfire:dread_lich",
-        "maxCount": 4,
-        "minCount": 4,
-        "weight": 20
+        "type": "aoemod:breeze",
+        "maxCount": 2,
+        "minCount": 1,
+        "weight": 100
       }
     ],
     "underground_water_creature": [
@@ -149,9 +135,21 @@
       },
       {
         "type": "minecraft:cod",
-        "weight": 15,
+        "weight": 10,
         "minCount": 8,
         "maxCount": 8
+      },
+      {
+        "type": "hybrid-aquatic:arrow_squid",
+        "weight": 10,
+        "minCount": 4,
+        "maxCount": 4
+      },
+      {
+        "type": "alexsmobs:lobster",
+        "weight": 10,
+        "minCount": 4,
+        "maxCount": 4
       }
     ],
     "water_creature": [

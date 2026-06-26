@@ -13,10 +13,7 @@
     "all_layers": true,
     "predicate": {
       "type": "minecraft:matching_blocks",
-      "blocks": [
-        "minecraft:mud",
-        "minecraft:wet_sponge"
-      ]
+      "blocks": "minecraft:mud"
     },
     "biomes": "aoemod:mountain_biomes"
   }

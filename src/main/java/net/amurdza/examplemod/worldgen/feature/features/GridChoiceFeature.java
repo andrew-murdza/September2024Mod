@@ -131,7 +131,7 @@ public class GridChoiceFeature extends Feature<GridChoiceConfig> {
                     0,
                     random.nextInt(16)
             );
-            case CENTER -> origin.offset(8, 0, 8);
+            case CENTER -> origin.offset(7, 0, 7);
             case CORNER -> origin;
         };
     }

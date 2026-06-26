@@ -2,6 +2,7 @@ package net.amurdza.examplemod.entity;
 
 import com.github.alexthe666.iceandfire.entity.EntityDreadKnight;
 import com.github.alexthe666.iceandfire.entity.EntityDreadLich;
+import com.github.alexthe666.iceandfire.entity.EntityDreadLichSkull;
 import com.github.alexthe666.iceandfire.entity.EntityDreadMob;
 import com.github.alexthe666.iceandfire.entity.IafEntityRegistry;
 import com.github.alexthe666.iceandfire.misc.IafSoundRegistry;
@@ -15,7 +16,6 @@ import net.minecraft.world.entity.MobSpawnType;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.monster.Monster;
-import net.minecraft.world.entity.projectile.SmallFireball;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.levelgen.Heightmap;
 import net.minecraft.world.phys.AABB;
@@ -83,15 +83,27 @@ public class ArchlichEntity extends EntityDreadLich {
             return;
         }
 
+        EntityDreadLichSkull skull = new EntityDreadLichSkull(
+                IafEntityRegistry.DREAD_LICH_SKULL.get(),
+                this.level(),
+                this,
+                8.0D
+        );
         double xPower = target.getX() - this.getX();
-        double yPower = target.getY(0.5D) - this.getY(0.5D);
+        double yPower = target.getBoundingBox().minY + target.getBbHeight() * 2.0F - skull.getY();
         double zPower = target.getZ() - this.getZ();
-        SmallFireball fireball = new SmallFireball(this.level(), this, xPower, yPower, zPower);
-        fireball.setPos(this.getX(), this.getEyeY() - 0.1D, this.getZ());
+        double horizontalDistance = Math.sqrt(xPower * xPower + zPower * zPower);
+        skull.shoot(
+                xPower,
+                yPower + horizontalDistance * 0.2D,
+                zPower,
+                0.0F,
+                14 - this.level().getDifficulty().getId() * 4
+        );
 
         this.swing(this.getUsedItemHand());
-        this.playSound(SoundEvents.BLAZE_SHOOT, 1.0F, 0.8F + this.random.nextFloat() * 0.2F);
-        this.level().addFreshEntity(fireball);
+        this.playSound(SoundEvents.ZOMBIE_INFECT, 1.0F, this.getVoicePitch());
+        this.level().addFreshEntity(skull);
         this.rangedAttackCooldown = RANGED_ATTACK_COOLDOWN;
     }
 

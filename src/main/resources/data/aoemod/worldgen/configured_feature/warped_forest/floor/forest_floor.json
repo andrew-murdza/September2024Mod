@@ -17,8 +17,12 @@
     ],
     "features": [
       {
-        "chance": 0.3,
+        "chance": 0.29,
         "feature": "aoemod:warped_forest/floor/grass"
+      },
+      {
+        "chance": 0.01,
+        "feature": "aoemod:warped_forest/floor/twisting_vines_column"
       },
       {
         "chance": 0.7,

@@ -3,6 +3,7 @@ package net.amurdza.examplemod.registry;
 import com.mojang.serialization.Codec;
 import net.amurdza.examplemod.AOEMod;
 import net.amurdza.examplemod.worldgen.surface_rule.BandlandsSurfaceRuleSource;
+import net.amurdza.examplemod.worldgen.surface_rule.BiomeAboveConditionSource;
 import net.amurdza.examplemod.worldgen.surface_rule.NoiseThreshold3DConditionSource;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.world.level.levelgen.SurfaceRules;
@@ -20,6 +21,7 @@ public class ModSurfaceRules {
 
     static {
         MATERIAL_CONDITIONS.register("noise_threshold_3d", NoiseThreshold3DConditionSource.CODEC::codec);
+        MATERIAL_CONDITIONS.register("biome_above", BiomeAboveConditionSource.CODEC::codec);
         MATERIAL_RULES.register("bandlands", BandlandsSurfaceRuleSource.CODEC::codec);
     }
 

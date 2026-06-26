@@ -2,13 +2,13 @@
   "type": "minecraft:crafting_shapeless",
   "ingredients": [
     {
-      "item": "minecraft:popper_chorus_fruit"
+      "item": "minecraft:popped_chorus_fruit"
     },
     {
-      "item": "minecraft:popper_chorus_fruit"
+      "item": "minecraft:popped_chorus_fruit"
     },
     {
-      "item": "minecraft:popper_chorus_fruit"
+      "item": "minecraft:popped_chorus_fruit"
     }
   ],
   "result": {

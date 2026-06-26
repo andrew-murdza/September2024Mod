@@ -1,9 +1,9 @@
 {
   "type": "minecraft:smoking",
   "ingredient": {
-    "item": "aoemod:raw_fox"
+    "item": "dropthemeat:raw_turtle"
   },
-  "result": "aoemod:cooked_fox",
+  "result": "dropthemeat:cooked_turtle",
   "experience": 0.35,
   "cookingtime": 100
 }

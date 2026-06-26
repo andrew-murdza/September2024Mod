@@ -50,8 +50,6 @@ public class CaveVineTreeDecorator extends TreeDecorator {
 
         float probabilitySample = this.probability.sample(random);
         int lengthSample = this.length.sample(random);
-        float berriesProbabilitySample = this.berriesProbability.sample(random);
-
         BlockPos.MutableBlockPos mutable = new BlockPos.MutableBlockPos();
 
         for (BlockPos log : context.logs()) {
@@ -88,8 +86,11 @@ public class CaveVineTreeDecorator extends TreeDecorator {
                     shouldBreak = true;
                 }
 
-                boolean hasBerries = random.nextFloat() < berriesProbabilitySample;
-                state = state.setValue(BlockStateProperties.BERRIES, hasBerries);
+                state = state.setValue(BlockStateProperties.BERRIES, true);
+
+                if (state.hasProperty(BlockStateProperties.WATERLOGGED)) {
+                    state = state.setValue(BlockStateProperties.WATERLOGGED, false);
+                }
 
                 // Mixin behavior:
                 // Any actual CAVE_VINES block gets age 25.

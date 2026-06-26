@@ -29,7 +29,6 @@
     [],
     [],
     [
-      "aoemod:blobs/desert_stone_variants",
       "aoemod:desert/ores/coal_upper",
       "aoemod:desert/ores/copper_upper",
       "aoemod:desert/ores/gold_upper",
@@ -42,7 +41,7 @@
     [],
     [],
     [
-      "minecraft:glow_lichen",
+//      "minecraft:glow_lichen",
       "aoemod:mountains/forest_floor",
       "aoemod:desert/forest_floor",
       "aoemod:mountains/seafloor",
@@ -81,7 +80,7 @@
         "weight": 100
       },
       {
-        "type": "alexsmobs:guster",
+        "type": "aoemod:parched",
         "maxCount": 4,
         "minCount": 4,
         "weight": 100

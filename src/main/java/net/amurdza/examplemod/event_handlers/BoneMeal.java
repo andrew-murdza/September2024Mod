@@ -262,7 +262,7 @@ public class BoneMeal {
             return true;
         }
 
-        if (state.is(ModTags.Blocks.sugarCaneCactusLike)) {
+        if (state.is(Blocks.SUGAR_CANE)||state.is(Blocks.CACTUS)) {
             return growSugarcaneCactus(level, pos, block);
         }
 

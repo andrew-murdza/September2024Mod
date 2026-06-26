@@ -2,6 +2,11 @@
   "values": [
     "minecraft:basalt",
     "minecraft:smooth_basalt",
-    "minecraft:blackstone"
+    "minecraft:blackstone",
+    "minecraft:gilded_blackstone",
+    "aoemod:blackstone_gold_ore",
+    "aoemod:blackstone_quartz_ore",
+    "aoemod:basalt_gold_ore",
+    "aoemod:basalt_quartz_ore"
   ]
 }

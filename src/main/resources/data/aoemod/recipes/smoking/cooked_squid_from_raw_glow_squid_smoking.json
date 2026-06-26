@@ -1,9 +1,9 @@
 {
   "type": "minecraft:smoking",
   "ingredient": {
-    "item": "aoemod:raw_glow_squid"
+    "item": "culturaldelights:glow_squid"
   },
-  "result": "aoemod:cooked_squid",
+  "result": "culturaldelights:cooked_squid",
   "experience": 0.35,
   "cookingtime": 100
 }

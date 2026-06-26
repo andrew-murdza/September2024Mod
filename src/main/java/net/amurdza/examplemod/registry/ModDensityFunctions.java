@@ -7,6 +7,7 @@ import net.amurdza.examplemod.AOEMod;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.util.ExtraCodecs;
 import net.minecraft.util.KeyDispatchDataCodec;
+import net.minecraft.util.Mth;
 import net.minecraft.world.level.levelgen.DensityFunction;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
@@ -91,7 +92,7 @@ public final class ModDensityFunctions {
         private static final double BADLANDS_START = 0.400D;
 
         private static final int DESERT_FLAT_ENTRY_BLOCKS = 48;
-        private static final double DESERT_ENTRY_SLOPE = 1D/3;
+        private static final double DESERT_ENTRY_SLOPE = 1D / 3;
 
         private static final MapCodec<SteppedMountainOffset> DATA_CODEC =
                 RecordCodecBuilder.mapCodec((data) -> data.group(
@@ -190,26 +191,7 @@ public final class ModDensityFunctions {
             return CODEC;
         }
     }
-
-
-
-    /**
-     * aoemod:rivers
-     * New behavior:
-     * - x0 and z0 are chunk coordinates.
-     * - x0 is no longer the center of the river.
-     * - The river starts at block x = x0 * 16.
-     * - The river extends width chunks in the x direction.
-     * - The next river starts after x_spacing chunks.
-     * Example:
-     *   x0 = 0
-     *   width = 6
-     *   x_spacing = 30
-     * First river:
-     *   x = 0 through 95
-     * Next river:
-     *   x = 480 through 575
-     */
+    
     protected record RadialRivers(
             int z0,
             DensityFunction continents,
@@ -218,7 +200,6 @@ public final class ModDensityFunctions {
             int biomeWidth,
             int xSpacing
     ) implements DensityFunction {
-
 
         private static RiverProfile steppedDepthRamp(
                 RiverProfile start,
@@ -248,6 +229,7 @@ public final class ModDensityFunctions {
 
             return new RiverProfile(newDepth);
         }
+
         private static final double NORMAL_RIVER_START = 0;
 
         private static final double JUNGLE_END = 0.100D;
@@ -267,12 +249,12 @@ public final class ModDensityFunctions {
                 new RiverProfile(6.0D);
 
         private static final RiverProfile BADLANDS_EDGE_RIVER =
-                new RiverProfile(4.0D);
+                new RiverProfile(6.0D);
 
-        private static final double BADLANDS_RIVER_DEPTH = 4.0D;
+        private static final double BADLANDS_RIVER_DEPTH = 6.0D;
 
         private static final double BADLANDS_FLAT_AFTER_RIVER = 48.0D;
-        private static final double BADLANDS_TERRACE_SLOPE = 1D/3;
+        private static final double BADLANDS_TERRACE_SLOPE = 1D / 3;
 
         private static final double MAX_TERRACE_HEIGHT = 64.0D;
 
@@ -308,8 +290,24 @@ public final class ModDensityFunctions {
             final int widthBlocks = width * 16;
             final int spacingBlocks = xSpacing * 16;
 
-            final int riverStartX = x0 * 16 + 1;
-            final int localX = Math.floorMod(context.blockX() - riverStartX, spacingBlocks);
+            /*
+             * x0 is a chunk coordinate.
+             *
+             * x0 = 0 means:
+             * riverStartX = 0
+             *
+             * width = 6 means:
+             * widthBlocks = 96
+             *
+             * So the first river covers:
+             * x = 0 through x = 95
+             */
+            final int riverStartX = x0 * 16;
+
+            final int localX = Math.floorMod(
+                    context.blockX() - riverStartX,
+                    spacingBlocks
+            );
 
             final double distanceFromRiverEdge = getDistanceFromRepeatingRiverEdge(
                     localX,
@@ -321,7 +319,7 @@ public final class ModDensityFunctions {
                 return getBadlandsRiverValue(distanceFromRiverEdge);
             }
 
-            final RiverProfile profile = getNormalRiverProfile(continent);
+            final RiverProfile profile = getNormalRiverProfile(continent, Mth.sign(context.blockZ()));
 
             if (profile.maxDepth() <= 0.0D) {
                 return 0.0D;
@@ -342,10 +340,17 @@ public final class ModDensityFunctions {
                 final int distanceFromLeftEdge = localX;
                 final int distanceFromRightEdge = widthBlocks - 1 - localX;
 
+                /*
+                 * +2.0D instead of +1.0D makes the edge blocks strong enough
+                 * to visibly carve.
+                 *
+                 * For widthBlocks = 96:
+                 * localX 0 through 95 are inside the river.
+                 */
                 return Math.min(
                         distanceFromLeftEdge,
                         distanceFromRightEdge
-                ) + 1.0D;
+                ) + 2.0D;
             }
 
             final int distanceFromRightEdgeOfThisRiver = localX - (widthBlocks - 1);
@@ -357,12 +362,12 @@ public final class ModDensityFunctions {
             );
         }
 
-        private RiverProfile getNormalRiverProfile(double continents) {
+        private RiverProfile getNormalRiverProfile(double continents, int sign) {
             if (continents < NORMAL_RIVER_START || continents >= BADLANDS_START) {
                 return RiverProfile.NONE;
             }
 
-            final double oneBlockContinents = 0.1D/ (16 * biomeWidth);
+            final double oneBlockContinents = 0.1D / (16 * biomeWidth);
 
             final double SMALL_PROFILE_RAMP =
                     4.0D * oneBlockContinents;
@@ -371,10 +376,11 @@ public final class ModDensityFunctions {
                     8.0D * oneBlockContinents;
 
             final double MOUNTAIN_TO_BADLANDS_RAMP =
-                    12.0D * oneBlockContinents;
+                    8.0D * oneBlockContinents;
 
-            final double LOWLAND_RAMP_SHIFT = oneBlockContinents;
+            final double LOWLAND_RAMP_SHIFT = sign * oneBlockContinents;
 
+            final double MOUNTAINS_TO_BADLANDS_SHIFT = 2 * sign * oneBlockContinents;
 
             final double JUNGLE_TO_SAVANNA_RAMP_END =
                     JUNGLE_END - LOWLAND_RAMP_SHIFT;
@@ -395,7 +401,7 @@ public final class ModDensityFunctions {
                     PLAINS_TO_MOUNTAIN_RAMP_START + PLAINS_TO_MOUNTAINS_RAMP;
 
             final double MOUNTAIN_TO_BADLANDS_RAMP_END =
-                    BADLANDS_START - 2 * oneBlockContinents;
+                    BADLANDS_START - MOUNTAINS_TO_BADLANDS_SHIFT;
 
             final double MOUNTAIN_TO_BADLANDS_RAMP_START =
                     MOUNTAIN_TO_BADLANDS_RAMP_END - MOUNTAIN_TO_BADLANDS_RAMP;
@@ -477,7 +483,7 @@ public final class ModDensityFunctions {
             /*
              * Outside the river:
              * - flat for BADLANDS_FLAT_AFTER_RIVER blocks
-             * - then rises at slope 1/2
+             * - then rises at slope 1/3
              */
             final double distanceOutsideRiver = -distanceFromRiverEdge;
 
