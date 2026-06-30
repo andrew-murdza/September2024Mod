@@ -2,6 +2,7 @@ package net.amurdza.examplemod.event_handlers;
 
 import com.github.alexthe666.alexsmobs.entity.EntityGorilla;
 import com.github.alexthe666.alexsmobs.entity.EntityMoose;
+import net.amurdza.examplemod.util.AnimalFoodOverrides;
 import net.amurdza.examplemod.util.ModTags;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.entity.Entity;
@@ -36,6 +37,10 @@ public class BreedingItems {
         if(event.getTarget() instanceof Mob mob){
             Player player=event.getEntity();
             ItemStack stack=event.getItemStack();
+            if(useFoodStack(mob, player, stack, foodStack -> AnimalFoodOverrides.isExtraFood(mob, foodStack))){
+                event.setCanceled(true);
+                return;
+            }
             if(mob instanceof MushroomCow){
                 useFood(mob, player, stack, ModTags.Items.mushrooms);
             }
@@ -45,12 +50,13 @@ public class BreedingItems {
                 useFood(mob,player,stack,Items.CARROT);
                 useFood(mob,player,stack,Items.POTATO);
                 useFood(mob, player, stack, ModItems.ONION.get());
+                useFood(mob, player, stack, net.amurdza.examplemod.registry.ModItems.ASHEN_WHEAT.get());
             }
             else if(mob instanceof Horse || mob instanceof Donkey){
                 useFood(mob,player,stack,Items.HAY_BLOCK);
             }
             else if(mob instanceof Strider){
-                useFood(mob,player,stack, Items.CRIMSON_ROOTS);
+                useFood(mob,player,stack, net.amurdza.examplemod.registry.ModItems.ASHEN_WHEAT.get());
             }
             else if(mob instanceof Frog){
                 useFood(mob,player,stack,Items.SEAGRASS);
@@ -85,16 +91,16 @@ public class BreedingItems {
             }
         }
     }
-    private static void useFood(Entity entity, Player player, ItemStack stack, Item... items){
-        useFood(entity,player,stack,p-> Arrays.asList(items).contains(p));
+    private static boolean useFood(Entity entity, Player player, ItemStack stack, Item... items){
+        return useFood(entity,player,stack,p-> Arrays.asList(items).contains(p));
     }
-    private static void useFood(Entity entity, Player player, ItemStack stack, TagKey<Item> itemTag){
-        useFoodStack(entity,player,stack,p->p.is(itemTag));
+    private static boolean useFood(Entity entity, Player player, ItemStack stack, TagKey<Item> itemTag){
+        return useFoodStack(entity,player,stack,p->p.is(itemTag));
     }
-    private static void useFood(Entity entity, Player player, ItemStack stack, Item item){
-        useFood(entity,player,stack,p-> p==item);
+    private static boolean useFood(Entity entity, Player player, ItemStack stack, Item item){
+        return useFood(entity,player,stack,p-> p==item);
     }
-    private static void useFoodStack(Entity entity, Player player, ItemStack stack, Function<ItemStack,Boolean> func){
+    private static boolean useFoodStack(Entity entity, Player player, ItemStack stack, Function<ItemStack,Boolean> func){
         if(entity instanceof Animal animal &&func.apply(stack)){
             if(!animal.level().isClientSide&&animal.getAge()==0&&animal.canFallInLove()){
                 if(!(animal instanceof TamableAnimal)||((TamableAnimal)animal).isTame()){
@@ -102,7 +108,7 @@ public class BreedingItems {
                         useItem(player,stack);
                         animal.setInLove(player);
                         animal.gameEvent(GameEvent.ENTITY_INTERACT,animal);
-                        return;
+                        return true;
                     }
                 }
             }
@@ -110,11 +116,13 @@ public class BreedingItems {
                 useItem(player,stack);
                 animal.ageUp((int)((float)(-animal.getAge() / 20) * 0.1F), true);
                 animal.gameEvent(GameEvent.ENTITY_INTERACT,animal);
+                return true;
             }
         }
+        return false;
     }
-    private static void useFood(Entity entity, Player player, ItemStack stack, Function<Item,Boolean> func){
-        useFoodStack(entity,player,stack,t->func.apply(t.getItem()));
+    private static boolean useFood(Entity entity, Player player, ItemStack stack, Function<Item,Boolean> func){
+        return useFoodStack(entity,player,stack,t->func.apply(t.getItem()));
     }
     private static void useItem(Player player, ItemStack stack){
         if(!player.getAbilities().instabuild){

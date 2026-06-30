@@ -1,6 +1,11 @@
 package net.amurdza.examplemod.mixins.worldgen;
 import net.minecraft.core.BlockPos;
+import net.minecraft.tags.BlockTags;
+import net.minecraft.tags.TagKey;
 import net.minecraft.world.level.LevelAccessor;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.levelgen.feature.AbstractHugeMushroomFeature;
 import net.minecraft.world.level.levelgen.feature.HugeBrownMushroomFeature;
 import net.minecraft.world.level.levelgen.feature.configurations.HugeMushroomFeatureConfiguration;
@@ -43,6 +48,20 @@ public abstract class CorrectHugeMushroomPlacementChecks {
         return this.getTreeRadiusForHeight(pY, maxHeight, foliageRadius + 1, currentY);
     }
 
+    @Redirect(
+            method = "isValidPosition",
+            at = @At(
+                    value = "INVOKE",
+                    target = "Lnet/minecraft/world/level/block/state/BlockState;is(Lnet/minecraft/tags/TagKey;)Z",
+                    ordinal = 1
+            )
+    )
+    private boolean aoemod$useActualMushroomHeightForRadiusCheck2(
+            BlockState instance, TagKey<Block> tagKey
+    ) {
+        return false;
+    }
+
     @Inject(method = "isValidPosition", at = @At("HEAD"), cancellable = true)
     private void aoemod$requireBrownMushroomCanopyClearance(
             LevelAccessor level,
@@ -56,16 +75,46 @@ public abstract class CorrectHugeMushroomPlacementChecks {
             return;
         }
 
-        int radius = config.foliageRadius + 1;
-        for (int y = Math.max(0, maxHeight - 2); y <= maxHeight; y++) {
+        int originY = pos.getY();
+
+        if (originY < level.getMinBuildHeight() + 1 || originY + maxHeight + 2 >= level.getMaxBuildHeight()) {
+            cir.setReturnValue(false);
+            return;
+        }
+
+        BlockState ground = level.getBlockState(pos.below());
+        if (!isValidHugeMushroomGround(ground)) {
+            cir.setReturnValue(false);
+            return;
+        }
+
+        for (int currentY = 0; currentY <= maxHeight + 2; currentY++) {
+            int radius = this.getTreeRadiusForHeight(
+                    originY,
+                    maxHeight,
+                    config.foliageRadius + 1,
+                    currentY
+            );
+
             for (int dx = -radius; dx <= radius; dx++) {
                 for (int dz = -radius; dz <= radius; dz++) {
-                    if (!level.getBlockState(mutablePos.setWithOffset(pos, dx, y, dz)).isAir()) {
+                    BlockState state = level.getBlockState(mutablePos.setWithOffset(pos, dx, currentY, dz));
+                    if (!state.isAir()) {
                         cir.setReturnValue(false);
                         return;
                     }
                 }
             }
         }
+
+        cir.setReturnValue(true);
+    }
+
+    private boolean isValidHugeMushroomGround(BlockState state) {
+        return state.is(BlockTags.DIRT)
+                || state.is(Blocks.MYCELIUM)
+                || state.is(Blocks.PODZOL)
+                || state.is(Blocks.CRIMSON_NYLIUM)
+                || state.is(Blocks.WARPED_NYLIUM);
     }
 }

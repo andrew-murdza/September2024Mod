@@ -1,6 +1,9 @@
 package net.amurdza.examplemod.mixins.worldgen;
 
+import net.amurdza.examplemod.registry.ModBlocks;
+import net.amurdza.examplemod.util.ModTags;
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.world.level.WorldGenLevel;
 import net.minecraft.world.level.block.state.BlockState;
@@ -26,12 +29,28 @@ public class TreeFeatureNeedsSolidGround {
     ) {
         WorldGenLevel level = context.level();
         BlockPos origin = context.origin();
-        BlockPos groundPos = origin.below();
 
-        BlockState groundState = level.getBlockState(groundPos);
 
-        if (!groundState.is(BlockTags.DIRT)) {
-            cir.setReturnValue(false);
+        boolean isSoulTree = context.config().foliageProvider.getState(context.random(),context.origin()).is(ModBlocks.PALE_OAK_LEAVES.get());
+
+        if(isSoulTree){
+            for(int i=0; i<2; i++){
+                for(int j=0; j<2; j++){
+                    BlockPos groundPos = origin.below().relative(Direction.EAST,i).relative(Direction.SOUTH,j);
+                    BlockState groundState = level.getBlockState(groundPos);
+                    if(!groundState.is(ModTags.Blocks.soulSediments)){
+                        cir.setReturnValue(false);
+                        return;
+                    }
+                }
+            }
+        }
+        else {
+            BlockPos groundPos = origin.below();
+            BlockState groundState = level.getBlockState(groundPos);
+            if (!groundState.is(BlockTags.DIRT)&&!isSoulTree) {
+                cir.setReturnValue(false);
+            }
         }
     }
 }

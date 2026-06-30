@@ -2,7 +2,7 @@
   "type": "minecraft:crafting_shapeless",
   "ingredients": [
     {
-      "item": "aoemod:pear"
+      "item": "fruitsdelight:pear"
     },
     {
       "item": "minecraft:egg"

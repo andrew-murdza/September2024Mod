@@ -13,6 +13,10 @@
       {
         "feature": "aoemod:rainforest/floor/grid_choice",
         "placement": []
+      },
+      {
+        "feature": "aoemod:rainforest/water/coral_grid_choice",
+        "placement": []
       }
     ],
     "target": "air",

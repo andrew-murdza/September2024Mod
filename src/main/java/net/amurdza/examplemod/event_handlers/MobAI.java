@@ -4,6 +4,7 @@ import com.github.alexthe666.alexsmobs.entity.*;
 import com.github.alexthe666.alexsmobs.entity.ai.*;
 import com.github.alexthe666.iceandfire.entity.EntitySiren;
 import net.amurdza.examplemod.AOEMod;
+import net.amurdza.examplemod.util.AnimalFoodOverrides;
 import net.amurdza.examplemod.util.ModTags;
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
@@ -70,12 +71,21 @@ public class MobAI {
                 if (entity instanceof Fox) {
                     addTempt(mob, Items.CHICKEN,Items.RABBIT);
                     addTempt(mob, ModTags.Items.rawFish);
+                    addTempt(mob, AnimalFoodOverrides.blueberry());
                 } else if (entity instanceof Rabbit) {
                     addTempt(mob, ModTags.Items.smallerFlowers);
                     addTempt(mob, Items.BEETROOT);
                     addTempt(mob, Items.WHEAT);
                     addTempt(mob, Items.POTATO);
+                    addTempt(mob, Items.SWEET_BERRIES);
+                    addTempt(mob, AnimalFoodOverrides.blueberry());
                     addTempt(mob, ModItems.ONION.get());
+                    addTempt(mob, net.amurdza.examplemod.registry.ModItems.ASHEN_WHEAT.get());
+                } else if (entity instanceof Pig || AnimalFoodOverrides.isBoar(entity)) {
+                    addTempt(mob, Items.WHEAT);
+                    addTempt(mob, net.amurdza.examplemod.registry.ModItems.ASHEN_WHEAT.get());
+                    addTempt(mob, Items.SWEET_BERRIES);
+                    addTempt(mob, AnimalFoodOverrides.blueberry());
                 } else if (entity instanceof Horse || entity instanceof AbstractChestedHorse) {
                     addTempt(mob, Items.HAY_BLOCK);
                 } else if (entity instanceof Cat||entity instanceof Ocelot) {
@@ -86,33 +96,58 @@ public class MobAI {
                     addTempt(mob, Items.MUTTON, Items.BEEF);
                     addTempt(mob, ModTags.Items.rawFish);
                 } else if (entity instanceof Parrot) {
-                    addTempt(1, mob, Items.WHEAT_SEEDS, Items.BEETROOT_SEEDS, Items.MELON_SEEDS, Items.PUMPKIN_SEEDS, Items.APPLE);
+                    addTempt(1, mob, Items.WHEAT_SEEDS, Items.BEETROOT_SEEDS, Items.MELON_SEEDS, Items.PUMPKIN_SEEDS, Items.APPLE,
+                            AnimalFoodOverrides.cabbageSeeds(), AnimalFoodOverrides.tomatoSeeds(), AnimalFoodOverrides.ashenWheatSeeds());
                     //parrot breeding
                     addBreeding(mob);
+                }
+                else if (entity instanceof Chicken) {
+                    addTempt(3, mob, AnimalFoodOverrides.cabbageSeeds(), AnimalFoodOverrides.tomatoSeeds(), AnimalFoodOverrides.ashenWheatSeeds());
+                }
+                else if (AnimalFoodOverrides.isSquirrel(entity)) {
+                    addTempt(3, mob, AnimalFoodOverrides.cabbageSeeds(), AnimalFoodOverrides.tomatoSeeds(), AnimalFoodOverrides.ashenWheatSeeds(),
+                            Items.BEETROOT_SEEDS, Items.WHEAT_SEEDS, Items.MELON_SEEDS, Items.PUMPKIN_SEEDS);
                 }
                 else if (entity instanceof MushroomCow) {
                     addTempt(mob, ModTags.Items.mushrooms);
                 }
+                else if (entity instanceof EntityWarpedToad) {
+                    addTempt(mob, Items.WARPED_FUNGUS);
+                }
+                else if (entity instanceof EntityBananaSlug) {
+                    addTempt(mob, Items.SEAGRASS, Items.KELP);
+                }
                 else if (entity instanceof Strider){
-                    addTempt(mob,Items.CRIMSON_ROOTS,Items.WARPED_ROOTS);
+                    removeAI(goal -> goal instanceof TemptGoal, mob.goalSelector);
+                    addTempt(mob, net.amurdza.examplemod.registry.ModItems.ASHEN_WHEAT.get());
                 }
                 else if(entity instanceof Frog) {
                     addTempt(mob, Items.SEAGRASS);
+                    addTempt(mob, Items.KELP);
                 }
                 else if(entity instanceof Goat){
                     addTempt(mob, Items.BEETROOT);
                     addTempt(mob, Items.POTATO);
                     addTempt(mob, Items.CARROT);
+                    addTempt(mob, Items.WHEAT);
+                    addTempt(mob, net.amurdza.examplemod.registry.ModItems.ASHEN_WHEAT.get());
+                    addTempt(mob, Items.SWEET_BERRIES);
+                    addTempt(mob, AnimalFoodOverrides.blueberry());
                     addTempt(mob, ModItems.ONION.get());
                 }
                 else if(entity instanceof EntityMoose) {
-                    addTempt(mob, ModTags.Items.smallerFlowers);
+                    removeAI(goal -> goal instanceof TemptGoal, mob.goalSelector);
                     addTempt(mob, Items.BEETROOT);
                     addTempt(mob, Items.POTATO);
                     addTempt(mob, Items.CARROT);
                     addTempt(mob, Items.WHEAT);
+                    addTempt(mob, Items.SWEET_BERRIES);
+                    addTempt(mob, net.amurdza.examplemod.registry.ModItems.ASHEN_WHEAT.get());
+                    addTempt(mob, AnimalFoodOverrides.blueberry());
+                    addTempt(mob, ModTags.Items.fruits);
                     addTempt(mob, ModItems.ONION.get());
                 }
+
                 //Protect Turtle
                 if (entity instanceof Zombie) {
                     removeAI(mob, Class.forName("net.minecraft.world.entity.monster.Zombie$ZombieAttackTurtleEggGoal"));

@@ -2,7 +2,11 @@ package net.amurdza.examplemod.event_handlers;
 
 import net.amurdza.examplemod.AOEMod;
 import net.amurdza.examplemod.config.MobConfig;
+import net.amurdza.examplemod.entity.EndFishEntity;
+import net.amurdza.examplemod.entity.NetherFishEntity;
+import net.amurdza.examplemod.registry.ModItems;
 import net.amurdza.examplemod.util.Helper;
+import net.amurdza.examplemod.util.ModTags;
 import net.minecraft.core.BlockPos;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.util.Mth;
@@ -23,6 +27,10 @@ public class CustomMobDrops {
     @SubscribeEvent
     public static void addConfiguredDrops(LivingDropsEvent event) {
         LivingEntity entity = event.getEntity();
+
+        if (addVariantFishDrops(event, entity)) {
+            return;
+        }
 
         List<MobConfig.MobBiomeMultipliers> dropEntries = MobConfig.mobDropEntries(entity);
 
@@ -169,5 +177,45 @@ public class CustomMobDrops {
         );
 
         event.getDrops().add(itemEntity);
+    }
+
+    private static boolean addVariantFishDrops(LivingDropsEvent event, LivingEntity entity) {
+        Item item = null;
+
+        if (entity instanceof NetherFishEntity netherFish) {
+            item = ModItems.netherFishForVariantIndex(netherFish.getNetherVariantIndex(), entity.isOnFire());
+        } else if (entity instanceof EndFishEntity endFish) {
+            item = ModItems.endFishForVariant(endFish.getVariantId(), entity.isOnFire());
+        }
+
+        if (item == null) {
+            return false;
+        }
+
+        event.getDrops().clear();
+        dropItem(event, entity, item, Math.max(1.0F, codLikeFishAmount(entity)));
+        return true;
+    }
+
+    private static float codLikeFishAmount(LivingEntity entity) {
+        var biome = entity.level().getBiome(entity.blockPosition());
+
+        if (biome.is(ModTags.Biomes.tropicalBiomes)) {
+            return 2.0F;
+        }
+
+        if (biome.is(ModTags.Biomes.savannaBiomes) || biome.is(ModTags.Biomes.plainsBiomes)) {
+            return 1.0F;
+        }
+
+        if (biome.is(ModTags.Biomes.mountainBiomes) || biome.is(ModTags.Biomes.mushroomCaves)) {
+            return 2.0F;
+        }
+
+        if (biome.is(ModTags.Biomes.desertBiomes)) {
+            return 0.5F;
+        }
+
+        return 0.0F;
     }
 }

@@ -2,7 +2,7 @@
   "type": "minecraft:crafting_shapeless",
   "ingredients": [
     {
-      "item": "aoemod:plum"
+      "item": "fruitsdelight:peach"
     },
     {
       "item": "minecraft:egg"

@@ -96,15 +96,15 @@ public class NetherCavePiece extends AbstractSpiralCavePiece {
         else if (y <= maxCrimsonForestY && y > maxBasaltDeltasY) {
             setBlock(level, surfacePos, Blocks.CRIMSON_NYLIUM);
         }
+
+        replaceExposedUndesirableBoundaryBlock(level, surfacePos, netherBoundaryReplacement(surfacePos), false);
     }
 
     @Override
     protected void decorateRiverFloor(WorldGenLevel level, BlockPos surfacePos) {
         if (surfacePos.above().getY() > maxDeepDarkY) {
             setBlock(level, surfacePos, Blocks.SAND);
-            setBlock(level, surfacePos.below(), Blocks.SAND);
-            setBlock(level, surfacePos.below(2), Blocks.SANDSTONE);
-            setBlock(level, surfacePos.below(3), Blocks.SANDSTONE);
+            setBlock(level, surfacePos.below(), Blocks.SANDSTONE);
         } else {
             decorateCaveFloor(level, surfacePos);
         }
@@ -115,6 +115,8 @@ public class NetherCavePiece extends AbstractSpiralCavePiece {
         if (wallPos.above().getY() <= maxDeepDarkY && wallPos.above().getY() > maxSoulSandValleyY) {
             setSculk(level, wallPos, wallDirection);
         }
+
+        replaceExposedUndesirableBoundaryBlock(level, wallPos, netherBoundaryReplacement(wallPos), false);
     }
 
     @Override
@@ -127,6 +129,30 @@ public class NetherCavePiece extends AbstractSpiralCavePiece {
         if (ceilingPos.above().getY() <= maxDeepDarkY && ceilingPos.above().getY() > maxSoulSandValleyY) {
             setSculk(level, ceilingPos, Direction.UP);
         }
+
+        replaceExposedUndesirableBoundaryBlock(level, ceilingPos, netherBoundaryReplacement(ceilingPos), true);
+    }
+
+    private Block netherBoundaryReplacement(BlockPos pos) {
+        int y = pos.above().getY();
+
+        if (y > maxDeepDarkY) {
+            return Blocks.STONE;
+        }
+
+        if (y <= maxDeepDarkY && y > maxSoulSandValleyY) {
+            return Blocks.SCULK;
+        }
+
+        if (y <= maxSoulSandValleyY && y > maxWarpedForestY) {
+            return ((pos.getX() + pos.getZ()) & 1) == 0 ? Blocks.SOUL_SAND : Blocks.SOUL_SOIL;
+        }
+
+        if (y <= maxBasaltDeltasY) {
+            return ((pos.getX() + pos.getY() + pos.getZ()) & 1) == 0 ? Blocks.BASALT : Blocks.BLACKSTONE;
+        }
+
+        return Blocks.NETHERRACK;
     }
 
     protected void setSculk(WorldGenLevel level, BlockPos pos, Direction direction){

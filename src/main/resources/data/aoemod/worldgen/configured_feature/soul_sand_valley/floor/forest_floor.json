@@ -4,7 +4,7 @@
     "placement": [],
     "features": [
       {
-        "chance": 0.05,
+        "chance": 0.10,
         "feature": "aoemod:soul_sand_valley/floor/grass"
       },
       {

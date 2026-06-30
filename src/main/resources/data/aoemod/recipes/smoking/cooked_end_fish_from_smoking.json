@@ -1,6 +1,5 @@
 {
   "type": "minecraft:smoking",
-  "category": "food",
   "ingredient": {
     "item": "aoemod:end_fish"
   },

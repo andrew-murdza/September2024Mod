@@ -64,6 +64,7 @@ public class EntityRenderers {
         event.registerEntityRenderer(ModEntities.SKELETON_HORSEMAN.get(), SkeletonHorsemanRenderer::new);
         event.registerEntityRenderer(ModEntities.NAUTILUS.get(), NautilusRenderer::new);
         event.registerEntityRenderer(ModEntities.END_FISH.get(), EndFishEntityRenderer::new);
+        event.registerEntityRenderer(ModEntities.NETHER_FISH.get(), NetherFishEntityRenderer::new);
         event.registerEntityRenderer(ModEntities.CUBOZOA.get(), CubozoaEntityRenderer::new);
         event.registerEntityRenderer(ModEntities.SEA_SERPENT.get(), SeaSerpentEntityRenderer::new);
     }

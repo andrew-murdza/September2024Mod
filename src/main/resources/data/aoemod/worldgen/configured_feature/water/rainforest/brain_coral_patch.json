@@ -50,6 +50,7 @@
       ]
     },
     "count": 16,
-    "y_spread": 0
+    "y_spread": 0,
+    "land_only": false
   }
 }

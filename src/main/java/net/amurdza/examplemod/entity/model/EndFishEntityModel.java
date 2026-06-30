@@ -2,8 +2,6 @@ package net.amurdza.examplemod.entity.model;
 
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
-import net.amurdza.examplemod.AOEMod;
-import net.amurdza.examplemod.entity.EndFishEntity;
 import net.minecraft.client.model.EntityModel;
 import net.minecraft.client.model.geom.ModelPart;
 import net.minecraft.client.model.geom.PartNames;
@@ -13,9 +11,9 @@ import net.minecraft.client.model.geom.builders.LayerDefinition;
 import net.minecraft.client.model.geom.builders.MeshDefinition;
 import net.minecraft.client.model.geom.builders.PartDefinition;
 import net.minecraft.client.renderer.RenderType;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.entity.Entity;
 
-public class EndFishEntityModel extends EntityModel<EndFishEntity> {
+public class EndFishEntityModel<T extends Entity> extends EntityModel<T> {
     private final ModelPart model;
     private final ModelPart fin_top;
     private final ModelPart fin_bottom;
@@ -79,7 +77,7 @@ public class EndFishEntityModel extends EntityModel<EndFishEntity> {
     }
 
     @Override
-    public void setupAnim(EndFishEntity entity, float limbAngle, float limbDistance, float animationProgress, float headYaw, float headPitch) {
+    public void setupAnim(T entity, float limbAngle, float limbDistance, float animationProgress, float headYaw, float headPitch) {
         float s1 = (float) Math.sin(animationProgress * 0.1);
         float s2 = (float) Math.sin(animationProgress * 0.05);
         flipper.yRot = s1 * 0.3F;

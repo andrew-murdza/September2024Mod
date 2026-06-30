@@ -11,7 +11,8 @@ public record FixedCountRandomPatchConfiguration(
         int count,
         int xzSpread,
         int ySpread,
-        Holder<PlacedFeature> feature
+        Holder<PlacedFeature> feature,
+        boolean landOnly
 ) implements FeatureConfiguration {
 
     public static final Codec<FixedCountRandomPatchConfiguration> CODEC = RecordCodecBuilder.create(instance ->
@@ -32,7 +33,11 @@ public record FixedCountRandomPatchConfiguration(
 
                     PlacedFeature.CODEC
                             .fieldOf("feature")
-                            .forGetter(FixedCountRandomPatchConfiguration::feature)
+                            .forGetter(FixedCountRandomPatchConfiguration::feature),
+
+                    Codec.BOOL
+                            .optionalFieldOf("land_only", true)
+                            .forGetter(FixedCountRandomPatchConfiguration::landOnly)
             ).apply(instance, FixedCountRandomPatchConfiguration::new)
     );
 

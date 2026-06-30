@@ -10,7 +10,7 @@
       {
         "feature": "aoemod:sugar_cane_patch",
         "count": 2,
-        "region_x": [5, 29]
+          "region_x": [6, 29]
       }
     ],
     "minimum_sections": [
@@ -38,7 +38,7 @@
       }
     ],
     "offset_type": "in_square",
-    "region_width": 12,
+    "region_width": 30,
     "region_depth": 16,
     "section_width": 12,
     "section_depth": 16,

@@ -52,7 +52,7 @@
       }
     ],
     "default_feature": "aoemod:nothing",
-    "offset_type": "center",
+    "offset_type": "corner",
     "placement": [],
     "region_width": 30,
     "region_depth": 64,

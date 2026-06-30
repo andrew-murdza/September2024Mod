@@ -18,6 +18,7 @@ import java.util.Optional;
 import java.util.stream.Stream;
 
 public class GridChoiceFeature extends Feature<GridChoiceConfig> {
+    private static final int FLOOR_SEARCH_RANGE = 8;
 
     public GridChoiceFeature(Codec<GridChoiceConfig> codec) {
         super(codec);
@@ -44,12 +45,7 @@ public class GridChoiceFeature extends Feature<GridChoiceConfig> {
                 continue;
             }
 
-            placedAnything |= selected.value().place(
-                    context.level(),
-                    context.chunkGenerator(),
-                    context.random(),
-                    pos
-            );
+            placedAnything |= tryPlaceNearFloor(context, selected, pos);
         }
 
         return placedAnything;
@@ -134,6 +130,32 @@ public class GridChoiceFeature extends Feature<GridChoiceConfig> {
             case CENTER -> origin.offset(7, 0, 7);
             case CORNER -> origin;
         };
+    }
+
+    private boolean tryPlaceNearFloor(
+            FeaturePlaceContext<GridChoiceConfig> context,
+            Holder<ConfiguredFeature<?, ?>> selected,
+            BlockPos origin
+    ) {
+        BlockPos.MutableBlockPos mutablePos = new BlockPos.MutableBlockPos();
+
+        for (int yOffset = 0; yOffset <= FLOOR_SEARCH_RANGE; yOffset++) {
+            mutablePos.set(origin.getX(), origin.getY() + yOffset, origin.getZ());
+            if (selected.value().place(context.level(), context.chunkGenerator(), context.random(), mutablePos)) {
+                return true;
+            }
+
+            if (yOffset == 0) {
+                continue;
+            }
+
+            mutablePos.set(origin.getX(), origin.getY() - yOffset, origin.getZ());
+            if (selected.value().place(context.level(), context.chunkGenerator(), context.random(), mutablePos)) {
+                return true;
+            }
+        }
+
+        return false;
     }
 
     private record WeightedGrid(

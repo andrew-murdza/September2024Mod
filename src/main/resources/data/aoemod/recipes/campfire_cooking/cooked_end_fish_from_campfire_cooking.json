@@ -1,6 +1,5 @@
 {
   "type": "minecraft:campfire_cooking",
-  "category": "food",
   "ingredient": {
     "item": "aoemod:end_fish"
   },

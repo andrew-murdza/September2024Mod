@@ -92,16 +92,6 @@ public class AOEMod
             MobConfig.init();
 
             FireBlockAccessor fire = (FireBlockAccessor) Blocks.FIRE;
-            fire.aoemod$setFlammable(ModBlocks.PALE_OAK_LOG.get(), 5, 5);
-            fire.aoemod$setFlammable(ModBlocks.STRIPPED_PALE_OAK_LOG.get(), 5, 5);
-            fire.aoemod$setFlammable(ModBlocks.PALE_OAK_WOOD.get(), 5, 5);
-            fire.aoemod$setFlammable(ModBlocks.STRIPPED_PALE_OAK_WOOD.get(), 5, 5);
-            fire.aoemod$setFlammable(ModBlocks.PALE_OAK_PLANKS.get(), 5, 20);
-            fire.aoemod$setFlammable(ModBlocks.PALE_OAK_STAIRS.get(), 5, 20);
-            fire.aoemod$setFlammable(ModBlocks.PALE_OAK_SLAB.get(), 5, 20);
-            fire.aoemod$setFlammable(ModBlocks.PALE_OAK_FENCE.get(), 5, 20);
-            fire.aoemod$setFlammable(ModBlocks.PALE_OAK_FENCE_GATE.get(), 5, 20);
-            fire.aoemod$setFlammable(ModBlocks.PALE_OAK_LEAVES.get(), 30, 60);
             fire.aoemod$setFlammable(ModBlocks.PALE_MOSS_BLOCK.get(), 30, 100);
             fire.aoemod$setFlammable(ModBlocks.PALE_MOSS_CARPET.get(), 60, 100);
             fire.aoemod$setFlammable(ModBlocks.PALE_HANGING_MOSS.get(), 60, 100);
@@ -142,6 +132,8 @@ public class AOEMod
         if (tab == CreativeModeTabs.NATURAL_BLOCKS) {
 
             event.accept(ModItems.SOUL_BERRIES.get());
+            event.accept(ModItems.ASHEN_WHEAT.get());
+            event.accept(ModItems.ASHEN_WHEAT_SEEDS.get());
 
             event.accept(ModItems.CARROT_SEEDS.get());
             event.accept(ModItems.POTATO_SEEDS.get());
@@ -170,6 +162,7 @@ public class AOEMod
         }
 
         if (tab == CreativeModeTabs.BUILDING_BLOCKS) {
+            event.accept(ModBlocks.COPPER_CHAIN.get());
             event.accept(ModBlocks.PALE_OAK_LOG.get());
             event.accept(ModBlocks.STRIPPED_PALE_OAK_LOG.get());
             event.accept(ModBlocks.PALE_OAK_WOOD.get());
@@ -191,32 +184,29 @@ public class AOEMod
 
             // raw seafood
             event.accept(ModItems.END_FISH.get());
-            event.accept(ModItems.CUBOZOA.get());
+            event.accept(ModItems.NETHER_FISH.get());
 
             // cooked seafood
             event.accept(ModItems.COOKED_PUFFERFISH.get());
             event.accept(ModItems.COOKED_TROPICAL_FISH.get());
+            event.accept(ModItems.COOKED_GLOW_SQUID.get());
             event.accept(ModItems.COOKED_END_FISH.get());
-            event.accept(ModItems.COOKED_CUBOZOA.get());
 
             // pies
             event.accept(ModItems.MELON_PIE.get());
             event.accept(ModItems.GLOW_BERRY_PIE.get());
+            event.accept(ModItems.MANGO_PIE.get());
             event.accept(ModItems.PEAR_PIE.get());
             event.accept(ModItems.BANANA_PIE.get());
             event.accept(ModItems.PLUM_PIE.get());
             event.accept(ModItems.CHERRY_PIE.get());
 
             // other
-            event.accept(ModItems.ORANGE_JUICE.get());
             event.accept(ModItems.SOUL_BERRY_COOKIE.get());
-            event.accept(ModItems.CHORUS_BREAD.get());
-
-            // fruit
-            event.accept(ModItems.PEAR.get());
-            event.accept(ModItems.PLUM.get());
-            event.accept(ModItems.ORANGE.get());
-            event.accept(ModItems.CHERRIES.get());
+            event.accept(ModItems.BLUE_BERRY_COOKIE.get());
+            event.accept(ModItems.SEARING_COD_ROLL.get());
+            event.accept(ModItems.NETHER_FISH_KELP_ROLL.get());
+            event.accept(ModItems.ASHEN_BREAD.get());
         }
 
         // TOOLS AND UTILITIES
@@ -298,10 +288,13 @@ public class AOEMod
                 ItemBlockRenderTypes.setRenderLayer(ModBlocks.PALE_HANGING_MOSS.get(), RenderType.cutout());
                 ItemBlockRenderTypes.setRenderLayer(ModBlocks.OPEN_EYEBLOSSOM.get(), RenderType.cutout());
                 ItemBlockRenderTypes.setRenderLayer(ModBlocks.CLOSED_EYEBLOSSOM.get(), RenderType.cutout());
+                ItemBlockRenderTypes.setRenderLayer(ModBlocks.BLUE_BERRY_BUSH.get(), RenderType.cutout());
+                ItemBlockRenderTypes.setRenderLayer(ModBlocks.ASHEN_WHEAT_CROP.get(), RenderType.cutout());
                 ItemBlockRenderTypes.setRenderLayer(ModBlocks.PALE_OAK_DOOR.get(), RenderType.cutout());
                 ItemBlockRenderTypes.setRenderLayer(ModBlocks.PALE_OAK_TRAPDOOR.get(), RenderType.cutout());
                 ItemBlockRenderTypes.setRenderLayer(ModBlocks.PALE_OAK_LEAVES.get(), RenderType.cutoutMipped());
                 ItemBlockRenderTypes.setRenderLayer(ModBlocks.PALE_OAK_SAPLING.get(), RenderType.cutout());
+                ItemBlockRenderTypes.setRenderLayer(ModBlocks.COPPER_CHAIN.get(), RenderType.cutout());
                 for (var spear : new net.minecraft.world.item.Item[]{
                         ModItems.WOODEN_SPEAR.get(), ModItems.STONE_SPEAR.get(), ModItems.COPPER_SPEAR.get(),
                         ModItems.IRON_SPEAR.get(), ModItems.GOLDEN_SPEAR.get(), ModItems.DIAMOND_SPEAR.get(),

@@ -128,6 +128,12 @@ repositories {
             includeGroup "curse.maven"
         }
     }
+    maven {
+        url = "https://api.modrinth.com/maven"
+        content {
+            includeGroup "maven.modrinth"
+        }
+    }
 }
 
 dependencies {
@@ -175,6 +181,7 @@ dependencies {
 
     //Plants
     implementation fg.deobf("curse.maven:farmersdelight-398521:5051242")
+    implementation fg.deobf("maven.modrinth:fruits-delight:1.0.22")
 
     implementation fg.deobf("curse.maven:snow-real-magic-308663:5801189")
     implementation fg.deobf("curse.maven:kiwi-303657:5603816")
@@ -190,14 +197,18 @@ dependencies {
     implementation fg.deobf("curse.maven:citadelforalexsmobs-331936:5633260")//NO TOML
 
     implementation fg.deobf("curse.maven:ecologics-570463:7457108")
+    implementation fg.deobf("curse.maven:better-carrots-548721:5306948")
+    implementation fg.deobf("curse.maven:netherific-479296:4718299")
 
     //Animals
     implementation fg.deobf("curse.maven:naturalist-627986:4847009")
     implementation fg.deobf("curse.maven:architectury-api-419699:4663010")
 
     implementation fg.deobf("curse.maven:lithostitched-936015:6742615")
-    implementation fg.deobf("curse.maven:kotlin-for-forge-351264:7291067")
+    implementation fg.deobf("curse.maven:kotlin-for-forge-351264:4578885")
     implementation fg.deobf("curse.maven:hybrid-aquatic-834427:7204568")
+    implementation fg.deobf("curse.maven:faewulfs-lib-1209568:6758845")
+    implementation fg.deobf("curse.maven:diversity-1039632:7130442")
 
 //    Monsters
     implementation fg.deobf("curse.maven:iceandfire-264231:5633453")

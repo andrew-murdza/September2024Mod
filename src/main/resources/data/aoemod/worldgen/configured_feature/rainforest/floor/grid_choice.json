@@ -2,22 +2,21 @@
   "type": "aoemod:regional_grid_choice",
   "config": {
     "features": [
-      { "feature": "aoemod:sugar_cane_patch", "count": 2 },
-      { "feature": "aoemod:crops/rainforest/sweet_berry_bush_patch", "count": 4 },
-      { "feature": "aoemod:cactus_patch", "count": 2 },
+      { "feature": "aoemod:sugar_cane_patch", "count": 3 },
+      { "feature": "aoemod:crops/rainforest/sweet_berry_bush_patch", "count": 3 },
+      { "feature": "aoemod:crops/rainforest/blue_berry_bush_patch", "count": 3 },
+      { "feature": "aoemod:cactus_patch", "count": 3 },
       { "feature": "aoemod:mushrooms/rainforest/red_mushroom_patch", "count": 4 },
       { "feature": "aoemod:mushrooms/rainforest/brown_mushroom_patch", "count": 4 },
       { "feature": "aoemod:flowers/rainforest/big_dripleaf_patch", "count": 2 },
       { "feature": "aoemod:flowers/rainforest/small_dripleaf_patch", "count": 2 },
-      { "feature": "aoemod:flowers/rainforest/flowering_azalea_patch", "count": 2 },
-      { "feature": "aoemod:flowers/rainforest/azalea_patch", "count": 4 },
-      { "feature": "aoemod:nothing", "count": 2 }
+      { "feature": "aoemod:flowers/rainforest/azalea_patch", "count": 6 }
     ],
     "pinned_features": [
       {
         "feature": "aoemod:sugar_cane_patch",
         "count": 2,
-        "region_x": [5, 29]
+        "region_x": [6, 29]
       }
     ],
     "groups": [
@@ -49,7 +48,7 @@
       }
     ],
     "default_feature": "aoemod:nothing",
-    "offset_type": "center",
+    "offset_type": "corner",
     "placement": [],
     "region_width": 30,
     "region_depth": 64,

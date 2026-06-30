@@ -5,7 +5,7 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "aoemod:jungle_sweet_berries"
+          "name": "minecraft:sweet_berries"
         }
       ]
     }

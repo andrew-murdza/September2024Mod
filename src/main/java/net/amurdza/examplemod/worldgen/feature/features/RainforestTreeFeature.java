@@ -51,8 +51,12 @@ public class RainforestTreeFeature extends Feature<RainforestTreeFeatureConfig> 
     public boolean place(FeaturePlaceContext<RainforestTreeFeatureConfig> context) {
         WorldGenLevel level = context.level();
         RandomSource random = context.random();
-        BlockPos origin = context.origin();
         RainforestTreeFeatureConfig config = context.config();
+        BlockPos origin = findNearestValidOrigin(level, context.origin(), config);
+
+        if (origin == null) {
+            return false;
+        }
 
         StructureTemplateManager templateManager =
                 level.getLevel().getServer().getStructureManager();
@@ -91,7 +95,7 @@ public class RainforestTreeFeature extends Feature<RainforestTreeFeatureConfig> 
         for (int dx = 0; dx < trunkWidth; dx++) {
             for (int dz = 0; dz < trunkWidth; dz++) {
                 BlockPos groundPos = origin.offset(dx, -1, dz);
-                if (!config.validGround().test(level, groundPos)) {
+                if (!isValidTreeGround(level, groundPos, config)) {
                     return false;
                 }
             }
@@ -158,6 +162,58 @@ public class RainforestTreeFeature extends Feature<RainforestTreeFeatureConfig> 
         }
 
         return new BlockPos(origin.getX() + offset, canopyBottomY, origin.getZ() + offset);
+    }
+
+    private static @Nullable BlockPos findNearestValidOrigin(
+            WorldGenLevel level,
+            BlockPos origin,
+            RainforestTreeFeatureConfig config
+    ) {
+        for (int yOffset = 0; yOffset <= 8; yOffset++) {
+            BlockPos up = origin.above(yOffset);
+            if (hasValidTrunkGround(level, up, config)) {
+                return up;
+            }
+
+            if (yOffset == 0) {
+                continue;
+            }
+
+            BlockPos down = origin.below(yOffset);
+            if (hasValidTrunkGround(level, down, config)) {
+                return down;
+            }
+        }
+
+        return null;
+    }
+
+    private static boolean hasValidTrunkGround(
+            WorldGenLevel level,
+            BlockPos origin,
+            RainforestTreeFeatureConfig config
+    ) {
+        for (int dx = 0; dx < config.trunkWidth(); dx++) {
+            for (int dz = 0; dz < config.trunkWidth(); dz++) {
+                if (!isValidTreeGround(level, origin.offset(dx, -1, dz), config)) {
+                    return false;
+                }
+            }
+        }
+
+        return true;
+    }
+
+    private static boolean isValidTreeGround(
+            WorldGenLevel level,
+            BlockPos pos,
+            RainforestTreeFeatureConfig config
+    ) {
+        BlockState state = level.getBlockState(pos);
+
+        return config.validGround().test(level, pos)
+                || state.is(Blocks.MOSS_BLOCK)
+                || state.is(BlockTags.CORAL_BLOCKS);
     }
 
     private static boolean hasAirTopMargin(WorldGenLevel level, BlockPos origin, BlockPos canopyOrigin, Vec3i size) {
@@ -325,6 +381,10 @@ public class RainforestTreeFeature extends Feature<RainforestTreeFeatureConfig> 
                     }
                     return new StructureTemplate.StructureBlockInfo(worldPos, templateState, transformedInfo.nbt());
                 }
+            }
+
+            if (templateState.is(Blocks.SHROOMLIGHT)) {
+                return transformedInfo;
             }
 
             BlockState newState;

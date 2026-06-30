@@ -1,6 +1,7 @@
 package net.amurdza.examplemod.entity;
 
 import net.amurdza.examplemod.registry.ModItems;
+import net.amurdza.examplemod.util.ModTags;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.syncher.EntityDataAccessor;
 import net.minecraft.network.syncher.EntityDataSerializers;
@@ -40,7 +41,7 @@ public class EndFishEntity extends AbstractSchoolingFish implements VariantHolde
             EntityDataSerializers.BYTE
     );
 
-    public EndFishEntity(EntityType<EndFishEntity> entityType, Level world) {
+    public EndFishEntity(EntityType<? extends EndFishEntity> entityType, Level world) {
         super(entityType, world);
     }
 
@@ -54,7 +55,9 @@ public class EndFishEntity extends AbstractSchoolingFish implements VariantHolde
     ) {
         SpawnGroupData data = super.finalizeSpawn(world, difficulty, spawnReason, entityData, entityTag);
 
-        this.setVariant(Variant.byId(this.random.nextInt(VARIANTS_SULPHUR) + VARIANTS_NORMAL));
+        if (entityTag == null || !entityTag.contains("Variant")) {
+            this.setVariant(chooseNaturalVariant(world));
+        }
 
         if (entityTag != null) {
             if (entityTag.contains("Variant")) {
@@ -68,6 +71,24 @@ public class EndFishEntity extends AbstractSchoolingFish implements VariantHolde
 
         this.refreshDimensions();
         return data;
+    }
+
+    private Variant chooseNaturalVariant(ServerLevelAccessor world) {
+        var biome = world.getBiome(this.blockPosition());
+
+        if (biome.is(ModTags.Biomes.mountainBiomes) || biome.is(ModTags.Biomes.mushroomCaves)) {
+            return Variant.byId(this.random.nextInt(3));
+        }
+
+        if (biome.is(ModTags.Biomes.desertBiomes)) {
+            return Variant.SULPHUR_0;
+        }
+
+        if (biome.is(ModTags.Biomes.tropicalBiomes)) {
+            return Variant.byId(6 + this.random.nextInt(2));
+        }
+
+        return Variant.byId(6 + this.random.nextInt(2));
     }
 
     @Override

@@ -27,6 +27,7 @@ public class ModTags {
         public static final TagKey<Item> vegetables=tag("vegetables");
         public static final TagKey<Item> mushrooms=tag("mushrooms");
         public static final TagKey<Item> rawFish=tag("raw_fish");
+        public static TagKey<Item> fruits=tag("fruits");
 
         private static TagKey<Item> tag(String name){
             return ItemTags.create(new ResourceLocation(AOEMod.MOD_ID,name));

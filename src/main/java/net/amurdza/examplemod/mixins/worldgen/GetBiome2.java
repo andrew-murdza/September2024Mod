@@ -33,11 +33,8 @@ public abstract class GetBiome2 extends BiomeSource {
     private static final ResourceKey<Biome> AOE_GROVE =
             ResourceKey.create(Registries.BIOME, new ResourceLocation("aoemod", "grove"));
     @Unique
-    private static final ResourceKey<Biome> AOE_MUSHROOM_CAVES =
-            ResourceKey.create(Registries.BIOME, new ResourceLocation("aoemod", "mushroom_caves"));
-    @Unique
     private static final ResourceKey<Biome> AOE_BADLANDS =
-            ResourceKey.create(Registries.BIOME, new ResourceLocation("aoemod", "badlands"));
+            ResourceKey.create(Registries.BIOME, new ResourceLocation("aoemod", "desert"));
     @Unique
     private static final ResourceKey<Biome> AOE_DEEP_DARK =
             ResourceKey.create(Registries.BIOME, new ResourceLocation("aoemod", "deep_dark"));
@@ -95,6 +92,7 @@ public abstract class GetBiome2 extends BiomeSource {
         int wrappedZ = Math.floorMod(shiftedZ, periodBlocks);
 
         int band = wrappedZ / AOE_BIOME_WIDTH_BLOCKS;
+        int withinBand = wrappedZ % AOE_BIOME_WIDTH_BLOCKS;
 
         /*
          * Band order:
@@ -102,15 +100,16 @@ public abstract class GetBiome2 extends BiomeSource {
          * 0: jungle
          * 1: savanna
          * 2: plains
-         * 3: grove / mushroom caves
+         * 3: grove
          * 4: badlands / nether layers
          * 5: badlands / nether layers
-         * 6: grove / mushroom caves
+         * 6: grove
          * 7: plains
          * 8: savanna
          * 9: jungle
          *
-         * Because bands 9 and 0 touch across the wrap, jungle is 2 bands wide.
+         * Bands 9 and 0 touch across the wrap. Keep only the seam-adjacent
+         * half of each so the wrapped jungle totals one normal biome width.
          * Because bands 4 and 5 touch in the middle, badlands is 2 bands wide.
          */
         switch (band) {
@@ -120,13 +119,7 @@ public abstract class GetBiome2 extends BiomeSource {
 
             case 2, 7 -> cir.setReturnValue(biomes.get(AOE_PLAINS));
 
-            case 3, 6 -> {
-                if (blockY <= 39) {
-                    cir.setReturnValue(biomes.get(AOE_MUSHROOM_CAVES));
-                } else {
-                    cir.setReturnValue(biomes.get(AOE_GROVE));
-                }
-            }
+            case 3, 6 -> cir.setReturnValue(biomes.get(AOE_GROVE));
 
             case 4, 5 -> cir.setReturnValue(aoe$getBadlandsLayerBiome(biomes, blockY));
         }
@@ -158,7 +151,6 @@ public abstract class GetBiome2 extends BiomeSource {
                 && biomes.containsKey(AOE_SAVANNA)
                 && biomes.containsKey(AOE_PLAINS)
                 && biomes.containsKey(AOE_GROVE)
-                && biomes.containsKey(AOE_MUSHROOM_CAVES)
                 && biomes.containsKey(AOE_BADLANDS)
                 && biomes.containsKey(AOE_DEEP_DARK)
                 && biomes.containsKey(AOE_CRIMSON)

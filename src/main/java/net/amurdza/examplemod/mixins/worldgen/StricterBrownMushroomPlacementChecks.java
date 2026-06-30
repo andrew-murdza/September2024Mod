@@ -14,25 +14,19 @@ public abstract class StricterBrownMushroomPlacementChecks {
             at = @At("HEAD"),
             cancellable = true
     )
-    private void aoemod$checkTopThreeBrownMushroomLayers(
+    private void aoemod$checkBrownMushroomCanopyLayers(
             int pY,
             int pMaxHeight,
             int pFoliageRadius,
             int pCurrentY,
             CallbackInfoReturnable<Integer> cir
     ) {
-        /*
-         * Your AbstractHugeMushroomFeature mixin changes the call so that
-         * pMaxHeight is the real mushroom height instead of -1.
-         *
-         * Brown mushrooms only place their cap at the top, but this makes
-         * placement validation reserve the top 3 layers instead of only
-         * being permissive below the cap.
-         */
-        if (pMaxHeight >= 0 && pCurrentY >= pMaxHeight - 2) {
-            cir.setReturnValue(pFoliageRadius);
-        } else {
-            cir.setReturnValue(0);
+        int radius = 0;
+
+        if (pCurrentY < pMaxHeight + 2 && pCurrentY >= pMaxHeight - 3) {
+            radius = pFoliageRadius;
         }
+
+        cir.setReturnValue(radius);
     }
 }

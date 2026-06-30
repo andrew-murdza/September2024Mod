@@ -1,6 +1,5 @@
 {
   "type": "minecraft:smelting",
-  "category": "food",
   "ingredient": {
     "item": "aoemod:end_fish"
   },

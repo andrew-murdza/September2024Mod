@@ -311,7 +311,7 @@
           "type": "minecraft:biome",
           "biome_is": [
             "aoemod:grove",
-            "aoemod:mushroom_caves"
+            "aoemod:grove"
           ]
         },
         "then_run": {
@@ -424,7 +424,7 @@
         "if_true": {
           "type": "minecraft:biome",
           "biome_is": [
-            "aoemod:badlands",
+            "aoemod:desert",
             "aoemod:deep_dark"
           ]
         },

@@ -79,7 +79,7 @@ side = "BOTH"
 
 [[dependencies."${mod_id}"]]
 modId = "alexsmobs"
-mandatory = false
+mandatory = true
 versionRange = "[1.22.9,)"
 ordering = "AFTER"
 side = "BOTH"
@@ -100,7 +100,7 @@ side = "BOTH"
 
 [[dependencies."${mod_id}"]]
 modId = "snowrealmagic"
-mandatory = false
+mandatory = true
 versionRange = "[0,)"
 ordering = "AFTER"
 side = "BOTH"
@@ -114,14 +114,14 @@ side = "BOTH"
 
 [[dependencies."${mod_id}"]]
 modId = "woodenbucket"
-mandatory = false
+mandatory = true
 versionRange = "[0,)"
 ordering = "AFTER"
 side = "BOTH"
 
 [[dependencies."${mod_id}"]]
 modId = "woodenshears"
-mandatory = false
+mandatory = true
 versionRange = "[0,)"
 ordering = "AFTER"
 side = "BOTH"
@@ -129,36 +129,43 @@ side = "BOTH"
 
 [[dependencies."${mod_id}"]]
 modId = "bucketlib"
-mandatory = false
+mandatory = true
 versionRange = "[0,)"
 ordering = "AFTER"
 side = "BOTH"
 
-#[[dependencies."${mod_id}"]]
-#modId = "born_in_chaos_v1"
-#mandatory = false
-#versionRange = "[1.0.0,)"
-#ordering = "AFTER"
-#side = "BOTH"
+[[dependencies."${mod_id}"]]
+modId = "born_in_chaos_v1"
+mandatory = true
+versionRange = "[1.0.0,)"
+ordering = "AFTER"
+side = "BOTH"
 
 [[dependencies."${mod_id}"]]
 modId = "culturaldelights"
-mandatory = false
+mandatory = true
 versionRange = "[0.16.1,)"
 ordering = "AFTER"
 side = "BOTH"
 
 [[dependencies."${mod_id}"]]
 modId = "ecologics"
-mandatory = false
+mandatory = true
 versionRange = "[2.2.0,)"
 ordering = "AFTER"
 side = "BOTH"
 
 [[dependencies."${mod_id}"]]
 modId = "farmersdelight"
-mandatory = false
+mandatory = true
 versionRange = "[1.20.1-1.2.4,)"
+ordering = "AFTER"
+side = "BOTH"
+
+[[dependencies."${mod_id}"]]
+modId = "fruitsdelight"
+mandatory = true
+versionRange = "[1.0.22,)"
 ordering = "AFTER"
 side = "BOTH"
 
@@ -179,14 +186,14 @@ side = "BOTH"
 
 [[dependencies."${mod_id}"]]
 modId = "quark"
-mandatory = false
+mandatory = true
 versionRange = "[4.0-460,)"
 ordering = "AFTER"
 side = "BOTH"
 
 [[dependencies."${mod_id}"]]
 modId = "nourished_nether"
-mandatory = false
+mandatory = true
 versionRange = "[0.2.5,)"
 ordering = "AFTER"
 side = "BOTH"
@@ -207,14 +214,14 @@ side = "BOTH"
 
 [[dependencies."${mod_id}"]]
 modId = "bettercarrots"
-mandatory = false
+mandatory = true
 versionRange = "[1.0.0,)"
 ordering = "AFTER"
 side = "BOTH"
 
 [[dependencies."${mod_id}"]]
 modId = "dropthemeat"
-mandatory = false
+mandatory = true
 versionRange = "[1.7,)"
 ordering = "AFTER"
 side = "BOTH"
@@ -249,21 +256,21 @@ side = "BOTH"
 
 [[dependencies."${mod_id}"]]
 modId="hybrid_aquatic"
-mandatory=false
+mandatory=true
 versionRange="[1.5.3,)"
 ordering="AFTER"
 side="BOTH"
 
 [[dependencies."${mod_id}"]]
 modId="netherdepthsupgrade"
-mandatory=false
+mandatory=true
 versionRange="[3.1.4-1.20,)"
 ordering="AFTER"
 side="BOTH"
 
 [[dependencies."${mod_id}"]]
 modId="naturalist"
-mandatory=false
+mandatory=true
 versionRange="[4.0.3,)"
 ordering="AFTER"
 side="BOTH"
@@ -280,3 +287,4 @@ side = "BOTH"
 # stop your mod loading on the server for example.
 #[features.${mod_id}]
 #openGLVersion="[3.2,)"
+

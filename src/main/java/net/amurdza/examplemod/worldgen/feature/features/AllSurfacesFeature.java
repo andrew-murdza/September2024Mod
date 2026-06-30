@@ -327,19 +327,9 @@ public class AllSurfacesFeature extends Feature<AllSurfacesFeatureConfig> {
             AllSurfacesFeatureConfig cfg,
             Holder<ConfiguredFeature<?, ?>> configuredFeature
     ) {
-        if (cfg.biomes != null && !level.getBiome(pos).is(cfg.biomes)) {
-            return PlacementResult.NONE;
-        }
-
-        if (!isValidGuaranteedFeatureOrigin(level, pos, cfg)) {
-            return PlacementResult.NONE;
-        }
-
-        if (!cfg.predicate.test(level, pos.below())) {
-            return PlacementResult.NONE;
-        }
-
-        if (cfg.target == AIR && !isSafeAirOrigin(level, pos)) {
+        if (!isValidGuaranteedFeaturePlacementOrigin(level, pos, cfg)
+                && !hasValidGuaranteedFeaturePlacementOriginInChunk(level, pos, cfg)
+                && !shouldAllowRainforestShorelineSpill(pos, configuredFeature)) {
             return PlacementResult.NONE;
         }
 
@@ -351,6 +341,63 @@ public class AllSurfacesFeature extends Feature<AllSurfacesFeatureConfig> {
         );
 
         return new PlacementResult(true, placedAnything);
+    }
+
+    private boolean hasValidGuaranteedFeaturePlacementOriginInChunk(
+            WorldGenLevel level,
+            BlockPos origin,
+            AllSurfacesFeatureConfig cfg
+    ) {
+        ChunkAccess chunk = level.getChunk(origin);
+        ChunkPos chunkPos = chunk.getPos();
+        BlockPos.MutableBlockPos candidate = new BlockPos.MutableBlockPos();
+
+        for (int dx = 0; dx < 16; dx++) {
+            int x = chunkPos.getMinBlockX() + dx;
+
+            for (int dz = 0; dz < 16; dz++) {
+                int z = chunkPos.getMinBlockZ() + dz;
+
+                if (cfg.allLayers) {
+                    candidate.set(x, origin.getY(), z);
+                } else {
+                    candidate.set(x, getSurfaceStartY(chunk, cfg, dx, dz), z);
+                }
+
+                if (isValidGuaranteedFeaturePlacementOrigin(level, candidate, cfg)) {
+                    return true;
+                }
+            }
+        }
+
+        return false;
+    }
+
+    private boolean shouldAllowRainforestShorelineSpill(
+            BlockPos pos,
+            Holder<ConfiguredFeature<?, ?>> configuredFeature
+    ) {
+        ChunkPos chunkPos = new ChunkPos(pos);
+
+        if (Math.floorMod(chunkPos.x, 30) != 0) {
+            return false;
+        }
+
+        return configuredFeature.unwrapKey()
+                .map(key -> key.location().getNamespace().equals("aoemod")
+                        && key.location().getPath().equals("rainforest/floor/grid_choice"))
+                .orElse(false);
+    }
+
+    private boolean isValidGuaranteedFeaturePlacementOrigin(
+            WorldGenLevel level,
+            BlockPos pos,
+            AllSurfacesFeatureConfig cfg
+    ) {
+        return (cfg.biomes == null || level.getBiome(pos).is(cfg.biomes))
+                && isValidGuaranteedFeatureOrigin(level, pos, cfg)
+                && cfg.predicate.test(level, pos.below())
+                && (cfg.target != AIR || isSafeAirOrigin(level, pos));
     }
 
     private int getSurfaceStartY(
@@ -413,7 +460,8 @@ public class AllSurfacesFeature extends Feature<AllSurfacesFeatureConfig> {
         return switch (cfg.target) {
             case AIR -> state.isAir()
                     && level.getFluidState(pos).isEmpty()
-                    && level.getFluidState(pos.above()).isEmpty();
+                    && level.getFluidState(pos.above()).isEmpty()
+                    && isDryGround(level, pos.below());
 
             case WATER -> state.is(Blocks.WATER);
 
@@ -434,7 +482,8 @@ public class AllSurfacesFeature extends Feature<AllSurfacesFeatureConfig> {
                 boolean validAir =
                         state.isAir()
                                 && level.getFluidState(pos).isEmpty()
-                                && level.getFluidState(pos.above()).isEmpty();
+                                && level.getFluidState(pos.above()).isEmpty()
+                                && isDryGround(level, pos.below());
 
                 if (!validAir) {
                     yield null;
@@ -479,7 +528,12 @@ public class AllSurfacesFeature extends Feature<AllSurfacesFeatureConfig> {
 
     private boolean isSafeAirOrigin(WorldGenLevel level, BlockPos pos) {
         return level.getBlockState(pos).isAir()
-                && level.getFluidState(pos).isEmpty();
+                && level.getFluidState(pos).isEmpty()
+                && isDryGround(level, pos.below());
+    }
+
+    private boolean isDryGround(WorldGenLevel level, BlockPos pos) {
+        return level.getFluidState(pos).isEmpty();
     }
 
     private record PlacementResult(boolean foundLayer, boolean placedAnything) {

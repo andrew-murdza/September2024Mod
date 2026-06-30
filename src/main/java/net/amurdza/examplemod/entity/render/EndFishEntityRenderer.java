@@ -14,12 +14,12 @@ import net.minecraft.client.renderer.texture.OverlayTexture;
 import net.minecraft.resources.ResourceLocation;
 import org.jetbrains.annotations.NotNull;
 
-public class EndFishEntityRenderer extends MobRenderer<EndFishEntity, EndFishEntityModel> {
+public class EndFishEntityRenderer extends MobRenderer<EndFishEntity, EndFishEntityModel<EndFishEntity>> {
     private static final ResourceLocation[] TEXTURE = new ResourceLocation[EndFishEntity.VARIANTS];
     private static final RenderType[] GLOW = new RenderType[EndFishEntity.VARIANTS];
 
     public EndFishEntityRenderer(EntityRendererProvider.Context ctx) {
-        super(ctx, new EndFishEntityModel(ctx.bakeLayer(EntityRenderers.END_FISH_MODEL)), 0.5f);
+        super(ctx, new EndFishEntityModel<>(ctx.bakeLayer(EntityRenderers.END_FISH_MODEL)), 0.5f);
 
         this.addLayer(new EyesLayer<>(this) {
             @Override

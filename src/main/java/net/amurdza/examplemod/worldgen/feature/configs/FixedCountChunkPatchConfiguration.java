@@ -10,7 +10,8 @@ import net.minecraft.world.level.levelgen.placement.PlacedFeature;
 public record FixedCountChunkPatchConfiguration(
         int count,
         int ySpread,
-        Holder<PlacedFeature> feature
+        Holder<PlacedFeature> feature,
+        boolean landOnly
 ) implements FeatureConfiguration {
 
     public static final Codec<FixedCountChunkPatchConfiguration> CODEC = RecordCodecBuilder.create(instance ->
@@ -26,7 +27,11 @@ public record FixedCountChunkPatchConfiguration(
 
                     PlacedFeature.CODEC
                             .fieldOf("feature")
-                            .forGetter(FixedCountChunkPatchConfiguration::feature)
+                            .forGetter(FixedCountChunkPatchConfiguration::feature),
+
+                    Codec.BOOL
+                            .optionalFieldOf("land_only", true)
+                            .forGetter(FixedCountChunkPatchConfiguration::landOnly)
             ).apply(instance, FixedCountChunkPatchConfiguration::new)
     );
 

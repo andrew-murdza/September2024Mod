@@ -52,11 +52,14 @@ public class NoFloatingMobSpawns {
         addSpawn(event, EntityType.AXOLOTL, true,
                 NoFloatingMobSpawns::checkSurfaceWaterAnimalSpawnRules);
 
-        addSpawn(event, EntityType.TURTLE, true,
-                NoFloatingMobSpawns::checkSurfaceWaterAnimalSpawnRules);
+        addSpawn(event, EntityType.TURTLE, false,
+                (p, q, r, s, t) -> turtle(q, s));
 
         addSpawn(event, EntityType.GLOW_SQUID, true,
                 NoFloatingMobSpawns::checkWaterAnimalSpawnRules);
+
+        addSpawn(event, EntityType.DROWNED, false,
+                NoFloatingMobSpawns::checkMonsterSpawnRules);
 
         addSpawn(event, EntityType.SLIME, false,
                 NoFloatingMobSpawns::checkMonsterSpawnRules);
@@ -115,6 +118,13 @@ public class NoFloatingMobSpawns {
     private static boolean camel(ServerLevelAccessor level, BlockPos pos) {
         BlockState state=level.getBlockState(pos.below());
         return (state.is(Blocks.SAND) || state.is(Blocks.GRASS_BLOCK) || state.is(Blocks.MOSS_BLOCK)) && level.getRawBrightness(pos, 0) > 8;
+    }
+    private static boolean turtle(ServerLevelAccessor level, BlockPos pos) {
+        int chunkX = Math.floorDiv(pos.getX(), 16);
+        int regionChunkX = Math.floorMod(chunkX, 30);
+        return (regionChunkX == 6 || regionChunkX == 29)
+                && level.getBlockState(pos.below()).is(BlockTags.SAND)
+                && level.getRawBrightness(pos, 0) > 8;
     }
     private static boolean shulker(ServerLevelAccessor pLevel, BlockPos pPos, RandomSource pRandom) {
         for(Direction direction: Direction.values()){

@@ -1,11 +1,13 @@
 package net.amurdza.examplemod.config;
 
 import com.github.alexthe666.alexsmobs.item.AMItemRegistry;
+import dev.xkmc.fruitsdelight.init.food.FruitType;
 import net.amurdza.examplemod.registry.ModBlocks;
 import net.amurdza.examplemod.registry.ModItems;
 import net.amurdza.examplemod.util.ModTags;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Holder;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
@@ -17,6 +19,7 @@ import net.minecraft.world.level.block.DoublePlantBlock;
 import net.minecraft.world.level.block.SweetBerryBushBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
+import net.minecraftforge.registries.ForgeRegistries;
 import org.violetmoon.quark.content.world.module.GlimmeringWealdModule;
 
 import java.util.*;
@@ -274,6 +277,21 @@ public final class BlockConfig {
                 g(ModTags.Biomes.mushroomCaves, 0.2F)
         );
 
+        addGrowth(ModBlocks.BLUE_BERRY_BUSH.get(),
+                g(ModTags.Biomes.tropicalBiomes, 0.6F),
+                g(ModTags.Biomes.mountainBiomes, 0.2F),
+                g(ModTags.Biomes.mushroomCaves, 0.2F)
+        );
+
+        addGrowth(ModBlocks.ASHEN_WHEAT_CROP.get(),
+                g(ModTags.Biomes.soulSandValleyBiomes, 0.15F),
+                g(ModTags.Biomes.desertBiomes, 0.05F),
+                g(ModTags.Biomes.deepDarkBiomes, 0.05F),
+                g(ModTags.Biomes.warpedForestBiomes, 0.10F),
+                g(ModTags.Biomes.crimsonForestBiomes, 0.10F),
+                g(ModTags.Biomes.basaltDeltasBiomes, 0.05F)
+        );
+
         addGrowth(Blocks.COCOA,
                 g(ModTags.Biomes.tropicalBiomes, 0.6F)
         );
@@ -462,15 +480,16 @@ public final class BlockConfig {
         addOre(ModBlocks.BASALT_QUARTZ_ORE.get(), ModTags.Biomes.warpedForestBiomes, Items.QUARTZ, 1.25f);
         addOre(ModBlocks.BASALT_QUARTZ_ORE.get(), ModTags.Biomes.soulSandValleyBiomes, Items.QUARTZ, 1);
 
-        addOre(ModBlocks.SOUL_SOIL_QUARTZ_ORE.get(), ModTags.Biomes.basaltDeltasBiomes, Items.QUARTZ, 1);
-        addOre(ModBlocks.SOUL_SOIL_QUARTZ_ORE.get(), ModTags.Biomes.crimsonForestBiomes, Items.QUARTZ, 1);
-        addOre(ModBlocks.SOUL_SOIL_QUARTZ_ORE.get(), ModTags.Biomes.warpedForestBiomes, Items.QUARTZ, 1);
-        addOre(ModBlocks.SOUL_SOIL_QUARTZ_ORE.get(), ModTags.Biomes.soulSandValleyBiomes, Items.QUARTZ, 1);
+        Item soulQuartz = externalItem("nourished_nether", "soul_quartz", Items.QUARTZ);
+        addOre(ModBlocks.SOUL_SOIL_QUARTZ_ORE.get(), ModTags.Biomes.basaltDeltasBiomes, soulQuartz, 1);
+        addOre(ModBlocks.SOUL_SOIL_QUARTZ_ORE.get(), ModTags.Biomes.crimsonForestBiomes, soulQuartz, 1);
+        addOre(ModBlocks.SOUL_SOIL_QUARTZ_ORE.get(), ModTags.Biomes.warpedForestBiomes, soulQuartz, 1);
+        addOre(ModBlocks.SOUL_SOIL_QUARTZ_ORE.get(), ModTags.Biomes.soulSandValleyBiomes, soulQuartz, 1);
 
-        addOre(ModBlocks.SOUL_SAND_QUARTZ_ORE.get(), ModTags.Biomes.basaltDeltasBiomes, Items.QUARTZ, 1);
-        addOre(ModBlocks.SOUL_SAND_QUARTZ_ORE.get(), ModTags.Biomes.crimsonForestBiomes, Items.QUARTZ, 1);
-        addOre(ModBlocks.SOUL_SAND_QUARTZ_ORE.get(), ModTags.Biomes.warpedForestBiomes, Items.QUARTZ, 1);
-        addOre(ModBlocks.SOUL_SAND_QUARTZ_ORE.get(), ModTags.Biomes.soulSandValleyBiomes, Items.QUARTZ, 1);
+        addOre(ModBlocks.SOUL_SAND_QUARTZ_ORE.get(), ModTags.Biomes.basaltDeltasBiomes, soulQuartz, 1);
+        addOre(ModBlocks.SOUL_SAND_QUARTZ_ORE.get(), ModTags.Biomes.crimsonForestBiomes, soulQuartz, 1);
+        addOre(ModBlocks.SOUL_SAND_QUARTZ_ORE.get(), ModTags.Biomes.warpedForestBiomes, soulQuartz, 1);
+        addOre(ModBlocks.SOUL_SAND_QUARTZ_ORE.get(), ModTags.Biomes.soulSandValleyBiomes, soulQuartz, 1);
 
         addOre(Blocks.NETHER_GOLD_ORE, ModTags.Biomes.basaltDeltasBiomes, Items.GOLD_INGOT, 1.5f);
         addOre(Blocks.NETHER_GOLD_ORE, ModTags.Biomes.crimsonForestBiomes, Items.GOLD_INGOT, 1.5f);
@@ -501,6 +520,8 @@ public final class BlockConfig {
         addOre(Blocks.ANCIENT_DEBRIS, ModTags.Biomes.crimsonForestBiomes, Items.NETHERITE_SCRAP, 1);
         addOre(Blocks.ANCIENT_DEBRIS, ModTags.Biomes.warpedForestBiomes, Items.NETHERITE_SCRAP, 1);
         addOre(Blocks.ANCIENT_DEBRIS, ModTags.Biomes.soulSandValleyBiomes, Items.NETHERITE_SCRAP, 1);
+        addOre(Blocks.ANCIENT_DEBRIS, ModTags.Biomes.deepDarkBiomes, Items.NETHERITE_SCRAP, 0.5F);
+        addOre(Blocks.ANCIENT_DEBRIS, ModTags.Biomes.desertBiomes, Items.NETHERITE_SCRAP, 0.5F);
     }
 
     private static void registerVanillaLeaves() {
@@ -533,31 +554,31 @@ public final class BlockConfig {
         addLoot(Blocks.DARK_OAK_LEAVES,
                 leaf(ModTags.Biomes.tropicalBiomes, Items.DARK_OAK_SAPLING),
                 stick(ModTags.Biomes.tropicalBiomes),
-                fruit(ModTags.Biomes.tropicalBiomes, ModItems.PLUM.get())
+                fruit(ModTags.Biomes.tropicalBiomes, externalItem("fruitsdelight", "plum", Items.APPLE))
         );
 
         addLoot(Blocks.CHERRY_LEAVES,
                 leaf(ModTags.Biomes.tropicalBiomes, Items.CHERRY_SAPLING),
                 stick(ModTags.Biomes.tropicalBiomes),
-                fruit(ModTags.Biomes.tropicalBiomes, ModItems.CHERRIES.get())
+                fruit(ModTags.Biomes.tropicalBiomes, externalItem("fruitsdelight", "cherries", externalItem("fruitsdelight", "cherry", Items.APPLE)))
         );
 
         addLoot(Blocks.MANGROVE_LEAVES,
                 leaf(ModTags.Biomes.tropicalBiomes, Items.MANGROVE_PROPAGULE),
                 stick(ModTags.Biomes.tropicalBiomes),
-                fruit(ModTags.Biomes.tropicalBiomes,ModItems.ORANGE.get())
+                fruit(ModTags.Biomes.tropicalBiomes, externalItem("fruitsdelight", "mango", Items.APPLE))
         );
 
         addLoot(Blocks.AZALEA_LEAVES,
                 leaf(ModTags.Biomes.tropicalBiomes, Items.AZALEA),
                 stick(ModTags.Biomes.tropicalBiomes),
-                fruit(ModTags.Biomes.tropicalBiomes,ModItems.PEAR.get())
+                fruit(ModTags.Biomes.tropicalBiomes, externalItem("fruitsdelight", "pear", Items.APPLE))
         );
 
         addLoot(Blocks.FLOWERING_AZALEA_LEAVES,
                 leaf(ModTags.Biomes.tropicalBiomes, Items.FLOWERING_AZALEA),
                 stick(ModTags.Biomes.tropicalBiomes),
-                fruit(ModTags.Biomes.tropicalBiomes,ModItems.PEAR.get())
+                fruit(ModTags.Biomes.tropicalBiomes, externalItem("fruitsdelight", "pear", Items.APPLE))
         );
 
         addLoot(Blocks.JUNGLE_LEAVES,
@@ -639,6 +660,11 @@ public final class BlockConfig {
         }
         return drop(biome, fruit, val);
     }
+
+    private static Item externalItem(String namespace, String path, Item fallback) {
+        Item item = ForgeRegistries.ITEMS.getValue(new ResourceLocation(namespace, path));
+        return item == null ? fallback : item;
+    }
     
     private static void registerVanillaCrops() {
         addLoot(Blocks.WHEAT,
@@ -695,9 +721,10 @@ public final class BlockConfig {
         );
 
         addLoot(Blocks.SWEET_BERRY_BUSH,
-                sweetBerryAmount(ModTags.Biomes.tropicalBiomes),
-                sweetBerryAmount(ModTags.Biomes.mountainBiomes),
-                sweetBerryAmount(ModTags.Biomes.mushroomCaves)
+                berryAmount(ModTags.Biomes.tropicalBiomes,true),
+                berryAmount(ModTags.Biomes.mountainBiomes,true),
+                berryAmount(ModTags.Biomes.tropicalBiomes,false),
+                berryAmount(ModTags.Biomes.mountainBiomes,false)
         );
 
         addLoot(Blocks.NETHER_WART,
@@ -727,6 +754,21 @@ public final class BlockConfig {
                         matureAge3Amount(3,0)),
                 drop(ModTags.Biomes.tropicalBiomes, samebutdifferent.ecologics.registry.ModItems.PRICKLY_PEAR.get(),
                         matureAge3Amount(1,0))
+        );
+
+        addLoot(ModBlocks.ASHEN_WHEAT_CROP.get(),
+                drop(ModTags.Biomes.soulSandValleyBiomes, ModItems.ASHEN_WHEAT.get(), matureAge7Amount(1,0)),
+                drop(ModTags.Biomes.soulSandValleyBiomes, ModItems.ASHEN_WHEAT_SEEDS.get(), matureAge7Amount(1.5f)),
+                drop(ModTags.Biomes.deepDarkBiomes, ModItems.ASHEN_WHEAT.get(), matureAge7Amount(1,0)),
+                drop(ModTags.Biomes.deepDarkBiomes, ModItems.ASHEN_WHEAT_SEEDS.get(), matureAge7Amount(1.15f)),
+                drop(ModTags.Biomes.desertBiomes, ModItems.ASHEN_WHEAT.get(), matureAge7Amount(1,0)),
+                drop(ModTags.Biomes.desertBiomes, ModItems.ASHEN_WHEAT_SEEDS.get(), matureAge7Amount(1.1f)),
+                drop(ModTags.Biomes.warpedForestBiomes, ModItems.ASHEN_WHEAT.get(), matureAge7Amount(1,0)),
+                drop(ModTags.Biomes.warpedForestBiomes, ModItems.ASHEN_WHEAT_SEEDS.get(), matureAge7Amount(1.25f)),
+                drop(ModTags.Biomes.crimsonForestBiomes, ModItems.ASHEN_WHEAT.get(), matureAge7Amount(1,0)),
+                drop(ModTags.Biomes.crimsonForestBiomes, ModItems.ASHEN_WHEAT_SEEDS.get(), matureAge7Amount(1.25f)),
+                drop(ModTags.Biomes.basaltDeltasBiomes, ModItems.ASHEN_WHEAT.get(), matureAge7Amount(1,0)),
+                drop(ModTags.Biomes.basaltDeltasBiomes, ModItems.ASHEN_WHEAT_SEEDS.get(), matureAge7Amount(1.15f))
         );
     }
 
@@ -849,8 +891,8 @@ public final class BlockConfig {
         addOre(block, ModTags.Biomes.deepDarkBiomes, item, amount);
     }
 
-    private static BlockLootEntry sweetBerryAmount(TagKey<Biome> biome) {
-        return drop(ModTags.Biomes.tropicalBiomes, Items.SWEET_BERRIES,
+    private static BlockLootEntry berryAmount(TagKey<Biome> biome, boolean blue) {
+        return drop(ModTags.Biomes.tropicalBiomes, blue ? FruitType.BLUEBERRY.getFruit(): Items.SWEET_BERRIES,
                 state -> {
                     int age = state.getValue(SweetBerryBushBlock.AGE);
                     if(age<2){

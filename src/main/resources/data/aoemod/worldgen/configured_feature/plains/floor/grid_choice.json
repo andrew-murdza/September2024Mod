@@ -8,23 +8,23 @@
       { "feature": "aoemod:sugar_cane_patch", "count": 2 },
       { "feature": "aoemod:mushrooms/red_mushroom_patch_small", "count": 2 },
       { "feature": "aoemod:mushrooms/brown_mushroom_patch_small", "count": 2 },
-      { "feature": "aoemod:flowers/azure_bluet_patch", "count": 3 },
-      { "feature": "aoemod:flowers/cornflower_patch", "count": 3 },
-      { "feature": "aoemod:flowers/dandelion_patch", "count": 3 },
-      { "feature": "aoemod:flowers/lily_of_the_valley_patch", "count": 3 },
-      { "feature": "aoemod:flowers/orange_tulip_patch", "count": 3 },
-      { "feature": "aoemod:flowers/oxeye_daisy_patch", "count": 3 },
-      { "feature": "aoemod:flowers/pink_tulip_patch", "count": 3 },
-      { "feature": "aoemod:flowers/poppy_patch", "count": 3 },
-      { "feature": "aoemod:flowers/red_tulip_patch", "count": 3 },
-      { "feature": "aoemod:flowers/sunflower_patch", "count": 3 },
-      { "feature": "aoemod:nothing", "count": 146 }
+      { "feature": "aoemod:flowers/azure_bluet_patch", "count": 1 },
+      { "feature": "aoemod:flowers/cornflower_patch", "count": 1 },
+      { "feature": "aoemod:flowers/dandelion_patch", "count": 1 },
+      { "feature": "aoemod:flowers/lily_of_the_valley_patch", "count": 1 },
+      { "feature": "aoemod:flowers/orange_tulip_patch", "count": 1 },
+      { "feature": "aoemod:flowers/oxeye_daisy_patch", "count": 1 },
+      { "feature": "aoemod:flowers/pink_tulip_patch", "count": 1 },
+      { "feature": "aoemod:flowers/poppy_patch", "count": 1 },
+      { "feature": "aoemod:flowers/red_tulip_patch", "count": 1 },
+      { "feature": "aoemod:flowers/sunflower_patch", "count": 1 },
+      { "feature": "aoemod:nothing", "count": 166 }
     ],
     "pinned_features": [
       {
         "feature": "aoemod:sugar_cane_patch",
         "count": 2,
-        "region_x": [5, 29]
+        "region_x": [6, 29]
       }
     ],
     "default_feature": "aoemod:nothing",

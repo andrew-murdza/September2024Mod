@@ -6,7 +6,9 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.HolderSet;
 import net.minecraft.nbt.CompoundTag;
+import net.minecraft.tags.BlockTags;
 import net.minecraft.world.level.WorldGenLevel;
+import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.levelgen.placement.PlacedFeature;
@@ -116,12 +118,14 @@ public class MushroomCavePiece extends AbstractSpiralCavePiece {
             setBlock(level, top.below(4), Blocks.SMOOTH_BASALT);
             setBlock(level, top.below(5), Blocks.SMOOTH_BASALT);
         }
+
+        replaceExposedUndesirableBoundaryBlock(level, top, overworldBoundaryReplacement(level, top), false);
     }
 
     private boolean bordersOneBlockHigher(BlockPos top) {
         for (int dx = -1; dx <= 1; dx++) {
             for (int dz = -1; dz <= 1; dz++) {
-                if (!activeEllipsoidWouldCarve(top.offset(dx, 1, dz))) {
+                if (!anyMainEllipsoidWouldCarve(top.offset(dx, 1, dz))) {
                     return true;
                 }
             }
@@ -131,19 +135,51 @@ public class MushroomCavePiece extends AbstractSpiralCavePiece {
     }
 
     @Override
+    protected boolean canReplace(BlockState state) {
+        return super.canReplace(state)
+                && !state.is(Blocks.SPRUCE_LEAVES)
+                && !state.is(Blocks.SPRUCE_LOG)
+                && !state.is(Blocks.SPRUCE_WOOD)
+                && !state.is(Blocks.STRIPPED_SPRUCE_LOG)
+                && !state.is(Blocks.STRIPPED_SPRUCE_WOOD)
+                && !state.is(BlockTags.LEAVES);
+    }
+
+    @Override
+    protected boolean canReplaceWithFluid(BlockState state) {
+        return super.canReplaceWithFluid(state)
+                && !state.is(Blocks.SPRUCE_LEAVES)
+                && !state.is(Blocks.SPRUCE_LOG)
+                && !state.is(Blocks.SPRUCE_WOOD)
+                && !state.is(Blocks.STRIPPED_SPRUCE_LOG)
+                && !state.is(Blocks.STRIPPED_SPRUCE_WOOD)
+                && !state.is(BlockTags.LEAVES);
+    }
+
+    @Override
     protected void decorateRiverFloor(WorldGenLevel level, BlockPos surfacePos) {
         setBlock(level, surfacePos, Blocks.MUD);
         setBlock(level, surfacePos.below(), Blocks.MUD);
     }
 
     @Override
-    protected void decorateCaveWall(WorldGenLevel level, BlockPos wallPos, Direction wallDirection) {}
+    protected void decorateCaveWall(WorldGenLevel level, BlockPos wallPos, Direction wallDirection) {
+        replaceExposedUndesirableBoundaryBlock(level, wallPos, overworldBoundaryReplacement(level, wallPos), false);
+    }
 
     @Override
-    protected void decorateRiverWall(WorldGenLevel level, BlockPos wallPos, Direction wallDirection) {}
+    protected void decorateRiverWall(WorldGenLevel level, BlockPos wallPos, Direction wallDirection) {
+        replaceExposedUndesirableBoundaryBlock(level, wallPos, overworldBoundaryReplacement(level, wallPos), false);
+    }
 
     @Override
-    protected void decorateCaveCeiling(WorldGenLevel level, BlockPos ceilingPos) {}
+    protected void decorateCaveCeiling(WorldGenLevel level, BlockPos ceilingPos) {
+        replaceExposedUndesirableBoundaryBlock(level, ceilingPos, overworldBoundaryReplacement(level, ceilingPos), true);
+    }
+
+    private Block overworldBoundaryReplacement(WorldGenLevel level, BlockPos pos) {
+        return overworldStoneReplacement(pos, level.getBlockState(pos));
+    }
 
     @Override
     protected BlockState getRiverFluidState(double landFloorY) {

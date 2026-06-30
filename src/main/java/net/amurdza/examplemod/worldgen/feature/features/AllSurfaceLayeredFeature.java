@@ -549,7 +549,8 @@ public class AllSurfaceLayeredFeature extends Feature<AllSurfaceLayeredFeaturesC
         return switch (cfg.target) {
             case AIR -> state.isAir()
                     && level.getFluidState(pos).isEmpty()
-                    && level.getFluidState(pos.above()).isEmpty();
+                    && level.getFluidState(pos.above()).isEmpty()
+                    && isDryGround(level, pos.below());
 
             case WATER -> state.is(Blocks.WATER);
 
@@ -570,7 +571,8 @@ public class AllSurfaceLayeredFeature extends Feature<AllSurfaceLayeredFeaturesC
                 boolean validAir =
                         state.isAir()
                                 && level.getFluidState(pos).isEmpty()
-                                && level.getFluidState(pos.above()).isEmpty();
+                                && level.getFluidState(pos.above()).isEmpty()
+                                && isDryGround(level, pos.below());
 
                 if (!validAir) {
                     yield null;
@@ -615,7 +617,12 @@ public class AllSurfaceLayeredFeature extends Feature<AllSurfaceLayeredFeaturesC
 
     private boolean isSafeAirOrigin(WorldGenLevel level, BlockPos pos) {
         return level.getBlockState(pos).isAir()
-                && level.getFluidState(pos).isEmpty();
+                && level.getFluidState(pos).isEmpty()
+                && isDryGround(level, pos.below());
+    }
+
+    private boolean isDryGround(WorldGenLevel level, BlockPos pos) {
+        return level.getFluidState(pos).isEmpty();
     }
 
     private int getGlobalMaxY(AllSurfaceLayeredFeaturesConfig layeredCfg, int defaultMaxY) {

@@ -2,8 +2,9 @@
   "type": "aoemod:regional_grid_choice",
   "config": {
     "features": [
-      { "feature": "aoemod:crops/sweet_berry_bush_patch", "count": 1 },
-      { "feature": "aoemod:trees/spruce", "count": 47 }
+      { "feature": "aoemod:crops/sweet_berry_bush_patch", "count": 3 },
+      { "feature": "aoemod:crops/blue_berry_bush_patch", "count": 2 },
+      { "feature": "aoemod:trees/spruce", "count": 45 }
     ],
     "default_feature": "aoemod:nothing",
     "placement": [],

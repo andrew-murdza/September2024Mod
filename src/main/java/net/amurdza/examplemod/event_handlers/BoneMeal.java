@@ -194,6 +194,8 @@ public class BoneMeal {
             return block1.isValidBonemealTarget(level,pos,state,false);
         }
 
+        if (isLiveCoralPlantOrFan(block)) return true;
+
         if (state.is(ModTags.Blocks.duplicatedByBonemeal)) return true;
 
         //Floors
@@ -233,6 +235,11 @@ public class BoneMeal {
     private static boolean applyOnce(ServerLevel level, BlockPos pos) {
         BlockState state = level.getBlockState(pos);
         Block block = state.getBlock();
+
+        if (isLiveCoralPlantOrFan(block)) {
+            growFlowers(level, pos);
+            return true;
+        }
 
         if (state.is(ModTags.Blocks.duplicatedByBonemeal)) {
             Block.popResource(level, pos, new ItemStack(block));
@@ -398,6 +405,19 @@ public class BoneMeal {
             level.setBlockAndUpdate(pos.above(), dripLeaf.setValue(BlockStateProperties.DOUBLE_BLOCK_HALF, DoubleBlockHalf.UPPER));
         }
         return true;
+    }
+
+    private static boolean isLiveCoralPlantOrFan(Block block) {
+        return block == Blocks.TUBE_CORAL
+                || block == Blocks.TUBE_CORAL_FAN
+                || block == Blocks.BRAIN_CORAL
+                || block == Blocks.BRAIN_CORAL_FAN
+                || block == Blocks.BUBBLE_CORAL
+                || block == Blocks.BUBBLE_CORAL_FAN
+                || block == Blocks.FIRE_CORAL
+                || block == Blocks.FIRE_CORAL_FAN
+                || block == Blocks.HORN_CORAL
+                || block == Blocks.HORN_CORAL_FAN;
     }
 
     private static void growFlowers(Level world, BlockPos pos) {

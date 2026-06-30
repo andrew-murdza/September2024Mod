@@ -5,15 +5,20 @@ import net.amurdza.examplemod.entity.ArchlichEntity;
 import net.amurdza.examplemod.entity.CubozoaEntity;
 import net.amurdza.examplemod.entity.EndFishEntity;
 import net.amurdza.examplemod.entity.IllagerLordEntity;
+import net.amurdza.examplemod.entity.NetherFishEntity;
 import net.amurdza.examplemod.entity.SpiderQueenEntity;
 import net.amurdza.examplemod.entity.future.*;
 import net.amurdza.examplemod.entity.sea_serpent.SeaSerpentEntity;
 import net.amurdza.examplemod.util.ColorUtil;
+import net.minecraft.core.BlockPos;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.tags.FluidTags;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.animal.TropicalFish;
 import net.minecraft.world.entity.animal.WaterAnimal;
 import net.minecraft.world.entity.monster.Monster;
+import net.minecraft.world.level.ServerLevelAccessor;
 import net.minecraft.world.level.levelgen.Heightmap;
 import net.minecraftforge.common.ForgeSpawnEggItem;
 import net.minecraftforge.event.entity.EntityAttributeCreationEvent;
@@ -51,6 +56,14 @@ public final class ModEntities {
             0.5F,
             0.5F,
             EndFishEntity::new
+    );
+
+    public static final RegistryObject<EntityType<NetherFishEntity>> NETHER_FISH = registerMob(
+            "nether_fish",
+            MobCategory.WATER_AMBIENT,
+            0.5F,
+            0.5F,
+            NetherFishEntity::new
     );
 
     public static final RegistryObject<EntityType<CubozoaEntity>> CUBOZOA = registerMob(
@@ -152,6 +165,16 @@ public final class ModEntities {
                             END_FISH,
                             ColorUtil.color(3, 50, 76),
                             ColorUtil.color(120, 206, 255),
+                            new net.minecraft.world.item.Item.Properties()
+                    )
+            );
+
+    public static final RegistryObject<ForgeSpawnEggItem> NETHER_FISH_SPAWN_EGG =
+            ModItems.ITEMS.register("spawn_egg_nether_fish",
+                    () -> new ForgeSpawnEggItem(
+                            NETHER_FISH,
+                            ColorUtil.color(166, 57, 29),
+                            ColorUtil.color(255, 169, 54),
                             new net.minecraft.world.item.Item.Properties()
                     )
             );
@@ -260,6 +283,7 @@ public final class ModEntities {
     public static void onEntityAttributes(EntityAttributeCreationEvent event) {
         // Config gating: attribute registration is harmless even if you later disable spawns/eggs.
         event.put(END_FISH.get(), EndFishEntity.createMobAttributes().build());
+        event.put(NETHER_FISH.get(), NetherFishEntity.createMobAttributes().build());
         event.put(CUBOZOA.get(), CubozoaEntity.createMobAttributes().build());
         event.put(ModEntities.SEA_SERPENT.get(), SeaSerpentEntity.createAttributes().build());
         event.put(ARCHLICH.get(), ArchlichEntity.createAttributes().build());
@@ -289,10 +313,17 @@ public final class ModEntities {
                 SpawnPlacementRegisterEvent.Operation.OR
         );
         event.register(
-                CUBOZOA.get(),
-                SpawnPlacements.Type.IN_WATER,
+                NETHER_FISH.get(),
+                SpawnPlacements.Type.NO_RESTRICTIONS,
                 Heightmap.Types.MOTION_BLOCKING,
-                TropicalFish::checkSurfaceWaterAnimalSpawnRules,
+                ModEntities::checkLavaFishSpawnRules,
+                SpawnPlacementRegisterEvent.Operation.OR
+        );
+        event.register(
+                CUBOZOA.get(),
+                SpawnPlacements.Type.NO_RESTRICTIONS,
+                Heightmap.Types.MOTION_BLOCKING,
+                ModEntities::checkLavaFishSpawnRules,
                 SpawnPlacementRegisterEvent.Operation.OR
         );
         event.register(
@@ -327,6 +358,17 @@ public final class ModEntities {
     // ---------------
     // Helper methods
     // ---------------
+    private static boolean checkLavaFishSpawnRules(
+            EntityType<? extends Mob> type,
+            ServerLevelAccessor level,
+            MobSpawnType spawnType,
+            BlockPos pos,
+            RandomSource random
+    ) {
+        return level.getFluidState(pos).is(FluidTags.LAVA)
+                && level.getFluidState(pos.above()).is(FluidTags.LAVA);
+    }
+
     private static <T extends Entity> RegistryObject<EntityType<T>> registerEntity(
             String name,
             MobCategory category,

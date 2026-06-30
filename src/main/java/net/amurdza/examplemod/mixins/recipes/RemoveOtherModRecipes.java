@@ -61,12 +61,12 @@ public abstract class RemoveOtherModRecipes {
         this.recipes = recipesBuilder.build();
         this.byName = byNameBuilder.build();
 
-        AOEMod.LOGGER.info("Removed all recipes outside the minecraft and aoemod namespaces.");
+        AOEMod.LOGGER.info("Removed all recipes outside the minecraft, aoemod, and quark namespaces.");
     }
 
     @Unique
     private static boolean aoemod$isAllowedRecipeNamespace(ResourceLocation id) {
         String namespace = id.getNamespace();
-        return namespace.equals("minecraft") || namespace.equals(AOEMod.MOD_ID);
+        return namespace.equals("minecraft") || namespace.equals(AOEMod.MOD_ID) || namespace.equals("quark");
     }
 }

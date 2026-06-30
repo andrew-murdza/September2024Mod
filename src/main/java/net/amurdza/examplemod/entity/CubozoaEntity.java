@@ -1,6 +1,8 @@
 package net.amurdza.examplemod.entity;
 
+import com.scouter.netherdepthsupgrade.entity.AbstractLavaSchoolingFish;
 import net.amurdza.examplemod.registry.ModItems;
+import net.amurdza.examplemod.util.ModTags;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.syncher.EntityDataAccessor;
 import net.minecraft.network.syncher.EntityDataSerializers;
@@ -18,7 +20,6 @@ import net.minecraft.world.entity.SpawnGroupData;
 import net.minecraft.world.entity.VariantHolder;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
-import net.minecraft.world.entity.animal.AbstractSchoolingFish;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.ServerLevelAccessor;
@@ -26,7 +27,7 @@ import org.jetbrains.annotations.NotNull;
 
 import java.util.function.IntFunction;
 
-public class CubozoaEntity extends AbstractSchoolingFish implements VariantHolder<CubozoaEntity.Variant> {
+public class CubozoaEntity extends AbstractLavaSchoolingFish implements VariantHolder<CubozoaEntity.Variant> {
     public static final int VARIANTS = 2;
 
     private static final EntityDataAccessor<Integer> VARIANT = SynchedEntityData.defineId(
@@ -53,6 +54,10 @@ public class CubozoaEntity extends AbstractSchoolingFish implements VariantHolde
     ) {
         SpawnGroupData data = super.finalizeSpawn(world, difficulty, spawnReason, entityData, entityTag);
 
+        if (entityTag == null || !entityTag.contains("Variant")) {
+            this.setVariant(chooseNaturalVariant(world));
+        }
+
         if (entityTag != null) {
             if (entityTag.contains("Variant")) {
                 this.setVariant(Variant.byId(entityTag.getInt("Variant")));
@@ -65,6 +70,16 @@ public class CubozoaEntity extends AbstractSchoolingFish implements VariantHolde
 
         this.refreshDimensions();
         return data;
+    }
+
+    private Variant chooseNaturalVariant(ServerLevelAccessor world) {
+        var biome = world.getBiome(this.blockPosition());
+
+        if (biome.is(ModTags.Biomes.basaltDeltasBiomes) || biome.is(ModTags.Biomes.crimsonForestBiomes)) {
+            return Variant.VARIANT_1;
+        }
+
+        return Variant.DEFAULT;
     }
 
     @Override

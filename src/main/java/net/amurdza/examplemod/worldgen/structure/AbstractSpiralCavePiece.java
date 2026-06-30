@@ -5,6 +5,7 @@ import net.minecraft.core.Direction;
 import net.minecraft.core.Holder;
 import net.minecraft.core.HolderSet;
 import net.minecraft.nbt.CompoundTag;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.Mth;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.ChunkPos;
@@ -19,7 +20,12 @@ import net.minecraft.world.level.levelgen.structure.BoundingBox;
 import net.minecraft.world.level.levelgen.structure.StructurePiece;
 import net.minecraft.world.level.levelgen.structure.pieces.StructurePieceSerializationContext;
 import net.minecraft.world.level.levelgen.structure.pieces.StructurePieceType;
+import net.minecraftforge.common.Tags;
+import net.minecraftforge.registries.ForgeRegistries;
 import org.jetbrains.annotations.NotNull;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public abstract class AbstractSpiralCavePiece extends StructurePiece {
 
@@ -54,6 +60,16 @@ public abstract class AbstractSpiralCavePiece extends StructurePiece {
     protected double activeCarveCenterZ;
     protected double activeCarveHorizontalRadius;
     protected double activeCarveVerticalRadius;
+    protected final List<CarveEllipsoid> activePieceCarveEllipsoids = new ArrayList<>();
+
+    protected record CarveEllipsoid(
+            double centerX,
+            double centerY,
+            double centerZ,
+            double horizontalRadius,
+            double verticalRadius,
+            int maxCarveY
+    ) {}
 
     protected AbstractSpiralCavePiece(
             StructurePieceType type,
@@ -201,9 +217,52 @@ public abstract class AbstractSpiralCavePiece extends StructurePiece {
             return false;
         }
 
-        double relativeX = (pos.getX() + 0.5D - this.activeCarveCenterX) / this.activeCarveHorizontalRadius;
-        double relativeY = (pos.getY() + 0.5D - this.activeCarveCenterY) / this.activeCarveVerticalRadius;
-        double relativeZ = (pos.getZ() + 0.5D - this.activeCarveCenterZ) / this.activeCarveHorizontalRadius;
+        return ellipsoidWouldCarve(
+                pos,
+                this.activeCarveCenterX,
+                this.activeCarveCenterY,
+                this.activeCarveCenterZ,
+                this.activeCarveHorizontalRadius,
+                this.activeCarveVerticalRadius
+        );
+    }
+
+    protected boolean anyMainEllipsoidWouldCarve(BlockPos pos) {
+        if (this.activePieceCarveEllipsoids.isEmpty()) {
+            return activeEllipsoidWouldCarve(pos);
+        }
+
+        for (CarveEllipsoid ellipsoid : this.activePieceCarveEllipsoids) {
+            if (ellipsoidWouldCarve(
+                    pos,
+                    ellipsoid.centerX(),
+                    ellipsoid.centerY(),
+                    ellipsoid.centerZ(),
+                    ellipsoid.horizontalRadius(),
+                    ellipsoid.verticalRadius()
+            )) {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    private boolean ellipsoidWouldCarve(
+            BlockPos pos,
+            double centerX,
+            double centerY,
+            double centerZ,
+            double horizontalRadius,
+            double verticalRadius
+    ) {
+        if (horizontalRadius <= 0.0D || verticalRadius <= 0.0D) {
+            return false;
+        }
+
+        double relativeX = (pos.getX() + 0.5D - centerX) / horizontalRadius;
+        double relativeY = (pos.getY() + 0.5D - centerY) / verticalRadius;
+        double relativeZ = (pos.getZ() + 0.5D - centerZ) / horizontalRadius;
 
         return !shouldSkip(relativeX, relativeY, relativeZ);
     }
@@ -223,13 +282,133 @@ public abstract class AbstractSpiralCavePiece extends StructurePiece {
         }
 
         level.setBlock(pos, Blocks.AIR.defaultBlockState(), Block.UPDATE_CLIENTS);
+        clearUnsupportedBlockAbove(level, pos);
         decorateCaveBoundaries(level, pos);
+    }
+
+    private void clearUnsupportedBlockAbove(WorldGenLevel level, BlockPos carvedPos) {
+        BlockPos above = carvedPos.above();
+        BlockState aboveState = level.getBlockState(above);
+
+        if (aboveState.isAir() || !aboveState.getFluidState().isEmpty()) {
+            return;
+        }
+
+        if (!aboveState.canSurvive(level, above)) {
+            level.setBlock(above, Blocks.AIR.defaultBlockState(), Block.UPDATE_CLIENTS);
+        }
     }
 
     protected void setBlock(WorldGenLevel level, BlockPos pos, Block block){
         if(canReplace(level,pos)){
             level.setBlock(pos,block.defaultBlockState(),Block.UPDATE_CLIENTS);
         }
+    }
+
+    protected void replaceExposedUndesirableBoundaryBlock(
+            WorldGenLevel level,
+            BlockPos pos,
+            Block replacementBlock,
+            boolean replaceSandAndSandstone
+    ) {
+        BlockState state = level.getBlockState(pos);
+
+        if (!canReplace(state)
+                || isProtectedDecoratedSurface(state)
+                || !isUndesirableVisibleBoundaryBlock(state, replaceSandAndSandstone)) {
+            return;
+        }
+
+        level.setBlock(pos, boundaryReplacementForState(state, replacementBlock).defaultBlockState(), Block.UPDATE_CLIENTS);
+    }
+
+    protected Block boundaryReplacementForState(BlockState state, Block replacementBlock) {
+        if (replacementBlock == Blocks.STONE && isDeepslateLikeOre(state)) {
+            return Blocks.DEEPSLATE;
+        }
+
+        return replacementBlock;
+    }
+
+    protected Block overworldStoneReplacement(BlockPos pos, BlockState state) {
+        if (pos.getY() < 0 || isDeepslateLikeOre(state)) {
+            return Blocks.DEEPSLATE;
+        }
+
+        return Blocks.STONE;
+    }
+
+    private static boolean isUndesirableVisibleBoundaryBlock(
+            BlockState state,
+            boolean replaceSandAndSandstone
+    ) {
+        return isOreLike(state)
+                || state.is(Blocks.ANCIENT_DEBRIS)
+                || state.is(Blocks.GRAVEL)
+                || state.is(Blocks.SUSPICIOUS_GRAVEL)
+                || (replaceSandAndSandstone && isLooseSandOrSandstone(state));
+    }
+
+    private static boolean isOreLike(BlockState state) {
+        if (state.is(Tags.Blocks.ORES)) {
+            return true;
+        }
+
+        ResourceLocation key = ForgeRegistries.BLOCKS.getKey(state.getBlock());
+
+        return key != null && key.getPath().contains("_ore");
+    }
+
+    private static boolean isLooseSandOrSandstone(BlockState state) {
+        return state.is(Blocks.SAND)
+                || state.is(Blocks.RED_SAND)
+                || state.is(Blocks.SUSPICIOUS_SAND)
+                || isSandstone(state);
+    }
+
+    private static boolean isSandstone(BlockState state) {
+        return state.is(Blocks.SANDSTONE)
+                || state.is(Blocks.CHISELED_SANDSTONE)
+                || state.is(Blocks.CUT_SANDSTONE)
+                || state.is(Blocks.SMOOTH_SANDSTONE)
+                || state.is(Blocks.RED_SANDSTONE)
+                || state.is(Blocks.CHISELED_RED_SANDSTONE)
+                || state.is(Blocks.CUT_RED_SANDSTONE)
+                || state.is(Blocks.SMOOTH_RED_SANDSTONE);
+    }
+
+    private static boolean isDeepslateOre(BlockState state) {
+        return state.is(Blocks.DEEPSLATE_COAL_ORE)
+                || state.is(Blocks.DEEPSLATE_COPPER_ORE)
+                || state.is(Blocks.DEEPSLATE_DIAMOND_ORE)
+                || state.is(Blocks.DEEPSLATE_EMERALD_ORE)
+                || state.is(Blocks.DEEPSLATE_GOLD_ORE)
+                || state.is(Blocks.DEEPSLATE_IRON_ORE)
+                || state.is(Blocks.DEEPSLATE_LAPIS_ORE)
+                || state.is(Blocks.DEEPSLATE_REDSTONE_ORE);
+    }
+
+    private static boolean isDeepslateLikeOre(BlockState state) {
+        if (isDeepslateOre(state)) {
+            return true;
+        }
+
+        ResourceLocation key = ForgeRegistries.BLOCKS.getKey(state.getBlock());
+
+        return key != null
+                && key.getPath().contains("deepslate")
+                && key.getPath().contains("_ore");
+    }
+
+    private static boolean isProtectedDecoratedSurface(BlockState state) {
+        return state.is(Blocks.CRIMSON_NYLIUM)
+                || state.is(Blocks.WARPED_NYLIUM)
+                || state.is(Blocks.MYCELIUM)
+                || state.is(Blocks.SCULK)
+                || state.is(Blocks.SCULK_CATALYST)
+                || state.is(Blocks.SCULK_SENSOR)
+                || state.is(Blocks.SCULK_SHRIEKER)
+                || state.is(Blocks.END_STONE);
     }
 
     protected void decorateCaveBoundaries(WorldGenLevel level, BlockPos carvedPos) {
@@ -355,6 +534,7 @@ public abstract class AbstractSpiralCavePiece extends StructurePiece {
         double firstY = lastY;
         double firstZ = lastZ;
         boolean capturedFirstStep = false;
+        List<CarveEllipsoid> ellipsoids = new ArrayList<>();
 
         int maxSteps = 4096;
 
@@ -373,28 +553,44 @@ public abstract class AbstractSpiralCavePiece extends StructurePiece {
                 break;
             }
 
-            int maxCarveY = this.origin.getY();
-
-            carveEllipsoid(level, box, x, y, z, maxCarveY);
+            ellipsoids.add(new CarveEllipsoid(
+                    x,
+                    y,
+                    z,
+                    getTunnelHorizontalRadius(),
+                    this.verticalRadius,
+                    this.origin.getY()
+            ));
 
             y -= minDropPerStep;
             yaw += turnPerStep;
         }
 
-        continueStraightExitTunnelPositiveX(
-                level,
-                box,
-                firstX,
-                firstY,
-                firstZ
-        );
+        if (capturedFirstStep) {
+            addStraightExitTunnelPositiveXEllipsoids(ellipsoids, firstX, firstY, firstZ);
+        }
+
+        this.activePieceCarveEllipsoids.clear();
+        this.activePieceCarveEllipsoids.addAll(ellipsoids);
+
+        for (CarveEllipsoid ellipsoid : ellipsoids) {
+            carveEllipsoid(
+                    level,
+                    box,
+                    ellipsoid.centerX(),
+                    ellipsoid.centerY(),
+                    ellipsoid.centerZ(),
+                    ellipsoid.maxCarveY()
+            );
+        }
+
+        this.activePieceCarveEllipsoids.clear();
 
         placePlacedFeaturesForCurrentStructureChunk(level, generator, chunkPos);
     }
 
-    protected void continueStraightExitTunnelPositiveX(
-            WorldGenLevel level,
-            BoundingBox box,
+    protected void addStraightExitTunnelPositiveXEllipsoids(
+            List<CarveEllipsoid> ellipsoids,
             double startX,
             double centerY,
             double centerZ
@@ -410,7 +606,14 @@ public abstract class AbstractSpiralCavePiece extends StructurePiece {
         );
 
         for (double centerX = startX; centerX <= targetX; centerX += 1.0D) {
-            carveEllipsoid(level, box, centerX, centerY, centerZ, maxCarveY);
+            ellipsoids.add(new CarveEllipsoid(
+                    centerX,
+                    centerY,
+                    centerZ,
+                    getTunnelHorizontalRadius(),
+                    this.verticalRadius,
+                    maxCarveY
+            ));
         }
     }
 

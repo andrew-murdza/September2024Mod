@@ -67,6 +67,12 @@
     "axolotls": [],
     "creature": [
       {
+        "type": "minecraft:mooshroom",
+        "weight": 10,
+        "minCount": 2,
+        "maxCount": 5
+      },
+      {
         "type": "alexsmobs:moose",
         "weight": 10,
         "minCount": 2,
@@ -150,6 +156,12 @@
         "weight": 10,
         "minCount": 4,
         "maxCount": 4
+      },
+      {
+        "type": "aoemod:end_fish",
+        "weight": 15,
+        "minCount": 8,
+        "maxCount": 8
       }
     ],
     "water_creature": [

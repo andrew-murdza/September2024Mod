@@ -9,6 +9,12 @@
       "feature": "aoemod:rainforest/water/water_plants_no_coral_shallow_full",
       "placement": []
     },
+    "guaranteed_features": [
+      {
+        "feature": "aoemod:rainforest/water/coral_grid_choice",
+        "placement": []
+      }
+    ],
     "target": "water",
     "all_layers": false,
     "predicate": {

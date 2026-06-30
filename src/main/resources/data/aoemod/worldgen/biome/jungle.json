@@ -58,6 +58,18 @@
         "maxCount": 5
       },
       {
+        "type": "minecraft:fox",
+        "weight": 8,
+        "minCount": 2,
+        "maxCount": 5
+      },
+      {
+        "type": "minecraft:wolf",
+        "weight": 8,
+        "minCount": 2,
+        "maxCount": 5
+      },
+      {
         "type": "minecraft:parrot",
         "weight": 15,
         "minCount": 2,
@@ -84,6 +96,18 @@
       {
         "type": "minecraft:ocelot",
         "weight": 2,
+        "minCount": 2,
+        "maxCount": 5
+      },
+      {
+        "type": "naturalist:deer",
+        "weight": 20,
+        "minCount": 2,
+        "maxCount": 5
+      },
+      {
+        "type": "minecraft:chicken",
+        "weight": 15,
         "minCount": 2,
         "maxCount": 5
       },
@@ -152,9 +176,21 @@
         "weight": 10,
         "minCount": 4,
         "maxCount": 4
+      },
+      {
+        "type": "aoemod:end_fish",
+        "weight": 15,
+        "minCount": 8,
+        "maxCount": 8
       }
     ],
     "water_creature": [
+      {
+        "type": "minecraft:dolphin",
+        "weight": 10,
+        "minCount": 4,
+        "maxCount": 6
+      },
       {
         "type": "minecraft:squid",
         "weight": 5,
@@ -184,7 +220,6 @@
       "aoemod:savanna/forest_floor",
       "aoemod:rainforest/seafloor",
       "aoemod:savanna/seafloor",
-      "aoemod:rainforest/cave_vines",
       "aoemod:rainforest/lilypads"
     ],
     [

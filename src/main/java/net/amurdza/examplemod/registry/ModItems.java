@@ -18,8 +18,26 @@ import net.minecraftforge.registries.RegistryObject;
 public class ModItems {
     public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, AOEMod.MOD_ID);
 
+    private static final FoodProperties RAW_FISH_FOOD = new FoodProperties.Builder()
+            .nutrition(3)
+            .saturationMod(0.3F)
+            .build();
+
+    private static final FoodProperties COOKED_FISH_FOOD = new FoodProperties.Builder()
+            .nutrition(8)
+            .saturationMod(0.8F)
+            .build();
+
     public static void register(IEventBus eventBus) {
         ITEMS.register(eventBus);
+    }
+
+    public static Item endFishForVariant(int variant, boolean cooked) {
+        return cooked ? COOKED_END_FISH.get() : END_FISH.get();
+    }
+
+    public static Item netherFishForVariantIndex(int variantIndex, boolean cooked) {
+        return NETHER_FISH.get();
     }
 
     public static final RegistryObject<Item> BUCKET_END_FISH = ITEMS.register(
@@ -29,7 +47,12 @@ public class ModItems {
 
     public static final RegistryObject<Item> BUCKET_CUBOZOA = ITEMS.register(
             "bucket_cubozoa",
-            () -> new ItemModFishBucket(ModEntities.CUBOZOA, Fluids.WATER, new Item.Properties())
+            () -> new ItemModFishBucket(ModEntities.CUBOZOA, Fluids.LAVA, new Item.Properties())
+    );
+
+    public static final RegistryObject<Item> BUCKET_NETHER_FISH = ITEMS.register(
+            "bucket_nether_fish",
+            () -> new ItemModFishBucket(ModEntities.NETHER_FISH, Fluids.LAVA, new Item.Properties())
     );
 
     public static final RegistryObject<Item> COOKED_PUFFERFISH = ITEMS.register(
@@ -42,74 +65,22 @@ public class ModItems {
             () -> new Item(new Item.Properties().food(Foods.COOKED_COD))
     );
 
-    public static final RegistryObject<Item> RAW_VENISON = ITEMS.register(
-            "raw_venison",
-            () -> new Item(new Item.Properties().food(Foods.MUTTON))
-    );
-
-    public static final RegistryObject<Item> COOKED_VENISON = ITEMS.register(
-            "cooked_venison",
-            () -> new Item(new Item.Properties().food(Foods.COOKED_MUTTON))
-    );
-
-    public static final RegistryObject<Item> CUBOZOA = ITEMS.register(
-            "cubozoa",
-            () -> new Item(new Item.Properties().food(
-                    new FoodProperties.Builder()
-                            .nutrition(3)
-                            .saturationMod(0.3F)
-                            .build()
-            ))
-    );
-
-    public static final RegistryObject<Item> COOKED_CUBOZOA = ITEMS.register(
-            "cooked_cubozoa",
-            () -> new Item(new Item.Properties().food(
-                    new FoodProperties.Builder()
-                            .nutrition(8)
-                            .saturationMod(0.8F)
-                            .build()
-            ))
-    );
-
     public static final RegistryObject<Item> END_FISH = ITEMS.register(
             "end_fish",
-            () -> new Item(new Item.Properties().food(
-                    new FoodProperties.Builder()
-                            .nutrition(3)
-                            .saturationMod(0.3F)
-                            .build()
-            ))
+            () -> new Item(new Item.Properties().food(RAW_FISH_FOOD))
     );
-
     public static final RegistryObject<Item> COOKED_END_FISH = ITEMS.register(
             "cooked_end_fish",
-            () -> new Item(new Item.Properties().food(
-                    new FoodProperties.Builder()
-                            .nutrition(8)
-                            .saturationMod(0.8F)
-                            .build()
-            ))
+            () -> new Item(new Item.Properties().food(COOKED_FISH_FOOD))
+    );
+    public static final RegistryObject<Item> NETHER_FISH = ITEMS.register(
+            "nether_fish",
+            () -> new Item(new Item.Properties().food(RAW_FISH_FOOD))
     );
 
-    public static final RegistryObject<Item> CHERRIES = ITEMS.register(
-            "cherries",
-            () -> new Item(new Item.Properties().food(Foods.APPLE))
-    );
-
-    public static final RegistryObject<Item> PEAR = ITEMS.register(
-            "pear",
-            () -> new Item(new Item.Properties().food(Foods.APPLE))
-    );
-
-    public static final RegistryObject<Item> PLUM = ITEMS.register(
-            "plum",
-            () -> new Item(new Item.Properties().food(Foods.APPLE))
-    );
-
-    public static final RegistryObject<Item> ORANGE = ITEMS.register(
-            "orange",
-            () -> new Item(new Item.Properties().food(Foods.APPLE))
+    public static final RegistryObject<Item> COOKED_GLOW_SQUID = ITEMS.register(
+            "cooked_glow_squid",
+            () -> new Item(new Item.Properties().food(Foods.COOKED_COD))
     );
 
     public static final RegistryObject<Item> MELON_PIE = ITEMS.register(
@@ -119,6 +90,11 @@ public class ModItems {
 
     public static final RegistryObject<Item> GLOW_BERRY_PIE = ITEMS.register(
             "glow_berry_pie",
+            () -> new Item(new Item.Properties().food(Foods.PUMPKIN_PIE))
+    );
+
+    public static final RegistryObject<Item> MANGO_PIE = ITEMS.register(
+            "mango_pie",
             () -> new Item(new Item.Properties().food(Foods.PUMPKIN_PIE))
     );
 
@@ -142,11 +118,6 @@ public class ModItems {
             () -> new Item(new Item.Properties().food(Foods.PUMPKIN_PIE))
     );
 
-    public static final RegistryObject<Item> ORANGE_JUICE = ITEMS.register(
-            "orange_juice",
-            () -> new BowlFoodItem(new Item.Properties().stacksTo(1).food(Foods.MUSHROOM_STEW))
-    );
-
     public static final RegistryObject<Item> CARROT_SEEDS = ITEMS.register(
             "carrot_seeds",
             () -> new ItemNameBlockItem(Blocks.CARROTS, new Item.Properties())
@@ -167,6 +138,16 @@ public class ModItems {
             () -> new ItemNameBlockItem(vectorwing.farmersdelight.common.registry.ModBlocks.RICE_CROP.get(), new Item.Properties())
     );
 
+    public static final RegistryObject<Item> ASHEN_WHEAT = ITEMS.register(
+            "ashen_wheat",
+            () -> new Item(new Item.Properties())
+    );
+
+    public static final RegistryObject<Item> ASHEN_WHEAT_SEEDS = ITEMS.register(
+            "ashen_wheat_seeds",
+            () -> new ItemNameBlockItem(ModBlocks.ASHEN_WHEAT_CROP.get(), new Item.Properties())
+    );
+
     public static final RegistryObject<Item> SOUL_BERRIES = ITEMS.register(
             "soul_berries",
             () -> new ItemNameBlockItem(
@@ -180,19 +161,28 @@ public class ModItems {
             )
     );
 
-    public static final RegistryObject<Item> CHORUS_BREAD = ITEMS.register(
-            "chorus_bread",
-            () -> new Item(new Item.Properties().food(
-                    new FoodProperties.Builder()
-                            .nutrition(4)
-                            .saturationMod(0.4F)
-                            .build()
-            ))
+    public static final RegistryObject<Item> ASHEN_BREAD = ITEMS.register(
+            "ashen_bread",
+            () -> new Item(new Item.Properties().food(Foods.BREAD))
     );
 
     public static final RegistryObject<Item> SOUL_BERRY_COOKIE = ITEMS.register(
             "soul_berry_cookie",
             () -> new Item(new Item.Properties().food(Foods.COOKIE))
+    );
+
+    public static final RegistryObject<Item> BLUE_BERRY_COOKIE = ITEMS.register(
+            "blue_berry_cookie",
+            () -> new Item(new Item.Properties().food(Foods.COOKIE))
+    );
+
+    public static final RegistryObject<Item> SEARING_COD_ROLL = ITEMS.register(
+            "searing_cod_roll",
+            () -> new Item(new Item.Properties().food(Foods.COOKED_COD))
+    );
+    public static final RegistryObject<Item> NETHER_FISH_KELP_ROLL = ITEMS.register(
+            "nether_fish_kelp_roll",
+            () -> new Item(new Item.Properties().food(Foods.COOKED_COD))
     );
 
     public static final RegistryObject<Item> BONE_ARROW = ITEMS.register(
@@ -263,6 +253,6 @@ public class ModItems {
     public static final RegistryObject<Item> DIAMOND_SPEAR = ITEMS.register("diamond_spear",
             () -> new SpearItem(Tiers.DIAMOND, 1.05F, 1.075F, 0.50F, 10.0F, 6.50F, 4.6F, new Item.Properties()));
     public static final RegistryObject<Item> NETHERITE_SPEAR = ITEMS.register("netherite_spear",
-            () -> new SpearItem(Tiers.NETHERITE, 1.15F, 1.20F, 0.40F, 9.0F, 5.50F, 4.6F,
+            () -> new SpearItem(Tiers.IRON, 0.95F, 0.95F, 0.60F, 11.0F, 6.75F, 4.6F,
                     new Item.Properties().fireResistant()));
 }
