@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "aoemod:nether_fish"
+    },
+    {
+      "item": "netherdepthsupgrade:warped_kelp"
+    }
+  ],
+  "result": {
+    "item": "aoemod:nether_fish_kelp_roll"
+  }
+}

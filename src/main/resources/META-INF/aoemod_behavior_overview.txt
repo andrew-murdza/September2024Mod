@@ -1,0 +1,1117 @@
+AOE Mod Behavior Overview
+=========================
+
+Purpose of this file
+--------------------
+
+This file is an audit-oriented summary of what the mod currently appears to do based on the Java source, JSON data, assets, recipes, tags, worldgen files, and mixin configuration in the project. It is intentionally organized by gameplay area rather than by file so it is easier to check whether each behavior is wanted.
+
+This is not a player-facing guide. It is meant to help identify:
+
+- Features the mod is supposed to have and whether they are represented in code/data.
+- Behavior-changing mixins that may have wide side effects.
+- New blocks, items, mobs, worldgen, recipes, dimensions, and integrations.
+- Things the mod currently does that might not be intended.
+
+
+1. High-level world and dimension changes
+-----------------------------------------
+
+The mod replaces the vanilla Overworld dimension configuration through data/minecraft/dimension/overworld.json. The Overworld uses the custom dimension type aoemod:aoedim and the custom noise settings aoemod:aoedim.
+
+The custom dimension type aoemod:aoedim keeps many Overworld-like rules:
+
+- Natural dimension.
+- Skylight enabled.
+- Beds work.
+- Raids work.
+- Minimum Y is -64.
+- Height and logical height are 384.
+- Ambient light is 0.1.
+- Monster spawning is allowed from light level 0 through 7.
+- Piglin-safe is set to true.
+- Respawn anchors do not work.
+
+The custom noise settings aoemod:aoedim use custom density functions for continents, rivers, offsets, and terrain shaping. Aquifers are disabled, sea level is 64, the default block is stone, the default fluid is water, and ore veins are disabled.
+
+The mod registers custom density functions:
+
+- aoemod:continents creates large repeating biome/continent bands.
+- aoemod:rivers creates repeating radial/vertical river cuts based heavily on chunk X position.
+- aoemod:offset creates biome/region-specific vertical offsets, including terrain stepping around transition areas.
+
+The terrain is divided into custom bands/regions such as jungle, savanna, plains, mountains/grove, desert, deep dark, soul sand valley, warped forest, crimson forest, and basalt deltas. Several features and mob spawns depend on these biome bands.
+
+
+2. Biomes and biome spawn themes
+--------------------------------
+
+The mod defines custom biome JSONs for the AOE dimension/Overworld replacement. Their spawns are grouped into difficulty and theme bands.
+
+Jungle:
+
+- Common monsters include creaking, slime, and spider.
+- Water and ambient water life include dolphin, axolotl, turtle, end fish, salmon, squid, pufferfish, cod, lobster, tropical fish, and arrow squid.
+- Creatures include panda, parrot, ocelot, cat, frog, gorilla, fox, wolf, rabbit, deer, chicken, and squirrel.
+
+Savanna:
+
+- Common monsters include zombie, skeleton, and Born in Chaos senor pumpkin.
+- Water life includes squid, pufferfish, cod, lobster, tropical fish, salmon, and arrow squid.
+- Creatures include horse, llama, donkey, rabbit, deer, chicken, cow, sheep, pig, squirrel, emu, bison, moose, gazelle, and boar.
+
+Plains:
+
+- Common monsters include pillager, ravager, and zombie villager.
+- Water life includes salmon, squid, cod, and lobster.
+- Creatures include horse, donkey, rabbit, deer, chicken, cow, sheep, pig, and squirrel.
+
+Mountains / Grove:
+
+- Common monsters include stray, breeze, and drowned.
+- The grove also receives mooshrooms, with spawning restricted to mycelium.
+- Water life includes dolphin, salmon, squid, lobster, arrow squid, cod, end fish, and glow squid.
+- Creatures include fox, polar bear, mooshroom, rabbit, goat, and moose.
+
+Desert:
+
+- Common monsters include husk and parched.
+- Rabbits and camels spawn as creatures.
+- Water life includes glowdine, cubozoa, end fish, cod, glow squid, and searing cod depending on the configured water category.
+
+Deep Dark:
+
+- Common monsters include enderman and shulker.
+- Glow squid and some custom fish behavior are configured around this region.
+
+Soul Sand Valley:
+
+- Common monsters include skeleton and Quark wraith.
+- Nether cave/water-like creature groups include cubozoa.
+
+Warped Forest:
+
+- Common monsters include zoglin and creeper.
+- Warped toads spawn as a creature group.
+
+Crimson Forest:
+
+- Hoglins spawn as a creature group.
+- Nether fish spawn naturally in lava-like water ambient slots.
+
+Basalt Deltas:
+
+- Common monsters include blaze and magma cube.
+- Striders spawn as a creature group.
+- Lava/water ambient life includes glowdine, searing cod, and cubozoa.
+
+The mod also uses custom mob caps/categories for some cave creature groups. Mushroom cave creatures are focused around mooshrooms, and nether cave creature groups include hoglins, striders, and warped toads.
+
+
+3. Structures and cave systems
+------------------------------
+
+The mod adds large custom cave structures and pieces.
+
+Long Nether Cave:
+
+- Implemented through LongNetherCaveStructure and NetherCavePiece.
+- Generates a long spiral/nether-themed cave system.
+- Includes themed bands such as deep dark, soul sand valley, warped forest, crimson forest, and basalt deltas.
+- Has custom floor, wall, ceiling, river/lava, and seafloor replacement logic.
+- Replaces visible ores and gravel on cave floors/walls/ceilings with local base materials, and only replaces sand/sandstone on ceilings, so ores are not exposed from inside the cave.
+- Local base materials include stone, deepslate, netherrack, soul sand, soul soil, blackstone, and basalt depending on region.
+- Netherrack, stone, and deepslate replacement logic avoids overwriting special surface blocks such as crimson nylium, warped nylium, mycelium, sculk, and end stone.
+- The seafloor above deep dark nether cave areas uses a sand layer with sandstone below it.
+
+Long Mushroom Cave:
+
+- Implemented through LongMushroomCaveStructure and MushroomCavePiece.
+- Generates a large cave layer with mushroom, mycelium, grass, amethyst, calcite, smooth basalt, and water/floor features.
+- Amethyst floor generation attempts to put budding amethyst only on the mathematical outer edge of the amethyst ellipsoid, with regular amethyst inside.
+- Mushroom caves avoid carving into spruce leaves and spruce logs.
+- Mushroom cave floor features use deterministic patch/grid placement so areas can have guaranteed distributions rather than purely random scattered features.
+
+Important audit note:
+
+- The mushroom cave budding-amethyst logic is deliberately mathematical. If it still creates too much or too little budding amethyst, the issue is probably in the ellipsoid boundary test or interaction between multiple overlapping carving ellipsoids.
+
+
+4. Worldgen feature system
+--------------------------
+
+The mod registers several custom feature types:
+
+- special_biome_tree
+- seagrass
+- kelp
+- all_surface
+- random_selector
+- block_column
+- glow_lichen
+- huge_glow_shroom
+- crimson_seagrass
+- warped_seagrass
+- grid_choice
+- regional_grid_choice
+- feature_sequence
+- fixed_count_random_patch
+- layered_all_surface
+- rainforest_tree
+- cave_vines
+- sugar_cane
+- chunk_patch
+
+All-surface and layered all-surface features:
+
+- Scan chunk surfaces for valid placement locations.
+- Can target land, water, lava, or mixed surfaces depending on configuration.
+- Support biome tags, placement chances, skip heights, and guaranteed placement behavior.
+- Some guaranteed placement logic searches for the correct ground height at the target X/Z instead of using only the original feature origin.
+
+Patch features:
+
+- fixed_count_random_patch uses a shuffled finite list of candidate positions, skips water/lava for land patches, and stops after the valid candidate area has been checked.
+- chunk_patch handles deterministic chunk-based patch placement, keeps rainforest feature origins anchored to chunk intersections, lets land patches spill around those intersections into clearings between center-of-chunk trees, uses shuffled finite candidate positions, skips water/lava for land patches, and uses a combined half-footprint on river shorelines so invalid water quadrants do not reduce shore density twice.
+
+Grid features:
+
+- grid_choice and regional_grid_choice select features using deterministic grids.
+- These can enforce section quotas, pinned entries, weighted entries, and region-specific distributions.
+- Regional floor grids keep trees centered when their JSON uses center offsets, allow corner-offset floor patches to spill from chunk x=0 and x=6 shorelines, and skip fully-river chunks between those shorelines.
+- They are used for things like mushroom cave floor distributions, soul sand valley feature grids, jungle land patches, river/shoreline features, and rainforest/non-tree features.
+
+Rainforest tree feature:
+
+- Places template-based canopies using configurable log and leaves block state providers.
+- Supports a 2x2 trunk centered on a defined origin grid.
+- Supports top_y placement so a canopy can end at a specific Y value.
+- Supports height providers when top_y is not used.
+- Replaces template log/leaves with the configured providers.
+- Preserves log orientation.
+- Forces placed leaves to be non-persistent when the leaves block supports that property.
+- Treats structure void as empty space and replaces air in templates with structure void where appropriate.
+- Can place moss/coral around submerged 2x2 trunks.
+- Coral columns are chosen vertically so color/type changes by height, with special top-color ordering.
+- Underwater blocks around trunks become moss if they do not have horizontal water exposure outside the trunk boundary.
+- Can use decorators for cave vines, spore blossoms, trunk vines, and cocoa depending on the configured tree variant.
+
+Custom cave-vine/spore-blossom decorators:
+
+- A decorator can choose between doing nothing, placing a spore blossom, or placing cave vines.
+- Cave vine length uses an int provider.
+- Cave vines stop before non-pass-through blocks or within four blocks of water.
+- Cave vines that would already be too close to water are skipped.
+- Cave vines generated by these decorators can be configured with berries and age values.
+
+Custom trunk decorators:
+
+- Can cover trunks in vines on multiple sides.
+- Jungle variants can place cocoa on lower trunk blocks.
+- Some tree variants use trunk decorators only for worldgen, while sapling-grown versions skip them.
+
+Huge fungi / giant fungus:
+
+- Vanilla giant crimson and warped fungus behavior is replaced or supplemented by template-based configured features.
+- Crimson fungus has a worldgen version and a from-fungus version, with separate handling for weeping vines.
+- Warped fungus has configured feature variants as well.
+- Fungi grown by bonemeal or random tick use from-fungus configured features.
+- Worldgen uses worldgen configured features.
+- Huge fungus placement has stricter air/replaceability checks so trees do not overlap too tightly.
+- For 5x5 huge fungus templates, the top four blocks of the final tree require a 7x7 air/replaceable area centered on the trunk to maintain one block of air between neighboring fungus canopies.
+- Shroomlights in the source template are intended to remain shroomlights rather than being replaced by wart blocks.
+
+Huge mushrooms:
+
+- Brown and red giant mushroom placement checks are modified.
+- Brown mushrooms require enough air below the top canopy so one brown mushroom cannot grow directly under another.
+- Huge mushroom validity checks go higher than vanilla without changing the radius passed into the canopy-radius method.
+
+Sugar cane feature:
+
+- Places sugar cane using custom river/shoreline logic tied to chunk-X river bands.
+- Some placements are center-adjusted because related jungle/coral features changed from center to corner-based positioning.
+
+Coral and seagrass features:
+
+- Custom coral placement supports underwater tree-ring behavior.
+- Coral bonemeal spreading is supported separately through event logic.
+- Custom crimson/warped seagrass and kelp features support Nether Depths Upgrade-style underwater/lava vegetation.
+
+
+5. New blocks
+-------------
+
+Soul berry bush:
+
+- A sweet-berry-like bush that grows on soul sand and soul soil.
+- Drops soul berries.
+- Random tick growth and harvest amount are controlled by mod block behavior configuration.
+
+Blue berry bush:
+
+- A sweet-berry-like bush that uses Fruits Delight blueberries as the item.
+- Intended to replace or supplement sweet berry patches in configured worldgen.
+- Behaves like a berry bush with modded harvest/growth handling.
+
+Jungle sweet berry bush:
+
+- A custom jungle-themed berry bush variant.
+- Uses sweet-berry-style behavior and participates in custom berry/drop logic.
+
+Ashen wheat crop:
+
+- Registered as aoemod:ashen_wheat in block form, using a crop block class.
+- Grows only on soul sand and soul soil.
+- Does not require farmland.
+- Uses aoemod:ashen_wheat_seeds as its seed item.
+- Growth can be affected by biome-based crop growth configuration.
+
+Ores:
+
+- basalt_quartz_ore
+- blackstone_quartz_ore
+- basalt_gold_ore
+- blackstone_gold_ore
+- soul_soil_gold_ore
+- soul_sand_gold_ore
+- soul_soil_quartz_ore
+- soul_sand_quartz_ore
+
+Soul sand/soil quartz ores have been renamed in language/intent to soul sand soul quartz and soul soil soul quartz and are intended to drop soul quartz rather than regular quartz, using the same quantity behavior as quartz ore drops.
+
+Custom sunflower:
+
+- A custom rotatable sunflower block.
+
+Desert vegetation:
+
+- desert_grass
+- desert_tallgrass
+- Desert grass can bonemeal into desert tall grass.
+- Desert grass and desert tall grass are placeable on sand-like terrain.
+
+Pale garden / pale oak blocks:
+
+- pale_moss_block
+- pale_moss_carpet
+- pale_hanging_moss
+- open_eyeblossom
+- closed_eyeblossom
+- pale_oak_log
+- pale_oak_wood
+- stripped_pale_oak_log
+- stripped_pale_oak_wood
+- pale_oak_planks
+- pale_oak_stairs
+- pale_oak_slab
+- pale_oak_fence
+- pale_oak_fence_gate
+- pale_oak_door
+- pale_oak_trapdoor
+- pale_oak_pressure_plate
+- pale_oak_button
+- pale_oak_leaves
+- pale_oak_sapling
+
+Pale moss behavior:
+
+- Pale moss can spread through bonemeal behavior.
+- Pale moss can create pale moss carpet and hanging moss in appropriate locations.
+
+Pale hanging moss behavior:
+
+- Can survive attached to leaves, itself, or sturdy blocks above.
+- Has a tip property.
+- Can be bonemealed downward.
+- Is used under pale oak trees and other pale vegetation worldgen.
+
+Eyeblossom behavior:
+
+- Open and closed eyeblossoms can change state during random ticks.
+- They are placeable on soul sand and soul soil.
+- Open eyeblossoms emit light.
+- Eyeblossoms can poison bees that touch them.
+
+Pale oak sapling behavior:
+
+- Placeable on soul sand and soul soil.
+- Does not require normal light to grow.
+- Uses a custom PaleOakTreeGrower.
+- In soul-sand-valley-style generation it uses a configured pale oak feature.
+
+Copper chain:
+
+- Adds a copper chain block.
+- Quark chain behavior is extended so copper chains work with Quark-style chain mechanics where applicable.
+
+Fireproof block behavior:
+
+- Pale oak-related blocks are treated as fireproof/non-flammable in the same general spirit as nether wart blocks and fungus stems.
+
+
+6. New items and food
+---------------------
+
+Fish buckets:
+
+- bucket_end_fish
+- bucket_nether_fish
+- bucket_cubozoa
+
+Fish and aquatic food items:
+
+- end_fish
+- cooked_end_fish
+- nether_fish
+- cooked_pufferfish
+- cooked_tropical_fish
+- cooked_glow_squid
+- Naturalist venison/cooked venison are used instead of AOE venison items.
+
+Food items and recipes:
+
+- melon_pie
+- glow_berry_pie
+- mango_pie
+- pear_pie
+- cherry_pie
+- banana_pie
+- plum_pie
+- ashen_bread
+- soul_berry_cookie
+- blue_berry_cookie
+- searing_cod_roll
+- nether_fish_kelp_roll
+
+Removed/avoided legacy food items:
+
+- AOE raw/cooked venison items are removed in favor of Naturalist venison.
+- AOE cooked nether fish, cubozoa meat, cooked cubozoa, chorus bread, searing cod kelp wrap, and legacy fruit items are removed.
+
+Crop/seed items:
+
+- carrot_seeds
+- potato_seeds
+- onion_seeds
+- rice_seeds
+- ashen_wheat_seeds
+- ashen_wheat
+- soul_berries
+
+Soul quartz:
+
+- Soul quartz ore drops use nourished_nether:soul_quartz from Netherific/Nourished Nether instead of a custom AOE soul quartz item.
+
+Bone tools and equipment:
+
+- bone_arrow
+- bone_sword
+- bone_shovel
+- bone_pickaxe
+- bone_axe
+- bone_hoe
+- bone_shears
+
+Bone tools are a low-tier tool set positioned around wood/stone/early iron behavior.
+
+Copper tools and armor:
+
+- copper_sword
+- copper_shovel
+- copper_pickaxe
+- copper_axe
+- copper_hoe
+- copper_helmet
+- copper_chestplate
+- copper_leggings
+- copper_boots
+
+Copper equipment is tuned between stone and iron. Copper armor uses lower defense than iron and repairs with copper ingots.
+
+Spears:
+
+- wooden_spear
+- stone_spear
+- copper_spear
+- iron_spear
+- golden_spear
+- diamond_spear
+- netherite_spear
+
+Spear behavior:
+
+- Spears have a custom use action.
+- Spears add entity reach while held.
+- During use, they raycast forward and deal speed-scaled damage if the user is moving fast enough.
+- Faster movement increases damage and knockback.
+- Strong hits can dismount targets.
+- Spears lose durability when used successfully.
+- Spears use custom renderer/pose behavior so players and mobs hold them more like Minecraft's newer spear/trident-style staging instead of a normal item.
+
+Netherite item behavior:
+
+- Netherite armor, weapons, and tools are altered to have iron-like stats.
+- Netherite gear is crafted directly from netherite ingots instead of being made by applying upgrades to diamond equipment.
+- Netherite ingots are made by smelting netherite scrap.
+- Ancient debris drops netherite scrap through custom drop configuration rather than dropping itself directly in the intended biomes.
+
+
+7. Creative tab and item grouping
+---------------------------------
+
+The mod adds a custom creative tab:
+
+- ID/title: itemGroup.aoemod / AOE mod tab.
+- Icon: pale oak sapling.
+- Contains the mod's registered items and blocks.
+- Legacy AOE fruit items are removed, so the tab no longer needs to hide them.
+
+The mod also adds several items and blocks to vanilla creative tabs through event code so equipment, food, ingredients, spawn eggs, and blocks appear in relevant places.
+
+
+8. New entities and mobs
+------------------------
+
+Custom aquatic entities:
+
+End fish:
+
+- A small schooling water fish.
+- Has variants and scales stored in entity data and buckets.
+- Natural variants depend on biome/region:
+  - Mountains/mushroom caves use variants 0-2.
+  - Desert uses variant 5.
+  - Jungle/default tropical-style areas use variants 6-7.
+- Drops are configured through MobConfig and tied to the entity variant where configured.
+
+Nether fish:
+
+- A lava-compatible fish based on end fish behavior.
+- Uses variants 3-4.
+- Lives in lava rather than water.
+- Naturally spawns in crimson forest-style lava regions.
+- Has one generic raw nether fish item rather than separate meats for each variant.
+
+Cubozoa:
+
+- A lava-compatible jellyfish-like entity.
+- Uses two variants.
+- Variant selection depends on biome:
+  - Variant 1 in basalt deltas and crimson forest.
+  - Variant 0 in soul sand valley and warped forest.
+- Naturally spawns in soul sand valley and basalt deltas.
+- Drops slime in configured regions through MobConfig rather than dropping itself in all biomes.
+
+Sea serpent:
+
+- A custom large water creature with renderer/model support and multipart/body-style behavior.
+
+Future-Minecraft-inspired mobs:
+
+Bogged:
+
+- Skeleton variant.
+- Uses poison arrows.
+- Is not shearable.
+
+Parched:
+
+- Skeleton variant.
+- Uses weakness arrows.
+- Immune to weakness.
+- Uses custom skull/head rendering/orientation.
+
+Breeze:
+
+- Ranged wind-based monster.
+- Uses a custom breeze wind charge projectile.
+- Has jumping/movement behavior and ranged attack logic.
+
+Creaking:
+
+- Behaves as a normal hostile mob rather than vanilla's heart/invulnerability/line-of-sight rules.
+- Can move and attack normally.
+- Is not invincible.
+
+Camel husk:
+
+- A hostile camel-like entity used as part of jockey behavior.
+
+Camel husk jockey:
+
+- Spawns as a camel husk with a husk rider.
+- Also spawns or includes a parched companion depending on final-spawn logic.
+- Rider is equipped with a golden spear.
+
+Zombie horseman:
+
+- Spawns as a zombie horse with a zombie rider.
+- Rider is equipped with an iron spear.
+
+Skeleton horseman:
+
+- Spawns as a skeleton horse with a skeleton rider.
+- Rider uses a bow.
+
+Nautilus:
+
+- Water animal.
+- Does not have armor or an inventory.
+- Gives nearby players Water Breathing instead of a separate Breath of the Nautilus effect.
+- Uses water navigation and swim AI.
+
+Boss and elite-style mobs:
+
+Archlich:
+
+- Based on Ice and Fire dread lich behavior.
+- Boss-like ranged caster.
+- Uses a Dread Lich skull-style projectile rather than a vanilla fire charge.
+- Periodically summons dread liches and dread knights near itself.
+- Prevents dread liches it summons from recursively summoning their own full ally set by setting the relevant minion/summon limit.
+
+Dread lich interaction:
+
+- Dread liches are modified so their own ally summoning is restricted to dread thralls only.
+- This is intended to work regardless of whether an archlich is present.
+
+Spider Queen:
+
+- Spider boss.
+- Higher health, armor, damage, and knockback resistance than regular spiders.
+- Has a boss bar.
+- On melee hit, inflicts Weakness I, Poison II, and Slowness III.
+- Periodically summons spiders and cave spiders.
+
+Illager Lord:
+
+- Boss-like illager/vindicator entity.
+- Equipped with iron axe, shield, and full iron armor.
+- Has high health, armor, damage, and knockback resistance.
+- Uses a boss bar.
+- Blocks frontal damage while the shield remains.
+- The shield breaks after a configured number of frontal hits.
+- Periodically summons illager allies such as vindicators, evokers, and pillagers.
+
+Born in Chaos pumpkin mobs:
+
+- Sir Pumpkin Head is modified to have no second stage and no mob summoning.
+- Lord Pumpkinhead behavior is modified so it rides/uses the intended pumpkin-head boss behavior and summons senor pumpkin and sir pumpkin head instead of its original summons.
+- Born in Chaos zombie maggot drops and certain Born in Chaos messages are disabled/removed.
+
+
+9. Mob stat and role balancing
+------------------------------
+
+The mod uses event/config code to adjust mob stats and drops by biome/tier. The general design is:
+
+- Common mobs spawn normally.
+- Elite mobs are stronger and are associated with structures or harder local encounters.
+- Boss mobs are much stronger and usually appear as structure bosses.
+
+Biome difficulty order is intended to increase roughly as:
+
+Jungle < Savanna < Plains / Warped Forest < Desert / Mountains < Deep Dark < Soul Sand Valley < Basalt Deltas
+
+The mod contains stat-balancing code for common/elite/boss-style mobs, including consideration for:
+
+- Health.
+- Armor.
+- Attack damage.
+- Movement speed.
+- Ranged attacks.
+- Equipment such as axes, swords, bows, armor, and shields.
+- Special effects like wither, poison, weakness, or slowness.
+
+Examples:
+
+- Ravagers are simplified into common-mob attackers without vanilla shield-breaking, roaring, or stunning emphasis.
+- Wardens are reduced from vanilla boss-tier strength to elite-tier strength for deep dark balance.
+- Wither skeletons are treated as high-tier basalt-deltas elite mobs with strong melee and wither effect, but not as full bosses.
+- Endermen are modified into common mobs by disabling teleportation and tuning their stats.
+- Shulkers are common deep-dark mobs, with reduced duplication/defensive behavior.
+- Blazes and magma cubes are tuned as basalt-deltas common mobs.
+- Zoglins and creepers are tuned as warped-forest mobs.
+- Dread liches, dread knights, and trolls are mountain elite mobs.
+
+MobConfig and MobStatsConfig also configure custom drops, breeding rates, aging rates, food growth, and other biome-dependent mob behavior.
+
+
+10. Mob AI, targeting, and spawn behavior changes
+-------------------------------------------------
+
+The mod changes spawn placements for several entities:
+
+- Turtles spawn on land again, but only near configured river-edge chunk bands.
+- Drowned can spawn on land using monster spawn rules.
+- Striders spawn on solid ground instead of lava, with special valid-ground checks.
+- Axolotls and glow squid use custom water spawn checks.
+- Husks, strays, pillagers, zoglins, piglin brutes, shulkers, Ice and Fire mobs, and other mobs receive custom placement rules.
+- Husks, strays, and similar mobs are allowed to spawn without needing sky exposure.
+- Mooshrooms spawn in the grove biome, only above mycelium.
+
+Targeting and attack behavior:
+
+- The mod blocks or removes many mob targeting goals so mobs do not attack most non-villager/non-piglin/non-exception mobs.
+- Additional mixins exist for brain-based mobs such as zoglins and wardens, which may not use normal goal selectors.
+- Zoglins are quieted when near other mobs if they are not actually attacking.
+- Guardians do not attack squid.
+- Pufferfish do not poison nearby entities.
+- Endermen no longer teleport.
+- Wardens lose their sonic boom ranged attack.
+- Ravagers are simplified.
+- Shulkers do not duplicate from shulker bullets and have common-mob-style behavior.
+- Hoglins and piglins are made more passive in configured contexts.
+- Piglins do not hunt hoglins.
+- Turtle eggs are protected from some mob AI.
+- Bee anger, goat ramming/jumping, and other passive/neutral mob behaviors are modified.
+
+Animal food and breeding behavior:
+
+- Rabbits eat ashen wheat for tempting, breeding, and growth speeding.
+- Striders eat ashen wheat.
+- Mooshrooms can use mushrooms.
+- Several animals get expanded breeding/tempt items through event logic, including rabbits, horses, donkeys, turtles, pigs, cats, ocelots, foxes, wolves, moose, pandas, frogs, and others depending on tags/config.
+- Twins/fertility behavior can be modified by MobConfig, allowing failed breeding or multiple children.
+- Animal aging rates and food-based growth rates can depend on biome/config.
+
+Other mob lifecycle changes:
+
+- Chicken egg and feather behavior is modified by biome/config.
+- Sheep wool regrowth and shearing amounts are modified.
+- Bamboo can be sheared/adjusted through custom behavior.
+- Mooshroom shearing can be disabled.
+
+
+11. Mob drops and block drops
+-----------------------------
+
+Custom mob drops:
+
+- Mob drops are controlled through MobConfig.
+- Drops can vary by biome/region.
+- Cooked drops can be substituted when a mob dies on fire.
+- Looting can affect configured drops for most monsters, with exclusions where configured.
+- Cubozoa drop slime based on biome rules:
+  - 1 slime in nether biomes.
+  - 0.5 expected slime in deep dark and desert.
+  - 0 elsewhere.
+- Ancient debris drops netherite scrap rather than itself:
+  - 2 scrap in basalt deltas.
+  - 1 scrap in other nether biomes.
+  - 0.5 expected scrap in deep dark and desert.
+
+Custom block drops:
+
+- Block drops are controlled through BlockConfig.
+- Custom drop handling cancels vanilla drops for configured blocks.
+- Drops can vary by biome/region.
+- Fortune and XP are handled.
+- Creative breaking avoids drops.
+- Some configured blocks can roll grouped seeds or multiple possible outputs.
+
+Berry drops:
+
+- Sweet berries, soul berries, and blue berries have biome/config-dependent harvest amounts.
+- Some worldgen replaces half of sweet berry patches with blue berry patches.
+- Berry totals can be multiplied and split so a deterministic half/half-minus-half split goes to blue berries rather than relying on an independent 50% chance.
+
+
+12. Growth, bonemeal, and block behavior configuration
+------------------------------------------------------
+
+Biome-dependent growth:
+
+The mod contains many growth-rate hooks and mixins. Similar files are grouped here:
+
+- Crop growth can depend on biome.
+- Sapling growth can depend on biome.
+- Grass and mycelium spread can depend on biome.
+- Amethyst budding/growth can depend on biome.
+- Pointed dripstone growth can depend on biome.
+- Mangrove propagule growth can depend on biome.
+- Vine growth can depend on biome and is modified to grow downward.
+- Turtle egg growth/hatching can depend on biome.
+- Sheep wool regrowth and animal aging can depend on biome.
+- Chicken eggs/feathers can depend on biome.
+
+Bonemeal behavior:
+
+- Bonemeal use is intercepted through event logic.
+- The mod consumes one bonemeal and plays the growth effect once.
+- Bonemeal output can be multiplied or modified by biome/config.
+- Bonemeal works on many vanilla bonemealable blocks plus custom blocks.
+- Bonemeal can grow crops, stems, cacti, sugar cane, nether wart, mushrooms, coral, and custom vegetation depending on conditions.
+- Bonemeal can transform or decorate certain floor blocks, including sand/red sand, mycelium, sculk, nylium, soul sediments, and basalt-like blocks.
+- Bonemeal can spread coral plants and coral fans of the same type.
+- Coral blocks are craftable from combinations of plants/fans of the matching coral color.
+
+Crop and plant placement:
+
+- Ashen wheat grows on soul sand and soul soil instead of farmland.
+- Eyeblossoms are placeable on soul sand and soul soil.
+- Pale oak saplings are placeable on soul sand and soul soil and do not require light.
+- Desert grass/tall grass are placeable on sand.
+- Mushrooms survive in daylight in more cases.
+- Sugar cane can survive without water through mixin behavior.
+- Cactus can be placed next to more blocks and does not hurt entities/items in the same way as vanilla.
+- Chorus plants/flowers can grow on sculk.
+- Cocoa can attach to any overworld log.
+- Spore blossoms can attach under leaves.
+- Nether fungi, roots, sprouts, and wart-like vegetation have expanded placement/survival behavior.
+- Pumpkin/melon stems do not kill farmland in the vanilla way.
+
+Fire, collision, and light:
+
+- Campfires do not damage entities.
+- Sweet berry bushes do not slow or hurt mobs.
+- Soul sand, soul soil, and honey no longer slow entities.
+- Cave vines are brighter and have modified waterlogging/berry behavior.
+- Coral blocks glow.
+- Glow moss and related blocks have modified light/no-occlusion behavior.
+- Less random block offset is applied to some blocks.
+- Sea pickle and ice-on-water behavior are modified.
+
+Double plants:
+
+- A cleanup event removes orphaned upper/lower halves of double plants when worldgen or block placement overwrites the other half.
+- This cleanup avoids generating drops.
+
+
+13. Fire, fluids, and biome safety
+----------------------------------
+
+No tropical fire behavior:
+
+- Fire behavior is disabled or canceled in tropical/rainforest-like biomes.
+- This includes normal fire placement, soul fire placement, fire damage/burning behavior, and lightning-related fire effects.
+
+Fluid placement/spread:
+
+- Water and lava placement/spread can be blocked or transformed based on biome/context.
+- Lava entering tropical/rainforest-style areas can become moss-like blocks.
+- Water entering nether-style contexts can become obsidian-like blocks.
+- Nether portal fire ignition is disabled through a dimension-related mixin.
+
+
+14. Recipes and recipe filtering
+-------------------------------
+
+The mod adds many crafting, smelting, smoking, campfire cooking, food, tool, coral, redstone, and integration recipes.
+
+Cooking recipes include:
+
+- Modded fish and cooked fish.
+- End fish, glow squid, pufferfish, tropical fish, lobster, Naturalist venison, and prickly pear.
+- Repurposed Drop The Meat items where used by the current food setup.
+- Naturalist venison cooking in furnace, smoker, and campfire variants.
+
+Food crafting includes:
+
+- Pies such as melon pie, glow berry pie, banana pie, mango pie, pear pie, plum pie, and cherry pie.
+- Cookies such as soul berry cookie and blue berry cookie.
+- Breads such as ashen bread.
+- Wraps/rolls such as searing cod roll and nether fish kelp roll.
+- Integration soups/stews such as Nourished Nether nether fungus stew and Better Carrots carrot soup where present.
+
+Coral recipes:
+
+- Each coral block can be crafted from four coral plants/fans of the same coral color in any combination.
+
+Copper automation/redstone recipes:
+
+- Redstone/automation components involving iron can accept copper ingots as an alternative unless the item has iron in its name or is intentionally excluded.
+- This includes vanilla automation components such as hoppers and selected Quark components.
+- Quark recipes are whitelisted so Quark integration recipes remain available.
+- Ender watcher, feeding trough, and gravisand are intentionally excluded from copper alternatives.
+
+Netherite recipes:
+
+- Netherite ingot is made by smelting netherite scrap.
+- Netherite armor/tools/weapons are crafted from netherite ingots directly.
+- Vanilla smithing-upgrade recipes are overridden/disabled so netherite is not applied to diamond equipment in the normal way.
+
+Recipe namespace filtering:
+
+- A mixin removes recipes from namespaces other than minecraft, aoemod, and quark.
+
+Important audit note:
+
+- This is intentionally broad. Any non-AOE, non-Minecraft, non-Quark mod recipe will be removed unless separately whitelisted or recreated under an allowed namespace.
+
+
+15. External mod integrations
+-----------------------------
+
+The mod references and/or integrates with several external mods through Java, JSON, tags, recipes, or mixins. The mods referenced in code/data are expected to be required dependencies or ordered appropriately in the mod TOML.
+
+Known integration areas:
+
+Alex's Mobs:
+
+- Emu egg/feather behavior is modified.
+- Lobster variants are used for water-life behavior.
+
+Born in Chaos:
+
+- Senor pumpkin and sir pumpkin/lord pumpkin mobs are used in spawns/boss behavior.
+- Sir Pumpkin Head is modified to remove second stage and summoning.
+- Lord Pumpkinhead summons are changed.
+- Zombie maggot drops are disabled.
+- A Born in Chaos chasing message is disabled/removed.
+
+Ecologics:
+
+- Azalea logs are used for custom azalea/rainforest trees.
+- Ecologics azalea logs are prevented from randomly converting to flowering azalea logs.
+- Ecologics cactus fruit growth is modified.
+- Prickly pear cooking is supported.
+
+Farmer's Delight:
+
+- Wild rice behavior is modified so it can work with the mod's land/water rules.
+- Rich soil/rich farmland behavior is modified, including glow, drying, moss conversion, and tall-flower support.
+- Sweet berry cookie texture/recipe patterns are used as placeholders or analogs for custom cookies.
+
+Fruits Delight:
+
+- Pear, plum, mango, cherries, and blueberries are preferred over older custom fruit equivalents where configured.
+- Blue berry bush/item behavior uses Fruits Delight blueberry as the item.
+
+Ice and Fire:
+
+- Dread lich summoning is changed so dread liches summon only dread thralls.
+- Dread lich/dread knight/troll/gorgon spawn placements are modified.
+- Troll behavior is changed in daylight/AI contexts.
+
+Nether Depths Upgrade:
+
+- Lava fish spawn behavior is integrated.
+- Nether fish/cubozoa behavior is compatible with lava aquatic spawning.
+
+Nourished Nether / Netherific:
+
+- Nether fungus stew recipes/textures are integrated.
+- Netherific shroomlight texture is overridden to use vanilla Minecraft shroomlight texture.
+
+Quark:
+
+- Quark recipes are whitelisted from the broad recipe-removal mixin.
+- Quark automation/redstone recipes receive copper alternatives where intended.
+- Quark chain behavior is extended to copper chains.
+- Glow shroom block behavior is modified and treated like leaf-like canopy material for mob spawning.
+
+Snow Real Magic:
+
+- Berry/snow interaction behavior is modified.
+- A Snow Real Magic datafix/fallback mixin is present.
+
+Wooden Bucket:
+
+- Wooden bucket behavior is patched through a compatibility mixin.
+
+
+16. Mixin behavior summary
+--------------------------
+
+The active mixin list is in aoemod.mixins.json. The mixins are grouped below by practical effect.
+
+Accessors and helper hooks:
+
+- FireBlockAccessor exposes fire block internals.
+- EntityTypeCategoryAccessor exposes or modifies entity category behavior.
+- SurfaceRulesContextAccessor exposes surface-rule context.
+- MobsSpawnOnGlowingMoss and MobsSpawnOnGlowingMoss1 adjust spawn surface treatment for glowing moss/moss-like blocks.
+
+Block placement and block survival:
+
+- Cactus can be placed next to more blocks and does not damage entities/items in the normal way.
+- Campfires do not damage entities.
+- Chorus plants/flowers can grow on sculk.
+- Cocoa can be placed on any overworld log.
+- Farmland is not killed by pumpkin/melon behavior.
+- Fungus, nether roots, sprouts, mushrooms, and spore blossoms have expanded placement/survival rules.
+- Spore blossoms can hang under leaves.
+- Sugar cane can survive without water.
+- Mushrooms can survive daylight.
+- Sea pickles, ice, cave vines, and glow/coral light behavior are altered.
+
+Growth/random tick behavior:
+
+- Amethyst, grass, mycelium, mangrove propagules, pointed dripstone, saplings, vines, turtle eggs, and sheep wool regrowth can use biome/config-dependent rates.
+- Brown/red mushrooms and crimson/warped fungi have custom random tick growth behavior.
+- Nylium can spread under custom rules.
+- Vines grow downward under custom rules.
+
+Entity collision and slowing:
+
+- Soul sand, soul soil, and honey do not slow entities.
+- Sweet berries do not slow or damage mobs.
+- Cactus and campfire damage are disabled or reduced.
+
+Fire and fluids:
+
+- Fire is disabled in tropical/rainforest contexts.
+- Soul fire behavior is disabled in those contexts.
+- Lightning fire is disabled in those contexts.
+- Fluid spread/placement is changed so water/lava interact differently depending on biome.
+- Nether portal fire ignition is disabled.
+
+Mob AI and behavior:
+
+- Breedable parrots can breed.
+- Endermen do not teleport.
+- Guardians do not attack squid.
+- Pufferfish do not poison.
+- Striders do not shiver and eat ashen wheat.
+- Rabbits eat ashen wheat.
+- Ravagers are simplified.
+- Wardens do not use sonic boom.
+- Shulkers have common-mob behavior and despawn behavior changes.
+- Zoglins are quieter when not attacking.
+- Withers periodically summon skeletons/wither skeletons.
+- Many mob target goals are removed or filtered so mobs avoid attacking most non-target categories.
+- Brain-based mob behavior is patched for mobs whose aggression does not use normal goal selectors.
+
+Mob spawning:
+
+- Turtles use custom land/river-edge spawn placement.
+- Water animals use custom sea-level/depth behavior.
+- Drowned/fish/guardians/turtles have sea-level-related spawning behavior.
+- Mooshrooms can spawn in dark/mycelium cave/grove contexts.
+- Several monsters can spawn without sky exposure.
+
+Items and equipment:
+
+- Netherite armor, tools, swords, and related items use iron-like stats.
+- Food properties are modified for some items.
+- Bottles and stew items stack to 64.
+- Anvil and enchanting costs are removed or reduced.
+- Enchanting table lapis behavior is changed to use a 20-lapis style cost.
+
+Recipes:
+
+- All recipes outside minecraft, aoemod, and quark namespaces are removed.
+- Several Better Carrots Minecraft-namespace recipes are overridden with empty recipes.
+
+Trees and worldgen:
+
+- Saplings in rainforest biomes require 2x2 placement for custom rainforest trees and do not grow as single saplings there.
+- Non-rainforest saplings use the mod's configured oak, birch, spruce, and acacia tree JSONs instead of vanilla tree features.
+- Acacia diagonal trunk connections are adjusted so logs connect directly.
+- Spruce leaves are prevented from appearing in the bottom two blocks of configured spruce trees.
+- Custom huge mushrooms and huge fungi have stricter collision/air checks.
+- Custom rainforest trees and giant fungi are used by sapling/bonemeal/random-tick behavior.
+- Some blocks are treated as air for tree placement, while solid-ground requirements are enforced for tree bases.
+
+External mod mixins:
+
+- Alex's Mobs emu/lobster behavior.
+- Born in Chaos pumpkin and zombie-maggot behavior.
+- Ecologics cactus/azalea behavior.
+- Farmer's Delight rich soil/farmland and wild rice behavior.
+- Ice and Fire dread lich/troll behavior.
+- Nether Depths Upgrade lava fish spawning.
+- Quark copper chain and glow shroom behavior.
+- Snow Real Magic berry/snow behavior.
+- Wooden Bucket compatibility.
+
+
+17. Tags and block classifications
+----------------------------------
+
+The mod uses many custom and modified tags.
+
+Important tag-style behaviors:
+
+- Soul sediments include soul sand and soul soil for ashen wheat, soul berries, pale oak saplings, and related placement.
+- Rainforest biome tags control special 2x2 sapling growth.
+- Glow shroom block, red mushroom block, brown mushroom block, nether wart block, and warped wart block are treated like leaves for mob-spawning/support purposes.
+- Pale oak blocks are added to appropriate logs/planks/wooden/fence/door/stairs/slab/button/pressure-plate/tool tags.
+- Copper tools, bone tools, and spears participate in relevant item tags.
+- Custom fish and meat items participate in food/cooking/drop tags where configured.
+
+
+18. Rendering, models, textures, and assets
+-------------------------------------------
+
+The mod includes client registration for:
+
+- Entity renderers for custom fish, cubozoa, nautilus, breeze, creaking, bogged, parched, archlich, spider queen, illager lord, horsemen/jockeys, and sea serpent.
+- Custom models for entities including fish variants, nautilus, breeze, creaking, parched, bogged, archlich, spider queen, illager lord, and sea serpent.
+- Item render properties or custom transforms for spears.
+- Block/item models and textures for new blocks/items.
+
+Known placeholder or override texture behavior:
+
+- Some foods use vanilla or Farmer's Delight placeholder textures.
+- Ashen bread is intended to be its own item texture copied from bread rather than referencing vanilla bread directly.
+- Ashen wheat crop/item/seeds use custom PNGs supplied in the project.
+- Netherific shroomlight texture is overridden to vanilla shroomlight.
+- Desert tall grass uses the Future Minecraft drygrass-style texture rather than the earlier wrong texture.
+- The open eyeblossom texture includes a yellow/orange center detail.
+
+
+19. Notable vanilla behavior changes
+------------------------------------
+
+This section lists broad changes that are easy to forget because they are not tied to one new block/item/entity.
+
+- The vanilla Overworld is replaced by the AOE dimension/noise setup.
+- Recipe availability is globally filtered to minecraft, aoemod, and quark namespaces.
+- Netherite is no longer a diamond-upgrade tier; it behaves closer to iron.
+- Ancient debris drops scrap through custom drops instead of itself.
+- Iron golems are created with a lapis lazuli block head instead of a pumpkin.
+- Nether portals cannot be lit in the usual fire-based way.
+- Chorus fruit teleport is restricted/prevented outside intended contexts.
+- Endermen cannot teleport.
+- Wardens do not use sonic boom.
+- Ravagers are much simpler attackers.
+- Shulkers do not duplicate from shulker bullets.
+- Pufferfish do not poison nearby entities.
+- Guardians do not target squid.
+- Soul sand, soul soil, honey, sweet berries, cactus, and campfires lose or reduce several vanilla movement/damage behaviors.
+- Fire and lightning ignition are disabled in tropical/rainforest contexts.
+- Water/lava spread can transform or fail depending on biome.
+- Many plants have altered placement, survival, and bonemeal behavior.
+- Animal breeding, growth, food, and aging are heavily configurable and biome-dependent.
+- Mob drops and block drops are heavily configurable and biome-dependent.
+
+
+20. Audit checklist / things worth double-checking
+--------------------------------------------------
+
+These are behaviors that are especially broad or easy to accidentally leave in an unwanted state.
+
+1. Overworld replacement:
+
+   The mod overrides data/minecraft/dimension/overworld.json. If this is not intended for every world using the mod, it is the biggest global behavior change.
+
+2. Recipe namespace filtering:
+
+   Recipes outside minecraft, aoemod, and quark are removed. This can silently disable recipes from almost every other installed mod unless recreated or whitelisted.
+
+3. Mixin list duplicates:
+
+   aoemod.mixins.json includes similarly named glowing-moss spawn mixins and several broad behavior mixins. Duplicate or overlapping mixins should be reviewed if spawn-surface behavior acts strangely.
+
+4. External mod assumptions:
+
+   Java and JSON reference several external mods. If one is missing and not treated as required/optional correctly in mods.toml, startup or datapack loading can fail.
+
+5. Custom drops replacing vanilla drops:
+
+   Blocks and mobs configured in BlockConfig/MobConfig can have vanilla drops canceled. If a block/mob gives no drops, check whether it is configured but has no matching biome entry.
+
+6. Tree and fungus template behavior:
+
+   Template blocks such as shroomlights, structure voids, logs, and leaves are replaced by provider logic. If a template block is unexpectedly converted, check the provider-replacement conditions.
+
+7. Mob target filtering:
+
+   Goal-selector and brain-based AI patches may prevent some mobs from attacking things they normally would. If a mob seems passive, check both the normal AI removal mixins and brain-related mixins.
+
+8. Netherite balance:
+
+   Netherite gear intentionally has iron-like stats. If netherite feels weak, this is from the mod's item/tier mixins and recipes, not vanilla.

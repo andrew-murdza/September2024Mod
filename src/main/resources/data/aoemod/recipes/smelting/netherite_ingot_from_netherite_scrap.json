@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:smelting",
+  "category": "misc",
+  "ingredient": {
+    "item": "minecraft:netherite_scrap"
+  },
+  "result": "minecraft:netherite_ingot",
+  "experience": 1.0,
+  "cookingtime": 200
+}

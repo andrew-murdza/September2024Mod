@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/button",
+  "textures": {
+    "texture": "aoemod:block/pale_oak_planks"
+  }
+}

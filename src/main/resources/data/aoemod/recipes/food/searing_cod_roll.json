@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "netherdepthsupgrade:searing_cod"
+    },
+    {
+      "item": "netherdepthsupgrade:warped_kelp"
+    }
+  ],
+  "result": {
+    "item": "aoemod:searing_cod_roll"
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "parent": "aoemod:item/spear_in_hand",
+  "textures": {
+    "layer0": "aoemod:item/wooden_spear_in_hand"
+  }
+}

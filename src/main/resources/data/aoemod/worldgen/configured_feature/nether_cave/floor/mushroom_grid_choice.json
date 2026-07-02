@@ -1,0 +1,27 @@
+{
+  "type": "aoemod:regional_grid_choice",
+  "config": {
+    "features": [
+      {
+        "feature": "aoemod:mushrooms/nether_cave/red_mushroom_patch",
+        "count": 2
+      },
+      {
+        "feature": "aoemod:mushrooms/nether_cave/brown_mushroom_patch",
+        "count": 2
+      },
+      {
+        "feature": "aoemod:nothing",
+        "count": 8
+      }
+    ],
+    "default_feature": "aoemod:nothing",
+    "placement": [],
+    "offset_type": "center",
+    "region_width": 12,
+    "region_depth": 16,
+    "section_width": 3,
+    "section_depth": 4,
+    "salt": "nether_cave_top_mushrooms"
+  }
+}

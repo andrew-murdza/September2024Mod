@@ -1,0 +1,12 @@
+{
+  "replace": false,
+  "values": [
+    "aoemod:wooden_spear",
+    "aoemod:stone_spear",
+    "aoemod:copper_spear",
+    "aoemod:iron_spear",
+    "aoemod:golden_spear",
+    "aoemod:diamond_spear",
+    "aoemod:netherite_spear"
+  ]
+}

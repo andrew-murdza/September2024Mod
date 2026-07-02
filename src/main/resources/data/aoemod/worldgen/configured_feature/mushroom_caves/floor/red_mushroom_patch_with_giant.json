@@ -1,0 +1,9 @@
+{
+  "type": "aoemod:feature_sequence",
+  "config": {
+    "features": [
+      "aoemod:giant_mushrooms/huge_red_mushroom",
+      "aoemod:mushrooms/mushroom_caves/red_mushroom_patch"
+    ]
+  }
+}

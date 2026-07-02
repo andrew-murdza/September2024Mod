@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "aoemod:block/pale_oak_slab"
+    },
+    "type=double": {
+      "model": "aoemod:block/pale_oak_planks"
+    },
+    "type=top": {
+      "model": "aoemod:block/pale_oak_slab_top"
+    }
+  }
+}

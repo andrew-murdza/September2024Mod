@@ -1,0 +1,27 @@
+{
+  "type": "aoemod:regional_grid_choice",
+  "config": {
+    "features": [
+      {
+        "feature": "aoemod:mushroom_caves/floor/brown_mushroom_patch_with_giant",
+        "count": 4
+      },
+      {
+        "feature": "aoemod:mushroom_caves/floor/red_mushroom_patch_with_giant",
+        "count": 4
+      },
+      {
+        "feature": "aoemod:mushroom_caves/floor/glow_shroom_patch_with_giant",
+        "count": 4
+      }
+    ],
+    "default_feature": "aoemod:nothing",
+    "placement": [],
+    "offset_type": "center",
+    "region_width": 12,
+    "region_depth": 16,
+    "section_width": 3,
+    "section_depth": 4,
+    "salt": "mushroom_caves_patch_tree"
+  }
+}

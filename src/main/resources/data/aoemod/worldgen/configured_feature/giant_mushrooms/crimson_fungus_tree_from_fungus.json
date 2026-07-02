@@ -1,0 +1,33 @@
+{
+  "type": "aoemod:rainforest_tree",
+  "config": {
+    "canopy_template": "aoemod:template/crimson_fungus_canopy",
+    "log_provider": {
+      "type": "minecraft:simple_state_provider",
+      "state": {
+        "Name": "minecraft:crimson_stem",
+        "Properties": {
+          "axis": "y"
+        }
+      }
+    },
+    "leaves_provider": {
+      "type": "minecraft:simple_state_provider",
+      "state": {
+        "Name": "minecraft:nether_wart_block"
+      }
+    },
+    "height_provider": {
+      "type": "minecraft:constant",
+      "value": 2
+    },
+    "trunk_width": 1,
+    "place_water_ring": false,
+    "include_weeping_vines": false,
+    "valid_ground": {
+      "type": "minecraft:matching_blocks",
+      "blocks": "minecraft:crimson_nylium"
+    },
+    "decorators": []
+  }
+}

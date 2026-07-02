@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "WWW"
+  ],
+  "key": {
+    "W": {
+      "item": "aoemod:ashen_wheat"
+    }
+  },
+  "result": {
+    "item": "aoemod:ashen_bread"
+  }
+}

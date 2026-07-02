@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "CC",
+    "CC"
+  ],
+  "key": {
+    "C": {
+      "tag": "aoemod:corals/fire"
+    }
+  },
+  "result": {
+    "item": "minecraft:fire_coral_block"
+  }
+}

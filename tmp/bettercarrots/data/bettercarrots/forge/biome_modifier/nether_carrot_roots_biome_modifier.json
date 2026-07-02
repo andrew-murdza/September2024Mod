@@ -1,0 +1,8 @@
+{
+  "type": "forge:add_features",
+  "biomes": {
+    "type": "forge:any"
+  },
+  "features": "bettercarrots:nether_carrot_roots",
+  "step": "vegetal_decoration"
+}

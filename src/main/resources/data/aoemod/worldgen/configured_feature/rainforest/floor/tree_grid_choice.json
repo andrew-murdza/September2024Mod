@@ -1,0 +1,38 @@
+{
+  "type": "aoemod:regional_grid_choice",
+  "config": {
+    "features": [
+      {
+        "feature": "aoemod:rainforest/tree/oak_large_tree_worldgen",
+        "count": 8
+      },
+      {
+        "feature": "aoemod:rainforest/tree/dark_oak_large_tree_worldgen",
+        "count": 8
+      },
+      {
+        "feature": "aoemod:rainforest/tree/azalea_large_tree_worldgen",
+        "count": 8
+      },
+      {
+        "feature": "aoemod:rainforest/tree/cherry_large_tree_worldgen",
+        "count": 8
+      },
+      {
+        "feature": "aoemod:rainforest/tree/jungle_large_tree_worldgen",
+        "count": 8
+      },
+      {
+        "feature": "aoemod:rainforest/tree/mangrove_large_tree_worldgen",
+        "count": 8
+      }
+    ],
+    "placement": [],
+    "offset_type": "center",
+    "region_width": 30,
+    "region_depth": 64,
+    "section_width": 6,
+    "section_depth": 8,
+    "salt": "rainforest_trees"
+  }
+}

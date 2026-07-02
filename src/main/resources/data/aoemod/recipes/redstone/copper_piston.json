@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "TTT",
+    "#C#",
+    "#R#"
+  ],
+  "key": {
+    "T": {
+      "tag": "minecraft:planks"
+    },
+    "#": {
+      "tag": "forge:cobblestone"
+    },
+    "C": {
+      "tag": "forge:ingots/copper"
+    },
+    "R": {
+      "item": "minecraft:redstone"
+    }
+  },
+  "result": {
+    "item": "minecraft:piston"
+  }
+}

@@ -1,0 +1,5 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": { "layer0": "aoemod:item/netherite_spear" },
+  "overrides": [{ "predicate": { "aoemod:in_hand": 1.0 }, "model": "aoemod:item/netherite_spear_in_hand" }]
+}

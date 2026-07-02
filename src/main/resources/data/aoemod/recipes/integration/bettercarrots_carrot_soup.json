@@ -1,0 +1,30 @@
+{
+    "type":  "minecraft:crafting_shapeless",
+    "category":  "food",
+    "ingredients":  [
+                        {
+                            "item":  "minecraft:carrot"
+                        },
+                        {
+                            "item":  "minecraft:carrot"
+                        },
+                        {
+                            "item":  "minecraft:carrot"
+                        },
+                        {
+                            "item":  "minecraft:carrot"
+                        },
+                        {
+                            "item":  "minecraft:carrot"
+                        },
+                        {
+                            "item":  "minecraft:carrot"
+                        },
+                        {
+                            "item":  "minecraft:bowl"
+                        }
+                    ],
+    "result":  {
+                   "item":  "bettercarrots:carrot_soup"
+               }
+}

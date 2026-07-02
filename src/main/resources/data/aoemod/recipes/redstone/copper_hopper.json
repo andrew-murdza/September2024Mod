@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "C C",
+    "C#C",
+    " C "
+  ],
+  "key": {
+    "C": {
+      "tag": "forge:ingots/copper"
+    },
+    "#": {
+      "tag": "forge:chests/wooden"
+    }
+  },
+  "result": {
+    "item": "minecraft:hopper"
+  }
+}

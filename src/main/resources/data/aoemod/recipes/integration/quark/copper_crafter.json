@@ -1,0 +1,31 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "CCC",
+    "CWC",
+    "RDR"
+  ],
+  "key": {
+    "C": {
+      "tag": "forge:ingots/copper"
+    },
+    "W": {
+      "item": "minecraft:crafting_table"
+    },
+    "D": {
+      "item": "minecraft:dropper"
+    },
+    "R": {
+      "item": "minecraft:redstone"
+    }
+  },
+  "result": {
+    "item": "quark:crafter"
+  },
+  "conditions": [
+    {
+      "type": "quark:flag",
+      "flag": "crafter"
+    }
+  ]
+}

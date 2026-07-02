@@ -1,0 +1,50 @@
+{
+  "type": "aoemod:rainforest_tree",
+  "config": {
+    "canopy_template": "aoemod:template/large_jungle_tree_canopy",
+    "log_provider": {
+      "type": "minecraft:simple_state_provider",
+      "state": {
+        "Name": "minecraft:oak_log",
+        "Properties": {
+          "axis": "y"
+        }
+      }
+    },
+    "leaves_provider": {
+      "type": "minecraft:simple_state_provider",
+      "state": {
+        "Name": "minecraft:oak_leaves",
+        "Properties": {
+          "distance": "7",
+          "persistent": "false",
+          "waterlogged": "false"
+        }
+      }
+    },
+    "height_provider": {
+      "type": "minecraft:constant",
+      "value": 7
+    },
+    "top_y": 74,
+    "decorators": [
+      {
+        "type": "aoemod:rainforest_canopy_decorator",
+        "nothing_weight": 45,
+        "spore_blossom_weight": 3,
+        "cave_vines_weight": 8,
+        "cave_vines_length": {
+          "type": "minecraft:uniform",
+          "value": {
+            "min_inclusive": 2,
+            "max_inclusive": 6
+          }
+        }
+      },
+      {
+        "type": "aoemod:rainforest_trunk_decorator",
+        "has_cocoa": false
+      }
+    ]
+  }
+}
