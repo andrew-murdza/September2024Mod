@@ -17,11 +17,11 @@
     ],
     "features": [
       {
-        "chance": 0.11,
+        "chance": 0.02,
         "feature": "aoemod:desert/floor/grass"
       },
       {
-        "chance": 0.89,
+        "chance": 0.98,
         "feature": "aoemod:nothing"
       }
     ]

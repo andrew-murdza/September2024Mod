@@ -16,20 +16,24 @@
       }
     ],
     "features": [
+//      {
+//        "chance": 0.46,
+//        "feature": "aoemod:soul_sand_valley/water/crimson_seagrass"
+//      },
+//      {
+//        "chance": 0.04,
+//        "feature": "aoemod:water/crimson_kelp"
+//      },
+//      {
+//        "chance": 0.685,
+//        "feature": "aoemod:nothing"
+//      },
       {
-        "chance": 0.46,
-        "feature": "aoemod:soul_sand_valley/water/crimson_seagrass"
-      },
-      {
-        "chance": 0.04,
-        "feature": "aoemod:water/crimson_kelp"
-      },
-      {
-        "chance": 0.46,
+        "chance": 0.30,
         "feature": "aoemod:soul_sand_valley/water/warped_seagrass"
       },
       {
-        "chance": 0.04,
+        "chance": 0.02,
         "feature": "aoemod:water/warped_kelp"
       }
     ]

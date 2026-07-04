@@ -15,6 +15,7 @@
          ],
          "target": "air",
          "all_layers": true,
+         "skip_height": 30,
          "max_y": 63,
          "min_y": 36,
          "predicate": {
@@ -37,8 +38,8 @@
         "target": "air",
         "all_layers": true,
         "skip_height": 30,
-        "max_y": 35,
-        "min_y": 16,
+        "max_y": 23,
+        "min_y": 1,
         "predicate": {
           "type": "minecraft:matching_blocks",
           "blocks": ["minecraft:mycelium"]

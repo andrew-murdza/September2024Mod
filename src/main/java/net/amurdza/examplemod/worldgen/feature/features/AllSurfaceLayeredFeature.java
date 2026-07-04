@@ -240,13 +240,28 @@ public class AllSurfaceLayeredFeature extends Feature<AllSurfaceLayeredFeaturesC
             placedAnything |= result.placedAnything();
 
             if (result.foundLayer() && result.skipHeight() > 0) {
-                y -= result.skipHeight();
+                y = nextYAfterLayerSkip(result, y, defaultMinY);
             } else {
                 y--;
             }
         }
 
         return placedAnything;
+    }
+
+    private int nextYAfterLayerSkip(
+            PlacementResult result,
+            int y,
+            int defaultMinY
+    ) {
+        AllSurfacesFeatureConfig matchedConfig = result.matchedConfig();
+        int skippedY = y - result.skipHeight();
+
+        if (matchedConfig == null) {
+            return skippedY;
+        }
+
+        return Math.max(skippedY, getMinY(matchedConfig, defaultMinY) - 1);
     }
 
     private PlacementResult tryPlaceAnyLayeredConfigAt(
@@ -486,7 +501,7 @@ public class AllSurfaceLayeredFeature extends Feature<AllSurfaceLayeredFeaturesC
                 pos
         );
 
-        return new PlacementResult(true, placedAnything, Math.max(1, cfg.skipHeight));
+        return new PlacementResult(true, placedAnything, Math.max(1, cfg.skipHeight), cfg);
     }
 
     private PlacementResult tryPlace(
@@ -520,7 +535,7 @@ public class AllSurfaceLayeredFeature extends Feature<AllSurfaceLayeredFeaturesC
                 pos
         );
 
-        return new PlacementResult(true, placedAnything, cfg.skipHeight);
+        return new PlacementResult(true, placedAnything, cfg.skipHeight, cfg);
     }
 
     private int getSurfaceStartY(
@@ -671,7 +686,12 @@ public class AllSurfaceLayeredFeature extends Feature<AllSurfaceLayeredFeaturesC
         return cfg.maxY != null ? cfg.maxY : defaultMaxY;
     }
 
-    private record PlacementResult(boolean foundLayer, boolean placedAnything, int skipHeight) {
-        private static final PlacementResult NONE = new PlacementResult(false, false, 0);
+    private record PlacementResult(
+            boolean foundLayer,
+            boolean placedAnything,
+            int skipHeight,
+            AllSurfacesFeatureConfig matchedConfig
+    ) {
+        private static final PlacementResult NONE = new PlacementResult(false, false, 0, null);
     }
 }

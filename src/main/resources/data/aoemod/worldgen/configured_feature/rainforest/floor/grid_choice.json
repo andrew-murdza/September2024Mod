@@ -2,14 +2,13 @@
   "type": "aoemod:regional_grid_choice",
   "config": {
     "features": [
-      { "feature": "aoemod:sugar_cane_patch", "count": 3 },
-      { "feature": "aoemod:crops/rainforest/sweet_berry_bush_patch", "count": 3 },
-      { "feature": "aoemod:crops/rainforest/blue_berry_bush_patch", "count": 3 },
-      { "feature": "aoemod:cactus_patch", "count": 3 },
-      { "feature": "aoemod:mushrooms/rainforest/red_mushroom_patch", "count": 4 },
-      { "feature": "aoemod:mushrooms/rainforest/brown_mushroom_patch", "count": 4 },
-      { "feature": "aoemod:flowers/rainforest/big_dripleaf_patch", "count": 2 },
-      { "feature": "aoemod:flowers/rainforest/small_dripleaf_patch", "count": 2 },
+      { "feature": "aoemod:crops/rainforest/sweet_berry_bush_patch", "count": 4 },
+      { "feature": "aoemod:crops/rainforest/blue_berry_bush_patch", "count": 4 },
+      { "feature": "aoemod:cactus_patch", "count": 4 },
+      { "feature": "aoemod:mushrooms/rainforest/red_mushroom_patch", "count": 6 },
+      { "feature": "aoemod:mushrooms/rainforest/brown_mushroom_patch", "count": 6 },
+      { "feature": "aoemod:flowers/rainforest/big_dripleaf_patch", "count": 4 },
+      { "feature": "aoemod:flowers/rainforest/small_dripleaf_patch", "count": 4 },
       { "feature": "aoemod:flowers/rainforest/azalea_patch", "count": 6 }
     ],
     "pinned_features": [
@@ -44,7 +43,7 @@
         ],
         "count": 8,
         "extra_count": 1,
-        "extra_feature_count": 12
+        "extra_feature_count": 0
       }
     ],
     "default_feature": "aoemod:nothing",

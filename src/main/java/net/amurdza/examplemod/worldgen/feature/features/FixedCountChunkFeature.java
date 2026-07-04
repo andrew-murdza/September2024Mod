@@ -27,6 +27,9 @@ public class FixedCountChunkFeature extends Feature<FixedCountChunkPatchConfigur
     private static final int CELLS_PER_AXIS = 4;
     private static final int TOTAL_CELLS = CELLS_PER_AXIS * CELLS_PER_AXIS;
 
+    private static final int TWO_BLOCK_CELLS_PER_AXIS = 8;
+    private static final int TWO_BLOCK_CELL_PLACEMENTS = 1;
+
     public FixedCountChunkFeature(Codec<FixedCountChunkPatchConfiguration> codec) {
         super(codec);
     }
@@ -45,7 +48,12 @@ public class FixedCountChunkFeature extends Feature<FixedCountChunkPatchConfigur
 
         int successfulPlacements;
 
-        if (isShorelineLandPatch(config, origin)) {
+        if (usesTwoByTwoCellGrid(config)) {
+            successfulPlacements = placeGrid(
+                    context, config, random, level, origin, mutablePos, chosenPositions,
+                    TWO_BLOCK_CELLS_PER_AXIS, TWO_BLOCK_CELL_PLACEMENTS
+            );
+        } else if (isShorelineLandPatch(config, origin)) {
             successfulPlacements = placeGrid(
                     context, config, random, level, origin, mutablePos, chosenPositions,
                     1, targetPlacements
@@ -223,6 +231,10 @@ public class FixedCountChunkFeature extends Feature<FixedCountChunkPatchConfigur
         }
 
         return count;
+    }
+
+    private static boolean usesTwoByTwoCellGrid(FixedCountChunkPatchConfiguration config) {
+        return config.count() == 32 && config.ySpread() == 0;
     }
 
     private static boolean isShorelineLandPatch(FixedCountChunkPatchConfiguration config, BlockPos origin) {

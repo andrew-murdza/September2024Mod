@@ -284,6 +284,10 @@ public abstract class AbstractSpiralCavePiece extends StructurePiece {
         level.setBlock(pos, Blocks.AIR.defaultBlockState(), Block.UPDATE_CLIENTS);
         clearUnsupportedBlockAbove(level, pos);
         decorateCaveBoundaries(level, pos);
+        afterCarveBlock(level, pos, oldState);
+    }
+
+    protected void afterCarveBlock(WorldGenLevel level, BlockPos carvedPos, BlockState oldState) {
     }
 
     private void clearUnsupportedBlockAbove(WorldGenLevel level, BlockPos carvedPos) {
@@ -498,6 +502,7 @@ public abstract class AbstractSpiralCavePiece extends StructurePiece {
         }
 
         level.setBlock(above, Blocks.AIR.defaultBlockState(), Block.UPDATE_CLIENTS);
+        decorateCaveBoundaries(level, above);
     }
 
     @Override
@@ -689,7 +694,7 @@ public abstract class AbstractSpiralCavePiece extends StructurePiece {
          * Main tunnel carving clamps its lower bound to endY, but the lower fluid
          * ellipsoid can extend below that by liquidDepth.
          */
-        int minY = endY
+        int minY = mainAirCarveMinY(endY)
                 - Mth.ceil(liquidDepth)
                 - padding
                 - 2;
@@ -774,8 +779,12 @@ public abstract class AbstractSpiralCavePiece extends StructurePiece {
     }
 
     protected boolean wouldBottomOfEllipsoidCarveIntoTargetYPlusOne(double centerY) {
-        double bottomOfEllipsoid = centerY - this.verticalRadius - this.liquidRadius - 2;
+        double bottomOfEllipsoid = centerY - this.verticalRadius - this.liquidDepth - 2;
         return bottomOfEllipsoid <= endY;
+    }
+
+    protected static int mainAirCarveMinY(int endY) {
+        return endY - 2;
     }
 
     protected void carveEllipsoid(
@@ -804,7 +813,7 @@ public abstract class AbstractSpiralCavePiece extends StructurePiece {
 
         BlockPos.MutableBlockPos pos = new BlockPos.MutableBlockPos();
 
-        minY = Math.max(minY, endY);
+        minY = Math.max(minY, mainAirCarveMinY(this.endY));
         maxY = Math.min(maxY, maxCarveY);
 
         for (int x = minX; x <= maxX; x++) {

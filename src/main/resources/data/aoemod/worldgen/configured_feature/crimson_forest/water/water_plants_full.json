@@ -17,21 +17,21 @@
     ],
     "features": [
       {
-        "chance": 0.80,
+        "chance": 0.32,
         "feature": "aoemod:crimson_forest/water/crimson_seagrass"
       },
+//      {
+//        "chance": 0.12,
+//        "feature": "aoemod:crimson_forest/water/warped_seagrass"
+//      },
       {
-        "chance": 0.12,
-        "feature": "aoemod:crimson_forest/water/warped_seagrass"
-      },
-      {
-        "chance": 0.07,
+        "chance": 0.02,
         "feature": "aoemod:water/crimson_kelp"
-      },
-      {
-        "chance": 0.01,
-        "feature": "aoemod:water/warped_kelp"
-      }
+      }//,
+//      {
+//        "chance": 0.01,
+//        "feature": "aoemod:water/warped_kelp"
+//      }
     ]
   }
 }

@@ -43,10 +43,6 @@ public class RegionalGridChoiceFeature extends Feature<RegionalGridChoiceConfig>
         boolean placedAnything = false;
 
         for (BlockPos pos : positions) {
-            if (isFullyRiverCornerFloorChunk(pos, cfg)) {
-                continue;
-            }
-
             Holder<ConfiguredFeature<?, ?>> selected = getFeatureForRegionalPosition(pos, context, cfg);
 
             if (selected == null) {
@@ -57,19 +53,6 @@ public class RegionalGridChoiceFeature extends Feature<RegionalGridChoiceConfig>
         }
 
         return placedAnything;
-    }
-
-    private boolean isFullyRiverCornerFloorChunk(BlockPos selectionOrigin, RegionalGridChoiceConfig cfg) {
-        if (cfg.offsetType != GridChoiceConfig.OffsetType.CORNER
-                || cfg.regionWidth != 30
-                || !cfg.salt.endsWith("_floor")) {
-            return false;
-        }
-
-        ChunkPos chunkPos = new ChunkPos(selectionOrigin);
-        int regionChunkX = Math.floorMod(chunkPos.x, cfg.regionWidth);
-
-        return regionChunkX > 0 && regionChunkX < 6;
     }
 
     private Holder<ConfiguredFeature<?, ?>> getFeatureForRegionalPosition(

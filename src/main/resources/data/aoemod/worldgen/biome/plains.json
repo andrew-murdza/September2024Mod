@@ -107,13 +107,13 @@
         "type": "naturalist:deer",
         "maxCount": 5,
         "minCount": 2,
-        "weight": 15
+        "weight": 5
       },
       {
         "type": "ecologics:squirrel",
         "maxCount": 5,
         "minCount": 2,
-        "weight": 10
+        "weight": 5
       }
     ],
     "misc": [],

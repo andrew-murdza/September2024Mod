@@ -92,9 +92,10 @@ public class AOEMod
             MobConfig.init();
 
             FireBlockAccessor fire = (FireBlockAccessor) Blocks.FIRE;
-            fire.aoemod$setFlammable(ModBlocks.PALE_MOSS_BLOCK.get(), 30, 100);
-            fire.aoemod$setFlammable(ModBlocks.PALE_MOSS_CARPET.get(), 60, 100);
-            fire.aoemod$setFlammable(ModBlocks.PALE_HANGING_MOSS.get(), 60, 100);
+            setFlammable(fire, ModBlocks.PALE_MOSS_BLOCK.get(), 30, 100);
+            setFlammable(fire, ModBlocks.PALE_MOSS_CARPET.get(), 60, 100);
+            setNotFlammable(fire, ModBlocks.PALE_HANGING_MOSS.get());
+            setNotFlammable(fire, ForgeRegistries.BLOCKS.getValue(new ResourceLocation("nourished_nether", "soul_weeds")));
 
 
             BlockBehaviour.Properties props =
@@ -111,6 +112,18 @@ public class AOEMod
             makeLeafLikeForMobSpawning(Blocks.WARPED_WART_BLOCK);
             makeLeafLikeForMobSpawning(ForgeRegistries.BLOCKS.getValue(new ResourceLocation("quark", "glow_shroom_block")));
         });
+    }
+
+    private static void setFlammable(FireBlockAccessor fire, Block block, int encouragement, int flammability) {
+        if (block == null || block == Blocks.AIR) {
+            return;
+        }
+
+        fire.aoemod$setFlammable(block, encouragement, flammability);
+    }
+
+    private static void setNotFlammable(FireBlockAccessor fire, Block block) {
+        setFlammable(fire, block, 0, 0);
     }
 
     private static void makeLeafLikeForMobSpawning(Block block) {

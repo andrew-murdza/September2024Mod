@@ -30,6 +30,10 @@ public class TreeFeatureNeedsSolidGround {
         WorldGenLevel level = context.level();
         BlockPos origin = context.origin();
 
+        if (!level.getFluidState(origin).isEmpty()) {
+            cir.setReturnValue(false);
+            return;
+        }
 
         boolean isSoulTree = context.config().foliageProvider.getState(context.random(),context.origin()).is(ModBlocks.PALE_OAK_LEAVES.get());
 

@@ -17,11 +17,11 @@
     ],
     "features": [
       {
-        "chance": 0.075,
+        "chance": 0.125,
         "feature": "aoemod:crimson_forest/floor/grass"
       },
       {
-        "chance": 0.925,
+        "chance": 0.875,
         "feature": "aoemod:nothing"
       }
     ]

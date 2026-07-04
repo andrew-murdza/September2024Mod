@@ -1,6 +1,7 @@
 package net.amurdza.examplemod.worldgen.feature.features;
 
 import com.mojang.serialization.Codec;
+import net.amurdza.examplemod.util.ModTags;
 import net.amurdza.examplemod.worldgen.feature.configs.AllSurfacesFeatureConfig;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Holder;
@@ -26,6 +27,11 @@ import java.util.Optional;
 import static net.amurdza.examplemod.worldgen.feature.configs.AllSurfacesFeatureConfig.Target.AIR;
 
 public class AllSurfacesFeature extends Feature<AllSurfacesFeatureConfig> {
+    private static final int RIVER_REGION_WIDTH_CHUNKS = 30;
+    private static final int BIOME_BAND_WIDTH_CHUNKS = 64;
+    private static final int BIOME_BAND_COUNT = 10;
+    private static final int BIOME_PERIOD_CHUNKS = BIOME_BAND_WIDTH_CHUNKS * BIOME_BAND_COUNT;
+
     public AllSurfacesFeature(Codec<AllSurfacesFeatureConfig> codec) {
         super(codec);
     }
@@ -327,9 +333,14 @@ public class AllSurfacesFeature extends Feature<AllSurfacesFeatureConfig> {
             AllSurfacesFeatureConfig cfg,
             Holder<ConfiguredFeature<?, ?>> configuredFeature
     ) {
+        if (isRainforestTreeGrid(configuredFeature)
+                && !level.getBiome(pos).is(ModTags.Biomes.rainforestBiomes)) {
+            return PlacementResult.NONE;
+        }
+
         if (!isValidGuaranteedFeaturePlacementOrigin(level, pos, cfg)
                 && !hasValidGuaranteedFeaturePlacementOriginInChunk(level, pos, cfg)
-                && !shouldAllowRainforestShorelineSpill(pos, configuredFeature)) {
+                && !shouldAllowRainforestGridSpill(pos, configuredFeature)) {
             return PlacementResult.NONE;
         }
 
@@ -373,19 +384,42 @@ public class AllSurfacesFeature extends Feature<AllSurfacesFeatureConfig> {
         return false;
     }
 
-    private boolean shouldAllowRainforestShorelineSpill(
+    private boolean shouldAllowRainforestGridSpill(
             BlockPos pos,
             Holder<ConfiguredFeature<?, ?>> configuredFeature
     ) {
-        ChunkPos chunkPos = new ChunkPos(pos);
-
-        if (Math.floorMod(chunkPos.x, 30) != 0) {
+        if (!isRainforestPatchGrid(configuredFeature)) {
             return false;
         }
 
+        ChunkPos chunkPos = new ChunkPos(pos);
+
+        return isRiverShorelineSpillChunk(chunkPos)
+                || isJungleSavannaBoundarySpillChunk(chunkPos);
+    }
+
+    private boolean isRiverShorelineSpillChunk(ChunkPos chunkPos) {
+        return Math.floorMod(chunkPos.x, RIVER_REGION_WIDTH_CHUNKS) == 0;
+    }
+
+    private boolean isJungleSavannaBoundarySpillChunk(ChunkPos chunkPos) {
+        int localZ = Math.floorMod(chunkPos.z, BIOME_PERIOD_CHUNKS);
+
+        return localZ == BIOME_BAND_WIDTH_CHUNKS
+                || localZ == BIOME_BAND_WIDTH_CHUNKS * 9 - 1;
+    }
+
+    private boolean isRainforestPatchGrid(Holder<ConfiguredFeature<?, ?>> configuredFeature) {
         return configuredFeature.unwrapKey()
                 .map(key -> key.location().getNamespace().equals("aoemod")
                         && key.location().getPath().equals("rainforest/floor/grid_choice"))
+                .orElse(false);
+    }
+
+    private boolean isRainforestTreeGrid(Holder<ConfiguredFeature<?, ?>> configuredFeature) {
+        return configuredFeature.unwrapKey()
+                .map(key -> key.location().getNamespace().equals("aoemod")
+                        && key.location().getPath().equals("rainforest/floor/tree_grid_choice"))
                 .orElse(false);
     }
 

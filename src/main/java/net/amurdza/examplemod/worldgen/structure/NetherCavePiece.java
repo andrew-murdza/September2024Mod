@@ -1,5 +1,6 @@
 package net.amurdza.examplemod.worldgen.structure;
 
+import net.amurdza.examplemod.registry.ModBlocks;
 import net.amurdza.examplemod.registry.ModStructures;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -90,11 +91,32 @@ public class NetherCavePiece extends AbstractSpiralCavePiece {
             setSculk(level, surfacePos, Direction.DOWN);
         }
 
+        else if (y <= maxSoulSandValleyY && y > maxWarpedForestY) {
+            setBlock(
+                    level,
+                    surfacePos,
+                    soulSandValleyReplacementForState(
+                            level.getBlockState(surfacePos),
+                            netherBoundaryReplacement(surfacePos)
+                    )
+            );
+        }
+
         else if (y <= maxWarpedForestY && y > maxCrimsonForestY) {
             setBlock(level, surfacePos, Blocks.WARPED_NYLIUM);
         }
         else if (y <= maxCrimsonForestY && y > maxBasaltDeltasY) {
             setBlock(level, surfacePos, Blocks.CRIMSON_NYLIUM);
+        }
+        else if (y <= maxBasaltDeltasY) {
+            setBlock(
+                    level,
+                    surfacePos,
+                    basaltDeltasReplacementForState(
+                            level.getBlockState(surfacePos),
+                            netherBoundaryReplacement(surfacePos)
+                    )
+            );
         }
 
         replaceExposedUndesirableBoundaryBlock(level, surfacePos, netherBoundaryReplacement(surfacePos), false);
@@ -153,6 +175,51 @@ public class NetherCavePiece extends AbstractSpiralCavePiece {
         }
 
         return Blocks.NETHERRACK;
+    }
+
+    @Override
+    protected Block boundaryReplacementForState(BlockState state, Block replacementBlock) {
+        if (replacementBlock == Blocks.SOUL_SAND || replacementBlock == Blocks.SOUL_SOIL) {
+            return soulSandValleyReplacementForState(state, replacementBlock);
+        }
+
+        if (replacementBlock == Blocks.BASALT || replacementBlock == Blocks.BLACKSTONE) {
+            return basaltDeltasReplacementForState(state, replacementBlock);
+        }
+
+        return super.boundaryReplacementForState(state, replacementBlock);
+    }
+
+    private Block soulSandValleyReplacementForState(BlockState state, Block fallbackBlock) {
+        if (state.is(Blocks.SOUL_SAND)
+                || state.is(ModBlocks.SOUL_SAND_GOLD_ORE.get())
+                || state.is(ModBlocks.SOUL_SAND_QUARTZ_ORE.get())) {
+            return Blocks.SOUL_SAND;
+        }
+
+        if (state.is(Blocks.SOUL_SOIL)
+                || state.is(ModBlocks.SOUL_SOIL_GOLD_ORE.get())
+                || state.is(ModBlocks.SOUL_SOIL_QUARTZ_ORE.get())) {
+            return Blocks.SOUL_SOIL;
+        }
+
+        return fallbackBlock;
+    }
+
+    private Block basaltDeltasReplacementForState(BlockState state, Block fallbackBlock) {
+        if (state.is(Blocks.BASALT)
+                || state.is(ModBlocks.BASALT_GOLD_ORE.get())
+                || state.is(ModBlocks.BASALT_QUARTZ_ORE.get())) {
+            return Blocks.BASALT;
+        }
+
+        if (state.is(Blocks.BLACKSTONE)
+                || state.is(ModBlocks.BLACKSTONE_GOLD_ORE.get())
+                || state.is(ModBlocks.BLACKSTONE_QUARTZ_ORE.get())) {
+            return Blocks.BLACKSTONE;
+        }
+
+        return fallbackBlock;
     }
 
     protected void setSculk(WorldGenLevel level, BlockPos pos, Direction direction){

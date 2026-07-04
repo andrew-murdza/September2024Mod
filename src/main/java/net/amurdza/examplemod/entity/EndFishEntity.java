@@ -27,9 +27,9 @@ import org.jetbrains.annotations.NotNull;
 import java.util.function.IntFunction;
 
 public class EndFishEntity extends AbstractSchoolingFish implements VariantHolder<EndFishEntity.Variant> {
-    public static final int VARIANTS_NORMAL = 5;
+    public static final int VARIANTS_NORMAL = 3;
     public static final int VARIANTS_SULPHUR = 3;
-    public static final int VARIANTS = VARIANTS_NORMAL + VARIANTS_SULPHUR;
+    public static final int VARIANTS = 8;
 
     private static final EntityDataAccessor<Integer> VARIANT = SynchedEntityData.defineId(
             EndFishEntity.class,
@@ -77,7 +77,7 @@ public class EndFishEntity extends AbstractSchoolingFish implements VariantHolde
         var biome = world.getBiome(this.blockPosition());
 
         if (biome.is(ModTags.Biomes.mountainBiomes) || biome.is(ModTags.Biomes.mushroomCaves)) {
-            return Variant.byId(this.random.nextInt(3));
+            return randomBlueVariant();
         }
 
         if (biome.is(ModTags.Biomes.desertBiomes)) {
@@ -89,6 +89,10 @@ public class EndFishEntity extends AbstractSchoolingFish implements VariantHolde
         }
 
         return Variant.byId(6 + this.random.nextInt(2));
+    }
+
+    private Variant randomBlueVariant() {
+        return Variant.byId(this.random.nextInt(VARIANTS_NORMAL));
     }
 
     @Override
@@ -166,7 +170,7 @@ public class EndFishEntity extends AbstractSchoolingFish implements VariantHolde
 
     @Override
     public void setVariant(Variant variant) {
-        this.entityData.set(VARIANT, variant.id());
+        this.entityData.set(VARIANT, sanitizeEndVariant(variant).id());
     }
 
     public int getVariantId() {
@@ -189,12 +193,20 @@ public class EndFishEntity extends AbstractSchoolingFish implements VariantHolde
         return (byte) scale;
     }
 
+    private static Variant sanitizeEndVariant(Variant variant) {
+        return switch (variant) {
+            case NETHER_0 -> Variant.NORMAL_0;
+            case NETHER_1 -> Variant.NORMAL_1;
+            default -> variant;
+        };
+    }
+
     public enum Variant {
         NORMAL_0(0),
         NORMAL_1(1),
         NORMAL_2(2),
-        NORMAL_3(3),
-        NORMAL_4(4),
+        NETHER_0(3),
+        NETHER_1(4),
         SULPHUR_0(5),
         SULPHUR_1(6),
         SULPHUR_2(7);

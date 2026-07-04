@@ -1,7 +1,6 @@
 package net.amurdza.examplemod.worldgen.structure;
 
 import net.amurdza.examplemod.registry.ModStructures;
-import net.amurdza.examplemod.util.ModTags;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.HolderSet;
@@ -78,9 +77,11 @@ public class MushroomCavePiece extends AbstractSpiralCavePiece {
 
     @Override
     protected void decorateCaveFloor(WorldGenLevel level, BlockPos top) {
+        int floorAirY = top.above().getY();
+        int floorY = top.getY();
         boolean isMushroomLayer =
-                top.above().getY() <= this.maxMushroomCaves &&
-                        top.above().getY() >= this.minMushroomCaves;
+                floorAirY <= this.maxMushroomCaves &&
+                        floorAirY >= this.minMushroomCaves;
 
         if (isMushroomLayer) {
             setBlock(level, top, Blocks.MYCELIUM);
@@ -88,12 +89,12 @@ public class MushroomCavePiece extends AbstractSpiralCavePiece {
             setBlock(level, top.below(2), Blocks.CLAY);
         }
 
-        else if (top.above().getY() > minMushroomCaves && !hasCeilingAbove(level, top)) {
+        else if (floorAirY > minMushroomCaves && !hasCeilingAbove(level, top)) {
             setBlock(level, top, Blocks.GRASS_BLOCK);
             setBlock(level, top.below(), Blocks.DIRT);
         }
 
-        else if (top.above().getY() == minMushroomCaves - 1) {
+        else if (floorY == finalEllipsoidFloorTopY()) {
             setBlock(level, top, Blocks.SMOOTH_BASALT);
             setBlock(level, top.below(), Blocks.CALCITE);
             setBlock(level, top.below(2), Blocks.CALCITE);
@@ -101,7 +102,7 @@ public class MushroomCavePiece extends AbstractSpiralCavePiece {
             setBlock(level, top.below(4), Blocks.SMOOTH_BASALT);
         }
 
-        else if (top.above().getY() == minMushroomCaves - 2) {
+        else if (floorY == finalEllipsoidFloorTopY() - 1) {
             setBlock(level, top, Blocks.CALCITE);
             setBlock(level, top.below(), Blocks.CALCITE);
             setBlock(level, top.below(2), Blocks.CALCITE);
@@ -110,7 +111,7 @@ public class MushroomCavePiece extends AbstractSpiralCavePiece {
             setBlock(level, top.below(5), Blocks.SMOOTH_BASALT);
         }
 
-        else if (top.above().getY() == minMushroomCaves - 3) {
+        else if (floorY == finalEllipsoidFloorTopY() - 2) {
             setBlock(level, top, bordersOneBlockHigher(top) ? Blocks.BUDDING_AMETHYST : Blocks.AMETHYST_BLOCK);
             setBlock(level, top.below(), Blocks.CALCITE);
             setBlock(level, top.below(2), Blocks.CALCITE);
@@ -120,6 +121,32 @@ public class MushroomCavePiece extends AbstractSpiralCavePiece {
         }
 
         replaceExposedUndesirableBoundaryBlock(level, top, overworldBoundaryReplacement(level, top), false);
+    }
+
+    private int finalEllipsoidFloorTopY() {
+        return this.endY + (int) Math.ceil(this.liquidDepth) + 3;
+    }
+
+    @Override
+    protected void afterCarveBlock(WorldGenLevel level, BlockPos carvedPos, BlockState oldState) {
+        if (!oldState.is(Blocks.MYCELIUM)) {
+            return;
+        }
+
+        restoreClearedMushroomSubstrate(level, carvedPos.below());
+        restoreClearedMushroomSubstrate(level, carvedPos.below(2));
+        restoreClearedMushroomSubstrate(level, carvedPos.below(3));
+    }
+
+    private void restoreClearedMushroomSubstrate(WorldGenLevel level, BlockPos pos) {
+        BlockState state = level.getBlockState(pos);
+
+        if (!state.is(Blocks.MYCELIUM) && !state.is(Blocks.DIRT) && !state.is(Blocks.CLAY)) {
+            return;
+        }
+
+        Block replacement = pos.getY() >= 0 ? Blocks.STONE : Blocks.DEEPSLATE;
+        level.setBlock(pos, replacement.defaultBlockState(), Block.UPDATE_CLIENTS);
     }
 
     private boolean bordersOneBlockHigher(BlockPos top) {

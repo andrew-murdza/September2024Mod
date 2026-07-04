@@ -52,8 +52,14 @@
         "maxCount": 5
       },
       {
-        "type": "alexsmobs:gorilla",
-        "weight": 5,
+        "type": "naturalist:deer",
+        "weight": 20,
+        "minCount": 2,
+        "maxCount": 5
+      },
+      {
+        "type": "minecraft:chicken",
+        "weight": 15,
         "minCount": 2,
         "maxCount": 5
       },
@@ -64,8 +70,8 @@
         "maxCount": 5
       },
       {
-        "type": "minecraft:wolf",
-        "weight": 8,
+        "type": "alexsmobs:gorilla",
+        "weight": 5,
         "minCount": 2,
         "maxCount": 5
       },
@@ -96,18 +102,6 @@
       {
         "type": "minecraft:ocelot",
         "weight": 2,
-        "minCount": 2,
-        "maxCount": 5
-      },
-      {
-        "type": "naturalist:deer",
-        "weight": 20,
-        "minCount": 2,
-        "maxCount": 5
-      },
-      {
-        "type": "minecraft:chicken",
-        "weight": 15,
         "minCount": 2,
         "maxCount": 5
       },

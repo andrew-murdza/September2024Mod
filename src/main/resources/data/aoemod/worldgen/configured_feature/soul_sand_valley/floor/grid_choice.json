@@ -4,7 +4,7 @@
     "features": [
       {
         "feature": "aoemod:soul_sand_valley/pale_oak",
-        "count": 8
+        "count": 16
       },
       {
         "feature": "aoemod:crops/soul_berries",
@@ -20,11 +20,7 @@
       },
       {
         "feature": "aoemod:nothing",
-        "count": 16
-      },
-      {
-        "feature": "aoemod:flowers/soul_sand_valley/soul_weeds_patch",
-        "count": 12
+        "count": 20
       }
     ],
     "minimum_sections": [
@@ -34,7 +30,7 @@
         "features": [
           {
             "feature": "aoemod:soul_sand_valley/pale_oak",
-            "count": 2
+            "count": 3
           },
           {
             "feature": "aoemod:flowers/soul_sand_valley/soul_weeds_patch",
