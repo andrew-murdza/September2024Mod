@@ -17,13 +17,6 @@ public class MushroomCavePiece extends AbstractSpiralCavePiece {
     private final int maxMushroomCaves;
     private final int minMushroomCaves;
 
-    private boolean hasCeilingAbove(WorldGenLevel level, BlockPos pos) {
-        int maxY = 63;
-        BlockPos pos1 = new BlockPos(pos.getX(), maxY, pos.getZ());
-        BlockState state = level.getBlockState(pos1);
-        return !state.isAir();
-    }
-
     public MushroomCavePiece(
             BlockPos origin,
             long seed,
@@ -89,7 +82,7 @@ public class MushroomCavePiece extends AbstractSpiralCavePiece {
             setBlock(level, top.below(2), Blocks.CLAY);
         }
 
-        else if (floorAirY > minMushroomCaves && !hasCeilingAbove(level, top)) {
+        else if (floorAirY > minMushroomCaves && level.canSeeSky(top.above())) {
             setBlock(level, top, Blocks.GRASS_BLOCK);
             setBlock(level, top.below(), Blocks.DIRT);
         }
@@ -130,6 +123,10 @@ public class MushroomCavePiece extends AbstractSpiralCavePiece {
     @Override
     protected void afterCarveBlock(WorldGenLevel level, BlockPos carvedPos, BlockState oldState) {
         if (!oldState.is(Blocks.MYCELIUM)) {
+            return;
+        }
+
+        if (carvedPos.getY() >= this.minMushroomCaves) {
             return;
         }
 

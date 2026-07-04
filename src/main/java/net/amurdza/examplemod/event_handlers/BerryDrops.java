@@ -3,6 +3,8 @@ package net.amurdza.examplemod.event_handlers;
 import net.amurdza.examplemod.config.BlockBehaviorConfig;
 import net.amurdza.examplemod.util.Helper;
 import net.minecraft.core.BlockPos;
+import net.minecraft.sounds.SoundEvents;
+import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.Level;
@@ -36,8 +38,11 @@ public class BerryDrops {
             float count = value != null ? value : 0;
             int amount = Helper.computeIncrements(level.random,count);
             if(amount>0){
-                level.gameEvent(GameEvent.BLOCK_CHANGE, pos, GameEvent.Context.of(event.getEntity(), state));
                 Block.popResource(level, pos, new ItemStack(Items.SWEET_BERRIES,amount));
+                level.playSound(null, pos, SoundEvents.SWEET_BERRY_BUSH_PICK_BERRIES, SoundSource.BLOCKS, 1.0F, 0.8F + level.random.nextFloat() * 0.4F);
+                BlockState pickedState = state.setValue(BlockStateProperties.AGE_3, 1);
+                level.setBlock(pos, pickedState, 2);
+                level.gameEvent(GameEvent.BLOCK_CHANGE, pos, GameEvent.Context.of(event.getEntity(), pickedState));
                 event.setCanceled(true);
             }
         }
