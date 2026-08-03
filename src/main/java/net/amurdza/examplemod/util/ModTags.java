@@ -27,7 +27,9 @@ public class ModTags {
         public static final TagKey<Item> vegetables=tag("vegetables");
         public static final TagKey<Item> mushrooms=tag("mushrooms");
         public static final TagKey<Item> rawFish=tag("raw_fish");
-        public static TagKey<Item> fruits=tag("fruits");
+        public static final TagKey<Item> leafFruits=tag("leaf_fruits");
+        public static final TagKey<Item> mobMeatDrops=tag("mob_meat_drops");
+        public static final TagKey<Item> fruits=tag("fruits");
 
         private static TagKey<Item> tag(String name){
             return ItemTags.create(new ResourceLocation(AOEMod.MOD_ID,name));
@@ -42,7 +44,6 @@ public class ModTags {
         public static final TagKey<Biome> savannaBiomes=tag("savanna_biomes");
         public static final TagKey<Biome> plainsBiomes=tag("plains_biomes");
 
-        public static final TagKey<Biome> mushroomCaves=tag("mushroom_caves_biomes");
         public static final TagKey<Biome> basaltDeltasBiomes  = tag("basalt_deltas_biomes");
         public static final TagKey<Biome> crimsonForestBiomes = tag("crimson_forest_biomes");
         public static final TagKey<Biome> warpedForestBiomes  = tag("warped_forest_biomes");

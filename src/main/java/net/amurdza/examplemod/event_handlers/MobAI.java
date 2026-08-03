@@ -3,9 +3,12 @@ package net.amurdza.examplemod.event_handlers;
 import com.github.alexthe666.alexsmobs.entity.*;
 import com.github.alexthe666.alexsmobs.entity.ai.*;
 import com.github.alexthe666.iceandfire.entity.EntitySiren;
+import com.starfish_studios.naturalist.common.entity.Boar;
+import com.starfish_studios.naturalist.common.entity.Deer;
 import net.amurdza.examplemod.AOEMod;
 import net.amurdza.examplemod.util.AnimalFoodOverrides;
 import net.amurdza.examplemod.util.ModTags;
+import net.amurdza.examplemod.util.StructureSpawnedMobData;
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.tags.BlockTags;
@@ -22,11 +25,14 @@ import net.minecraft.world.entity.ai.goal.target.NearestAttackableTargetGoal;
 import net.minecraft.world.entity.ai.goal.target.NonTameRandomTargetGoal;
 import net.minecraft.world.entity.ai.memory.MemoryModuleType;
 import net.minecraft.world.entity.animal.*;
+import net.minecraft.world.entity.animal.axolotl.Axolotl;
+import net.minecraft.world.entity.animal.camel.Camel;
 import net.minecraft.world.entity.animal.frog.Frog;
 import net.minecraft.world.entity.animal.goat.Goat;
 import net.minecraft.world.entity.animal.horse.AbstractChestedHorse;
 import net.minecraft.world.entity.animal.horse.AbstractHorse;
 import net.minecraft.world.entity.animal.horse.Horse;
+import net.minecraft.world.entity.animal.horse.Llama;
 import net.minecraft.world.entity.monster.AbstractSkeleton;
 import net.minecraft.world.entity.monster.Strider;
 import net.minecraft.world.entity.monster.Zombie;
@@ -50,99 +56,103 @@ import vectorwing.farmersdelight.common.registry.ModItems;
 
 import java.lang.reflect.Field;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
+import java.util.Set;
 import java.util.UUID;
+import java.util.WeakHashMap;
 import java.util.function.Predicate;
 @Mod.EventBusSubscriber(modid = AOEMod.MOD_ID, bus=Mod.EventBusSubscriber.Bus.FORGE)
 public class MobAI {
+    private static final Set<PathfinderMob> CHECKED_MOBS =
+            Collections.newSetFromMap(new WeakHashMap<>());
+
     @SubscribeEvent
     public static void AIChanges(EntityJoinLevelEvent event){
         try{
             Entity entity=event.getEntity();
 
             if(!event.getLevel().isClientSide&& entity instanceof PathfinderMob mob) {
-                if(mob.getTags().contains("aoe.checkedAI")){
-                    return;
+                synchronized (CHECKED_MOBS) {
+                    if (!CHECKED_MOBS.add(mob)) {
+                        return;
+                    }
                 }
-                mob.addTag("aoe.checkedAI");
 
                 //Breeding and Tempting
                 if (entity instanceof Fox) {
-                    addTempt(mob, Items.CHICKEN,Items.RABBIT);
+                    addTempt(mob, Items.CHICKEN,Items.RABBIT, Items.SWEET_BERRIES);
                     addTempt(mob, ModTags.Items.rawFish);
                     addTempt(mob, AnimalFoodOverrides.blueberry());
-                } else if (entity instanceof Rabbit) {
+                } else if (entity instanceof Rabbit) {//Other cases already covered by herbivore section
+                    mob.setMaxUpStep(1.5F);
                     addTempt(mob, ModTags.Items.smallerFlowers);
+                    addTempt(mob, net.amurdza.examplemod.registry.ModItems.ASHEN_WHEAT.get());
                     addTempt(mob, Items.BEETROOT);
-                    addTempt(mob, Items.WHEAT);
                     addTempt(mob, Items.POTATO);
-                    addTempt(mob, Items.SWEET_BERRIES);
-                    addTempt(mob, AnimalFoodOverrides.blueberry());
-                    addTempt(mob, ModItems.ONION.get());
-                    addTempt(mob, net.amurdza.examplemod.registry.ModItems.ASHEN_WHEAT.get());
-                } else if (entity instanceof Pig || AnimalFoodOverrides.isBoar(entity)) {
+                    addTempt(mob, Items.CARROT);
                     addTempt(mob, Items.WHEAT);
-                    addTempt(mob, net.amurdza.examplemod.registry.ModItems.ASHEN_WHEAT.get());
                     addTempt(mob, Items.SWEET_BERRIES);
                     addTempt(mob, AnimalFoodOverrides.blueberry());
-                } else if (entity instanceof Horse || entity instanceof AbstractChestedHorse) {
-                    addTempt(mob, Items.HAY_BLOCK);
+                    addTempt(mob, ModTags.Items.fruits);
+                    addTempt(mob, ModItems.ONION.get());
+                } else if (entity instanceof Horse || entity instanceof AbstractChestedHorse || entity instanceof Llama) {
+                    addTempt(mob, Items.WHEAT);
                 } else if (entity instanceof Cat||entity instanceof Ocelot) {
                     addTempt(mob, ModTags.Items.rawFish);
                 }
                 else if (entity instanceof PolarBear) {
 //                    addBreeding(mob); handled by rideablepolarbearmod
-                    addTempt(mob, Items.MUTTON, Items.BEEF);
+                    addTempt(mob, ModTags.Items.mobMeatDrops);
                     addTempt(mob, ModTags.Items.rawFish);
                 } else if (entity instanceof Parrot) {
-                    addTempt(1, mob, Items.WHEAT_SEEDS, Items.BEETROOT_SEEDS, Items.MELON_SEEDS, Items.PUMPKIN_SEEDS, Items.APPLE,
+                    addTempt(1, mob, Items.WHEAT_SEEDS, Items.BEETROOT_SEEDS, Items.MELON_SEEDS, Items.PUMPKIN_SEEDS,
                             AnimalFoodOverrides.cabbageSeeds(), AnimalFoodOverrides.tomatoSeeds(), AnimalFoodOverrides.ashenWheatSeeds());
                     //parrot breeding
+                    addTempt(mob, ModTags.Items.leafFruits);
                     addBreeding(mob);
                 }
-                else if (entity instanceof Chicken) {
-                    addTempt(3, mob, AnimalFoodOverrides.cabbageSeeds(), AnimalFoodOverrides.tomatoSeeds(), AnimalFoodOverrides.ashenWheatSeeds());
+                else if (entity instanceof EntityGorilla) {
+                    removeAI(goal -> goal instanceof TemptGoal, mob.goalSelector);
+                    addTempt(mob, ModTags.Items.leafFruits);
                 }
-                else if (AnimalFoodOverrides.isSquirrel(entity)) {
-                    addTempt(3, mob, AnimalFoodOverrides.cabbageSeeds(), AnimalFoodOverrides.tomatoSeeds(), AnimalFoodOverrides.ashenWheatSeeds(),
+                else if (entity instanceof Camel){
+                    removeAI(goal -> goal instanceof TemptGoal, mob.goalSelector);
+                    addTempt(mob, samebutdifferent.ecologics.registry.ModItems.PRICKLY_PEAR.get());
+                }
+                else if (entity instanceof Deer){
+                    addTempt(mob, Items.WHEAT);
+                }
+                else if (AnimalFoodOverrides.isSquirrel(entity)||entity instanceof Chicken) {
+                    addTempt(mob, AnimalFoodOverrides.cabbageSeeds(), AnimalFoodOverrides.tomatoSeeds(),
                             Items.BEETROOT_SEEDS, Items.WHEAT_SEEDS, Items.MELON_SEEDS, Items.PUMPKIN_SEEDS);
                 }
                 else if (entity instanceof MushroomCow) {
-                    addTempt(mob, ModTags.Items.mushrooms);
+                    removeAI(goal -> goal instanceof TemptGoal, mob.goalSelector);
+                    addTempt(3, mob, ModTags.Items.mushrooms);
+                    addTempt(4, mob, Items.WHEAT);
                 }
                 else if (entity instanceof EntityWarpedToad) {
+                    removeAI(goal -> goal instanceof TemptGoal, mob.goalSelector);
                     addTempt(mob, Items.WARPED_FUNGUS);
-                }
-                else if (entity instanceof EntityBananaSlug) {
-                    addTempt(mob, Items.SEAGRASS, Items.KELP);
                 }
                 else if (entity instanceof Strider){
                     removeAI(goal -> goal instanceof TemptGoal, mob.goalSelector);
                     addTempt(mob, net.amurdza.examplemod.registry.ModItems.ASHEN_WHEAT.get());
                 }
-                else if(entity instanceof Frog) {
+                else if(entity instanceof Frog|| entity instanceof Turtle|| entity instanceof Axolotl) {
+                    removeAI(goal -> goal instanceof TemptGoal, mob.goalSelector);
                     addTempt(mob, Items.SEAGRASS);
                     addTempt(mob, Items.KELP);
                 }
-                else if(entity instanceof Goat){
-                    addTempt(mob, Items.BEETROOT);
-                    addTempt(mob, Items.POTATO);
-                    addTempt(mob, Items.CARROT);
-                    addTempt(mob, Items.WHEAT);
-                    addTempt(mob, net.amurdza.examplemod.registry.ModItems.ASHEN_WHEAT.get());
-                    addTempt(mob, Items.SWEET_BERRIES);
-                    addTempt(mob, AnimalFoodOverrides.blueberry());
-                    addTempt(mob, ModItems.ONION.get());
-                }
-                else if(entity instanceof EntityMoose) {
+                else if(AnimalFoodOverrides.isHerbivoreFoodTarget(entity)) {
                     removeAI(goal -> goal instanceof TemptGoal, mob.goalSelector);
                     addTempt(mob, Items.BEETROOT);
                     addTempt(mob, Items.POTATO);
                     addTempt(mob, Items.CARROT);
                     addTempt(mob, Items.WHEAT);
                     addTempt(mob, Items.SWEET_BERRIES);
-                    addTempt(mob, net.amurdza.examplemod.registry.ModItems.ASHEN_WHEAT.get());
                     addTempt(mob, AnimalFoodOverrides.blueberry());
                     addTempt(mob, ModTags.Items.fruits);
                     addTempt(mob, ModItems.ONION.get());
@@ -172,6 +182,10 @@ public class MobAI {
                             TameableAIDestroyTurtleEggs.class,CreatureAITargetItems.class);
                     //Quark
                     removeAI(mob, RaveGoal.class);
+
+                    if (entity instanceof EntityMoose) {
+                        removeAI(mob, MooseAIJostle.class, MeleeAttackGoal.class);
+                    }
                 }
                 else if(entity instanceof EntityBison){
                     removeAI(mob,
@@ -216,11 +230,48 @@ public class MobAI {
 
         if (entity instanceof Mob mob) {
             clearForbiddenBrainTargets(level, mob);
+            keepStructureMobNearHome(level, mob);
         }
 
         if (entity instanceof Turtle turtle) {
             redirectPregnantTurtleHome(level, turtle);
         }
+    }
+
+    private static void keepStructureMobNearHome(ServerLevel level, Mob mob) {
+        if (!StructureSpawnedMobData.isMarked(mob)
+                || Math.floorMod(level.getGameTime() + mob.getId(), 20L) != 0L) {
+            return;
+        }
+
+        BlockPos home = StructureSpawnedMobData.home(mob);
+        if (mob instanceof PathfinderMob pathfinderMob) {
+            pathfinderMob.restrictTo(home, StructureSpawnedMobData.HOME_RADIUS);
+        }
+
+        double distanceSquared = mob.distanceToSqr(
+                home.getX() + 0.5D,
+                home.getY(),
+                home.getZ() + 0.5D
+        );
+        double returnDistance = StructureSpawnedMobData.HOME_RADIUS;
+        if (distanceSquared <= returnDistance * returnDistance) {
+            return;
+        }
+
+        double teleportDistance = returnDistance * 2.0D;
+        if (distanceSquared > teleportDistance * teleportDistance) {
+            mob.teleportTo(home.getX() + 0.5D, home.getY(), home.getZ() + 0.5D);
+            mob.getNavigation().stop();
+            return;
+        }
+
+        mob.getNavigation().moveTo(
+                home.getX() + 0.5D,
+                home.getY(),
+                home.getZ() + 0.5D,
+                1.0D
+        );
     }
 
     private static void clearForbiddenBrainTargets(ServerLevel level, Mob mob) {
@@ -233,6 +284,7 @@ public class MobAI {
         clearLivingMemoryIfForbidden(mob, MemoryModuleType.ATTACK_TARGET);
         clearLivingMemoryIfForbidden(mob, MemoryModuleType.NEAREST_ATTACKABLE);
         clearLivingMemoryIfForbidden(mob, MemoryModuleType.HURT_BY_ENTITY);
+        clearLivingMemoryIfForbidden(mob, MemoryModuleType.AVOID_TARGET);
         clearIdleZoglinCombatMemories(mob);
 
         Brain<?> brain = mob.getBrain();
@@ -398,7 +450,10 @@ public class MobAI {
         mob.goalSelector.addGoal(priority, new TemptGoal(mob, 1.0D, Ingredient.of(items), false));
     }
     private static void addTempt(PathfinderMob mob, TagKey<Item> tagKey){
-        mob.goalSelector.addGoal(3, new TemptGoal(mob, 1.0D, Ingredient.of(tagKey), false));
+        addTempt(3, mob, tagKey);
+    }
+    private static void addTempt(int priority, PathfinderMob mob, TagKey<Item> tagKey){
+        mob.goalSelector.addGoal(priority, new TemptGoal(mob, 1.0D, Ingredient.of(tagKey), false));
     }
     private static void removeAI(Predicate<Goal> shouldRemove, PathfinderMob mob){
         removeAI(shouldRemove,mob.goalSelector);

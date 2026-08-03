@@ -6,6 +6,7 @@ import net.amurdza.examplemod.config.BoneMealConfig;
 import net.amurdza.examplemod.util.Helper;
 import net.amurdza.examplemod.util.ModTags;
 import net.amurdza.examplemod.registry.ModConfiguredFeatures;
+import net.amurdza.examplemod.worldgen.MushroomCaveRegion;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.Holder;
@@ -28,7 +29,6 @@ import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.block.state.properties.DoubleBlockHalf;
-import net.minecraft.world.level.block.state.properties.Half;
 import net.minecraft.world.level.chunk.ChunkGenerator;
 import net.minecraft.world.level.gameevent.GameEvent;
 import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
@@ -38,6 +38,9 @@ import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import org.violetmoon.quark.content.world.module.GlimmeringWealdModule;
 
+import java.util.ArrayDeque;
+import java.util.HashSet;
+import java.util.Set;
 import java.util.function.Function;
 
 @Mod.EventBusSubscriber(modid = AOEMod.MOD_ID, bus=Mod.EventBusSubscriber.Bus.FORGE)
@@ -54,12 +57,13 @@ public class BoneMeal {
         BlockPos pos = event.getPos();
         BlockState state = level.getBlockState(pos);
 
-        Holder<Biome> biome = level.getBiome(pos);
+        Holder<Biome> biome = biomeAboveClickedBlock(level, pos);
 
-        // This is just for mushrooms in plains/savanna/desert
+        // Giant mushrooms are exclusive to the lower mushroom-themed cave floor.
         if (state.is(Blocks.RED_MUSHROOM)||state.is(Blocks.BROWN_MUSHROOM)) {
-            if(!biome.is(ModTags.Biomes.tropicalBiomes)&&!biome.is(ModTags.Biomes.mushroomCaves)
-                    &&!biome.is(ModTags.Biomes.mountainBiomes)){
+            BlockPos floorPos = pos.below();
+            if (!level.getBlockState(floorPos).is(Blocks.MYCELIUM)
+                    || !MushroomCaveRegion.containsFloor(floorPos)) {
                 event.setCanceled(true);
                 event.setCancellationResult(InteractionResult.FAIL);
                 return;
@@ -135,12 +139,12 @@ public class BoneMeal {
     // ----------------------------
 
     /**
-     * Gets the configured multiplier by checking which biome tags match at (pos).
+     * Gets the configured multiplier by checking which biome tags match above the clicked block.
      * If multiple tags match, this returns the MAX value among matches (usually what you want for "best match wins").
      * If none match, returns 1.0f.
      */
     private static float getBiomeMultiplier(ServerLevel level, BlockPos pos) {
-        Holder<Biome> biomeHolder = level.getBiome(pos);
+        Holder<Biome> biomeHolder = biomeAboveClickedBlock(level, pos);
         Block block=level.getBlockState(pos).getBlock();
         boolean mushroom=block instanceof MushroomBlock
                 || block == Blocks.MYCELIUM || block== GlimmeringWealdModule.glow_shroom;
@@ -153,6 +157,10 @@ public class BoneMeal {
             }
         }
         return best;
+    }
+
+    private static Holder<Biome> biomeAboveClickedBlock(Level level, BlockPos clickedPos) {
+        return level.getBiome(clickedPos.above());
     }
 
     // ----------------------------
@@ -190,6 +198,10 @@ public class BoneMeal {
     private static boolean isEligibleBonemealTarget(ServerLevel level, BlockPos pos, BlockState state) {
         Block block = state.getBlock();
 
+        if (state.is(Blocks.MYCELIUM)) {
+            return MushroomCaveRegion.containsFloor(pos);
+        }
+
         if(block instanceof BonemealableBlock block1){
             return block1.isValidBonemealTarget(level,pos,state,false);
         }
@@ -200,10 +212,10 @@ public class BoneMeal {
 
         //Floors
         if(Helper.isBlock(
-                state, Blocks.RED_SAND, Blocks.SAND, Blocks.MYCELIUM, Blocks.SCULK)){
+                state, Blocks.RED_SAND, Blocks.SAND, Blocks.SCULK)){
             return true;
         }
-        if(Helper.isBlockTag(state, BlockTags.NYLIUM, ModTags.Blocks.soulSediments, ModTags.Blocks.basaltStones)){
+        if(Helper.isBlockTag(state, BlockTags.NYLIUM, ModTags.Blocks.soulSediments)){
             return true;
         }
 
@@ -216,6 +228,14 @@ public class BoneMeal {
             return true;
         }
 
+        if (state.is(Blocks.CHORUS_FLOWER) && isNonMatureChorusFlower(state)) {
+            return true;
+        }
+
+        if (state.is(Blocks.CHORUS_PLANT) && findLowestNonMatureChorusFlower(level, pos) != null) {
+            return true;
+        }
+
         return isFlowerLike(block);
     }
 
@@ -224,7 +244,8 @@ public class BoneMeal {
                 || Helper.isBlock(
                 block,
                 ModBlocks.DESERT_TALL_GRASS.get(),
-                Blocks.CRIMSON_ROOTS, Blocks.WARPED_ROOTS, Blocks.NETHER_SPROUTS
+                Blocks.CRIMSON_ROOTS, Blocks.WARPED_ROOTS, Blocks.NETHER_SPROUTS, Blocks.DEAD_BUSH,
+                Blocks.SCULK_SENSOR, Blocks.SCULK_CATALYST, Blocks.SCULK_SHRIEKER, Blocks.WET_SPONGE
         );
     }
 
@@ -275,6 +296,22 @@ public class BoneMeal {
 
         if (block == Blocks.NETHER_WART) {
             return growNetherWart(pos, level);
+        }
+
+        if (block == Blocks.CHORUS_FLOWER && isNonMatureChorusFlower(state)) {
+            state.randomTick(level, pos, level.random);
+            return true;
+        }
+
+        if (block == Blocks.CHORUS_PLANT) {
+            BlockPos flowerPos = findLowestNonMatureChorusFlower(level, pos);
+
+            if (flowerPos == null) {
+                return false;
+            }
+
+            level.getBlockState(flowerPos).randomTick(level, flowerPos, level.random);
+            return true;
         }
 
         if (block instanceof SeaPickleBlock && state.getValue(SeaPickleBlock.PICKLES) < 4) {
@@ -366,9 +403,8 @@ public class BoneMeal {
     }
 
     private static boolean growSugarcaneCactus1(Level world, BlockPos pos, Block block) {
-        if(world.isEmptyBlock(pos)) {
-            world.setBlockAndUpdate(pos, block.defaultBlockState());
-            BlockState blockState = block.defaultBlockState();// Not needed: .setValue(AGE, 0);
+        BlockState blockState = block.defaultBlockState();// Not needed: .setValue(AGE, 0);
+        if(world.isEmptyBlock(pos) && blockState.canSurvive(world, pos)) {
             world.setBlockAndUpdate(pos, blockState);
             //blockState.updateNeighbourShapes().neighborUpdate(world, pos, block, pos, false);
             return true;
@@ -432,20 +468,45 @@ public class BoneMeal {
             fluidType = FluidType.LAVA;
         }
 
-        Function<BlockPos, Boolean> func = pos1 -> world.setBlockAndUpdate(pos1, state);
+        Function<BlockPos, Boolean> func = pos1 -> {
+            if (!hasFlowerSupport(world, pos1)) {
+                return false;
+            }
+
+            if (!state.canSurvive(world, pos1)) {
+                return false;
+            }
+
+            world.setBlockAndUpdate(pos1, state);
+            return true;
+        };
 
         boolean doublePlantBlock = state.getBlock() instanceof DoublePlantBlock;
         if (doublePlantBlock) {
-            if(state.getValue(BlockStateProperties.HALF)== Half.TOP){
+            if(state.getValue(DoublePlantBlock.HALF)== DoubleBlockHalf.UPPER){
                 pos = pos.below();
             }
+            BlockState lowerState = state.setValue(DoublePlantBlock.HALF, DoubleBlockHalf.LOWER);
             func = pos1 -> {
-                DoublePlantBlock.placeAt(world, state, pos1, 2);
+                if (!hasFlowerSupport(world, pos1)) {
+                    return false;
+                }
+
+                if (!lowerState.canSurvive(world, pos1)) {
+                    return false;
+                }
+
+                DoublePlantBlock.placeAt(world, lowerState, pos1, 2);
                 return true;
             };
         }
 
         placeBoneMeal(world, pos.below(), 20, func, fluidType, doublePlantBlock);
+    }
+
+    private static boolean hasFlowerSupport(Level world, BlockPos pos) {
+        BlockPos below = pos.below();
+        return world.getBlockState(below).isFaceSturdy(world, below, Direction.UP);
     }
 
     private static void growSmallDripLeaf(ServerLevel level, BlockPos pos) {
@@ -460,29 +521,28 @@ public class BoneMeal {
     ) {}
 
     private static boolean isBiomeSurfaceBonemealTarget(ServerLevel level, BlockPos pos, BlockState state) {
-        Holder<Biome> biome = level.getBiome(pos);
-
-        if (biome.is(ModTags.Biomes.mushroomCaves)) {
-            return state.is(Blocks.MYCELIUM);
-        }
+        Holder<Biome> biome = biomeAboveClickedBlock(level, pos);
 
         if (biome.is(ModTags.Biomes.tropicalBiomes)) {
             return state.is(Blocks.MOSS_BLOCK);
         }
 
+        if(biome.is(ModTags.Biomes.desertBiomes)){
+            return state.is(Blocks.RED_SAND)||state.is(Blocks.SAND)||state.is(Blocks.GRASS_BLOCK);
+        }
+
         if (biome.is(ModTags.Biomes.savannaBiomes)
-                || biome.is(ModTags.Biomes.plainsBiomes)
-                || biome.is(ModTags.Biomes.mountainBiomes)
-                || biome.is(ModTags.Biomes.desertBiomes)) {
+                || biome.is(ModTags.Biomes.plainsBiomes)) {
             return state.is(Blocks.GRASS_BLOCK);
+        }
+
+        if (biome.is(ModTags.Biomes.mountainBiomes)) {
+            return state.is(Blocks.GRASS_BLOCK)
+                    || state.is(Blocks.MYCELIUM) && MushroomCaveRegion.containsFloor(pos);
         }
 
         if(biome.is(ModTags.Biomes.deepDarkBiomes)){
             return state.is(Blocks.SCULK);
-        }
-
-        if(biome.is(ModTags.Biomes.desertBiomes)){
-            return state.is(Blocks.RED_SAND)||state.is(Blocks.SAND);
         }
 
         if (biome.is(ModTags.Biomes.crimsonForestBiomes)) {
@@ -497,25 +557,42 @@ public class BoneMeal {
             return state.is(ModTags.Blocks.soulSediments);
         }
 
-        if (biome.is(ModTags.Biomes.basaltDeltasBiomes)) {
-            return state.is(ModTags.Blocks.basaltStones);
-        }
-
         return false;
     }
 
+    public static boolean canGrowBiomeLiquidSurface(Level level, BlockPos liquidPos) {
+        BiomeBonemealFeatures features = biomeBonemealFeaturesAt(level, liquidPos);
+        return features != null && isCorrectLiquid(level.getBlockState(liquidPos), features.lava());
+    }
+
+    public static boolean growBiomeLiquidSurface(ServerLevel level, BlockPos liquidPos) {
+        if (!canGrowBiomeLiquidSurface(level, liquidPos)) {
+            return false;
+        }
+
+        growBiomeSurface(level, liquidPos, true);
+        return true;
+    }
+
     private static void growBiomeSurface(ServerLevel level, BlockPos sourcePos) {
+        BlockPos start = sourcePos.above();
+        BiomeBonemealFeatures sourceFeatures = biomeBonemealFeaturesAt(level, start);
+        boolean sourceIsSubmerged = sourceFeatures != null
+                && isCorrectLiquid(level.getBlockState(start), sourceFeatures.lava());
+
+        growBiomeSurface(level, start, sourceIsSubmerged);
+    }
+
+    private static void growBiomeSurface(ServerLevel level, BlockPos start, boolean sourceIsSubmerged) {
         ChunkGenerator chunkGenerator = level.getChunkSource().getGenerator();
         RandomSource random = level.random;
         int tries = 128;
-
-        BlockPos start = sourcePos.above();
 
         label48:
         for (int i = 0; i < tries; ++i) {
             BlockPos target = start;
 
-            for (int j = 0; j < i / 4; ++j) {
+            for (int j = 0; j < i / 16; ++j) {
                 target = target.offset(
                         random.nextInt(3) - 1,
                         (random.nextInt(3) - 1) * random.nextInt(3) / 2,
@@ -529,18 +606,19 @@ public class BoneMeal {
 
             if (cannotTryBiomeSurfacePlacement(level, target)) continue;
 
-            BiomeBonemealFeatures features = biomeBonemealFeaturesAt(level, target);
-            if (features == null) continue;
-
             BlockState replaceState = level.getBlockState(target);
             BlockState aboveState = level.getBlockState(target.above());
             BlockPos groundPos = target.below();
 
+            BiomeBonemealFeatures features = biomeBonemealFeaturesAt(level, target);
+            if (features == null) continue;
+
             ResourceKey<ConfiguredFeature<?, ?>> featureKey;
 
             if (replaceState.isAir()) {
+                if (sourceIsSubmerged) continue;
                 if (!isCorrectLandGroundForBiome(level, groundPos)) continue;
-                featureKey = features.floor();
+                featureKey = floorFeatureForLandTarget(level, groundPos, features);
             } else if (isCorrectLiquid(replaceState, features.lava())) {
                 if (!level.getBlockState(groundPos).isFaceSturdy(level, groundPos, Direction.UP)) continue;
 
@@ -574,20 +652,20 @@ public class BoneMeal {
 
     private static boolean isCorrectLandGroundForBiome(ServerLevel level, BlockPos groundPos) {
         BlockState ground = level.getBlockState(groundPos);
-        Holder<Biome> biome = level.getBiome(groundPos);
-
-        if (biome.is(ModTags.Biomes.mushroomCaves)) {
-            return ground.is(Blocks.MYCELIUM);
-        }
+        Holder<Biome> biome = biomeAboveClickedBlock(level, groundPos);
 
         if (biome.is(ModTags.Biomes.tropicalBiomes)) {
             return ground.is(Blocks.MOSS_BLOCK);
         }
 
         if (biome.is(ModTags.Biomes.savannaBiomes)
-                || biome.is(ModTags.Biomes.plainsBiomes)
-                || biome.is(ModTags.Biomes.mountainBiomes)) {
+                || biome.is(ModTags.Biomes.plainsBiomes)) {
             return ground.is(Blocks.GRASS_BLOCK);
+        }
+
+        if (biome.is(ModTags.Biomes.mountainBiomes)) {
+            return ground.is(Blocks.GRASS_BLOCK)
+                    || ground.is(Blocks.MYCELIUM) && MushroomCaveRegion.containsFloor(groundPos);
         }
 
         if (biome.is(ModTags.Biomes.deepDarkBiomes)) {
@@ -610,26 +688,38 @@ public class BoneMeal {
             return ground.is(Blocks.SOUL_SAND) || ground.is(Blocks.SOUL_SOIL);
         }
 
-        if (biome.is(ModTags.Biomes.basaltDeltasBiomes)) {
-            return ground.is(Blocks.BASALT)
-                    || ground.is(Blocks.POLISHED_BASALT)
-                    || ground.is(Blocks.BLACKSTONE);
-        }
-
         return false;
     }
 
-    private static BiomeBonemealFeatures biomeBonemealFeaturesAt(ServerLevel level, BlockPos pos) {
-        Holder<Biome> biome = level.getBiome(pos);
-
-        if (biome.is(ModTags.Biomes.mushroomCaves)) {
-            return new BiomeBonemealFeatures(
-                    ModConfiguredFeatures.MUSHROOM_CAVES_FLOOR,
-                    ModConfiguredFeatures.MUSHROOM_CAVES_SEAFLOOR,
-                    ModConfiguredFeatures.MUSHROOM_CAVES_SEAFLOOR_SHALLOW,
-                    false
-            );
+    private static ResourceKey<ConfiguredFeature<?, ?>> floorFeatureForLandTarget(
+            ServerLevel level,
+            BlockPos groundPos,
+            BiomeBonemealFeatures features
+    ) {
+        if (level.getBlockState(groundPos).is(Blocks.MYCELIUM)
+                && MushroomCaveRegion.containsFloor(groundPos)) {
+            return ModConfiguredFeatures.MUSHROOM_CAVES_FLOOR;
         }
+
+        return features.floor();
+    }
+
+    private static boolean hasMushroomCaveFloorBelow(Level level, BlockPos pos) {
+        for (int distance = 0; distance <= 16; distance++) {
+            BlockPos candidate = pos.below(distance);
+            BlockState state = level.getBlockState(candidate);
+            if (state.is(Blocks.MYCELIUM)) {
+                return MushroomCaveRegion.containsFloor(candidate);
+            }
+            if (distance > 0 && state.isCollisionShapeFullBlock(level, candidate)) {
+                return false;
+            }
+        }
+        return false;
+    }
+
+    private static BiomeBonemealFeatures biomeBonemealFeaturesAt(Level level, BlockPos pos) {
+        Holder<Biome> biome = level.getBiome(pos);
 
         if (biome.is(ModTags.Biomes.tropicalBiomes)) {
             return new BiomeBonemealFeatures(
@@ -659,19 +749,18 @@ public class BoneMeal {
         }
 
         if (biome.is(ModTags.Biomes.mountainBiomes)) {
+            if (hasMushroomCaveFloorBelow(level, pos)) {
+                return new BiomeBonemealFeatures(
+                        ModConfiguredFeatures.MUSHROOM_CAVES_FLOOR,
+                        ModConfiguredFeatures.MUSHROOM_CAVES_SEAFLOOR,
+                        ModConfiguredFeatures.MUSHROOM_CAVES_SEAFLOOR_SHALLOW,
+                        false
+                );
+            }
             return new BiomeBonemealFeatures(
                     ModConfiguredFeatures.MOUNTAINS_FLOOR,
                     ModConfiguredFeatures.MOUNTAINS_SEAFLOOR,
                     ModConfiguredFeatures.MOUNTAINS_SEAFLOOR_SHALLOW,
-                    false
-            );
-        }
-
-        if (biome.is(ModTags.Biomes.deepDarkBiomes)) {
-            return new BiomeBonemealFeatures(
-                    ModConfiguredFeatures.DEEP_DARK_FLOOR,
-                    ModConfiguredFeatures.DEEP_DARK_SEAFLOOR,
-                    ModConfiguredFeatures.DEEP_DARK_SEAFLOOR_SHALLOW,
                     false
             );
         }
@@ -722,5 +811,45 @@ public class BoneMeal {
         }
 
         return null;
+    }
+
+    private static boolean isNonMatureChorusFlower(BlockState state) {
+        return state.hasProperty(ChorusFlowerBlock.AGE)
+                && state.getValue(ChorusFlowerBlock.AGE) < 5;
+    }
+
+    private static BlockPos findLowestNonMatureChorusFlower(ServerLevel level, BlockPos start) {
+        ArrayDeque<BlockPos> queue = new ArrayDeque<>();
+        Set<BlockPos> visited = new HashSet<>();
+        BlockPos best = null;
+
+        queue.add(start);
+        visited.add(start);
+
+        while (!queue.isEmpty() && visited.size() < 512) {
+            BlockPos current = queue.removeFirst();
+
+            for (Direction direction : Direction.values()) {
+                BlockPos next = current.relative(direction);
+
+                if (!visited.add(next)) {
+                    continue;
+                }
+
+                BlockState state = level.getBlockState(next);
+
+                if (state.is(Blocks.CHORUS_PLANT)) {
+                    queue.addLast(next);
+                    continue;
+                }
+
+                if (state.is(Blocks.CHORUS_FLOWER) && isNonMatureChorusFlower(state)
+                        && (best == null || next.getY() < best.getY())) {
+                    best = next.immutable();
+                }
+            }
+        }
+
+        return best;
     }
 }

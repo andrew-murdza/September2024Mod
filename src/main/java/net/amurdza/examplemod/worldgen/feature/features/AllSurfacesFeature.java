@@ -5,10 +5,12 @@ import net.amurdza.examplemod.util.ModTags;
 import net.amurdza.examplemod.worldgen.feature.configs.AllSurfacesFeatureConfig;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Holder;
+import net.minecraft.tags.TagKey;
 import net.minecraft.util.Mth;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.ChunkPos;
 import net.minecraft.world.level.WorldGenLevel;
+import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.chunk.ChunkAccess;
@@ -27,10 +29,11 @@ import java.util.Optional;
 import static net.amurdza.examplemod.worldgen.feature.configs.AllSurfacesFeatureConfig.Target.AIR;
 
 public class AllSurfacesFeature extends Feature<AllSurfacesFeatureConfig> {
-    private static final int RIVER_REGION_WIDTH_CHUNKS = 30;
+    private static final int RIVER_REGION_WIDTH_CHUNKS = 64;
     private static final int BIOME_BAND_WIDTH_CHUNKS = 64;
     private static final int BIOME_BAND_COUNT = 10;
     private static final int BIOME_PERIOD_CHUNKS = BIOME_BAND_WIDTH_CHUNKS * BIOME_BAND_COUNT;
+    private static final int MOUNTAIN_TREE_SPLIT_Y = 64;
 
     public AllSurfacesFeature(Codec<AllSurfacesFeatureConfig> codec) {
         super(codec);
@@ -277,6 +280,28 @@ public class AllSurfacesFeature extends Feature<AllSurfacesFeatureConfig> {
 
         BlockPos.MutableBlockPos pos = new BlockPos.MutableBlockPos();
 
+        if (isMountainTreeGrid(configuredFeature)) {
+            boolean hasUpperSurface = hasMountainGrassSurfaceAtSplitY(level, x, z);
+
+            if (cfg.allLayers && maxY < MOUNTAIN_TREE_SPLIT_Y && hasUpperSurface) {
+                return false;
+            }
+
+            if (!cfg.allLayers
+                    && minY == MOUNTAIN_TREE_SPLIT_Y
+                    && maxY == MOUNTAIN_TREE_SPLIT_Y
+                    && hasUpperSurface) {
+                pos.set(x, MOUNTAIN_TREE_SPLIT_Y, z);
+                return tryPlaceGuaranteedFeatureAt(
+                        level,
+                        pos,
+                        context,
+                        cfg,
+                        configuredFeature
+                ).placedAnything();
+            }
+        }
+
         if (cfg.allLayers) {
             int y = maxY;
 
@@ -412,7 +437,8 @@ public class AllSurfacesFeature extends Feature<AllSurfacesFeatureConfig> {
     private boolean isRainforestPatchGrid(Holder<ConfiguredFeature<?, ?>> configuredFeature) {
         return configuredFeature.unwrapKey()
                 .map(key -> key.location().getNamespace().equals("aoemod")
-                        && key.location().getPath().equals("rainforest/floor/grid_choice"))
+                        && (key.location().getPath().equals("rainforest/floor/grid_choice")
+                        || key.location().getPath().equals("rainforest/floor/sugar_cane_grid_choice")))
                 .orElse(false);
     }
 
@@ -423,12 +449,43 @@ public class AllSurfacesFeature extends Feature<AllSurfacesFeatureConfig> {
                 .orElse(false);
     }
 
+    private boolean isMountainTreeGrid(Holder<ConfiguredFeature<?, ?>> configuredFeature) {
+        return configuredFeature.unwrapKey()
+                .map(key -> key.location().getNamespace().equals("aoemod")
+                        && key.location().getPath().equals("mountains/floor/grid_choice"))
+                .orElse(false);
+    }
+
+    private boolean hasMountainGrassSurfaceAtSplitY(WorldGenLevel level, int originX, int originZ) {
+        ChunkPos chunkPos = new ChunkPos(new BlockPos(originX, MOUNTAIN_TREE_SPLIT_Y, originZ));
+        BlockPos.MutableBlockPos candidate = new BlockPos.MutableBlockPos();
+
+        for (int dx = 0; dx < 16; dx++) {
+            int x = chunkPos.getMinBlockX() + dx;
+
+            for (int dz = 0; dz < 16; dz++) {
+                int z = chunkPos.getMinBlockZ() + dz;
+                candidate.set(x, MOUNTAIN_TREE_SPLIT_Y, z);
+
+                if (level.getBiome(candidate).is(ModTags.Biomes.mountainBiomes)
+                        && level.getBlockState(candidate.below()).is(Blocks.GRASS_BLOCK)
+                        && level.getBlockState(candidate).isAir()
+                        && level.getBlockState(candidate.above()).isAir()) {
+                    return true;
+                }
+            }
+        }
+
+        return false;
+    }
+
     private boolean isValidGuaranteedFeaturePlacementOrigin(
             WorldGenLevel level,
             BlockPos pos,
             AllSurfacesFeatureConfig cfg
     ) {
         return (cfg.biomes == null || level.getBiome(pos).is(cfg.biomes))
+                && !isBlockedExposedUndergroundCaveSurface(level, pos, cfg)
                 && isValidGuaranteedFeatureOrigin(level, pos, cfg)
                 && cfg.predicate.test(level, pos.below())
                 && (cfg.target != AIR || isSafeAirOrigin(level, pos));
@@ -457,6 +514,10 @@ public class AllSurfacesFeature extends Feature<AllSurfacesFeatureConfig> {
             AllSurfacesFeatureConfig cfg
     ) {
         if (cfg.biomes != null && !level.getBiome(pos).is(cfg.biomes)) {
+            return PlacementResult.NONE;
+        }
+
+        if (isBlockedExposedUndergroundCaveSurface(level, pos, cfg)) {
             return PlacementResult.NONE;
         }
 
@@ -568,6 +629,30 @@ public class AllSurfacesFeature extends Feature<AllSurfacesFeatureConfig> {
 
     private boolean isDryGround(WorldGenLevel level, BlockPos pos) {
         return level.getFluidState(pos).isEmpty();
+    }
+
+    private boolean isBlockedExposedUndergroundCaveSurface(
+            WorldGenLevel level,
+            BlockPos pos,
+            AllSurfacesFeatureConfig cfg
+    ) {
+        return cfg.biomes != null
+                && isUndergroundCaveBiomeTag(cfg.biomes)
+                && isAtWorldSurface(level, pos);
+    }
+
+    private boolean isAtWorldSurface(WorldGenLevel level, BlockPos pos) {
+        int surfaceY = level.getHeight(Heightmap.Types.WORLD_SURFACE_WG, pos.getX(), pos.getZ());
+        return pos.getY() >= surfaceY;
+    }
+
+    private static boolean isUndergroundCaveBiomeTag(TagKey<Biome> tag) {
+        return tag.equals(ModTags.Biomes.deepDarkBiomes)
+                || tag.equals(ModTags.Biomes.soulSandValleyBiomes)
+                || tag.equals(ModTags.Biomes.warpedForestBiomes)
+                || tag.equals(ModTags.Biomes.crimsonForestBiomes)
+                || tag.equals(ModTags.Biomes.basaltDeltasBiomes)
+                || tag.equals(ModTags.Biomes.netherBiomes);
     }
 
     private record PlacementResult(boolean foundLayer, boolean placedAnything) {

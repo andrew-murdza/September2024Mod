@@ -32,7 +32,7 @@ public class LongMushroomCaveStructure extends Structure {
                                     .fieldOf("end_y")
                                     .forGetter(s -> s.endY),
 
-                            ExtraCodecs.POSITIVE_INT
+                            Codec.intRange(0, Integer.MAX_VALUE)
                                     .fieldOf("end_x")
                                     .forGetter(s -> s.endX),
 
@@ -130,13 +130,13 @@ public class LongMushroomCaveStructure extends Structure {
         int tunnelStartY = this.startY + Mth.ceil(this.verticalRadius + 1.5F);
 
         BlockPos origin = new BlockPos(
-                chunkPos.getMiddleBlockX(),
+                chunkPos.getMinBlockX(),
                 tunnelStartY,
-                chunkPos.getMiddleBlockZ()
+                chunkPos.getMinBlockZ()
         );
 
         return Optional.of(new GenerationStub(
-                new BlockPos(chunkPos.getMiddleBlockX(), tunnelStartY, chunkPos.getMiddleBlockZ()),
+                origin,
                 builder -> builder.addPiece(new MushroomCavePiece(
                         origin,
                         context.random().nextLong(),

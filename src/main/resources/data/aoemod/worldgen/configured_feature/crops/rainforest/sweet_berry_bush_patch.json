@@ -8,7 +8,7 @@
           "to_place": {
             "type": "minecraft:simple_state_provider",
             "state": {
-              "Name": "aoemod:jungle_sweet_berry_bush",
+              "Name": "minecraft:sweet_berry_bush",
               "Properties": {
                 "age": "3"
               }

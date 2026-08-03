@@ -1,21 +1,31 @@
 package net.amurdza.examplemod.util;
 
 import com.github.alexthe666.alexsmobs.entity.EntityBananaSlug;
+import com.github.alexthe666.alexsmobs.entity.EntityGorilla;
 import com.github.alexthe666.alexsmobs.entity.EntityMoose;
 import com.github.alexthe666.alexsmobs.entity.EntityWarpedToad;
+import com.starfish_studios.naturalist.common.entity.Boar;
+import com.starfish_studios.naturalist.common.entity.Deer;
 import com.starfish_studios.naturalist.core.registry.NaturalistEntityTypes;
 import dev.xkmc.fruitsdelight.init.food.FruitType;
+import net.amurdza.examplemod.registry.ModItems;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.animal.Chicken;
 import net.minecraft.world.entity.animal.Fox;
 import net.minecraft.world.entity.animal.Parrot;
 import net.minecraft.world.entity.animal.Pig;
 import net.minecraft.world.entity.animal.Rabbit;
+import net.minecraft.world.entity.animal.Turtle;
+import net.minecraft.world.entity.animal.axolotl.Axolotl;
+import net.minecraft.world.entity.animal.camel.Camel;
 import net.minecraft.world.entity.animal.frog.Frog;
 import net.minecraft.world.entity.animal.goat.Goat;
+import net.minecraft.world.entity.animal.horse.Llama;
+import net.minecraft.world.entity.monster.Strider;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
+import samebutdifferent.ecologics.entity.Squirrel;
 import samebutdifferent.ecologics.registry.ModEntityTypes;
 
 public final class AnimalFoodOverrides {
@@ -51,15 +61,11 @@ public final class AnimalFoodOverrides {
             return false;
         }
 
-        if (entity instanceof EntityWarpedToad) {
-            return stack.is(Items.WARPED_FUNGUS);
+        if (hasConfiguredFoodOverride(entity)) {
+            return isConfiguredFood(entity, stack);
         }
 
-        if (entity instanceof EntityBananaSlug) {
-            return stack.is(Items.SEAGRASS) || stack.is(Items.KELP);
-        }
-
-        if (isHerbivoreFoodTarget(entity)) {
+        if (entity instanceof Rabbit) {
             return isHerbivoreFood(stack);
         }
 
@@ -67,16 +73,56 @@ public final class AnimalFoodOverrides {
             return isBlueberry(stack);
         }
 
-        if (entity instanceof Frog) {
-            return stack.is(Items.KELP);
+        if (entity instanceof Parrot) {
+            return isSeed(stack) || stack.is(ModTags.Items.leafFruits);
         }
 
-        if (entity instanceof Parrot || entity instanceof Chicken) {
-            return isParrotChickenSeed(stack);
+        if (entity instanceof Chicken || entity instanceof Squirrel) {
+            return isSeed(stack);
         }
 
-        if (isSquirrel(entity)) {
-            return isSquirrelSeed(stack);
+        return false;
+    }
+
+    public static boolean hasConfiguredFoodOverride(Entity entity) {
+        return entity instanceof EntityGorilla
+                || entity instanceof Camel
+                || entity instanceof EntityWarpedToad
+                || entity instanceof Strider
+                || entity instanceof Frog
+                || entity instanceof Turtle
+                || entity instanceof Axolotl
+                || entity instanceof Llama
+                || isClearedHerbivoreFoodTarget(entity);
+    }
+
+    public static boolean isConfiguredFood(Entity entity, ItemStack stack) {
+        if (entity instanceof EntityGorilla) {
+            return stack.is(ModTags.Items.leafFruits);
+        }
+
+        if (entity instanceof Camel) {
+            return stack.is(samebutdifferent.ecologics.registry.ModItems.PRICKLY_PEAR.get());
+        }
+
+        if (entity instanceof EntityWarpedToad) {
+            return stack.is(Items.WARPED_FUNGUS);
+        }
+
+        if (entity instanceof Strider) {
+            return stack.is(ModItems.ASHEN_WHEAT.get());
+        }
+
+        if (entity instanceof Frog || entity instanceof Turtle || entity instanceof Axolotl) {
+            return stack.is(Items.SEAGRASS) || stack.is(Items.KELP);
+        }
+
+        if (entity instanceof Llama) {
+            return stack.is(Items.WHEAT);
+        }
+
+        if (isClearedHerbivoreFoodTarget(entity)) {
+            return isHerbivoreFood(stack);
         }
 
         return false;
@@ -87,28 +133,33 @@ public final class AnimalFoodOverrides {
                 || entity instanceof EntityMoose
                 || entity instanceof Pig
                 || entity instanceof Rabbit
-                || isBoar(entity);
+                || entity instanceof Deer
+                || entity instanceof Boar;
+    }
+
+    private static boolean isClearedHerbivoreFoodTarget(Entity entity) {
+        return isHerbivoreFoodTarget(entity) && !(entity instanceof Rabbit);
     }
 
     public static boolean isHerbivoreFood(ItemStack stack) {
         return stack.is(Items.WHEAT)
-                || stack.is(net.amurdza.examplemod.registry.ModItems.ASHEN_WHEAT.get())
                 || stack.is(Items.SWEET_BERRIES)
-                || isBlueberry(stack);
+                || stack.is(Items.POTATO)
+                || stack.is(Items.CARROT)
+                || stack.is(Items.BEETROOT)
+                || stack.is(vectorwing.farmersdelight.common.registry.ModItems.ONION.get())
+                || isBlueberry(stack)
+                || stack.is(ModTags.Items.fruits);
     }
 
     public static boolean isBlueberry(ItemStack stack) {
         return stack.is(blueberry());
     }
 
-    public static boolean isParrotChickenSeed(ItemStack stack) {
+    public static boolean isSeed(ItemStack stack) {
         return stack.is(cabbageSeeds())
                 || stack.is(tomatoSeeds())
-                || stack.is(ashenWheatSeeds());
-    }
-
-    public static boolean isSquirrelSeed(ItemStack stack) {
-        return isParrotChickenSeed(stack)
+                || stack.is(ashenWheatSeeds())
                 || stack.is(Items.BEETROOT_SEEDS)
                 || stack.is(Items.WHEAT_SEEDS)
                 || stack.is(Items.MELON_SEEDS)

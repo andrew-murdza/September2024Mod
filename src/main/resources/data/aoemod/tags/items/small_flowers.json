@@ -12,7 +12,7 @@
     "minecraft:white_tulip",
     "minecraft:orange_tulip",
     "minecraft:pink_tulip",
-    "forest:wildflower",
-    "forest:lavender"
+    "minecraft:pink_petals",
+    "minecraft:torchflower"
   ]
 }

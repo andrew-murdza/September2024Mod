@@ -1,0 +1,45 @@
+{
+  "type": "aoemod:random_selector",
+  "config": {
+    "placement": [
+      {
+        "type": "minecraft:block_predicate_filter",
+        "predicate": {
+          "type": "minecraft:matching_blocks",
+          "offset": [
+            0,
+            -1,
+            0
+          ],
+          "blocks": "minecraft:moss_block"
+        }
+      }
+    ],
+    "features": [
+      {
+        "chance": 0.77,
+        "feature": "aoemod:rainforest/floor/grass"
+      },
+      {
+        "chance": 0.01,
+        "feature": "aoemod:small_dripleaf"
+      },
+      {
+        "chance": 0.01,
+        "feature": "aoemod:big_dripleaf"
+      },
+      {
+        "chance": 0.02,
+        "feature": "aoemod:rainforest/floor/mushrooms"
+      },
+      {
+        "chance": 0.05,
+        "feature": "aoemod:rainforest/floor/tall_flowers"
+      },
+      {
+        "chance": 0.14,
+        "feature": "aoemod:rainforest/floor/flowers"
+      }
+    ]
+  }
+}

@@ -15,6 +15,10 @@
         "placement": []
       },
       {
+        "feature": "aoemod:rainforest/floor/sugar_cane_grid_choice",
+        "placement": []
+      },
+      {
         "feature": "aoemod:rainforest/water/coral_grid_choice",
         "placement": []
       }

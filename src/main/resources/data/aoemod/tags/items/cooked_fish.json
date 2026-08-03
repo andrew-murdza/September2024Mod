@@ -1,6 +1,23 @@
 {
   "values": [
     "minecraft:cooked_cod",
-    "minecraft:cooked_salmon"
+    "minecraft:cooked_salmon",
+    "aoemod:cooked_tropical_fish",
+    "aoemod:cooked_pufferfish",
+    "aoemod:cooked_endfish",
+    "culturaldelights:cooked_squid",
+    "aoemod:cooked_glow_squid",
+    {
+      "id": "dropthemeat:cooked_wolf",
+      "required": false
+    },
+    {
+      "id": "culturaldelights:cooked_squid",
+      "required": false
+    },
+    {
+      "id": "alexsmobs:cooked_lobster_tail",
+      "required": false
+    }
   ]
 }

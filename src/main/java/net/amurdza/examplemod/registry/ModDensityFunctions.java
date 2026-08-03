@@ -91,8 +91,11 @@ public final class ModDensityFunctions {
 
         private static final double BADLANDS_START = 0.400D;
 
-        private static final int DESERT_FLAT_ENTRY_BLOCKS = 48;
-        private static final double DESERT_ENTRY_SLOPE = 1D / 3;
+        private static final int BIOME_BANDS_PER_PERIOD = 10;
+        private static final int BADLANDS_FIRST_BAND = 4;
+        private static final int BADLANDS_BAND_COUNT = 2;
+        private static final int DESERT_FLAT_ENTRY_BLOCKS = 96;
+        private static final int MAX_TERRACE_LIFT_BLOCKS = 149;
 
         private static final MapCodec<SteppedMountainOffset> DATA_CODEC =
                 RecordCodecBuilder.mapCodec((data) -> data.group(
@@ -115,10 +118,11 @@ public final class ModDensityFunctions {
             final double c = continents.compute(context);
             final double riverValue = rivers.compute(context);
 
-            return applyRivers(c, riverValue, biomeWidth);
+            return applyRivers(context, c, riverValue, biomeWidth);
         }
 
         private static double applyRivers(
+                FunctionContext context,
                 double c,
                 double riverValue,
                 int biomeWidth
@@ -128,9 +132,8 @@ public final class ModDensityFunctions {
 
             double offset = SteppedMountainOffset.LOW_LAND_OFFSET;
 
-            if (positiveRiver > 0.0D && c >= BADLANDS_START) {
-                final double oneBlockContinents = 0.1D / (16 * biomeWidth);
-                final double allowedEntryLift = getDesertEntryLiftLimit(c, oneBlockContinents);
+            if (positiveRiver > 0.0D && isInsideBadlands(context.blockZ(), biomeWidth)) {
+                final double allowedEntryLift = getDesertEntryLiftLimit(context.blockZ(), biomeWidth);
                 final double cappedPositiveRiver = Math.min(positiveRiver, allowedEntryLift);
 
                 offset = Math.max(
@@ -146,20 +149,27 @@ public final class ModDensityFunctions {
             return offset + negativeRiver;
         }
 
-        private static double getDesertEntryLiftLimit(double c, double oneBlockContinents) {
-            final double flatEnd = BADLANDS_START
-                    + DESERT_FLAT_ENTRY_BLOCKS * oneBlockContinents;
-
-            if (c <= flatEnd) {
-                return 0.0D;
-            }
-
-            final int blocksPastFlat = continentsToWholeBlocks(c - flatEnd, oneBlockContinents);
-            return (blocksPastFlat * DESERT_ENTRY_SLOPE) / 128.0D;
+        private static boolean isInsideBadlands(int blockZ, int biomeWidth) {
+            int bandWidthBlocks = biomeWidth * 16;
+            int periodBlocks = bandWidthBlocks * BIOME_BANDS_PER_PERIOD;
+            int localZ = Math.floorMod(blockZ, periodBlocks);
+            int badlandsStart = BADLANDS_FIRST_BAND * bandWidthBlocks;
+            int badlandsEnd = (BADLANDS_FIRST_BAND + BADLANDS_BAND_COUNT) * bandWidthBlocks;
+            return localZ >= badlandsStart && localZ < badlandsEnd;
         }
 
-        private static int continentsToWholeBlocks(double continentsDistance, double oneBlockContinents) {
-            return (int) Math.floor(continentsDistance / oneBlockContinents);
+        private static double getDesertEntryLiftLimit(int blockZ, int biomeWidth) {
+            int bandWidthBlocks = biomeWidth * 16;
+            int periodBlocks = bandWidthBlocks * BIOME_BANDS_PER_PERIOD;
+            int localZ = Math.floorMod(blockZ, periodBlocks);
+            int badlandsStart = BADLANDS_FIRST_BAND * bandWidthBlocks;
+            int localBandZ = Math.floorMod(localZ - badlandsStart, bandWidthBlocks);
+            int distanceFromNorthEdge = localBandZ + 1;
+            int distanceFromSouthEdge = bandWidthBlocks - localBandZ;
+            int distanceInsideBadlands = Math.min(distanceFromNorthEdge, distanceFromSouthEdge);
+            int blocksPastFlat = Math.max(0, distanceInsideBadlands - DESERT_FLAT_ENTRY_BLOCKS);
+            int cappedLift = Math.min(blocksPastFlat, MAX_TERRACE_LIFT_BLOCKS);
+            return cappedLift / 128.0D;
         }
 
         @Override
@@ -253,10 +263,9 @@ public final class ModDensityFunctions {
 
         private static final double BADLANDS_RIVER_DEPTH = 6.0D;
 
-        private static final double BADLANDS_FLAT_AFTER_RIVER = 48.0D;
-        private static final double BADLANDS_TERRACE_SLOPE = 1D / 3;
-
-        private static final double MAX_TERRACE_HEIGHT = 64.0D;
+        private static final double BADLANDS_FLAT_AFTER_RIVER = 40.0D;
+        private static final double BADLANDS_TERRACE_SLOPE = 1.0D;
+        private static final double MAX_TERRACE_LIFT_BLOCKS = 149.0D;
 
         private static final MapCodec<RadialRivers> DATA_CODEC =
                 RecordCodecBuilder.mapCodec((data) -> data.group(
@@ -289,6 +298,8 @@ public final class ModDensityFunctions {
 
             final int widthBlocks = width * 16;
             final int spacingBlocks = xSpacing * 16;
+            final int biomeWidthBlocks = biomeWidth * 16;
+            final int periodBlocks = biomeWidthBlocks * 10;
 
             /*
              * x0 is a chunk coordinate.
@@ -316,7 +327,25 @@ public final class ModDensityFunctions {
             );
 
             if (continent >= BADLANDS_START) {
-                return getBadlandsRiverValue(distanceFromRiverEdge);
+                double riverValue = getBadlandsRiverValue(distanceFromRiverEdge);
+                double eastWestDistanceFromEdge = getDistanceFromCenteredRepeatingRiverEdge(
+                        context.blockZ(),
+                        z0 + periodBlocks / 2,
+                        widthBlocks,
+                        periodBlocks
+                );
+
+                if (eastWestDistanceFromEdge > 0.0D) {
+                    riverValue = Math.min(
+                            riverValue,
+                            getRiverCutFromEdge(
+                                    eastWestDistanceFromEdge,
+                                    BADLANDS_RIVER_DEPTH
+                            )
+                    );
+                }
+
+                return riverValue;
             }
 
             final RiverProfile profile = getNormalRiverProfile(continent, Mth.sign(context.blockZ()));
@@ -325,9 +354,42 @@ public final class ModDensityFunctions {
                 return 0.0D;
             }
 
-            return getRiverCutFromEdge(
+            double riverCut = getRiverCutFromEdge(
                     distanceFromRiverEdge,
                     profile.maxDepth()
+            );
+            double eastWestDistanceFromEdge = getDistanceFromCenteredRepeatingRiverEdge(
+                    context.blockZ(),
+                    z0,
+                    widthBlocks,
+                    periodBlocks
+            );
+
+            if (eastWestDistanceFromEdge > 0.0D) {
+                riverCut = Math.min(
+                        riverCut,
+                        getRiverCutFromEdge(
+                                eastWestDistanceFromEdge,
+                                profile.maxDepth()
+                        )
+                );
+            }
+
+            return riverCut;
+        }
+
+        private static double getDistanceFromCenteredRepeatingRiverEdge(
+                int coordinate,
+                int riverCenter,
+                int widthBlocks,
+                int spacingBlocks
+        ) {
+            int riverStart = riverCenter - widthBlocks / 2;
+            int localCoordinate = Math.floorMod(coordinate - riverStart, spacingBlocks);
+            return getDistanceFromRepeatingRiverEdge(
+                    localCoordinate,
+                    widthBlocks,
+                    spacingBlocks
             );
         }
 
@@ -483,7 +545,7 @@ public final class ModDensityFunctions {
             /*
              * Outside the river:
              * - flat for BADLANDS_FLAT_AFTER_RIVER blocks
-             * - then rises at slope 1/3
+             * - then rises at slope 1 until it reaches the flat terrace cap
              */
             final double distanceOutsideRiver = -distanceFromRiverEdge;
 
@@ -495,7 +557,7 @@ public final class ModDensityFunctions {
 
             final double lift = Math.min(
                     terraceDistance * BADLANDS_TERRACE_SLOPE,
-                    MAX_TERRACE_HEIGHT
+                    MAX_TERRACE_LIFT_BLOCKS
             );
 
             return lift / 128.0D;
@@ -552,7 +614,17 @@ public final class ModDensityFunctions {
 
         @Override
         public double maxValue() {
-            return 1.0D;
+            double landWidthBlocks = Math.max(0.0D, (xSpacing - width) * 16.0D);
+            double farthestDistanceFromRiver = landWidthBlocks * 0.5D;
+            double maxTerraceDistance = Math.max(
+                    0.0D,
+                    farthestDistanceFromRiver - BADLANDS_FLAT_AFTER_RIVER
+            );
+
+            return Math.min(
+                    maxTerraceDistance * BADLANDS_TERRACE_SLOPE,
+                    MAX_TERRACE_LIFT_BLOCKS
+            ) / 128.0D;
         }
 
         @Override

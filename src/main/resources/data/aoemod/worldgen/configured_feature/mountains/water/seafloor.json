@@ -15,8 +15,8 @@
     "max_y": 63,
     "min_y": 16,
     "predicate": {
-      "type": "minecraft:matching_blocks",
-      "blocks": "minecraft:mud"
+      "type": "minecraft:has_sturdy_face",
+      "direction": "up"
     },
     "biomes": "aoemod:mountain_biomes"
   }

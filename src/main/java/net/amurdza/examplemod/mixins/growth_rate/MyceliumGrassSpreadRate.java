@@ -33,7 +33,7 @@ public abstract class MyceliumGrassSpreadRate extends Block  {
                                     CallbackInfoReturnable<Boolean> cir){
         if(cir.getReturnValue()){
             Holder<Biome> biome = pLevelReader.getBiome(pPos);
-            if(biome.is(ModTags.Biomes.mushroomCaves)||biome.is(ModTags.Biomes.desertBiomes)
+            if(biome.is(ModTags.Biomes.desertBiomes)
                     ||biome.is(ModTags.Biomes.deepDarkBiomes)||biome.is(ModTags.Biomes.netherBiomes)){
                 cir.setReturnValue(false);
             }

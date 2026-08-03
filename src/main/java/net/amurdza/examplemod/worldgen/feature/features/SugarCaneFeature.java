@@ -15,6 +15,7 @@ import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConf
 
 public class SugarCaneFeature extends Feature<NoneFeatureConfiguration> {
     private static final int FLOOR_SEARCH_RANGE = 8;
+    private static final int RIVER_WIDTH_CHUNKS = 7;
 
     public SugarCaneFeature(Codec<NoneFeatureConfiguration> codec) {
         super(codec);
@@ -30,7 +31,7 @@ public class SugarCaneFeature extends Feature<NoneFeatureConfiguration> {
         int minZ = chunk.getPos().getMinBlockZ();
 
         int y = origin.getY();
-        int regionChunkX = Math.floorMod(chunk.getPos().x, 30);
+        int regionChunkX = Math.floorMod(chunk.getPos().x, 64);
 
         boolean placedAny = false;
 
@@ -77,10 +78,10 @@ public class SugarCaneFeature extends Feature<NoneFeatureConfiguration> {
 
     private static int[] riverFacingXPositions(int minX, int regionChunkX) {
         return switch (regionChunkX) {
-            // Chunks 0-5 are the river. Chunk 6 faces that river on its west edge.
-            case 6 -> range(minX, minX + 7);
-            // Chunk 29 faces the next repeated river on its east edge at chunk 30 / 0.
-            case 29 -> range(minX + 8, minX + 15);
+            // Chunks 0-6 are the river. Chunk 7 faces that river on its west edge.
+            case RIVER_WIDTH_CHUNKS -> range(minX, minX + 7);
+            // Chunk 63 faces the next repeated river on its east edge at chunk 64 / 0.
+            case 63 -> range(minX + 8, minX + 15);
             default -> new int[]{};
         };
     }

@@ -2,6 +2,7 @@ package net.amurdza.examplemod.mixins.othermods.quark;
 
 import net.amurdza.examplemod.block.BlockHelper;
 import net.amurdza.examplemod.registry.ModConfiguredFeatures;
+import net.amurdza.examplemod.worldgen.MushroomCaveRegion;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.Holder;
@@ -10,6 +11,7 @@ import net.minecraft.server.level.ServerLevel;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.block.BushBlock;
+import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
 import net.minecraftforge.eventbus.api.Event;
@@ -55,6 +57,12 @@ public abstract class GlowShroomBlockChanges extends BushBlock {
     @Unique
     private void aoe$growMushroom(ServerLevel level, BlockPos pos, BlockState state,
                                   RandomSource random) {
+        BlockPos floorPos = pos.below();
+        if (!level.getBlockState(floorPos).is(Blocks.MYCELIUM)
+                || !MushroomCaveRegion.containsFloor(floorPos)) {
+            return;
+        }
+
         Optional<? extends Holder<ConfiguredFeature<?, ?>>> optional =
                 level.registryAccess()
                         .registryOrThrow(Registries.CONFIGURED_FEATURE)

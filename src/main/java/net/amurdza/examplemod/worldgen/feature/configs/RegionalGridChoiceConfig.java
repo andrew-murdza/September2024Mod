@@ -43,6 +43,9 @@ public class RegionalGridChoiceConfig implements FeatureConfiguration {
                     GridChoiceConfig.OffsetType.CODEC.optionalFieldOf("offset_type", GridChoiceConfig.OffsetType.CENTER)
                             .forGetter(c -> c.offsetType),
 
+                    NetherCaveRingSide.CODEC.optionalFieldOf("ring_side", NetherCaveRingSide.ANY)
+                            .forGetter(c -> c.ringSide),
+
                     Codec.intRange(1, 512).fieldOf("region_width")
                             .forGetter(c -> c.regionWidth),
 
@@ -57,7 +60,7 @@ public class RegionalGridChoiceConfig implements FeatureConfiguration {
 
                     Codec.STRING.optionalFieldOf("salt", "")
                             .forGetter(c -> c.salt)
-            ).apply(inst, (features, groups, pinnedFeatures, minimumSections, cellRules, defaultFeature, placement, offsetType, regionWidth, regionDepth, sectionWidth, sectionDepth, salt) ->
+            ).apply(inst, (features, groups, pinnedFeatures, minimumSections, cellRules, defaultFeature, placement, offsetType, ringSide, regionWidth, regionDepth, sectionWidth, sectionDepth, salt) ->
                     new RegionalGridChoiceConfig(
                             features,
                             groups,
@@ -67,6 +70,7 @@ public class RegionalGridChoiceConfig implements FeatureConfiguration {
                             defaultFeature.orElse(null),
                             placement,
                             offsetType,
+                            ringSide,
                             regionWidth,
                             regionDepth,
                             sectionWidth,
@@ -83,6 +87,7 @@ public class RegionalGridChoiceConfig implements FeatureConfiguration {
     public final Holder<ConfiguredFeature<?, ?>> defaultFeature; // nullable
     public final List<PlacementModifier> placement;
     public final GridChoiceConfig.OffsetType offsetType;
+    public final NetherCaveRingSide ringSide;
     public final int regionWidth;
     public final int regionDepth;
     public final int sectionWidth;
@@ -98,6 +103,7 @@ public class RegionalGridChoiceConfig implements FeatureConfiguration {
             Holder<ConfiguredFeature<?, ?>> defaultFeature,
             List<PlacementModifier> placement,
             GridChoiceConfig.OffsetType offsetType,
+            NetherCaveRingSide ringSide,
             int regionWidth,
             int regionDepth,
             int sectionWidth,
@@ -112,6 +118,7 @@ public class RegionalGridChoiceConfig implements FeatureConfiguration {
         this.defaultFeature = defaultFeature;
         this.placement = placement;
         this.offsetType = offsetType;
+        this.ringSide = ringSide;
         this.regionWidth = regionWidth;
         this.regionDepth = regionDepth;
         this.sectionWidth = sectionWidth;

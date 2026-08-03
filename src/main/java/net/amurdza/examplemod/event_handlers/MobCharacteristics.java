@@ -11,7 +11,6 @@ import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.Mob;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.animal.FrogVariant;
-import net.minecraft.world.entity.animal.MushroomCow;
 import net.minecraft.world.entity.animal.axolotl.Axolotl;
 import net.minecraft.world.entity.animal.frog.Frog;
 import net.minecraft.world.entity.animal.horse.Donkey;
@@ -30,6 +29,8 @@ import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 @Mod.EventBusSubscriber(modid = AOEMod.MOD_ID, bus=Mod.EventBusSubscriber.Bus.FORGE)
 public class MobCharacteristics {
+    private static final String PARENT_VARIANT_TAG = "aoe.parentVariant";
+
     @SubscribeEvent
     public static void CharacteristicChangesEventHandler(EntityJoinLevelEvent event) throws NoSuchMethodException, InvocationTargetException, IllegalAccessException, NoSuchFieldException {
         Entity entity=event.getEntity();
@@ -40,11 +41,12 @@ public class MobCharacteristics {
                 return;
             }
             mob.addTag("aoe.checkedCharacteristics");
+            boolean hasParentVariant = mob.getTags().contains(PARENT_VARIANT_TAG);
 
-            if(mob instanceof Axolotl){
+            if(mob instanceof Axolotl && !hasParentVariant){
                 ((Axolotl) mob).setVariant(Helper.select(level,Axolotl.Variant.values()));
             }
-            else if(mob instanceof Frog){
+            else if(mob instanceof Frog && !hasParentVariant){
                 ((Frog) mob).setVariant(Helper.select(level,FrogVariant.COLD,FrogVariant.TEMPERATE,FrogVariant.WARM));
             }
             else if(mob instanceof Llama){
@@ -77,7 +79,23 @@ public class MobCharacteristics {
                     mob.getAttribute(Attributes.JUMP_STRENGTH).setBaseValue(jumpStrength);
                 }
             }
-            else if(mob instanceof Donkey|| mob instanceof Mule){
+            else if(mob instanceof Mule){
+                Integer value = Helper.getBiomeValue(mob.level(),mob.blockPosition(),MobStatsConfig.BIOME_TO_MULE_HEALTH);
+                if(value!= null){
+                    mob.getAttribute(Attributes.MAX_HEALTH).setBaseValue(value);
+                }
+
+                Float speed = Helper.getBiomeValue(mob.level(),mob.blockPosition(),MobStatsConfig.BIOME_TO_MULE_SPEED);
+                if(speed != null){
+                    mob.getAttribute(Attributes.MOVEMENT_SPEED).setBaseValue(speed);
+                }
+
+                Float jumpStrength = Helper.getBiomeValue(mob.level(),mob.blockPosition(),MobStatsConfig.BIOME_TO_MULE_JUMP_STRENGTH);
+                if(jumpStrength != null){
+                    mob.getAttribute(Attributes.JUMP_STRENGTH).setBaseValue(jumpStrength);
+                }
+            }
+            else if(mob instanceof Donkey){
                 Integer value = Helper.getBiomeValue(mob.level(),mob.blockPosition(),MobStatsConfig.BIOME_TO_DONKEY_HEALTH);
                 if(value!= null){
                     mob.getAttribute(Attributes.MAX_HEALTH).setBaseValue(value);
@@ -92,11 +110,6 @@ public class MobCharacteristics {
                 if(jumpStrength != null){
                     mob.getAttribute(Attributes.JUMP_STRENGTH).setBaseValue(jumpStrength);
                 }
-            }
-            if(mob instanceof MushroomCow){
-                Method setMushroomType=MushroomCow.class.getDeclaredMethod("setVariant", MushroomCow.MushroomType.class);
-                setMushroomType.setAccessible(true);
-                setMushroomType.invoke(mob, Helper.select(level,MushroomCow.MushroomType.RED,MushroomCow.MushroomType.BROWN));
             }
         }
     }

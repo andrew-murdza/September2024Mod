@@ -1,5 +1,8 @@
 package net.amurdza.examplemod.worldgen.structure;
 
+import net.amurdza.examplemod.registry.ModBlocks;
+import net.amurdza.examplemod.util.StructureSpawnedMobData;
+import net.amurdza.examplemod.util.ModTags;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.Holder;
@@ -8,6 +11,9 @@ import net.minecraft.nbt.CompoundTag;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.Mth;
 import net.minecraft.util.RandomSource;
+import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.Mob;
+import net.minecraft.world.entity.MobSpawnType;
 import net.minecraft.world.level.ChunkPos;
 import net.minecraft.world.level.StructureManager;
 import net.minecraft.world.level.WorldGenLevel;
@@ -25,11 +31,19 @@ import net.minecraftforge.registries.ForgeRegistries;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Map;
+import java.util.Set;
+import java.util.function.Predicate;
 
 public abstract class AbstractSpiralCavePiece extends StructurePiece {
 
-    private static final Direction[] HORIZONTAL_DIRECTIONS = new Direction[] {
+    private static final Map<GuaranteedMobSpawnKey, Integer> GUARANTEED_MOB_SPAWN_COUNTS = new HashMap<>();
+
+    protected static final Direction[] HORIZONTAL_DIRECTIONS = new Direction[] {
             Direction.NORTH,
             Direction.SOUTH,
             Direction.WEST,
@@ -59,7 +73,8 @@ public abstract class AbstractSpiralCavePiece extends StructurePiece {
     protected double activeCarveCenterY;
     protected double activeCarveCenterZ;
     protected double activeCarveHorizontalRadius;
-    protected double activeCarveVerticalRadius;
+    protected double activeCarveLowerVerticalRadius;
+    protected double activeCarveUpperVerticalRadius;
     protected final List<CarveEllipsoid> activePieceCarveEllipsoids = new ArrayList<>();
 
     protected record CarveEllipsoid(
@@ -67,7 +82,8 @@ public abstract class AbstractSpiralCavePiece extends StructurePiece {
             double centerY,
             double centerZ,
             double horizontalRadius,
-            double verticalRadius,
+            double lowerVerticalRadius,
+            double upperVerticalRadius,
             int maxCarveY
     ) {}
 
@@ -85,6 +101,38 @@ public abstract class AbstractSpiralCavePiece extends StructurePiece {
             float liquidRadius,
             HolderSet<PlacedFeature> placedFeatures
     ) {
+        this(
+                type,
+                origin,
+                seed,
+                endY,
+                endX,
+                horizontalRadius,
+                verticalRadius,
+                centralPillarDiameter,
+                minFloorThickness,
+                liquidDepth,
+                liquidRadius,
+                placedFeatures,
+                Integer.MIN_VALUE
+        );
+    }
+
+    protected AbstractSpiralCavePiece(
+            StructurePieceType type,
+            BlockPos origin,
+            long seed,
+            int endY,
+            int endX,
+            float horizontalRadius,
+            float verticalRadius,
+            float centralPillarDiameter,
+            float minFloorThickness,
+            float liquidDepth,
+            float liquidRadius,
+            HolderSet<PlacedFeature> placedFeatures,
+            int upwardSpiralSurfaceY
+    ) {
         super(type, 0, makeBoundingBox(
                 origin,
                 horizontalRadius,
@@ -93,7 +141,8 @@ public abstract class AbstractSpiralCavePiece extends StructurePiece {
                 liquidDepth,
                 liquidRadius,
                 endY,
-                endX
+                endX,
+                upwardSpiralSurfaceY
         ));
 
         this.origin = origin;
@@ -200,20 +249,35 @@ public abstract class AbstractSpiralCavePiece extends StructurePiece {
 
     protected abstract void decorateCaveCeiling(WorldGenLevel level, BlockPos ceilingPos);
 
-    protected abstract BlockState getRiverFluidState(double landFloorY);
+    protected abstract BlockState getRiverFluidState(double caveCenterY, int x, int y, int z);
 
     protected float getTunnelHorizontalRadius() {
         return this.horizontalRadius + this.liquidRadius;
     }
 
     protected boolean shouldSkip(double relativeX, double relativeY, double relativeZ) {
+        double relativeYSquared = relativeY * relativeY;
         return relativeX * relativeX
-                + relativeY * relativeY * relativeY * relativeY
+                + relativeYSquared * relativeYSquared
                 + relativeZ * relativeZ >= 1.0D;
     }
 
+    protected double maximumSpiralTurns() {
+        return Double.POSITIVE_INFINITY;
+    }
+
+    protected double upwardSpiralSurfaceY() {
+        return Double.NEGATIVE_INFINITY;
+    }
+
+    protected double upwardSpiralUpperVerticalRadius(double upwardTurns) {
+        return this.verticalRadius;
+    }
+
     protected boolean activeEllipsoidWouldCarve(BlockPos pos) {
-        if (this.activeCarveHorizontalRadius <= 0.0D || this.activeCarveVerticalRadius <= 0.0D) {
+        if (this.activeCarveHorizontalRadius <= 0.0D
+                || this.activeCarveLowerVerticalRadius <= 0.0D
+                || this.activeCarveUpperVerticalRadius <= 0.0D) {
             return false;
         }
 
@@ -223,7 +287,8 @@ public abstract class AbstractSpiralCavePiece extends StructurePiece {
                 this.activeCarveCenterY,
                 this.activeCarveCenterZ,
                 this.activeCarveHorizontalRadius,
-                this.activeCarveVerticalRadius
+                this.activeCarveLowerVerticalRadius,
+                this.activeCarveUpperVerticalRadius
         );
     }
 
@@ -239,7 +304,8 @@ public abstract class AbstractSpiralCavePiece extends StructurePiece {
                     ellipsoid.centerY(),
                     ellipsoid.centerZ(),
                     ellipsoid.horizontalRadius(),
-                    ellipsoid.verticalRadius()
+                    ellipsoid.lowerVerticalRadius(),
+                    ellipsoid.upperVerticalRadius()
             )) {
                 return true;
             }
@@ -248,20 +314,57 @@ public abstract class AbstractSpiralCavePiece extends StructurePiece {
         return false;
     }
 
+    protected int lowestCarvedFloorYAt(
+            int blockX,
+            int blockZ,
+            double minimumEllipsoidCenterY,
+            int fallbackY
+    ) {
+        int lowestFloorY = fallbackY;
+
+        for (CarveEllipsoid ellipsoid : this.activePieceCarveEllipsoids) {
+            if (ellipsoid.centerY() < minimumEllipsoidCenterY) {
+                continue;
+            }
+
+            double relativeX = (blockX + 0.5D - ellipsoid.centerX()) / ellipsoid.horizontalRadius();
+            double relativeZ = (blockZ + 0.5D - ellipsoid.centerZ()) / ellipsoid.horizontalRadius();
+            double remainingVerticalShape = 1.0D - relativeX * relativeX - relativeZ * relativeZ;
+
+            if (remainingVerticalShape <= 0.0D) {
+                continue;
+            }
+
+            double verticalScale = Math.pow(remainingVerticalShape, 0.25D);
+            double lowerBoundaryY = ellipsoid.centerY()
+                    - ellipsoid.lowerVerticalRadius() * verticalScale;
+            lowestFloorY = Math.min(lowestFloorY, Mth.floor(lowerBoundaryY - 0.5D));
+        }
+
+        return lowestFloorY;
+    }
+
     private boolean ellipsoidWouldCarve(
             BlockPos pos,
             double centerX,
             double centerY,
             double centerZ,
             double horizontalRadius,
-            double verticalRadius
+            double lowerVerticalRadius,
+            double upperVerticalRadius
     ) {
-        if (horizontalRadius <= 0.0D || verticalRadius <= 0.0D) {
+        if (horizontalRadius <= 0.0D
+                || lowerVerticalRadius <= 0.0D
+                || upperVerticalRadius <= 0.0D) {
             return false;
         }
 
         double relativeX = (pos.getX() + 0.5D - centerX) / horizontalRadius;
-        double relativeY = (pos.getY() + 0.5D - centerY) / verticalRadius;
+        double blockCenterY = pos.getY() + 0.5D;
+        double localVerticalRadius = blockCenterY < centerY
+                ? lowerVerticalRadius
+                : upperVerticalRadius;
+        double relativeY = (blockCenterY - centerY) / localVerticalRadius;
         double relativeZ = (pos.getZ() + 0.5D - centerZ) / horizontalRadius;
 
         return !shouldSkip(relativeX, relativeY, relativeZ);
@@ -273,6 +376,7 @@ public abstract class AbstractSpiralCavePiece extends StructurePiece {
 
     protected void carveBlock(
             WorldGenLevel level,
+            BoundingBox box,
             BlockPos.MutableBlockPos pos
     ) {
         BlockState oldState = level.getBlockState(pos);
@@ -282,16 +386,24 @@ public abstract class AbstractSpiralCavePiece extends StructurePiece {
         }
 
         level.setBlock(pos, Blocks.AIR.defaultBlockState(), Block.UPDATE_CLIENTS);
-        clearUnsupportedBlockAbove(level, pos);
-        decorateCaveBoundaries(level, pos);
+        clearUnsupportedBlockAbove(level, box, pos);
+        decorateCaveBoundaries(level, box, pos);
         afterCarveBlock(level, pos, oldState);
     }
 
     protected void afterCarveBlock(WorldGenLevel level, BlockPos carvedPos, BlockState oldState) {
     }
 
-    private void clearUnsupportedBlockAbove(WorldGenLevel level, BlockPos carvedPos) {
+    private void clearUnsupportedBlockAbove(
+            WorldGenLevel level,
+            BoundingBox box,
+            BlockPos carvedPos
+    ) {
         BlockPos above = carvedPos.above();
+        if (!box.isInside(above)) {
+            return;
+        }
+
         BlockState aboveState = level.getBlockState(above);
 
         if (aboveState.isAir() || !aboveState.getFluidState().isEmpty()) {
@@ -327,15 +439,55 @@ public abstract class AbstractSpiralCavePiece extends StructurePiece {
     }
 
     protected Block boundaryReplacementForState(BlockState state, Block replacementBlock) {
-        if (replacementBlock == Blocks.STONE && isDeepslateLikeOre(state)) {
-            return Blocks.DEEPSLATE;
+        Block oreHostBlock = oreHostReplacementForState(state);
+
+        if (oreHostBlock != null) {
+            return oreHostBlock;
         }
 
         return replacementBlock;
     }
 
+    protected Block oreHostReplacementForState(BlockState state) {
+        if (state.is(ModTags.Blocks.stoneOres)) {
+            return Blocks.STONE;
+        }
+
+        if (state.is(ModTags.Blocks.deepslateOres)) {
+            return Blocks.DEEPSLATE;
+        }
+
+        if (state.is(Blocks.NETHER_GOLD_ORE)
+                || state.is(Blocks.NETHER_QUARTZ_ORE)
+                || state.is(Blocks.ANCIENT_DEBRIS)) {
+            return Blocks.NETHERRACK;
+        }
+
+        if (state.is(ModBlocks.SOUL_SOIL_GOLD_ORE.get())
+                || state.is(ModBlocks.SOUL_SOIL_QUARTZ_ORE.get())) {
+            return Blocks.SOUL_SOIL;
+        }
+
+        if (state.is(ModBlocks.SOUL_SAND_GOLD_ORE.get())
+                || state.is(ModBlocks.SOUL_SAND_QUARTZ_ORE.get())) {
+            return Blocks.SOUL_SAND;
+        }
+
+        if (state.is(ModBlocks.BLACKSTONE_GOLD_ORE.get())
+                || state.is(ModBlocks.BLACKSTONE_QUARTZ_ORE.get())) {
+            return Blocks.BLACKSTONE;
+        }
+
+        if (state.is(ModBlocks.BASALT_GOLD_ORE.get())
+                || state.is(ModBlocks.BASALT_QUARTZ_ORE.get())) {
+            return Blocks.BASALT;
+        }
+
+        return null;
+    }
+
     protected Block overworldStoneReplacement(BlockPos pos, BlockState state) {
-        if (pos.getY() < 0 || isDeepslateLikeOre(state)) {
+        if (pos.getY() < 0) {
             return Blocks.DEEPSLATE;
         }
 
@@ -348,8 +500,6 @@ public abstract class AbstractSpiralCavePiece extends StructurePiece {
     ) {
         return isOreLike(state)
                 || state.is(Blocks.ANCIENT_DEBRIS)
-                || state.is(Blocks.GRAVEL)
-                || state.is(Blocks.SUSPICIOUS_GRAVEL)
                 || (replaceSandAndSandstone && isLooseSandOrSandstone(state));
     }
 
@@ -381,33 +531,20 @@ public abstract class AbstractSpiralCavePiece extends StructurePiece {
                 || state.is(Blocks.SMOOTH_RED_SANDSTONE);
     }
 
-    private static boolean isDeepslateOre(BlockState state) {
-        return state.is(Blocks.DEEPSLATE_COAL_ORE)
-                || state.is(Blocks.DEEPSLATE_COPPER_ORE)
-                || state.is(Blocks.DEEPSLATE_DIAMOND_ORE)
-                || state.is(Blocks.DEEPSLATE_EMERALD_ORE)
-                || state.is(Blocks.DEEPSLATE_GOLD_ORE)
-                || state.is(Blocks.DEEPSLATE_IRON_ORE)
-                || state.is(Blocks.DEEPSLATE_LAPIS_ORE)
-                || state.is(Blocks.DEEPSLATE_REDSTONE_ORE);
-    }
-
-    private static boolean isDeepslateLikeOre(BlockState state) {
-        if (isDeepslateOre(state)) {
-            return true;
-        }
-
-        ResourceLocation key = ForgeRegistries.BLOCKS.getKey(state.getBlock());
-
-        return key != null
-                && key.getPath().contains("deepslate")
-                && key.getPath().contains("_ore");
-    }
-
     private static boolean isProtectedDecoratedSurface(BlockState state) {
         return state.is(Blocks.CRIMSON_NYLIUM)
                 || state.is(Blocks.WARPED_NYLIUM)
+                || state.is(Blocks.SOUL_SAND)
+                || state.is(Blocks.SOUL_SOIL)
+                || state.is(Blocks.BASALT)
+                || state.is(Blocks.BLACKSTONE)
                 || state.is(Blocks.MYCELIUM)
+                || state.is(Blocks.GRASS_BLOCK)
+                || state.is(Blocks.MUD)
+                || state.is(Blocks.CALCITE)
+                || state.is(Blocks.SMOOTH_BASALT)
+                || state.is(Blocks.AMETHYST_BLOCK)
+                || state.is(Blocks.BUDDING_AMETHYST)
                 || state.is(Blocks.SCULK)
                 || state.is(Blocks.SCULK_CATALYST)
                 || state.is(Blocks.SCULK_SENSOR)
@@ -415,39 +552,47 @@ public abstract class AbstractSpiralCavePiece extends StructurePiece {
                 || state.is(Blocks.END_STONE);
     }
 
-    protected void decorateCaveBoundaries(WorldGenLevel level, BlockPos carvedPos) {
+    protected void decorateCaveBoundaries(
+            WorldGenLevel level,
+            BoundingBox box,
+            BlockPos carvedPos
+    ) {
         BlockPos surfacePos = carvedPos.below();
 
-        if (canReplace(level, surfacePos)) {
+        if (box.isInside(surfacePos) && canReplace(level, surfacePos)) {
             decorateCaveFloor(level, surfacePos);
         }
 
         for (Direction direction : HORIZONTAL_DIRECTIONS) {
             BlockPos wallPos = carvedPos.relative(direction);
 
-            if (canReplace(level, wallPos)) {
+            if (box.isInside(wallPos) && canReplace(level, wallPos)) {
                 decorateCaveWall(level, wallPos, direction);
             }
         }
 
         BlockPos ceilingPos = carvedPos.above();
 
-        if (canReplace(level, ceilingPos)) {
+        if (box.isInside(ceilingPos) && canReplace(level, ceilingPos)) {
             decorateCaveCeiling(level, ceilingPos);
         }
     }
 
-    protected void decorateRiverColumnBoundaries(WorldGenLevel level, BlockPos carvedPos) {
+    protected void decorateRiverColumnBoundaries(
+            WorldGenLevel level,
+            BoundingBox box,
+            BlockPos carvedPos
+    ) {
         BlockPos surfacePos = carvedPos.below();
 
-        if (canReplace(level, surfacePos)) {
+        if (box.isInside(surfacePos) && canReplace(level, surfacePos)) {
             decorateRiverFloor(level, surfacePos);
         }
 
         for (Direction direction : HORIZONTAL_DIRECTIONS) {
             BlockPos wallPos = carvedPos.relative(direction);
 
-            if (canReplace(level, wallPos)) {
+            if (box.isInside(wallPos) && canReplace(level, wallPos)) {
                 decorateRiverWall(level, wallPos, direction);
             }
         }
@@ -502,7 +647,7 @@ public abstract class AbstractSpiralCavePiece extends StructurePiece {
         }
 
         level.setBlock(above, Blocks.AIR.defaultBlockState(), Block.UPDATE_CLIENTS);
-        decorateCaveBoundaries(level, above);
+        decorateCaveBoundaries(level, box, above);
     }
 
     @Override
@@ -539,9 +684,14 @@ public abstract class AbstractSpiralCavePiece extends StructurePiece {
         double firstY = lastY;
         double firstZ = lastZ;
         boolean capturedFirstStep = false;
-        List<CarveEllipsoid> ellipsoids = new ArrayList<>();
+        List<CarveEllipsoid> chunkEllipsoids = new ArrayList<>();
 
-        int maxSteps = 4096;
+        double finalCenterY = this.endY + this.verticalRadius + this.liquidDepth + 2.0D;
+        int maxSteps = Math.max(1, Mth.ceil((y - finalCenterY) / minDropPerStep) + 1);
+        double maximumTurns = maximumSpiralTurns();
+        if (Double.isFinite(maximumTurns)) {
+            maxSteps = Math.min(maxSteps, Math.max(1, Mth.ceil(stepsPerTurn * maximumTurns)));
+        }
 
         for (int step = 0; step < maxSteps; step++) {
             double x = this.pillarCenterX + Math.cos(yaw) * pathRadius;
@@ -558,44 +708,482 @@ public abstract class AbstractSpiralCavePiece extends StructurePiece {
                 break;
             }
 
-            ellipsoids.add(new CarveEllipsoid(
+            CarveEllipsoid ellipsoid = new CarveEllipsoid(
                     x,
                     y,
                     z,
                     getTunnelHorizontalRadius(),
                     this.verticalRadius,
-                    this.origin.getY()
-            ));
+                    this.verticalRadius,
+                    maxCarveYForEllipsoid(y)
+            );
+
+            if (ellipsoidIntersectsBox(ellipsoid, box, 2)) {
+                chunkEllipsoids.add(ellipsoid);
+            }
 
             y -= minDropPerStep;
             yaw += turnPerStep;
         }
 
         if (capturedFirstStep) {
-            addStraightExitTunnelPositiveXEllipsoids(ellipsoids, firstX, firstY, firstZ);
+            addStraightExitTunnelPositiveXEllipsoids(chunkEllipsoids, box, firstX, firstY, firstZ);
         }
 
-        this.activePieceCarveEllipsoids.clear();
-        this.activePieceCarveEllipsoids.addAll(ellipsoids);
+        addUpwardSpiralEllipsoids(
+                chunkEllipsoids,
+                box,
+                pathRadius,
+                turnPerStep,
+                minDropPerStep,
+                3 * Math.PI * 0.5D,
+                this.origin.getY()
+        );
 
-        for (CarveEllipsoid ellipsoid : ellipsoids) {
+        this.activePieceCarveEllipsoids.clear();
+        this.activePieceCarveEllipsoids.addAll(chunkEllipsoids);
+
+        for (CarveEllipsoid ellipsoid : chunkEllipsoids) {
             carveEllipsoid(
                     level,
                     box,
                     ellipsoid.centerX(),
                     ellipsoid.centerY(),
                     ellipsoid.centerZ(),
+                    ellipsoid.horizontalRadius(),
+                    ellipsoid.lowerVerticalRadius(),
+                    ellipsoid.upperVerticalRadius(),
                     ellipsoid.maxCarveY()
             );
         }
 
-        this.activePieceCarveEllipsoids.clear();
-
+        afterCarvingBeforeFeatures(
+                level,
+                random,
+                box,
+                chunkPos,
+                List.copyOf(chunkEllipsoids)
+        );
         placePlacedFeaturesForCurrentStructureChunk(level, generator, chunkPos);
+        afterPostProcess(level, random, box, chunkPos);
+        this.activePieceCarveEllipsoids.clear();
+    }
+
+    private void addUpwardSpiralEllipsoids(
+            List<CarveEllipsoid> ellipsoids,
+            BoundingBox box,
+            double pathRadius,
+            double turnPerStep,
+            double risePerStep,
+            double startYaw,
+            double startCenterY
+    ) {
+        double targetSurfaceY = upwardSpiralSurfaceY();
+        if (!Double.isFinite(targetSurfaceY)) {
+            return;
+        }
+
+        double targetCenterY = targetSurfaceY + this.verticalRadius + 1.0D;
+        if (targetCenterY <= startCenterY) {
+            return;
+        }
+
+        double stepsPerTurn = Math.PI * 2.0D / Math.abs(turnPerStep);
+        int upwardSteps = Math.max(1, Mth.ceil((targetCenterY - startCenterY) / risePerStep));
+        for (int step = 1; step <= upwardSteps; step++) {
+            double centerY = Math.min(startCenterY + step * risePerStep, targetCenterY);
+            double fractionalStep = (centerY - startCenterY) / risePerStep;
+            double upwardTurns = fractionalStep / stepsPerTurn;
+            double upperVerticalRadius = upwardSpiralUpperVerticalRadius(upwardTurns);
+            double yaw = startYaw - turnPerStep * fractionalStep;
+            double x = this.pillarCenterX + Math.cos(yaw) * pathRadius;
+            double z = this.pillarCenterZ + Math.sin(yaw) * pathRadius;
+            CarveEllipsoid ellipsoid = new CarveEllipsoid(
+                    x,
+                    centerY,
+                    z,
+                    getTunnelHorizontalRadius(),
+                    this.verticalRadius,
+                    upperVerticalRadius,
+                    maxCarveYForEllipsoid(centerY, upperVerticalRadius)
+            );
+
+            if (ellipsoidIntersectsBox(ellipsoid, box, 2)) {
+                ellipsoids.add(ellipsoid);
+            }
+        }
+    }
+
+    private boolean ellipsoidIntersectsBox(
+            CarveEllipsoid ellipsoid,
+            BoundingBox box,
+            int margin
+    ) {
+        double horizontalReach = ellipsoid.horizontalRadius() + margin;
+        double lowerVerticalReach = ellipsoid.lowerVerticalRadius() + this.liquidDepth + margin;
+        double upperVerticalReach = ellipsoid.upperVerticalRadius() + margin;
+
+        return ellipsoid.centerX() + horizontalReach >= box.minX()
+                && ellipsoid.centerX() - horizontalReach <= box.maxX()
+                && ellipsoid.centerY() + upperVerticalReach >= box.minY()
+                && ellipsoid.centerY() - lowerVerticalReach <= box.maxY()
+                && ellipsoid.centerZ() + horizontalReach >= box.minZ()
+                && ellipsoid.centerZ() - horizontalReach <= box.maxZ();
+    }
+
+    protected void afterPostProcess(
+            WorldGenLevel level,
+            RandomSource random,
+            BoundingBox box,
+            ChunkPos chunkPos
+    ) {
+    }
+
+    protected void afterCarvingBeforeFeatures(
+            WorldGenLevel level,
+            RandomSource random,
+            BoundingBox box,
+            ChunkPos chunkPos,
+            List<CarveEllipsoid> chunkEllipsoids
+    ) {
+    }
+
+    protected boolean isOriginChunk(ChunkPos chunkPos) {
+        return chunkPos.x == (this.origin.getX() >> 4)
+                && chunkPos.z == (this.origin.getZ() >> 4);
+    }
+
+    protected void spawnGuaranteedMobsOncePerStructure(
+            WorldGenLevel level,
+            RandomSource random,
+            BoundingBox box,
+            EntityType<? extends Mob> type,
+            int totalCount,
+            Predicate<BlockState> preferredFloor
+    ) {
+        spawnGuaranteedMobsOncePerStructure(level, random, box, type, totalCount, preferredFloor, true);
+    }
+
+    protected void spawnGuaranteedMobsStrictlyOncePerStructure(
+            WorldGenLevel level,
+            RandomSource random,
+            BoundingBox box,
+            EntityType<? extends Mob> type,
+            int totalCount,
+            Predicate<BlockState> preferredFloor
+    ) {
+        spawnGuaranteedMobsOncePerStructure(level, random, box, type, totalCount, preferredFloor, false);
+    }
+
+    protected void spawnGuaranteedMobsStrictlyOncePerStructure(
+            WorldGenLevel level,
+            RandomSource random,
+            BoundingBox box,
+            EntityType<? extends Mob> type,
+            int totalCount,
+            Predicate<BlockState> preferredFloor,
+            Predicate<BlockPos> positionFilter
+    ) {
+        spawnGuaranteedMobsOncePerStructure(
+                level,
+                random,
+                box,
+                type,
+                totalCount,
+                preferredFloor,
+                false,
+                positionFilter
+        );
+    }
+
+    private void spawnGuaranteedMobsOncePerStructure(
+            WorldGenLevel level,
+            RandomSource random,
+            BoundingBox box,
+            EntityType<? extends Mob> type,
+            int totalCount,
+            Predicate<BlockState> preferredFloor,
+            boolean allowFallback
+    ) {
+        spawnGuaranteedMobsOncePerStructure(
+                level,
+                random,
+                box,
+                type,
+                totalCount,
+                preferredFloor,
+                allowFallback,
+                this::isOnInnerSideOfRiver
+        );
+    }
+
+    private void spawnGuaranteedMobsOncePerStructure(
+            WorldGenLevel level,
+            RandomSource random,
+            BoundingBox box,
+            EntityType<? extends Mob> type,
+            int totalCount,
+            Predicate<BlockState> preferredFloor,
+            boolean allowFallback,
+            Predicate<BlockPos> positionFilter
+    ) {
+        if (totalCount <= 0) {
+            return;
+        }
+
+        ResourceLocation entityKey = ForgeRegistries.ENTITY_TYPES.getKey(type);
+        if (entityKey == null) {
+            return;
+        }
+
+        GuaranteedMobSpawnKey key = new GuaranteedMobSpawnKey(this.seed, this.origin.asLong(), entityKey);
+        synchronized (GUARANTEED_MOB_SPAWN_COUNTS) {
+            int alreadySpawned = GUARANTEED_MOB_SPAWN_COUNTS.getOrDefault(key, 0);
+            int remaining = totalCount - alreadySpawned;
+            if (remaining <= 0) {
+                return;
+            }
+
+            int spawned = spawnGuaranteedMobs(
+                    level,
+                    random,
+                    box,
+                    type,
+                    remaining,
+                    preferredFloor,
+                    allowFallback,
+                    alreadySpawned,
+                    positionFilter
+            );
+            if (spawned > 0) {
+                GUARANTEED_MOB_SPAWN_COUNTS.put(key, alreadySpawned + spawned);
+            }
+        }
+    }
+
+    protected int spawnGuaranteedMobs(
+            WorldGenLevel level,
+            RandomSource random,
+            BoundingBox box,
+            EntityType<? extends Mob> type,
+            int count,
+            Predicate<BlockState> preferredFloor
+    ) {
+        return spawnGuaranteedMobs(level, random, box, type, count, preferredFloor, true, 0);
+    }
+
+    protected int spawnGuaranteedMobs(
+            WorldGenLevel level,
+            RandomSource random,
+            BoundingBox box,
+            EntityType<? extends Mob> type,
+            int count,
+            Predicate<BlockState> preferredFloor,
+            boolean allowFallback
+    ) {
+        return spawnGuaranteedMobs(level, random, box, type, count, preferredFloor, allowFallback, 0);
+    }
+
+    private int spawnGuaranteedMobs(
+            WorldGenLevel level,
+            RandomSource random,
+            BoundingBox box,
+            EntityType<? extends Mob> type,
+            int count,
+            Predicate<BlockState> preferredFloor,
+            boolean allowFallback,
+            int firstStructureSpawnIndex
+    ) {
+        return spawnGuaranteedMobs(
+                level,
+                random,
+                box,
+                type,
+                count,
+                preferredFloor,
+                allowFallback,
+                firstStructureSpawnIndex,
+                this::isOnInnerSideOfRiver
+        );
+    }
+
+    private int spawnGuaranteedMobs(
+            WorldGenLevel level,
+            RandomSource random,
+            BoundingBox box,
+            EntityType<? extends Mob> type,
+            int count,
+            Predicate<BlockState> preferredFloor,
+            boolean allowFallback,
+            int firstStructureSpawnIndex,
+            Predicate<BlockPos> positionFilter
+    ) {
+        if (count <= 0) {
+            return 0;
+        }
+
+        List<BlockPos> preferred = new ArrayList<>();
+        List<BlockPos> fallback = new ArrayList<>();
+        collectMobSpawnPositions(level, box, preferredFloor, positionFilter, preferred, fallback);
+
+        shuffle(preferred, random);
+        shuffle(fallback, random);
+
+        Set<BlockPos> used = new HashSet<>();
+        int spawned = spawnFromCandidates(
+                level,
+                random,
+                type,
+                count,
+                preferred,
+                used,
+                false,
+                firstStructureSpawnIndex
+        );
+
+        if (allowFallback && spawned < count) {
+            spawned += spawnFromCandidates(
+                    level,
+                    random,
+                    type,
+                    count - spawned,
+                    fallback,
+                    used,
+                    true,
+                    firstStructureSpawnIndex + spawned
+            );
+        }
+
+        return spawned;
+    }
+
+    private void collectMobSpawnPositions(
+            WorldGenLevel level,
+            BoundingBox box,
+            Predicate<BlockState> preferredFloor,
+            Predicate<BlockPos> positionFilter,
+            List<BlockPos> preferred,
+            List<BlockPos> fallback
+    ) {
+        BoundingBox pieceBox = this.getBoundingBox();
+
+        int minX = Math.max(box.minX(), pieceBox.minX());
+        int maxX = Math.min(box.maxX(), pieceBox.maxX());
+        int minY = Math.max(box.minY() + 1, pieceBox.minY() + 1);
+        int maxY = Math.min(box.maxY() - 1, pieceBox.maxY() - 1);
+        int minZ = Math.max(box.minZ(), pieceBox.minZ());
+        int maxZ = Math.min(box.maxZ(), pieceBox.maxZ());
+
+        for (int x = minX; x <= maxX; x++) {
+            for (int y = minY; y <= maxY; y++) {
+                for (int z = minZ; z <= maxZ; z++) {
+                    BlockPos feet = new BlockPos(x, y, z);
+                    BlockPos floorPos = feet.below();
+                    BlockState floor = level.getBlockState(floorPos);
+
+                    if (!isValidMobSpawnSpace(level, feet, floorPos, floor)) {
+                        continue;
+                    }
+
+                    if (!positionFilter.test(feet)) {
+                        continue;
+                    }
+
+                    fallback.add(feet);
+                    if (preferredFloor.test(floor)) {
+                        preferred.add(feet);
+                    }
+                }
+            }
+        }
+    }
+
+    private boolean isOnInnerSideOfRiver(BlockPos pos) {
+        double dx = pos.getX() + 0.5D - this.pillarCenterX;
+        double dz = pos.getZ() + 0.5D - this.pillarCenterZ;
+        double radialDistance = Math.sqrt(dx * dx + dz * dz);
+        double innerRiverBankRadius = getPathRadius(
+                this.horizontalRadius,
+                this.centralPillarDiameter,
+                this.liquidRadius
+        ) - this.liquidRadius;
+
+        return radialDistance < innerRiverBankRadius;
+    }
+
+    private static boolean isValidMobSpawnSpace(
+            WorldGenLevel level,
+            BlockPos feet,
+            BlockPos floorPos,
+            BlockState floor
+    ) {
+        return level.getBlockState(feet).isAir()
+                && level.getBlockState(feet.above()).isAir()
+                && floor.getFluidState().isEmpty()
+                && floor.isFaceSturdy(level, floorPos, Direction.UP);
+    }
+
+    protected void configureGuaranteedMob(Mob mob, int structureSpawnIndex) {
+    }
+
+    private int spawnFromCandidates(
+            WorldGenLevel level,
+            RandomSource random,
+            EntityType<? extends Mob> type,
+            int count,
+            List<BlockPos> candidates,
+            Set<BlockPos> used,
+            boolean allowRepeats,
+            int firstStructureSpawnIndex
+    ) {
+        if (candidates.isEmpty()) {
+            return 0;
+        }
+
+        int spawned = 0;
+        int attempts = allowRepeats ? count * candidates.size() : candidates.size();
+
+        for (int i = 0; i < attempts && spawned < count; i++) {
+            BlockPos pos = candidates.get(i % candidates.size());
+            if (!allowRepeats && !used.add(pos)) {
+                continue;
+            }
+
+            Mob mob = type.create(level.getLevel());
+            if (mob == null) {
+                continue;
+            }
+
+            mob.moveTo(pos.getX() + 0.5D, pos.getY(), pos.getZ() + 0.5D, random.nextFloat() * 360.0F, 0.0F);
+            mob.finalizeSpawn(level, level.getCurrentDifficultyAt(pos), MobSpawnType.STRUCTURE, null, null);
+            configureGuaranteedMob(mob, firstStructureSpawnIndex + spawned);
+            StructureSpawnedMobData.mark(mob, pos);
+
+            if (level.addFreshEntity(mob)) {
+                used.add(pos);
+                spawned++;
+            }
+        }
+
+        return spawned;
+    }
+
+    private static <T> void shuffle(List<T> values, RandomSource random) {
+        for (int i = values.size() - 1; i > 0; i--) {
+            Collections.swap(values, i, random.nextInt(i + 1));
+        }
+    }
+
+    private record GuaranteedMobSpawnKey(
+            long structureSeed,
+            long origin,
+            ResourceLocation entityType
+    ) {
     }
 
     protected void addStraightExitTunnelPositiveXEllipsoids(
             List<CarveEllipsoid> ellipsoids,
+            BoundingBox box,
             double startX,
             double centerY,
             double centerZ
@@ -605,20 +1193,22 @@ public abstract class AbstractSpiralCavePiece extends StructurePiece {
         }
 
         double targetX = startX + this.endX;
-        int maxCarveY = Math.max(
-                this.origin.getY(),
-                Mth.ceil(centerY + this.verticalRadius + 2.0D)
-        );
+        int maxCarveY = maxCarveYForEllipsoid(centerY);
 
         for (double centerX = startX; centerX <= targetX; centerX += 1.0D) {
-            ellipsoids.add(new CarveEllipsoid(
+            CarveEllipsoid ellipsoid = new CarveEllipsoid(
                     centerX,
                     centerY,
                     centerZ,
                     getTunnelHorizontalRadius(),
                     this.verticalRadius,
+                    this.verticalRadius,
                     maxCarveY
-            ));
+            );
+
+            if (ellipsoidIntersectsBox(ellipsoid, box, 2)) {
+                ellipsoids.add(ellipsoid);
+            }
         }
     }
 
@@ -630,7 +1220,8 @@ public abstract class AbstractSpiralCavePiece extends StructurePiece {
             float liquidDepth,
             float liquidRadius,
             int endY,
-            int endX
+            int endX,
+            int upwardSpiralSurfaceY
     ) {
         double tunnelHorizontalRadius = horizontalRadius + liquidRadius;
 
@@ -654,18 +1245,12 @@ public abstract class AbstractSpiralCavePiece extends StructurePiece {
          */
         double spiralOuterRadius = pathRadius + tunnelHorizontalRadius;
 
-        /*
-         * A tight padding of 3 is easy to undercount because carving checks block
-         * centers, uses floor/ceil, and also places a lower fluid ellipsoid. Use a
-         * chunk-sized safety margin while debugging; after confirming the cutoff is
-         * gone, this can usually be reduced to 8 or 12.
-         */
-        int padding = 16;
+        int carveMargin = 2;
 
-        int spiralMinX = Mth.floor(pillarCenterX - spiralOuterRadius) - padding;
-        int spiralMaxX = Mth.ceil(pillarCenterX + spiralOuterRadius) + padding;
-        int spiralMinZ = Mth.floor(pillarCenterZ - spiralOuterRadius) - padding;
-        int spiralMaxZ = Mth.ceil(pillarCenterZ + spiralOuterRadius) + padding;
+        int spiralMinX = Mth.floor(pillarCenterX - spiralOuterRadius) - carveMargin;
+        int spiralMaxX = Mth.ceil(pillarCenterX + spiralOuterRadius) + carveMargin;
+        int spiralMinZ = Mth.floor(pillarCenterZ - spiralOuterRadius) - carveMargin;
+        int spiralMaxZ = Mth.ceil(pillarCenterZ + spiralOuterRadius) + carveMargin;
 
         int minX = spiralMinX;
         int maxX = spiralMaxX;
@@ -673,21 +1258,31 @@ public abstract class AbstractSpiralCavePiece extends StructurePiece {
         int maxZ = spiralMaxZ;
 
         /*
-         * The optional straight river is carved in +X from a point on/near the
-         * spiral. Since makeBoundingBox() does not know the exact startX that the
-         * subclass will pass to continueSurfaceRiverPositiveX(), the safe bound is
-         * the whole spiral X span plus endX.
+         * The straight exit starts at yaw 3pi/2: origin X and one path radius
+         * north of the pillar. Bound that actual segment instead of adding endX
+         * to the entire spiral box.
          */
-        int riverExtraRadius = Mth.ceil(liquidRadius) + padding;
-
-        if (endX > 0) {
-            maxX = Math.max(maxX, spiralMaxX + endX + riverExtraRadius);
-            minZ = Math.min(minZ, spiralMinZ - riverExtraRadius);
-            maxZ = Math.max(maxZ, spiralMaxZ + riverExtraRadius);
-        } else if (endX < 0) {
-            minX = Math.min(minX, spiralMinX + endX - riverExtraRadius);
-            minZ = Math.min(minZ, spiralMinZ - riverExtraRadius);
-            maxZ = Math.max(maxZ, spiralMaxZ + riverExtraRadius);
+        if (endX != 0) {
+            double straightStartX = pillarCenterX;
+            double straightEndX = straightStartX + endX;
+            double straightCenterZ = pillarCenterZ - pathRadius;
+            double straightCrossSectionRadius = tunnelHorizontalRadius;
+            minX = Math.min(
+                    minX,
+                    Mth.floor(Math.min(straightStartX, straightEndX) - tunnelHorizontalRadius) - carveMargin
+            );
+            maxX = Math.max(
+                    maxX,
+                    Mth.ceil(Math.max(straightStartX, straightEndX) + tunnelHorizontalRadius) + carveMargin
+            );
+            minZ = Math.min(
+                    minZ,
+                    Mth.floor(straightCenterZ - straightCrossSectionRadius) - carveMargin
+            );
+            maxZ = Math.max(
+                    maxZ,
+                    Mth.ceil(straightCenterZ + straightCrossSectionRadius) + carveMargin
+            );
         }
 
         /*
@@ -696,13 +1291,17 @@ public abstract class AbstractSpiralCavePiece extends StructurePiece {
          */
         int minY = mainAirCarveMinY(endY)
                 - Mth.ceil(liquidDepth)
-                - padding
                 - 2;
 
         int maxY = origin.getY()
                 + Mth.ceil(verticalRadius)
-                + padding
-                + 2;
+                + 8;
+        if (upwardSpiralSurfaceY != Integer.MIN_VALUE) {
+            maxY = Math.max(
+                    maxY,
+                    upwardSpiralSurfaceY + Mth.ceil(2.0F * verticalRadius) + 3
+            );
+        }
 
         return new BoundingBox(
                 minX,
@@ -783,6 +1382,14 @@ public abstract class AbstractSpiralCavePiece extends StructurePiece {
         return bottomOfEllipsoid <= endY;
     }
 
+    protected int maxCarveYForEllipsoid(double centerY) {
+        return maxCarveYForEllipsoid(centerY, this.verticalRadius);
+    }
+
+    protected int maxCarveYForEllipsoid(double centerY, double upperVerticalRadius) {
+        return Mth.ceil(centerY + upperVerticalRadius + 2.0D);
+    }
+
     protected static int mainAirCarveMinY(int endY) {
         return endY - 2;
     }
@@ -793,47 +1400,59 @@ public abstract class AbstractSpiralCavePiece extends StructurePiece {
             double centerX,
             double centerY,
             double centerZ,
+            double horizontalRadius,
+            double lowerVerticalRadius,
+            double upperVerticalRadius,
             int maxCarveY
     ) {
-        double localHorizontalRadius = getTunnelHorizontalRadius();
-        double localVerticalRadius = this.verticalRadius;
-
         this.activeCarveCenterX = centerX;
         this.activeCarveCenterY = centerY;
         this.activeCarveCenterZ = centerZ;
-        this.activeCarveHorizontalRadius = localHorizontalRadius;
-        this.activeCarveVerticalRadius = localVerticalRadius;
+        this.activeCarveHorizontalRadius = horizontalRadius;
+        this.activeCarveLowerVerticalRadius = lowerVerticalRadius;
+        this.activeCarveUpperVerticalRadius = upperVerticalRadius;
 
-        int minX = Mth.floor(centerX - localHorizontalRadius) - 1;
-        int maxX = Mth.floor(centerX + localHorizontalRadius) + 1;
-        int minY = Mth.floor(centerY - localVerticalRadius) - 1;
-        int maxY = Mth.floor(centerY + localVerticalRadius) + 1;
-        int minZ = Mth.floor(centerZ - localHorizontalRadius) - 1;
-        int maxZ = Mth.floor(centerZ + localHorizontalRadius) + 1;
+        int minX = Mth.floor(centerX - horizontalRadius) - 1;
+        int maxX = Mth.floor(centerX + horizontalRadius) + 1;
+        int minY = Mth.floor(centerY - lowerVerticalRadius) - 1;
+        int maxY = Mth.floor(centerY + upperVerticalRadius) + 1;
+        int minZ = Mth.floor(centerZ - horizontalRadius) - 1;
+        int maxZ = Mth.floor(centerZ + horizontalRadius) + 1;
 
         BlockPos.MutableBlockPos pos = new BlockPos.MutableBlockPos();
 
         minY = Math.max(minY, mainAirCarveMinY(this.endY));
         maxY = Math.min(maxY, maxCarveY);
 
+        minX = Math.max(minX, box.minX());
+        maxX = Math.min(maxX, box.maxX());
+        minY = Math.max(minY, box.minY());
+        maxY = Math.min(maxY, box.maxY());
+        minZ = Math.max(minZ, box.minZ());
+        maxZ = Math.min(maxZ, box.maxZ());
+
+        if (minX > maxX || minY > maxY || minZ > maxZ) {
+            return;
+        }
+
         for (int x = minX; x <= maxX; x++) {
             for (int y = minY; y <= maxY; y++) {
                 for (int z = minZ; z <= maxZ; z++) {
                     pos.set(x, y, z);
 
-                    if (!box.isInside(pos)) {
-                        continue;
-                    }
-
-                    double relativeX = (x + 0.5D - centerX) / localHorizontalRadius;
-                    double relativeY = (y + 0.5D - centerY) / localVerticalRadius;
-                    double relativeZ = (z + 0.5D - centerZ) / localHorizontalRadius;
+                    double relativeX = (x + 0.5D - centerX) / horizontalRadius;
+                    double blockCenterY = y + 0.5D;
+                    double localVerticalRadius = blockCenterY < centerY
+                            ? lowerVerticalRadius
+                            : upperVerticalRadius;
+                    double relativeY = (blockCenterY - centerY) / localVerticalRadius;
+                    double relativeZ = (z + 0.5D - centerZ) / horizontalRadius;
 
                     if (shouldSkip(relativeX, relativeY, relativeZ)) {
                         continue;
                     }
 
-                    carveBlock(level, pos);
+                    carveBlock(level, box, pos);
                 }
             }
         }
@@ -844,7 +1463,7 @@ public abstract class AbstractSpiralCavePiece extends StructurePiece {
                 centerX,
                 centerY - 1,
                 centerZ,
-                localVerticalRadius,
+                lowerVerticalRadius,
                 maxCarveY
         );
     }
@@ -874,25 +1493,26 @@ public abstract class AbstractSpiralCavePiece extends StructurePiece {
 
         maxY = Math.min(maxY, maxClearY);
 
+        minX = Math.max(minX, box.minX());
+        maxX = Math.min(maxX, box.maxX());
+        minY = Math.max(minY, box.minY());
+        maxY = Math.min(maxY, box.maxY());
+        minZ = Math.max(minZ, box.minZ());
+        maxZ = Math.min(maxZ, box.maxZ());
+
+        if (minX > maxX || minY > maxY || minZ > maxZ) {
+            return;
+        }
+
         BlockPos.MutableBlockPos pos = new BlockPos.MutableBlockPos();
 
         for (int x = minX; x <= maxX; x++) {
             for (int z = minZ; z <= maxZ; z++) {
-                BlockState fluidState = getRiverFluidState(fluidCenterY);
-
-                if (fluidState == null) {
-                    continue;
-                }
-
                 boolean placedAnyFluidInColumn = false;
                 int lowestPlacedFluidY = Integer.MAX_VALUE;
 
                 for (int y = minY; y <= maxY; y++) {
                     pos.set(x, y, z);
-
-                    if (!box.isInside(pos)) {
-                        continue;
-                    }
 
                     if (!isInsideLowerFluidEllipsoid(
                             x,
@@ -902,6 +1522,12 @@ public abstract class AbstractSpiralCavePiece extends StructurePiece {
                             fluidCenterY,
                             mainCenterZ
                     )) {
+                        continue;
+                    }
+
+                    BlockState fluidState = getRiverFluidState(mainCenterY, x, y, z);
+
+                    if (fluidState == null) {
                         continue;
                     }
 
@@ -964,7 +1590,7 @@ public abstract class AbstractSpiralCavePiece extends StructurePiece {
                 break;
             }
 
-            decorateRiverColumnBoundaries(level, pos);
+            decorateRiverColumnBoundaries(level, box, pos);
         }
     }
 
@@ -985,7 +1611,7 @@ public abstract class AbstractSpiralCavePiece extends StructurePiece {
         }
 
         return relativeX * relativeX
-                + relativeY * relativeY * relativeY * relativeY
+                + relativeY * relativeY
                 + relativeZ * relativeZ <= 1.0D;
     }
 }

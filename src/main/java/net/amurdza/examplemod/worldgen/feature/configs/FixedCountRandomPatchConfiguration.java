@@ -12,7 +12,8 @@ public record FixedCountRandomPatchConfiguration(
         int xzSpread,
         int ySpread,
         Holder<PlacedFeature> feature,
-        boolean landOnly
+        boolean landOnly,
+        NetherCaveRingSide ringSide
 ) implements FeatureConfiguration {
 
     public static final Codec<FixedCountRandomPatchConfiguration> CODEC = RecordCodecBuilder.create(instance ->
@@ -37,7 +38,11 @@ public record FixedCountRandomPatchConfiguration(
 
                     Codec.BOOL
                             .optionalFieldOf("land_only", true)
-                            .forGetter(FixedCountRandomPatchConfiguration::landOnly)
+                            .forGetter(FixedCountRandomPatchConfiguration::landOnly),
+
+                    NetherCaveRingSide.CODEC
+                            .optionalFieldOf("ring_side", NetherCaveRingSide.ANY)
+                            .forGetter(FixedCountRandomPatchConfiguration::ringSide)
             ).apply(instance, FixedCountRandomPatchConfiguration::new)
     );
 

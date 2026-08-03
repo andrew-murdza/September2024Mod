@@ -23,18 +23,16 @@
     [],
     [],
     [],
-    [],
+    [
+      "aoemod:nether_cave_chunk"
+    ],
     [],
     [],
     [
-      "aoemod:desert/ores/coal_upper",
-      "aoemod:desert/ores/copper_upper",
-      "aoemod:desert/ores/gold_upper",
-      "aoemod:desert/ores/redstone_upper",
-      "aoemod:desert/ores/coal_lower",
-      "aoemod:desert/ores/copper_lower",
-      "aoemod:desert/ores/gold_lower",
-      "aoemod:desert/ores/redstone_lower"
+      "aoemod:deep_dark/ores/coal",
+      "aoemod:deep_dark/ores/copper",
+      "aoemod:deep_dark/ores/gold",
+      "aoemod:deep_dark/ores/redstone"
     ],
     [],
     [],

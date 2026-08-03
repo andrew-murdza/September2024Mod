@@ -127,6 +127,16 @@ public class GridChoiceFeature extends Feature<GridChoiceConfig> {
                     0,
                     random.nextInt(16)
             );
+            case SMALL_IN_SQUARE -> origin.offset(
+                    5 + random.nextInt(6),
+                    0,
+                    5 + random.nextInt(6)
+            );
+            case CENTER_SQUARE -> origin.offset(
+                    3 + random.nextInt(11),
+                    0,
+                    3 + random.nextInt(11)
+            );
             case CENTER -> origin.offset(7, 0, 7);
             case CORNER -> origin;
         };

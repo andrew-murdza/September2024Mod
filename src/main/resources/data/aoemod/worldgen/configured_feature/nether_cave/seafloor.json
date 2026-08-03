@@ -14,12 +14,15 @@
         "target": "water",
         "all_layers": true,
         "skip_height": 30,
-        "max_y": 63,
-        "min_y": 56,
+        "max_y": 209,
+        "min_y": 154,
         "predicate": {
           "type": "minecraft:matching_blocks",
-          "blocks": "minecraft:sand"
-        }
+          "blocks": [
+            "minecraft:sand"
+          ]
+        },
+        "biomes": "aoemod:desert_biomes"
       },
       {
         "deep_feature": {
@@ -33,12 +36,13 @@
         "target": "water",
         "all_layers": true,
         "skip_height": 30,
-        "max_y": 55,
-        "min_y": 32,
+        "max_y": 164,
+        "min_y": 110,
         "predicate": {
-          "type": "minecraft:matching_blocks",
-          "blocks": "minecraft:sculk"
-        }
+          "type": "minecraft:has_sturdy_face",
+          "direction": "up"
+        },
+        "biomes": "aoemod:deep_dark_biomes"
       },
       {
         "deep_feature": {
@@ -52,12 +56,13 @@
         "target": "lava",
         "all_layers": true,
         "skip_height": 30,
-        "min_y": 8,
-        "max_y": 31,
+        "min_y": 67,
+        "max_y": 121,
         "predicate": {
-          "type": "minecraft:matching_block_tag",
-          "tag": "aoemod:soul_sediments"
-        }
+          "type": "minecraft:has_sturdy_face",
+          "direction": "up"
+        },
+        "biomes": "aoemod:soul_sand_valley_biomes"
       },
       {
         "deep_feature": {
@@ -71,14 +76,13 @@
         "target": "lava",
         "all_layers": true,
         "skip_height": 30,
-        "min_y": -16,
-        "max_y": 7,
+        "min_y": 24,
+        "max_y": 78,
         "predicate": {
-          "type": "minecraft:matching_blocks",
-          "blocks": [
-            "minecraft:warped_nylium"
-          ]
-        }
+          "type": "minecraft:has_sturdy_face",
+          "direction": "up"
+        },
+        "biomes": "aoemod:warped_forest_biomes"
       },
       {
         "deep_feature": {
@@ -92,14 +96,13 @@
         "target": "lava",
         "all_layers": true,
         "skip_height": 30,
-        "min_y": -40,
-        "max_y": -17,
+        "min_y": -19,
+        "max_y": 35,
         "predicate": {
-          "type": "minecraft:matching_blocks",
-          "blocks": [
-            "minecraft:crimson_nylium"
-          ]
-        }
+          "type": "minecraft:has_sturdy_face",
+          "direction": "up"
+        },
+        "biomes": "aoemod:crimson_forest_biomes"
       },
       {
         "deep_feature": {
@@ -113,11 +116,12 @@
         "target": "lava",
         "all_layers": true,
         "skip_height": 30,
-        "max_y": -41,
+        "max_y": -8,
         "predicate": {
-          "type": "minecraft:matching_block_tag",
-          "tag": "aoemod:basalt_stones"
-        }
+          "type": "minecraft:has_sturdy_face",
+          "direction": "up"
+        },
+        "biomes": "aoemod:basalt_deltas_biomes"
       }
     ]
   }

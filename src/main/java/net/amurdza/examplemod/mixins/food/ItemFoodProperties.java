@@ -51,6 +51,8 @@ public abstract class ItemFoodProperties {
 
         aoe$add(map, Items.POPPED_CHORUS_FRUIT, aoe$food(3, 0.3F, false));
         aoe$add(map, Items.CHORUS_FRUIT, aoe$food(1, 0.2F, false,false,true));
+        aoe$add(map, samebutdifferent.ecologics.registry.ModItems.COOKED_PRICKLY_PEAR.get(),
+                aoe$food(6, 0.45F, false));
 
         /*
          * Placeholder vanilla food values.

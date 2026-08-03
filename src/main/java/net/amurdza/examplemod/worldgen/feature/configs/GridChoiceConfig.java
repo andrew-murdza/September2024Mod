@@ -55,6 +55,8 @@ public class GridChoiceConfig implements FeatureConfiguration {
 
     public enum OffsetType implements StringRepresentable {
         IN_SQUARE("in_square"),
+        SMALL_IN_SQUARE("small_in_square"),
+        CENTER_SQUARE("center_square"),
         CENTER("center"),
         CORNER("corner");
 

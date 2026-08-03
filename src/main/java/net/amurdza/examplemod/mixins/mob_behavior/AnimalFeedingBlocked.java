@@ -1,10 +1,12 @@
 package net.amurdza.examplemod.mixins.mob_behavior;
 
 import net.amurdza.examplemod.config.MobConfig;
+import net.amurdza.examplemod.util.AnimalFoodOverrides;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.animal.Animal;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.ItemStack;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
@@ -24,7 +26,16 @@ public abstract class AnimalFeedingBlocked {
             return;
         }
 
-        if (!animal.isFood(player.getItemInHand(hand))) {
+        ItemStack stack = player.getItemInHand(hand);
+
+        if (AnimalFoodOverrides.hasConfiguredFoodOverride(animal)
+                && animal.isFood(stack)
+                && !AnimalFoodOverrides.isConfiguredFood(animal, stack)) {
+            cir.setReturnValue(InteractionResult.FAIL);
+            return;
+        }
+
+        if (!animal.isFood(stack)) {
             return;
         }
 

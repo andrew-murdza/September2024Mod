@@ -59,15 +59,10 @@ public class BlockGrowthRate {
         float mult = BlockConfig.blockGrowthChance(level, pos, state);
 
         /*
-         * Your new BlockConfig returns 0.0F when the block has no configured
-         * growth entries or does not grow in this biome.
-         *
-         * So we need this extra check:
-         * - untracked block: let vanilla/modded behavior happen
-         * - tracked block with 0 growth here: deny
+         * Untracked blocks keep vanilla/modded behavior. Tracked blocks with
+         * no matching biome value are denied below.
          */
-        if (!BlockConfig.BLOCK_INFO_BY_BLOCK.containsKey(block)
-                || BlockConfig.BLOCK_INFO_BY_BLOCK.get(block).growth().isEmpty()) {
+        if (!BlockConfig.hasGrowthConfig(block)) {
             return;
         }
 

@@ -2,7 +2,7 @@
   "type": "minecraft:crafting_shapeless",
   "ingredients": [
     {
-      "item": "farmersdelight:cabbage_leaf"
+      "item": "farmersdelight:cabbage"
     },
     {
       "tag": "aoemod:food_wrappable"

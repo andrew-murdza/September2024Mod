@@ -25,18 +25,16 @@
     [],
     [],
     [],
-    [],
+    [
+      "aoemod:nether_cave_chunk"
+    ],
     [],
     [],
     [
       "aoemod:desert/ores/coal_upper",
       "aoemod:desert/ores/copper_upper",
       "aoemod:desert/ores/gold_upper",
-      "aoemod:desert/ores/redstone_upper",
-      "aoemod:desert/ores/coal_lower",
-      "aoemod:desert/ores/copper_lower",
-      "aoemod:desert/ores/gold_lower",
-      "aoemod:desert/ores/redstone_lower"
+      "aoemod:desert/ores/redstone_upper"
     ],
     [],
     [],
@@ -63,20 +61,7 @@
       }
     ],
     "axolotls": [],
-    "creature": [
-      {
-        "type": "minecraft:camel",
-        "weight": 15,
-        "minCount": 4,
-        "maxCount": 4
-      },
-      {
-        "type": "minecraft:rabbit",
-        "weight": 10,
-        "minCount": 2,
-        "maxCount": 5
-      }
-    ],
+    "creature": [],
     "misc": [],
     "monster": [
       {

@@ -208,7 +208,7 @@ public class CustomMobDrops {
             return 1.0F;
         }
 
-        if (biome.is(ModTags.Biomes.mountainBiomes) || biome.is(ModTags.Biomes.mushroomCaves)) {
+        if (biome.is(ModTags.Biomes.mountainBiomes)) {
             return 2.0F;
         }
 

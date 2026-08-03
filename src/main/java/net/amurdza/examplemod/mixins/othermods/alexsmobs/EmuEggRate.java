@@ -21,17 +21,14 @@ public class EmuEggRate {
             )
     )
     private boolean aoe$changeEggRate(EntityEmu emu, Operation<Boolean> original) {
-        if (!emu.isAlive()) {
+        boolean alive = original.call(emu);
+        if (!alive) {
             return false;
         }
 
-        float multiplier = MobConfig.mobGrowthChance(emu);
-        int extraTicks = Helper.computeIncrements(emu.getRandom(),multiplier);
+        int extraTicks = Math.max(0, Helper.computeIncrements(emu.getRandom(), MobConfig.mobGrowthChance(emu)) - 1);
+        this.timeUntilNextEgg -= extraTicks;
 
-        if (extraTicks > 0) {
-            this.timeUntilNextEgg -= extraTicks;
-        }
-
-        return false;
+        return true;
     }
 }

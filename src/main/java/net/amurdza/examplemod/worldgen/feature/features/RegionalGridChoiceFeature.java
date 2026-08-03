@@ -2,9 +2,11 @@ package net.amurdza.examplemod.worldgen.feature.features;
 
 import com.mojang.serialization.Codec;
 import net.amurdza.examplemod.worldgen.feature.configs.GridChoiceConfig;
+import net.amurdza.examplemod.worldgen.feature.configs.NetherCaveRingSide;
 import net.amurdza.examplemod.worldgen.feature.configs.RegionalGridChoiceConfig;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Holder;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.ChunkPos;
 import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
@@ -22,6 +24,11 @@ import java.util.stream.Stream;
 
 public class RegionalGridChoiceFeature extends Feature<RegionalGridChoiceConfig> {
     private static final int FLOOR_SEARCH_RANGE = 8;
+    private static final int PALE_OAK_RELOCATION_RADIUS = 5;
+    private static final int PALE_OAK_MIN_LOCAL_COORDINATE = 2;
+    private static final int PALE_OAK_MAX_LOCAL_COORDINATE = 12;
+    private static final ResourceLocation PALE_OAK_ID =
+            new ResourceLocation("aoemod", "soul_sand_valley/pale_oak");
 
     public RegionalGridChoiceFeature(Codec<RegionalGridChoiceConfig> codec) {
         super(codec);
@@ -77,6 +84,8 @@ public class RegionalGridChoiceFeature extends Feature<RegionalGridChoiceConfig>
         List<Holder<ConfiguredFeature<?, ?>>> shuffledFeatures = buildShuffledFeatures(
                 cfg,
                 sectionCellCount,
+                regionX,
+                regionZ,
                 sectionX,
                 sectionZ,
                 mixSeed(context.level().getSeed(), regionX, regionZ, sectionX, sectionZ, cfg.salt)
@@ -92,6 +101,8 @@ public class RegionalGridChoiceFeature extends Feature<RegionalGridChoiceConfig>
     private List<Holder<ConfiguredFeature<?, ?>>> buildShuffledFeatures(
             RegionalGridChoiceConfig cfg,
             int sectionCellCount,
+            int regionX,
+            int regionZ,
             int sectionX,
             int sectionZ,
             long seed
@@ -121,6 +132,10 @@ public class RegionalGridChoiceFeature extends Feature<RegionalGridChoiceConfig>
                     pinnedEntry.count,
                     candidates,
                     cfg,
+                    regionX,
+                    regionZ,
+                    sectionX,
+                    sectionZ,
                     seed + 14983L + pinnedIndex * 8191L
             );
 
@@ -135,12 +150,16 @@ public class RegionalGridChoiceFeature extends Feature<RegionalGridChoiceConfig>
                     expandedFeatures,
                     cfg,
                     cfg.minimumSections.get(minimumIndex),
+                    regionX,
+                    regionZ,
+                    sectionX,
+                    sectionZ,
                     seed + 27823L + minimumIndex * 6151L
             );
         }
 
         RandomSource random = RandomSource.create(seed);
-        fillRemainingCells(shuffledFeatures, expandedFeatures, cfg, random);
+        fillRemainingCells(shuffledFeatures, expandedFeatures, cfg, regionX, regionZ, sectionX, sectionZ, random);
 
         return shuffledFeatures;
     }
@@ -150,6 +169,10 @@ public class RegionalGridChoiceFeature extends Feature<RegionalGridChoiceConfig>
             List<Holder<ConfiguredFeature<?, ?>>> remainingFeatures,
             RegionalGridChoiceConfig cfg,
             RegionalGridChoiceMinimumSection minimumSection,
+            int regionX,
+            int regionZ,
+            int sectionX,
+            int sectionZ,
             long seed
     ) {
         int childSectionCountX = cfg.sectionWidth / minimumSection.sectionWidth;
@@ -177,6 +200,10 @@ public class RegionalGridChoiceFeature extends Feature<RegionalGridChoiceConfig>
                             entry.count,
                             candidates,
                             cfg,
+                            regionX,
+                            regionZ,
+                            sectionX,
+                            sectionZ,
                             seed + childSectionX * 341873128712L + childSectionZ * 132897987541L + entryIndex * 31L
                     );
                 }
@@ -191,12 +218,16 @@ public class RegionalGridChoiceFeature extends Feature<RegionalGridChoiceConfig>
             int count,
             List<Integer> candidateIndexes,
             RegionalGridChoiceConfig cfg,
+            int regionX,
+            int regionZ,
+            int sectionX,
+            int sectionZ,
             long seed
     ) {
         List<Integer> shuffledCandidates = new ArrayList<>();
 
         for (int index : candidateIndexes) {
-            if (sectionFeatures.get(index) == null && isFeatureAllowedAt(cfg, feature, index)) {
+            if (sectionFeatures.get(index) == null && isFeatureAllowedAt(cfg, feature, index, regionX, regionZ, sectionX, sectionZ)) {
                 shuffledCandidates.add(index);
             }
         }
@@ -218,6 +249,10 @@ public class RegionalGridChoiceFeature extends Feature<RegionalGridChoiceConfig>
             List<Holder<ConfiguredFeature<?, ?>>> sectionFeatures,
             List<Holder<ConfiguredFeature<?, ?>>> remainingFeatures,
             RegionalGridChoiceConfig cfg,
+            int regionX,
+            int regionZ,
+            int sectionX,
+            int sectionZ,
             RandomSource random
     ) {
         List<Integer> freeIndexes = new ArrayList<>();
@@ -229,10 +264,10 @@ public class RegionalGridChoiceFeature extends Feature<RegionalGridChoiceConfig>
         }
 
         shuffleIndexes(freeIndexes, random.nextLong());
-        freeIndexes.sort(Comparator.comparingInt(index -> countAllowedFeatures(cfg, remainingFeatures, index)));
+        freeIndexes.sort(Comparator.comparingInt(index -> countAllowedFeatures(cfg, remainingFeatures, index, regionX, regionZ, sectionX, sectionZ)));
 
         for (int index : freeIndexes) {
-            int featureIndex = pickAllowedFeatureIndex(cfg, remainingFeatures, index, random);
+            int featureIndex = pickAllowedFeatureIndex(cfg, remainingFeatures, index, regionX, regionZ, sectionX, sectionZ, random);
 
             if (featureIndex < 0) {
                 continue;
@@ -246,12 +281,16 @@ public class RegionalGridChoiceFeature extends Feature<RegionalGridChoiceConfig>
             RegionalGridChoiceConfig cfg,
             List<Holder<ConfiguredFeature<?, ?>>> remainingFeatures,
             int cellIndex,
+            int regionX,
+            int regionZ,
+            int sectionX,
+            int sectionZ,
             RandomSource random
     ) {
         List<Integer> candidates = new ArrayList<>();
 
         for (int i = 0; i < remainingFeatures.size(); i++) {
-            if (isFeatureAllowedAt(cfg, remainingFeatures.get(i), cellIndex)) {
+            if (isFeatureAllowedAt(cfg, remainingFeatures.get(i), cellIndex, regionX, regionZ, sectionX, sectionZ)) {
                 candidates.add(i);
             }
         }
@@ -266,12 +305,16 @@ public class RegionalGridChoiceFeature extends Feature<RegionalGridChoiceConfig>
     private int countAllowedFeatures(
             RegionalGridChoiceConfig cfg,
             List<Holder<ConfiguredFeature<?, ?>>> remainingFeatures,
-            int cellIndex
+            int cellIndex,
+            int regionX,
+            int regionZ,
+            int sectionX,
+            int sectionZ
     ) {
         int count = 0;
 
         for (Holder<ConfiguredFeature<?, ?>> feature : remainingFeatures) {
-            if (isFeatureAllowedAt(cfg, feature, cellIndex)) {
+            if (isFeatureAllowedAt(cfg, feature, cellIndex, regionX, regionZ, sectionX, sectionZ)) {
                 count++;
             }
         }
@@ -282,7 +325,11 @@ public class RegionalGridChoiceFeature extends Feature<RegionalGridChoiceConfig>
     private boolean isFeatureAllowedAt(
             RegionalGridChoiceConfig cfg,
             Holder<ConfiguredFeature<?, ?>> feature,
-            int cellIndex
+            int cellIndex,
+            int regionX,
+            int regionZ,
+            int sectionX,
+            int sectionZ
     ) {
         int localX = cellIndex % cfg.sectionWidth;
         int localZ = cellIndex / cfg.sectionWidth;
@@ -293,7 +340,37 @@ public class RegionalGridChoiceFeature extends Feature<RegionalGridChoiceConfig>
             }
         }
 
+        if (!isFeatureAllowedByRingSide(cfg, feature, regionX, regionZ, sectionX, sectionZ, localX, localZ)) {
+            return false;
+        }
+
         return true;
+    }
+
+    private boolean isFeatureAllowedByRingSide(
+            RegionalGridChoiceConfig cfg,
+            Holder<ConfiguredFeature<?, ?>> feature,
+            int regionX,
+            int regionZ,
+            int sectionX,
+            int sectionZ,
+            int localX,
+            int localZ
+    ) {
+        if (cfg.ringSide == NetherCaveRingSide.ANY) {
+            return true;
+        }
+
+        if (cfg.defaultFeature != null && cfg.defaultFeature.equals(feature)) {
+            return true;
+        }
+
+        int chunkX = regionX * cfg.regionWidth + sectionX * cfg.sectionWidth + localX;
+        int chunkZ = regionZ * cfg.regionDepth + sectionZ * cfg.sectionDepth + localZ;
+        int blockX = chunkX * 16 + 7;
+        int blockZ = chunkZ * 16 + 7;
+
+        return cfg.ringSide.allows(blockX, blockZ);
     }
 
     private List<Integer> getMatchingCellIndexes(
@@ -451,12 +528,64 @@ public class RegionalGridChoiceFeature extends Feature<RegionalGridChoiceConfig>
                     0,
                     random.nextInt(16)
             );
+            case SMALL_IN_SQUARE -> origin.offset(
+                    5 + random.nextInt(6),
+                    0,
+                    5 + random.nextInt(6)
+            );
+            case CENTER_SQUARE -> origin.offset(
+                    3 + random.nextInt(11),
+                    0,
+                    3 + random.nextInt(11)
+            );
             case CENTER -> origin.offset(7, 0, 7);
             case CORNER -> origin;
         };
     }
 
     private boolean tryPlaceNearFloor(
+            FeaturePlaceContext<RegionalGridChoiceConfig> context,
+            Holder<ConfiguredFeature<?, ?>> selected,
+            BlockPos origin
+    ) {
+        if (!isPaleOak(selected)) {
+            return tryPlaceNearFloorAt(context, selected, origin);
+        }
+
+        for (int radius = 0; radius <= PALE_OAK_RELOCATION_RADIUS; radius++) {
+            for (int dx = -radius; dx <= radius; dx++) {
+                for (int dz = -radius; dz <= radius; dz++) {
+                    if (radius > 0 && Math.abs(dx) != radius && Math.abs(dz) != radius) {
+                        continue;
+                    }
+
+                    BlockPos candidate = origin.offset(dx, 0, dz);
+                    int localX = Math.floorMod(candidate.getX(), 16);
+                    int localZ = Math.floorMod(candidate.getZ(), 16);
+                    if (localX < PALE_OAK_MIN_LOCAL_COORDINATE
+                            || localX > PALE_OAK_MAX_LOCAL_COORDINATE
+                            || localZ < PALE_OAK_MIN_LOCAL_COORDINATE
+                            || localZ > PALE_OAK_MAX_LOCAL_COORDINATE) {
+                        continue;
+                    }
+
+                    if (tryPlaceNearFloorAt(context, selected, candidate)) {
+                        return true;
+                    }
+                }
+            }
+        }
+
+        return false;
+    }
+
+    private boolean isPaleOak(Holder<ConfiguredFeature<?, ?>> selected) {
+        return selected.unwrapKey()
+                .map(key -> key.location().equals(PALE_OAK_ID))
+                .orElse(false);
+    }
+
+    private boolean tryPlaceNearFloorAt(
             FeaturePlaceContext<RegionalGridChoiceConfig> context,
             Holder<ConfiguredFeature<?, ?>> selected,
             BlockPos origin

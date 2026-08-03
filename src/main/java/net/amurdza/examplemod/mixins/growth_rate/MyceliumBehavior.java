@@ -3,6 +3,7 @@ package net.amurdza.examplemod.mixins.growth_rate;
 import net.amurdza.examplemod.config.BlockBehaviorConfig;
 import net.amurdza.examplemod.util.Helper;
 import net.amurdza.examplemod.util.ModTags;
+import net.amurdza.examplemod.worldgen.MushroomCaveRegion;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.server.level.ServerLevel;
@@ -32,7 +33,10 @@ public abstract class MyceliumBehavior extends MyceliumGrassSpreadRate {
     private static boolean canBeGrass(BlockState pState, LevelReader pLevelReader, BlockPos pPos) {
         BlockPos blockpos = pPos.above();
         BlockState blockstate = pLevelReader.getBlockState(blockpos);
-        if (blockstate.is(Blocks.SNOW) && blockstate.getValue(SnowLayerBlock.LAYERS) == 1) {
+        if (!pLevelReader.getBiome(pPos).is(ModTags.Biomes.mountainBiomes)
+                || !MushroomCaveRegion.containsFloor(pPos)) {
+            return false;
+        } else if (blockstate.is(Blocks.SNOW) && blockstate.getValue(SnowLayerBlock.LAYERS) == 1) {
             return true;
         } else if (blockstate.getFluidState().getAmount() == 8) {
             return false;

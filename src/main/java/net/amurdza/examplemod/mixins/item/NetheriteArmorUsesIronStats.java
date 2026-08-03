@@ -21,4 +21,12 @@ public class NetheriteArmorUsesIronStats {
             cir.setReturnValue(attributes);
         }
     }
+
+    @Inject(method = "getEnchantmentValue", at = @At("HEAD"), cancellable = true)
+    private void aoemod$useEquivalentEnchantability(CallbackInfoReturnable<Integer> cir) {
+        Integer enchantmentValue = NetheriteIronStats.enchantmentValue((Item) (Object) this);
+        if (enchantmentValue != null) {
+            cir.setReturnValue(enchantmentValue);
+        }
+    }
 }

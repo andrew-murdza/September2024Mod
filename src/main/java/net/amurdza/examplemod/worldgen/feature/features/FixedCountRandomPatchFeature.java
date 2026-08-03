@@ -4,10 +4,14 @@ import com.mojang.serialization.Codec;
 import net.amurdza.examplemod.worldgen.feature.configs.FixedCountRandomPatchConfiguration;
 import net.minecraft.core.BlockPos;
 import net.minecraft.util.RandomSource;
-import net.minecraft.world.level.ChunkPos;
 import net.minecraft.world.level.WorldGenLevel;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.SnowLayerBlock;
+import net.minecraft.world.level.block.SweetBerryBushBlock;
+import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
+import snownee.snow.Hooks;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -15,6 +19,7 @@ import java.util.List;
 
 public class FixedCountRandomPatchFeature extends Feature<FixedCountRandomPatchConfiguration> {
     private static final int FLOOR_SEARCH_RANGE = 8;
+    private static final int MAX_FALLBACK_RINGS = 8;
 
     public FixedCountRandomPatchFeature(Codec<FixedCountRandomPatchConfiguration> codec) {
         super(codec);
@@ -27,11 +32,45 @@ public class FixedCountRandomPatchFeature extends Feature<FixedCountRandomPatchC
         BlockPos origin = context.origin();
         WorldGenLevel level = context.level();
 
-        int targetPlacements = adjustedCount(config, origin);
+        int targetPlacements = config.count();
+        int successfulPlacements = placeFromOffsets(
+                context,
+                config,
+                random,
+                level,
+                origin,
+                buildShuffledOffsets(config.xzSpread(), random),
+                targetPlacements
+        );
 
+        for (int radius = config.xzSpread() + 1;
+             successfulPlacements < targetPlacements
+                     && radius <= config.xzSpread() + MAX_FALLBACK_RINGS;
+             radius++) {
+            successfulPlacements += placeFromOffsets(
+                    context,
+                    config,
+                    random,
+                    level,
+                    origin,
+                    buildShuffledRing(radius, random),
+                    targetPlacements - successfulPlacements
+            );
+        }
+
+        return successfulPlacements > 0;
+    }
+
+    private int placeFromOffsets(
+            FeaturePlaceContext<FixedCountRandomPatchConfiguration> context,
+            FixedCountRandomPatchConfiguration config,
+            RandomSource random,
+            WorldGenLevel level,
+            BlockPos origin,
+            List<CellOffset> offsets,
+            int targetPlacements
+    ) {
         int successfulPlacements = 0;
-
-        List<CellOffset> offsets = buildShuffledOffsets(config.xzSpread(), random);
         BlockPos.MutableBlockPos mutablePos = new BlockPos.MutableBlockPos();
 
         for (CellOffset offset : offsets) {
@@ -46,7 +85,7 @@ public class FixedCountRandomPatchFeature extends Feature<FixedCountRandomPatchC
             }
         }
 
-        return successfulPlacements > 0;
+        return successfulPlacements;
     }
 
     private List<CellOffset> buildShuffledOffsets(int xzSpread, RandomSource random) {
@@ -60,6 +99,21 @@ public class FixedCountRandomPatchFeature extends Feature<FixedCountRandomPatchC
 
         shuffle(offsets, random);
 
+        return offsets;
+    }
+
+    private List<CellOffset> buildShuffledRing(int radius, RandomSource random) {
+        List<CellOffset> offsets = new ArrayList<>(radius * 8);
+
+        for (int x = -radius; x <= radius; x++) {
+            for (int z = -radius; z <= radius; z++) {
+                if (Math.max(Math.abs(x), Math.abs(z)) == radius) {
+                    offsets.add(new CellOffset(x, z));
+                }
+            }
+        }
+
+        shuffle(offsets, random);
         return offsets;
     }
 
@@ -80,8 +134,7 @@ public class FixedCountRandomPatchFeature extends Feature<FixedCountRandomPatchC
 
         for (int yOffset = 0; yOffset <= FLOOR_SEARCH_RANGE; yOffset++) {
             mutablePos.set(origin.getX(), origin.getY() + yOffset, origin.getZ());
-            if (canTryLandPatch(config, level, mutablePos)
-                    && config.feature().value().place(level, context.chunkGenerator(), random, mutablePos)) {
+            if (tryPlace(context, config, random, level, mutablePos)) {
                 return true;
             }
 
@@ -90,8 +143,7 @@ public class FixedCountRandomPatchFeature extends Feature<FixedCountRandomPatchC
             }
 
             mutablePos.set(origin.getX(), origin.getY() - yOffset, origin.getZ());
-            if (canTryLandPatch(config, level, mutablePos)
-                    && config.feature().value().place(level, context.chunkGenerator(), random, mutablePos)) {
+            if (tryPlace(context, config, random, level, mutablePos)) {
                 return true;
             }
         }
@@ -99,25 +151,36 @@ public class FixedCountRandomPatchFeature extends Feature<FixedCountRandomPatchC
         return false;
     }
 
-    private static int adjustedCount(FixedCountRandomPatchConfiguration config, BlockPos origin) {
-        int count = config.count();
-
-        if (isShorelineLandPatch(config, origin)) {
-            return Math.max(1, count / 2);
-        }
-
-        return count;
-    }
-
-    private static boolean isShorelineLandPatch(FixedCountRandomPatchConfiguration config, BlockPos origin) {
-        if (!config.landOnly()) {
+    private boolean tryPlace(
+            FeaturePlaceContext<FixedCountRandomPatchConfiguration> context,
+            FixedCountRandomPatchConfiguration config,
+            RandomSource random,
+            WorldGenLevel level,
+            BlockPos pos
+    ) {
+        if (!canTryLandPatch(config, level, pos)) {
             return false;
         }
 
-        ChunkPos chunkPos = new ChunkPos(origin);
-        int regionChunkX = Math.floorMod(chunkPos.x, 30);
+        if (!config.ringSide().allows(pos)) {
+            return false;
+        }
 
-        return regionChunkX == 0 || regionChunkX == 6;
+        BlockState oldState = level.getBlockState(pos);
+        int snowLayers = oldState.hasProperty(SnowLayerBlock.LAYERS)
+                ? oldState.getValue(SnowLayerBlock.LAYERS)
+                : 0;
+
+        if (!config.feature().value().place(level, context.chunkGenerator(), random, pos)) {
+            return false;
+        }
+
+        BlockState placedState = level.getBlockState(pos);
+        if (snowLayers > 0 && placedState.getBlock() instanceof SweetBerryBushBlock) {
+            Hooks.convert(level, pos, placedState, snowLayers, Block.UPDATE_CLIENTS, true);
+        }
+
+        return true;
     }
 
     private static boolean canTryLandPatch(

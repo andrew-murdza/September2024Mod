@@ -243,7 +243,7 @@ public class FixedCountChunkFeature extends Feature<FixedCountChunkPatchConfigur
         }
 
         ChunkPos chunkPos = new ChunkPos(origin);
-        int regionChunkX = Math.floorMod(chunkPos.x, 30);
+        int regionChunkX = Math.floorMod(chunkPos.x, 64);
 
         return regionChunkX == 0 || regionChunkX == 6;
     }

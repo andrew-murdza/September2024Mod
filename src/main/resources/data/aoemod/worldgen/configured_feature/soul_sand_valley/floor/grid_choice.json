@@ -3,50 +3,18 @@
   "config": {
     "features": [
       {
-        "feature": "aoemod:soul_sand_valley/pale_oak",
-        "count": 16
-      },
-      {
-        "feature": "aoemod:crops/soul_berries",
-        "count": 4
-      },
-      {
-        "feature": "aoemod:crops/nether_wart",
-        "count": 4
-      },
-      {
-        "feature": "aoemod:flowers/soul_sand_valley/eyeblossom_patch",
-        "count": 4
-      },
-      {
         "feature": "aoemod:nothing",
-        "count": 20
+        "count": 192
       }
     ],
     "minimum_sections": [
       {
-        "section_width": 3,
-        "section_depth": 4,
+        "section_width": 12,
+        "section_depth": 16,
         "features": [
           {
-            "feature": "aoemod:soul_sand_valley/pale_oak",
-            "count": 3
-          },
-          {
-            "feature": "aoemod:flowers/soul_sand_valley/soul_weeds_patch",
-            "count": 3
-          },
-          {
-            "feature": "aoemod:crops/soul_berries",
-            "count": 1
-          },
-          {
-            "feature": "aoemod:crops/nether_wart",
-            "count": 1
-          },
-          {
-            "feature": "aoemod:flowers/soul_sand_valley/eyeblossom_patch",
-            "count": 1
+            "feature": "aoemod:nothing",
+            "count": 16
           }
         ]
       }
@@ -56,8 +24,8 @@
     "offset_type": "center",
     "region_width": 12,
     "region_depth": 16,
-    "section_width": 6,
-    "section_depth": 8,
+    "section_width": 12,
+    "section_depth": 16,
     "salt": "soul_sand_valley_floor"
   }
 }

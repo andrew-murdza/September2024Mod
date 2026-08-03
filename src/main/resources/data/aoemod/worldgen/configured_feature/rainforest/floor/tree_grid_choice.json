@@ -20,7 +20,11 @@
       },
       {
         "feature": "aoemod:rainforest/tree/jungle_large_tree_worldgen",
-        "count": 8
+        "count": 4
+      },
+      {
+        "feature": "aoemod:rainforest/tree/jungle_large_tree_with_cocoa",
+        "count": 4
       },
       {
         "feature": "aoemod:rainforest/tree/mangrove_large_tree_worldgen",
@@ -29,7 +33,7 @@
     ],
     "placement": [],
     "offset_type": "center",
-    "region_width": 30,
+    "region_width": 64,
     "region_depth": 64,
     "section_width": 6,
     "section_depth": 8,

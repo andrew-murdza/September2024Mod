@@ -3,16 +3,8 @@
   "config": {
     "features": [
       {
-        "feature": "aoemod:mushrooms/nether_cave/red_mushroom_patch",
-        "count": 2
-      },
-      {
-        "feature": "aoemod:mushrooms/nether_cave/brown_mushroom_patch",
-        "count": 2
-      },
-      {
         "feature": "aoemod:nothing",
-        "count": 8
+        "count": 12
       }
     ],
     "default_feature": "aoemod:nothing",

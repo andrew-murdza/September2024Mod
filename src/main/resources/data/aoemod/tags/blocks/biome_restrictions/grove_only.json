@@ -1,6 +1,10 @@
 {
   "values": [
     "minecraft:spruce_leaves",
-    "minecraft:spruce_sapling"
+    "minecraft:spruce_sapling",
+    "quark:glow_shroom",
+    "quark:glow_shroom_stem",
+    "quark:glow_shroom_block",
+    "quark:glow_shroom_ring"
   ]
 }

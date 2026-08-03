@@ -35,6 +35,7 @@ public class ModFeatures {
         FEATURES.register("cave_vines", ()->new CaveVineColumn(CaveVineConfig.CODEC));
         FEATURES.register("sugar_cane", ()->new SugarCaneFeature(NoneFeatureConfiguration.CODEC));
         FEATURES.register("chunk_patch", ()->new FixedCountChunkFeature(FixedCountChunkPatchConfiguration.CODEC));
+        FEATURES.register("spiral_cave_chunk", ()->new SpiralCaveChunkFeature(SpiralCaveFeatureConfig.CODEC));
     }
 
     public static void register(IEventBus eventBus){

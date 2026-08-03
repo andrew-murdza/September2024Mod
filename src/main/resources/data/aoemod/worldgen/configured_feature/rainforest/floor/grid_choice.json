@@ -11,13 +11,6 @@
       { "feature": "aoemod:flowers/rainforest/small_dripleaf_patch", "count": 4 },
       { "feature": "aoemod:flowers/rainforest/azalea_patch", "count": 6 }
     ],
-    "pinned_features": [
-      {
-        "feature": "aoemod:sugar_cane_patch",
-        "count": 2,
-        "region_x": [6, 29]
-      }
-    ],
     "groups": [
       {
         "features": [
@@ -49,7 +42,7 @@
     "default_feature": "aoemod:nothing",
     "offset_type": "corner",
     "placement": [],
-    "region_width": 30,
+    "region_width": 64,
     "region_depth": 64,
     "section_width": 12,
     "section_depth": 16,

@@ -76,7 +76,7 @@ public class EndFishEntity extends AbstractSchoolingFish implements VariantHolde
     private Variant chooseNaturalVariant(ServerLevelAccessor world) {
         var biome = world.getBiome(this.blockPosition());
 
-        if (biome.is(ModTags.Biomes.mountainBiomes) || biome.is(ModTags.Biomes.mushroomCaves)) {
+        if (biome.is(ModTags.Biomes.mountainBiomes)) {
             return randomBlueVariant();
         }
 

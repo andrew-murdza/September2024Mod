@@ -2,28 +2,28 @@
   "type": "aoemod:layered_all_surface",
   "config": {
     "features": [
-       {
-         "feature": {
-           "feature": "aoemod:mountains/floor/forest_floor",
-           "placement": []
-         },
-         "guaranteed_features": [
-           {
-             "feature": "aoemod:mountains/floor/grid_choice",
-             "placement": []
-           }
-         ],
-         "target": "air",
-         "all_layers": true,
-         "skip_height": 30,
-         "max_y": 63,
-         "min_y": 36,
-         "predicate": {
-           "type": "minecraft:matching_blocks",
-           "blocks": ["minecraft:grass_block"]
-         },
-         "biomes": "aoemod:mountain_biomes"
-       },
+      {
+        "feature": {
+          "feature": "aoemod:mountains/floor/forest_floor",
+          "placement": []
+        },
+        "guaranteed_features": [
+          {
+            "feature": "aoemod:mushroom_caves/floor/spruce_grid_choice",
+            "placement": []
+          }
+        ],
+        "target": "air",
+        "all_layers": true,
+        "skip_height": 55,
+        "max_y": 63,
+        "min_y": 21,
+        "predicate": {
+          "type": "minecraft:matching_blocks",
+          "blocks": ["minecraft:grass_block"]
+        },
+        "biomes": "aoemod:mountain_biomes"
+      },
       {
         "feature": {
           "feature": "aoemod:nothing",
@@ -37,9 +37,9 @@
         ],
         "target": "air",
         "all_layers": true,
-        "skip_height": 30,
-        "max_y": 23,
-        "min_y": 1,
+        "skip_height": 55,
+        "max_y": 20,
+        "min_y": -7,
         "predicate": {
           "type": "minecraft:matching_blocks",
           "blocks": ["minecraft:mycelium"]

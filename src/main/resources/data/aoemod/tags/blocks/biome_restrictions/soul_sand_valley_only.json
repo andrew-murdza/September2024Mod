@@ -1,8 +1,10 @@
 {
   "values": [
-    "#aoemod:soul_sediments",
-    "aoemod:soul_soil_gold_ore",
     "minecraft:nether_wart",
-    "aoemod:soul_berry_bush"
+    "aoemod:soul_berry_bush",
+    "aoemod:pale_oak_sapling",
+    "aoemod:pale_oak_leaves",
+    "aoemod:pale_hanging_moss",
+    "aoemod:eye_blossom"
   ]
 }

@@ -1,7 +1,7 @@
 package net.amurdza.examplemod.event_handlers;
 
 import com.github.alexthe666.alexsmobs.entity.EntityGorilla;
-import com.github.alexthe666.alexsmobs.entity.EntityMoose;
+import com.github.alexthe666.alexsmobs.entity.EntityWarpedToad;
 import net.amurdza.examplemod.util.AnimalFoodOverrides;
 import net.amurdza.examplemod.util.ModTags;
 import net.minecraft.tags.TagKey;
@@ -9,11 +9,14 @@ import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.Mob;
 import net.minecraft.world.entity.TamableAnimal;
 import net.minecraft.world.entity.animal.*;
+import net.minecraft.world.entity.animal.axolotl.Axolotl;
+import net.minecraft.world.entity.animal.camel.Camel;
 import net.minecraft.world.entity.animal.frog.Frog;
 import net.minecraft.world.entity.animal.goat.Goat;
 import net.minecraft.world.entity.animal.horse.AbstractHorse;
 import net.minecraft.world.entity.animal.horse.Donkey;
 import net.minecraft.world.entity.animal.horse.Horse;
+import net.minecraft.world.entity.animal.horse.Llama;
 import net.minecraft.world.entity.monster.Strider;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
@@ -47,22 +50,32 @@ public class BreedingItems {
             else if(mob instanceof Rabbit&&!stack.is(Items.DANDELION)){
                 useFood(mob,player,stack, ModTags.Items.smallerFlowers);
                 useFood(mob,player,stack,Items.BEETROOT);
-                useFood(mob,player,stack,Items.CARROT);
+                useFood(mob,player,stack,Items.WHEAT);
                 useFood(mob,player,stack,Items.POTATO);
                 useFood(mob, player, stack, ModItems.ONION.get());
                 useFood(mob, player, stack, net.amurdza.examplemod.registry.ModItems.ASHEN_WHEAT.get());
             }
-            else if(mob instanceof Horse || mob instanceof Donkey){
-                useFood(mob,player,stack,Items.HAY_BLOCK);
+            else if(mob instanceof Horse || mob instanceof Donkey || mob instanceof Llama){
+                useFood(mob,player,stack,Items.WHEAT);
             }
             else if(mob instanceof Strider){
                 useFood(mob,player,stack, net.amurdza.examplemod.registry.ModItems.ASHEN_WHEAT.get());
             }
-            else if(mob instanceof Frog){
+            else if(mob instanceof Camel){
+                useFood(mob, player, stack, samebutdifferent.ecologics.registry.ModItems.PRICKLY_PEAR.get());
+            }
+            else if(mob instanceof EntityWarpedToad){
+                useFood(mob, player, stack, Items.WARPED_FUNGUS);
+            }
+            else if(mob instanceof Frog || mob instanceof Turtle || mob instanceof Axolotl){
                 useFood(mob,player,stack,Items.SEAGRASS);
+                useFood(mob,player,stack,Items.KELP);
             }
             else if(mob instanceof Goat){
                 useFood(mob,player,stack,Items.BEETROOT);
+                useFood(mob,player,stack,Items.CARROT);
+                useFood(mob,player,stack,Items.POTATO);
+                useFood(mob, player, stack, ModItems.ONION.get());
             }
             else if((mob instanceof Ocelot ||mob instanceof Cat)&&!stack.is(Items.COD)&&!stack.is(Items.SALMON)){
                 useFood(mob, player, stack, ModTags.Items.rawFish);
@@ -72,22 +85,14 @@ public class BreedingItems {
                 useFood(mob, player, stack, ModTags.Items.rawFish);
             }
             else if(mob instanceof Parrot){
-                useFood(mob,player,stack,Items.APPLE);
+                useFood(mob,player,stack, ModTags.Items.leafFruits);
             }
             else if(mob instanceof PolarBear){
-                useFood(mob,player,stack, Items.BEEF,Items.MUTTON);
+                useFood(mob, player, stack, ModTags.Items.mobMeatDrops);
                 useFood(mob, player, stack, ModTags.Items.rawFish);
             }
-            else if(mob instanceof EntityMoose&&!stack.is(Items.DANDELION)){
-                useFood(mob,player,stack,ModTags.Items.smallerFlowers);
-                useFood(mob,player,stack,Items.BEETROOT);
-                useFood(mob,player,stack,Items.CARROT);
-                useFood(mob,player,stack,Items.POTATO);
-                useFood(mob,player,stack,Items.WHEAT);
-                useFood(mob, player, stack, ModItems.ONION.get());
-            }
             else if(mob instanceof EntityGorilla){
-                useFood(mob,player,stack,Items.BAMBOO);
+                useFood(mob, player, stack, ModTags.Items.leafFruits);
             }
         }
     }

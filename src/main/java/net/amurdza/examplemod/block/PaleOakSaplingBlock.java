@@ -1,5 +1,6 @@
 package net.amurdza.examplemod.block;
 
+import net.amurdza.examplemod.util.ModTags;
 import net.amurdza.examplemod.worldgen.PaleOakTreeGrower;
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
@@ -8,6 +9,7 @@ import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.SaplingBlock;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraftforge.common.ForgeHooks;
 
 public class PaleOakSaplingBlock extends SaplingBlock {
     public PaleOakSaplingBlock(Properties properties) {
@@ -16,7 +18,7 @@ public class PaleOakSaplingBlock extends SaplingBlock {
 
     @Override
     protected boolean mayPlaceOn(BlockState state, BlockGetter level, BlockPos pos) {
-        return state.is(Blocks.SOUL_SAND) || state.is(Blocks.SOUL_SOIL) || super.mayPlaceOn(state, level, pos);
+        return state.is(ModTags.Blocks.soulSediments);
     }
 
     @Override
@@ -25,8 +27,9 @@ public class PaleOakSaplingBlock extends SaplingBlock {
             return;
         }
 
-        if (random.nextInt(7) == 0) {
+        if (ForgeHooks.onCropsGrowPre(level,pos,state,random.nextInt(7)==0)) {
             this.advanceTree(level, pos, state, random);
+            net.minecraftforge.common.ForgeHooks.onCropsGrowPost(level, pos, state);
         }
     }
 }

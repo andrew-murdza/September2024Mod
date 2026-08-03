@@ -310,7 +310,6 @@
         "if_true": {
           "type": "minecraft:biome",
           "biome_is": [
-            "aoemod:grove",
             "aoemod:grove"
           ]
         },
@@ -452,8 +451,13 @@
                     "then_run": {
                       "type": "aoemod:bandlands",
                       "start_y": 69,
-                      "band_height": 2,
-                      "surface_depth": 4
+                      "band_height": 6,
+                      "surface_depth": 5,
+                      "biome_width": 64,
+                      "x_spacing": 64,
+                      "river_width": 7,
+                      "flat_after_river": 40,
+                      "flat_after_biome_edge": 96
                     }
                   },
                   {
@@ -605,7 +609,7 @@
       {
         "type": "minecraft:condition",
         "if_true": {
-          "type": "aoemod:biome_above",
+          "type": "minecraft:biome",
           "biome_is": [
             "aoemod:warped_forest",
             "aoemod:crimson_forest"
@@ -621,7 +625,7 @@
       {
         "type": "minecraft:condition",
         "if_true": {
-          "type": "aoemod:biome_above",
+          "type": "minecraft:biome",
           "biome_is": [
             "aoemod:basalt_deltas"
           ]
@@ -659,7 +663,7 @@
       {
         "type": "minecraft:condition",
         "if_true": {
-          "type": "aoemod:biome_above",
+          "type": "minecraft:biome",
           "biome_is": [
             "aoemod:soul_sand_valley"
           ]

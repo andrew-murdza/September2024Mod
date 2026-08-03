@@ -11,8 +11,10 @@
         "placement": []
       }
     ],
-     "target": "air",
+    "target": "air",
     "all_layers": false,
+    "max_y": 64,
+    "min_y": 64,
     "predicate": {
       "type": "minecraft:matching_blocks",
       "blocks": ["minecraft:grass_block"]

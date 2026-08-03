@@ -1,5 +1,7 @@
 {
   "values": [
-    "minecraft:bone_block"
+    "minecraft:bone_block",
+    "minecraft:moss_block",
+    "farmersdelight:rich_soil_farmland"
   ]
 }

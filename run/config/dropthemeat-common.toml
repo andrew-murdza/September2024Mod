@@ -1,0 +1,115 @@
+
+#Enable/Disable Meat
+[meat]
+	#Enable Allay Meat?
+	enableAllayMeat = false
+	#Enable Axolotl Meat?
+	enableAxolotlMeat = false
+	#Enable Bat Meat?
+	enableBatMeat = false
+	#Enable Bee Meat?
+	enableBeeMeat = false
+	#Enable Camel Meat?
+	enableCamelMeat = false
+	#Enable Cat Meat from Cats?
+	enableCatMeat = false
+	#Enable Dolphin Meat?
+	enableDolphinMeat = false
+	#Enable Horse Meat from Donkeys?
+	enableDonkeyMeat = false
+	#Enable Glow Squid Meat?
+	enableGlowSquidMeat = false
+	#Enable Fox Meat?
+	enableFoxMeat = false
+	#Enable Frog Meat?
+	enableFrogMeat = false
+	#Enable Goat Meat?
+	enableGoatMeat = false
+	#Enable Horse Meat from Horses?
+	enableHorseMeat = false
+	#Enable Iron Golem Meat?
+	enableIronGolemMeat = false
+	#Enable Llama Meat from Llamas?
+	enableLlamaMeat = false
+	#Enable Horse Meat from Mules?
+	enableMuleMeat = false
+	#Enable Cat Meat from Ocelots?
+	enableOcelotMeat = false
+	#Enable Bear Meat from Pandas?
+	enablePandaMeat = false
+	#Enable Parrot Meat?
+	enableParrotMeat = false
+	#Enable Piglin Porkchops from Piglins?
+	enablePiglinMeat = false
+	#Enable Piglin Porkchops from Pigling Brutes?
+	enablePiglinBruteMeat = false
+	#Enable Bear Meat from Polar Bears?
+	enablePolarBearMeat = false
+	#Enable Sniffer Meat?
+	enableSnifferMeat = false
+	#Enable Snow Golem Meat?
+	enableSnowGolemMeat = false
+	#Enable Squid Meat?
+	enableSquidMeat = false
+	#Enable Strider Meat?
+	enableStriderMeat = false
+	#Enable Llama Meat from Trader Llamas?
+	enableTraderLlamasMeat = false
+	#Enable Turtle Meat?
+	enableTurtleMeat = false
+	#Enable Villager Meat from Villagers? (Also affects noses)
+	enableVillagerMeat = false
+	#Enable Villager Meat from Wandering Traders? (Also affects noses)
+	enableWanderingTraderMeat = false
+	#Enable Wolf Meat?
+	enableWolfMeat = false
+
+#Enable/Disable Butcher Trades
+[trades]
+	#Enable Bear Meat Trades? (Default: True)
+	enableBearMeatTrades = false
+	#Enable Camel Meat Trades? (Default: True)
+	enableCamelMeatTrades = false
+	#Enable Fox Meat Trades? (Default: True)
+	enableFoxMeatTrades = false
+	#Enable Frog Meat Trades? (Default: True)
+	enableFrogMeatTrades = false
+	#Enable Goat Meat Trades? (Default: True)
+	enableGoatMeatTrades = false
+	#Enable Horse Meat Trades? (Default: True)
+	enableHorseMeatTrades = false
+	#Enable Llama Meat Trades? (Default: True)
+	enableLlamaMeatTrades = false
+	#Enable Squid Meat Trades? (Default: True)
+	enableSquidMeatTrades = false
+	#Enable Wolf Meat Trades? (Default: True)
+	enableWolfMeatTrades = false
+	#Enable Allay Meat Trades? (Default: False)
+	enableAllayMeatTrades = false
+	#Enable Axolotl Meat Trades? (Default: False)
+	enableAxolotlMeatTrades = false
+	#Enable Bat Meat Trades? (Default: False)
+	enableBatMeatTrades = false
+	#Enable Bee Meat Trades? (Default: False)
+	enableBeeMeatTrades = false
+	#Enable Cat Meat Trades? (Default: False)
+	enableCatMeatTrades = false
+	#Enable Dolphin Meat Trades? (Default: False)
+	enableDolphinMeatTrades = false
+	#Enable Iron Golem Meat Trades? (Default: False)
+	enableIronGolemMeatTrades = false
+	#Enable Parrot Meat Trades? (Default: False)
+	enableParrotMeatTrades = false
+	#Enable Piglin Porkchop Trades? (Default: False)
+	enablePiglinPorkchopTrades = false
+	#Enable Sniffer Meat Trades? (Default: False)
+	enableSnifferMeatTrades = false
+	#Enable Snow Golem Meat Trades? (Default: False)
+	enableSnowGolemMeatTrades = false
+	#Enable Strider Meat Trades? (Default: False)
+	enableStriderMeatTrades = false
+	#Enable Turtle Meat Trades? (Default: False)
+	enableTurtleMeatTrades = false
+	#Enable Villager Meat Trades? (Default: False)
+	enableVillagerMeatTrades = false
+

@@ -18,17 +18,8 @@
     "target": "water",
     "all_layers": false,
     "predicate": {
-      "type": "minecraft:any_of",
-      "predicates": [
-        {
-          "type": "minecraft:matching_blocks",
-          "blocks": "minecraft:moss_block"
-        },
-        {
-          "type": "minecraft:matching_block_tag",
-          "tag": "minecraft:coral_blocks"
-        }
-      ]
+      "type": "minecraft:has_sturdy_face",
+      "direction": "up"
     }
   }
 }

@@ -13,6 +13,10 @@ public class NoMobBurningInTropical {
     private void aoemod$noFireInTropicalBiomes(int seconds, CallbackInfo ci) {
         Entity entity = (Entity)(Object)this;
 
+        if (entity.isInLava()) {
+            return;
+        }
+
         if (entity.level().getBiome(entity.blockPosition()).is(ModTags.Biomes.tropicalBiomes)) {
             entity.clearFire();
             ci.cancel();
@@ -22,6 +26,10 @@ public class NoMobBurningInTropical {
     @Inject(method = "setRemainingFireTicks", at = @At("HEAD"), cancellable = true)
     private void aoemod$noFireTicksInTropicalBiomes(int ticks, CallbackInfo ci) {
         Entity entity = (Entity)(Object)this;
+
+        if (entity.isInLava()) {
+            return;
+        }
 
         if (ticks > 0 && entity.level().getBiome(entity.blockPosition()).is(ModTags.Biomes.tropicalBiomes)) {
             entity.clearFire();

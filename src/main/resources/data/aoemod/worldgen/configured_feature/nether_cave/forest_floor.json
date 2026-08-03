@@ -4,6 +4,31 @@
     "features": [
       {
         "feature": {
+          "feature": "aoemod:desert/floor/forest_floor",
+          "placement": []
+        },
+        "guaranteed_features": [
+          {
+            "feature": "aoemod:desert/floor/grid_choice",
+            "placement": []
+          }
+        ],
+        "target": "air",
+        "skip_height": 30,
+        "min_y": 168,
+        "max_y": 212,
+        "all_layers": true,
+        "predicate": {
+          "type": "minecraft:matching_blocks",
+          "blocks": [
+            "minecraft:sand",
+            "minecraft:red_sand"
+          ]
+        },
+        "biomes": "aoemod:desert_biomes"
+      },
+      {
+        "feature": {
           "feature": "aoemod:nothing",
           "placement": []
         },
@@ -15,17 +40,14 @@
         ],
         "target": "air",
         "skip_height": 30,
-        "min_y": 56,
-        "max_y": 62,
+        "min_y": 168,
+        "max_y": 212,
         "all_layers": true,
         "predicate": {
-          "type": "minecraft:matching_blocks",
-          "blocks": [
-            "minecraft:deepslate",
-            "minecraft:clay",
-            "minecraft:stone"
-          ]
-        }
+          "type": "minecraft:has_sturdy_face",
+          "direction": "up"
+        },
+        "biomes": "aoemod:desert_biomes"
       },
       {
         "feature": {
@@ -44,13 +66,14 @@
         ],
         "target": "air",
         "skip_height": 30,
-        "min_y": 32,
-        "max_y": 55,
+        "min_y": 122,
+        "max_y": 176,
         "all_layers": true,
         "predicate": {
-          "type": "minecraft:matching_blocks",
-          "blocks": "minecraft:sculk"
-        }
+          "type": "minecraft:has_sturdy_face",
+          "direction": "up"
+        },
+        "biomes": "aoemod:deep_dark_biomes"
       },
       {
         "feature": {
@@ -65,13 +88,14 @@
         ],
         "target": "air",
         "skip_height": 30,
-        "min_y": 8,
-        "max_y": 31,
+        "min_y": 79,
+        "max_y": 133,
         "all_layers": true,
         "predicate": {
-          "type": "minecraft:matching_block_tag",
-          "tag": "aoemod:soul_sediments"
-        }
+          "type": "minecraft:has_sturdy_face",
+          "direction": "up"
+        },
+        "biomes": "aoemod:soul_sand_valley_biomes"
       },
       {
         "feature": {
@@ -86,13 +110,14 @@
         ],
         "target": "air",
         "skip_height": 30,
-        "min_y": -16,
-        "max_y": 7,
+        "min_y": 36,
+        "max_y": 90,
         "all_layers": true,
         "predicate": {
-          "type": "minecraft:matching_blocks",
-          "blocks": "minecraft:warped_nylium"
-        }
+          "type": "minecraft:has_sturdy_face",
+          "direction": "up"
+        },
+        "biomes": "aoemod:warped_forest_biomes"
       },
       {
         "feature": {
@@ -111,28 +136,15 @@
         ],
         "target": "air",
         "skip_height": 30,
-        "min_y": -40,
-        "max_y": -17,
+        "min_y": -7,
+        "max_y": 47,
         "all_layers": true,
         "predicate": {
-          "type": "minecraft:matching_blocks",
-          "blocks": "minecraft:crimson_nylium"
-        }
-      }//,
-//      {
-//        "feature": {
-//          "feature": "aoemod:basalt_deltas/floor/forest_floor",
-//          "placement": []
-//        },
-//        "target": "air",
-//        "skip_height": 30,
-//        "max_y": -41,
-//        "all_layers": true,
-//        "predicate": {
-//          "type": "minecraft:matching_block_tag",
-//          "tag": "aoemod:basalt_stones"
-//        }
-//      }
+          "type": "minecraft:has_sturdy_face",
+          "direction": "up"
+        },
+        "biomes": "aoemod:crimson_forest_biomes"
+      }
     ]
   }
 }

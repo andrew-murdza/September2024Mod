@@ -98,12 +98,8 @@ public class SpearItem extends TieredItem {
         }
 
         double relativeSpeed = user.getDeltaMovement().subtract(target.getDeltaMovement()).length() * 20.0D;
-        if (relativeSpeed < this.damageThreshold) {
-            return;
-        }
-
         float damage = 1.0F + this.tier.getAttackDamageBonus()
-                + (float) ((relativeSpeed - this.damageThreshold) * this.damageMultiplier);
+                + (float) (Math.max(0.0D, relativeSpeed - this.damageThreshold) * this.damageMultiplier);
         boolean hurt = target.hurt(user instanceof Player player
                         ? level.damageSources().playerAttack(player)
                         : level.damageSources().mobAttack(user),

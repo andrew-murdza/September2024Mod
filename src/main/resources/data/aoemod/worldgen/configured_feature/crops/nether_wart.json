@@ -37,8 +37,9 @@
         }
       ]
     },
-    "count": 9,
+    "count": 7,
     "xz_spread": 3,
-    "y_spread": 1
+    "y_spread": 1,
+    "ring_side": "inner_nether_cave_ring"
   }
 }

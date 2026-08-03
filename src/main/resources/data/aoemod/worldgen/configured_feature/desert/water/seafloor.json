@@ -14,8 +14,7 @@
     "predicate": {
       "type": "minecraft:matching_blocks",
       "blocks": [
-        "minecraft:sand",
-        "minecraft:red_sand"
+        "minecraft:sand"
       ]
     },
     "biomes": "aoemod:desert_biomes"

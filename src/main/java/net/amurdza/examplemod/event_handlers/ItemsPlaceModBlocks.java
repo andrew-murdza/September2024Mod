@@ -4,8 +4,10 @@ import net.amurdza.examplemod.AOEMod;
 import net.amurdza.examplemod.registry.ModBlocks;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.context.BlockPlaceContext;
@@ -18,9 +20,11 @@ import net.minecraftforge.event.entity.player.PlayerInteractEvent;
 import net.minecraftforge.eventbus.api.Event;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.registries.ForgeRegistries;
 
 @Mod.EventBusSubscriber(modid = AOEMod.MOD_ID)
 public class ItemsPlaceModBlocks {
+    private static final ResourceLocation FRUITS_DELIGHT_BLUEBERRY = new ResourceLocation("fruitsdelight", "blueberry");
 
     @SubscribeEvent
     public static void sunflowerPlace1(PlayerInteractEvent.RightClickBlock event) {
@@ -28,7 +32,7 @@ public class ItemsPlaceModBlocks {
         Level level = event.getLevel();
         ItemStack stack = event.getItemStack();
 
-        if(!stack.is(Items.SUNFLOWER)&&stack.is(Items.SWEET_BERRIES)&&stack.is(Items.GLOW_LICHEN)){
+        if(!stack.is(Items.SUNFLOWER) && !isFruitsDelightBlueberry(stack)){
             return;
         }
 
@@ -46,6 +50,9 @@ public class ItemsPlaceModBlocks {
             state = ModBlocks.SUNFLOWER.get().defaultBlockState()
                     .setValue(DoublePlantBlock.HALF, DoubleBlockHalf.LOWER)
                     .setValue(HorizontalDirectionalBlock.FACING, facing);
+        }
+        else if (isFruitsDelightBlueberry(stack)) {
+            state = ModBlocks.BLUE_BERRY_BUSH.get().defaultBlockState();
         }
         else {
             return;
@@ -72,10 +79,19 @@ public class ItemsPlaceModBlocks {
             return;
         }
 
-        DoublePlantBlock.placeAt(level, state, pos, 3);
+        if (stack.is(Items.SUNFLOWER)) {
+            DoublePlantBlock.placeAt(level, state, pos, 3);
+        } else {
+            level.setBlock(pos, state, 3);
+        }
 
         if (!player.getAbilities().instabuild) {
             stack.shrink(1);
         }
+    }
+
+    private static boolean isFruitsDelightBlueberry(ItemStack stack) {
+        Item item = ForgeRegistries.ITEMS.getValue(FRUITS_DELIGHT_BLUEBERRY);
+        return item != null && stack.is(item);
     }
 }

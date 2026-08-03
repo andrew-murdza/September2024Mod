@@ -23,7 +23,9 @@
     [],
     [],
     [],
-    [],
+    [
+      "aoemod:mushroom_cave_chunk"
+    ],
     [],
     [],
     [
@@ -65,44 +67,7 @@
       }
     ],
     "axolotls": [],
-    "creature": [
-      {
-        "type": "minecraft:mooshroom",
-        "weight": 10,
-        "minCount": 2,
-        "maxCount": 5
-      },
-      {
-        "type": "alexsmobs:moose",
-        "weight": 10,
-        "minCount": 2,
-        "maxCount": 5
-      },
-      {
-        "type": "minecraft:rabbit",
-        "weight": 10,
-        "minCount": 2,
-        "maxCount": 5
-      },
-      {
-        "type": "minecraft:fox",
-        "weight": 10,
-        "minCount": 2,
-        "maxCount": 5
-      },
-      {
-        "type": "minecraft:goat",
-        "weight": 10,
-        "minCount": 2,
-        "maxCount": 5
-      },
-      {
-        "type": "minecraft:polar_bear",
-        "weight": 10,
-        "minCount": 2,
-        "maxCount": 5
-      }
-    ],
+    "creature": [],
     "misc": [],
     "monster": [
       {

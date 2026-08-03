@@ -1,5 +1,6 @@
 package net.amurdza.examplemod.event_handlers;
 
+import com.github.alexthe666.alexsmobs.entity.AMEntityRegistry;
 import net.amurdza.examplemod.AOEMod;
 import net.amurdza.examplemod.mixins.accessor.EntityTypeCategoryAccessor;
 import net.minecraft.world.entity.EntityType;
@@ -15,6 +16,9 @@ public class MobCategoryChanges {
     public static void commonSetup(FMLCommonSetupEvent event) {
         event.enqueueWork(() -> {
             setCategory(EntityType.HOGLIN, MobCategory.CREATURE);
+            setCategory(EntityType.STRIDER, MobCategory.CREATURE);
+            setCategory(EntityType.MOOSHROOM, MobCategory.CREATURE);
+            setCategory(AMEntityRegistry.WARPED_TOAD.get(), MobCategory.CREATURE);
         });
     }
 

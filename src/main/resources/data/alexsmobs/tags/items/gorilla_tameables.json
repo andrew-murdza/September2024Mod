@@ -1,9 +1,6 @@
 {
-  "replace": false,
+  "replace": true,
   "values": [
-    "#minecraft:leaves",
-    "minecraft:sugar_cane",
-    "minecraft:apple",
-    "minecraft:bamboo"
+    "#aoemod:leaf_fruits"
   ]
 }

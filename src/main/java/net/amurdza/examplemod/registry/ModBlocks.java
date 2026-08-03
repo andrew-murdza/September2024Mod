@@ -10,6 +10,7 @@ import net.minecraft.world.level.block.state.properties.BlockSetType;
 import net.minecraft.world.level.block.state.properties.WoodType;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.material.MapColor;
+import net.minecraft.world.level.material.PushReaction;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
@@ -22,8 +23,8 @@ public class ModBlocks {
     public static final DeferredRegister<Block> BLOCKS= DeferredRegister.create(ForgeRegistries.BLOCKS, AOEMod.MOD_ID);
 
     public static final RegistryObject<Block> SOUL_BERRY_BUSH = registerBlock("soul_berry_bush", ()->new SoulBerryBushBlock(BlockBehaviour.Properties.copy(Blocks.SWEET_BERRY_BUSH)));
-    public static final RegistryObject<Block> BLUE_BERRY_BUSH = registerBlock("blue_berry_bush", () -> new BlueBerryBushBlock(BlockBehaviour.Properties.copy(Blocks.SWEET_BERRY_BUSH)));
     public static final RegistryObject<Block> JUNGLE_SWEET_BERRY_BUSH = registerBlock("jungle_sweet_berry_bush", () -> new SweetBerryBushBlock(BlockBehaviour.Properties.copy(Blocks.SWEET_BERRY_BUSH)));
+    public static final RegistryObject<Block> BLUE_BERRY_BUSH = registerBlock("blue_berry_bush", () -> new BlueBerryBushBlock(BlockBehaviour.Properties.copy(Blocks.SWEET_BERRY_BUSH)));
     public static final RegistryObject<Block> ASHEN_WHEAT_CROP = registerBlock("ashen_wheat", () -> new AshenWheatCropBlock(BlockBehaviour.Properties.copy(Blocks.WHEAT)));
     public static final RegistryObject<Block> BASALT_QUARTZ_ORE = registerBlockAndItem("basalt_quartz_ore", ()->new DropExperiencePillarBlock(BlockBehaviour.Properties.copy(Blocks.NETHER_QUARTZ_ORE).mapColor(MapColor.COLOR_BLACK), UniformInt.of(3, 7)));
     public static final RegistryObject<Block> BLACKSTONE_QUARTZ_ORE = registerBlockAndItem("blackstone_quartz_ore", ()->new DropExperienceBlock(BlockBehaviour.Properties.copy(Blocks.BASALT).mapColor(MapColor.COLOR_BLACK), UniformInt.of(3, 7)));
@@ -41,11 +42,23 @@ public class ModBlocks {
     public static final RegistryObject<Block> DESERT_TALL_GRASS = registerBlockAndItem("desert_tallgrass", ()->new DesertTallGrassBlock(BlockBehaviour.Properties.copy(Blocks.TALL_GRASS).mapColor(MapColor.SAND)));
 
     public static final RegistryObject<Block> PALE_MOSS_BLOCK = registerBlockAndItem("pale_moss_block",
-            () -> new PaleMossBlock(BlockBehaviour.Properties.copy(Blocks.MOSS_BLOCK)));
+            () -> new PaleMossBlock(BlockBehaviour.Properties.of()
+                    .mapColor(MapColor.PLANT)
+                    .strength(0.1F)
+                    .sound(SoundType.MOSS)));
     public static final RegistryObject<Block> PALE_MOSS_CARPET = registerBlockAndItem("pale_moss_carpet",
-            () -> new CarpetBlock(BlockBehaviour.Properties.copy(Blocks.MOSS_CARPET)));
+            () -> new CarpetBlock(BlockBehaviour.Properties.of()
+                    .mapColor(MapColor.PLANT)
+                    .strength(0.1F)
+                    .sound(SoundType.MOSS_CARPET)
+                    .noOcclusion()));
     public static final RegistryObject<Block> PALE_HANGING_MOSS = registerBlockAndItem("pale_hanging_moss",
-            () -> new PaleHangingMossBlock(BlockBehaviour.Properties.copy(Blocks.VINE).sound(SoundType.MOSS_CARPET)));
+            () -> new PaleHangingMossBlock(BlockBehaviour.Properties.of()
+                    .mapColor(MapColor.PLANT)
+                    .noCollission()
+                    .instabreak()
+                    .sound(SoundType.MOSS_CARPET)
+                    .noOcclusion()));
     public static final RegistryObject<Block> OPEN_EYEBLOSSOM = registerBlockAndItem("open_eyeblossom",
             () -> new EyeblossomBlock(true, BlockBehaviour.Properties.copy(Blocks.POPPY).randomTicks().lightLevel(state -> 3)));
     public static final RegistryObject<Block> CLOSED_EYEBLOSSOM = registerBlockAndItem("closed_eyeblossom",
@@ -88,7 +101,7 @@ public class ModBlocks {
                     .isSuffocating((state, level, pos) -> false)
                     .isViewBlocking((state, level, pos) -> false)));
     public static final RegistryObject<PaleOakSaplingBlock> PALE_OAK_SAPLING = registerBlockAndItem("pale_oak_sapling",
-            () -> new PaleOakSaplingBlock(BlockBehaviour.Properties.copy(Blocks.CRIMSON_FUNGUS).randomTicks()));
+            () -> new PaleOakSaplingBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_BROWN).instabreak().noCollission().sound(SoundType.GRASS).pushReaction(PushReaction.DESTROY).randomTicks()));
 
     public static final RegistryObject<ChainBlock> COPPER_CHAIN = registerBlockAndItem("copper_chain",
             () -> new ChainBlock(BlockBehaviour.Properties.copy(Blocks.CHAIN).mapColor(MapColor.COLOR_ORANGE)));

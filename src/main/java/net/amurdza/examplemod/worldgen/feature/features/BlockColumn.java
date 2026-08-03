@@ -29,6 +29,11 @@ public class BlockColumn extends BlockColumnFeature {
             return false;
         } else {
             BlockPos.MutableBlockPos blockpos$mutableblockpos1 = pContext.origin().mutable();
+
+            if (!worldgenlevel.getBlockState(blockpos$mutableblockpos1).canBeReplaced()) {
+                return false;
+            }
+
             BlockPos.MutableBlockPos blockpos$mutableblockpos = blockpos$mutableblockpos1.mutable().move(blockcolumnconfiguration.direction());
 
             for(int l = 0; l < j; ++l) {
@@ -40,6 +45,8 @@ public class BlockColumn extends BlockColumnFeature {
                 blockpos$mutableblockpos.move(blockcolumnconfiguration.direction());
             }
 
+            boolean placedAny = false;
+
             for(int k1 = 0; k1 < i; ++k1) {
                 int i1 = aint[k1];
                 if (i1 != 0) {
@@ -47,12 +54,13 @@ public class BlockColumn extends BlockColumnFeature {
 
                     for(int j1 = 0; j1 < i1; ++j1) {
                         worldgenlevel.setBlock(blockpos$mutableblockpos1, blockcolumnconfiguration$layer.state().getState(randomsource, blockpos$mutableblockpos1), 2);
+                        placedAny = true;
                         blockpos$mutableblockpos1.move(blockcolumnconfiguration.direction());
                     }
                 }
             }
 
-            return true;
+            return placedAny;
         }
     }
     private static void truncate(int[] pLayerHeights, int pTotalHeight, int pCurrentHeight, boolean pPrioritizeTip) {

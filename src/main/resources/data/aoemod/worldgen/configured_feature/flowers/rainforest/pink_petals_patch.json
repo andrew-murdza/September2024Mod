@@ -1,4 +1,4 @@
-{
+﻿{
   "type": "aoemod:chunk_patch",
   "config": {
     "feature": {
@@ -37,7 +37,7 @@
         }
       ]
     },
-    "count": 32,
+    "count": 8,
     "y_spread": 0
   }
 }

@@ -4,6 +4,6 @@
   "z0": 0,
   "continents": "aoemod:continents",
   "biome_width": 64,
-  "width": 6,
-  "x_spacing": 30
+  "width": 7,
+  "x_spacing": 64
 }

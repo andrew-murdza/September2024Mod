@@ -3,6 +3,7 @@ package net.amurdza.examplemod.registry;
 import com.github.alexthe666.alexsmobs.item.ItemModFishBucket;
 import net.amurdza.examplemod.AOEMod;
 import net.amurdza.examplemod.item.CopperArmorMaterial;
+import net.amurdza.examplemod.item.MaceItem;
 import net.amurdza.examplemod.item.ModToolTiers;
 import net.amurdza.examplemod.item.SpearItem;
 import net.minecraft.world.food.FoodProperties;
@@ -93,8 +94,8 @@ public class ModItems {
             () -> new Item(new Item.Properties().food(Foods.PUMPKIN_PIE))
     );
 
-    public static final RegistryObject<Item> MANGO_PIE = ITEMS.register(
-            "mango_pie",
+    public static final RegistryObject<Item> ORANGE_PIE = ITEMS.register(
+            "orange_pie",
             () -> new Item(new Item.Properties().food(Foods.PUMPKIN_PIE))
     );
 
@@ -188,6 +189,16 @@ public class ModItems {
     public static final RegistryObject<Item> BONE_ARROW = ITEMS.register(
             "bone_arrow",
             () -> new ArrowItem(new Item.Properties())
+    );
+
+    public static final RegistryObject<Item> BREEZE_ROD = ITEMS.register(
+            "breeze_rod",
+            () -> new Item(new Item.Properties())
+    );
+
+    public static final RegistryObject<Item> MACE = ITEMS.register(
+            "mace",
+            () -> new MaceItem(new Item.Properties().durability(500))
     );
 
     public static final RegistryObject<Item> BONE_SWORD = ITEMS.register(

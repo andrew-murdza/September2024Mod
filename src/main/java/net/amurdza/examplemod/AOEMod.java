@@ -5,12 +5,14 @@ import net.amurdza.examplemod.config.BlockConfig;
 import net.amurdza.examplemod.config.MobConfig;
 import net.amurdza.examplemod.registry.ModBlocks;
 import net.amurdza.examplemod.registry.ModCreativeTabs;
+import net.amurdza.examplemod.registry.ModEnchantments;
 import net.amurdza.examplemod.registry.ModEntities;
 import net.amurdza.examplemod.config.BlockGrowthConfig;
 import net.amurdza.examplemod.registry.ModItems;
 import net.amurdza.examplemod.item.ModToolTiers;
 import net.amurdza.examplemod.mixins.accessor.MobsSpawnOnGlowingMoss;
 import net.amurdza.examplemod.mixins.accessor.MobsSpawnOnGlowingMoss1;
+import net.amurdza.examplemod.mixins.accessor.BlockStateBaseAccessor;
 import net.amurdza.examplemod.mixins.accessor.FireBlockAccessor;
 import net.amurdza.examplemod.registry.ModDensityFunctions;
 import net.amurdza.examplemod.registry.ModFeatures;
@@ -64,6 +66,7 @@ public class AOEMod
 
         //custom items
         ModItems.register(modEventBus);
+        ModEnchantments.register(modEventBus);
 
         //custom blocks
         ModBlocks.register(modEventBus);
@@ -92,8 +95,8 @@ public class AOEMod
             MobConfig.init();
 
             FireBlockAccessor fire = (FireBlockAccessor) Blocks.FIRE;
-            setFlammable(fire, ModBlocks.PALE_MOSS_BLOCK.get(), 30, 100);
-            setFlammable(fire, ModBlocks.PALE_MOSS_CARPET.get(), 60, 100);
+            setNotFlammable(fire, ModBlocks.PALE_MOSS_BLOCK.get());
+            setNotFlammable(fire, ModBlocks.PALE_MOSS_CARPET.get());
             setNotFlammable(fire, ModBlocks.PALE_HANGING_MOSS.get());
             setNotFlammable(fire, ForgeRegistries.BLOCKS.getValue(new ResourceLocation("nourished_nether", "soul_weeds")));
 
@@ -123,7 +126,14 @@ public class AOEMod
     }
 
     private static void setNotFlammable(FireBlockAccessor fire, Block block) {
+        if (block == null || block == Blocks.AIR) {
+            return;
+        }
+
         setFlammable(fire, block, 0, 0);
+        block.getStateDefinition().getPossibleStates().forEach(state ->
+                ((BlockStateBaseAccessor) state).aoemod$setIgnitedByLava(false)
+        );
     }
 
     private static void makeLeafLikeForMobSpawning(Block block) {
@@ -208,7 +218,7 @@ public class AOEMod
             // pies
             event.accept(ModItems.MELON_PIE.get());
             event.accept(ModItems.GLOW_BERRY_PIE.get());
-            event.accept(ModItems.MANGO_PIE.get());
+            event.accept(ModItems.ORANGE_PIE.get());
             event.accept(ModItems.PEAR_PIE.get());
             event.accept(ModItems.BANANA_PIE.get());
             event.accept(ModItems.PLUM_PIE.get());
@@ -241,6 +251,8 @@ public class AOEMod
             event.accept(ModItems.BONE_AXE.get());
             event.accept(ModItems.BONE_ARROW.get());
             event.accept(ModItems.BONE_SWORD.get());
+            event.accept(ModItems.BREEZE_ROD.get());
+            event.accept(ModItems.MACE.get());
             event.accept(ModItems.COPPER_SWORD.get());
             event.accept(ModItems.COPPER_AXE.get());
             event.accept(ModItems.COPPER_HELMET.get());
@@ -301,6 +313,7 @@ public class AOEMod
                 ItemBlockRenderTypes.setRenderLayer(ModBlocks.PALE_HANGING_MOSS.get(), RenderType.cutout());
                 ItemBlockRenderTypes.setRenderLayer(ModBlocks.OPEN_EYEBLOSSOM.get(), RenderType.cutout());
                 ItemBlockRenderTypes.setRenderLayer(ModBlocks.CLOSED_EYEBLOSSOM.get(), RenderType.cutout());
+                ItemBlockRenderTypes.setRenderLayer(ModBlocks.JUNGLE_SWEET_BERRY_BUSH.get(), RenderType.cutout());
                 ItemBlockRenderTypes.setRenderLayer(ModBlocks.BLUE_BERRY_BUSH.get(), RenderType.cutout());
                 ItemBlockRenderTypes.setRenderLayer(ModBlocks.ASHEN_WHEAT_CROP.get(), RenderType.cutout());
                 ItemBlockRenderTypes.setRenderLayer(ModBlocks.PALE_OAK_DOOR.get(), RenderType.cutout());

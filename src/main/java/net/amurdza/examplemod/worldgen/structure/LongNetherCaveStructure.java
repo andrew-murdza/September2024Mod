@@ -179,13 +179,13 @@ public class LongNetherCaveStructure extends Structure {
         int tunnelStartY = this.startY + Mth.ceil(this.verticalRadius + 1.5F);
 
         BlockPos origin = new BlockPos(
-                chunkPos.getMiddleBlockX(),
+                chunkPos.getMinBlockX(),
                 tunnelStartY,
-                chunkPos.getMiddleBlockZ()
+                chunkPos.getMinBlockZ()
         );
 
         return Optional.of(new GenerationStub(
-                new BlockPos(chunkPos.getMiddleBlockX(), tunnelStartY, chunkPos.getMiddleBlockZ()),
+                origin,
                 builder -> builder.addPiece(new NetherCavePiece(
                         origin,
                         context.random().nextLong(),

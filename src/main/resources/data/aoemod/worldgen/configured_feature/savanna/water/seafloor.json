@@ -12,11 +12,8 @@
     "target": "water",
     "all_layers": false,
     "predicate": {
-      "type": "minecraft:matching_blocks",
-      "blocks": [
-        "minecraft:mud",
-        "minecraft:wet_sponge"
-      ]
+      "type": "minecraft:has_sturdy_face",
+      "direction": "up"
     },
     "biomes": "aoemod:savanna_biomes"
   }

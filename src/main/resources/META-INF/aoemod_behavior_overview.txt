@@ -37,7 +37,7 @@ The custom noise settings aoemod:aoedim use custom density functions for contine
 The mod registers custom density functions:
 
 - aoemod:continents creates large repeating biome/continent bands.
-- aoemod:rivers creates repeating radial/vertical river cuts based heavily on chunk X position.
+- aoemod:rivers creates repeating north-south cuts plus east-west cuts at the paired jungle and badlands midpoints.
 - aoemod:offset creates biome/region-specific vertical offsets, including terrain stepping around transition areas.
 
 The terrain is divided into custom bands/regions such as jungle, savanna, plains, mountains/grove, desert, deep dark, soul sand valley, warped forest, crimson forest, and basalt deltas. Several features and mob spawns depend on these biome bands.
@@ -373,7 +373,7 @@ Food items and recipes:
 
 - melon_pie
 - glow_berry_pie
-- mango_pie
+- orange_pie
 - pear_pie
 - cherry_pie
 - banana_pie
@@ -809,7 +809,7 @@ Cooking recipes include:
 
 Food crafting includes:
 
-- Pies such as melon pie, glow berry pie, banana pie, mango pie, pear pie, plum pie, and cherry pie.
+- Pies such as melon pie, glow berry pie, banana pie, orange pie, pear pie, plum pie, and cherry pie.
 - Cookies such as soul berry cookie and blue berry cookie.
 - Breads such as ashen bread.
 - Wraps/rolls such as searing cod roll and nether fish kelp roll.
@@ -876,7 +876,7 @@ Farmer's Delight:
 
 Fruits Delight:
 
-- Pear, plum, mango, cherries, and blueberries are preferred over older custom fruit equivalents where configured.
+- Pear, plum, orange, cherries, and blueberries are preferred over older custom fruit equivalents where configured.
 - Blue berry bush/item behavior uses Fruits Delight blueberry as the item.
 
 Ice and Fire:

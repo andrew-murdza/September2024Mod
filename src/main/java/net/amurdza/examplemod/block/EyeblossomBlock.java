@@ -1,6 +1,7 @@
 package net.amurdza.examplemod.block;
 
 import net.amurdza.examplemod.registry.ModBlocks;
+import net.amurdza.examplemod.util.ModTags;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.server.level.ServerLevel;
@@ -81,6 +82,6 @@ public class EyeblossomBlock extends FlowerBlock {
 
     @Override
     protected boolean mayPlaceOn(BlockState state, BlockGetter level, BlockPos pos) {
-        return state.is(Blocks.SOUL_SAND) || state.is(Blocks.SOUL_SOIL) || super.mayPlaceOn(state, level, pos);
+        return state.is(ModTags.Blocks.soulSediments);
     }
 }

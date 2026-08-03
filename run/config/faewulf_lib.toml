@@ -1,0 +1,27 @@
+[Client]
+
+# Group: Others
+"Boolean" = true
+
+# Group: With long field name
+"Boolean With not so very very very long name" = true
+"Enum type with very very very very long name" = "LOW"
+"Enum type" = "LOW"
+
+# Group: Number option
+"Int Slider" = 50
+"Int value" = 10
+"Slider Int option with long name" = 100
+"Int number with long name" = 100
+
+[Server]
+
+# Group: Others
+"Boolean with caution" = false			# This is an example info
+
+[style]
+
+# Group: Others
+"Hidden value 1" = "default"
+"Hidden value 2" = "default"
+

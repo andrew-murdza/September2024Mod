@@ -15,17 +15,16 @@ public class BoneMealConfig {
     }
 
     static {
-        registerBiome(ModTags.Biomes.tropicalBiomes, 3.0f, 1.5f);
-        registerBiome(ModTags.Biomes.savannaBiomes, 2.0f, 1.0f);
-        registerBiome(ModTags.Biomes.plainsBiomes, 1.0f, 1.0f);
-        registerBiome(ModTags.Biomes.mushroomCaves, 0.5f, 2.0f);
-        registerBiome(ModTags.Biomes.mountainBiomes, 0.5f, 1.0f);
-        registerBiome(ModTags.Biomes.desertBiomes, 0.2f, 0.6f);
-        registerBiome(ModTags.Biomes.deepDarkBiomes, 0.2f, 0.2f);
-        registerBiome(ModTags.Biomes.soulSandValleyBiomes, 0.2f, 0.1f);
-        registerBiome(ModTags.Biomes.warpedForestBiomes, 0.3f, 0.15f);
-        registerBiome(ModTags.Biomes.crimsonForestBiomes, 0.3f, 0.15f);
-        registerBiome(ModTags.Biomes.basaltDeltasBiomes, 0.2f, 0.1f);
+        registerBiome(ModTags.Biomes.tropicalBiomes, 3, 1.5f);
+        registerBiome(ModTags.Biomes.savannaBiomes, 2, 1);
+        registerBiome(ModTags.Biomes.plainsBiomes, 1, 1);
+        registerBiome(ModTags.Biomes.mountainBiomes, 1, 2);
+        registerBiome(ModTags.Biomes.desertBiomes, 1, 1);
+        registerBiome(ModTags.Biomes.deepDarkBiomes, 1, 1);
+        registerBiome(ModTags.Biomes.soulSandValleyBiomes, 1, 1);
+        registerBiome(ModTags.Biomes.warpedForestBiomes, 1, 1);
+        registerBiome(ModTags.Biomes.crimsonForestBiomes, 1, 1);
+        registerBiome(ModTags.Biomes.basaltDeltasBiomes, 1, 1);
     }
 
     public record BiomeBonemealMultipliers(float plant, float mushroom) {}

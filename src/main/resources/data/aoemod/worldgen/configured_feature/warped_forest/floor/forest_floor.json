@@ -5,13 +5,13 @@
       {
         "type": "minecraft:block_predicate_filter",
         "predicate": {
-          "type": "minecraft:matching_blocks",
+          "type": "minecraft:has_sturdy_face",
           "offset": [
             0,
             -1,
             0
           ],
-          "blocks": "minecraft:warped_nylium"
+          "direction": "up"
         }
       }
     ],

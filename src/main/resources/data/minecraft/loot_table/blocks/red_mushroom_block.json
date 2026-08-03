@@ -175,7 +175,7 @@
         {
           "condition": "minecraft:location_check",
           "predicate": {
-            "biome": "#aoemod:mushroom_caves"
+            "biome": "#aoemod:mountain_biomes"
           }
         }
       ]
@@ -240,7 +240,7 @@
         {
           "condition": "minecraft:location_check",
           "predicate": {
-            "biome": "#aoemod:mushroom_caves"
+            "biome": "#aoemod:mountain_biomes"
           }
         },
         {
@@ -330,7 +330,7 @@
           "term": {
             "condition": "minecraft:location_check",
             "predicate": {
-              "biome": "#aoemod:mushroom_caves"
+              "biome": "#aoemod:mountain_biomes"
             }
           }
         }
@@ -407,7 +407,7 @@
           "term": {
             "condition": "minecraft:location_check",
             "predicate": {
-              "biome": "#aoemod:mushroom_caves"
+              "biome": "#aoemod:mountain_biomes"
             }
           }
         },

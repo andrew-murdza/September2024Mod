@@ -9,11 +9,29 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.block.state.BlockState;
 
+import java.util.function.Supplier;
+
 public final class NetheriteIronStats {
+    private static final ThreadLocal<Boolean> BYPASS_EQUIVALENT_OVERRIDES =
+            ThreadLocal.withInitial(() -> false);
+
     private NetheriteIronStats() {
     }
 
     public static Item ironEquivalent(Item item) {
+        return statEquivalent(item);
+    }
+
+    public static Item statEquivalent(Item item) {
+        if (item == Items.DIAMOND_SWORD) return Items.NETHERITE_SWORD;
+        if (item == Items.DIAMOND_SHOVEL) return Items.NETHERITE_SHOVEL;
+        if (item == Items.DIAMOND_PICKAXE) return Items.NETHERITE_PICKAXE;
+        if (item == Items.DIAMOND_AXE) return Items.NETHERITE_AXE;
+        if (item == Items.DIAMOND_HOE) return Items.NETHERITE_HOE;
+        if (item == Items.DIAMOND_HELMET) return Items.NETHERITE_HELMET;
+        if (item == Items.DIAMOND_CHESTPLATE) return Items.NETHERITE_CHESTPLATE;
+        if (item == Items.DIAMOND_LEGGINGS) return Items.NETHERITE_LEGGINGS;
+        if (item == Items.DIAMOND_BOOTS) return Items.NETHERITE_BOOTS;
         if (item == Items.NETHERITE_SWORD) return Items.IRON_SWORD;
         if (item == Items.NETHERITE_SHOVEL) return Items.IRON_SHOVEL;
         if (item == Items.NETHERITE_PICKAXE) return Items.IRON_PICKAXE;
@@ -27,17 +45,57 @@ public final class NetheriteIronStats {
     }
 
     public static Integer maxDamage(ItemStack stack) {
-        Item equivalent = ironEquivalent(stack.getItem());
-        return equivalent == null ? null : equivalent.getDefaultInstance().getMaxDamage();
+        if (isBypassingEquivalentOverrides()) {
+            return null;
+        }
+
+        Item equivalent = statEquivalent(stack.getItem());
+        return equivalent == null ? null : withoutEquivalentOverrides(() -> equivalent.getDefaultInstance().getMaxDamage());
+    }
+
+    public static Integer enchantmentValue(ItemStack stack) {
+        return enchantmentValue(stack.getItem());
+    }
+
+    public static Integer enchantmentValue(Item item) {
+        if (isBypassingEquivalentOverrides()) {
+            return null;
+        }
+
+        Item equivalent = statEquivalent(item);
+        return equivalent == null ? null : withoutEquivalentOverrides(() -> equivalent.getDefaultInstance().getEnchantmentValue());
     }
 
     public static Float destroySpeed(ItemStack stack, BlockState state) {
-        Item equivalent = ironEquivalent(stack.getItem());
-        return equivalent == null ? null : equivalent.getDefaultInstance().getDestroySpeed(state);
+        if (isBypassingEquivalentOverrides()) {
+            return null;
+        }
+
+        Item equivalent = statEquivalent(stack.getItem());
+        return equivalent == null ? null : withoutEquivalentOverrides(() -> equivalent.getDefaultInstance().getDestroySpeed(state));
     }
 
     public static Multimap<Attribute, AttributeModifier> defaultAttributes(Item item, EquipmentSlot slot) {
-        Item equivalent = ironEquivalent(item);
-        return equivalent == null ? null : equivalent.getDefaultAttributeModifiers(slot);
+        if (isBypassingEquivalentOverrides()) {
+            return null;
+        }
+
+        Item equivalent = statEquivalent(item);
+        return equivalent == null ? null : withoutEquivalentOverrides(() -> equivalent.getDefaultAttributeModifiers(slot));
+    }
+
+    private static boolean isBypassingEquivalentOverrides() {
+        return Boolean.TRUE.equals(BYPASS_EQUIVALENT_OVERRIDES.get());
+    }
+
+    private static <T> T withoutEquivalentOverrides(Supplier<T> supplier) {
+        boolean previous = isBypassingEquivalentOverrides();
+        BYPASS_EQUIVALENT_OVERRIDES.set(true);
+
+        try {
+            return supplier.get();
+        } finally {
+            BYPASS_EQUIVALENT_OVERRIDES.set(previous);
+        }
     }
 }

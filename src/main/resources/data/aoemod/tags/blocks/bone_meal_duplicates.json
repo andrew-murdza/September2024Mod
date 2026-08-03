@@ -2,14 +2,6 @@
   "values": [
     "minecraft:lily_pad",
     "minecraft:spore_blossom",
-    "minecraft:wet_sponge",
-    "#minecraft:corals",
-    "#minecraft:coral_blocks",
-    "minecraft:mangrove_roots",
-    "minecraft:sculk",
-    "minecraft:sculk_vein",
-    "minecraft:sculk_shrieker",
-    "minecraft:sculk_sensor",
-    "minecraft:sculk_catalyst"
+    "minecraft:mangrove_roots"
   ]
 }

@@ -27,9 +27,7 @@ public abstract class NetherRootsPlacement extends BushBlock {
         }
 
         if (this == Blocks.CRIMSON_ROOTS) {
-            cir.setReturnValue(pState.is(Blocks.CRIMSON_NYLIUM)
-                    || pState.is(ModTags.Blocks.soulSediments)
-                    || pState.is(ModTags.Blocks.basaltStones));
+            cir.setReturnValue(pState.is(Blocks.CRIMSON_NYLIUM));
         }
     }
 }

@@ -2,6 +2,23 @@
   "values": [
     "minecraft:cod",
     "minecraft:salmon",
-    "minecraft:tropical_fish"
+    "minecraft:tropical_fish",
+    "aoemod:end_fish",
+    {
+      "id": "dropthemeat:raw_wolf",
+      "required": false
+    },
+    {
+      "id": "culturaldelights:glow_squid",
+      "required": false
+    },
+    {
+      "id": "culturaldelights:squid",
+      "required": false
+    },
+    {
+      "id": "alexsmobs:lobster_tail",
+      "required": false
+    }
   ]
 }

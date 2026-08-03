@@ -1,5 +1,6 @@
 package net.amurdza.examplemod.mixins.worldgen;
 
+import net.amurdza.examplemod.worldgen.NetherCaveSectionClassifier;
 import net.minecraft.core.Holder;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceKey;
@@ -84,16 +85,15 @@ public abstract class GetBiome2 extends BiomeSource {
          * getNoiseBiome receives quart coordinates.
          * Convert Y and Z back to block coordinates.
          */
-        int blockY = y * 4;
-        int blockZ = z * 4;
+        int blockX = x * 4 + 2;
+        int blockY = y * 4 + 2;
+        int blockZ = z * 4 + 2;
 
         int periodBlocks = AOE_BIOME_WIDTH_BLOCKS * 10;
         int shiftedZ = blockZ - AOE_Z_0;
         int wrappedZ = Math.floorMod(shiftedZ, periodBlocks);
 
         int band = wrappedZ / AOE_BIOME_WIDTH_BLOCKS;
-        int withinBand = wrappedZ % AOE_BIOME_WIDTH_BLOCKS;
-
         /*
          * Band order:
          *
@@ -121,28 +121,28 @@ public abstract class GetBiome2 extends BiomeSource {
 
             case 3, 6 -> cir.setReturnValue(biomes.get(AOE_GROVE));
 
-            case 4, 5 -> cir.setReturnValue(aoe$getBadlandsLayerBiome(biomes, blockY));
+            case 4, 5 -> cir.setReturnValue(aoe$getBadlandsLayerBiome(biomes, blockX, blockY, blockZ));
         }
     }
 
     @Unique
     private static Holder<Biome> aoe$getBadlandsLayerBiome(
             Map<ResourceKey<Biome>, Holder<Biome>> biomes,
-            int blockY
+            int blockX,
+            int blockY,
+            int blockZ
     ) {
-        if (blockY < -40) {
-            return biomes.get(AOE_BASALT);
-        } else if (blockY < -16) {
-            return biomes.get(AOE_CRIMSON);
-        } else if (blockY < 8) {
-            return biomes.get(AOE_WARPED);
-        } else if (blockY < 32) {
-            return biomes.get(AOE_SOUL);
-        } else if (blockY < 56) {
-            return biomes.get(AOE_DEEP_DARK);
-        } else {
-            return biomes.get(AOE_BADLANDS);
-        }
+        NetherCaveSectionClassifier.Section section =
+                NetherCaveSectionClassifier.sectionForApproximateWorld(blockX, blockY, blockZ);
+
+        return switch (section) {
+            case DEEP_DARK -> biomes.get(AOE_DEEP_DARK);
+            case SOUL_SAND_VALLEY -> biomes.get(AOE_SOUL);
+            case WARPED_FOREST -> biomes.get(AOE_WARPED);
+            case CRIMSON_FOREST -> biomes.get(AOE_CRIMSON);
+            case BASALT_DELTAS -> biomes.get(AOE_BASALT);
+            case DESERT -> biomes.get(AOE_BADLANDS);
+        };
     }
 
     @Unique

@@ -121,8 +121,8 @@ public class NoFloatingMobSpawns {
     }
     private static boolean turtle(ServerLevelAccessor level, BlockPos pos) {
         int chunkX = Math.floorDiv(pos.getX(), 16);
-        int regionChunkX = Math.floorMod(chunkX, 30);
-        return (regionChunkX == 6 || regionChunkX == 29)
+        int regionChunkX = Math.floorMod(chunkX, 64);
+        return (regionChunkX == 6 || regionChunkX == 63)
                 && level.getBlockState(pos.below()).is(BlockTags.SAND)
                 && level.getRawBrightness(pos, 0) > 8;
     }
