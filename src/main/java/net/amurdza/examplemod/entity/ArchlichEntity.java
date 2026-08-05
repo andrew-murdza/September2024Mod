@@ -21,8 +21,18 @@ import net.minecraft.world.level.levelgen.Heightmap;
 import net.minecraft.world.phys.AABB;
 
 import java.util.UUID;
+import software.bernie.geckolib.animatable.GeoEntity;
+import software.bernie.geckolib.core.animatable.instance.AnimatableInstanceCache;
+import software.bernie.geckolib.core.animation.AnimatableManager;
+import software.bernie.geckolib.core.animation.AnimationController;
+import software.bernie.geckolib.core.animation.RawAnimation;
+import software.bernie.geckolib.core.object.PlayState;
+import software.bernie.geckolib.util.GeckoLibUtil;
 
-public class ArchlichEntity extends EntityDreadLich {
+public class ArchlichEntity extends EntityDreadLich implements GeoEntity {
+    private static final RawAnimation IDLE_ANIMATION = RawAnimation.begin().thenLoop("idle");
+    private static final RawAnimation WALK_ANIMATION = RawAnimation.begin().thenLoop("walk");
+    private static final RawAnimation SUMMONING_ANIMATION = RawAnimation.begin().thenPlay("summoning");
     private static final String SUMMON_COOLDOWN_TAG = "ArchlichSummonCooldown";
     private static final String ATTACK_COOLDOWN_TAG = "ArchlichAttackCooldown";
     private static final int MAX_ACTIVE_SUMMONS = 4;
@@ -33,6 +43,7 @@ public class ArchlichEntity extends EntityDreadLich {
 
     private int summonCooldown;
     private int rangedAttackCooldown;
+    private final AnimatableInstanceCache animationCache = GeckoLibUtil.createInstanceCache(this);
 
     public ArchlichEntity(EntityType<? extends EntityDreadMob> entityType, Level level) {
         super(entityType, level);
@@ -131,6 +142,10 @@ public class ArchlichEntity extends EntityDreadLich {
         minion.setCommanderId(this.getUUID());
         minion.setTarget(target);
         this.setAnimation(ANIMATION_SUMMON);
+        // Ice and Fire's logical summon animation lasts only 15 ticks, while the
+        // supplied visual clip is about 69 ticks. Trigger it independently so the
+        // complete archive animation can finish on tracking clients.
+        this.triggerAnim("summoning", "summoning");
         this.playSound(IafSoundRegistry.DREAD_LICH_SUMMON, 1.0F, this.getVoicePitch());
     }
 
@@ -171,5 +186,19 @@ public class ArchlichEntity extends EntityDreadLich {
         if (tag.contains(ATTACK_COOLDOWN_TAG)) {
             this.rangedAttackCooldown = Math.max(0, tag.getInt(ATTACK_COOLDOWN_TAG));
         }
+    }
+
+    @Override
+    public void registerControllers(AnimatableManager.ControllerRegistrar controllers) {
+        controllers.add(new AnimationController<>(this, "movement", 4, state ->
+                state.setAndContinue(state.isMoving() ? WALK_ANIMATION : IDLE_ANIMATION)
+        ));
+        controllers.add(new AnimationController<>(this, "summoning", 0, state -> PlayState.STOP)
+                .triggerableAnim("summoning", SUMMONING_ANIMATION));
+    }
+
+    @Override
+    public AnimatableInstanceCache getAnimatableInstanceCache() {
+        return this.animationCache;
     }
 }

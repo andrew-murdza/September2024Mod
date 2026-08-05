@@ -89,6 +89,7 @@ public final class BlockGrowthConfig {
         addToMap(ModTags.Biomes.tropicalBiomes, 0.43F, Blocks.CHERRY_SAPLING);
         addToMap(ModTags.Biomes.tropicalBiomes, 0.43F, Blocks.MANGROVE_PROPAGULE);
         addToMap(ModTags.Biomes.tropicalBiomes, 0.14F, Blocks.DARK_OAK_SAPLING);
+        addToMap(ModTags.Biomes.aoeJungleBiomes, 0.14F, ModBlocks.AZALEA_SAPLING.get());
         addToMap(ModTags.Biomes.tropicalBiomes, 0.56F, Blocks.JUNGLE_SAPLING);
         addToMap(ModTags.Biomes.soulSandValleyBiomes, 0.1F, ModBlocks.PALE_OAK_SAPLING.get());
     }

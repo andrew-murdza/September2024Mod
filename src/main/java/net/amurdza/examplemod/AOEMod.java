@@ -29,6 +29,7 @@ import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.ComposterBlock;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.MinecraftForge;
@@ -99,6 +100,7 @@ public class AOEMod
             setNotFlammable(fire, ModBlocks.PALE_MOSS_CARPET.get());
             setNotFlammable(fire, ModBlocks.PALE_HANGING_MOSS.get());
             setNotFlammable(fire, ForgeRegistries.BLOCKS.getValue(new ResourceLocation("nourished_nether", "soul_weeds")));
+            ComposterBlock.COMPOSTABLES.put(ModBlocks.AZALEA_SAPLING.get().asItem(), 0.3F);
 
 
             BlockBehaviour.Properties props =
@@ -182,6 +184,7 @@ public class AOEMod
             event.accept(ModBlocks.PALE_OAK_LOG.get());
             event.accept(ModBlocks.PALE_OAK_LEAVES.get());
             event.accept(ModBlocks.PALE_OAK_SAPLING.get());
+            event.accept(ModBlocks.AZALEA_SAPLING.get());
         }
 
         if (tab == CreativeModeTabs.BUILDING_BLOCKS) {
@@ -266,6 +269,13 @@ public class AOEMod
             event.accept(ModItems.GOLDEN_SPEAR.get());
             event.accept(ModItems.DIAMOND_SPEAR.get());
             event.accept(ModItems.NETHERITE_SPEAR.get());
+            event.accept(ModItems.WOODEN_SHIELD.get());
+            event.accept(ModItems.COPPER_SHIELD.get());
+            event.accept(ModItems.IRON_SHIELD.get());
+            event.accept(ModItems.GOLDEN_SHIELD.get());
+            event.accept(ModItems.DIAMOND_SHIELD.get());
+            event.accept(ModItems.NETHERITE_SHIELD.get());
+            event.accept(ModItems.BOSS_SHIELD.get());
         }
 
         // BUILDING BLOCKS (farmland fits better here than NATURAL)
@@ -320,6 +330,7 @@ public class AOEMod
                 ItemBlockRenderTypes.setRenderLayer(ModBlocks.PALE_OAK_TRAPDOOR.get(), RenderType.cutout());
                 ItemBlockRenderTypes.setRenderLayer(ModBlocks.PALE_OAK_LEAVES.get(), RenderType.cutoutMipped());
                 ItemBlockRenderTypes.setRenderLayer(ModBlocks.PALE_OAK_SAPLING.get(), RenderType.cutout());
+                ItemBlockRenderTypes.setRenderLayer(ModBlocks.AZALEA_SAPLING.get(), RenderType.cutout());
                 ItemBlockRenderTypes.setRenderLayer(ModBlocks.COPPER_CHAIN.get(), RenderType.cutout());
                 for (var spear : new net.minecraft.world.item.Item[]{
                         ModItems.WOODEN_SPEAR.get(), ModItems.STONE_SPEAR.get(), ModItems.COPPER_SPEAR.get(),

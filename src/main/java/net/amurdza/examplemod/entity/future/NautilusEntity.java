@@ -1,41 +1,64 @@
 package net.amurdza.examplemod.entity.future;
 
+import net.amurdza.examplemod.registry.ModEntities;
+import net.amurdza.examplemod.util.ModTags;
+import net.minecraft.core.BlockPos;
 import net.minecraft.core.particles.ParticleTypes;
+import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
+import net.minecraft.tags.FluidTags;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
+import net.minecraft.world.entity.AgeableMob;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.MobSpawnType;
+import net.minecraft.world.entity.MobType;
 import net.minecraft.world.entity.MoverType;
+import net.minecraft.world.entity.TamableAnimal;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.ai.control.SmoothSwimmingLookControl;
 import net.minecraft.world.entity.ai.control.SmoothSwimmingMoveControl;
+import net.minecraft.world.entity.ai.goal.BreedGoal;
+import net.minecraft.world.entity.ai.goal.FollowParentGoal;
 import net.minecraft.world.entity.ai.goal.LookAtPlayerGoal;
 import net.minecraft.world.entity.ai.goal.RandomLookAroundGoal;
 import net.minecraft.world.entity.ai.goal.RandomSwimmingGoal;
 import net.minecraft.world.entity.ai.goal.TryFindWaterGoal;
 import net.minecraft.world.entity.ai.navigation.PathNavigation;
 import net.minecraft.world.entity.ai.navigation.WaterBoundPathNavigation;
-import net.minecraft.world.entity.animal.WaterAnimal;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.LevelAccessor;
+import net.minecraft.world.level.LevelReader;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.pathfinder.BlockPathTypes;
 import net.minecraft.world.phys.Vec3;
+import net.minecraftforge.event.ForgeEventFactory;
 import org.jetbrains.annotations.Nullable;
 
-public class NautilusEntity extends WaterAnimal {
-    public NautilusEntity(EntityType<? extends WaterAnimal> type, Level level) {
+public class NautilusEntity extends TamableAnimal {
+    private static final int TAMING_CHANCE = 3;
+
+    public NautilusEntity(EntityType<? extends NautilusEntity> type, Level level) {
         super(type, level);
-        this.moveControl = new SmoothSwimmingMoveControl(this, 85, 10, 0.1F, 0.02F, true);
+        // Match the vanilla Nautilus' gentle idle acceleration. The previous 0.1F
+        // multiplier made an unridden Nautilus repeatedly overshoot its swim target.
+        this.moveControl = new SmoothSwimmingMoveControl(this, 85, 10, 0.011F, 0.02F, true);
         this.lookControl = new SmoothSwimmingLookControl(this, 10);
+        this.setPathfindingMalus(BlockPathTypes.WATER, 0.0F);
     }
 
     public static AttributeSupplier.Builder createAttributes() {
-        return WaterAnimal.createMobAttributes()
+        return TamableAnimal.createMobAttributes()
                 .add(Attributes.MAX_HEALTH, 15.0D)
                 .add(Attributes.MOVEMENT_SPEED, 1.0D)
                 .add(Attributes.ATTACK_DAMAGE, 3.0D)
@@ -45,9 +68,11 @@ public class NautilusEntity extends WaterAnimal {
     @Override
     protected void registerGoals() {
         this.goalSelector.addGoal(0, new TryFindWaterGoal(this));
-        this.goalSelector.addGoal(2, new RandomSwimmingGoal(this, 1.0D, 10));
-        this.goalSelector.addGoal(3, new LookAtPlayerGoal(this, Player.class, 8.0F));
-        this.goalSelector.addGoal(4, new RandomLookAroundGoal(this));
+        this.goalSelector.addGoal(1, new BreedGoal(this, 1.0D));
+        this.goalSelector.addGoal(2, new FollowParentGoal(this, 1.1D));
+        this.goalSelector.addGoal(3, new RandomSwimmingGoal(this, 1.0D, 10));
+        this.goalSelector.addGoal(4, new LookAtPlayerGoal(this, Player.class, 8.0F));
+        this.goalSelector.addGoal(5, new RandomLookAroundGoal(this));
     }
 
     @Override
@@ -56,19 +81,55 @@ public class NautilusEntity extends WaterAnimal {
     }
 
     @Override
-    protected InteractionResult mobInteract(Player player, InteractionHand hand) {
-        if (!this.isVehicle() && player.getItemInHand(hand).isEmpty()) {
+    public InteractionResult mobInteract(Player player, InteractionHand hand) {
+        ItemStack stack = player.getItemInHand(hand);
+        if (!this.isBaby() && !this.isTame() && stack.is(Items.PUFFERFISH)) {
+            if (!this.level().isClientSide) {
+                this.usePlayerItem(player, hand, stack);
+                if (this.random.nextInt(TAMING_CHANCE) == 0
+                        && !ForgeEventFactory.onAnimalTame(this, player)) {
+                    this.tame(player);
+                    this.navigation.stop();
+                    this.level().broadcastEntityEvent(this, (byte) 7);
+                } else {
+                    this.level().broadcastEntityEvent(this, (byte) 6);
+                }
+            }
+            return InteractionResult.sidedSuccess(this.level().isClientSide);
+        }
+
+        InteractionResult foodResult = super.mobInteract(player, hand);
+        if (foodResult.consumesAction()) {
+            return foodResult;
+        }
+
+        if (!this.isBaby() && !this.isVehicle() && stack.isEmpty()) {
             if (!this.level().isClientSide) {
                 player.startRiding(this);
             }
             return InteractionResult.sidedSuccess(this.level().isClientSide);
         }
-        return super.mobInteract(player, hand);
+        return foodResult;
+    }
+
+    @Override
+    public boolean isFood(ItemStack stack) {
+        return (this.isTame() || this.isBaby()) && stack.is(ModTags.Items.fish);
+    }
+
+    @Override
+    public @Nullable NautilusEntity getBreedOffspring(ServerLevel level, AgeableMob partner) {
+        NautilusEntity offspring = ModEntities.NAUTILUS.get().create(level);
+        if (offspring != null && this.isTame()) {
+            offspring.setOwnerUUID(this.getOwnerUUID());
+            offspring.setTame(true);
+        }
+        return offspring;
     }
 
     @Override
     protected boolean canAddPassenger(Entity passenger) {
-        return !this.isVehicle() && passenger instanceof Player;
+        return !this.isBaby() && !this.isVehicle() && passenger instanceof Player;
     }
 
     @Override
@@ -129,6 +190,74 @@ public class NautilusEntity extends WaterAnimal {
                     0.0D
             );
         }
+    }
+
+    @Override
+    public boolean canBreatheUnderwater() {
+        return true;
+    }
+
+    @Override
+    public MobType getMobType() {
+        return MobType.WATER;
+    }
+
+    @Override
+    public boolean checkSpawnObstruction(LevelReader level) {
+        return level.isUnobstructed(this);
+    }
+
+    @Override
+    public int getAmbientSoundInterval() {
+        return 120;
+    }
+
+    @Override
+    public int getExperienceReward() {
+        return 1 + this.level().random.nextInt(3);
+    }
+
+    protected void handleAirSupply(int currentAirSupply) {
+        if (this.isAlive() && !this.isInWaterOrBubble()) {
+            this.setAirSupply(currentAirSupply - 1);
+            if (this.getAirSupply() == -20) {
+                this.setAirSupply(0);
+                this.hurt(this.damageSources().dryOut(), 2.0F);
+            }
+        } else {
+            this.setAirSupply(300);
+        }
+    }
+
+    @Override
+    public void baseTick() {
+        int currentAirSupply = this.getAirSupply();
+        super.baseTick();
+        this.handleAirSupply(currentAirSupply);
+    }
+
+    @Override
+    public boolean isPushedByFluid() {
+        return false;
+    }
+
+    @Override
+    public boolean canBeLeashed(Player player) {
+        return false;
+    }
+
+    public static boolean checkSurfaceWaterAnimalSpawnRules(
+            EntityType<? extends NautilusEntity> type,
+            LevelAccessor level,
+            MobSpawnType spawnType,
+            BlockPos pos,
+            RandomSource random
+    ) {
+        int seaLevel = level.getSeaLevel();
+        return pos.getY() >= seaLevel - 13
+                && pos.getY() <= seaLevel
+                && level.getFluidState(pos.below()).is(FluidTags.WATER)
+                && level.getBlockState(pos.above()).is(Blocks.WATER);
     }
 
     @Override

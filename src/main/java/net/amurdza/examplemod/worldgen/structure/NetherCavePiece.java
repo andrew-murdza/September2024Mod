@@ -77,8 +77,8 @@ public class NetherCavePiece extends AbstractSpiralCavePiece {
     private static final int STRAIGHT_TERRACE_WALL_EAST_TRIM = 30;
     private static final int STRAIGHT_TERRACE_AIR_ONLY_END_LENGTH = 4;
     private static final int DESERT_ANIMAL_GROUP_WIDTH = 10;
-    private static final double CAMEL_GROUP_UPWARD_PATH_FRACTION = 0.35D;
-    private static final double RABBIT_GROUP_UPWARD_PATH_FRACTION = 0.45D;
+    private static final double CAMEL_GROUP_TURNS_AFTER_FULL_RADIUS = 0.10D;
+    private static final double RABBIT_GROUP_TURNS_AFTER_FULL_RADIUS = 0.20D;
     private static final double RED_MUSHROOM_UPWARD_TURNS = 0.10D;
     private static final double BROWN_MUSHROOM_UPWARD_TURNS = 0.15D;
     private static final double MUSHROOM_DISTANCE_INSIDE_INNER_BANK = 24.0D;
@@ -256,7 +256,8 @@ public class NetherCavePiece extends AbstractSpiralCavePiece {
             case CRIMSON_FOREST -> setBlock(level, surfacePos, Blocks.CRIMSON_NYLIUM);
             case DESERT -> {
                 BlockState state = level.getBlockState(surfacePos);
-                if (!isProtectedDesertLandLayer(state)) {
+                if (!isProtectedDesertLandLayer(state)
+                        && !isSandySurfaceBuilderLayer(surfacePos, state)) {
                     setBlock(level, surfacePos, Blocks.STONE);
                 }
             }
@@ -418,7 +419,9 @@ public class NetherCavePiece extends AbstractSpiralCavePiece {
     private void replaceExposedDesertBoundaryBlock(WorldGenLevel level, BlockPos pos) {
         BlockState state = level.getBlockState(pos);
 
-        if (!canReplace(state) || isRedSandstone(state)) {
+        if (!canReplace(state)
+                || isRedSandstone(state)
+                || isSandySurfaceBuilderLayer(pos, state)) {
             return;
         }
 
@@ -431,6 +434,17 @@ public class NetherCavePiece extends AbstractSpiralCavePiece {
         } else if (isLooseSandOrNonRedSandstone(state)) {
             level.setBlock(pos, Blocks.STONE.defaultBlockState(), Block.UPDATE_CLIENTS);
         }
+    }
+
+    private boolean isSandySurfaceBuilderLayer(BlockPos pos, BlockState state) {
+        int minimumLayerY = DESERT_TERRACE_MAX_SURFACE_Y
+                - UPPER_LAND_SAND_DEPTH
+                - UPPER_LAND_SANDSTONE_DEPTH
+                + 1;
+        return pos.getY() >= minimumLayerY
+                && pos.getY() <= DESERT_TERRACE_MAX_SURFACE_Y
+                && BandlandsSurfaceRuleSource.usesSandySurfaceAt(pos.getX(), pos.getZ())
+                && (state.is(Blocks.SAND) || state.is(Blocks.SANDSTONE));
     }
 
     protected void setSculk(WorldGenLevel level, BlockPos pos, Direction direction){
@@ -666,6 +680,7 @@ public class NetherCavePiece extends AbstractSpiralCavePiece {
                 if (skyOpenAtTerraceTop) {
                     finishSkyExposedDesertColumn(
                             level,
+                            box,
                             cursor,
                             x,
                             z,
@@ -907,6 +922,7 @@ public class NetherCavePiece extends AbstractSpiralCavePiece {
 
     private void finishSkyExposedDesertColumn(
             WorldGenLevel level,
+            BoundingBox box,
             BlockPos.MutableBlockPos cursor,
             int x,
             int z,
@@ -942,9 +958,12 @@ public class NetherCavePiece extends AbstractSpiralCavePiece {
             }
 
             if (y <= DESERT_LAND_SAND_MAX_Y
-                    && sectionFor(cursor.above()) == Section.DESERT
-                    && !isProtectedDesertLandLayer(state)) {
-                setUpperSpiralLandLayers(level, cursor.immutable());
+                    && sectionFor(cursor.above()) == Section.DESERT) {
+                if (BandlandsSurfaceRuleSource.usesSandySurfaceAt(x, z)) {
+                    restoreSandyBoundaryLayers(level, box, cursor, x, y, z, false);
+                } else if (!isProtectedDesertLandLayer(state)) {
+                    setUpperSpiralLandLayers(level, cursor.immutable());
+                }
             }
             return;
         }
@@ -959,7 +978,8 @@ public class NetherCavePiece extends AbstractSpiralCavePiece {
             ColumnCarveInterval highestInterval,
             int terraceTopY
     ) {
-        if (sectionFor(x, highestInterval.maxY(), z) != Section.DESERT) {
+        if (!BandlandsSurfaceRuleSource.usesSandySurfaceAt(x, z)
+                || sectionFor(x, highestInterval.maxY(), z) != Section.DESERT) {
             return;
         }
 
@@ -982,30 +1002,42 @@ public class NetherCavePiece extends AbstractSpiralCavePiece {
             return;
         }
 
+        restoreSandyBoundaryLayers(level, box, cursor, x, ceilingTopY, z, true);
+    }
+
+    private void restoreSandyBoundaryLayers(
+            WorldGenLevel level,
+            BoundingBox box,
+            BlockPos.MutableBlockPos cursor,
+            int x,
+            int surfaceY,
+            int z,
+            boolean fillAirBelowSurface
+    ) {
         int totalDepth = UPPER_LAND_SAND_DEPTH + UPPER_LAND_SANDSTONE_DEPTH;
         for (int depth = 0; depth < totalDepth; depth++) {
-            cursor.set(x, ceilingTopY - depth, z);
+            cursor.set(x, surfaceY - depth, z);
             if (!box.isInside(cursor)) {
                 return;
             }
 
             BlockState state = level.getBlockState(cursor);
-            Block expectedLayer = depth < UPPER_LAND_SAND_DEPTH
-                    ? Blocks.SAND
-                    : Blocks.SANDSTONE;
-            if (!state.is(expectedLayer) && !state.isAir()) {
+            boolean replaceableSolid = state.getFluidState().isEmpty()
+                    && state.isSolid()
+                    && canReplace(state);
+            if (isProtectedDesertLandLayer(state)
+                    || (state.isAir() && !fillAirBelowSurface)
+                    || (!state.isAir() && !replaceableSolid)) {
                 return;
             }
         }
 
         for (int depth = totalDepth - 1; depth >= 0; depth--) {
-            cursor.set(x, ceilingTopY - depth, z);
-            if (level.getBlockState(cursor).isAir()) {
-                Block layer = depth < UPPER_LAND_SAND_DEPTH
-                        ? Blocks.SAND
-                        : Blocks.SANDSTONE;
-                level.setBlock(cursor, layer.defaultBlockState(), Block.UPDATE_CLIENTS);
-            }
+            cursor.set(x, surfaceY - depth, z);
+            Block layer = depth < UPPER_LAND_SAND_DEPTH
+                    ? Blocks.SAND
+                    : Blocks.SANDSTONE;
+            level.setBlock(cursor, layer.defaultBlockState(), Block.UPDATE_CLIENTS);
         }
     }
 
@@ -1541,7 +1573,7 @@ public class NetherCavePiece extends AbstractSpiralCavePiece {
     private boolean isNearSkyExposedSandyAnimalGroup(
             WorldGenLevel level,
             BlockPos pos,
-            double upwardPathFraction
+            double upwardTurns
     ) {
         if (!isColumnOpenToTerraceTop(level, pos) || sectionFor(pos) != Section.DESERT) {
             return false;
@@ -1555,7 +1587,7 @@ public class NetherCavePiece extends AbstractSpiralCavePiece {
         double pillarRadius = this.centralPillarDiameter * 0.5D;
         double innerRiverBankRadius = pathRadius - this.liquidRadius;
         double groupRadius = (pillarRadius + innerRiverBankRadius) * 0.5D;
-        double yaw = YAW_START + FULL_TURN * UPPER_SPIRAL_TURNS * upwardPathFraction;
+        double yaw = YAW_START + FULL_TURN * upwardTurns;
         double groupCenterX = this.pillarCenterX + Math.cos(yaw) * groupRadius;
         double groupCenterZ = this.pillarCenterZ + Math.sin(yaw) * groupRadius;
         int groupMinX = Mth.floor(groupCenterX) - DESERT_ANIMAL_GROUP_WIDTH / 2;
@@ -2609,6 +2641,16 @@ public class NetherCavePiece extends AbstractSpiralCavePiece {
         placeGuaranteedMushroomPatches(level, box);
         placeGuaranteedSoulSandValleyPatches(level, box);
         placeGuaranteedPaleOaks(level, box, chunkPos);
+        double fullUpperRadiusTurn = SOUTHBOUND_UPWARD_SPIRAL_TURNS
+                + UPPER_VERTICAL_RADIUS_INCREASE / upperSpiralRisePerTurn();
+        double camelGroupUpwardTurns = Math.min(
+                UPPER_SPIRAL_TURNS,
+                fullUpperRadiusTurn + CAMEL_GROUP_TURNS_AFTER_FULL_RADIUS
+        );
+        double rabbitGroupUpwardTurns = Math.min(
+                UPPER_SPIRAL_TURNS,
+                fullUpperRadiusTurn + RABBIT_GROUP_TURNS_AFTER_FULL_RADIUS
+        );
         spawnGuaranteedMobsStrictlyOncePerStructure(
                 level,
                 random,
@@ -2619,7 +2661,7 @@ public class NetherCavePiece extends AbstractSpiralCavePiece {
                 pos -> isNearSkyExposedSandyAnimalGroup(
                         level,
                         pos,
-                        CAMEL_GROUP_UPWARD_PATH_FRACTION
+                        camelGroupUpwardTurns
                 )
         );
         spawnGuaranteedMobsStrictlyOncePerStructure(
@@ -2632,7 +2674,7 @@ public class NetherCavePiece extends AbstractSpiralCavePiece {
                 pos -> isNearSkyExposedSandyAnimalGroup(
                         level,
                         pos,
-                        RABBIT_GROUP_UPWARD_PATH_FRACTION
+                        rabbitGroupUpwardTurns
                 )
         );
         spawnGuaranteedMobsStrictlyOncePerStructure(

@@ -1,76 +1,59 @@
 package net.amurdza.examplemod.entity.model;
 
-import com.github.alexthe666.iceandfire.client.model.ModelDreadLich;
-import com.mojang.blaze3d.vertex.PoseStack;
-import com.mojang.blaze3d.vertex.VertexConsumer;
 import net.amurdza.examplemod.entity.ArchlichEntity;
-import net.minecraft.client.model.ArmedModel;
-import net.minecraft.client.model.EntityModel;
-import net.minecraft.world.entity.HumanoidArm;
+import net.minecraft.resources.ResourceLocation;
+import software.bernie.geckolib.constant.DataTickets;
+import software.bernie.geckolib.core.animation.AnimationState;
+import software.bernie.geckolib.model.GeoModel;
+import software.bernie.geckolib.model.data.EntityModelData;
 
-/**
- * Temporary adapter around Ice and Fire's Dread Lich model.
- */
-public class ArchlichModel extends EntityModel<ArchlichEntity> implements ArmedModel {
-    private final ModelDreadLich dreadLichModel = new ModelDreadLich(0.0F);
+public class ArchlichModel extends GeoModel<ArchlichEntity> {
+    private static final ResourceLocation MODEL = new ResourceLocation("aoemod", "geo/archlich.geo.json");
+    private static final ResourceLocation TEXTURE = new ResourceLocation("aoemod", "textures/entity/archlich.png");
+    private static final ResourceLocation ANIMATION = new ResourceLocation(
+            "aoemod",
+            "animations/archlich.animation.json"
+    );
 
     @Override
-    public void prepareMobModel(ArchlichEntity entity, float limbSwing, float limbSwingAmount, float partialTick) {
-        this.copyRenderState();
-        this.dreadLichModel.prepareMobModel(entity, limbSwing, limbSwingAmount, partialTick);
+    public ResourceLocation getModelResource(ArchlichEntity entity) {
+        return MODEL;
     }
 
     @Override
-    public void setupAnim(
+    public ResourceLocation getTextureResource(ArchlichEntity entity) {
+        return TEXTURE;
+    }
+
+    @Override
+    public ResourceLocation getAnimationResource(ArchlichEntity entity) {
+        return ANIMATION;
+    }
+
+    @Override
+    public void setCustomAnimations(
             ArchlichEntity entity,
-            float limbSwing,
-            float limbSwingAmount,
-            float ageInTicks,
-            float netHeadYaw,
-            float headPitch
+            long instanceId,
+            AnimationState<ArchlichEntity> animationState
     ) {
-        this.copyRenderState();
-        this.dreadLichModel.setupAnim(
-                entity,
-                limbSwing,
-                limbSwingAmount,
-                ageInTicks,
-                netHeadYaw,
-                headPitch
-        );
+        super.setCustomAnimations(entity, instanceId, animationState);
+
+        EntityModelData modelData = animationState.getData(DataTickets.ENTITY_MODEL_DATA);
+        float yaw = radians(modelData.netHeadYaw());
+        float pitch = radians(modelData.headPitch());
+        this.getBone("head").ifPresent(head -> {
+            head.setRotY(head.getRotY() + yaw);
+            head.setRotX(head.getRotX() + pitch);
+        });
+        // The supplied geometry keeps the headwear as a sibling so it can have
+        // independent animation tracks; mirror look rotation to keep it attached.
+        this.getBone("headwear").ifPresent(headwear -> {
+            headwear.setRotY(headwear.getRotY() + yaw);
+            headwear.setRotX(headwear.getRotX() + pitch);
+        });
     }
 
-    @Override
-    public void renderToBuffer(
-            PoseStack poseStack,
-            VertexConsumer vertexConsumer,
-            int packedLight,
-            int packedOverlay,
-            float red,
-            float green,
-            float blue,
-            float alpha
-    ) {
-        this.dreadLichModel.renderToBuffer(
-                poseStack,
-                vertexConsumer,
-                packedLight,
-                packedOverlay,
-                red,
-                green,
-                blue,
-                alpha
-        );
-    }
-
-    @Override
-    public void translateToHand(HumanoidArm arm, PoseStack poseStack) {
-        this.dreadLichModel.translateToHand(arm, poseStack);
-    }
-
-    private void copyRenderState() {
-        this.dreadLichModel.attackTime = this.attackTime;
-        this.dreadLichModel.riding = this.riding;
-        this.dreadLichModel.young = this.young;
+    private static float radians(float degrees) {
+        return degrees * ((float) Math.PI / 180.0F);
     }
 }

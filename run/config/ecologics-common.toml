@@ -14,7 +14,7 @@
 #Plains
 [plains]
 	#Decides if Foxes should attack Squirrels.
-	foxesAttackSquirrels = false
+	foxesAttackSquirrels = true
 
 #Lush Caves Update
 [lush_caves]

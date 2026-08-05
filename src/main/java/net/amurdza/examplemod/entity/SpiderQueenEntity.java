@@ -24,10 +24,14 @@ import net.minecraft.world.level.ServerLevelAccessor;
 import net.minecraft.world.level.levelgen.Heightmap;
 import net.minecraft.world.phys.AABB;
 import org.jetbrains.annotations.Nullable;
+import software.bernie.geckolib.animatable.GeoEntity;
+import software.bernie.geckolib.core.animatable.instance.AnimatableInstanceCache;
+import software.bernie.geckolib.core.animation.AnimatableManager;
+import software.bernie.geckolib.util.GeckoLibUtil;
 
 import java.util.UUID;
 
-public class SpiderQueenEntity extends Spider {
+public class SpiderQueenEntity extends Spider implements GeoEntity {
     private static final String SUMMON_COOLDOWN_TAG = "SpiderQueenSummonCooldown";
     private static final String SUMMONER_TAG = "SpiderQueenSummoner";
     private static final int MAX_ACTIVE_SUMMONS = 6;
@@ -39,6 +43,7 @@ public class SpiderQueenEntity extends Spider {
             BossEvent.BossBarColor.PURPLE,
             BossEvent.BossBarOverlay.PROGRESS
     );
+    private final AnimatableInstanceCache animationCache = GeckoLibUtil.createInstanceCache(this);
     private int summonCooldown;
 
     public SpiderQueenEntity(EntityType<? extends Spider> entityType, Level level) {
@@ -170,5 +175,16 @@ public class SpiderQueenEntity extends Spider {
     @Override
     public boolean removeWhenFarAway(double distanceToClosestPlayer) {
         return false;
+    }
+
+    @Override
+    public void registerControllers(AnimatableManager.ControllerRegistrar controllers) {
+        // The supplied spider archive has geometry but no animation file.
+        // SpiderQueenModel applies its walk and look motion procedurally.
+    }
+
+    @Override
+    public AnimatableInstanceCache getAnimatableInstanceCache() {
+        return this.animationCache;
     }
 }

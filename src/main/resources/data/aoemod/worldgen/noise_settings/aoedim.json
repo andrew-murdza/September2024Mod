@@ -638,7 +638,7 @@
               "if_true": {
                 "type": "aoemod:noise_threshold_3d",
                 "noise": "minecraft:surface",
-                "min_threshold": 0.16,
+                "min_threshold": 0.21,
                 "max_threshold": 2
               },
               "then_run": {

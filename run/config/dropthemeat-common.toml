@@ -2,88 +2,88 @@
 #Enable/Disable Meat
 [meat]
 	#Enable Allay Meat?
-	enableAllayMeat = false
+	enableAllayMeat = true
 	#Enable Axolotl Meat?
-	enableAxolotlMeat = false
+	enableAxolotlMeat = true
 	#Enable Bat Meat?
-	enableBatMeat = false
+	enableBatMeat = true
 	#Enable Bee Meat?
-	enableBeeMeat = false
+	enableBeeMeat = true
 	#Enable Camel Meat?
-	enableCamelMeat = false
+	enableCamelMeat = true
 	#Enable Cat Meat from Cats?
-	enableCatMeat = false
+	enableCatMeat = true
 	#Enable Dolphin Meat?
-	enableDolphinMeat = false
+	enableDolphinMeat = true
 	#Enable Horse Meat from Donkeys?
-	enableDonkeyMeat = false
+	enableDonkeyMeat = true
 	#Enable Glow Squid Meat?
-	enableGlowSquidMeat = false
+	enableGlowSquidMeat = true
 	#Enable Fox Meat?
-	enableFoxMeat = false
+	enableFoxMeat = true
 	#Enable Frog Meat?
-	enableFrogMeat = false
+	enableFrogMeat = true
 	#Enable Goat Meat?
-	enableGoatMeat = false
+	enableGoatMeat = true
 	#Enable Horse Meat from Horses?
-	enableHorseMeat = false
+	enableHorseMeat = true
 	#Enable Iron Golem Meat?
-	enableIronGolemMeat = false
+	enableIronGolemMeat = true
 	#Enable Llama Meat from Llamas?
-	enableLlamaMeat = false
+	enableLlamaMeat = true
 	#Enable Horse Meat from Mules?
-	enableMuleMeat = false
+	enableMuleMeat = true
 	#Enable Cat Meat from Ocelots?
-	enableOcelotMeat = false
+	enableOcelotMeat = true
 	#Enable Bear Meat from Pandas?
-	enablePandaMeat = false
+	enablePandaMeat = true
 	#Enable Parrot Meat?
-	enableParrotMeat = false
+	enableParrotMeat = true
 	#Enable Piglin Porkchops from Piglins?
-	enablePiglinMeat = false
+	enablePiglinMeat = true
 	#Enable Piglin Porkchops from Pigling Brutes?
-	enablePiglinBruteMeat = false
+	enablePiglinBruteMeat = true
 	#Enable Bear Meat from Polar Bears?
-	enablePolarBearMeat = false
+	enablePolarBearMeat = true
 	#Enable Sniffer Meat?
-	enableSnifferMeat = false
+	enableSnifferMeat = true
 	#Enable Snow Golem Meat?
-	enableSnowGolemMeat = false
+	enableSnowGolemMeat = true
 	#Enable Squid Meat?
-	enableSquidMeat = false
+	enableSquidMeat = true
 	#Enable Strider Meat?
-	enableStriderMeat = false
+	enableStriderMeat = true
 	#Enable Llama Meat from Trader Llamas?
-	enableTraderLlamasMeat = false
+	enableTraderLlamasMeat = true
 	#Enable Turtle Meat?
-	enableTurtleMeat = false
+	enableTurtleMeat = true
 	#Enable Villager Meat from Villagers? (Also affects noses)
-	enableVillagerMeat = false
+	enableVillagerMeat = true
 	#Enable Villager Meat from Wandering Traders? (Also affects noses)
-	enableWanderingTraderMeat = false
+	enableWanderingTraderMeat = true
 	#Enable Wolf Meat?
-	enableWolfMeat = false
+	enableWolfMeat = true
 
 #Enable/Disable Butcher Trades
 [trades]
 	#Enable Bear Meat Trades? (Default: True)
-	enableBearMeatTrades = false
+	enableBearMeatTrades = true
 	#Enable Camel Meat Trades? (Default: True)
-	enableCamelMeatTrades = false
+	enableCamelMeatTrades = true
 	#Enable Fox Meat Trades? (Default: True)
-	enableFoxMeatTrades = false
+	enableFoxMeatTrades = true
 	#Enable Frog Meat Trades? (Default: True)
-	enableFrogMeatTrades = false
+	enableFrogMeatTrades = true
 	#Enable Goat Meat Trades? (Default: True)
-	enableGoatMeatTrades = false
+	enableGoatMeatTrades = true
 	#Enable Horse Meat Trades? (Default: True)
-	enableHorseMeatTrades = false
+	enableHorseMeatTrades = true
 	#Enable Llama Meat Trades? (Default: True)
-	enableLlamaMeatTrades = false
+	enableLlamaMeatTrades = true
 	#Enable Squid Meat Trades? (Default: True)
-	enableSquidMeatTrades = false
+	enableSquidMeatTrades = true
 	#Enable Wolf Meat Trades? (Default: True)
-	enableWolfMeatTrades = false
+	enableWolfMeatTrades = true
 	#Enable Allay Meat Trades? (Default: False)
 	enableAllayMeatTrades = false
 	#Enable Axolotl Meat Trades? (Default: False)

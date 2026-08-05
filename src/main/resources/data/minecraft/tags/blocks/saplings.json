@@ -1,1 +1,7 @@
-{ "replace": false, "values": ["aoemod:pale_oak_sapling"] }
+{
+  "replace": false,
+  "values": [
+    "aoemod:pale_oak_sapling",
+    "aoemod:azalea_sapling"
+  ]
+}

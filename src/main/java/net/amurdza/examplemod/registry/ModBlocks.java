@@ -102,6 +102,8 @@ public class ModBlocks {
                     .isViewBlocking((state, level, pos) -> false)));
     public static final RegistryObject<PaleOakSaplingBlock> PALE_OAK_SAPLING = registerBlockAndItem("pale_oak_sapling",
             () -> new PaleOakSaplingBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_BROWN).instabreak().noCollission().sound(SoundType.GRASS).pushReaction(PushReaction.DESTROY).randomTicks()));
+    public static final RegistryObject<AzaleaSaplingBlock> AZALEA_SAPLING = registerBlockAndItem("azalea_sapling",
+            () -> new AzaleaSaplingBlock(BlockBehaviour.Properties.copy(Blocks.DARK_OAK_SAPLING)));
 
     public static final RegistryObject<ChainBlock> COPPER_CHAIN = registerBlockAndItem("copper_chain",
             () -> new ChainBlock(BlockBehaviour.Properties.copy(Blocks.CHAIN).mapColor(MapColor.COLOR_ORANGE)));

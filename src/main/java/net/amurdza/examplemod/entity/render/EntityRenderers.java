@@ -13,6 +13,7 @@ import net.amurdza.examplemod.entity.model.future.NautilusModel;
 import net.amurdza.examplemod.entity.model.future.ParchedModel;
 import net.amurdza.examplemod.entity.render.future.*;
 import net.minecraft.client.model.geom.ModelLayerLocation;
+import net.minecraft.world.entity.EntityType;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.client.event.EntityRenderersEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -50,6 +51,8 @@ public class EntityRenderers {
 
     @SubscribeEvent
     public static void registerRenderers(EntityRenderersEvent.RegisterRenderers event) {
+        event.registerEntityRenderer(EntityType.DOLPHIN, BabyAwareDolphinRenderer::new);
+        event.registerEntityRenderer(EntityType.PARROT, BabyAwareParrotRenderer::new);
         event.registerEntityRenderer(ModEntities.ARCHLICH.get(), ArchlichRenderer::new);
         event.registerEntityRenderer(ModEntities.SPIDER_QUEEN.get(), SpiderQueenRenderer::new);
         event.registerEntityRenderer(ModEntities.ILLAGER_LORD.get(), IllagerLordRenderer::new);

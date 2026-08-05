@@ -141,6 +141,13 @@ public record BandlandsSurfaceRuleSource(
         return Math.min(xRingDistance, zRingDistance);
     }
 
+    public static boolean usesSandySurfaceAt(int x, int z) {
+        return x >= SAND_RECTANGLE_MIN_X
+                && x <= SAND_RECTANGLE_MAX_X
+                && z >= SAND_RECTANGLE_MIN_Z
+                && z <= SAND_RECTANGLE_MAX_Z;
+    }
+
     @Override
     public SurfaceRules.SurfaceRule apply(SurfaceRules.Context context) {
         return new Rule(
@@ -209,20 +216,21 @@ public record BandlandsSurfaceRuleSource(
             /*
              * Only replace the top N blocks of the floor surface.
              *
-             * stoneDepthAbove = 0 means top surface block.
-             * stoneDepthAbove = 1 means one block below surface.
-             * etc.
+             * Minecraft counts the top surface block as stoneDepthAbove = 1.
+             * Convert to a zero-based depth for the explicitly sized sandy
+             * layers below.
              */
             if (stoneDepthAbove < 0) {
                 return null;
             }
 
-            if (isInsideSandRectangle(x, z)) {
-                if (stoneDepthAbove < SAND_RECTANGLE_SAND_DEPTH) {
+            if (usesSandySurfaceAt(x, z)) {
+                int sandyLayerDepth = stoneDepthAbove - 1;
+                if (sandyLayerDepth < SAND_RECTANGLE_SAND_DEPTH) {
                     return Blocks.SAND.defaultBlockState();
                 }
 
-                if (stoneDepthAbove
+                if (sandyLayerDepth
                         < SAND_RECTANGLE_SAND_DEPTH + SAND_RECTANGLE_SANDSTONE_DEPTH) {
                     return Blocks.SANDSTONE.defaultBlockState();
                 }
@@ -239,13 +247,6 @@ public record BandlandsSurfaceRuleSource(
             }
 
             return null;
-        }
-
-        private boolean isInsideSandRectangle(int x, int z) {
-            return x >= SAND_RECTANGLE_MIN_X
-                    && x <= SAND_RECTANGLE_MAX_X
-                    && z >= SAND_RECTANGLE_MIN_Z
-                    && z <= SAND_RECTANGLE_MAX_Z;
         }
 
         private Block getBandBlock(int x, int z) {

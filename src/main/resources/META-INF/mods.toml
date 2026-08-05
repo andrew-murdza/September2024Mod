@@ -64,6 +64,13 @@ ordering="NONE"
 side="BOTH"
 
 [[dependencies."${mod_id}"]]
+modId="geckolib"
+mandatory=true
+versionRange="[4.7.4,)"
+ordering="AFTER"
+side="BOTH"
+
+[[dependencies."${mod_id}"]]
 modId = "terrablender"
 mandatory = false
 versionRange = "[3.0.1.7,)"

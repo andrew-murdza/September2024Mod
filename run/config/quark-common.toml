@@ -55,14 +55,14 @@
 	Chute = true
 	Crafter = true
 	"Dispensers Place Blocks" = true
-	"Ender Watcher" = false
-	"Feeding Trough" = false
-	Gravisand = false
+	"Ender Watcher" = true
+	"Feeding Trough" = true
+	Gravisand = true
 	"Iron Rod" = true
 	"Metal Buttons" = true
-	"Obsidian Plate" = false
+	"Obsidian Plate" = true
 	"Pistons Move Tile Entities" = true
-	"Redstone Randomizer" = false
+	"Redstone Randomizer" = true
 
 	[automation.crafter]
 		#Setting this to true will change the Crafter to use Emi's original design instead of Mojang's.
@@ -109,37 +109,37 @@
 
 [building]
 	"Celebratory Lamps" = true
-	"Compressed Blocks" = false
-	"Duskbound Blocks" = false
-	"Framed Glass" = false
+	"Compressed Blocks" = true
+	"Duskbound Blocks" = true
+	"Framed Glass" = true
 	"Glass Item Frame" = true
 	"Gold Bars" = true
-	Grate = false
+	Grate = true
 	Hedges = true
-	"Hollow Logs" = false
-	"Industrial Palette" = false
+	"Hollow Logs" = true
+	"Industrial Palette" = true
 	"Japanese Palette" = true
-	"Leaf Carpet" = false
-	Midori = false
+	"Leaf Carpet" = true
+	Midori = true
 	"More Brick Types" = true
 	"More Mud Blocks" = true
 	"More Potted Plants" = true
 	"Nether Brick Fence Gate" = true
 	"Rainbow Lamps" = true
-	"Raw Metal Bricks" = false
-	Rope = false
+	"Raw Metal Bricks" = true
+	Rope = true
 	"Shear Vines" = true
-	Shingles = false
+	Shingles = true
 	"Soul Sandstone" = true
-	Stools = false
-	"Sturdy Stone" = false
-	Thatch = false
-	"Variant Bookshelves" = false
-	"Variant Chests" = false
-	"Variant Furnaces" = false
-	"Variant Ladders" = false
-	"Vertical Planks" = false
-	"Vertical Slabs" = false
+	Stools = true
+	"Sturdy Stone" = true
+	Thatch = true
+	"Variant Bookshelves" = true
+	"Variant Chests" = true
+	"Variant Furnaces" = true
+	"Variant Ladders" = true
+	"Vertical Planks" = true
+	"Vertical Slabs" = true
 	"Wooden Posts" = true
 	"More Stone Variants" = true
 
@@ -197,8 +197,8 @@
 
 	[building.leaf_carpet]
 		#This feature disables itself if any of the following mods are loaded:
-		# - woodworks
 		# - immersive_weathering
+		# - woodworks
 		#This is done to prevent content overlap.
 		#You can turn this on to force the feature to be loaded even if the above mods are also loaded.
 		"Ignore Anti Overlap" = false
@@ -237,8 +237,8 @@
 		#Allowed values: [0,1]
 		"Fall Damage Multiplier" = 0.5
 		#This feature disables itself if any of the following mods are loaded:
-		# - goated
 		# - environmental
+		# - goated
 		#This is done to prevent content overlap.
 		#You can turn this on to force the feature to be loaded even if the above mods are also loaded.
 		"Ignore Anti Overlap" = false
@@ -246,8 +246,8 @@
 	[building.variant_bookshelves]
 		"Change Names" = true
 		#This feature disables itself if any of the following mods are loaded:
-		# - woodworks
 		# - woodster
+		# - woodworks
 		#This is done to prevent content overlap.
 		#You can turn this on to force the feature to be loaded even if the above mods are also loaded.
 		"Ignore Anti Overlap" = false
@@ -266,8 +266,8 @@
 	[building.variant_ladders]
 		"Change Names" = true
 		#This feature disables itself if any of the following mods are loaded:
-		# - woodworks
 		# - woodster
+		# - woodworks
 		#This is done to prevent content overlap.
 		#You can turn this on to force the feature to be loaded even if the above mods are also loaded.
 		"Ignore Anti Overlap" = false
@@ -285,9 +285,9 @@
 	"Automatic Tool Restock" = true
 	"Easy Transfering" = true
 	"Expanded Item Interactions" = true
-	"Hotbar Changer" = false
+	"Hotbar Changer" = true
 	"Inventory Sorting" = true
-	"Item Sharing" = false
+	"Item Sharing" = true
 	"Quick Armor Swapping" = true
 
 	[management.automatic_tool_restock]
@@ -338,21 +338,21 @@
 		"Swap Off Hand" = true
 
 [tools]
-	Abacus = false
-	"Ambient Discs" = false
-	"Ancient Tomes" = false
-	"Beacon Redirection" = false
-	"Bottled Cloud" = false
-	"Color Runes" = false
-	"Endermosh Music Disc" = false
+	Abacus = true
+	"Ambient Discs" = true
+	"Ancient Tomes" = true
+	"Beacon Redirection" = true
+	"Bottled Cloud" = true
+	"Color Runes" = true
+	"Endermosh Music Disc" = true
 	"Parrot Eggs" = true
-	"Pathfinder Maps" = false
-	Pickarang = false
+	"Pathfinder Maps" = true
+	Pickarang = true
 	"Seed Pouch" = true
-	"Skull Pikes" = false
-	"Slime In A Bucket" = false
-	"Torch Arrow" = false
-	Trowel = false
+	"Skull Pikes" = true
+	"Slime In A Bucket" = true
+	"Torch Arrow" = true
+	Trowel = true
 
 	[tools.abacus]
 
@@ -516,42 +516,42 @@
 	"Better Elytra Rocket" = true
 	"Campfires Boost Elytra" = true
 	"Compasses Work Everywhere" = true
-	"Coral On Cactus" = false
+	"Coral On Cactus" = true
 	"Diamond Repair" = true
 	"Double Door Opening" = true
-	"Dragon Scales" = false
+	"Dragon Scales" = true
 	"Dyeable Item Frames" = true
-	Emotes = false
+	Emotes = true
 	"Enhanced Ladders" = true
-	"Glass Shard" = false
-	"Gold Tools Have Fortune" = false
-	"Grab Chickens" = false
-	"Hoe Harvesting" = false
+	"Glass Shard" = true
+	"Gold Tools Have Fortune" = true
+	"Grab Chickens" = true
+	"Hoe Harvesting" = true
 	"Horses Swim" = true
 	"Improved Sponges" = true
-	"Lock Rotation" = false
+	"Lock Rotation" = true
 	"Magma Keeps Concrete Powder" = true
 	"Map Washing" = true
-	"More Banner Layers" = false
-	"More Note Block Sounds" = false
-	"More Villagers" = false
+	"More Banner Layers" = true
+	"More Note Block Sounds" = true
+	"More Villagers" = true
 	"No Durability On Cosmetics" = true
-	"Pat The Dogs" = false
-	"Petals On Water" = false
-	"Pig Litters" = false
+	"Pat The Dogs" = true
+	"Petals On Water" = true
+	"Pig Litters" = true
 	"Poison Potato Usage" = true
-	"Reacharound Placing" = false
-	"Renewable Spore Blossoms" = false
-	"Replace Scaffolding" = false
+	"Reacharound Placing" = true
+	"Renewable Spore Blossoms" = true
+	"Replace Scaffolding" = true
 	"Safer Creatures" = true
 	"Shulker Packing" = true
 	"Simple Harvest" = true
 	"Slabs To Blocks" = true
-	"Slimes To Magma Cubes" = false
-	"Snow Golem Player Heads" = false
+	"Slimes To Magma Cubes" = true
+	"Snow Golem Player Heads" = true
 	"Utility Recipes" = true
 	"Vexes Die With Their Masters" = true
-	"Villagers Follow Emeralds" = false
+	"Villagers Follow Emeralds" = true
 	"Zombie Villagers On Normal" = true
 
 	[tweaks.automatic_recipe_unlock]
@@ -766,21 +766,21 @@
 		"Smelt Raw Ore Blocks" = true
 
 [world]
-	"Ancient Wood" = false
-	"Azalea Wood" = false
-	"Big Stone Clusters" = false
-	"Blossom Trees" = false
-	"Chorus Vegetation" = false
-	Corundum = false
-	"Fairy Rings" = false
-	"Fallen Logs" = false
+	"Ancient Wood" = true
+	"Azalea Wood" = true
+	"Big Stone Clusters" = true
+	"Blossom Trees" = true
+	"Chorus Vegetation" = true
+	Corundum = true
+	"Fairy Rings" = true
+	"Fallen Logs" = true
 	"Glimmering Weald" = true
-	"Monster Box" = false
-	"Nether Obsidian Spikes" = false
-	"New Stone Types" = false
-	"No More Lava Pockets" = false
-	Permafrost = false
-	"Spiral Spires" = false
+	"Monster Box" = true
+	"Nether Obsidian Spikes" = true
+	"New Stone Types" = true
+	"No More Lava Pockets" = true
+	Permafrost = true
+	"Spiral Spires" = true
 
 	[world.ancient_wood]
 		"Ancient Fruit Gives Exp" = true
@@ -1348,11 +1348,11 @@
 
 [mobs]
 	Crabs = true
-	Forgotten = false
-	Foxhound = false
-	Shiba = false
-	Stonelings = false
-	Toretoise = false
+	Forgotten = true
+	Foxhound = true
+	Shiba = true
+	Stonelings = true
+	Toretoise = true
 	Wraith = true
 
 	[mobs.crabs]
@@ -1552,8 +1552,8 @@
 					"Is Blacklist" = false
 
 [client]
-	"Auto Walk Keybind" = false
-	"Back Button Keybind" = false
+	"Auto Walk Keybind" = true
+	"Back Button Keybind" = true
 	"Buckets Show Inhabitants" = true
 	Camera = true
 	"Chest Searching" = true
@@ -1563,9 +1563,9 @@
 	"Long Range Pick Block" = true
 	"Microcrafting Helper" = true
 	"Soul Candles" = true
-	"Usage Ticker" = false
-	"Uses For Curses" = false
-	"Variant Animal Textures" = false
+	"Usage Ticker" = true
+	"Uses For Curses" = true
+	"Variant Animal Textures" = true
 	"Wool Shuts Up Minecarts" = true
 
 	[client.auto_walk_keybind]
@@ -1822,12 +1822,12 @@
 
 [oddities]
 	Backpack = true
-	Crate = false
-	Magnets = false
-	"Matrix Enchanting" = false
-	Pipes = false
-	"Tiny Potato" = false
-	"Totem Of Holding" = false
+	Crate = true
+	Magnets = true
+	"Matrix Enchanting" = true
+	Pipes = true
+	"Tiny Potato" = true
+	"Totem Of Holding" = true
 
 	[oddities.backpack]
 		#Set this to true to allow the backpacks to be unequipped even with items in them

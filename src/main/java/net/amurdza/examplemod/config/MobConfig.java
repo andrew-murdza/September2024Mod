@@ -610,7 +610,8 @@ public final class MobConfig {
                 m(ModTags.Biomes.tropicalBiomes, 0.45F, Items.CHERRY_SAPLING),
                 m(ModTags.Biomes.tropicalBiomes, 0.45F, Items.DARK_OAK_SAPLING),
                 m(ModTags.Biomes.tropicalBiomes, 0.45F, Items.JUNGLE_SAPLING),
-                m(ModTags.Biomes.tropicalBiomes, 0.45F, Items.AZALEA));
+                m(ModTags.Biomes.tropicalBiomes, 0.45F,
+                        net.amurdza.examplemod.registry.ModBlocks.AZALEA_SAPLING.get().asItem()));
 
         addMobInfo(ModEntities.ZOMBIE_HORSEMAN.get(),
                 m(ModTags.Biomes.savannaBiomes,3,Items.ROTTEN_FLESH,Items.LEATHER),

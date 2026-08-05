@@ -4,11 +4,14 @@ import com.github.alexthe666.alexsmobs.item.ItemModFishBucket;
 import net.amurdza.examplemod.AOEMod;
 import net.amurdza.examplemod.item.CopperArmorMaterial;
 import net.amurdza.examplemod.item.MaceItem;
+import net.amurdza.examplemod.item.MaterialShieldItem;
 import net.amurdza.examplemod.item.ModToolTiers;
 import net.amurdza.examplemod.item.SpearItem;
+import net.minecraft.tags.ItemTags;
 import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.food.Foods;
 import net.minecraft.world.item.*;
+import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.material.Fluids;
 import net.minecraftforge.eventbus.api.IEventBus;
@@ -201,6 +204,28 @@ public class ModItems {
             () -> new MaceItem(new Item.Properties().durability(500))
     );
 
+    public static final RegistryObject<Item> WOODEN_SHIELD = materialShield(
+            "wooden_shield", "shield_wooden", 336, () -> Ingredient.of(ItemTags.PLANKS), false, 1.0F
+    );
+    public static final RegistryObject<Item> COPPER_SHIELD = materialShield(
+            "copper_shield", "shield_copper", 448, () -> Ingredient.of(Items.COPPER_INGOT), false, 1.0F
+    );
+    public static final RegistryObject<Item> IRON_SHIELD = materialShield(
+            "iron_shield", "shield_iron", 560, () -> Ingredient.of(Items.IRON_INGOT), false, 1.0F
+    );
+    public static final RegistryObject<Item> GOLDEN_SHIELD = materialShield(
+            "golden_shield", "shield_gold", 280, () -> Ingredient.of(Items.GOLD_INGOT), false, 1.0F
+    );
+    public static final RegistryObject<Item> DIAMOND_SHIELD = materialShield(
+            "diamond_shield", "shield_diamond", 896, () -> Ingredient.of(Items.DIAMOND), false, 1.0F
+    );
+    public static final RegistryObject<Item> NETHERITE_SHIELD = materialShield(
+            "netherite_shield", "shield_netherite", 1120, () -> Ingredient.of(Items.NETHERITE_INGOT), true, 1.0F
+    );
+    public static final RegistryObject<Item> BOSS_SHIELD = materialShield(
+            "boss_shield", "boss_shield", 1120, () -> Ingredient.of(Items.IRON_INGOT), false, 1.2F
+    );
+
     public static final RegistryObject<Item> BONE_SWORD = ITEMS.register(
             "bone_sword",
             () -> new SwordItem(ModToolTiers.BONE, 3, -2.4F, new Item.Properties())
@@ -266,4 +291,27 @@ public class ModItems {
     public static final RegistryObject<Item> NETHERITE_SPEAR = ITEMS.register("netherite_spear",
             () -> new SpearItem(Tiers.IRON, 0.95F, 0.95F, 0.60F, 11.0F, 6.75F, 4.6F,
                     new Item.Properties().fireResistant()));
+
+    private static RegistryObject<Item> materialShield(
+            String name,
+            String texture,
+            int durability,
+            java.util.function.Supplier<net.minecraft.world.item.crafting.Ingredient> repairIngredient,
+            boolean fireResistant,
+            float modelScale
+    ) {
+        Item.Properties properties = new Item.Properties().durability(durability);
+        if (fireResistant) {
+            properties.fireResistant();
+        }
+        return ITEMS.register(
+                name,
+                () -> new MaterialShieldItem(
+                        properties,
+                        AOEMod.makeID("textures/entity/" + texture + ".png"),
+                        repairIngredient,
+                        modelScale
+                )
+        );
+    }
 }

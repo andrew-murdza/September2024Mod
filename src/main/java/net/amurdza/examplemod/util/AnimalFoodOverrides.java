@@ -74,7 +74,7 @@ public final class AnimalFoodOverrides {
         }
 
         if (entity instanceof Parrot) {
-            return isSeed(stack) || stack.is(ModTags.Items.leafFruits);
+            return stack.is(ModTags.Items.leafFruits);
         }
 
         if (entity instanceof Chicken || entity instanceof Squirrel) {

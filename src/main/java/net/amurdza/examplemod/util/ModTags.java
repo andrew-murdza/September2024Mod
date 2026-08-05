@@ -27,6 +27,7 @@ public class ModTags {
         public static final TagKey<Item> vegetables=tag("vegetables");
         public static final TagKey<Item> mushrooms=tag("mushrooms");
         public static final TagKey<Item> rawFish=tag("raw_fish");
+        public static final TagKey<Item> fish=tag("fish");
         public static final TagKey<Item> leafFruits=tag("leaf_fruits");
         public static final TagKey<Item> mobMeatDrops=tag("mob_meat_drops");
         public static final TagKey<Item> fruits=tag("fruits");
@@ -38,6 +39,7 @@ public class ModTags {
     public static class Biomes{
         public static final TagKey<Biome> tropicalBiomes=tag("tropical_biomes");
         public static final TagKey<Biome> rainforestBiomes=tropicalBiomes;
+        public static final TagKey<Biome> aoeJungleBiomes=tag("aoe_jungle_biomes");
         public static final TagKey<Biome> mountainBiomes=tag("mountain_biomes");
         public static final TagKey<Biome> netherBiomes=tag("nether_biomes");
         public static final TagKey<Biome> desertBiomes=tag("desert_biomes");

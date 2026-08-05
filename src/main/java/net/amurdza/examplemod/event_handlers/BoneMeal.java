@@ -456,7 +456,7 @@ public class BoneMeal {
                 || block == Blocks.HORN_CORAL_FAN;
     }
 
-    private static void growFlowers(Level world, BlockPos pos) {
+    public static void growFlowers(Level world, BlockPos pos) {
         BlockState state = world.getBlockState(pos);
 
         FluidType fluidType = FluidType.AIR;

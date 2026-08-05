@@ -340,6 +340,13 @@ Pale oak sapling behavior:
 - Uses a custom PaleOakTreeGrower.
 - In soul-sand-valley-style generation it uses a configured pale oak feature.
 
+Azalea sapling behavior:
+
+- The custom azalea sapling has dark oak sapling block, growth, composting, and fuel behavior.
+- It can be placed and grown only in the AOE jungle biome.
+- Four custom azalea saplings in a 2x2 grow the configured AOE azalea tree; single saplings do not grow.
+- Vanilla azalea and flowering azalea bushes are decorative. Bonemeal spreads matching bushes instead of growing trees.
+
 Copper chain:
 
 - Adds a copper chain block.

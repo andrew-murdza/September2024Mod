@@ -33,6 +33,7 @@ import java.util.Set;
 public class MushroomCavePiece extends AbstractSpiralCavePiece {
     private static final double YAW_START = Math.PI * 1.5D;
     private static final double FULL_TURN = Math.PI * 2.0D;
+    private static final int UPPER_GRASS_SURFACE_DEPTH = 4;
     private static final int[][] BERRY_PATCH_OFFSETS = new int[][] {
             {0, 0},
             {1, 0},
@@ -170,6 +171,13 @@ public class MushroomCavePiece extends AbstractSpiralCavePiece {
         int minZ = Math.max(box.minZ(), chunkPos.getMinBlockZ());
         int maxZ = Math.min(box.maxZ(), chunkPos.getMaxBlockZ());
         int highestUpperFloorAirY = (int) Math.ceil(this.origin.getY() - this.verticalRadius);
+        int minScanY = Math.max(box.minY(), level.getMinBuildHeight());
+        int maxScanY = Math.min(box.maxY(), level.getMaxBuildHeight() - 1);
+        if (minX > maxX || minZ > maxZ || minScanY > maxScanY) {
+            applyWaterExposedMudBelowMycelium(level);
+            return;
+        }
+
         BlockPos.MutableBlockPos cursor = new BlockPos.MutableBlockPos();
 
         for (int x = minX; x <= maxX; x++) {
@@ -178,7 +186,14 @@ public class MushroomCavePiece extends AbstractSpiralCavePiece {
                     continue;
                 }
 
-                BlockPos floor = findFirstSolidBlockBelowSky(level, cursor, x, z);
+                BlockPos floor = findFirstSolidBlockBelowSky(
+                        level,
+                        cursor,
+                        x,
+                        z,
+                        minScanY,
+                        maxScanY
+                );
                 if (floor == null) {
                     continue;
                 }
@@ -188,13 +203,26 @@ public class MushroomCavePiece extends AbstractSpiralCavePiece {
                     continue;
                 }
 
-                BlockState floorState = level.getBlockState(floor);
-                if (!floorState.getFluidState().isEmpty() || !canReplace(floorState)) {
+                List<ColumnCarveInterval> carveIntervals = columnCarveIntervals(
+                        x,
+                        z,
+                        Math.max(minScanY, floor.getY() - UPPER_GRASS_SURFACE_DEPTH + 1),
+                        floor.getY(),
+                        chunkEllipsoids
+                );
+                if (carveIntervals.isEmpty()) {
                     continue;
                 }
 
-                setBlock(level, floor, Blocks.GRASS_BLOCK);
-                setBlock(level, floor.below(), Blocks.DIRT);
+                restoreUpperGrassSurfaceLayers(
+                        level,
+                        box,
+                        cursor,
+                        x,
+                        floor.getY(),
+                        z,
+                        carveIntervals
+                );
             }
         }
 
@@ -221,16 +249,193 @@ public class MushroomCavePiece extends AbstractSpiralCavePiece {
             WorldGenLevel level,
             BlockPos.MutableBlockPos cursor,
             int x,
-            int z
+            int z,
+            int minY,
+            int maxY
     ) {
-        for (int y = level.getMaxBuildHeight() - 1; y >= level.getMinBuildHeight(); y--) {
+        for (int y = maxY; y >= minY; y--) {
             cursor.set(x, y, z);
-            if (!level.getBlockState(cursor).isAir()) {
+            BlockState state = level.getBlockState(cursor);
+            if (state.isAir()) {
+                continue;
+            }
+
+            if (isTerrainScanDecoration(state)) {
+                continue;
+            }
+
+            if (!state.getFluidState().isEmpty()) {
+                return null;
+            }
+
+            if (state.isSolid()) {
                 return cursor.immutable();
             }
         }
 
         return null;
+    }
+
+    private List<ColumnCarveInterval> columnCarveIntervals(
+            int x,
+            int z,
+            int minY,
+            int maxY,
+            List<CarveEllipsoid> chunkEllipsoids
+    ) {
+        List<ColumnCarveInterval> intervals = new ArrayList<>();
+
+        for (CarveEllipsoid ellipsoid : chunkEllipsoids) {
+            double relativeX = (x + 0.5D - ellipsoid.centerX())
+                    / ellipsoid.horizontalRadius();
+            double relativeZ = (z + 0.5D - ellipsoid.centerZ())
+                    / ellipsoid.horizontalRadius();
+            double remainingVerticalShape = 1.0D
+                    - relativeX * relativeX
+                    - relativeZ * relativeZ;
+            if (remainingVerticalShape <= 0.0D) {
+                continue;
+            }
+
+            double verticalScale = Math.pow(remainingVerticalShape, 0.25D);
+            double lowerCenterY = ellipsoid.centerY()
+                    - ellipsoid.lowerVerticalRadius() * verticalScale;
+            double upperCenterY = ellipsoid.centerY()
+                    + ellipsoid.upperVerticalRadius() * verticalScale;
+            int intervalMinY = Mth.floor(lowerCenterY - 0.5D) + 1;
+            int intervalMaxY = Mth.ceil(upperCenterY - 0.5D) - 1;
+
+            intervalMinY = Math.max(
+                    intervalMinY,
+                    Math.max(minY, mainAirCarveMinY(this.endY))
+            );
+            intervalMaxY = Math.min(
+                    intervalMaxY,
+                    Math.min(maxY, ellipsoid.maxCarveY())
+            );
+            if (intervalMinY <= intervalMaxY) {
+                intervals.add(new ColumnCarveInterval(intervalMinY, intervalMaxY));
+            }
+        }
+
+        return mergeColumnIntervals(intervals);
+    }
+
+    private List<ColumnCarveInterval> mergeColumnIntervals(
+            List<ColumnCarveInterval> intervals
+    ) {
+        if (intervals.size() < 2) {
+            return intervals;
+        }
+
+        intervals.sort((left, right) -> Integer.compare(left.minY(), right.minY()));
+        List<ColumnCarveInterval> merged = new ArrayList<>();
+        ColumnCarveInterval current = intervals.get(0);
+
+        for (int index = 1; index < intervals.size(); index++) {
+            ColumnCarveInterval next = intervals.get(index);
+            if (next.minY() <= current.maxY() + 1) {
+                current = new ColumnCarveInterval(
+                        current.minY(),
+                        Math.max(current.maxY(), next.maxY())
+                );
+            } else {
+                merged.add(current);
+                current = next;
+            }
+        }
+
+        merged.add(current);
+        return merged;
+    }
+
+    private void restoreUpperGrassSurfaceLayers(
+            WorldGenLevel level,
+            BoundingBox box,
+            BlockPos.MutableBlockPos cursor,
+            int x,
+            int surfaceY,
+            int z,
+            List<ColumnCarveInterval> carveIntervals
+    ) {
+        for (int depth = 0; depth < UPPER_GRASS_SURFACE_DEPTH; depth++) {
+            int y = surfaceY - depth;
+            cursor.set(x, y, z);
+            if (!box.isInside(cursor)) {
+                return;
+            }
+
+            Block intendedLayer = upperGrassSurfaceLayer(depth);
+            BlockState state = level.getBlockState(cursor);
+            if (state.is(intendedLayer)) {
+                continue;
+            }
+
+            if (state.isAir()) {
+                /*
+                 * The four-block window already intersects the merged carve
+                 * union in this exact x,z column. Fill any other air inside
+                 * that same window as part of the local ceiling gap; terrain
+                 * air can sit immediately above structure-carved air.
+                 */
+                if (depth == 0 || carveIntervals.isEmpty()) {
+                    return;
+                }
+                continue;
+            }
+
+            if (!canReplace(state) || isProtectedMushroomSurfaceLayer(state)) {
+                return;
+            }
+        }
+
+        for (int depth = UPPER_GRASS_SURFACE_DEPTH - 1; depth >= 0; depth--) {
+            cursor.set(x, surfaceY - depth, z);
+            level.setBlock(
+                    cursor,
+                    upperGrassSurfaceLayer(depth).defaultBlockState(),
+                    Block.UPDATE_CLIENTS
+            );
+        }
+    }
+
+    private boolean isTerrainScanDecoration(BlockState state) {
+        return state.is(BlockTags.LEAVES)
+                || state.is(BlockTags.LOGS)
+                || state.is(Blocks.SNOW);
+    }
+
+    private Block upperGrassSurfaceLayer(int depth) {
+        return switch (depth) {
+            case 0 -> Blocks.GRASS_BLOCK;
+            case 1 -> Blocks.DIRT;
+            case 2, 3 -> Blocks.STONE;
+            default -> throw new IllegalArgumentException("Unexpected upper surface depth: " + depth);
+        };
+    }
+
+    private boolean isProtectedMushroomSurfaceLayer(BlockState state) {
+        return state.is(Blocks.CRIMSON_NYLIUM)
+                || state.is(Blocks.WARPED_NYLIUM)
+                || state.is(Blocks.SOUL_SAND)
+                || state.is(Blocks.SOUL_SOIL)
+                || state.is(Blocks.BASALT)
+                || state.is(Blocks.BLACKSTONE)
+                || state.is(Blocks.MYCELIUM)
+                || state.is(Blocks.GRASS_BLOCK)
+                || state.is(Blocks.MUD)
+                || state.is(Blocks.CALCITE)
+                || state.is(Blocks.SMOOTH_BASALT)
+                || state.is(Blocks.AMETHYST_BLOCK)
+                || state.is(Blocks.BUDDING_AMETHYST)
+                || state.is(Blocks.SCULK)
+                || state.is(Blocks.SCULK_CATALYST)
+                || state.is(Blocks.SCULK_SENSOR)
+                || state.is(Blocks.SCULK_SHRIEKER)
+                || state.is(Blocks.END_STONE);
+    }
+
+    private record ColumnCarveInterval(int minY, int maxY) {
     }
 
     private int finalEllipsoidFloorTopY() {

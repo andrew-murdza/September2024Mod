@@ -1,5 +1,6 @@
 package net.amurdza.examplemod.entity;
 
+import net.amurdza.examplemod.registry.ModItems;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.particles.ItemParticleOption;
 import net.minecraft.core.particles.ParticleTypes;
@@ -34,10 +35,20 @@ import net.minecraft.world.level.levelgen.Heightmap;
 import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.Vec3;
 import org.jetbrains.annotations.Nullable;
+import software.bernie.geckolib.animatable.GeoEntity;
+import software.bernie.geckolib.core.animatable.instance.AnimatableInstanceCache;
+import software.bernie.geckolib.core.animation.AnimatableManager;
+import software.bernie.geckolib.core.animation.AnimationController;
+import software.bernie.geckolib.core.animation.RawAnimation;
+import software.bernie.geckolib.core.object.PlayState;
+import software.bernie.geckolib.util.GeckoLibUtil;
 
 import java.util.UUID;
 
-public class IllagerLordEntity extends Vindicator {
+public class IllagerLordEntity extends Vindicator implements GeoEntity {
+    private static final RawAnimation IDLE_ANIMATION = RawAnimation.begin().thenLoop("idle");
+    private static final RawAnimation WALK_ANIMATION = RawAnimation.begin().thenLoop("walk");
+    private static final RawAnimation ATTACK_ANIMATION = RawAnimation.begin().thenPlay("attack");
     private static final EntityDataAccessor<Integer> SHIELD_HITS = SynchedEntityData.defineId(
             IllagerLordEntity.class,
             EntityDataSerializers.INT
@@ -58,6 +69,7 @@ public class IllagerLordEntity extends Vindicator {
             BossEvent.BossBarColor.RED,
             BossEvent.BossBarOverlay.NOTCHED_10
     );
+    private final AnimatableInstanceCache animationCache = GeckoLibUtil.createInstanceCache(this);
     private int summonCooldown;
 
     public IllagerLordEntity(EntityType<? extends Vindicator> entityType, Level level) {
@@ -87,7 +99,7 @@ public class IllagerLordEntity extends Vindicator {
     private void equipIronLoadout() {
         this.setItemSlot(EquipmentSlot.MAINHAND, new ItemStack(Items.IRON_AXE));
         if (!this.isShieldBroken()) {
-            this.setItemSlot(EquipmentSlot.OFFHAND, new ItemStack(Items.SHIELD));
+            this.setItemSlot(EquipmentSlot.OFFHAND, new ItemStack(ModItems.BOSS_SHIELD.get()));
         }
         this.setItemSlot(EquipmentSlot.HEAD, new ItemStack(Items.IRON_HELMET));
         this.setItemSlot(EquipmentSlot.CHEST, new ItemStack(Items.IRON_CHESTPLATE));
@@ -114,6 +126,25 @@ public class IllagerLordEntity extends Vindicator {
         return super.hurt(source, amount);
     }
 
+    @Override
+    public boolean doHurtTarget(Entity target) {
+        boolean hit = super.doHurtTarget(target);
+        if (hit && !this.level().isClientSide) {
+            // The supplied attack clip is longer than the vanilla six-tick swing
+            // flag, so trigger it independently and allow the full clip to play.
+            this.triggerAnim("attack", "attack");
+        }
+        return hit;
+    }
+
+    @Override
+    protected void dropCustomDeathLoot(DamageSource source, int looting, boolean recentlyHit) {
+        super.dropCustomDeathLoot(source, looting, recentlyHit);
+        if (!this.isShieldBroken()) {
+            this.spawnAtLocation(ModItems.BOSS_SHIELD.get());
+        }
+    }
+
     private boolean isAttackFromFront(DamageSource source) {
         Vec3 sourcePosition = source.getSourcePosition();
         if (sourcePosition == null && source.getEntity() != null) {
@@ -137,7 +168,7 @@ public class IllagerLordEntity extends Vindicator {
 
     private void breakShield() {
         this.entityData.set(SHIELD_BROKEN, true);
-        ItemStack shield = new ItemStack(Items.SHIELD);
+        ItemStack shield = new ItemStack(ModItems.BOSS_SHIELD.get());
         this.setItemSlot(EquipmentSlot.OFFHAND, ItemStack.EMPTY);
         this.playSound(SoundEvents.SHIELD_BREAK, 1.25F, 0.8F);
         if (this.level() instanceof ServerLevel level) {
@@ -259,5 +290,19 @@ public class IllagerLordEntity extends Vindicator {
     @Override
     public boolean removeWhenFarAway(double distanceToClosestPlayer) {
         return false;
+    }
+
+    @Override
+    public void registerControllers(AnimatableManager.ControllerRegistrar controllers) {
+        controllers.add(new AnimationController<>(this, "movement", 4, state ->
+                state.setAndContinue(state.isMoving() ? WALK_ANIMATION : IDLE_ANIMATION)
+        ));
+        controllers.add(new AnimationController<>(this, "attack", 0, state -> PlayState.STOP)
+                .triggerableAnim("attack", ATTACK_ANIMATION));
+    }
+
+    @Override
+    public AnimatableInstanceCache getAnimatableInstanceCache() {
+        return this.animationCache;
     }
 }

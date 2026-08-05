@@ -145,6 +145,7 @@ public final class BlockConfig {
     }
 
     private static void ensureAllGrowthTags() {
+        ensureGrowthTag(ModTags.Biomes.aoeJungleBiomes);
         ensureGrowthTag(ModTags.Biomes.tropicalBiomes);
         ensureGrowthTag(ModTags.Biomes.savannaBiomes);
         ensureGrowthTag(ModTags.Biomes.mountainBiomes);
@@ -312,7 +313,7 @@ public final class BlockConfig {
         );
 
         addLoot(Blocks.AZALEA_LEAVES,
-                leaf(ModTags.Biomes.tropicalBiomes, Items.AZALEA),
+                leaf(ModTags.Biomes.tropicalBiomes, ModBlocks.AZALEA_SAPLING.get().asItem()),
                 stick(ModTags.Biomes.tropicalBiomes),
                 fruit(ModTags.Biomes.tropicalBiomes, externalItem("fruitsdelight", "pear", Items.APPLE))
         );
