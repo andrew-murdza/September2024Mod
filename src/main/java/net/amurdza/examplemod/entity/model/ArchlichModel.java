@@ -45,12 +45,6 @@ public class ArchlichModel extends GeoModel<ArchlichEntity> {
             head.setRotY(head.getRotY() + yaw);
             head.setRotX(head.getRotX() + pitch);
         });
-        // The supplied geometry keeps the headwear as a sibling so it can have
-        // independent animation tracks; mirror look rotation to keep it attached.
-        this.getBone("headwear").ifPresent(headwear -> {
-            headwear.setRotY(headwear.getRotY() + yaw);
-            headwear.setRotX(headwear.getRotX() + pitch);
-        });
     }
 
     private static float radians(float degrees) {

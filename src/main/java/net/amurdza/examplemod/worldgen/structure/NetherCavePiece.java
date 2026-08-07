@@ -2,6 +2,7 @@ package net.amurdza.examplemod.worldgen.structure;
 
 import com.github.alexthe666.alexsmobs.entity.AMEntityRegistry;
 import net.amurdza.examplemod.AOEMod;
+import net.amurdza.examplemod.config.CaveStructureConfig;
 import net.amurdza.examplemod.registry.ModBlocks;
 import net.amurdza.examplemod.registry.ModStructures;
 import net.amurdza.examplemod.worldgen.NetherCaveSectionClassifier;
@@ -43,6 +44,8 @@ import java.util.Set;
 import java.util.concurrent.ConcurrentHashMap;
 
 public class NetherCavePiece extends AbstractSpiralCavePiece {
+    private static final double REFERENCE_HORIZONTAL_RADIUS =
+            CaveStructureConfig.NETHER_CAVE_HORIZONTAL_RADIUS;
     private static final double YAW_START = Math.PI * 1.5D;
     private static final double FULL_TURN = Math.PI * 2.0D;
     private static final double UPPER_SPIRAL_TURNS = 1.0D;
@@ -52,6 +55,7 @@ public class NetherCavePiece extends AbstractSpiralCavePiece {
     private static final int DESERT_TERRACE_MAX_SURFACE_Y = DESERT_LAND_SAND_MAX_Y + 1;
     private static final int UPPER_LAND_SAND_DEPTH = 2;
     private static final int UPPER_LAND_SANDSTONE_DEPTH = 2;
+    private static final int UPPER_LAND_STONE_DEPTH = 2;
     private static final int DESERT_RIVER_FLOOR_LAYER_DEPTH = 4;
     private static final int STRAIGHT_TERRACE_SAND_DEPTH = 2;
     private static final int STRAIGHT_TERRACE_SANDSTONE_DEPTH = 2;
@@ -59,8 +63,10 @@ public class NetherCavePiece extends AbstractSpiralCavePiece {
     private static final int STRAIGHT_RIVER_SANDSTONE_DEPTH = 1;
     private static final int STRAIGHT_TERRACE_SHORE_WIDTH = 72;
     private static final int STRAIGHT_TERRACE_TOP_Y = 217;
-    private static final int STRAIGHT_TERRACE_BIOME_WIDTH_BLOCKS = 64 * 16;
-    private static final int STRAIGHT_TERRACE_X_SPACING_BLOCKS = 64 * 16;
+    private static final int STRAIGHT_TERRACE_BIOME_WIDTH_BLOCKS =
+            CaveStructureConfig.NETHER_CAVE_BIOME_WIDTH * 16;
+    private static final int STRAIGHT_TERRACE_X_SPACING_BLOCKS =
+            CaveStructureConfig.NETHER_CAVE_X_SPACING * 16;
     private static final int STRAIGHT_TERRACE_RIVER_WIDTH_BLOCKS = 7 * 16;
     private static final int STRAIGHT_TERRACE_FLAT_AFTER_RIVER = 40;
     private static final int STRAIGHT_TERRACE_FLAT_AFTER_BIOME_EDGE = 96;
@@ -81,24 +87,41 @@ public class NetherCavePiece extends AbstractSpiralCavePiece {
     private static final double RABBIT_GROUP_TURNS_AFTER_FULL_RADIUS = 0.20D;
     private static final double RED_MUSHROOM_UPWARD_TURNS = 0.10D;
     private static final double BROWN_MUSHROOM_UPWARD_TURNS = 0.15D;
-    private static final double MUSHROOM_DISTANCE_INSIDE_INNER_BANK = 24.0D;
+    private static final double MUSHROOM_INNER_BANK_INSET_FRACTION =
+            24.0D / REFERENCE_HORIZONTAL_RADIUS;
     private static final int MUSHROOM_GROUND_SEARCH_ABOVE = 4;
     private static final int MUSHROOM_GROUND_SEARCH_BELOW = 16;
     private static final int MUSHROOM_PATCH_ANCHOR_SEARCH_RADIUS = 6;
-    private static final int GUARANTEED_SUGAR_CANE_MIN_X = -475;
-    private static final int GUARANTEED_SUGAR_CANE_MAX_X = -461;
+    private static final int GUARANTEED_SUGAR_CANE_CAVE_CENTER_X =
+            CaveStructureConfig.NETHER_CAVE_X_START
+                    - CaveStructureConfig.NETHER_CAVE_X_SPACING * 16;
+    private static final int GUARANTEED_SUGAR_CANE_CAVE_CENTER_Z = (int) Math.floor(
+            CaveStructureConfig.NETHER_CAVE_TARGET_CONTINENTS
+                    * CaveStructureConfig.NETHER_CAVE_BIOME_WIDTH
+                    * 10
+    ) * 16;
+    private static final int GUARANTEED_SUGAR_CANE_MIN_X =
+            GUARANTEED_SUGAR_CANE_CAVE_CENTER_X - 5;
+    private static final int GUARANTEED_SUGAR_CANE_MAX_X =
+            GUARANTEED_SUGAR_CANE_CAVE_CENTER_X + 3;
     private static final int GUARANTEED_SUGAR_CANE_GROUND_Y = 186;
     private static final int GUARANTEED_SUGAR_CANE_MIN_Y = 187;
     private static final int GUARANTEED_SUGAR_CANE_MAX_Y = 189;
-    private static final int GUARANTEED_SUGAR_CANE_Z = 4729;
     private static final int WATER_LAVA_BUFFER_DEEP_DARK_FLOORS = 2;
     private static final int WATER_LAVA_BUFFER_SOUL_SAND_FLOORS = 5;
     private static final double NETHER_MOB_BIOME_CENTER_HALF_HEIGHT = 6.0D;
-    private static final double NETHER_MOB_DISTANCE_FROM_PILLAR = 16.0D;
+    private static final double NETHER_MOB_INNER_RING_FRACTION =
+            16.0D / REFERENCE_HORIZONTAL_RADIUS;
     private static final double NETHER_MOB_RADIAL_HALF_WIDTH = 2.0D;
     private static final int FLAT_PATCH_SEARCH_RADIUS = 24;
     private static final int FLAT_PATCH_CENTERING_RADIUS = 24;
-    private static final int PALE_OAK_INNER_COUNT = 24;
+    private static final int PALE_OAK_REFERENCE_INNER_COUNT = 24;
+    private static final double PALE_OAK_REFERENCE_PILLAR_RADIUS =
+            CaveStructureConfig.NETHER_CAVE_CENTRAL_PILLAR_DIAMETER * 0.5D;
+    private static final double PALE_OAK_REFERENCE_INNER_AREA = Math.PI * (
+            Math.pow(PALE_OAK_REFERENCE_PILLAR_RADIUS + REFERENCE_HORIZONTAL_RADIUS, 2.0D)
+                    - Math.pow(PALE_OAK_REFERENCE_PILLAR_RADIUS, 2.0D)
+    );
     private static final int PALE_OAK_LAYOUT_ATTEMPTS_PER_SLOT = 128;
     private static final int PALE_OAK_WALL_CLEARANCE = 8;
     private static final int PALE_OAK_PATCH_CLEARANCE = 4;
@@ -140,16 +163,16 @@ public class NetherCavePiece extends AbstractSpiralCavePiece {
             {-2, -1},
             {1, -2}
     };
-    private static final double[] NETHER_WART_PATCH_INNER_DISTANCES = new double[] {36.0D};
-    private static final double[] SOUL_BERRY_PATCH_INNER_DISTANCES = new double[] {36.0D};
-    private static final double[] EYEBLOSSOM_PATCH_INNER_DISTANCES = new double[] {
-            7.0D,
-            20.0D,
-            12.0D,
-            30.0D,
-            16.0D,
-            24.0D,
-            10.0D
+    private static final double[] NETHER_WART_PATCH_INNER_FRACTIONS = new double[] {0.5D};
+    private static final double[] SOUL_BERRY_PATCH_INNER_FRACTIONS = new double[] {0.5D};
+    private static final double[] EYEBLOSSOM_PATCH_INNER_FRACTIONS = new double[] {
+            7.0D / REFERENCE_HORIZONTAL_RADIUS,
+            20.0D / REFERENCE_HORIZONTAL_RADIUS,
+            12.0D / REFERENCE_HORIZONTAL_RADIUS,
+            30.0D / REFERENCE_HORIZONTAL_RADIUS,
+            16.0D / REFERENCE_HORIZONTAL_RADIUS,
+            24.0D / REFERENCE_HORIZONTAL_RADIUS,
+            10.0D / REFERENCE_HORIZONTAL_RADIUS
     };
     private static final double[] NETHER_WART_PATCH_PATH_FRACTIONS = new double[] {0.28D};
     private static final double[] SOUL_BERRY_PATCH_PATH_FRACTIONS = new double[] {0.68D};
@@ -1014,7 +1037,9 @@ public class NetherCavePiece extends AbstractSpiralCavePiece {
             int z,
             boolean fillAirBelowSurface
     ) {
-        int totalDepth = UPPER_LAND_SAND_DEPTH + UPPER_LAND_SANDSTONE_DEPTH;
+        int totalDepth = UPPER_LAND_SAND_DEPTH
+                + UPPER_LAND_SANDSTONE_DEPTH
+                + UPPER_LAND_STONE_DEPTH;
         for (int depth = 0; depth < totalDepth; depth++) {
             cursor.set(x, surfaceY - depth, z);
             if (!box.isInside(cursor)) {
@@ -1034,15 +1059,22 @@ public class NetherCavePiece extends AbstractSpiralCavePiece {
 
         for (int depth = totalDepth - 1; depth >= 0; depth--) {
             cursor.set(x, surfaceY - depth, z);
-            Block layer = depth < UPPER_LAND_SAND_DEPTH
-                    ? Blocks.SAND
-                    : Blocks.SANDSTONE;
+            Block layer;
+            if (depth < UPPER_LAND_SAND_DEPTH) {
+                layer = Blocks.SAND;
+            } else if (depth < UPPER_LAND_SAND_DEPTH + UPPER_LAND_SANDSTONE_DEPTH) {
+                layer = Blocks.SANDSTONE;
+            } else {
+                layer = Blocks.STONE;
+            }
             level.setBlock(cursor, layer.defaultBlockState(), Block.UPDATE_CLIENTS);
         }
     }
 
     private void setUpperSpiralLandLayers(WorldGenLevel level, BlockPos surfacePos) {
-        int totalDepth = UPPER_LAND_SAND_DEPTH + UPPER_LAND_SANDSTONE_DEPTH;
+        int totalDepth = UPPER_LAND_SAND_DEPTH
+                + UPPER_LAND_SANDSTONE_DEPTH
+                + UPPER_LAND_STONE_DEPTH;
 
         for (int depth = 0; depth < totalDepth; depth++) {
             BlockPos layerPos = surfacePos.below(depth);
@@ -1059,9 +1091,14 @@ public class NetherCavePiece extends AbstractSpiralCavePiece {
                 continue;
             }
 
-            Block layer = depth < UPPER_LAND_SAND_DEPTH
-                    ? Blocks.SAND
-                    : Blocks.SANDSTONE;
+            Block layer;
+            if (depth < UPPER_LAND_SAND_DEPTH) {
+                layer = Blocks.SAND;
+            } else if (depth < UPPER_LAND_SAND_DEPTH + UPPER_LAND_SANDSTONE_DEPTH) {
+                layer = Blocks.SANDSTONE;
+            } else {
+                layer = Blocks.STONE;
+            }
             level.setBlock(layerPos, layer.defaultBlockState(), Block.UPDATE_CLIENTS);
         }
     }
@@ -1616,8 +1653,8 @@ public class NetherCavePiece extends AbstractSpiralCavePiece {
     }
 
     private void placeGuaranteedSugarCaneLine(WorldGenLevel level, BoundingBox box) {
-        if (GUARANTEED_SUGAR_CANE_Z < box.minZ()
-                || GUARANTEED_SUGAR_CANE_Z > box.maxZ()
+        if (Mth.floor(this.pillarCenterX) != GUARANTEED_SUGAR_CANE_CAVE_CENTER_X
+                || Mth.floor(this.pillarCenterZ) != GUARANTEED_SUGAR_CANE_CAVE_CENTER_Z
                 || GUARANTEED_SUGAR_CANE_MAX_Y < box.minY()
                 || GUARANTEED_SUGAR_CANE_GROUND_Y > box.maxY()) {
             return;
@@ -1625,12 +1662,26 @@ public class NetherCavePiece extends AbstractSpiralCavePiece {
 
         int minX = Math.max(GUARANTEED_SUGAR_CANE_MIN_X, box.minX());
         int maxX = Math.min(GUARANTEED_SUGAR_CANE_MAX_X, box.maxX());
+        double innerRiverBankRadius = this.centralPillarDiameter * 0.5D
+                + this.horizontalRadius;
 
         for (int x = minX; x <= maxX; x++) {
+            double dx = x + 0.5D - this.pillarCenterX;
+            double remainingRadiusSquared = innerRiverBankRadius * innerRiverBankRadius
+                    - dx * dx;
+            if (remainingRadiusSquared <= 0.0D) {
+                continue;
+            }
+
+            int groundZ = Mth.floor(
+                    this.pillarCenterZ
+                            + Math.sqrt(remainingRadiusSquared)
+                            - 0.5D
+            );
             BlockPos ground = new BlockPos(
                     x,
                     GUARANTEED_SUGAR_CANE_GROUND_Y,
-                    GUARANTEED_SUGAR_CANE_Z
+                    groundZ
             );
             BlockPos adjacentWater = ground.south();
             if (!box.isInside(ground)
@@ -1641,7 +1692,7 @@ public class NetherCavePiece extends AbstractSpiralCavePiece {
 
             level.setBlock(ground, Blocks.SAND.defaultBlockState(), Block.UPDATE_CLIENTS);
             for (int y = GUARANTEED_SUGAR_CANE_MIN_Y; y <= GUARANTEED_SUGAR_CANE_MAX_Y; y++) {
-                BlockPos canePos = new BlockPos(x, y, GUARANTEED_SUGAR_CANE_Z);
+                BlockPos canePos = new BlockPos(x, y, groundZ);
                 if (box.isInside(canePos)) {
                     level.setBlock(
                             canePos,
@@ -1699,7 +1750,7 @@ public class NetherCavePiece extends AbstractSpiralCavePiece {
         double yaw = YAW_START + FULL_TURN * upwardTurns;
         double patchRadius = pathRadius
                 - this.liquidRadius
-                - MUSHROOM_DISTANCE_INSIDE_INNER_BANK;
+                - scaledInnerRingDistance(MUSHROOM_INNER_BANK_INSET_FRACTION, 2.0D);
         int centerX = Mth.floor(this.pillarCenterX + Math.cos(yaw) * patchRadius + 0.5D);
         int centerZ = Mth.floor(this.pillarCenterZ + Math.sin(yaw) * patchRadius + 0.5D);
         return centerX >= box.minX()
@@ -1726,7 +1777,7 @@ public class NetherCavePiece extends AbstractSpiralCavePiece {
                 + upperSpiralRisePerTurn() * upwardTurns;
         double patchRadius = pathRadius
                 - this.liquidRadius
-                - MUSHROOM_DISTANCE_INSIDE_INNER_BANK;
+                - scaledInnerRingDistance(MUSHROOM_INNER_BANK_INSET_FRACTION, 2.0D);
         int centerX = Mth.floor(this.pillarCenterX + Math.cos(yaw) * patchRadius + 0.5D);
         int centerZ = Mth.floor(this.pillarCenterZ + Math.sin(yaw) * patchRadius + 0.5D);
         if (centerX < box.minX() || centerX > box.maxX()
@@ -1890,7 +1941,7 @@ public class NetherCavePiece extends AbstractSpiralCavePiece {
                 allSamples,
                 soulSandValleySamples,
                 FOUR_BY_FOUR_PATCH_OFFSETS,
-                NETHER_WART_PATCH_INNER_DISTANCES,
+                NETHER_WART_PATCH_INNER_FRACTIONS,
                 NETHER_WART_PATCH_PATH_FRACTIONS,
                 Blocks.NETHER_WART.defaultBlockState().setValue(NetherWartBlock.AGE, 3),
                 true
@@ -1901,7 +1952,7 @@ public class NetherCavePiece extends AbstractSpiralCavePiece {
                 allSamples,
                 soulSandValleySamples,
                 FOUR_BY_FOUR_PATCH_OFFSETS,
-                SOUL_BERRY_PATCH_INNER_DISTANCES,
+                SOUL_BERRY_PATCH_INNER_FRACTIONS,
                 SOUL_BERRY_PATCH_PATH_FRACTIONS,
                 ModBlocks.SOUL_BERRY_BUSH.get().defaultBlockState().setValue(SweetBerryBushBlock.AGE, 3),
                 true
@@ -1912,7 +1963,7 @@ public class NetherCavePiece extends AbstractSpiralCavePiece {
                 allSamples,
                 soulSandValleySamples,
                 EYEBLOSSOM_PATCH_OFFSETS,
-                EYEBLOSSOM_PATCH_INNER_DISTANCES,
+                EYEBLOSSOM_PATCH_INNER_FRACTIONS,
                 EYEBLOSSOM_PATCH_PATH_FRACTIONS,
                 ModBlocks.CLOSED_EYEBLOSSOM.get().defaultBlockState(),
                 false
@@ -1981,18 +2032,26 @@ public class NetherCavePiece extends AbstractSpiralCavePiece {
                 outerRingOuterRadius * outerRingOuterRadius
                         - outerRingInnerRadius * outerRingInnerRadius
         );
+        int innerCount = Math.max(
+                1,
+                Mth.floor(
+                        PALE_OAK_REFERENCE_INNER_COUNT
+                                * innerArea / PALE_OAK_REFERENCE_INNER_AREA
+                                + 0.5D
+                )
+        );
         int outerCount = Math.max(
                 1,
-                Mth.floor(PALE_OAK_INNER_COUNT * outerArea / innerArea + 0.5D)
+                Mth.floor(innerCount * outerArea / innerArea + 0.5D)
         );
 
-        List<PaleOakAnchor> anchors = new ArrayList<>(PALE_OAK_INNER_COUNT + outerCount);
+        List<PaleOakAnchor> anchors = new ArrayList<>(innerCount + outerCount);
         addPaleOakRingAnchors(
                 anchors,
                 allSamples,
                 soulSandValleySamples,
                 protectedPatchColumns,
-                PALE_OAK_INNER_COUNT,
+                innerCount,
                 pillarRadius + PALE_OAK_WALL_CLEARANCE,
                 innerRingOuterRadius - PALE_OAK_WALL_CLEARANCE,
                 PALE_OAK_INNER_SALT,
@@ -2131,7 +2190,7 @@ public class NetherCavePiece extends AbstractSpiralCavePiece {
                 allSamples,
                 soulSandValleySamples,
                 FOUR_BY_FOUR_PATCH_OFFSETS,
-                NETHER_WART_PATCH_INNER_DISTANCES,
+                NETHER_WART_PATCH_INNER_FRACTIONS,
                 NETHER_WART_PATCH_PATH_FRACTIONS,
                 true
         );
@@ -2140,7 +2199,7 @@ public class NetherCavePiece extends AbstractSpiralCavePiece {
                 allSamples,
                 soulSandValleySamples,
                 FOUR_BY_FOUR_PATCH_OFFSETS,
-                SOUL_BERRY_PATCH_INNER_DISTANCES,
+                SOUL_BERRY_PATCH_INNER_FRACTIONS,
                 SOUL_BERRY_PATCH_PATH_FRACTIONS,
                 true
         );
@@ -2149,7 +2208,7 @@ public class NetherCavePiece extends AbstractSpiralCavePiece {
                 allSamples,
                 soulSandValleySamples,
                 EYEBLOSSOM_PATCH_OFFSETS,
-                EYEBLOSSOM_PATCH_INNER_DISTANCES,
+                EYEBLOSSOM_PATCH_INNER_FRACTIONS,
                 EYEBLOSSOM_PATCH_PATH_FRACTIONS,
                 false
         );
@@ -2161,14 +2220,15 @@ public class NetherCavePiece extends AbstractSpiralCavePiece {
             List<PatchSample> allSamples,
             List<PatchSample> soulSandValleySamples,
             int[][] offsets,
-            double[] distancesInsideInnerBank,
+            double[] innerBankInsetFractions,
             double[] pathFractions,
             boolean requireFlatGround
     ) {
         List<PatchAnchor> anchors = soulSandValleyInnerPatchAnchors(
                 soulSandValleySamples,
-                distancesInsideInnerBank,
-                pathFractions
+                innerBankInsetFractions,
+                pathFractions,
+                offsets
         );
 
         for (PatchAnchor anchor : anchors) {
@@ -2193,15 +2253,16 @@ public class NetherCavePiece extends AbstractSpiralCavePiece {
             List<PatchSample> allSamples,
             List<PatchSample> soulSandValleySamples,
             int[][] offsets,
-            double[] distancesInsideInnerBank,
+            double[] innerBankInsetFractions,
             double[] pathFractions,
             BlockState state,
             boolean requireFlatGround
     ) {
         List<PatchAnchor> anchors = soulSandValleyInnerPatchAnchors(
                 soulSandValleySamples,
-                distancesInsideInnerBank,
-                pathFractions
+                innerBankInsetFractions,
+                pathFractions,
+                offsets
         );
 
         for (PatchAnchor anchor : anchors) {
@@ -2477,8 +2538,9 @@ public class NetherCavePiece extends AbstractSpiralCavePiece {
 
     private List<PatchAnchor> soulSandValleyInnerPatchAnchors(
             List<PatchSample> soulSandValleySamples,
-            double[] distancesInsideInnerBank,
-            double[] pathFractions
+            double[] innerBankInsetFractions,
+            double[] pathFractions,
+            int[][] offsets
     ) {
         if (soulSandValleySamples.isEmpty() || pathFractions.length == 0) {
             return List.of();
@@ -2492,11 +2554,40 @@ public class NetherCavePiece extends AbstractSpiralCavePiece {
                     0,
                     soulSandValleySamples.size() - 1
             );
-            double distance = distancesInsideInnerBank[i % distancesInsideInnerBank.length];
+            double insetFraction = innerBankInsetFractions[
+                    i % innerBankInsetFractions.length
+            ];
+            double distance = scaledInnerRingDistance(
+                    insetFraction,
+                    minimumPatchBoundaryClearance(offsets)
+            );
             anchors.add(soulSandValleyPatchAnchor(soulSandValleySamples.get(index), distance));
         }
 
         return anchors;
+    }
+
+    private double minimumPatchBoundaryClearance(int[][] offsets) {
+        int maximumOffset = 0;
+        for (int[] offset : offsets) {
+            maximumOffset = Math.max(
+                    maximumOffset,
+                    Math.max(Math.abs(offset[0]), Math.abs(offset[1]))
+            );
+        }
+        return maximumOffset + 1.0D;
+    }
+
+    private double scaledInnerRingDistance(double fraction, double boundaryClearance) {
+        double effectiveClearance = Math.min(
+                boundaryClearance,
+                this.horizontalRadius * 0.5D
+        );
+        return Mth.clamp(
+                this.horizontalRadius * fraction,
+                effectiveClearance,
+                this.horizontalRadius - effectiveClearance
+        );
     }
 
     private List<PatchSample> spiralPathSamples() {
@@ -2609,7 +2700,11 @@ public class NetherCavePiece extends AbstractSpiralCavePiece {
 
         double dx = pos.getX() + 0.5D - this.pillarCenterX;
         double dz = pos.getZ() + 0.5D - this.pillarCenterZ;
-        double targetRadius = this.centralPillarDiameter * 0.5D + NETHER_MOB_DISTANCE_FROM_PILLAR;
+        double distanceFromPillar = scaledInnerRingDistance(
+                NETHER_MOB_INNER_RING_FRACTION,
+                NETHER_MOB_RADIAL_HALF_WIDTH + 1.0D
+        );
+        double targetRadius = this.centralPillarDiameter * 0.5D + distanceFromPillar;
         double radialDistance = Math.sqrt(dx * dx + dz * dz);
         return Math.abs(radialDistance - targetRadius) <= NETHER_MOB_RADIAL_HALF_WIDTH;
     }
@@ -2624,7 +2719,9 @@ public class NetherCavePiece extends AbstractSpiralCavePiece {
             if (passenger.getType() == EntityType.STRIDER
                     && passenger instanceof AgeableMob ageableMob
                     && ageableMob.isBaby()) {
-                passenger.stopRiding();
+                // Bypass LivingEntity.stopRiding(), whose safe-dismount search
+                // can synchronously request another chunk during worldgen.
+                passenger.removeVehicle();
                 passenger.discard();
             }
         }

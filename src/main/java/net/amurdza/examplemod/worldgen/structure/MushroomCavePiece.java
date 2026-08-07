@@ -1,6 +1,7 @@
 package net.amurdza.examplemod.worldgen.structure;
 
 import com.github.alexthe666.alexsmobs.entity.AMEntityRegistry;
+import net.amurdza.examplemod.config.CaveStructureConfig;
 import net.amurdza.examplemod.registry.ModBlocks;
 import net.amurdza.examplemod.registry.ModStructures;
 import net.minecraft.core.BlockPos;
@@ -33,7 +34,8 @@ import java.util.Set;
 public class MushroomCavePiece extends AbstractSpiralCavePiece {
     private static final double YAW_START = Math.PI * 1.5D;
     private static final double FULL_TURN = Math.PI * 2.0D;
-    private static final int UPPER_GRASS_SURFACE_DEPTH = 4;
+    private static final int UPPER_GRASS_AIR_CHECK_Y = 63;
+    private static final int UPPER_GRASS_SURFACE_DEPTH = 5;
     private static final int[][] BERRY_PATCH_OFFSETS = new int[][] {
             {0, 0},
             {1, 0},
@@ -54,7 +56,8 @@ public class MushroomCavePiece extends AbstractSpiralCavePiece {
     private static final double GOAT_POSITION_BETWEEN_MOOSE_AND_POLAR_BEAR = 0.25D;
     private static final double RABBIT_POSITION_BETWEEN_MOOSE_AND_POLAR_BEAR = 0.5D;
     private static final double FOX_POSITION_BETWEEN_MOOSE_AND_POLAR_BEAR = 0.75D;
-    private static final double POLAR_BEAR_RIVERWARD_SHIFT = 10.0D;
+    private static final double POLAR_BEAR_RIVERWARD_SHIFT_FRACTION =
+            10.0D / CaveStructureConfig.MUSHROOM_CAVE_HORIZONTAL_RADIUS;
     private static final int ANIMAL_GROUP_WIDTH = 10;
     private static final int BERRY_PATCH_RADIUS = 1;
     private static final int BERRY_TREE_CLEARANCE = 3;
@@ -170,10 +173,15 @@ public class MushroomCavePiece extends AbstractSpiralCavePiece {
         int maxX = Math.min(box.maxX(), chunkPos.getMaxBlockX());
         int minZ = Math.max(box.minZ(), chunkPos.getMinBlockZ());
         int maxZ = Math.min(box.maxZ(), chunkPos.getMaxBlockZ());
-        int highestUpperFloorAirY = (int) Math.ceil(this.origin.getY() - this.verticalRadius);
-        int minScanY = Math.max(box.minY(), level.getMinBuildHeight());
-        int maxScanY = Math.min(box.maxY(), level.getMaxBuildHeight() - 1);
-        if (minX > maxX || minZ > maxZ || minScanY > maxScanY) {
+        int minFloorAirY = Math.max(
+                this.maxMushroomCaves + 1,
+                Math.max(box.minY(), level.getMinBuildHeight()) + UPPER_GRASS_SURFACE_DEPTH
+        );
+        int maxFloorAirY = Math.min(
+                UPPER_GRASS_AIR_CHECK_Y,
+                Math.min(box.maxY(), level.getMaxBuildHeight() - 1)
+        );
+        if (minX > maxX || minZ > maxZ || minFloorAirY > maxFloorAirY) {
             applyWaterExposedMudBelowMycelium(level);
             return;
         }
@@ -186,43 +194,53 @@ public class MushroomCavePiece extends AbstractSpiralCavePiece {
                     continue;
                 }
 
-                BlockPos floor = findFirstSolidBlockBelowSky(
-                        level,
-                        cursor,
-                        x,
-                        z,
-                        minScanY,
-                        maxScanY
-                );
-                if (floor == null) {
-                    continue;
-                }
-
-                int floorAirY = floor.getY() + 1;
-                if (floorAirY <= this.maxMushroomCaves || floorAirY > highestUpperFloorAirY) {
+                cursor.set(x, UPPER_GRASS_AIR_CHECK_Y, z);
+                if (!box.isInside(cursor) || !level.getBlockState(cursor).isAir()) {
                     continue;
                 }
 
                 List<ColumnCarveInterval> carveIntervals = columnCarveIntervals(
                         x,
                         z,
-                        Math.max(minScanY, floor.getY() - UPPER_GRASS_SURFACE_DEPTH + 1),
-                        floor.getY(),
+                        minFloorAirY,
+                        maxFloorAirY,
                         chunkEllipsoids
                 );
                 if (carveIntervals.isEmpty()) {
                     continue;
                 }
 
-                restoreUpperGrassSurfaceLayers(
-                        level,
-                        box,
-                        cursor,
-                        x,
-                        floor.getY(),
-                        z,
-                        carveIntervals
-                );
+                for (ColumnCarveInterval carveInterval : carveIntervals) {
+                    if (carveInterval.minY() > UPPER_GRASS_AIR_CHECK_Y
+                            || carveInterval.maxY() < UPPER_GRASS_AIR_CHECK_Y) {
+                        continue;
+                    }
+
+                    for (int floorAirY = carveInterval.minY();
+                         floorAirY <= UPPER_GRASS_AIR_CHECK_Y;
+                         floorAirY++) {
+                        cursor.set(x, floorAirY, z);
+                        if (!level.getBlockState(cursor).isAir()) {
+                            continue;
+                        }
+
+                        cursor.move(Direction.DOWN);
+                        if (!level.getBlockState(cursor).isSolid()) {
+                            continue;
+                        }
+
+                        restoreUpperGrassSurfaceLayers(
+                                level,
+                                box,
+                                cursor,
+                                x,
+                                floorAirY - 1,
+                                z
+                        );
+                        break;
+                    }
+                    break;
+                }
             }
         }
 
@@ -243,37 +261,6 @@ public class MushroomCavePiece extends AbstractSpiralCavePiece {
 
         return radialDistance <= pillarRadius + 2.0D
                 || Math.abs(radialDistance - pathRadius) <= tunnelRadius + 2.0D;
-    }
-
-    private BlockPos findFirstSolidBlockBelowSky(
-            WorldGenLevel level,
-            BlockPos.MutableBlockPos cursor,
-            int x,
-            int z,
-            int minY,
-            int maxY
-    ) {
-        for (int y = maxY; y >= minY; y--) {
-            cursor.set(x, y, z);
-            BlockState state = level.getBlockState(cursor);
-            if (state.isAir()) {
-                continue;
-            }
-
-            if (isTerrainScanDecoration(state)) {
-                continue;
-            }
-
-            if (!state.getFluidState().isEmpty()) {
-                return null;
-            }
-
-            if (state.isSolid()) {
-                return cursor.immutable();
-            }
-        }
-
-        return null;
     }
 
     private List<ColumnCarveInterval> columnCarveIntervals(
@@ -355,8 +342,7 @@ public class MushroomCavePiece extends AbstractSpiralCavePiece {
             BlockPos.MutableBlockPos cursor,
             int x,
             int surfaceY,
-            int z,
-            List<ColumnCarveInterval> carveIntervals
+            int z
     ) {
         for (int depth = 0; depth < UPPER_GRASS_SURFACE_DEPTH; depth++) {
             int y = surfaceY - depth;
@@ -373,12 +359,11 @@ public class MushroomCavePiece extends AbstractSpiralCavePiece {
 
             if (state.isAir()) {
                 /*
-                 * The four-block window already intersects the merged carve
-                 * union in this exact x,z column. Fill any other air inside
-                 * that same window as part of the local ceiling gap; terrain
-                 * air can sit immediately above structure-carved air.
+                 * The surface was found from the final merged carve union. Fill
+                 * any deeper air in its five-block substrate so overlapping
+                 * ellipsoids cannot strip off the grass or dirt layer.
                  */
-                if (depth == 0 || carveIntervals.isEmpty()) {
+                if (depth == 0) {
                     return;
                 }
                 continue;
@@ -399,17 +384,11 @@ public class MushroomCavePiece extends AbstractSpiralCavePiece {
         }
     }
 
-    private boolean isTerrainScanDecoration(BlockState state) {
-        return state.is(BlockTags.LEAVES)
-                || state.is(BlockTags.LOGS)
-                || state.is(Blocks.SNOW);
-    }
-
     private Block upperGrassSurfaceLayer(int depth) {
         return switch (depth) {
             case 0 -> Blocks.GRASS_BLOCK;
             case 1 -> Blocks.DIRT;
-            case 2, 3 -> Blocks.STONE;
+            case 2, 3, 4 -> Blocks.STONE;
             default -> throw new IllegalArgumentException("Unexpected upper surface depth: " + depth);
         };
     }
@@ -874,7 +853,7 @@ public class MushroomCavePiece extends AbstractSpiralCavePiece {
                 pos -> isNearDescendingRingAnimalGroup(
                         pos,
                         polarBearPathFraction,
-                        POLAR_BEAR_RIVERWARD_SHIFT
+                        this.horizontalRadius * POLAR_BEAR_RIVERWARD_SHIFT_FRACTION
                 )
         );
         spawnGuaranteedMobsStrictlyOncePerStructure(

@@ -46,9 +46,9 @@ import software.bernie.geckolib.util.GeckoLibUtil;
 import java.util.UUID;
 
 public class IllagerLordEntity extends Vindicator implements GeoEntity {
-    private static final RawAnimation IDLE_ANIMATION = RawAnimation.begin().thenLoop("idle");
-    private static final RawAnimation WALK_ANIMATION = RawAnimation.begin().thenLoop("walk");
-    private static final RawAnimation ATTACK_ANIMATION = RawAnimation.begin().thenPlay("attack");
+    private static final RawAnimation IDLE_ANIMATION = RawAnimation.begin().thenLoop("animation.illager_lord.idle");
+    private static final RawAnimation WALK_ANIMATION = RawAnimation.begin().thenLoop("animation.illager_lord.walk");
+    private static final RawAnimation ATTACK_ANIMATION = RawAnimation.begin().thenPlay("animation.illager_lord.attack");
     private static final EntityDataAccessor<Integer> SHIELD_HITS = SynchedEntityData.defineId(
             IllagerLordEntity.class,
             EntityDataSerializers.INT

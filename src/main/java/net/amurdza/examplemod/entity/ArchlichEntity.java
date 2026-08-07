@@ -30,9 +30,10 @@ import software.bernie.geckolib.core.object.PlayState;
 import software.bernie.geckolib.util.GeckoLibUtil;
 
 public class ArchlichEntity extends EntityDreadLich implements GeoEntity {
-    private static final RawAnimation IDLE_ANIMATION = RawAnimation.begin().thenLoop("idle");
-    private static final RawAnimation WALK_ANIMATION = RawAnimation.begin().thenLoop("walk");
-    private static final RawAnimation SUMMONING_ANIMATION = RawAnimation.begin().thenPlay("summoning");
+    private static final RawAnimation IDLE_ANIMATION = RawAnimation.begin().thenLoop("animation.archlich.idle");
+    private static final RawAnimation WALK_ANIMATION = RawAnimation.begin().thenLoop("animation.archlich.walk");
+    private static final RawAnimation SUMMONING_ANIMATION = RawAnimation.begin()
+            .thenPlay("animation.archlich.summoning");
     private static final String SUMMON_COOLDOWN_TAG = "ArchlichSummonCooldown";
     private static final String ATTACK_COOLDOWN_TAG = "ArchlichAttackCooldown";
     private static final int MAX_ACTIVE_SUMMONS = 4;
