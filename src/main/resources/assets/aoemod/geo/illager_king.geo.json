@@ -207,7 +207,7 @@
 				{
 					"name": "left_arm_item",
 					"parent": "left_arm",
-					"pivot": [6.5, 17.5, 0]
+					"pivot": [7.5, 17.5, 0]
 				},
 				{
 					"name": "right_arm",
@@ -251,7 +251,7 @@
 				{
 					"name": "right_arm_item",
 					"parent": "right_arm",
-					"pivot": [-6.5, 17.5, 0]
+					"pivot": [-7.5, 17.5, 0]
 				},
 				{
 					"name": "left_leg",

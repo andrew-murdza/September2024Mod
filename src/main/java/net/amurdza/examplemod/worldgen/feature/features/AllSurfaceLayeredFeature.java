@@ -6,6 +6,7 @@ import net.amurdza.examplemod.worldgen.feature.configs.AllSurfaceLayeredFeatures
 import net.amurdza.examplemod.worldgen.feature.configs.AllSurfacesFeatureConfig;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Holder;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.TagKey;
 import net.minecraft.util.Mth;
 import net.minecraft.util.RandomSource;
@@ -31,6 +32,10 @@ import static net.amurdza.examplemod.worldgen.feature.configs.AllSurfacesFeature
 
 public class AllSurfaceLayeredFeature extends Feature<AllSurfaceLayeredFeaturesConfig> {
     private static final int MOUNTAIN_TREE_SPLIT_Y = 64;
+    private static final ResourceLocation MUSHROOM_PATCH_TREE_GRID_ID = new ResourceLocation(
+            "aoemod",
+            "mushroom_caves/floor/mushroom_patch_tree_regional_grid_choice"
+    );
 
     public AllSurfaceLayeredFeature(Codec<AllSurfaceLayeredFeaturesConfig> codec) {
         super(codec);
@@ -422,6 +427,19 @@ public class AllSurfaceLayeredFeature extends Feature<AllSurfaceLayeredFeaturesC
             int minY,
             int maxY
     ) {
+        if (isMushroomPatchTreeGrid(configuredFeature)) {
+            return placeGuaranteedMushroomGridInChunk(
+                    level,
+                    context,
+                    cfg,
+                    configuredFeature,
+                    x,
+                    z,
+                    minY,
+                    maxY
+            );
+        }
+
         boolean placedAnything = false;
 
         if (isMountainTreeGrid(configuredFeature)
@@ -485,11 +503,69 @@ public class AllSurfaceLayeredFeature extends Feature<AllSurfaceLayeredFeaturesC
         return placedAnything;
     }
 
+    private boolean placeGuaranteedMushroomGridInChunk(
+            WorldGenLevel level,
+            FeaturePlaceContext<AllSurfaceLayeredFeaturesConfig> context,
+            AllSurfacesFeatureConfig cfg,
+            Holder<ConfiguredFeature<?, ?>> configuredFeature,
+            int anchorX,
+            int anchorZ,
+            int minY,
+            int maxY
+    ) {
+        ChunkPos chunkPos = new ChunkPos(new BlockPos(anchorX, 0, anchorZ));
+        int centerX = chunkPos.getMinBlockX() + 7;
+        int centerZ = chunkPos.getMinBlockZ() + 7;
+        BlockPos.MutableBlockPos candidate = new BlockPos.MutableBlockPos();
+
+        for (int radius = 0; radius <= 8; radius++) {
+            for (int dx = -radius; dx <= radius; dx++) {
+                for (int dz = -radius; dz <= radius; dz++) {
+                    if (radius > 0 && Math.abs(dx) != radius && Math.abs(dz) != radius) {
+                        continue;
+                    }
+
+                    int x = centerX + dx;
+                    int z = centerZ + dz;
+                    if (x < chunkPos.getMinBlockX() || x > chunkPos.getMaxBlockX()
+                            || z < chunkPos.getMinBlockZ() || z > chunkPos.getMaxBlockZ()) {
+                        continue;
+                    }
+
+                    for (int y = maxY; y >= minY; y--) {
+                        candidate.set(x, y, z);
+                        if (!isValidGuaranteedFeaturePlacementOrigin(level, candidate, cfg)) {
+                            continue;
+                        }
+
+                        BlockPos gridOrigin = new BlockPos(anchorX, y, anchorZ);
+                        if (configuredFeature.value().place(
+                                level,
+                                context.chunkGenerator(),
+                                context.random(),
+                                gridOrigin
+                        )) {
+                            return true;
+                        }
+                    }
+                }
+            }
+        }
+
+        return false;
+    }
+
     private boolean isMountainTreeGrid(Holder<ConfiguredFeature<?, ?>> configuredFeature) {
         return configuredFeature.unwrapKey()
                 .map(key -> key.location().getNamespace().equals("aoemod")
                         && (key.location().getPath().equals("mountains/floor/grid_choice")
                         || key.location().getPath().equals("mushroom_caves/floor/spruce_grid_choice")))
+                .orElse(false);
+    }
+
+    private boolean isMushroomPatchTreeGrid(Holder<ConfiguredFeature<?, ?>> configuredFeature) {
+        return configuredFeature.unwrapKey()
+                .map(key -> key.location().equals(MUSHROOM_PATCH_TREE_GRID_ID))
                 .orElse(false);
     }
 
@@ -523,23 +599,7 @@ public class AllSurfaceLayeredFeature extends Feature<AllSurfaceLayeredFeaturesC
             AllSurfacesFeatureConfig cfg,
             Holder<ConfiguredFeature<?, ?>> configuredFeature
     ) {
-        if (cfg.biomes != null && !level.getBiome(pos).is(cfg.biomes)) {
-            return PlacementResult.NONE;
-        }
-
-        if (isBlockedExposedUndergroundCaveSurface(level, pos, cfg)) {
-            return PlacementResult.NONE;
-        }
-
-        if (!isValidGuaranteedFeatureOrigin(level, pos, cfg)) {
-            return PlacementResult.NONE;
-        }
-
-        if (!cfg.predicate.test(level, pos.below())) {
-            return PlacementResult.NONE;
-        }
-
-        if (cfg.target == AIR && !isSafeAirOrigin(level, pos)) {
+        if (!isValidGuaranteedFeaturePlacementOrigin(level, pos, cfg)) {
             return PlacementResult.NONE;
         }
 
@@ -551,6 +611,18 @@ public class AllSurfaceLayeredFeature extends Feature<AllSurfaceLayeredFeaturesC
         );
 
         return new PlacementResult(true, placedAnything, Math.max(1, cfg.skipHeight), cfg);
+    }
+
+    private boolean isValidGuaranteedFeaturePlacementOrigin(
+            WorldGenLevel level,
+            BlockPos pos,
+            AllSurfacesFeatureConfig cfg
+    ) {
+        return (cfg.biomes == null || level.getBiome(pos).is(cfg.biomes))
+                && !isBlockedExposedUndergroundCaveSurface(level, pos, cfg)
+                && isValidGuaranteedFeatureOrigin(level, pos, cfg)
+                && cfg.predicate.test(level, pos.below())
+                && (cfg.target != AIR || isSafeAirOrigin(level, pos));
     }
 
     private PlacementResult tryPlace(

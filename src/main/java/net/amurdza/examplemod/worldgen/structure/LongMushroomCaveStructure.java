@@ -62,8 +62,6 @@ public class LongMushroomCaveStructure extends Structure {
                         CaveStructureConfig.MUSHROOM_CAVE_MIN_FLOOR_THICKNESS,
                         CaveStructureConfig.MUSHROOM_CAVE_LIQUID_DEPTH,
                         CaveStructureConfig.MUSHROOM_CAVE_LIQUID_RADIUS,
-                        CaveStructureConfig.MUSHROOM_CAVE_MAX_MUSHROOM_CAVES,
-                        CaveStructureConfig.MUSHROOM_CAVE_MIN_MUSHROOM_CAVES,
                         this.placedFeatures
                 ))
         ));

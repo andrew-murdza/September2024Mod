@@ -36,7 +36,7 @@ public class IllagerLordRenderer extends GeoEntityRenderer<IllagerLordEntity> {
             ) {
                 return switch (bone.getName()) {
                     case "left_arm_item" -> ItemDisplayContext.NONE;
-                    case "right_arm_item" -> ItemDisplayContext.NONE;
+                    case "right_arm_item" -> ItemDisplayContext.THIRD_PERSON_RIGHT_HAND;
                     default -> ItemDisplayContext.NONE;
                 };
             }
@@ -55,17 +55,22 @@ public class IllagerLordRenderer extends GeoEntityRenderer<IllagerLordEntity> {
                 poseStack.pushPose();
 
                 if (bone.getName().equals("left_arm_item")) {
-                    // Keep the shield upright and facing forward. The extra
-                    // X offset places it outside the arm, while the remaining
-                    // half-block offsets cancel the item renderer's shift.
-                    poseStack.translate(0.75D, 0.5D, 0.5D);
+                    // Turn the plate toward the front, place it slightly ahead
+                    // of the body, then cancel the item renderer's offset.
+                    poseStack.translate(0.0D, 0.0D, -0.375D);
+                    poseStack.mulPose(Axis.YP.rotationDegrees(180.0F));
+                    poseStack.translate(0.5D, 0.5D, 0.5D);
                 } else if (bone.getName().equals("right_arm_item")) {
-                    // Point the axe forward from the gauntlet instead of
-                    // letting the vanilla hand transform angle it inward.
-                    poseStack.translate(0.0D, 0.0D, -0.1875D);
-                    poseStack.mulPose(Axis.YP.rotationDegrees(90.0F));
-                    poseStack.mulPose(Axis.XP.rotationDegrees(-45.0F));
-                    poseStack.mulPose(Axis.ZP.rotationDegrees(180.0F));
+                    // ItemInHandLayer applies these same transforms after a
+                    // Vindicator's arm transform. This attachment is already
+                    // at the wrist, so it does not need the layer's arm-length
+                    // translation.
+                    poseStack.mulPose(Axis.XP.rotationDegrees(-90.0F));
+                    poseStack.mulPose(Axis.YP.rotationDegrees(180.0F));
+                    poseStack.translate(0.0D, 0.125D, 0.0D);
+                    // Flip the axe within its rendered plane while keeping
+                    // the Vindicator-style grip anchored to the wrist.
+                    poseStack.mulPose(Axis.XP.rotationDegrees(180.0F));
                     poseStack.scale(WEAPON_SCALE, WEAPON_SCALE, WEAPON_SCALE);
                 }
 

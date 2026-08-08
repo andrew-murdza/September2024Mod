@@ -24,10 +24,12 @@ public class SpiderQueenRenderer extends GeoEntityRenderer<SpiderQueenEntity> {
             float partialTick,
             PoseStack poseStack,
             MultiBufferSource buffer,
-            int packedLight
+        int packedLight
     ) {
         poseStack.pushPose();
-        poseStack.translate(0.0D, -MODEL_LIFT, 0.0D);
+        // GeckoLib inverts model Y while preparing entity geometry, so a
+        // positive pose translation raises the rendered model.
+        poseStack.translate(0.0D, MODEL_LIFT, 0.0D);
         super.render(entity, entityYaw, partialTick, poseStack, buffer, packedLight);
         poseStack.popPose();
     }

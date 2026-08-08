@@ -4,6 +4,7 @@ import com.github.alexthe666.alexsmobs.entity.AMEntityRegistry;
 import net.amurdza.examplemod.config.CaveStructureConfig;
 import net.amurdza.examplemod.registry.ModBlocks;
 import net.amurdza.examplemod.registry.ModStructures;
+import net.amurdza.examplemod.worldgen.MushroomCaveRegion;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.HolderSet;
@@ -35,7 +36,11 @@ public class MushroomCavePiece extends AbstractSpiralCavePiece {
     private static final double YAW_START = Math.PI * 1.5D;
     private static final double FULL_TURN = Math.PI * 2.0D;
     private static final int UPPER_GRASS_AIR_CHECK_Y = 63;
-    private static final int UPPER_GRASS_SURFACE_DEPTH = 5;
+    private static final int UPPER_GRASS_SURFACE_DEPTH = 6;
+    private static final double MUSHROOM_SECTION_START_TURNS =
+            CaveStructureConfig.MUSHROOM_CAVE_SECTION_START_TURNS;
+    private static final double MUSHROOM_SECTION_END_TURNS =
+            CaveStructureConfig.MUSHROOM_CAVE_SECTION_END_TURNS;
     private static final int[][] BERRY_PATCH_OFFSETS = new int[][] {
             {0, 0},
             {1, 0},
@@ -64,8 +69,6 @@ public class MushroomCavePiece extends AbstractSpiralCavePiece {
     private static final int BERRY_CENTER_SEARCH_RADIUS = 4;
     private static final int BERRY_LOG_SCAN_HEIGHT = 24;
 
-    private final int maxMushroomCaves;
-    private final int minMushroomCaves;
     private final Set<Long> waterExposedStoneCandidates = new HashSet<>();
 
     public MushroomCavePiece(
@@ -79,8 +82,6 @@ public class MushroomCavePiece extends AbstractSpiralCavePiece {
             float minFloorThickness,
             float liquidDepth,
             float liquidRadius,
-            int maxMushroomCaves,
-            int minMushroomCaves,
             HolderSet<PlacedFeature> placedFeatures
     ) {
         super(
@@ -98,16 +99,11 @@ public class MushroomCavePiece extends AbstractSpiralCavePiece {
                 placedFeatures
         );
 
-        this.maxMushroomCaves = maxMushroomCaves;
-        this.minMushroomCaves = minMushroomCaves;
     }
 
     @SuppressWarnings("unused")
     public MushroomCavePiece(StructurePieceSerializationContext ctx, CompoundTag tag) {
         super(ModStructures.MUSHROOM_CAVE_PIECE.get(), tag);
-
-        this.maxMushroomCaves = tag.getInt("MaxMushroomCaves");
-        this.minMushroomCaves = tag.getInt("MinMushroomCaves");
     }
 
     @Override
@@ -115,17 +111,11 @@ public class MushroomCavePiece extends AbstractSpiralCavePiece {
             StructurePieceSerializationContext context,
             CompoundTag tag
     ) {
-        tag.putInt("MaxMushroomCaves", this.maxMushroomCaves);
-        tag.putInt("MinMushroomCaves", this.minMushroomCaves);
     }
 
     @Override
     protected void decorateCaveFloor(WorldGenLevel level, BlockPos top) {
-        int floorAirY = top.above().getY();
         int floorY = top.getY();
-        boolean isMushroomLayer =
-                floorAirY <= this.maxMushroomCaves &&
-                        floorAirY >= this.minMushroomCaves;
 
         if (floorY == finalEllipsoidFloorTopY()) {
             setBlock(level, top, Blocks.SMOOTH_BASALT);
@@ -153,7 +143,7 @@ public class MushroomCavePiece extends AbstractSpiralCavePiece {
             setBlock(level, top.below(5), Blocks.SMOOTH_BASALT);
         }
 
-        else if (isMushroomLayer) {
+        else if (isMushroomFloor(top)) {
             setBlock(level, top, Blocks.MYCELIUM);
         }
 
@@ -169,12 +159,14 @@ public class MushroomCavePiece extends AbstractSpiralCavePiece {
             ChunkPos chunkPos,
             List<CarveEllipsoid> chunkEllipsoids
     ) {
+        restoreFinalMushroomFloorSurfaces(level, box, chunkPos, chunkEllipsoids);
+
         int minX = Math.max(box.minX(), chunkPos.getMinBlockX());
         int maxX = Math.min(box.maxX(), chunkPos.getMaxBlockX());
         int minZ = Math.max(box.minZ(), chunkPos.getMinBlockZ());
         int maxZ = Math.min(box.maxZ(), chunkPos.getMaxBlockZ());
         int minFloorAirY = Math.max(
-                this.maxMushroomCaves + 1,
+                Mth.ceil(mushroomSectionStartFloorAirY()),
                 Math.max(box.minY(), level.getMinBuildHeight()) + UPPER_GRASS_SURFACE_DEPTH
         );
         int maxFloorAirY = Math.min(
@@ -245,6 +237,61 @@ public class MushroomCavePiece extends AbstractSpiralCavePiece {
         }
 
         applyWaterExposedMudBelowMycelium(level);
+    }
+
+    private void restoreFinalMushroomFloorSurfaces(
+            WorldGenLevel level,
+            BoundingBox box,
+            ChunkPos chunkPos,
+            List<CarveEllipsoid> chunkEllipsoids
+    ) {
+        int minX = Math.max(box.minX(), chunkPos.getMinBlockX());
+        int maxX = Math.min(box.maxX(), chunkPos.getMaxBlockX());
+        int minZ = Math.max(box.minZ(), chunkPos.getMinBlockZ());
+        int maxZ = Math.min(box.maxZ(), chunkPos.getMaxBlockZ());
+        int minY = Math.max(box.minY(), level.getMinBuildHeight());
+        int maxY = Math.min(box.maxY(), level.getMaxBuildHeight() - 1);
+        if (minX > maxX || minZ > maxZ || minY > maxY) {
+            return;
+        }
+
+        BlockPos.MutableBlockPos airPos = new BlockPos.MutableBlockPos();
+        BlockPos.MutableBlockPos floorPos = new BlockPos.MutableBlockPos();
+
+        for (int x = minX; x <= maxX; x++) {
+            for (int z = minZ; z <= maxZ; z++) {
+                if (!isInsideCaveFootprint(x, z)) {
+                    continue;
+                }
+
+                for (ColumnCarveInterval interval : columnCarveIntervals(
+                        x,
+                        z,
+                        minY,
+                        maxY,
+                        chunkEllipsoids
+                )) {
+                    for (int y = interval.minY(); y <= interval.maxY(); y++) {
+                        airPos.set(x, y, z);
+                        floorPos.set(x, y - 1, z);
+                        if (!level.getBlockState(airPos).isAir()
+                                || !box.isInside(floorPos)
+                                || !canReplace(level, floorPos)) {
+                            continue;
+                        }
+
+                        if (isMushroomFloor(floorPos)) {
+                            level.setBlock(
+                                    floorPos,
+                                    Blocks.MYCELIUM.defaultBlockState(),
+                                    Block.UPDATE_CLIENTS
+                            );
+                        }
+                        break;
+                    }
+                }
+            }
+        }
     }
 
     private boolean isInsideCaveFootprint(int x, int z) {
@@ -360,7 +407,7 @@ public class MushroomCavePiece extends AbstractSpiralCavePiece {
             if (state.isAir()) {
                 /*
                  * The surface was found from the final merged carve union. Fill
-                 * any deeper air in its five-block substrate so overlapping
+                 * any deeper air in its six-block substrate so overlapping
                  * ellipsoids cannot strip off the grass or dirt layer.
                  */
                 if (depth == 0) {
@@ -388,7 +435,7 @@ public class MushroomCavePiece extends AbstractSpiralCavePiece {
         return switch (depth) {
             case 0 -> Blocks.GRASS_BLOCK;
             case 1 -> Blocks.DIRT;
-            case 2, 3, 4 -> Blocks.STONE;
+            case 2, 3, 4, 5 -> Blocks.STONE;
             default -> throw new IllegalArgumentException("Unexpected upper surface depth: " + depth);
         };
     }
@@ -417,12 +464,36 @@ public class MushroomCavePiece extends AbstractSpiralCavePiece {
     private record ColumnCarveInterval(int minY, int maxY) {
     }
 
-    private int finalEllipsoidFloorTopY() {
-        double dropPerTurn = this.verticalRadius * 2.0D
+    private boolean isMushroomFloor(BlockPos floorPos) {
+        return MushroomCaveRegion.containsFloorForExactCave(
+                floorPos,
+                this.origin.getX(),
+                this.origin.getY(),
+                this.origin.getZ(),
+                this.horizontalRadius,
+                this.verticalRadius,
+                this.centralPillarDiameter,
+                this.minFloorThickness,
+                this.liquidDepth,
+                this.liquidRadius
+        );
+    }
+
+    private double mushroomSectionStartFloorAirY() {
+        return this.origin.getY()
+                - this.verticalRadius
+                - MUSHROOM_SECTION_START_TURNS * dropPerTurn();
+    }
+
+    private double dropPerTurn() {
+        return this.verticalRadius * 2.0D
                 + this.minFloorThickness
                 + 1.0D
                 + this.liquidDepth;
-        double finalCenterY = this.origin.getY() - 2.0D * dropPerTurn;
+    }
+
+    private int finalEllipsoidFloorTopY() {
+        double finalCenterY = this.origin.getY() - 2.0D * dropPerTurn();
         return (int) Math.ceil(finalCenterY - this.verticalRadius) + 1;
     }
 
@@ -432,7 +503,7 @@ public class MushroomCavePiece extends AbstractSpiralCavePiece {
             return;
         }
 
-        if (carvedPos.getY() >= this.minMushroomCaves) {
+        if (isMushroomFloor(carvedPos.below())) {
             return;
         }
 
@@ -548,7 +619,10 @@ public class MushroomCavePiece extends AbstractSpiralCavePiece {
     }
 
     private boolean hasMyceliumAbove(WorldGenLevel level, BlockPos pos) {
-        int maxSurfaceY = Math.min(this.maxMushroomCaves - 1, level.getMaxBuildHeight() - 1);
+        int maxSurfaceY = Math.min(
+                Mth.ceil(this.origin.getY() - MUSHROOM_SECTION_START_TURNS * dropPerTurn()),
+                level.getMaxBuildHeight() - 1
+        );
         BlockPos.MutableBlockPos cursor = new BlockPos.MutableBlockPos(pos.getX(), pos.getY() + 1, pos.getZ());
 
         for (int y = pos.getY() + 1; y <= maxSurfaceY; y++) {
@@ -624,14 +698,8 @@ public class MushroomCavePiece extends AbstractSpiralCavePiece {
     }
 
     private double mooshroomGroupPathFraction() {
-        double dropPerTurn = this.verticalRadius * 2.0D
-                + this.minFloorThickness
-                + 1.0D
-                + this.liquidDepth;
-        double initialFloorAirY = this.origin.getY() - this.verticalRadius;
-        double middleMushroomFloorAirY = (this.maxMushroomCaves + this.minMushroomCaves) * 0.5D;
-        double turnsToMiddle = (initialFloorAirY - middleMushroomFloorAirY) / dropPerTurn;
-        return turnsToMiddle - Math.floor(turnsToMiddle);
+        double middleTurns = (MUSHROOM_SECTION_START_TURNS + MUSHROOM_SECTION_END_TURNS) * 0.5D;
+        return middleTurns - Math.floor(middleTurns);
     }
 
     private void placeGuaranteedInnerRingBerryPatches(WorldGenLevel level, BoundingBox box) {
@@ -766,8 +834,9 @@ public class MushroomCavePiece extends AbstractSpiralCavePiece {
 
     private BlockPos findUpperGrassPlantPosition(WorldGenLevel level, int x, int z) {
         int maxGroundY = (int) Math.ceil(this.origin.getY() - this.verticalRadius) - 1;
+        int minGroundY = Mth.floor(mushroomSectionStartFloorAirY());
 
-        for (int y = maxGroundY; y >= this.maxMushroomCaves; y--) {
+        for (int y = maxGroundY; y >= minGroundY; y--) {
             BlockPos ground = new BlockPos(x, y, z);
             BlockPos plant = ground.above();
 
