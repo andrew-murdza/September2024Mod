@@ -1,0 +1,10 @@
+{
+  "type": "aoemod:spiral_cave_chunk",
+  "config": {
+    "cave_type": "mushroom",
+    "placed_features": [
+      "aoemod:mushroom_caves/seafloor",
+      "aoemod:mushroom_caves/forest_floor"
+    ]
+  }
+}

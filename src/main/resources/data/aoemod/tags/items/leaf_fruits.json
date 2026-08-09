@@ -1,0 +1,42 @@
+{
+  "replace": false,
+  "values": [
+    "minecraft:apple",
+    {
+      "id": "fruitsdelight:bayberry",
+      "required": false
+    },
+    {
+      "id": "fruitsdelight:cherries",
+      "required": false
+    },
+    {
+      "id": "fruitsdelight:cherry",
+      "required": false
+    },
+    {
+      "id": "fruitsdelight:orange",
+      "required": false
+    },
+    {
+      "id": "fruitsdelight:pear",
+      "required": false
+    },
+    {
+      "id": "fruitsdelight:mangosteen",
+      "required": false
+    },
+    {
+      "id": "fruitsdelight:plum",
+      "required": false
+    },
+    {
+      "id": "fruitsdelight:plums",
+      "required": false
+    },
+    {
+      "id": "alexsmobs:banana",
+      "required": false
+    }
+  ]
+}

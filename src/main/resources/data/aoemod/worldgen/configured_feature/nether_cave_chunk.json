@@ -1,0 +1,10 @@
+{
+  "type": "aoemod:spiral_cave_chunk",
+  "config": {
+    "cave_type": "nether",
+    "placed_features": [
+      "aoemod:nether_cave/forest_floor",
+      "aoemod:nether_cave/seafloor"
+    ]
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "type": "aoemod:regional_grid_choice",
+  "config": {
+    "features": [],
+    "default_feature": "aoemod:trees/spruce",
+    "placement": [],
+    "offset_type": "small_in_square",
+    "region_width": 12,
+    "region_depth": 16,
+    "section_width": 6,
+    "section_depth": 8,
+    "salt": "mushroom_caves_spruce"
+  }
+}

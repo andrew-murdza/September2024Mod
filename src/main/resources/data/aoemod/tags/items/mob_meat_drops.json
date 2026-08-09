@@ -1,0 +1,43 @@
+{
+  "replace": false,
+  "values": [
+    "minecraft:beef",
+    "minecraft:porkchop",
+    "minecraft:mutton",
+    "minecraft:chicken",
+    "minecraft:rabbit",
+    "#aoemod:raw_fish",
+    {
+      "id": "naturalist:duck",
+      "required": false
+    },
+    {
+      "id": "naturalist:venison",
+      "required": false
+    },
+    {
+      "id": "dropthemeat:raw_bear",
+      "required": false
+    },
+    {
+      "id": "dropthemeat:raw_goat",
+      "required": false
+    },
+    {
+      "id": "dropthemeat:raw_llama",
+      "required": false
+    },
+    {
+      "id": "dropthemeat:raw_red_meat",
+      "required": false
+    },
+    {
+      "id": "dropthemeat:raw_turtle",
+      "required": false
+    },
+    {
+      "id": "dropthemeat:raw_squid",
+      "required": false
+    }
+  ]
+}

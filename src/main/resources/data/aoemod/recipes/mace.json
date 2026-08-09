@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "D",
+    "B"
+  ],
+  "key": {
+    "D": {
+      "item": "minecraft:iron_block"
+    },
+    "B": {
+      "item": "aoemod:breeze_rod"
+    }
+  },
+  "result": {
+    "item": "aoemod:mace"
+  }
+}

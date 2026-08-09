@@ -1,0 +1,24 @@
+{
+  "type": "aoemod:regional_grid_choice",
+  "config": {
+    "features": [
+      { "feature": "aoemod:sugar_cane_patch", "count": 4 },
+      { "feature": "aoemod:nothing", "count": 188 }
+    ],
+    "pinned_features": [
+      {
+        "feature": "aoemod:sugar_cane_patch",
+        "count": 4,
+        "region_x": [7, 63]
+      }
+    ],
+    "default_feature": "aoemod:nothing",
+    "offset_type": "corner",
+    "placement": [],
+    "region_width": 64,
+    "region_depth": 64,
+    "section_width": 12,
+    "section_depth": 16,
+    "salt": "rainforest_sugar_cane"
+  }
+}
