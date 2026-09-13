@@ -13,29 +13,9 @@
         },
         "target": "water",
         "all_layers": true,
-        "skip_height": 55,
+        "skip_height": 0,
         "max_y": 61,
-        "min_y": -30,
-        "predicate": {
-          "type": "minecraft:has_sturdy_face",
-          "direction": "up"
-        },
-        "biomes": "aoemod:mountain_biomes"
-      },
-      {
-        "deep_feature": {
-          "feature": "aoemod:mushroom_caves/water/water_plants_full",
-          "placement": []
-        },
-        "feature": {
-          "feature": "aoemod:mushroom_caves/water/water_plants_shallow_full",
-          "placement": []
-        },
-        "target": "water",
-        "all_layers": true,
-        "skip_height": 55,
-        "max_y": -31,
-        "min_y": -61,
+        "min_y": -62,
         "predicate": {
           "type": "minecraft:has_sturdy_face",
           "direction": "up"

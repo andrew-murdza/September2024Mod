@@ -157,9 +157,6 @@ public class AOEMod
         if (tab == CreativeModeTabs.NATURAL_BLOCKS) {
 
             event.accept(ModItems.SOUL_BERRIES.get());
-            event.accept(ModItems.ASHEN_WHEAT.get());
-            event.accept(ModItems.ASHEN_WHEAT_SEEDS.get());
-
             event.accept(ModItems.CARROT_SEEDS.get());
             event.accept(ModItems.POTATO_SEEDS.get());
             event.accept(ModItems.ONION_SEEDS.get());
@@ -215,12 +212,13 @@ public class AOEMod
             // cooked seafood
             event.accept(ModItems.COOKED_PUFFERFISH.get());
             event.accept(ModItems.COOKED_TROPICAL_FISH.get());
+            event.accept(ModItems.COOKED_SQUID.get());
             event.accept(ModItems.COOKED_GLOW_SQUID.get());
             event.accept(ModItems.COOKED_END_FISH.get());
 
             // pies
             event.accept(ModItems.MELON_PIE.get());
-            event.accept(ModItems.GLOW_BERRY_PIE.get());
+            event.accept(ModItems.GLOWBERRY_PIE.get());
             event.accept(ModItems.ORANGE_PIE.get());
             event.accept(ModItems.PEAR_PIE.get());
             event.accept(ModItems.BANANA_PIE.get());
@@ -229,10 +227,11 @@ public class AOEMod
 
             // other
             event.accept(ModItems.SOUL_BERRY_COOKIE.get());
-            event.accept(ModItems.BLUE_BERRY_COOKIE.get());
-            event.accept(ModItems.SEARING_COD_ROLL.get());
-            event.accept(ModItems.NETHER_FISH_KELP_ROLL.get());
-            event.accept(ModItems.ASHEN_BREAD.get());
+            event.accept(ModItems.BLUEBERRY_COOKIE.get());
+            event.accept(ModItems.SEARED_COD_ROLL.get());
+            event.accept(ModItems.NETHER_FISH_ROLL.get());
+            event.accept(ModItems.GLOWSHROOM_STEW.get());
+            event.accept(ModItems.HONEY_BOWL.get());
         }
 
         // TOOLS AND UTILITIES
@@ -254,6 +253,7 @@ public class AOEMod
             event.accept(ModItems.BONE_AXE.get());
             event.accept(ModItems.BONE_ARROW.get());
             event.accept(ModItems.BONE_SWORD.get());
+            event.accept(ModItems.BONE_SPEAR.get());
             event.accept(ModItems.BREEZE_ROD.get());
             event.accept(ModItems.MACE.get());
             event.accept(ModItems.COPPER_SWORD.get());
@@ -325,7 +325,6 @@ public class AOEMod
                 ItemBlockRenderTypes.setRenderLayer(ModBlocks.CLOSED_EYEBLOSSOM.get(), RenderType.cutout());
                 ItemBlockRenderTypes.setRenderLayer(ModBlocks.JUNGLE_SWEET_BERRY_BUSH.get(), RenderType.cutout());
                 ItemBlockRenderTypes.setRenderLayer(ModBlocks.BLUE_BERRY_BUSH.get(), RenderType.cutout());
-                ItemBlockRenderTypes.setRenderLayer(ModBlocks.ASHEN_WHEAT_CROP.get(), RenderType.cutout());
                 ItemBlockRenderTypes.setRenderLayer(ModBlocks.PALE_OAK_DOOR.get(), RenderType.cutout());
                 ItemBlockRenderTypes.setRenderLayer(ModBlocks.PALE_OAK_TRAPDOOR.get(), RenderType.cutout());
                 ItemBlockRenderTypes.setRenderLayer(ModBlocks.PALE_OAK_LEAVES.get(), RenderType.cutoutMipped());

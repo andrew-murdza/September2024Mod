@@ -358,7 +358,9 @@ public final class MobConfig {
                 m(ModTags.Biomes.tropicalBiomes, 1),
                 m(ModTags.Biomes.tropicalBiomes, 1));
 
-        addMobInfo(EntityType.DOLPHIN);
+        addMobInfo(EntityType.DOLPHIN,
+                m(ModTags.Biomes.tropicalBiomes, 1.5F),
+                m(ModTags.Biomes.tropicalBiomes, 1.5F));
 
         addMobInfo(EntityType.TURTLE,
                 m(ModTags.Biomes.tropicalBiomes, 1.5F),
@@ -376,7 +378,9 @@ public final class MobConfig {
                 m(ModTags.Biomes.tropicalBiomes, 1.5F),
                 m(ModTags.Biomes.tropicalBiomes, 1.5F));
 
-        addMobInfo(EntityType.PARROT);
+        addMobInfo(EntityType.PARROT,
+                m(ModTags.Biomes.tropicalBiomes, 1.5F),
+                m(ModTags.Biomes.tropicalBiomes, 1.5F));
 
         addMobInfo(EntityType.SNIFFER,
                 m(ModTags.Biomes.tropicalBiomes, 1.5F),
@@ -425,7 +429,7 @@ public final class MobConfig {
                 m(0, 0, 0, 0.2F, 0, 0.05F, 0, 0, 0, 0, Items.BONE_MEAL));
 
         addMobInfo(EntityType.SQUID,
-                m(2, 1, 1, 2, 0, 0, 0, 0, 0, 0, com.ncpbails.culturaldelights.item.ModItems.SQUID.get(), com.ncpbails.culturaldelights.item.ModItems.COOKED_SQUID.get()),
+                m(2, 1, 1, 2, 0, 0, 0, 0, 0, 0, com.ncpbails.culturaldelights.item.ModItems.SQUID.get(), ModItems.COOKED_SQUID.get()),
                 m(3, 2, 1, 3, 0, 0, 0, 0, 0, 0, Items.INK_SAC),
                 m(0.1F, 0.05F, 0.05F, 0.2F, 0, 0, 0, 0, 0, 0, Items.BONE_MEAL));
 

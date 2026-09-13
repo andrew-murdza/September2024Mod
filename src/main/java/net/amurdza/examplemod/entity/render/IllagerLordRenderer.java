@@ -65,6 +65,9 @@ public class IllagerLordRenderer extends GeoEntityRenderer<IllagerLordEntity> {
                     // Vindicator's arm transform. This attachment is already
                     // at the wrist, so it does not need the layer's arm-length
                     // translation.
+                    // Keep the weapon on the front side of the arm before
+                    // rotating it into the downward-facing grip.
+                    poseStack.translate(0.0D, 0.0D, -0.1875D);
                     poseStack.mulPose(Axis.XP.rotationDegrees(-90.0F));
                     poseStack.mulPose(Axis.YP.rotationDegrees(180.0F));
                     poseStack.translate(0.0D, 0.125D, 0.0D);

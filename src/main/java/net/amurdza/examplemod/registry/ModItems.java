@@ -3,6 +3,7 @@ package net.amurdza.examplemod.registry;
 import com.github.alexthe666.alexsmobs.item.ItemModFishBucket;
 import net.amurdza.examplemod.AOEMod;
 import net.amurdza.examplemod.item.CopperArmorMaterial;
+import net.amurdza.examplemod.item.CropSeedItem;
 import net.amurdza.examplemod.item.MaceItem;
 import net.amurdza.examplemod.item.MaterialShieldItem;
 import net.amurdza.examplemod.item.ModToolTiers;
@@ -32,8 +33,25 @@ public class ModItems {
             .saturationMod(0.8F)
             .build();
 
+    private static final FoodProperties RAW_COD_PLUS_ONE = rawCodPlusOne();
+
+    private static final FoodProperties FARMERS_DELIGHT_COOKIE = new FoodProperties.Builder()
+            .nutrition(2)
+            .saturationMod(0.1F)
+            .fast()
+            .build();
+
     public static void register(IEventBus eventBus) {
         ITEMS.register(eventBus);
+    }
+
+    private static FoodProperties rawCodPlusOne() {
+        int nutrition = Foods.COD.getNutrition() + 1;
+        float saturation = Foods.COD.getNutrition() * Foods.COD.getSaturationModifier() * 2.0F + 1.0F;
+        return new FoodProperties.Builder()
+                .nutrition(nutrition)
+                .saturationMod(saturation / (nutrition * 2.0F))
+                .build();
     }
 
     public static Item endFishForVariant(int variant, boolean cooked) {
@@ -79,11 +97,16 @@ public class ModItems {
     );
     public static final RegistryObject<Item> NETHER_FISH = ITEMS.register(
             "nether_fish",
-            () -> new Item(new Item.Properties().food(RAW_FISH_FOOD))
+            () -> new Item(new Item.Properties().food(Foods.COD))
     );
 
     public static final RegistryObject<Item> COOKED_GLOW_SQUID = ITEMS.register(
             "cooked_glow_squid",
+            () -> new Item(new Item.Properties().food(Foods.COOKED_COD))
+    );
+
+    public static final RegistryObject<Item> COOKED_SQUID = ITEMS.register(
+            "cooked_squid",
             () -> new Item(new Item.Properties().food(Foods.COOKED_COD))
     );
 
@@ -92,8 +115,8 @@ public class ModItems {
             () -> new Item(new Item.Properties().food(Foods.PUMPKIN_PIE))
     );
 
-    public static final RegistryObject<Item> GLOW_BERRY_PIE = ITEMS.register(
-            "glow_berry_pie",
+    public static final RegistryObject<Item> GLOWBERRY_PIE = ITEMS.register(
+            "glowberry_pie",
             () -> new Item(new Item.Properties().food(Foods.PUMPKIN_PIE))
     );
 
@@ -124,32 +147,22 @@ public class ModItems {
 
     public static final RegistryObject<Item> CARROT_SEEDS = ITEMS.register(
             "carrot_seeds",
-            () -> new ItemNameBlockItem(Blocks.CARROTS, new Item.Properties())
+            () -> new CropSeedItem(Blocks.CARROTS, new Item.Properties())
     );
 
     public static final RegistryObject<Item> POTATO_SEEDS = ITEMS.register(
             "potato_seeds",
-            () -> new ItemNameBlockItem(Blocks.POTATOES, new Item.Properties())
+            () -> new CropSeedItem(Blocks.POTATOES, new Item.Properties())
     );
 
     public static final RegistryObject<Item> ONION_SEEDS = ITEMS.register(
             "onion_seeds",
-            () -> new ItemNameBlockItem(vectorwing.farmersdelight.common.registry.ModBlocks.ONION_CROP.get(), new Item.Properties())
+            () -> new CropSeedItem(vectorwing.farmersdelight.common.registry.ModBlocks.ONION_CROP.get(), new Item.Properties())
     );
 
     public static final RegistryObject<Item> RICE_SEEDS = ITEMS.register(
             "rice_seeds",
-            () -> new ItemNameBlockItem(vectorwing.farmersdelight.common.registry.ModBlocks.RICE_CROP.get(), new Item.Properties())
-    );
-
-    public static final RegistryObject<Item> ASHEN_WHEAT = ITEMS.register(
-            "ashen_wheat",
-            () -> new Item(new Item.Properties())
-    );
-
-    public static final RegistryObject<Item> ASHEN_WHEAT_SEEDS = ITEMS.register(
-            "ashen_wheat_seeds",
-            () -> new ItemNameBlockItem(ModBlocks.ASHEN_WHEAT_CROP.get(), new Item.Properties())
+            () -> new CropSeedItem(vectorwing.farmersdelight.common.registry.ModBlocks.RICE_CROP.get(), new Item.Properties())
     );
 
     public static final RegistryObject<Item> SOUL_BERRIES = ITEMS.register(
@@ -165,28 +178,34 @@ public class ModItems {
             )
     );
 
-    public static final RegistryObject<Item> ASHEN_BREAD = ITEMS.register(
-            "ashen_bread",
-            () -> new Item(new Item.Properties().food(Foods.BREAD))
-    );
-
     public static final RegistryObject<Item> SOUL_BERRY_COOKIE = ITEMS.register(
             "soul_berry_cookie",
             () -> new Item(new Item.Properties().food(Foods.COOKIE))
     );
 
-    public static final RegistryObject<Item> BLUE_BERRY_COOKIE = ITEMS.register(
-            "blue_berry_cookie",
-            () -> new Item(new Item.Properties().food(Foods.COOKIE))
+    public static final RegistryObject<Item> BLUEBERRY_COOKIE = ITEMS.register(
+            "blueberry_cookie",
+            () -> new Item(new Item.Properties().food(FARMERS_DELIGHT_COOKIE))
     );
 
-    public static final RegistryObject<Item> SEARING_COD_ROLL = ITEMS.register(
-            "searing_cod_roll",
-            () -> new Item(new Item.Properties().food(Foods.COOKED_COD))
+    public static final RegistryObject<Item> SEARED_COD_ROLL = ITEMS.register(
+            "seared_cod_roll",
+            () -> new Item(new Item.Properties().food(RAW_COD_PLUS_ONE))
     );
-    public static final RegistryObject<Item> NETHER_FISH_KELP_ROLL = ITEMS.register(
-            "nether_fish_kelp_roll",
-            () -> new Item(new Item.Properties().food(Foods.COOKED_COD))
+    public static final RegistryObject<Item> NETHER_FISH_ROLL = ITEMS.register(
+            "nether_fish_roll",
+            () -> new Item(new Item.Properties().food(RAW_COD_PLUS_ONE))
+    );
+
+    public static final RegistryObject<Item> GLOWSHROOM_STEW = ITEMS.register(
+            "glowshroom_stew",
+            () -> new BowlFoodItem(new Item.Properties().stacksTo(1).food(Foods.MUSHROOM_STEW))
+    );
+
+    public static final RegistryObject<Item> HONEY_BOWL = ITEMS.register(
+            "honey_bowl",
+            () -> new BowlFoodItem(new Item.Properties().stacksTo(1).food(
+                    new FoodProperties.Builder().nutrition(6).saturationMod(0.1F).build()))
     );
 
     public static final RegistryObject<Item> BONE_ARROW = ITEMS.register(
@@ -276,6 +295,8 @@ public class ModItems {
     public static final RegistryObject<Item> COPPER_BOOTS = ITEMS.register(
             "copper_boots", () -> new ArmorItem(CopperArmorMaterial.INSTANCE, ArmorItem.Type.BOOTS, new Item.Properties()));
 
+    public static final RegistryObject<Item> BONE_SPEAR = ITEMS.register("bone_spear",
+            () -> new SpearItem(ModToolTiers.BONE, 0.85F, 0.82F, 0.65F, 12.0F, 8.25F, 4.6F, new Item.Properties()));
     public static final RegistryObject<Item> WOODEN_SPEAR = ITEMS.register("wooden_spear",
             () -> new SpearItem(Tiers.WOOD, 0.65F, 0.70F, 0.75F, 14.0F, 10.0F, 4.6F, new Item.Properties()));
     public static final RegistryObject<Item> STONE_SPEAR = ITEMS.register("stone_spear",

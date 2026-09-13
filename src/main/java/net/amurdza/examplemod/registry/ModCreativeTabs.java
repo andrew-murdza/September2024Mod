@@ -7,6 +7,7 @@ import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
+import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 
 public class ModCreativeTabs {
@@ -18,8 +19,9 @@ public class ModCreativeTabs {
                     .title(Component.translatable("itemGroup.aoemod"))
                     .icon(() -> new ItemStack(ModBlocks.PALE_OAK_SAPLING.get()))
                     .displayItems((parameters, output) ->
-                            ModItems.ITEMS.getEntries().stream()
-                                    .forEach(item -> output.accept(item.get())))
+                            ForgeRegistries.ITEMS.getValues().stream()
+                                    .filter(item -> AOEMod.MOD_ID.equals(ForgeRegistries.ITEMS.getKey(item).getNamespace()))
+                                    .forEach(output::accept))
                     .build());
 
     private ModCreativeTabs() {}

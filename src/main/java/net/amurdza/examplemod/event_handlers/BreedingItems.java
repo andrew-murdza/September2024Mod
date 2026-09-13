@@ -17,7 +17,6 @@ import net.minecraft.world.entity.animal.horse.AbstractHorse;
 import net.minecraft.world.entity.animal.horse.Donkey;
 import net.minecraft.world.entity.animal.horse.Horse;
 import net.minecraft.world.entity.animal.horse.Llama;
-import net.minecraft.world.entity.monster.Strider;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
@@ -53,13 +52,9 @@ public class BreedingItems {
                 useFood(mob,player,stack,Items.WHEAT);
                 useFood(mob,player,stack,Items.POTATO);
                 useFood(mob, player, stack, ModItems.ONION.get());
-                useFood(mob, player, stack, net.amurdza.examplemod.registry.ModItems.ASHEN_WHEAT.get());
             }
             else if(mob instanceof Horse || mob instanceof Donkey || mob instanceof Llama){
                 useFood(mob,player,stack,Items.WHEAT);
-            }
-            else if(mob instanceof Strider){
-                useFood(mob,player,stack, net.amurdza.examplemod.registry.ModItems.ASHEN_WHEAT.get());
             }
             else if(mob instanceof Camel){
                 useFood(mob, player, stack, samebutdifferent.ecologics.registry.ModItems.PRICKLY_PEAR.get());
@@ -86,10 +81,6 @@ public class BreedingItems {
             }
             else if(mob instanceof Parrot){
                 useFood(mob,player,stack, ModTags.Items.leafFruits);
-            }
-            else if(mob instanceof PolarBear){
-                useFood(mob, player, stack, ModTags.Items.mobMeatDrops);
-                useFood(mob, player, stack, ModTags.Items.rawFish);
             }
             else if(mob instanceof EntityGorilla){
                 useFood(mob, player, stack, ModTags.Items.leafFruits);

@@ -35,7 +35,6 @@ import java.util.Set;
 public class MushroomCavePiece extends AbstractSpiralCavePiece {
     private static final double YAW_START = Math.PI * 1.5D;
     private static final double FULL_TURN = Math.PI * 2.0D;
-    private static final int UPPER_GRASS_AIR_CHECK_Y = 63;
     private static final int UPPER_GRASS_SURFACE_DEPTH = 6;
     private static final double MUSHROOM_SECTION_START_TURNS =
             CaveStructureConfig.MUSHROOM_CAVE_SECTION_START_TURNS;
@@ -68,8 +67,6 @@ public class MushroomCavePiece extends AbstractSpiralCavePiece {
     private static final int BERRY_TREE_CLEARANCE = 3;
     private static final int BERRY_CENTER_SEARCH_RADIUS = 4;
     private static final int BERRY_LOG_SCAN_HEIGHT = 24;
-
-    private final Set<Long> waterExposedStoneCandidates = new HashSet<>();
 
     public MushroomCavePiece(
             BlockPos origin,
@@ -165,16 +162,17 @@ public class MushroomCavePiece extends AbstractSpiralCavePiece {
         int maxX = Math.min(box.maxX(), chunkPos.getMaxBlockX());
         int minZ = Math.max(box.minZ(), chunkPos.getMinBlockZ());
         int maxZ = Math.min(box.maxZ(), chunkPos.getMaxBlockZ());
+        int upperGrassAirY = Mth.ceil(this.origin.getY() - this.verticalRadius);
         int minFloorAirY = Math.max(
                 Mth.ceil(mushroomSectionStartFloorAirY()),
                 Math.max(box.minY(), level.getMinBuildHeight()) + UPPER_GRASS_SURFACE_DEPTH
         );
         int maxFloorAirY = Math.min(
-                UPPER_GRASS_AIR_CHECK_Y,
+                upperGrassAirY,
                 Math.min(box.maxY(), level.getMaxBuildHeight() - 1)
         );
         if (minX > maxX || minZ > maxZ || minFloorAirY > maxFloorAirY) {
-            applyWaterExposedMudBelowMycelium(level);
+            applyMudToBuriedRiverWalls(level, box, chunkPos, chunkEllipsoids);
             return;
         }
 
@@ -186,7 +184,7 @@ public class MushroomCavePiece extends AbstractSpiralCavePiece {
                     continue;
                 }
 
-                cursor.set(x, UPPER_GRASS_AIR_CHECK_Y, z);
+                cursor.set(x, upperGrassAirY, z);
                 if (!box.isInside(cursor) || !level.getBlockState(cursor).isAir()) {
                     continue;
                 }
@@ -203,13 +201,13 @@ public class MushroomCavePiece extends AbstractSpiralCavePiece {
                 }
 
                 for (ColumnCarveInterval carveInterval : carveIntervals) {
-                    if (carveInterval.minY() > UPPER_GRASS_AIR_CHECK_Y
-                            || carveInterval.maxY() < UPPER_GRASS_AIR_CHECK_Y) {
+                    if (carveInterval.minY() > upperGrassAirY
+                            || carveInterval.maxY() < upperGrassAirY) {
                         continue;
                     }
 
                     for (int floorAirY = carveInterval.minY();
-                         floorAirY <= UPPER_GRASS_AIR_CHECK_Y;
+                         floorAirY <= upperGrassAirY;
                          floorAirY++) {
                         cursor.set(x, floorAirY, z);
                         if (!level.getBlockState(cursor).isAir()) {
@@ -236,7 +234,7 @@ public class MushroomCavePiece extends AbstractSpiralCavePiece {
             }
         }
 
-        applyWaterExposedMudBelowMycelium(level);
+        applyMudToBuriedRiverWalls(level, box, chunkPos, chunkEllipsoids);
     }
 
     private void restoreFinalMushroomFloorSurfaces(
@@ -494,7 +492,7 @@ public class MushroomCavePiece extends AbstractSpiralCavePiece {
 
     private int finalEllipsoidFloorTopY() {
         double finalCenterY = this.origin.getY() - 2.0D * dropPerTurn();
-        return (int) Math.ceil(finalCenterY - this.verticalRadius) + 1;
+        return (int) Math.ceil(finalCenterY - this.verticalRadius) + 3;
     }
 
     @Override
@@ -575,7 +573,6 @@ public class MushroomCavePiece extends AbstractSpiralCavePiece {
     protected void decorateRiverWall(WorldGenLevel level, BlockPos wallPos, Direction wallDirection) {
         replaceExposedUndesirableBoundaryBlock(level, wallPos, overworldBoundaryReplacement(level, wallPos), true);
         replaceNaturalClayBoundary(level, wallPos);
-        recordWaterExposedStoneCandidate(level, wallPos);
     }
 
     @Override
@@ -597,42 +594,118 @@ public class MushroomCavePiece extends AbstractSpiralCavePiece {
         );
     }
 
-    private void recordWaterExposedStoneCandidate(WorldGenLevel level, BlockPos wallPos) {
-        BlockState state = level.getBlockState(wallPos);
-        if (state.is(Blocks.STONE) || state.is(Blocks.DEEPSLATE)) {
-            this.waterExposedStoneCandidates.add(wallPos.asLong());
-        }
-    }
-
-    private void applyWaterExposedMudBelowMycelium(WorldGenLevel level) {
-        for (long packedPos : this.waterExposedStoneCandidates) {
+    private void applyMudToBuriedRiverWalls(
+            WorldGenLevel level,
+            BoundingBox box,
+            ChunkPos chunkPos,
+            List<CarveEllipsoid> chunkEllipsoids
+    ) {
+        for (long packedPos : collectFinalRiverWallPositions(
+                box,
+                chunkPos,
+                chunkEllipsoids
+        )) {
             BlockPos pos = BlockPos.of(packedPos);
-            BlockState state = level.getBlockState(pos);
+            if (!canReplace(level, pos)) {
+                continue;
+            }
 
+            replaceExposedUndesirableBoundaryBlock(
+                    level,
+                    pos,
+                    overworldBoundaryReplacement(level, pos),
+                    true
+            );
+            replaceNaturalClayBoundary(level, pos);
+
+            BlockState state = level.getBlockState(pos);
+            BlockState aboveState = level.getBlockState(pos.above());
             if ((state.is(Blocks.STONE) || state.is(Blocks.DEEPSLATE))
-                    && hasMyceliumAbove(level, pos)) {
+                    && (aboveState.isSolid() || !aboveState.getFluidState().isEmpty())) {
                 level.setBlock(pos, Blocks.MUD.defaultBlockState(), Block.UPDATE_CLIENTS);
             }
         }
-
-        this.waterExposedStoneCandidates.clear();
     }
 
-    private boolean hasMyceliumAbove(WorldGenLevel level, BlockPos pos) {
-        int maxSurfaceY = Math.min(
-                Mth.ceil(this.origin.getY() - MUSHROOM_SECTION_START_TURNS * dropPerTurn()),
-                level.getMaxBuildHeight() - 1
-        );
-        BlockPos.MutableBlockPos cursor = new BlockPos.MutableBlockPos(pos.getX(), pos.getY() + 1, pos.getZ());
+    private Set<Long> collectFinalRiverWallPositions(
+            BoundingBox box,
+            ChunkPos chunkPos,
+            List<CarveEllipsoid> chunkEllipsoids
+    ) {
+        Set<Long> wallPositions = new HashSet<>();
+        if (this.liquidRadius <= 0.0F || this.liquidDepth <= 0.0F) {
+            return wallPositions;
+        }
 
-        for (int y = pos.getY() + 1; y <= maxSurfaceY; y++) {
-            cursor.setY(y);
-            if (level.getBlockState(cursor).is(Blocks.MYCELIUM)) {
-                return true;
+        BoundingBox pieceBox = this.getBoundingBox();
+        int ownedMinX = Math.max(
+                chunkPos.getMinBlockX(),
+                Math.max(box.minX(), pieceBox.minX())
+        );
+        int ownedMaxX = Math.min(
+                chunkPos.getMaxBlockX(),
+                Math.min(box.maxX(), pieceBox.maxX())
+        );
+        int ownedMinY = Math.max(box.minY(), pieceBox.minY());
+        int ownedMaxY = Math.min(box.maxY(), pieceBox.maxY());
+        int ownedMinZ = Math.max(
+                chunkPos.getMinBlockZ(),
+                Math.max(box.minZ(), pieceBox.minZ())
+        );
+        int ownedMaxZ = Math.min(
+                chunkPos.getMaxBlockZ(),
+                Math.min(box.maxZ(), pieceBox.maxZ())
+        );
+        if (ownedMinX > ownedMaxX || ownedMinY > ownedMaxY || ownedMinZ > ownedMaxZ) {
+            return wallPositions;
+        }
+
+        BoundingBox ownedBox = new BoundingBox(
+                ownedMinX,
+                ownedMinY,
+                ownedMinZ,
+                ownedMaxX,
+                ownedMaxY,
+                ownedMaxZ
+        );
+
+        BlockPos.MutableBlockPos wallPos = new BlockPos.MutableBlockPos();
+
+        /*
+         * Rebuild walls from the same mathematical profile that carved the
+         * river. The one-block halo predicts fluid beyond the owned chunk, but
+         * only wall blocks inside this chunk are collected and changed.
+         */
+        for (int x = ownedBox.minX() - 1; x <= ownedBox.maxX() + 1; x++) {
+            for (int z = ownedBox.minZ() - 1; z <= ownedBox.maxZ() + 1; z++) {
+                for (RiverColumnProfile profile : riverColumnProfiles(
+                        x,
+                        z,
+                        chunkEllipsoids
+                )) {
+                    int minY = Math.max(profile.minY(), ownedBox.minY());
+                    int maxY = Math.min(profile.maxY(), ownedBox.maxY());
+                    for (int y = minY; y <= maxY; y++) {
+                        if (getRiverFluidState(profile.source(), x, y, z) == null) {
+                            continue;
+                        }
+
+                        for (Direction direction : HORIZONTAL_DIRECTIONS) {
+                            wallPos.set(
+                                    x + direction.getStepX(),
+                                    y,
+                                    z + direction.getStepZ()
+                            );
+                            if (ownedBox.isInside(wallPos)) {
+                                wallPositions.add(wallPos.asLong());
+                            }
+                        }
+                    }
+                }
             }
         }
 
-        return false;
+        return wallPositions;
     }
 
     private Block overworldBoundaryReplacement(WorldGenLevel level, BlockPos pos) {
@@ -640,9 +713,14 @@ public class MushroomCavePiece extends AbstractSpiralCavePiece {
     }
 
     @Override
-    protected BlockState getRiverFluidState(double caveCenterY, int x, int y, int z) {
+    protected BlockState getRiverFluidState(
+            CarveEllipsoid source,
+            int x,
+            int y,
+            int z
+    ) {
         int highestMainSpiralFloorY = Mth.ceil(this.origin.getY() - this.verticalRadius) - 1;
-        if (y > highestMainSpiralFloorY - 2) {
+        if (y > highestMainSpiralFloorY) {
             return null;
         }
 

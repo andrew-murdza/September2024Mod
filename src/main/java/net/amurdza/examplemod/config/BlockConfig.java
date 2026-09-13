@@ -505,20 +505,6 @@ public final class BlockConfig {
                         matureAge3Amount(1,0))
         );
 
-        addLoot(ModBlocks.ASHEN_WHEAT_CROP.get(),
-                drop(ModTags.Biomes.soulSandValleyBiomes, ModItems.ASHEN_WHEAT.get(), matureAge7Amount(1,0)),
-                drop(ModTags.Biomes.soulSandValleyBiomes, ModItems.ASHEN_WHEAT_SEEDS.get(), matureAge7Amount(1.5f)),
-                drop(ModTags.Biomes.deepDarkBiomes, ModItems.ASHEN_WHEAT.get(), matureAge7Amount(1,0)),
-                drop(ModTags.Biomes.deepDarkBiomes, ModItems.ASHEN_WHEAT_SEEDS.get(), matureAge7Amount(1.15f)),
-                drop(ModTags.Biomes.desertBiomes, ModItems.ASHEN_WHEAT.get(), matureAge7Amount(1,0)),
-                drop(ModTags.Biomes.desertBiomes, ModItems.ASHEN_WHEAT_SEEDS.get(), matureAge7Amount(1.1f)),
-                drop(ModTags.Biomes.warpedForestBiomes, ModItems.ASHEN_WHEAT.get(), matureAge7Amount(1,0)),
-                drop(ModTags.Biomes.warpedForestBiomes, ModItems.ASHEN_WHEAT_SEEDS.get(), matureAge7Amount(1.25f)),
-                drop(ModTags.Biomes.crimsonForestBiomes, ModItems.ASHEN_WHEAT.get(), matureAge7Amount(1,0)),
-                drop(ModTags.Biomes.crimsonForestBiomes, ModItems.ASHEN_WHEAT_SEEDS.get(), matureAge7Amount(1.25f)),
-                drop(ModTags.Biomes.basaltDeltasBiomes, ModItems.ASHEN_WHEAT.get(), matureAge7Amount(1,0)),
-                drop(ModTags.Biomes.basaltDeltasBiomes, ModItems.ASHEN_WHEAT_SEEDS.get(), matureAge7Amount(1.15f))
-        );
     }
 
     private static Function<BlockState, Float> matureAge7Amount(float amountWhenMature) {
@@ -555,10 +541,6 @@ public final class BlockConfig {
 
         addLoot(Blocks.DEAD_BUSH, drop(ModTags.Biomes.desertBiomes, Items.STICK, 1F));
 
-        Block soulWeeds = externalBlock("nourished_nether", "soul_weeds");
-        if (soulWeeds != Blocks.AIR) {
-            addLoot(soulWeeds, drop(ModTags.Biomes.soulSandValleyBiomes, ModItems.ASHEN_WHEAT_SEEDS.get()));
-        }
     }
 
     private static void addCaveVines(Block block){
@@ -603,15 +585,17 @@ public final class BlockConfig {
             addLoot(block,
                     seedDrop(biome, Items.WHEAT_SEEDS, 0.0625f * mult),
                     seedDrop(biome, Items.PUMPKIN_SEEDS, 0.0125f * mult),
-                    seedDrop(biome, Items.POTATO, 0.025f * mult),
-                    seedDrop(biome, Items.CARROT, 0.025f * mult)
+                    seedDrop(biome, ModItems.CARROT_SEEDS.get(), 0.025f * mult),
+                    seedDrop(biome, ModItems.POTATO_SEEDS.get(), 0.025f * mult)
             );
         }
         else if (biome.equals(ModTags.Biomes.mountainBiomes)){
-            addLoot(block, seedDrop(biome, Items.BEETROOT_SEEDS, 0.1f * mult));
+            addLoot(block,
+                    seedDrop(biome, Items.BEETROOT_SEEDS, 0.05f * mult),
+                    seedDrop(biome, Items.WHEAT_SEEDS, 0.05f * mult));
         }
         else if (biome.equals(ModTags.Biomes.desertBiomes)){
-            addLoot(block, seedDrop(biome, Items.WHEAT_SEEDS, 0.05f * mult));
+            addLoot(block, seedDrop(biome, Items.WHEAT_SEEDS, 0.08f * mult));
         }
     }
 

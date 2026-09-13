@@ -5,14 +5,14 @@
     "aoemod:cooked_tropical_fish",
     "aoemod:cooked_pufferfish",
     "aoemod:cooked_endfish",
-    "culturaldelights:cooked_squid",
+    "aoemod:cooked_squid",
     "aoemod:cooked_glow_squid",
     {
       "id": "dropthemeat:cooked_wolf",
       "required": false
     },
     {
-      "id": "culturaldelights:cooked_squid",
+      "id": "aoemod:cooked_squid",
       "required": false
     },
     {

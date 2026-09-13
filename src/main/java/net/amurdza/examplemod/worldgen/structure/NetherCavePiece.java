@@ -55,7 +55,7 @@ public class NetherCavePiece extends AbstractSpiralCavePiece {
     private static final int DESERT_TERRACE_MAX_SURFACE_Y = DESERT_LAND_SAND_MAX_Y + 1;
     private static final int UPPER_LAND_SAND_DEPTH = 2;
     private static final int UPPER_LAND_SANDSTONE_DEPTH = 2;
-    private static final int UPPER_LAND_STONE_DEPTH = 2;
+    private static final int UPPER_LAND_STONE_DEPTH = 4;
     private static final int DESERT_RIVER_FLOOR_LAYER_DEPTH = 4;
     private static final int STRAIGHT_TERRACE_SAND_DEPTH = 2;
     private static final int STRAIGHT_TERRACE_SANDSTONE_DEPTH = 2;
@@ -383,7 +383,11 @@ public class NetherCavePiece extends AbstractSpiralCavePiece {
         }
 
         if (shouldReplaceWithRegionalBoundary(state, replaceSandAndSandstone)) {
-            level.setBlock(pos, replacement.defaultBlockState(), Block.UPDATE_CLIENTS);
+            level.setBlock(
+                    pos,
+                    boundaryReplacementForState(state, replacement).defaultBlockState(),
+                    Block.UPDATE_CLIENTS
+            );
         }
     }
 
@@ -503,12 +507,18 @@ public class NetherCavePiece extends AbstractSpiralCavePiece {
     }
 
     @Override
-    protected BlockState getRiverFluidState(double caveCenterY, int x, int y, int z) {
+    protected BlockState getRiverFluidState(
+            CarveEllipsoid source,
+            int x,
+            int y,
+            int z
+    ) {
+        double caveCenterY = source.centerY() - 1.0D;
         if (isWaterLavaBuffer(caveCenterY)) {
             return null;
         }
 
-        if (isOutsideStraightExitRiverShape(x, z)) {
+        if (isOutsideStraightExitRiverShape(source, x, z)) {
             return null;
         }
 
@@ -530,7 +540,81 @@ public class NetherCavePiece extends AbstractSpiralCavePiece {
     ) {
         decorateLocalChunkSeams(level, box, chunkPos, chunkEllipsoids);
         finishDesertTerrainColumns(level, box, chunkPos, chunkEllipsoids);
+        replaceExposedSandyRiverStone(level, box, chunkPos, chunkEllipsoids);
         placeGuaranteedSoulSandValleyPatches(level, box);
+    }
+
+    private void replaceExposedSandyRiverStone(
+            WorldGenLevel level,
+            BoundingBox box,
+            ChunkPos chunkPos,
+            List<CarveEllipsoid> chunkEllipsoids
+    ) {
+        BoundingBox pieceBox = this.getBoundingBox();
+        int minX = Math.max(chunkPos.getMinBlockX(), Math.max(box.minX(), pieceBox.minX()));
+        int maxX = Math.min(chunkPos.getMaxBlockX(), Math.min(box.maxX(), pieceBox.maxX()));
+        int minY = Math.max(box.minY(), pieceBox.minY());
+        int maxY = Math.min(box.maxY(), pieceBox.maxY());
+        int minZ = Math.max(chunkPos.getMinBlockZ(), Math.max(box.minZ(), pieceBox.minZ()));
+        int maxZ = Math.min(chunkPos.getMaxBlockZ(), Math.min(box.maxZ(), pieceBox.maxZ()));
+        if (minX > maxX || minY > maxY || minZ > maxZ) {
+            return;
+        }
+
+        BlockPos.MutableBlockPos boundaryPos = new BlockPos.MutableBlockPos();
+
+        /*
+         * Run after the final terrain-column pass because that pass can restore
+         * the lower sandy substrate to stone. The one-block halo lets this
+         * chunk finish its own edge even when the water cell is in a neighbor.
+         */
+        for (int fluidX = minX - 1; fluidX <= maxX + 1; fluidX++) {
+            for (int fluidZ = minZ - 1; fluidZ <= maxZ + 1; fluidZ++) {
+                for (RiverColumnProfile profile : riverColumnProfiles(
+                        fluidX,
+                        fluidZ,
+                        chunkEllipsoids
+                )) {
+                    int profileMinY = Math.max(profile.minY(), minY);
+                    int profileMaxY = Math.min(profile.maxY(), maxY);
+
+                    for (int y = profileMinY; y <= profileMaxY; y++) {
+                        BlockState fluidState = getRiverFluidState(
+                                profile.source(),
+                                fluidX,
+                                y,
+                                fluidZ
+                        );
+                        if (fluidState == null || !fluidState.is(Blocks.WATER)) {
+                            continue;
+                        }
+
+                        for (Direction direction : HORIZONTAL_DIRECTIONS) {
+                            int boundaryX = fluidX + direction.getStepX();
+                            int boundaryZ = fluidZ + direction.getStepZ();
+                            if (boundaryX < minX || boundaryX > maxX
+                                    || boundaryZ < minZ || boundaryZ > maxZ) {
+                                continue;
+                            }
+
+                            boundaryPos.set(boundaryX, y, boundaryZ);
+                            if (!box.isInside(boundaryPos)
+                                    || !BandlandsSurfaceRuleSource.usesSandySurfaceAt(boundaryX, boundaryZ)
+                                    || sectionFor(boundaryPos) != Section.DESERT
+                                    || !level.getBlockState(boundaryPos).is(Blocks.STONE)) {
+                                continue;
+                            }
+
+                            level.setBlock(
+                                    boundaryPos,
+                                    Blocks.SANDSTONE.defaultBlockState(),
+                                    Block.UPDATE_CLIENTS
+                            );
+                        }
+                    }
+                }
+            }
+        }
     }
 
     private void decorateLocalChunkSeams(
@@ -807,29 +891,23 @@ public class NetherCavePiece extends AbstractSpiralCavePiece {
             return intervals;
         }
 
-        for (CarveEllipsoid ellipsoid : chunkEllipsoids) {
-            double relativeX = (x + 0.5D - ellipsoid.centerX()) / this.liquidRadius;
-            double relativeZ = (z + 0.5D - ellipsoid.centerZ()) / this.liquidRadius;
-            double remainingVerticalShape = 1.0D
-                    - relativeX * relativeX
-                    - relativeZ * relativeZ;
-            if (remainingVerticalShape < 0.0D) {
+        for (RiverColumnProfile profile : riverColumnProfiles(x, z, chunkEllipsoids)) {
+            int actualFluidMinY = Integer.MAX_VALUE;
+            int actualFluidMaxY = Integer.MIN_VALUE;
+            for (int y = profile.minY(); y <= profile.maxY(); y++) {
+                if (getRiverFluidState(profile.source(), x, y, z) != null) {
+                    actualFluidMinY = Math.min(actualFluidMinY, y);
+                    actualFluidMaxY = Math.max(actualFluidMaxY, y);
+                }
+            }
+            if (actualFluidMinY == Integer.MAX_VALUE) {
                 continue;
             }
 
-            double fluidMainCenterY = ellipsoid.centerY() - 1.0D;
-            if (getRiverFluidState(fluidMainCenterY, x, Mth.floor(fluidMainCenterY), z) == null) {
-                continue;
-            }
-
-            double fluidCenterY = fluidMainCenterY - ellipsoid.lowerVerticalRadius() - 1.0D;
-            double verticalReach = this.liquidDepth * Math.sqrt(remainingVerticalShape);
-            int intervalMinY = Mth.ceil(fluidCenterY - verticalReach - 0.5D);
-            int intervalMaxY = Mth.floor(fluidCenterY - 0.5D);
-            intervalMinY = Math.max(intervalMinY, minY);
-            intervalMaxY = Math.min(
-                    intervalMaxY + 2,
-                    Math.min(maxY, ellipsoid.maxCarveY())
+            int intervalMinY = Math.max(actualFluidMinY, minY);
+            int intervalMaxY = Math.min(
+                    actualFluidMaxY + 2,
+                    Math.min(maxY, profile.source().maxCarveY())
             );
             if (intervalMinY <= intervalMaxY) {
                 intervals.add(new ColumnCarveInterval(intervalMinY, intervalMaxY));
@@ -1572,7 +1650,11 @@ public class NetherCavePiece extends AbstractSpiralCavePiece {
         return Math.max(1, Mth.ceil(this.liquidDepth * depthScale));
     }
 
-    private boolean isOutsideStraightExitRiverShape(int x, int z) {
+    private boolean isOutsideStraightExitRiverShape(
+            CarveEllipsoid source,
+            int x,
+            int z
+    ) {
         if (this.endX <= STRAIGHT_RIVER_END_BUFFER) {
             return false;
         }
@@ -1584,7 +1666,7 @@ public class NetherCavePiece extends AbstractSpiralCavePiece {
         );
         double centerZ = this.pillarCenterZ - pathRadius;
         int startX = Mth.floor(this.pillarCenterX);
-        if (!isActiveStraightExitEllipsoid(centerZ)) {
+        if (!isStraightExitEllipsoid(source, centerZ)) {
             return false;
         }
 
@@ -1597,14 +1679,17 @@ public class NetherCavePiece extends AbstractSpiralCavePiece {
                 && straightRiverShapeDistance(x, riverEndX, zDistance) > this.liquidRadius;
     }
 
-    private boolean isActiveStraightExitEllipsoid(double centerZ) {
+    private boolean isStraightExitEllipsoid(
+            CarveEllipsoid source,
+            double centerZ
+    ) {
         double epsilon = 1.0E-4D;
         double startX = this.pillarCenterX;
 
-        return Math.abs(this.activeCarveCenterY - this.origin.getY()) <= epsilon
-                && Math.abs(this.activeCarveCenterZ - centerZ) <= epsilon
-                && this.activeCarveCenterX >= startX - epsilon
-                && this.activeCarveCenterX <= startX + this.endX + epsilon;
+        return Math.abs(source.centerY() - this.origin.getY()) <= epsilon
+                && Math.abs(source.centerZ() - centerZ) <= epsilon
+                && source.centerX() >= startX - epsilon
+                && source.centerX() <= startX + this.endX + epsilon;
     }
 
     private boolean isNearSkyExposedSandyAnimalGroup(
@@ -2605,7 +2690,7 @@ public class NetherCavePiece extends AbstractSpiralCavePiece {
                 + 1.0D
                 + this.liquidDepth;
         double dropPerStep = Mth.clamp(requiredVerticalSeparation / stepsPerTurn, 0.01D, 0.85D);
-        double finalCenterY = this.endY + this.verticalRadius + this.liquidDepth + 2.0D;
+        double finalCenterY = this.endY + this.verticalRadius + this.liquidDepth;
         int maxSteps = Math.max(1, Mth.ceil((this.origin.getY() - finalCenterY) / dropPerStep) + 1);
 
         double yaw = YAW_START;

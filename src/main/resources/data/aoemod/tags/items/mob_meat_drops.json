@@ -6,7 +6,6 @@
     "minecraft:mutton",
     "minecraft:chicken",
     "minecraft:rabbit",
-    "#aoemod:raw_fish",
     {
       "id": "naturalist:duck",
       "required": false

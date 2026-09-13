@@ -32,6 +32,7 @@ import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Comparator;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -76,6 +77,7 @@ public abstract class AbstractSpiralCavePiece extends StructurePiece {
     protected double activeCarveLowerVerticalRadius;
     protected double activeCarveUpperVerticalRadius;
     protected final List<CarveEllipsoid> activePieceCarveEllipsoids = new ArrayList<>();
+    private final Set<Long> activeDecoratedAirBlocks = new HashSet<>();
 
     protected record CarveEllipsoid(
             double centerX,
@@ -85,6 +87,18 @@ public abstract class AbstractSpiralCavePiece extends StructurePiece {
             double lowerVerticalRadius,
             double upperVerticalRadius,
             int maxCarveY
+    ) {}
+
+    protected record RiverColumnProfile(
+            CarveEllipsoid source,
+            int minY,
+            int maxY
+    ) {}
+
+    private record MainColumnSlice(
+            CarveEllipsoid source,
+            int minY,
+            int maxY
     ) {}
 
     protected AbstractSpiralCavePiece(
@@ -249,7 +263,12 @@ public abstract class AbstractSpiralCavePiece extends StructurePiece {
 
     protected abstract void decorateCaveCeiling(WorldGenLevel level, BlockPos ceilingPos);
 
-    protected abstract BlockState getRiverFluidState(double caveCenterY, int x, int y, int z);
+    protected abstract BlockState getRiverFluidState(
+            CarveEllipsoid source,
+            int x,
+            int y,
+            int z
+    );
 
     protected float getTunnelHorizontalRadius() {
         return this.horizontalRadius + this.liquidRadius;
@@ -381,11 +400,19 @@ public abstract class AbstractSpiralCavePiece extends StructurePiece {
     ) {
         BlockState oldState = level.getBlockState(pos);
 
+        if (oldState.isAir()) {
+            if (this.activeDecoratedAirBlocks.add(pos.asLong())) {
+                decorateCaveBoundaries(level, box, pos);
+            }
+            return;
+        }
+
         if (!canReplace(oldState)) {
             return;
         }
 
         level.setBlock(pos, Blocks.AIR.defaultBlockState(), Block.UPDATE_CLIENTS);
+        this.activeDecoratedAirBlocks.add(pos.asLong());
         clearUnsupportedBlockAbove(level, box, pos);
         decorateCaveBoundaries(level, box, pos);
         afterCarveBlock(level, pos, oldState);
@@ -686,7 +713,7 @@ public abstract class AbstractSpiralCavePiece extends StructurePiece {
         boolean capturedFirstStep = false;
         List<CarveEllipsoid> chunkEllipsoids = new ArrayList<>();
 
-        double finalCenterY = this.endY + this.verticalRadius + this.liquidDepth + 2.0D;
+        double finalCenterY = this.endY + this.verticalRadius + this.liquidDepth;
         int maxSteps = Math.max(1, Mth.ceil((y - finalCenterY) / minDropPerStep) + 1);
         double maximumTurns = maximumSpiralTurns();
         if (Double.isFinite(maximumTurns)) {
@@ -742,6 +769,7 @@ public abstract class AbstractSpiralCavePiece extends StructurePiece {
 
         this.activePieceCarveEllipsoids.clear();
         this.activePieceCarveEllipsoids.addAll(chunkEllipsoids);
+        this.activeDecoratedAirBlocks.clear();
 
         for (CarveEllipsoid ellipsoid : chunkEllipsoids) {
             carveEllipsoid(
@@ -757,6 +785,10 @@ public abstract class AbstractSpiralCavePiece extends StructurePiece {
             );
         }
 
+        // Fluid must see the final air union; otherwise earlier water shields
+        // itself from lower ellipsoids and leaves repeated raised disk edges.
+        carveRiverFluid(level, box, chunkEllipsoids);
+
         afterCarvingBeforeFeatures(
                 level,
                 random,
@@ -767,6 +799,7 @@ public abstract class AbstractSpiralCavePiece extends StructurePiece {
         placePlacedFeaturesForCurrentStructureChunk(level, generator, chunkPos);
         afterPostProcess(level, random, box, chunkPos);
         this.activePieceCarveEllipsoids.clear();
+        this.activeDecoratedAirBlocks.clear();
     }
 
     private void addUpwardSpiralEllipsoids(
@@ -1378,7 +1411,7 @@ public abstract class AbstractSpiralCavePiece extends StructurePiece {
     }
 
     protected boolean wouldBottomOfEllipsoidCarveIntoTargetYPlusOne(double centerY) {
-        double bottomOfEllipsoid = centerY - this.verticalRadius - this.liquidDepth - 2;
+        double bottomOfEllipsoid = centerY - this.verticalRadius - this.liquidDepth;
         return bottomOfEllipsoid <= endY;
     }
 
@@ -1456,162 +1489,189 @@ public abstract class AbstractSpiralCavePiece extends StructurePiece {
                 }
             }
         }
-
-        carveLowerFluidEllipsoid(
-                level,
-                box,
-                centerX,
-                centerY - 1,
-                centerZ,
-                lowerVerticalRadius,
-                maxCarveY
-        );
     }
 
-    protected void carveLowerFluidEllipsoid(
+    private void carveRiverFluid(
             WorldGenLevel level,
             BoundingBox box,
-            double mainCenterX,
-            double mainCenterY,
-            double mainCenterZ,
-            double mainVerticalRadius,
-            int maxClearY
+            List<CarveEllipsoid> ellipsoids
     ) {
         if (this.liquidRadius <= 0.0F || this.liquidDepth <= 0.0F) {
             return;
         }
 
-        double bottomOfMainEllipsoid = mainCenterY - mainVerticalRadius;
-        double fluidCenterY = bottomOfMainEllipsoid - 1.0D;
-
-        int minX = Mth.floor(mainCenterX - this.liquidRadius) - 1;
-        int maxX = Mth.floor(mainCenterX + this.liquidRadius) + 1;
-        int minY = Mth.floor(fluidCenterY - this.liquidDepth);
-        int maxY = Mth.floor(fluidCenterY) + 1;
-        int minZ = Mth.floor(mainCenterZ - this.liquidRadius) - 1;
-        int maxZ = Mth.floor(mainCenterZ + this.liquidRadius) + 1;
-
-        maxY = Math.min(maxY, maxClearY);
-
-        minX = Math.max(minX, box.minX());
-        maxX = Math.min(maxX, box.maxX());
-        minY = Math.max(minY, box.minY());
-        maxY = Math.min(maxY, box.maxY());
-        minZ = Math.max(minZ, box.minZ());
-        maxZ = Math.min(maxZ, box.maxZ());
+        BoundingBox pieceBox = this.getBoundingBox();
+        int minX = Math.max(box.minX(), pieceBox.minX());
+        int maxX = Math.min(box.maxX(), pieceBox.maxX());
+        int minY = Math.max(
+                Math.max(box.minY(), pieceBox.minY()),
+                level.getMinBuildHeight()
+        );
+        int maxY = Math.min(
+                Math.min(box.maxY(), pieceBox.maxY()),
+                level.getMaxBuildHeight() - 1
+        );
+        int minZ = Math.max(box.minZ(), pieceBox.minZ());
+        int maxZ = Math.min(box.maxZ(), pieceBox.maxZ());
 
         if (minX > maxX || minY > maxY || minZ > maxZ) {
             return;
         }
 
         BlockPos.MutableBlockPos pos = new BlockPos.MutableBlockPos();
+        Set<Long> placedFluidPositions = new HashSet<>();
+        List<Long> orderedFluidPositions = new ArrayList<>();
 
         for (int x = minX; x <= maxX; x++) {
             for (int z = minZ; z <= maxZ; z++) {
-                boolean placedAnyFluidInColumn = false;
-                int lowestPlacedFluidY = Integer.MAX_VALUE;
+                for (RiverColumnProfile profile : riverColumnProfiles(x, z, ellipsoids)) {
+                    CarveEllipsoid source = profile.source();
 
-                for (int y = minY; y <= maxY; y++) {
-                    pos.set(x, y, z);
-
-                    if (!isInsideLowerFluidEllipsoid(
-                            x,
-                            y,
-                            z,
-                            mainCenterX,
-                            fluidCenterY,
-                            mainCenterZ
-                    )) {
-                        continue;
-                    }
-
-                    BlockState fluidState = getRiverFluidState(mainCenterY, x, y, z);
-
-                    if (fluidState == null) {
-                        continue;
-                    }
-
-                    BlockState oldState = level.getBlockState(pos);
-
-                    if (!canReplaceWithFluid(oldState)) {
-                        continue;
-                    }
-
-                    level.setBlock(pos, fluidState, Block.UPDATE_CLIENTS);
-                    clearBlockAboveFluid(level, box, pos, maxClearY);
-                    clearBlockAboveFluid(level, box, pos.above(), maxClearY);
-
-                    placedAnyFluidInColumn = true;
-                    lowestPlacedFluidY = Math.min(lowestPlacedFluidY, y);
-                }
-
-                if (placedAnyFluidInColumn) {
-                    decorateRiverColumnSurfaces(
-                            level,
-                            box,
-                            x,
-                            z,
-                            minY,
-                            maxY,
-                            lowestPlacedFluidY,
-                            mainCenterX,
-                            fluidCenterY,
-                            mainCenterZ
+                    int profileMinY = Math.max(profile.minY(), minY);
+                    int profileMaxY = Math.min(
+                            profile.maxY(),
+                            Math.min(maxY, source.maxCarveY())
                     );
+                    for (int y = profileMinY; y <= profileMaxY; y++) {
+                        BlockState fluidState = getRiverFluidState(source, x, y, z);
+                        if (fluidState == null) {
+                            continue;
+                        }
+
+                        pos.set(x, y, z);
+                        if (!canReplaceWithFluid(level.getBlockState(pos))) {
+                            continue;
+                        }
+
+                        level.setBlock(pos, fluidState, Block.UPDATE_CLIENTS);
+                        clearBlockAboveFluid(level, box, pos, source.maxCarveY());
+                        clearBlockAboveFluid(level, box, pos.above(), source.maxCarveY());
+
+                        long packedPos = pos.asLong();
+                        if (placedFluidPositions.add(packedPos)) {
+                            orderedFluidPositions.add(packedPos);
+                        }
+                    }
                 }
+            }
+        }
+
+        for (long packedPos : orderedFluidPositions) {
+            BlockPos fluidPos = BlockPos.of(packedPos);
+            if (!level.getBlockState(fluidPos).getFluidState().isEmpty()) {
+                decorateRiverColumnBoundaries(level, box, fluidPos);
             }
         }
     }
 
-    protected void decorateRiverColumnSurfaces(
-            WorldGenLevel level,
-            BoundingBox box,
+    /*
+     * This is a pure geometry calculation: it never reads generated blocks.
+     * Merging touching vertical air intervals keeps overlapping spiral turns
+     * separate while making each river surface match its final carved floor.
+     */
+    protected List<RiverColumnProfile> riverColumnProfiles(
             int x,
             int z,
-            int minY,
-            int maxY,
-            int lowestPlacedFluidY,
-            double fluidCenterX,
-            double fluidCenterY,
-            double fluidCenterZ
+            List<CarveEllipsoid> ellipsoids
     ) {
-        BlockPos.MutableBlockPos pos = new BlockPos.MutableBlockPos();
+        if (this.liquidRadius <= 0.0F
+                || this.liquidDepth <= 0.0F
+                || ellipsoids.isEmpty()) {
+            return List.of();
+        }
 
-        for (int y = lowestPlacedFluidY; y <= maxY; y++) {
-            pos.set(x, y, z);
-
-            if (!box.isInside(pos)) {
+        List<MainColumnSlice> slices = new ArrayList<>();
+        for (CarveEllipsoid ellipsoid : ellipsoids) {
+            double relativeX = (x + 0.5D - ellipsoid.centerX())
+                    / ellipsoid.horizontalRadius();
+            double relativeZ = (z + 0.5D - ellipsoid.centerZ())
+                    / ellipsoid.horizontalRadius();
+            double remainingVerticalShape = 1.0D
+                    - relativeX * relativeX
+                    - relativeZ * relativeZ;
+            if (remainingVerticalShape <= 0.0D) {
                 continue;
             }
 
-            BlockState state = level.getBlockState(pos);
+            double verticalScale = Math.pow(remainingVerticalShape, 0.25D);
+            double lowerBoundaryY = ellipsoid.centerY()
+                    - ellipsoid.lowerVerticalRadius() * verticalScale;
+            double upperBoundaryY = ellipsoid.centerY()
+                    + ellipsoid.upperVerticalRadius() * verticalScale;
+            int sliceMinY = Math.max(
+                    mainAirCarveMinY(this.endY),
+                    Mth.floor(lowerBoundaryY - 0.5D) + 1
+            );
+            int sliceMaxY = Math.min(
+                    ellipsoid.maxCarveY(),
+                    Mth.ceil(upperBoundaryY - 0.5D) - 1
+            );
+            if (sliceMinY <= sliceMaxY) {
+                slices.add(new MainColumnSlice(ellipsoid, sliceMinY, sliceMaxY));
+            }
+        }
 
-            if (state.getFluidState().isEmpty()) {
-                break;
+        if (slices.isEmpty()) {
+            return List.of();
+        }
+
+        slices.sort(
+                Comparator.comparingInt(MainColumnSlice::minY)
+                        .thenComparingInt(MainColumnSlice::maxY)
+        );
+
+        List<RiverColumnProfile> profiles = new ArrayList<>();
+        int componentStart = 0;
+        while (componentStart < slices.size()) {
+            MainColumnSlice first = slices.get(componentStart);
+            int componentEnd = componentStart;
+            int componentMinY = first.minY();
+            int componentMaxY = first.maxY();
+
+            while (componentEnd + 1 < slices.size()) {
+                MainColumnSlice next = slices.get(componentEnd + 1);
+                if (next.minY() > componentMaxY + 1) {
+                    break;
+                }
+
+                componentEnd++;
+                componentMaxY = Math.max(componentMaxY, next.maxY());
             }
 
-            decorateRiverColumnBoundaries(level, box, pos);
+            CarveEllipsoid nearestRiverSource = null;
+            double nearestLiquidDistanceSquared = Double.POSITIVE_INFINITY;
+            for (int index = componentStart; index <= componentEnd; index++) {
+                CarveEllipsoid source = slices.get(index).source();
+                double relativeLiquidX = (x + 0.5D - source.centerX())
+                        / this.liquidRadius;
+                double relativeLiquidZ = (z + 0.5D - source.centerZ())
+                        / this.liquidRadius;
+                double liquidDistanceSquared = relativeLiquidX * relativeLiquidX
+                        + relativeLiquidZ * relativeLiquidZ;
+                if (liquidDistanceSquared <= 1.0D
+                        && liquidDistanceSquared < nearestLiquidDistanceSquared) {
+                    nearestRiverSource = source;
+                    nearestLiquidDistanceSquared = liquidDistanceSquared;
+                }
+            }
+
+            if (nearestRiverSource != null) {
+                int surfaceY = componentMinY - 1;
+                double depthScale = Math.sqrt(Math.max(
+                        0.0D,
+                        1.0D - nearestLiquidDistanceSquared
+                ));
+                int depth = Math.max(1, Mth.ceil(this.liquidDepth * depthScale));
+                profiles.add(new RiverColumnProfile(
+                        nearestRiverSource,
+                        surfaceY - depth + 1,
+                        surfaceY
+                ));
+            }
+
+            componentStart = componentEnd + 1;
         }
-    }
 
-    protected boolean isInsideLowerFluidEllipsoid(
-            int x,
-            int y,
-            int z,
-            double fluidCenterX,
-            double fluidCenterY,
-            double fluidCenterZ
-    ) {
-        double relativeX = (x + 0.5D - fluidCenterX) / this.liquidRadius;
-        double relativeY = (y + 0.5D - fluidCenterY) / this.liquidDepth;
-        double relativeZ = (z + 0.5D - fluidCenterZ) / this.liquidRadius;
-
-        if (relativeY > 0.0D) {
-            return false;
-        }
-
-        return relativeX * relativeX
-                + relativeY * relativeY
-                + relativeZ * relativeZ <= 1.0D;
+        return profiles;
     }
 }

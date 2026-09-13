@@ -1,40 +1,69 @@
 {
-  "type": "minecraft:simple_block",
+  "type": "aoemod:random_selector",
   "config": {
-    "to_place": {
-      "type": "minecraft:weighted_state_provider",
-      "entries": [
-        {
-          "weight": 50,
-          "data": {
-            "Name": "minecraft:grass"
-          }
-        },
-        {
-          "weight": 12,
-          "data": {
-            "Name": "minecraft:fern"
-          }
-        },
-        {
-          "weight": 6,
-          "data": {
-            "Name": "minecraft:tall_grass",
-            "Properties": {
-              "half": "lower"
-            }
-          }
-        },
-        {
-          "weight": 10,
-          "data": {
-            "Name": "minecraft:large_fern",
-            "Properties": {
-              "half": "lower"
+    "features": [
+      {
+        "chance": 0.50,
+        "feature": {
+          "type": "minecraft:simple_block",
+          "config": {
+            "to_place": {
+              "type": "minecraft:simple_state_provider",
+              "state": {
+                "Name": "minecraft:grass"
+              }
             }
           }
         }
-      ]
-    }
+      },
+      {
+        "chance": 0.12,
+        "feature": {
+          "type": "minecraft:simple_block",
+          "config": {
+            "to_place": {
+              "type": "minecraft:simple_state_provider",
+              "state": {
+                "Name": "minecraft:fern"
+              }
+            }
+          }
+        }
+      },
+      {
+        "chance": 0.06,
+        "feature": {
+          "type": "minecraft:simple_block",
+          "config": {
+            "to_place": {
+              "type": "minecraft:simple_state_provider",
+              "state": {
+                "Name": "minecraft:tall_grass",
+                "Properties": {
+                  "half": "lower"
+                }
+              }
+            }
+          }
+        }
+      },
+      {
+        "chance": 0.10,
+        "feature": {
+          "type": "minecraft:simple_block",
+          "config": {
+            "to_place": {
+              "type": "minecraft:simple_state_provider",
+              "state": {
+                "Name": "minecraft:large_fern",
+                "Properties": {
+                  "half": "lower"
+                }
+              }
+            }
+          }
+        }
+      }
+    ]
   }
 }

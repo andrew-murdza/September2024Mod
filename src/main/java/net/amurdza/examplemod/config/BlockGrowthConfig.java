@@ -120,8 +120,6 @@ public final class BlockGrowthConfig {
         addToMap(ModTags.Biomes.tropicalBiomes, 0.6F, ModBlocks.BLUE_BERRY_BUSH.get());
         addToMap(ModTags.Biomes.mountainBiomes, 0.2F, ModBlocks.BLUE_BERRY_BUSH.get());
         addSoulBerries(ModBlocks.SOUL_BERRY_BUSH.get());
-        addToMap(ModTags.Biomes.soulSandValleyBiomes, 0.15F, ModBlocks.ASHEN_WHEAT_CROP.get());
-
         addToMap(ModTags.Biomes.tropicalBiomes, 0.6F, Blocks.COCOA);
         addToMap(ModTags.Biomes.tropicalBiomes, 8.0F, Blocks.CACTUS);
         addToMap(ModTags.Biomes.desertBiomes, 4.0F, Blocks.CACTUS);

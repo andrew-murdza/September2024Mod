@@ -123,6 +123,8 @@ Long Nether Cave:
 - Local base materials include stone, deepslate, netherrack, soul sand, soul soil, blackstone, and basalt depending on region.
 - Netherrack, stone, and deepslate replacement logic avoids overwriting special surface blocks such as crimson nylium, warped nylium, mycelium, sculk, and end stone.
 - The seafloor above deep dark nether cave areas uses a sand layer with sandstone below it.
+- Exposed stone faces beside water in the sandy upper river are replaced with sandstone, including at chunk seams.
+- The upper sandy cave cap is at least eight blocks deep: two sand, two sandstone, and four stone; its stone layers are protected from later ore placement, and lower-floor spacing is unchanged.
 
 Long Mushroom Cave:
 
@@ -131,6 +133,7 @@ Long Mushroom Cave:
 - Amethyst floor generation attempts to put budding amethyst only on the mathematical outer edge of the amethyst ellipsoid, with regular amethyst inside.
 - Mushroom caves avoid carving into spruce leaves and spruce logs.
 - Mushroom cave floor features use deterministic patch/grid placement so areas can have guaranteed distributions rather than purely random scattered features.
+- The upper grass cave cap is six blocks deep: one grass, one dirt, and four stone; lower-floor spacing is unchanged.
 
 Important audit note:
 
@@ -259,14 +262,6 @@ Jungle sweet berry bush:
 - A custom jungle-themed berry bush variant.
 - Uses sweet-berry-style behavior and participates in custom berry/drop logic.
 
-Ashen wheat crop:
-
-- Registered as aoemod:ashen_wheat in block form, using a crop block class.
-- Grows only on soul sand and soul soil.
-- Does not require farmland.
-- Uses aoemod:ashen_wheat_seeds as its seed item.
-- Growth can be affected by biome-based crop growth configuration.
-
 Ores:
 
 - basalt_quartz_ore
@@ -379,17 +374,18 @@ Fish and aquatic food items:
 Food items and recipes:
 
 - melon_pie
-- glow_berry_pie
+- glowberry_pie
 - orange_pie
 - pear_pie
 - cherry_pie
 - banana_pie
 - plum_pie
-- ashen_bread
 - soul_berry_cookie
-- blue_berry_cookie
-- searing_cod_roll
-- nether_fish_kelp_roll
+- blueberry_cookie
+- seared_cod_roll
+- nether_fish_roll
+- glowshroom_stew
+- honey_bowl
 
 Removed/avoided legacy food items:
 
@@ -402,8 +398,6 @@ Crop/seed items:
 - potato_seeds
 - onion_seeds
 - rice_seeds
-- ashen_wheat_seeds
-- ashen_wheat
 - soul_berries
 
 Soul quartz:
@@ -676,8 +670,6 @@ Targeting and attack behavior:
 
 Animal food and breeding behavior:
 
-- Rabbits eat ashen wheat for tempting, breeding, and growth speeding.
-- Striders eat ashen wheat.
 - Mooshrooms can use mushrooms.
 - Several animals get expanded breeding/tempt items through event logic, including rabbits, horses, donkeys, turtles, pigs, cats, ocelots, foxes, wolves, moose, pandas, frogs, and others depending on tags/config.
 - Twins/fertility behavior can be modified by MobConfig, allowing failed breeding or multiple children.
@@ -756,7 +748,6 @@ Bonemeal behavior:
 
 Crop and plant placement:
 
-- Ashen wheat grows on soul sand and soul soil instead of farmland.
 - Eyeblossoms are placeable on soul sand and soul soil.
 - Pale oak saplings are placeable on soul sand and soul soil and do not require light.
 - Desert grass/tall grass are placeable on sand.
@@ -818,7 +809,6 @@ Food crafting includes:
 
 - Pies such as melon pie, glow berry pie, banana pie, orange pie, pear pie, plum pie, and cherry pie.
 - Cookies such as soul berry cookie and blue berry cookie.
-- Breads such as ashen bread.
 - Wraps/rolls such as searing cod roll and nether fish kelp roll.
 - Integration soups/stews such as Nourished Nether nether fungus stew and Better Carrots carrot soup where present.
 
@@ -971,8 +961,7 @@ Mob AI and behavior:
 - Endermen do not teleport.
 - Guardians do not attack squid.
 - Pufferfish do not poison.
-- Striders do not shiver and eat ashen wheat.
-- Rabbits eat ashen wheat.
+- Striders do not shiver.
 - Ravagers are simplified.
 - Wardens do not use sonic boom.
 - Shulkers have common-mob behavior and despawn behavior changes.
@@ -1032,7 +1021,7 @@ The mod uses many custom and modified tags.
 
 Important tag-style behaviors:
 
-- Soul sediments include soul sand and soul soil for ashen wheat, soul berries, pale oak saplings, and related placement.
+- Soul sediments include soul sand and soul soil for soul berries, pale oak saplings, and related placement.
 - Rainforest biome tags control special 2x2 sapling growth.
 - Glow shroom block, red mushroom block, brown mushroom block, nether wart block, and warped wart block are treated like leaves for mob-spawning/support purposes.
 - Pale oak blocks are added to appropriate logs/planks/wooden/fence/door/stairs/slab/button/pressure-plate/tool tags.
@@ -1053,8 +1042,6 @@ The mod includes client registration for:
 Known placeholder or override texture behavior:
 
 - Some foods use vanilla or Farmer's Delight placeholder textures.
-- Ashen bread is intended to be its own item texture copied from bread rather than referencing vanilla bread directly.
-- Ashen wheat crop/item/seeds use custom PNGs supplied in the project.
 - Netherific shroomlight texture is overridden to vanilla shroomlight.
 - Desert tall grass uses the Future Minecraft drygrass-style texture rather than the earlier wrong texture.
 - The open eyeblossom texture includes a yellow/orange center detail.

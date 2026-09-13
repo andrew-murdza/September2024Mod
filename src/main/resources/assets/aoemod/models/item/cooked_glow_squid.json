@@ -1,6 +1,6 @@
 {
     "parent":  "minecraft:item/generated",
     "textures":  {
-                     "layer0":  "culturaldelights:item/cooked_squid"
+                     "layer0":  "aoemod:item/cooked_glow_squid"
                  }
 }

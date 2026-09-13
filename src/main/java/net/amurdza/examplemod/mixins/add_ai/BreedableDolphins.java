@@ -1,7 +1,9 @@
 package net.amurdza.examplemod.mixins.add_ai;
 
+import net.amurdza.examplemod.config.MobConfig;
 import net.amurdza.examplemod.entity.ai.DolphinBreedGoal;
 import net.amurdza.examplemod.entity.ai.DolphinBreedingAccess;
+import net.amurdza.examplemod.util.Helper;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.syncher.EntityDataAccessor;
@@ -9,6 +11,7 @@ import net.minecraft.network.syncher.EntityDataSerializers;
 import net.minecraft.network.syncher.SynchedEntityData;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.util.Mth;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.EntityDimensions;
@@ -94,10 +97,11 @@ public abstract class BreedableDolphins extends WaterAnimal implements DolphinBr
             return;
         }
 
+        int ageAmount = Helper.computeIncrements(this.random, MobConfig.mobGrowthChance(this));
         if (this.aoe$age < 0) {
-            this.aoe$setAgeWithoutImmediateSync(this.aoe$age + 1);
+            this.aoe$setAgeWithoutImmediateSync(Math.min(0, this.aoe$age + ageAmount));
         } else if (this.aoe$age > 0) {
-            this.aoe$setAgeWithoutImmediateSync(this.aoe$age - 1);
+            this.aoe$setAgeWithoutImmediateSync(Math.max(0, this.aoe$age - ageAmount));
         }
 
         if (this.aoe$age != 0) {
@@ -127,7 +131,8 @@ public abstract class BreedableDolphins extends WaterAnimal implements DolphinBr
         if (this.aoe$isBaby()) {
             if (!this.level().isClientSide) {
                 this.aoe$consumeFood(player, stack);
-                int growth = Math.max(1, (int) ((float) -this.aoe$age * 0.1F));
+                int growthSeconds = (int) ((float) (-this.aoe$age / 20) * 0.1F);
+                int growth = growthSeconds * Mth.ceil(20.0F * MobConfig.mobGrowthChance(this));
                 this.aoe$setAge(Math.min(0, this.aoe$age + growth));
                 this.playSound(SoundEvents.DOLPHIN_EAT, 1.0F, 1.0F);
                 this.level().broadcastEntityEvent(this, (byte) 19);
@@ -203,6 +208,11 @@ public abstract class BreedableDolphins extends WaterAnimal implements DolphinBr
     @Override
     public boolean isBaby() {
         return this.aoe$isBaby();
+    }
+
+    @Override
+    public void setBaby(boolean baby) {
+        this.aoe$setAge(baby ? DolphinBreedingAccess.BABY_START_AGE : 0);
     }
 
     @Override

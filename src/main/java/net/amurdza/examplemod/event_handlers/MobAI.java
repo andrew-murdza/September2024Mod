@@ -5,7 +5,11 @@ import com.github.alexthe666.alexsmobs.entity.ai.*;
 import com.github.alexthe666.iceandfire.entity.EntitySiren;
 import com.starfish_studios.naturalist.common.entity.Boar;
 import com.starfish_studios.naturalist.common.entity.Deer;
+import com.starfish_studios.naturalist.common.entity.core.ai.goal.AlertOthersPanicGoal;
 import net.amurdza.examplemod.AOEMod;
+import net.amurdza.examplemod.entity.ai.PolarBearOwnerMeleeAttackGoal;
+import net.amurdza.examplemod.entity.ai.PolarBearOwnerTargetGoal;
+import net.amurdza.examplemod.entity.ai.PolarBearTamingAccess;
 import net.amurdza.examplemod.util.AnimalFoodOverrides;
 import net.amurdza.examplemod.util.ModTags;
 import net.amurdza.examplemod.util.StructureSpawnedMobData;
@@ -34,7 +38,6 @@ import net.minecraft.world.entity.animal.horse.AbstractHorse;
 import net.minecraft.world.entity.animal.horse.Horse;
 import net.minecraft.world.entity.animal.horse.Llama;
 import net.minecraft.world.entity.monster.AbstractSkeleton;
-import net.minecraft.world.entity.monster.Strider;
 import net.minecraft.world.entity.monster.Zombie;
 import net.minecraft.world.entity.monster.Zoglin;
 import net.minecraft.world.entity.monster.ZombifiedPiglin;
@@ -88,7 +91,6 @@ public class MobAI {
                 } else if (entity instanceof Rabbit) {//Other cases already covered by herbivore section
                     mob.setMaxUpStep(1.5F);
                     addTempt(mob, ModTags.Items.smallerFlowers);
-                    addTempt(mob, net.amurdza.examplemod.registry.ModItems.ASHEN_WHEAT.get());
                     addTempt(mob, Items.BEETROOT);
                     addTempt(mob, Items.POTATO);
                     addTempt(mob, Items.CARROT);
@@ -103,12 +105,12 @@ public class MobAI {
                     addTempt(mob, ModTags.Items.rawFish);
                 }
                 else if (entity instanceof PolarBear) {
-//                    addBreeding(mob); handled by rideablepolarbearmod
+                    addBreeding(mob);
                     addTempt(mob, ModTags.Items.mobMeatDrops);
                     addTempt(mob, ModTags.Items.rawFish);
                 } else if (entity instanceof Parrot) {
                     addTempt(1, mob, Items.WHEAT_SEEDS, Items.BEETROOT_SEEDS, Items.MELON_SEEDS, Items.PUMPKIN_SEEDS,
-                            AnimalFoodOverrides.cabbageSeeds(), AnimalFoodOverrides.tomatoSeeds(), AnimalFoodOverrides.ashenWheatSeeds());
+                            AnimalFoodOverrides.cabbageSeeds(), AnimalFoodOverrides.tomatoSeeds());
                     //parrot breeding
                     addTempt(mob, ModTags.Items.leafFruits);
                     addBreeding(mob);
@@ -122,6 +124,8 @@ public class MobAI {
                     addTempt(mob, samebutdifferent.ecologics.registry.ModItems.PRICKLY_PEAR.get());
                 }
                 else if (entity instanceof Deer){
+                    mob.setMaxUpStep(0.6F);
+                    removeAI(mob, AlertOthersPanicGoal.class);
                     addTempt(mob, Items.WHEAT);
                 }
                 else if (AnimalFoodOverrides.isSquirrel(entity)||entity instanceof Chicken) {
@@ -136,10 +140,6 @@ public class MobAI {
                 else if (entity instanceof EntityWarpedToad) {
                     removeAI(goal -> goal instanceof TemptGoal, mob.goalSelector);
                     addTempt(mob, Items.WARPED_FUNGUS);
-                }
-                else if (entity instanceof Strider){
-                    removeAI(goal -> goal instanceof TemptGoal, mob.goalSelector);
-                    addTempt(mob, net.amurdza.examplemod.registry.ModItems.ASHEN_WHEAT.get());
                 }
                 else if(entity instanceof Frog|| entity instanceof Turtle|| entity instanceof Axolotl) {
                     removeAI(goal -> goal instanceof TemptGoal, mob.goalSelector);
@@ -186,6 +186,16 @@ public class MobAI {
                     if (entity instanceof EntityMoose) {
                         removeAI(mob, MooseAIJostle.class, MeleeAttackGoal.class);
                     }
+
+                    if (entity instanceof PolarBear polarBear) {
+                        removeAI(goal -> true, mob.targetSelector);
+                        removeAI(goal -> goal instanceof MeleeAttackGoal, mob.goalSelector);
+                        mob.goalSelector.addGoal(2, new PolarBearOwnerMeleeAttackGoal(polarBear, 1.25D));
+                        mob.targetSelector.addGoal(1, new PolarBearOwnerTargetGoal(polarBear, true));
+                        mob.targetSelector.addGoal(2, new PolarBearOwnerTargetGoal(polarBear, false));
+                        mob.setMaxUpStep(1.0F);
+                        clearPolarBearAnger(polarBear);
+                    }
                 }
                 else if(entity instanceof EntityBison){
                     removeAI(mob,
@@ -197,11 +207,6 @@ public class MobAI {
                 }
                 else if(entity instanceof Wolf){
                     removeAI(mob, Class.forName("net.minecraft.world.entity.animal.Wolf$WolfPanicGoal"));
-                }
-                else if (entity instanceof PolarBear) {
-                    removeAI(mob,Class.forName("net.minecraft.world.entity.animal.PolarBear$PolarBearAttackPlayersGoal"),
-                            Class.forName("net.minecraft.world.entity.animal.PolarBear$PolarBearPanicGoal"),
-                            Class.forName("net.minecraft.world.entity.animal.PolarBear$PolarBearHurtByTargetGoal"));
                 }
                 else if (entity instanceof Fox) {
                     removeAI(mob, Fox.FoxEatBerriesGoal.class,Fox.FoxPounceGoal.class,
@@ -231,6 +236,10 @@ public class MobAI {
         if (entity instanceof Mob mob) {
             clearForbiddenBrainTargets(level, mob);
             keepStructureMobNearHome(level, mob);
+        }
+
+        if (entity instanceof PolarBear polarBear) {
+            clearPolarBearAnger(polarBear);
         }
 
         if (entity instanceof Turtle turtle) {
@@ -272,6 +281,17 @@ public class MobAI {
                 home.getZ() + 0.5D,
                 1.0D
         );
+    }
+
+    private static void clearPolarBearAnger(PolarBear polarBear) {
+        LivingEntity target = polarBear.getTarget();
+        if (!(polarBear instanceof PolarBearTamingAccess taming)
+                || !taming.aoe$canAttackOwnerTarget(target)) {
+            polarBear.setTarget(null);
+        }
+        polarBear.setPersistentAngerTarget(null);
+        polarBear.setRemainingPersistentAngerTime(0);
+        polarBear.setStanding(false);
     }
 
     private static void clearForbiddenBrainTargets(ServerLevel level, Mob mob) {
@@ -342,6 +362,10 @@ public class MobAI {
     }
 
     private static boolean isNotAllowedMobTarget(Mob attacker, LivingEntity target) {
+        if (attacker instanceof PolarBearTamingAccess polarBear
+                && polarBear.aoe$canAttackOwnerTarget(target)) {
+            return false;
+        }
         return isNotProtectedCombatEntity(attacker) && isNotProtectedCombatEntity(target);
     }
 

@@ -43,11 +43,11 @@
       "required": false
     },
     {
-      "id": "culturaldelights:glow_squid",
+      "id": "aoemod:cooked_glow_squid",
       "required": false
     },
     {
-      "id": "culturaldelights:cooked_squid",
+      "id": "aoemod:cooked_squid",
       "required": false
     },
     {

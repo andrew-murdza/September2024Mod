@@ -8,7 +8,6 @@ import com.starfish_studios.naturalist.common.entity.Boar;
 import com.starfish_studios.naturalist.common.entity.Deer;
 import com.starfish_studios.naturalist.core.registry.NaturalistEntityTypes;
 import dev.xkmc.fruitsdelight.init.food.FruitType;
-import net.amurdza.examplemod.registry.ModItems;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.animal.Chicken;
 import net.minecraft.world.entity.animal.Fox;
@@ -21,7 +20,6 @@ import net.minecraft.world.entity.animal.camel.Camel;
 import net.minecraft.world.entity.animal.frog.Frog;
 import net.minecraft.world.entity.animal.goat.Goat;
 import net.minecraft.world.entity.animal.horse.Llama;
-import net.minecraft.world.entity.monster.Strider;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
@@ -42,10 +40,6 @@ public final class AnimalFoodOverrides {
 
     public static Item tomatoSeeds() {
         return vectorwing.farmersdelight.common.registry.ModItems.TOMATO_SEEDS.get();
-    }
-
-    public static Item ashenWheatSeeds() {
-        return net.amurdza.examplemod.registry.ModItems.ASHEN_WHEAT_SEEDS.get();
     }
 
     public static boolean isBoar(Entity entity) {
@@ -88,7 +82,6 @@ public final class AnimalFoodOverrides {
         return entity instanceof EntityGorilla
                 || entity instanceof Camel
                 || entity instanceof EntityWarpedToad
-                || entity instanceof Strider
                 || entity instanceof Frog
                 || entity instanceof Turtle
                 || entity instanceof Axolotl
@@ -107,10 +100,6 @@ public final class AnimalFoodOverrides {
 
         if (entity instanceof EntityWarpedToad) {
             return stack.is(Items.WARPED_FUNGUS);
-        }
-
-        if (entity instanceof Strider) {
-            return stack.is(ModItems.ASHEN_WHEAT.get());
         }
 
         if (entity instanceof Frog || entity instanceof Turtle || entity instanceof Axolotl) {
@@ -159,7 +148,6 @@ public final class AnimalFoodOverrides {
     public static boolean isSeed(ItemStack stack) {
         return stack.is(cabbageSeeds())
                 || stack.is(tomatoSeeds())
-                || stack.is(ashenWheatSeeds())
                 || stack.is(Items.BEETROOT_SEEDS)
                 || stack.is(Items.WHEAT_SEEDS)
                 || stack.is(Items.MELON_SEEDS)

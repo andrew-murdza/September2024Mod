@@ -141,8 +141,12 @@ public class BlockGrowthRate {
 
                 if (k < 3) {
                     if (newAge > max) {
-                        level.setBlockAndUpdate(pos.below(), state.setValue(prop, 0));
-                        level.setBlockAndUpdate(pos, state.setValue(prop, 0));
+                        BlockState resetState = state.setValue(prop, 0);
+                        BlockState newTopState = state.is(Blocks.SUGAR_CANE)
+                                ? resetState.setValue(BlockStateProperties.WATERLOGGED, false)
+                                : resetState;
+                        level.setBlockAndUpdate(pos.below(), resetState);
+                        level.setBlockAndUpdate(pos, newTopState);
                     } else {
                         level.setBlockAndUpdate(pos.below(), state.setValue(prop, newAge));
                     }
