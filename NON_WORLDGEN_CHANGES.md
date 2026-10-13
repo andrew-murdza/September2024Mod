@@ -168,6 +168,8 @@ Sources: [util/BiomePlacementRestrictions.java](src/main/java/net/amurdza/exampl
 
 ## Growth and farming
 
+#CHANGES: Same biome -> dimension changes as listed for allowed blocks. 
+
 ### Exactly which blocks have biome-controlled natural growth
 
 The mod configures replacement growth decisions for the blocks below. When a growth hook identifies a tracked block, no matching biome entry means natural growth is denied. Blocks absent from this table retain their ordinary growth decision; sugar cane, for example, is not registered for the biome-growth override. Crop and stem growth is further reduced when their supporting block is not fertile. Bone meal is handled separately.
