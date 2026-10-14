@@ -134,7 +134,14 @@ The following restriction groups have valid entries in the checked-in data:
 - Beetroots are allowed in tropical and snow
 - Wheat is allowed everywhere except snow and nether
 - Potatoes, carrots allowed in tropical, savanna, plains
-
+- Firefly Bush only in tropical
+- Dried Ghast only in nether and desert
+- Dripstone block, pointed dripstone only in snow
+- Soul sand/soil only in soul sand valley or the block directly below the soul sand valley
+- Netherrack can only be be placed in warped forest, crimson forest, or a block directly below one of those biomes
+- Crimson nylium can only be placed if the block above it is crimson forest. Similarly for warped nylium and the warped forest.
+- Soul sand/soil can only be placed in the soul sand valley or a block directly below it.
+- Prevent mycelium from being placed or dirt growing into mycelium unless the block above it is the mushroom caves
 | Blocks | Allowed placement biomes |
 | --- | --- |
 | AOE azalea sapling | AOE jungle |
@@ -153,6 +160,8 @@ The following restriction groups have valid entries in the checked-in data:
 | Grass and grass block | Rainforest, savanna, plains or grove |
 | Hanging roots, rooted dirt, acacia leaves and acacia sapling | Savanna |
 
+Please give of blocks allowed in all biomes and a list of blocks allow no biomes (including past 1.20.1). That will allow me to see what I am missing.
+
 Four additional rule groups are written in the data but contain required, nonexistent identifiers. They must be treated as **configured intent, currently broken**, rather than working restrictions. An existing August 2026 game log reports that the whole tags could not load; the same bad identifiers remain in the source examined for this inventory.
 
 | Broken rule group | Intended restrictions and exact affected blocks |
@@ -162,17 +171,23 @@ Four additional rule groups are written in the data but contain required, nonexi
 | Soul sand valley only | Nether wart, soul berry bush, pale oak sapling, pale oak leaves, pale hanging moss and an intended eyeblossom. The bad reference is `aoemod:eye_blossom`; the registered flowers are `aoemod:open_eyeblossom` and `aoemod:closed_eyeblossom`. |
 | Cannot be placed in rainforest | Every block in the pickaxe-mineable, shovel-mineable, Forge glass and Forge glass-pane tags, plus comparator, redstone lamp, intended repeater and intended redstone wire. Bone block, moss block and rich soil farmland are explicit exceptions, and a successful explicit allowed-biome rule takes precedence. `minecraft:redstone_repeater` and `minecraft:redstone` are invalid block IDs. This broad building ban currently fails to load as a tag. |
 
+#CHANGES: Please fix this
 The sunflower/blueberry placement handler directly places blocks and bypasses the block-item restriction hook. In particular, the blueberry planting item does not reliably enforce the blueberry bush's listed rainforest/grove restriction. These restrictions do not by themselves prevent bone meal or random ticking from placing a block.
 
 Sources: [util/BiomePlacementRestrictions.java](src/main/java/net/amurdza/examplemod/util/BiomePlacementRestrictions.java), [mixins/block_placement/BlockItemBiomeRestrictions.java](src/main/java/net/amurdza/examplemod/mixins/block_placement/BlockItemBiomeRestrictions.java), [event_handlers/ItemsPlaceModBlocks.java](src/main/java/net/amurdza/examplemod/event_handlers/ItemsPlaceModBlocks.java), [src/main/resources/data/aoemod/tags/blocks/biome_restrictions/](src/main/resources/data/aoemod/tags/blocks/biome_restrictions). Historical diagnostic: [run/logs/latest.log](run/logs/latest.log), August 21, 2026; this is not a fresh runtime test.
 
 ## Growth and farming
 
-#CHANGES: Same biome -> dimension changes as listed for allowed blocks. 
+#CHANGES: Same biome -> dimension changes as listed for allowed blocks.
 
 ### Exactly which blocks have biome-controlled natural growth
 
 The mod configures replacement growth decisions for the blocks below. When a growth hook identifies a tracked block, no matching biome entry means natural growth is denied. Blocks absent from this table retain their ordinary growth decision; sugar cane, for example, is not registered for the biome-growth override. Crop and stem growth is further reduced when their supporting block is not fertile. Bone meal is handled separately.
+
+#CHANGES: You do not have to set the growth rate to 0 for a block in a dimension where it cannot be placed. This can shorten the code.
+
+#Give a list of blocks that have a list of random ticking blocks that are not listed below (including post 1.20.1 blocks)
+
 
 | Block or process | Biomes with a positive natural growth setting |
 | --- | --- |
@@ -207,12 +222,26 @@ The mod configures replacement growth decisions for the blocks below. When a gro
 
 Within the permitted biomes, the rates can still differ. For example, wheat/carrot/potato/pumpkin growth differs between rainforest, savanna and plains; berries differ between rainforest and grove; cactus and prickly pear differ between rainforest and desert. This table intentionally omits balance numbers while preserving exactly which blocks are governed by the system.
 
+Please fix this.
 **Cave-vine tip exception:** the tip passes the block below itself to the growth hook. When that block is air or water, the handler often fails to identify the vine and keeps the original chance. Consequently tip extension and tip berry production can bypass the intended rainforest gate. Existing vine-body berry growth passes the correct vine state.
 
 Sources: [config/BlockGrowthConfig.java](src/main/java/net/amurdza/examplemod/config/BlockGrowthConfig.java), [config/BlockConfig.java](src/main/java/net/amurdza/examplemod/config/BlockConfig.java), [event_handlers/BlockGrowthRate.java](src/main/java/net/amurdza/examplemod/event_handlers/BlockGrowthRate.java), [mixins/growth_rate/](src/main/java/net/amurdza/examplemod/mixins/growth_rate), [util/Helper.java](src/main/java/net/amurdza/examplemod/util/Helper.java).
 
-### Soil, support and growth behavior
 
+#CHANGES:
+- Remove the dependence on the hydration range, since it can only be replaced in the tropical dimension, just use the value for that dimension and similar cases of things that only exist in one-dimension.
+- Remove all bonemealing ability from rich soil farmland
+- Remove behavior from blocks that only happen in dimensions that they cannot be placed in. Like grass blocks not spreading in certain biomes and dying in those biomes despite not being placeable there.
+- Change the mycelium, and warped/crimson nylium to check for the biome above the block for placement restrictions.
+- Skip the nylium water check and the survival requirements should also include being in a biome in can be placed in.
+- Keep the crimson/warped fungi spreading but remove giant mushrooms and fungi growing on their own without bonemeal.
+- Remove the cocoa being available on non-jungle logs
+- Remove the prevention of podzol for giant spruce trees
+- Allow pale oak saplings to be placed on grass. That may its behavior isn't restricted in non-aoemod dimensions and since the only aoemod dimension it can be placed on is the nether which cannot have dirt or grass
+- Make all custom behavior for blocks and their placement only apply in the aoemod dimensions.
+- 
+
+### Soil, support and growth behavior
 - **Farmland cannot be trampled.** Pumpkins and melons placed or grown above farmland no longer make it revert simply because those blocks are solid.
 - **Hoeing moss makes Farmer's Delight rich soil farmland; hoeing podzol makes ordinary farmland.** The hoe takes wear and plays the tilling sound.
 - **Rich soil farmland hydration range depends on biome.** Rainforest, savanna, plains, grove and desert have separate settings; other biomes keep Farmer's Delight's original range. This modification targets rich soil farmland, not ordinary farmland.
@@ -237,6 +266,9 @@ Sources: [config/BlockGrowthConfig.java](src/main/java/net/amurdza/examplemod/co
 Sources: [event_handlers/HoeOnPodzolMoss.java](src/main/java/net/amurdza/examplemod/event_handlers/HoeOnPodzolMoss.java), [event_handlers/NoFarmlandTrample.java](src/main/java/net/amurdza/examplemod/event_handlers/NoFarmlandTrample.java), [mixins/block_placement/](src/main/java/net/amurdza/examplemod/mixins/block_placement), [mixins/block_behavior/randomTicks/](src/main/java/net/amurdza/examplemod/mixins/block_behavior/randomTicks), [mixins/growth_rate/](src/main/java/net/amurdza/examplemod/mixins/growth_rate), [block/BlockHelper.java](src/main/java/net/amurdza/examplemod/block/BlockHelper.java), [mixins/othermods/farmersdelight/](src/main/java/net/amurdza/examplemod/mixins/othermods/farmersdelight), [mixins/othermods/ecologics/](src/main/java/net/amurdza/examplemod/mixins/othermods/ecologics), [mixins/othermods/netherdepthsupgrade/LavaKelpOnMagma.java](src/main/java/net/amurdza/examplemod/mixins/othermods/netherdepthsupgrade/LavaKelpOnMagma.java), [mixins/othermods/netherdepthsupgrade/LavaPlantsOnMagma.java](src/main/java/net/amurdza/examplemod/mixins/othermods/netherdepthsupgrade/LavaPlantsOnMagma.java), [mixins/othermods/quark/GlowShroomBlockChanges.java](src/main/java/net/amurdza/examplemod/mixins/othermods/quark/GlowShroomBlockChanges.java), [mixins/trees/GiantSpruceDontConvertMoss.java](src/main/java/net/amurdza/examplemod/mixins/trees/GiantSpruceDontConvertMoss.java).
 
 ### Sapling planting requirements and decorative plants
+
+- Remove the custom 2x2 rules and custom trees.
+- Replace the desert (tall) grass with the vanilla block, except they can only be placed in desert dimension and only on sand. (They can still be placed regularly in all vanilla dimensions). This may be tricky for the non-flammability for pale oak logs in the furnace (both charcoal and using it as a fuel) and also not being lit on fire.
 
 - **Rainforest oak, dark oak, mangrove, cherry and jungle tree growth requires a 2-by-2 square of matching saplings/propagules.** A solitary plant no longer grows through that rainforest route. Failed tree placement restores the saplings. Outside rainforest, oak, birch, spruce and acacia use the mod's selected ordinary-tree growth route; the actual tree designs are excluded here.
 - **AOE azalea saplings require a 2-by-2 square of matching azalea saplings entirely inside AOE jungle.** They refuse tree advancement elsewhere. They can be composted.
