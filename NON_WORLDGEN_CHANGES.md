@@ -117,7 +117,7 @@ The following restriction groups have valid entries in the checked-in data:
 - Fire doesn't exist in tropical
 - Farmland doesn't exist in tropical, desert, or nether
 - Noteblock allowed everywhere even though it requires redstone as I will add another recipe
-- Lapis and diamond ores (and therefore products by the rule) only in snowy
+- Lapis, emerald, and diamond ores (and therefore products by the rule) only in snowy
 - Redstone ores only in desert and nether
 - Lava only in desert and nether
 - netherrack, soul sand, soul soil, crying obsidian, nether ores only in nether (I know this is against the rule I set since they are not living and not in desert, this is an explicit exception; other blocks like blackstone, blocks crafted from Quartz remain in both)
@@ -238,8 +238,7 @@ Sources: [config/BlockGrowthConfig.java](src/main/java/net/amurdza/examplemod/co
 - Remove the cocoa being available on non-jungle logs
 - Remove the prevention of podzol for giant spruce trees
 - Allow pale oak saplings to be placed on grass. That may its behavior isn't restricted in non-aoemod dimensions and since the only aoemod dimension it can be placed on is the nether which cannot have dirt or grass
-- Make all custom behavior for blocks and their placement only apply in the aoemod dimensions.
-- 
+- Make all custom behavior for block placement only apply in the aoemod dimensions. Other changes can work anywhere.
 
 ### Soil, support and growth behavior
 - **Farmland cannot be trampled.** Pumpkins and melons placed or grown above farmland no longer make it revert simply because those blocks are solid.
@@ -268,7 +267,7 @@ Sources: [event_handlers/HoeOnPodzolMoss.java](src/main/java/net/amurdza/example
 ### Sapling planting requirements and decorative plants
 
 - Remove the custom 2x2 rules and custom trees.
-- Replace the desert (tall) grass with the vanilla block, except they can only be placed in desert dimension and only on sand. (They can still be placed regularly in all vanilla dimensions). This may be tricky for the non-flammability for pale oak logs in the furnace (both charcoal and using it as a fuel) and also not being lit on fire.
+- Replace the desert (tall) grass with the vanilla block, except they can only be placed in desert dimension and only on sand. (They can still be placed regularly in all vanilla dimensions).
 
 - **Rainforest oak, dark oak, mangrove, cherry and jungle tree growth requires a 2-by-2 square of matching saplings/propagules.** A solitary plant no longer grows through that rainforest route. Failed tree placement restores the saplings. Outside rainforest, oak, birch, spruce and acacia use the mod's selected ordinary-tree growth route; the actual tree designs are excluded here.
 - **AOE azalea saplings require a 2-by-2 square of matching azalea saplings entirely inside AOE jungle.** They refuse tree advancement elsewhere. They can be composted.
@@ -298,6 +297,9 @@ Sources: [worldgen/RainforestSaplingHelper.java](src/main/java/net/amurdza/examp
 Sources: [mixins/block_behavior/CaveVineHeadBehavior.java](src/main/java/net/amurdza/examplemod/mixins/block_behavior/CaveVineHeadBehavior.java), [mixins/block_behavior/CaveVinePlantBehavior.java](src/main/java/net/amurdza/examplemod/mixins/block_behavior/CaveVinePlantBehavior.java), [mixins/block_behavior/CaveVinePlantBehaviorPart2.java](src/main/java/net/amurdza/examplemod/mixins/block_behavior/CaveVinePlantBehaviorPart2.java), [block/BlockHelper.java](src/main/java/net/amurdza/examplemod/block/BlockHelper.java), [mixins/block_behavior/SeaPickleBehavior.java](src/main/java/net/amurdza/examplemod/mixins/block_behavior/SeaPickleBehavior.java), [event_handlers/BambooShearing.java](src/main/java/net/amurdza/examplemod/event_handlers/BambooShearing.java).
 
 ## Bone meal
+- Fix Bonemealing sculk to place sculk shriekers, sculk sensors and sculk catalysts in the same ratio as the current forest floor json.
+- Allow giant mushrooms on any terrain only only in tropical or mushroom caves
+- 
 
 - **Bone meal effectiveness depends on the biome above the clicked block.** Ordinary plants receive enhanced repeated attempts in rainforest and savanna. Mushrooms, mycelium and Quark glow shrooms use a separate mushroom multiplier, enhanced in rainforest and grove. One use consumes one bone meal outside creative mode even if its attempts accomplish nothing, and plays a single effect burst. If no configured biome matches, the current lookup returns no successful attempts rather than falling back to ordinary effectiveness.
 - **Lily pads, spore blossoms and mangrove roots duplicate as dropped items.**
@@ -311,7 +313,7 @@ Sources: [mixins/block_behavior/CaveVineHeadBehavior.java](src/main/java/net/amu
 - **Red/brown mushrooms cannot be fertilized into giant mushrooms outside mycelium in the designated lower mushroom-cave floor.** The player-use handler rejects that invalid action. Quark glow shrooms also require that mycelium/floor combination to actually become giant.
 - **Bone meal on matching ground uses that biome's ground-cover selection.** Matching targets are rainforest moss; savanna/plains grass blocks; grove grass blocks and valid mushroom-cave mycelium; desert sand/red sand/grass; deep-dark sculk; crimson nylium in crimson forest; warped nylium in warped forest; and soul sediments in soul sand valley. The placement search checks its targets too: notably desert land plants are placed on sand, even when the clicked block was red sand or grass. Plant contents of the configured features are excluded as requested.
 - **Deep-dark sculk is currently an incomplete bone-meal target.** It passes the ground-target check, but there is no deep-dark entry in the subsequent feature-selection method, so that path consumes bone meal without placing ground cover in deep dark.
-- **Bone meal used in water selects the local biome's seafloor/shallow-water planting routine.** A matching route also exists for lava in the AOE Nether biomes. Rainforest, savanna, plains, grove, desert, crimson forest, warped forest, soul sand valley and basalt deltas each have an explicit route; grove liquid areas above the designated mushroom floor use its mushroom-cave route. A submerged use does not spill its planting onto dry land, and the underside-click case retains the ordinary fallback.
+- **Bone meal used in water selects the local biome's seafloor/shallow-water planting routine.** A matching route also exists for lava in the AOE Nether biomes. Rainforest, savanna, plains, grove, desert, crimson forest, warped forest, soul sand valley and basalt deltas each have an explicit route; grove liquid areas above the designated mushroom floor use its mushroom-cave route.  A submerged use does not spill its planting onto dry land,and the underside-click case retains the ordinary fallback.
 - **Sea pickles, pale hanging moss and decorative azaleas use the special behaviors described above.** Other valid bone-mealable blocks receive their original growth action, repeated according to the biome multiplier.
 
 Sources: [event_handlers/BoneMeal.java](src/main/java/net/amurdza/examplemod/event_handlers/BoneMeal.java), [config/BoneMealConfig.java](src/main/java/net/amurdza/examplemod/config/BoneMealConfig.java), [mixins/item/UnderwaterBoneMealUsesBiomeSeafloor.java](src/main/java/net/amurdza/examplemod/mixins/item/UnderwaterBoneMealUsesBiomeSeafloor.java), [src/main/resources/data/aoemod/tags/blocks/bone_meal_duplicates.json](src/main/resources/data/aoemod/tags/blocks/bone_meal_duplicates.json), [mixins/trees/AzaleaRainforestTree.java](src/main/java/net/amurdza/examplemod/mixins/trees/AzaleaRainforestTree.java), [block/PaleHangingMossBlock.java](src/main/java/net/amurdza/examplemod/block/PaleHangingMossBlock.java).
@@ -319,6 +321,12 @@ Sources: [event_handlers/BoneMeal.java](src/main/java/net/amurdza/examplemod/eve
 ## Breaking blocks and harvesting
 
 ### How the override works
+
+#CHANGES:
+- Add the shear tag as well the ShearsItem
+- You don't need to change the drops for a block that cannot exist in the aoemod dimension or in a vanilla dimension.
+- Make grass, ferns, tall ferns drop beetroot seeds only in snow instead of both wheat seeds and beetroot seeds
+- Remove preventing drops from blocks in dimensions where they cannot be placed. This means it should only affect the quantity and type of drops, not whether drops occur.
 
 The following tables describe **player-breaking overrides**. They replace the normal drops of configured blocks; a configured block broken in a biome with no entry produces no configured item drops. They do not universally replace decay, explosions or every other destruction path. Creative breaking gives no drops. Only the ore entries below apply Fortune to their configured yields; the plant entries do not. Silk Touch does not restore the original block-item drops through this handler, although it still affects the block's experience calculation.
 
@@ -426,6 +434,10 @@ Sources: [src/main/resources/data/minecraft/tags/blocks/](src/main/resources/dat
 
 ## Block safety, fluids, fire, light and appearance
 
+#CHANGES:
+- Make sure that soul campfires also don't deal damage
+- Change the lapis iron golem condition to only apply in snow and prevent it from forming in other aoemod dimensions and having vanilla behavior stay the same. You can base it on the dimension instead.
+
 - **Cactus no longer damages touching entities or destroys dropped items through its contact damage.**
 - **Sweet berry bushes no longer slow or hurt touching entities**, including the custom bush subclasses. Snow-covered berry behavior is also disabled through the Snow! Real Magic compatibility mixin.
 - **Campfires no longer inflict their contact damage.**
@@ -445,6 +457,9 @@ Sources: [src/main/resources/data/minecraft/tags/blocks/](src/main/resources/dat
 Sources: [mixins/block_behavior/entity_inside/](src/main/java/net/amurdza/examplemod/mixins/block_behavior/entity_inside), [mixins/block_behavior/CarvedPumpkinNoGolems.java](src/main/java/net/amurdza/examplemod/mixins/block_behavior/CarvedPumpkinNoGolems.java), [mixins/block_behavior/SoulSandSoilHoneyDontSlow.java](src/main/java/net/amurdza/examplemod/mixins/block_behavior/SoulSandSoilHoneyDontSlow.java), [mixins/block_behavior/NoIceOnWaterPart1.java](src/main/java/net/amurdza/examplemod/mixins/block_behavior/NoIceOnWaterPart1.java), [mixins/block_behavior/SnowDoesNotMelt.java](src/main/java/net/amurdza/examplemod/mixins/block_behavior/SnowDoesNotMelt.java), [mixins/block_behavior/LessBlockOffsetsPart1.java](src/main/java/net/amurdza/examplemod/mixins/block_behavior/LessBlockOffsetsPart1.java), [mixins/block_behavior/LessBlockOffsetsPart2.java](src/main/java/net/amurdza/examplemod/mixins/block_behavior/LessBlockOffsetsPart2.java), [mixins/block_behavior/light/](src/main/java/net/amurdza/examplemod/mixins/block_behavior/light), [mixins/lava_and_water/](src/main/java/net/amurdza/examplemod/mixins/lava_and_water), [mixins/no_fire_in_tropical/](src/main/java/net/amurdza/examplemod/mixins/no_fire_in_tropical), [event_handlers/NoTropicalFire.java](src/main/java/net/amurdza/examplemod/event_handlers/NoTropicalFire.java), [mixins/othermods/snowrealmagic/](src/main/java/net/amurdza/examplemod/mixins/othermods/snowrealmagic), [mixins/othermods/nourishednether/SoulWeedsNotFlammable.java](src/main/java/net/amurdza/examplemod/mixins/othermods/nourishednether/SoulWeedsNotFlammable.java), [AOEMod.java](src/main/java/net/amurdza/examplemod/AOEMod.java).
 
 ## Equipment and combat
+- Replace non-bone spears with the vanilla versions of 1.21+
+- Change netherite to halfway between copper and iron
+
 
 - **Bone equipment:** adds bone sword, shovel, pickaxe, axe, hoe, shears, arrow, and spear. Bone tools share the copper tool tier's stats, use stone-level harvesting, and sit between stone and iron in Forge's tier order. Bone tiered tools repair with bones. Bone shears use normal shears behavior with their own durability; bone arrows use the ordinary arrow item implementation. The bone-shears recipe is broken, as explained below.
 - **Copper equipment:** adds copper sword, shovel, pickaxe, axe, hoe, helmet, chestplate, leggings, boots, spear, and shield. Copper tools have stone-level harvesting with improved speed, durability, and enchantability compared with stone; tiered tools and armor repair with copper ingots. Copper armor has its own protection/durability and does not add armor toughness or knockback resistance.
