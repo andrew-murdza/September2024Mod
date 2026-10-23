@@ -1,0 +1,200 @@
+[
+  {
+    "source": "overworld",
+    "forbiddenDestination": "overworld",
+    "pickerButtons": [
+      "AOE Tropical",
+      "AOE Savanna",
+      "AOE Plains",
+      "AOE Snowy",
+      "AOE Desert",
+      "Cancel"
+    ],
+    "unchanged": true
+  },
+  {
+    "source": "overworld",
+    "forbiddenDestination": "nether",
+    "pickerButtons": [
+      "AOE Tropical",
+      "AOE Savanna",
+      "AOE Plains",
+      "AOE Snowy",
+      "AOE Desert",
+      "Cancel"
+    ],
+    "unchanged": true
+  },
+  {
+    "source": "tropical",
+    "forbiddenDestination": "tropical",
+    "pickerButtons": [
+      "Overworld",
+      "AOE Savanna",
+      "AOE Plains",
+      "AOE Snowy",
+      "AOE Desert",
+      "Cancel"
+    ],
+    "unchanged": true
+  },
+  {
+    "source": "tropical",
+    "forbiddenDestination": "nether",
+    "pickerButtons": [
+      "Overworld",
+      "AOE Savanna",
+      "AOE Plains",
+      "AOE Snowy",
+      "AOE Desert",
+      "Cancel"
+    ],
+    "unchanged": true
+  },
+  {
+    "source": "savanna",
+    "forbiddenDestination": "savanna",
+    "pickerButtons": [
+      "Overworld",
+      "AOE Tropical",
+      "AOE Plains",
+      "AOE Snowy",
+      "AOE Desert",
+      "Cancel"
+    ],
+    "unchanged": true
+  },
+  {
+    "source": "savanna",
+    "forbiddenDestination": "nether",
+    "pickerButtons": [
+      "Overworld",
+      "AOE Tropical",
+      "AOE Plains",
+      "AOE Snowy",
+      "AOE Desert",
+      "Cancel"
+    ],
+    "unchanged": true
+  },
+  {
+    "source": "plains",
+    "forbiddenDestination": "plains",
+    "pickerButtons": [
+      "Overworld",
+      "AOE Tropical",
+      "AOE Savanna",
+      "AOE Snowy",
+      "AOE Desert",
+      "Cancel"
+    ],
+    "unchanged": true
+  },
+  {
+    "source": "plains",
+    "forbiddenDestination": "nether",
+    "pickerButtons": [
+      "Overworld",
+      "AOE Tropical",
+      "AOE Savanna",
+      "AOE Snowy",
+      "AOE Desert",
+      "Cancel"
+    ],
+    "unchanged": true
+  },
+  {
+    "source": "snowy",
+    "forbiddenDestination": "snowy",
+    "pickerButtons": [
+      "Overworld",
+      "AOE Tropical",
+      "AOE Savanna",
+      "AOE Plains",
+      "AOE Desert",
+      "Cancel"
+    ],
+    "unchanged": true
+  },
+  {
+    "source": "snowy",
+    "forbiddenDestination": "nether",
+    "pickerButtons": [
+      "Overworld",
+      "AOE Tropical",
+      "AOE Savanna",
+      "AOE Plains",
+      "AOE Desert",
+      "Cancel"
+    ],
+    "unchanged": true
+  },
+  {
+    "source": "desert",
+    "forbiddenDestination": "desert",
+    "pickerButtons": [
+      "Overworld",
+      "AOE Tropical",
+      "AOE Savanna",
+      "AOE Plains",
+      "AOE Snowy",
+      "AOE Nether",
+      "Cancel"
+    ],
+    "unchanged": true
+  },
+  {
+    "source": "nether",
+    "forbiddenDestination": "overworld",
+    "pickerButtons": [
+      "AOE Desert",
+      "Cancel"
+    ],
+    "unchanged": true
+  },
+  {
+    "source": "nether",
+    "forbiddenDestination": "tropical",
+    "pickerButtons": [
+      "AOE Desert",
+      "Cancel"
+    ],
+    "unchanged": true
+  },
+  {
+    "source": "nether",
+    "forbiddenDestination": "savanna",
+    "pickerButtons": [
+      "AOE Desert",
+      "Cancel"
+    ],
+    "unchanged": true
+  },
+  {
+    "source": "nether",
+    "forbiddenDestination": "plains",
+    "pickerButtons": [
+      "AOE Desert",
+      "Cancel"
+    ],
+    "unchanged": true
+  },
+  {
+    "source": "nether",
+    "forbiddenDestination": "snowy",
+    "pickerButtons": [
+      "AOE Desert",
+      "Cancel"
+    ],
+    "unchanged": true
+  },
+  {
+    "source": "nether",
+    "forbiddenDestination": "nether",
+    "pickerButtons": [
+      "AOE Desert",
+      "Cancel"
+    ],
+    "unchanged": true
+  }
+]

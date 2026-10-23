@@ -1,0 +1,17 @@
+{
+  "json_files": 212,
+  "items": 42,
+  "blocks": 14,
+  "entities": 13,
+  "animations": 37,
+  "jar": "build\\libs\\angling-forge-1.20.1-1.0.1-forge.1.jar",
+  "bytes": 662453,
+  "sha256": "36c6857fc4ce52eb02ca6f78720223c0a3b781512dbdd0137b00bead9f1d139a",
+  "gametest_log": "build-gametest.log",
+  "gametests_completed": 13,
+  "gametests_expected": 13,
+  "gametest_log_sha256": "7fdfdb41cd1bdc2b1bc3aa5f9faa587247948b85c93f52109b45e70fbdefada3",
+  "checks": 3118,
+  "passed": true,
+  "errors": []
+}

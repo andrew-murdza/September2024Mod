@@ -1,6 +1,7 @@
 package net.amurdza.examplemod.event_handlers;
 
 import net.amurdza.examplemod.AOEMod;
+import net.amurdza.examplemod.util.GameplayDimensions;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.server.level.ServerLevel;
@@ -19,7 +20,7 @@ public class LapisGolemPlacement {
             return;
         }
 
-        if (!event.getPlacedBlock().is(Blocks.LAPIS_BLOCK)) {
+        if (!GameplayDimensions.is(level, GameplayDimensions.SNOWY) || !event.getPlacedBlock().is(Blocks.LAPIS_BLOCK)) {
             return;
         }
 

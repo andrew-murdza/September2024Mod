@@ -66,37 +66,37 @@ side="BOTH"
 [[dependencies."${mod_id}"]]
 modId="geckolib"
 mandatory=true
-versionRange="[4.7.4,)"
+versionRange="[4.8.4,)"
 ordering="AFTER"
 side="BOTH"
 
 [[dependencies."${mod_id}"]]
-modId = "terrablender"
-mandatory = false
-versionRange = "[3.0.1.7,)"
-ordering = "AFTER"
-side = "BOTH"
+modId="terrablender"
+mandatory=true
+versionRange="[3.0.1.10,)"
+ordering="AFTER"
+side="BOTH"
 
 [[dependencies."${mod_id}"]]
-modId = "biomeswevegone"
-mandatory = false
-versionRange = "[1.5.8,)"
-ordering = "AFTER"
-side = "BOTH"
+modId="biomeswevegone"
+mandatory=true
+versionRange="[1.8.2,)"
+ordering="AFTER"
+side="BOTH"
 
 [[dependencies."${mod_id}"]]
-modId = "alexsmobs"
-mandatory = true
-versionRange = "[1.22.9,)"
-ordering = "AFTER"
-side = "BOTH"
+modId="alexsmobs"
+mandatory=true
+versionRange="[1.22.9,)"
+ordering="AFTER"
+side="BOTH"
 
 [[dependencies."${mod_id}"]]
-modId = "alexscaves"
-mandatory = false
-versionRange = "[1.1.5,)"
-ordering = "AFTER"
-side = "BOTH"
+modId="alexscaves"
+mandatory=true
+versionRange="[2.0.2,)"
+ordering="AFTER"
+side="BOTH"
 
 [[dependencies."${mod_id}"]]
 modId = "blue_skies"
@@ -156,25 +156,25 @@ ordering = "AFTER"
 side = "BOTH"
 
 [[dependencies."${mod_id}"]]
-modId = "ecologics"
-mandatory = true
-versionRange = "[2.2.0,)"
-ordering = "AFTER"
-side = "BOTH"
+modId="ecologics"
+mandatory=true
+versionRange="[2.2.7,)"
+ordering="AFTER"
+side="BOTH"
 
 [[dependencies."${mod_id}"]]
-modId = "farmersdelight"
-mandatory = true
-versionRange = "[1.20.1-1.2.4,)"
-ordering = "AFTER"
-side = "BOTH"
+modId="farmersdelight"
+mandatory=true
+versionRange="[1.20.1-1.3.4,)"
+ordering="AFTER"
+side="BOTH"
 
 [[dependencies."${mod_id}"]]
-modId = "fruitsdelight"
-mandatory = true
-versionRange = "[1.0.22,)"
-ordering = "AFTER"
-side = "BOTH"
+modId="fruitsdelight"
+mandatory=true
+versionRange="[1.1.3,)"
+ordering="AFTER"
+side="BOTH"
 
 
 [[dependencies."${mod_id}"]]
@@ -192,18 +192,19 @@ side = "BOTH"
 #side = "BOTH"
 
 [[dependencies."${mod_id}"]]
-modId = "quark"
-mandatory = true
-versionRange = "[4.0-460,)"
-ordering = "AFTER"
-side = "BOTH"
+modId="quark"
+mandatory=true
+versionRange="[4.0-462,)"
+ordering="AFTER"
+side="BOTH"
 
 [[dependencies."${mod_id}"]]
-modId = "nourished_nether"
-mandatory = true
-versionRange = "[0.2.5,)"
-ordering = "AFTER"
-side = "BOTH"
+modId="nourished_nether"
+mandatory=true
+versionRange="[0.2.5,)"
+ordering="AFTER"
+side="BOTH"
+
 
 #[[dependencies."${mod_id}"]]
 #modId = "soulsweapons"
@@ -218,7 +219,6 @@ side = "BOTH"
 #versionRange = "[1.20.1-8.0,)"
 #ordering = "AFTER"
 #side = "BOTH"
-
 [[dependencies."${mod_id}"]]
 modId = "bettercarrots"
 mandatory = true
@@ -234,11 +234,12 @@ ordering = "AFTER"
 side = "BOTH"
 
 [[dependencies."${mod_id}"]]
-modId = "twilightforest"
-mandatory = false
-versionRange = "[4.3.1893,)"
-ordering = "AFTER"
-side = "BOTH"
+modId="twilightforest"
+mandatory=true
+versionRange="[4.3.2508,)"
+ordering="AFTER"
+side="BOTH"
+
 
 #[[dependencies."${mod_id}"]]
 #modId = "upgrade_aquatic"
@@ -260,11 +261,10 @@ side = "BOTH"
 #versionRange = "[1.0.12,)"
 #ordering = "AFTER"
 #side = "BOTH"
-
 [[dependencies."${mod_id}"]]
 modId="hybrid_aquatic"
 mandatory=true
-versionRange="[1.5.3,)"
+versionRange="[1.7.4,)"
 ordering="AFTER"
 side="BOTH"
 
@@ -278,7 +278,7 @@ side="BOTH"
 [[dependencies."${mod_id}"]]
 modId="naturalist"
 mandatory=true
-versionRange="[4.0.3,)"
+versionRange="[5.0pre2,)"
 ordering="AFTER"
 side="BOTH"
 
@@ -290,8 +290,281 @@ ordering = "AFTER"
 side = "BOTH"
 
 # Features are specific properties of the game environment, that you may want to declare you require. This example declares
+[[dependencies."${mod_id}"]]
+modId="vanillabackport"
+mandatory=true
+versionRange="[1.2.0.2640.1,)"
+ordering="AFTER"
+side="BOTH"
+
+[[dependencies."${mod_id}"]]
+modId="platform"
+mandatory=true
+versionRange="[1.4.0.2640.1,)"
+ordering="AFTER"
+side="BOTH"
+
+[[dependencies."${mod_id}"]]
+modId="tiny_takeover_backport"
+mandatory=true
+versionRange="[1.6.3,)"
+ordering="AFTER"
+side="BOTH"
+
 # that your mod requires GL version 3.2 or higher. Other features will be added. They are side aware so declaring this won't
 # stop your mod loading on the server for example.
 #[features.${mod_id}]
 #openGLVersion="[3.2,)"
 
+
+[[dependencies."${mod_id}"]]
+modId="ambientadditions"
+mandatory=true
+versionRange="[1.20.1-1.1.2,)"
+ordering="AFTER"
+side="BOTH"
+
+[[dependencies."${mod_id}"]]
+modId="aquatica"
+mandatory=true
+versionRange="[0.0.1,)"
+ordering="AFTER"
+side="BOTH"
+
+[[dependencies."${mod_id}"]]
+modId="architectury"
+mandatory=true
+versionRange="[9.2.14,)"
+ordering="AFTER"
+side="BOTH"
+
+[[dependencies."${mod_id}"]]
+modId="badpackets"
+mandatory=true
+versionRange="[0.4.3,)"
+ordering="AFTER"
+side="BOTH"
+
+[[dependencies."${mod_id}"]]
+modId="bclib"
+mandatory=true
+versionRange="[20.0.13,)"
+ordering="AFTER"
+side="BOTH"
+
+[[dependencies."${mod_id}"]]
+modId="betterend"
+mandatory=true
+versionRange="[20.0.11,)"
+ordering="AFTER"
+side="BOTH"
+
+[[dependencies."${mod_id}"]]
+modId="biodiverse"
+mandatory=true
+versionRange="[1.1.0,)"
+ordering="AFTER"
+side="BOTH"
+
+[[dependencies."${mod_id}"]]
+modId="biomesoplenty"
+mandatory=true
+versionRange="[18.0.0.592,)"
+ordering="AFTER"
+side="BOTH"
+
+[[dependencies."${mod_id}"]]
+modId="blueprint"
+mandatory=true
+versionRange="[7.1.5,)"
+ordering="AFTER"
+side="BOTH"
+
+[[dependencies."${mod_id}"]]
+modId="bountiful_critters"
+mandatory=true
+versionRange="[1.5.1,)"
+ordering="AFTER"
+side="BOTH"
+
+[[dependencies."${mod_id}"]]
+modId="citadel"
+mandatory=true
+versionRange="[2.6.3,)"
+ordering="AFTER"
+side="BOTH"
+
+[[dependencies."${mod_id}"]]
+modId="collectorsreap"
+mandatory=true
+versionRange="[1.5.5,)"
+ordering="AFTER"
+side="BOTH"
+
+[[dependencies."${mod_id}"]]
+modId="cooking_expanded"
+mandatory=true
+versionRange="[1.0.0,)"
+ordering="AFTER"
+side="BOTH"
+
+[[dependencies."${mod_id}"]]
+modId="corgilib"
+mandatory=true
+versionRange="[4.0.3.6,)"
+ordering="AFTER"
+side="BOTH"
+
+[[dependencies."${mod_id}"]]
+modId="curios"
+mandatory=true
+versionRange="[5.14.1+1.20.1,)"
+ordering="AFTER"
+side="BOTH"
+
+[[dependencies."${mod_id}"]]
+modId="environmental"
+mandatory=true
+versionRange="[4.1.2,)"
+ordering="AFTER"
+side="BOTH"
+
+[[dependencies."${mod_id}"]]
+modId="ferdinandsflowers"
+mandatory=true
+versionRange="[3.0,)"
+ordering="AFTER"
+side="BOTH"
+
+[[dependencies."${mod_id}"]]
+modId="finsandtails"
+mandatory=true
+versionRange="[1.20.1-1.1.6,)"
+ordering="AFTER"
+side="BOTH"
+
+[[dependencies."${mod_id}"]]
+modId="floral"
+mandatory=true
+versionRange="[1.0.0,)"
+ordering="AFTER"
+side="BOTH"
+
+[[dependencies."${mod_id}"]]
+modId="floral_flair"
+mandatory=true
+versionRange="[1.20.1-2.2.2,)"
+ordering="AFTER"
+side="BOTH"
+
+[[dependencies."${mod_id}"]]
+modId="hapi"
+mandatory=true
+versionRange="[1.1.3,)"
+ordering="AFTER"
+side="BOTH"
+
+[[dependencies."${mod_id}"]]
+modId="hearthandharvest"
+mandatory=true
+versionRange="[1.4.1,)"
+ordering="AFTER"
+side="BOTH"
+
+[[dependencies."${mod_id}"]]
+modId="legumedelight"
+mandatory=true
+versionRange="[1.20.1-1.4.0,)"
+ordering="AFTER"
+side="BOTH"
+
+[[dependencies."${mod_id}"]]
+modId="wildernature"
+mandatory=true
+versionRange="[1.0.6,)"
+ordering="AFTER"
+side="BOTH"
+
+[[dependencies."${mod_id}"]]
+modId="ohthetreesyoullgrow"
+mandatory=true
+versionRange="[1.7.3,)"
+ordering="AFTER"
+side="BOTH"
+
+[[dependencies."${mod_id}"]]
+modId="pineapple_delight"
+mandatory=true
+versionRange="[1.2.0-1.20.1-forge,)"
+ordering="AFTER"
+side="BOTH"
+
+[[dependencies."${mod_id}"]]
+modId="outer_end"
+mandatory=true
+versionRange="[1.0.0,)"
+ordering="AFTER"
+side="BOTH"
+
+[[dependencies."${mod_id}"]]
+modId="untamedwilds"
+mandatory=true
+versionRange="[4.0.4,)"
+ordering="AFTER"
+side="BOTH"
+
+[[dependencies."${mod_id}"]]
+modId="upgrade_aquatic"
+mandatory=true
+versionRange="[6.0.3,)"
+ordering="AFTER"
+side="BOTH"
+
+[[dependencies."${mod_id}"]]
+modId="vintagedelight"
+mandatory=true
+versionRange="[0.1.6,)"
+ordering="AFTER"
+side="BOTH"
+
+[[dependencies."${mod_id}"]]
+modId="wthit"
+mandatory=true
+versionRange="[8.21.1,)"
+ordering="AFTER"
+side="CLIENT"
+
+[[dependencies."${mod_id}"]]
+modId="wunderlib"
+mandatory=true
+versionRange="[20.0.1,)"
+ordering="AFTER"
+side="BOTH"
+
+[[dependencies."${mod_id}"]]
+modId="zeta"
+mandatory=true
+versionRange="[1.0-31,)"
+ordering="AFTER"
+side="BOTH"
+
+[[dependencies."${mod_id}"]]
+modId="angling"
+mandatory=true
+versionRange="[1.0.1-forge.1,)"
+ordering="AFTER"
+side="BOTH"
+
+[[dependencies."${mod_id}"]]
+modId="immersive_portals"
+mandatory=true
+versionRange="[3.0.7,3.1)"
+ordering="AFTER"
+side="BOTH"
+
+[[dependencies."${mod_id}"]]
+modId="mynethersdelight"
+mandatory=true
+versionRange="[1.20.1-1.10.4-backport.1,)"
+ordering="AFTER"
+side="BOTH"

@@ -1,0 +1,30 @@
+modLoader="javafml"
+loaderVersion="[47,)"
+license="MIT"
+
+[[mods]]
+modId="stackbench"
+version="1.0.0"
+displayName="Stacked Village Benchmark (QA only)"
+description='''Isolated, explicitly enabled populated-village and full-height cargo benchmark.'''
+
+[[dependencies.stackbench]]
+modId="forge"
+mandatory=true
+versionRange="[47.4.22,)"
+ordering="NONE"
+side="SERVER"
+
+[[dependencies.stackbench]]
+modId="aoemod"
+mandatory=true
+versionRange="[1,)"
+ordering="AFTER"
+side="SERVER"
+
+[[dependencies.stackbench]]
+modId="villager_realms"
+mandatory=true
+versionRange="[1,)"
+ordering="AFTER"
+side="SERVER"

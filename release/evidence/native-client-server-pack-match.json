@@ -1,0 +1,11 @@
+{
+  "server_jars": 70,
+  "client_jars": 71,
+  "shared_jars": 70,
+  "differing_shared_hashes": [],
+  "server_only": [],
+  "client_only": [
+    "aoe-portal-qa-1.0.0.jar"
+  ],
+  "aoe_release_sha256": "87af11197d7fced0063f3571bae55d2ac80785c7c463169d7e8f8eb8c7ec1d35"
+}

@@ -1,0 +1,9 @@
+{
+  "parent": "forge:item/bucket",
+  "loader": "forge:fluid_container",
+  "fluid": "minecraft:lava",
+  "textures": {
+    "base": "aoemod:item/bone_bucket",
+    "fluid": "forge:item/mask/bucket_fluid"
+  }
+}

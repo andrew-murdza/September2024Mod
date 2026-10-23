@@ -1,7 +1,5 @@
 {
-  "carvers": {
-    "air": []
-  },
+  "carvers": {},
   "downfall": 0,
   "effects": {
     "fog_color": 12638463,
@@ -25,29 +23,35 @@
     [],
     [],
     [],
+    [],
+    [],
+    [],
     [
-      "aoemod:nether_cave_chunk"
+      "aoemod:dimension_blobs/desert/andesite",
+      "aoemod:dimension_blobs/desert/diorite",
+      "aoemod:dimension_blobs/desert/granite",
+      "aoemod:dimension_blobs/desert/terracotta",
+      "aoemod:dimension_blobs/desert/cinnabar",
+      "aoemod:dimension_blobs/desert/tuff",
+      "aoemod:dimension_ores/desert/coal",
+      "aoemod:dimension_ores/desert/coal_upper",
+      "aoemod:dimension_ores/desert/coal_deep",
+      "aoemod:dimension_ores/desert/copper",
+      "aoemod:dimension_ores/desert/copper_deep",
+      "aoemod:dimension_ores/desert/gold_deep",
+      "aoemod:dimension_ores/desert/gold_upper",
+      "aoemod:dimension_ores/desert/redstone",
+      "aoemod:dimension_ores/desert/redstone_deep"
     ],
     [],
     [],
     [
-      "aoemod:desert/ores/coal_upper",
-      "aoemod:desert/ores/copper_upper",
-      "aoemod:desert/ores/gold_upper",
-      "aoemod:desert/ores/redstone_upper"
-    ],
-    [],
-    [],
-    [
-//      "minecraft:glow_lichen",
       "aoemod:mountains/forest_floor",
       "aoemod:desert/forest_floor",
       "aoemod:mountains/seafloor",
       "aoemod:desert/seafloor"
     ],
-    [
-      "minecraft:freeze_top_layer"
-    ]
+    []
   ],
   "has_precipitation": false,
   "spawn_costs": {},
@@ -61,7 +65,14 @@
       }
     ],
     "axolotls": [],
-    "creature": [],
+    "creature": [
+      {
+        "type": "minecraft:armadillo",
+        "weight": 6,
+        "minCount": 1,
+        "maxCount": 2
+      }
+    ],
     "misc": [],
     "monster": [
       {
@@ -71,7 +82,7 @@
         "weight": 100
       },
       {
-        "type": "aoemod:parched",
+        "type": "minecraft:parched",
         "maxCount": 4,
         "minCount": 4,
         "weight": 100

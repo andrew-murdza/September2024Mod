@@ -1,0 +1,27 @@
+{
+  "replace": false,
+  "values": [
+    "aoemod:cooked_mahi_mahi",
+    "aoemod:cooked_anomalocaris",
+    "aoemod:cooked_octopus",
+    "aoemod:cooked_rubber_belly_glider",
+    "aoemod:cooked_flying_fish",
+    "aoemod:cooked_arrow_squid",
+    "aoemod:cooked_vampire_squid",
+    "aoemod:cooked_anglerfish",
+    "aoemod:cooked_spider_crab_leg",
+    "aoemod:cooked_isopod",
+    "aoemod:cooked_triops",
+    "aoemod:cooked_blue_spotted_stingray",
+    "aoemod:cooked_hound_shark",
+    "aoemod:cooked_shame_faced_crab",
+    "aoemod:cooked_trout",
+    "aoemod:cooked_carp",
+    "aoemod:cooked_swamp_mucker",
+    "aoemod:cooked_needlefish",
+    "aoemod:cooked_tuna",
+    "aoemod:cooked_dragonfish",
+    "aoemod:cooked_giant_river_prawn",
+    "aoemod:cooked_sulfur_end_fish"
+  ]
+}

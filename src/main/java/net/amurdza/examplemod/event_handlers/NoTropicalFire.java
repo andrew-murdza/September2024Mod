@@ -1,7 +1,7 @@
 package net.amurdza.examplemod.event_handlers;
 
 import net.amurdza.examplemod.AOEMod;
-import net.amurdza.examplemod.util.ModTags;
+import net.amurdza.examplemod.util.GameplayDimensions;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.damagesource.DamageTypes;
 import net.minecraft.world.entity.LivingEntity;
@@ -24,14 +24,14 @@ public class NoTropicalFire {
         BlockPos pos = event.getPos();
 
         if ((event.getPlacedBlock().is(Blocks.FIRE) || event.getPlacedBlock().is(Blocks.SOUL_FIRE))
-                && level.getBiome(pos).is(ModTags.Biomes.tropicalBiomes)) {
+                && GameplayDimensions.is(level, GameplayDimensions.TROPICAL)) {
             event.setCanceled(true);
         }
     }
 
     @SubscribeEvent
     public static void onEntityStruckByLightning(EntityStruckByLightningEvent event) {
-        if (event.getEntity().level().getBiome(event.getEntity().blockPosition()).is(ModTags.Biomes.tropicalBiomes)) {
+        if (GameplayDimensions.is(event.getEntity().level(), GameplayDimensions.TROPICAL)) {
             event.setCanceled(true);
             event.getEntity().clearFire();
         }
@@ -41,7 +41,7 @@ public class NoTropicalFire {
     public static void onLivingAttack(LivingAttackEvent event) {
         LivingEntity entity = event.getEntity();
 
-        if (!entity.level().getBiome(entity.blockPosition()).is(ModTags.Biomes.tropicalBiomes)) {
+        if (!GameplayDimensions.is(entity.level(), GameplayDimensions.TROPICAL)) {
             return;
         }
 
@@ -59,7 +59,7 @@ public class NoTropicalFire {
     public static void onLivingHurt(LivingHurtEvent event) {
         LivingEntity entity = event.getEntity();
 
-        if (entity.level().getBiome(entity.blockPosition()).is(ModTags.Biomes.tropicalBiomes)) {
+        if (GameplayDimensions.is(entity.level(), GameplayDimensions.TROPICAL)) {
             entity.clearFire();
         }
     }
@@ -68,7 +68,7 @@ public class NoTropicalFire {
     public static void onLivingTick(LivingEvent.LivingTickEvent event) {
         LivingEntity entity = event.getEntity();
 
-        if (entity.level().getBiome(entity.blockPosition()).is(ModTags.Biomes.tropicalBiomes)) {
+        if (GameplayDimensions.is(entity.level(), GameplayDimensions.TROPICAL)) {
             entity.clearFire();
         }
     }

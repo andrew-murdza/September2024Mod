@@ -2,7 +2,7 @@
   "type": "aoemod:regional_grid_choice",
   "config": {
     "features": [],
-    "default_feature": "aoemod:trees/spruce",
+    "default_feature": "minecraft:spruce",
     "placement": [],
     "offset_type": "small_in_square",
     "region_width": 12,

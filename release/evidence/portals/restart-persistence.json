@@ -1,0 +1,13 @@
+{
+  "sameNetherArrival": [
+    1.5,
+    73.0,
+    0.5
+  ],
+  "sameDesertReturn": [
+    1.5,
+    200.0,
+    0.5
+  ],
+  "passed": true
+}

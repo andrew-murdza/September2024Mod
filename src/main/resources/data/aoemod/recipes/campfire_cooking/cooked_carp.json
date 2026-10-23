@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:campfire_cooking",
+  "ingredient": {
+    "item": "hybrid_aquatic:carp"
+  },
+  "result": "aoemod:cooked_carp",
+  "experience": 0.35,
+  "cookingtime": 600
+}

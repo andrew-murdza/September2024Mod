@@ -41,12 +41,12 @@ public class SoulBerryBushBlock extends SweetBerryBushBlock {
         else if(age > 1){
             Float value = null;
             if(age==2){
-                value = Helper.getBiomeValue(pLevel, pPos, BlockBehaviorConfig.BIOME_TO_SOUL_BERRIES_PARTIALLY_GROWN_AMOUNTS);
+                value = BlockBehaviorConfig.DIMENSION_TO_SOUL_BERRIES_PARTIALLY_GROWN_AMOUNTS.get(pLevel.dimension());
             }
             else if (age == 3) {
-                value = Helper.getBiomeValue(pLevel, pPos, BlockBehaviorConfig.BIOME_TO_MATURE_SOUL_BERRY_AMOUNTS);
+                value = BlockBehaviorConfig.DIMENSION_TO_MATURE_SOUL_BERRY_AMOUNTS.get(pLevel.dimension());
             }
-            float count = value != null ? value : 0;
+            float count = value != null ? value : 1 + pLevel.random.nextInt(2) + (age == 3 ? 1 : 0);
             int amount = Helper.computeIncrements(pLevel.random,count);
             if(amount > 0){
                 pLevel.gameEvent(GameEvent.BLOCK_CHANGE, pPos, GameEvent.Context.of(pPlayer, pState));

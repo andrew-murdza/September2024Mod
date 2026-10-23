@@ -17,11 +17,7 @@
     ],
     "features": [
       {
-        "chance": 0.06,
-        "feature": "aoemod:mountains/floor/grass"
-      },
-      {
-        "chance": 0.94,
+        "chance": 1.0,
         "feature": "aoemod:nothing"
       }
     ]

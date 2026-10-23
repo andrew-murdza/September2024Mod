@@ -1,8 +1,10 @@
 {
+  "replace": false,
   "values": [
-    "aoemod:jungle",
-    "minecraft:jungle",
-    "minecraft:bamboo_jungle",
-    "minecraft:sparse_jungle"
+    "aoemod:coral_reef",
+    "aoemod:mangrove_swamp",
+    "aoemod:rainforest",
+    "aoemod:lush_caves",
+    "aoemod:cherry_grove"
   ]
 }

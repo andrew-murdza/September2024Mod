@@ -3,6 +3,7 @@ package net.amurdza.examplemod.event_handlers;
 import net.amurdza.examplemod.AOEMod;
 import net.amurdza.examplemod.config.MobConfig;
 import net.amurdza.examplemod.entity.EndFishEntity;
+import net.amurdza.examplemod.entity.IllagerLordEntity;
 import net.amurdza.examplemod.entity.NetherFishEntity;
 import net.amurdza.examplemod.registry.ModItems;
 import net.amurdza.examplemod.util.Helper;
@@ -48,7 +49,7 @@ public class CustomMobDrops {
         for (ItemEntity drop : event.getDrops()) {
             ItemStack stack = drop.getItem();
 
-            if (shouldPreserveVanillaDrop(stack)) {
+            if (shouldPreserveVanillaDrop(entity, stack)) {
                 preservedVanillaDrops.add(drop);
             }
         }
@@ -63,6 +64,10 @@ public class CustomMobDrops {
             Item item = getDropItem(entity, entry);
             float multiplier = MobConfig.mobAmount(entity, entry);
 
+            if (multiplier > 0 && entry.affectedByLooting() && event.getLootingLevel() > 0) {
+                // Match vanilla's common uniform 0..1 bonus per Looting level.
+                multiplier += Math.round(entity.getRandom().nextFloat() * event.getLootingLevel());
+            }
             dropItem(event, entity, item, multiplier);
         }
 
@@ -72,10 +77,13 @@ public class CustomMobDrops {
         dropArmorReplacementItems(event, entity);
     }
 
-    private static boolean shouldPreserveVanillaDrop(ItemStack stack) {
+    private static boolean shouldPreserveVanillaDrop(LivingEntity entity, ItemStack stack) {
         Item item = stack.getItem();
 
-        return stack.is(ItemTags.MUSIC_DISCS)
+        return (entity instanceof IllagerLordEntity && item == ModItems.BOSS_SHIELD.get())
+                || stack.is(ItemTags.MUSIC_DISCS)
+                || item == Items.WITHER_SKELETON_SKULL
+                || item == Items.TOTEM_OF_UNDYING
                 || item == Items.SKELETON_SKULL
                 || item == Items.ZOMBIE_HEAD
                 || item == Items.CREEPER_HEAD

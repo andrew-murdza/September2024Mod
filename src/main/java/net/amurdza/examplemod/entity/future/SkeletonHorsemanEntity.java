@@ -31,10 +31,13 @@ public class SkeletonHorsemanEntity extends SkeletonHorse {
     ) {
         SpawnGroupData result = super.finalizeSpawn(level, difficulty, spawnType, spawnData, tag);
         if (!this.level().isClientSide && !this.isVehicle()) {
-            Skeleton rider = EntityType.SKELETON.spawn(level.getLevel(), this.blockPosition(), MobSpawnType.MOB_SUMMONED);
+            Skeleton rider = EntityType.SKELETON.create(level.getLevel());
             if (rider != null) {
                 rider.addTag(RIDER_TAG);
+                rider.moveTo(this.getX(), this.getY(), this.getZ(), this.getYRot(), 0.0F);
+                rider.finalizeSpawn(level, difficulty, MobSpawnType.MOB_SUMMONED, null, null);
                 rider.setItemSlot(EquipmentSlot.MAINHAND, new ItemStack(Items.BOW));
+                // The mount's spawn call adds its passengers after finalizeSpawn returns.
                 rider.startRiding(this, true);
             }
         }

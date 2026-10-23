@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smoking",
+  "ingredient": {
+    "item": "finsandtails:swamp_mucker"
+  },
+  "result": "aoemod:cooked_swamp_mucker",
+  "experience": 0.35,
+  "cookingtime": 100
+}

@@ -2,32 +2,32 @@
   "type": "aoemod:regional_grid_choice",
   "config": {
     "features": [
-      { "feature": "aoemod:crops/rainforest/sweet_berry_bush_patch", "count": 4 },
-      { "feature": "aoemod:crops/rainforest/blue_berry_bush_patch", "count": 4 },
-      { "feature": "aoemod:cactus_patch", "count": 4 },
-      { "feature": "aoemod:mushrooms/rainforest/red_mushroom_patch", "count": 5 },
-      { "feature": "aoemod:mushrooms/rainforest/brown_mushroom_patch", "count": 5 },
-      { "feature": "aoemod:flowers/rainforest/big_dripleaf_patch", "count": 4 },
-      { "feature": "aoemod:flowers/rainforest/small_dripleaf_patch", "count": 4 },
-      { "feature": "aoemod:flowers/rainforest/azalea_patch", "count": 4 },
-      { "feature": "aoemod:bamboo_patch", "count": 4 }
+      {
+        "feature": "aoemod:mushrooms/rainforest/red_mushroom_patch",
+        "count": 5
+      },
+      {
+        "feature": "aoemod:mushrooms/rainforest/brown_mushroom_patch",
+        "count": 5
+      },
+      {
+        "feature": "aoemod:flowers/rainforest/big_dripleaf_patch",
+        "count": 4
+      },
+      {
+        "feature": "aoemod:flowers/rainforest/small_dripleaf_patch",
+        "count": 4
+      },
+      {
+        "feature": "aoemod:flowers/rainforest/azalea_patch",
+        "count": 4
+      }
     ],
     "groups": [
       {
         "features": [
-          "aoemod:flowers/rainforest/azure_bluet_patch",
-          "aoemod:flowers/rainforest/cornflower_patch",
-          "aoemod:flowers/rainforest/dandelion_patch",
-          "aoemod:flowers/rainforest/lily_of_the_valley_patch",
-          "aoemod:flowers/rainforest/orange_tulip_patch",
-          "aoemod:flowers/rainforest/oxeye_daisy_patch",
-          "aoemod:flowers/rainforest/pink_tulip_patch",
-          "aoemod:flowers/rainforest/poppy_patch",
-          "aoemod:flowers/rainforest/red_tulip_patch",
-          "aoemod:flowers/rainforest/sunflower_patch",
           "aoemod:flowers/rainforest/allium_patch",
           "aoemod:flowers/rainforest/blue_orchid_patch",
-          "aoemod:flowers/rainforest/white_tulip_patch",
           "aoemod:flowers/rainforest/pink_petals_patch",
           "aoemod:flowers/rainforest/torchflower_patch",
           "aoemod:flowers/rainforest/lilac_patch",

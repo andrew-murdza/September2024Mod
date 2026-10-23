@@ -1,0 +1,57 @@
+{
+  "planks": [
+    "birch",
+    "crimson",
+    "oak",
+    "warped"
+  ],
+  "axis": "z",
+  "picker": [
+    "AOE Tropical",
+    "AOE Savanna",
+    "AOE Plains",
+    "AOE Snowy",
+    "AOE Desert",
+    "Cancel"
+  ],
+  "portalStates": [
+    {
+      "id": "aoemod:tropical_portal",
+      "position": "10, 200, 1",
+      "state": "Block{aoemod:tropical_portal}[axis=z]",
+      "tint": "48d05a"
+    },
+    {
+      "id": "aoemod:tropical_portal",
+      "position": "10, 201, 1",
+      "state": "Block{aoemod:tropical_portal}[axis=z]",
+      "tint": "48d05a"
+    },
+    {
+      "id": "aoemod:tropical_portal",
+      "position": "10, 202, 1",
+      "state": "Block{aoemod:tropical_portal}[axis=z]",
+      "tint": "48d05a"
+    },
+    {
+      "id": "aoemod:tropical_portal",
+      "position": "10, 200, 2",
+      "state": "Block{aoemod:tropical_portal}[axis=z]",
+      "tint": "48d05a"
+    },
+    {
+      "id": "aoemod:tropical_portal",
+      "position": "10, 201, 2",
+      "state": "Block{aoemod:tropical_portal}[axis=z]",
+      "tint": "48d05a"
+    },
+    {
+      "id": "aoemod:tropical_portal",
+      "position": "10, 202, 2",
+      "state": "Block{aoemod:tropical_portal}[axis=z]",
+      "tint": "48d05a"
+    }
+  ],
+  "actualDestination": "aoemod:tropical_dimension",
+  "passed": true
+}

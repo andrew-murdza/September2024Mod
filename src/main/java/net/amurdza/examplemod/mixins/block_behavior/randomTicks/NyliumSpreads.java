@@ -1,10 +1,10 @@
 package net.amurdza.examplemod.mixins.block_behavior.randomTicks;
 
 import net.amurdza.examplemod.util.Helper;
+import net.amurdza.examplemod.util.BiomePlacementRestrictions;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.server.level.ServerLevel;
-import net.minecraft.tags.FluidTags;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.block.Blocks;
@@ -42,6 +42,7 @@ public class NyliumSpreads {
     @Unique
     private boolean aOEMod1_20_1V2$canPropagate(BlockState pState, ServerLevel pLevel, BlockPos pPos){
         BlockPos blockpos = pPos.above();
-        return canBeNylium(pState, pLevel, pPos) && !pLevel.getFluidState(blockpos).is(FluidTags.WATER);
+        return canBeNylium(pState, pLevel, pPos)
+                && BiomePlacementRestrictions.isAllowed(pLevel, pPos, pState);
     }
 }

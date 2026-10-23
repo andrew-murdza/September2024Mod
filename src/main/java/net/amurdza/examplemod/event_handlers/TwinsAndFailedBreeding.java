@@ -5,6 +5,8 @@ import net.amurdza.examplemod.config.MobConfig;
 import net.amurdza.examplemod.util.Helper;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.entity.AgeableMob;
+import net.minecraft.world.entity.VariantHolder;
+import net.minecraft.world.entity.animal.MushroomCow;
 import net.minecraft.world.entity.animal.Turtle;
 import net.minecraft.world.entity.animal.frog.Frog;
 import net.minecraftforge.event.entity.living.BabyEntitySpawnEvent;
@@ -115,6 +117,9 @@ public class TwinsAndFailedBreeding {
     }
 
     private static Object getVariant(AgeableMob mob) {
+        // Direct mapped calls survive Forge reobfuscation; reflection is only a compatibility fallback.
+        if (mob instanceof VariantHolder<?> holder) return holder.getVariant();
+        if (mob instanceof MushroomCow mushroomCow) return mushroomCow.getVariant();
         Method getter = findMethod(mob.getClass(), "getVariant", 0);
         if (getter == null) {
             return null;
@@ -128,9 +133,19 @@ public class TwinsAndFailedBreeding {
         }
     }
 
+    @SuppressWarnings("unchecked")
     private static boolean setVariant(AgeableMob mob, Object variant) {
         if (variant == null) {
             return false;
+        }
+
+        if (mob instanceof VariantHolder<?> holder) {
+            ((VariantHolder<Object>) holder).setVariant(variant);
+            return true;
+        }
+        if (mob instanceof MushroomCow mushroomCow && variant instanceof MushroomCow.MushroomType type) {
+            mushroomCow.setVariant(type);
+            return true;
         }
 
         Method setter = findVariantSetter(mob.getClass(), variant.getClass());

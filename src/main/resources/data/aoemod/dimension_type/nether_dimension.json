@@ -1,0 +1,25 @@
+{
+  "ambient_light": 0.1,
+  "bed_works": true,
+  "coordinate_scale": 1,
+  "effects": "aoemod:nether_regions",
+  "has_ceiling": true,
+  "has_raids": false,
+  "has_skylight": false,
+  "infiniburn": "#minecraft:infiniburn_overworld",
+  "height": 128,
+  "logical_height": 128,
+  "min_y": 0,
+  "monster_spawn_block_light_limit": 0,
+  "monster_spawn_light_level": {
+    "type": "minecraft:uniform",
+    "value": {
+      "max_inclusive": 7,
+      "min_inclusive": 0
+    }
+  },
+  "natural": false,
+  "piglin_safe": true,
+  "respawn_anchor_works": false,
+  "ultrawarm": true
+}

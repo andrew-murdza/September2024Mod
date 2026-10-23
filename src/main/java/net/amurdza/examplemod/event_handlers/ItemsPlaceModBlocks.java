@@ -2,6 +2,7 @@ package net.amurdza.examplemod.event_handlers;
 
 import net.amurdza.examplemod.AOEMod;
 import net.amurdza.examplemod.registry.ModBlocks;
+import net.amurdza.examplemod.util.BiomePlacementRestrictions;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.resources.ResourceLocation;
@@ -58,6 +59,12 @@ public class ItemsPlaceModBlocks {
             return;
         }
 
+        if (!level.isInWorldBounds(pos) || stack.is(Items.SUNFLOWER) && !level.isInWorldBounds(pos.above())) {
+            event.setCanceled(true);
+            event.setCancellationResult(InteractionResult.FAIL);
+            return;
+        }
+
         if (!level.getBlockState(pos).canBeReplaced(context)) {
             return;
         }
@@ -70,6 +77,17 @@ public class ItemsPlaceModBlocks {
             return;
         }
 
+        var restriction = BiomePlacementRestrictions.placementFailureMessage(level, pos, state);
+        if (restriction.isEmpty() && stack.is(Items.SUNFLOWER)) {
+            restriction = BiomePlacementRestrictions.placementFailureMessage(level, pos.above(), state);
+        }
+        if (restriction.isPresent()) {
+            event.setCanceled(true);
+            event.setCancellationResult(InteractionResult.FAIL);
+            if (!level.isClientSide()) player.displayClientMessage(restriction.get(), true);
+            return;
+        }
+
         event.setUseBlock(Event.Result.DENY);
         event.setUseItem(Event.Result.DENY);
         event.setCanceled(true);
@@ -79,10 +97,23 @@ public class ItemsPlaceModBlocks {
             return;
         }
 
+        boolean placed;
         if (stack.is(Items.SUNFLOWER)) {
+            BlockState previousLower = level.getBlockState(pos);
+            BlockState previousUpper = level.getBlockState(pos.above());
             DoublePlantBlock.placeAt(level, state, pos, 3);
+            placed = level.getBlockState(pos).equals(state)
+                    && level.getBlockState(pos.above()).equals(state.setValue(DoublePlantBlock.HALF, DoubleBlockHalf.UPPER));
+            if (!placed) {
+                level.setBlock(pos, previousLower, 3);
+                level.setBlock(pos.above(), previousUpper, 3);
+            }
         } else {
-            level.setBlock(pos, state, 3);
+            placed = level.setBlock(pos, state, 3);
+        }
+        if (!placed) {
+            event.setCancellationResult(InteractionResult.FAIL);
+            return;
         }
 
         if (!player.getAbilities().instabuild) {

@@ -5,8 +5,8 @@ import com.github.alexthe666.alexsmobs.item.AMItemRegistry;
 import com.github.alexthe666.iceandfire.entity.IafEntityRegistry;
 import com.morallenplay.dropthemeat.init.ItemInit;
 import com.starfish_studios.naturalist.core.registry.NaturalistEntityTypes;
-import com.starfish_studios.naturalist.core.registry.NaturalistItems;
-import dev.hybridlabs.aquatic.entity.HybridAquaticEntityTypes;
+import com.starfish_studios.naturalist.core.registry.NaturalistRegistry;
+import dev.hybridlabs.aquatic.entity.HAEntityTypes;
 import net.amurdza.examplemod.registry.ModEntities;
 import org.violetmoon.quark.content.mobs.module.WraithModule;
 import samebutdifferent.ecologics.registry.ModBlocks;
@@ -54,6 +54,7 @@ public final class MobConfig {
         BIOME_TO_NUGGETS_FROM_ARMOR.put(ModTags.Biomes.crimsonForestBiomes,1f);
         BIOME_TO_NUGGETS_FROM_ARMOR.put(ModTags.Biomes.basaltDeltasBiomes,1f);
         registerMobInfo();
+        DocumentedContentBalance.registerMobs();
     }
 
     private static void ensureAllTags(Map<TagKey<Biome>, Map<EntityType<?>, Float>> map) {
@@ -234,8 +235,8 @@ public final class MobConfig {
         // -------------------------------------------------------------------------
 
         addMobInfo(EntityType.COW,
-                m(0, 3, 1, 0, 0, 0, 0, 0, 0, 0),
-                m(0, 3, 1, 0, 0, 0, 0, 0, 0, 0),
+                m(0, 3, 1, 0.75F, 0, 0, 0, 0, 0, 0),
+                m(0, 3, 1, 1, 0, 0, 0, 0, 0, 0),
                 m(ModTags.Biomes.plainsBiomes, 2, Items.BEEF, Items.COOKED_BEEF),
                 m(ModTags.Biomes.savannaBiomes, 6, Items.BEEF, Items.COOKED_BEEF),
                 m(ModTags.Biomes.plainsBiomes, 1, Items.LEATHER),
@@ -261,7 +262,7 @@ public final class MobConfig {
                 m(0, 3, 1, 0, 0, 0, 0, 0, 0, 0),
                 m(0, 3, 1, 0, 0, 0, 0, 0, 0, 0),
                 m(ModTags.Biomes.plainsBiomes, 1, Items.MUTTON, Items.COOKED_MUTTON),
-                m(ModTags.Biomes.plainsBiomes, 3, Items.MUTTON, Items.COOKED_MUTTON),
+                m(ModTags.Biomes.savannaBiomes, 3, Items.MUTTON, Items.COOKED_MUTTON),
                 m(ModTags.Biomes.plainsBiomes, 1, Items.WHITE_WOOL),
                 m(ModTags.Biomes.savannaBiomes, 3, Items.WHITE_WOOL),
                 m(ModTags.Biomes.plainsBiomes, 0.5f, Items.BONE),
@@ -271,7 +272,7 @@ public final class MobConfig {
                 m(2, 3, 1, 0, 0, 0, 0, 0, 0, 0),
                 m(2, 3, 1, 0, 0, 0, 0, 0, 0, 0),
                 m(ModTags.Biomes.plainsBiomes, 1, Items.CHICKEN, Items.COOKED_CHICKEN),
-                m(ModTags.Biomes.plainsBiomes, 2.5f, Items.CHICKEN, Items.COOKED_CHICKEN),
+                m(ModTags.Biomes.savannaBiomes, 2.5f, Items.CHICKEN, Items.COOKED_CHICKEN),
                 m(ModTags.Biomes.plainsBiomes, 1, Items.FEATHER),
                 m(ModTags.Biomes.savannaBiomes, 3, Items.FEATHER),
                 m(ModTags.Biomes.rainforestBiomes, 2.5f, Items.FEATHER),
@@ -416,7 +417,7 @@ public final class MobConfig {
 
 
         addMobInfo(EntityType.TROPICAL_FISH,
-                m(2, 1, 0, 0, 0, 0, 0, 0, 0, 0, Items.TROPICAL_FISH, Items.TROPICAL_FISH),
+                m(2, 1, 0, 0, 0, 0, 0, 0, 0, 0, Items.TROPICAL_FISH, ModItems.COOKED_TROPICAL_FISH.get()),
                 m(0.2F, 0.05F, 0, 0, 0, 0, 0, 0, 0, 0, Items.BONE_MEAL));
 
         addMobInfo(EntityType.PUFFERFISH,
@@ -436,7 +437,7 @@ public final class MobConfig {
         addMobInfo(AMEntityRegistry.EMU.get(),
                 m(ModTags.Biomes.savannaBiomes, 3),
                 m(ModTags.Biomes.savannaBiomes, 3),
-                m(ModTags.Biomes.savannaBiomes, 3, NaturalistItems.DUCK.get(), NaturalistItems.COOKED_DUCK.get()),
+                m(ModTags.Biomes.savannaBiomes, 3, NaturalistRegistry.DUCK.get(), NaturalistRegistry.COOKED_DUCK.get()),
                 m(ModTags.Biomes.savannaBiomes, 3, AMItemRegistry.EMU_FEATHER.get()),
                 m(ModTags.Biomes.savannaBiomes, 0.5F, Items.BONE));
 
@@ -486,7 +487,7 @@ public final class MobConfig {
         addMobInfo(NaturalistEntityTypes.DEER.get(),
                 m(2, 3, 0, 0, 0, 0, 0, 0, 0, 0),
                 m(2, 2, 0, 0, 0, 0, 0, 0, 0, 0),
-                m(2, 5, 0, 0, 0, 0, 0, 0, 0, 0, NaturalistItems.VENISON.get(), NaturalistItems.COOKED_VENISON.get()),
+                m(2, 5, 0, 0, 0, 0, 0, 0, 0, 0, NaturalistRegistry.VENISON.get(), NaturalistRegistry.COOKED_VENISON.get()),
                 m(1.5F, 3, 0, 0, 0, 0, 0, 0, 0, 0, Items.LEATHER),
                 m(1, 1.5F, 0, 0, 0, 0, 0, 0, 0, 0, Items.BONE));
 
@@ -496,7 +497,7 @@ public final class MobConfig {
                 m(ModTags.Biomes.savannaBiomes, 5, ItemInit.RAW_TURTLE.get(), ItemInit.COOKED_TURTLE.get()),
                 m(ModTags.Biomes.savannaBiomes, 1.75f, Items.BONE));
 
-        addMobInfo(HybridAquaticEntityTypes.INSTANCE.getARROW_SQUID().get(),
+        addMobInfo(HAEntityTypes.INSTANCE.getARROW_SQUID().get(),
                 m(2, 1, 0, 2, 0, 0, 0, 0, 0, 0, ItemInit.RAW_WOLF.get(), ItemInit.COOKED_WOLF.get()),
                 m(2, 1, 0, 2, 0, 0, 0, 0, 0, 0, Items.INK_SAC),
                 m(0.5F, 0.05F, 0, 0.4F, 0, 0, 0, 0, 0, 0, Items.BONE_MEAL));
@@ -763,7 +764,7 @@ public final class MobConfig {
         MobInfo info = MOB_INFO_BY_MOB.get(entity.getType());
 
         if (info == null || info.aging() == null) {
-            return -1F;
+            return 1F;
         }
 
         return valueForBiome(entity, info.aging());
@@ -902,7 +903,7 @@ public final class MobConfig {
         }
     }
 
-    private static void addMobInfo(
+    static void addMobInfo(
             EntityType<?> mob,
             MobBiomeMultipliers... rows
     ) {

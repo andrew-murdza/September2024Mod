@@ -1,0 +1,11 @@
+{
+  "block.potent_sulfur.geyser_continuous_eruption_start": {
+    "sounds": [
+      {
+        "name": "minecraft:block.potent_sulfur.geyser_continuous_eruption",
+        "type": "event"
+      }
+    ],
+    "subtitle": "subtitles.block.potent_sulfur.geyser_eruption"
+  }
+}

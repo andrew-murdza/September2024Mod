@@ -3,6 +3,7 @@ package net.amurdza.examplemod.mixins.mob_behavior;
 import com.llamalad7.mixinextras.injector.wrapoperation.Operation;
 import com.llamalad7.mixinextras.injector.wrapoperation.WrapOperation;
 import net.amurdza.examplemod.config.MobConfig;
+import net.amurdza.examplemod.future.FutureMobCompatibility;
 import net.amurdza.examplemod.util.Helper;
 import net.minecraft.world.entity.AgeableMob;
 import org.spongepowered.asm.mixin.Mixin;
@@ -18,7 +19,7 @@ public class AnimalAgingRate {
             )
     )
     private boolean aoe$changeNaturalAgingRate(AgeableMob mob, Operation<Boolean> original) {
-        if (!mob.isAlive()) {
+        if (!mob.isAlive() || FutureMobCompatibility.isAgeLocked(mob)) {
             return false;
         }
 

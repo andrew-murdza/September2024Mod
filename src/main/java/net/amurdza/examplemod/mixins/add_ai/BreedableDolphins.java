@@ -1,5 +1,7 @@
 package net.amurdza.examplemod.mixins.add_ai;
 
+import net.amurdza.examplemod.future.FutureMobCompatibility;
+
 import net.amurdza.examplemod.config.MobConfig;
 import net.amurdza.examplemod.entity.ai.DolphinBreedGoal;
 import net.amurdza.examplemod.entity.ai.DolphinBreedingAccess;
@@ -97,7 +99,8 @@ public abstract class BreedableDolphins extends WaterAnimal implements DolphinBr
             return;
         }
 
-        int ageAmount = Helper.computeIncrements(this.random, MobConfig.mobGrowthChance(this));
+        int ageAmount = FutureMobCompatibility.isAgeLocked(this) ? 0
+                : Helper.computeIncrements(this.random, MobConfig.mobGrowthChance(this));
         if (this.aoe$age < 0) {
             this.aoe$setAgeWithoutImmediateSync(Math.min(0, this.aoe$age + ageAmount));
         } else if (this.aoe$age > 0) {
@@ -129,6 +132,10 @@ public abstract class BreedableDolphins extends WaterAnimal implements DolphinBr
         }
 
         if (this.aoe$isBaby()) {
+            if (FutureMobCompatibility.isAgeLocked(this) || MobConfig.mobGrowthChance(this) == 0.0F) {
+                callback.setReturnValue(InteractionResult.PASS);
+                return;
+            }
             if (!this.level().isClientSide) {
                 this.aoe$consumeFood(player, stack);
                 int growthSeconds = (int) ((float) (-this.aoe$age / 20) * 0.1F);
@@ -139,6 +146,10 @@ public abstract class BreedableDolphins extends WaterAnimal implements DolphinBr
             }
             callback.setReturnValue(InteractionResult.sidedSuccess(this.level().isClientSide));
         } else if (this.aoe$getAge() == 0 && !this.aoe$isInLove()) {
+            if (MobConfig.mobTwinsChance(this) == 0.0F) {
+                callback.setReturnValue(InteractionResult.FAIL);
+                return;
+            }
             if (!this.level().isClientSide) {
                 this.aoe$consumeFood(player, stack);
                 this.aoe$setInLove(player);

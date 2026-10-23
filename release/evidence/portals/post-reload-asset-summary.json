@@ -1,0 +1,164 @@
+{
+  "allPassed": true,
+  "checks": {
+    "texture": {
+      "width": 16,
+      "height": 512,
+      "vanillaWidth": 16,
+      "vanillaHeight": 512,
+      "pixelMismatches": 0,
+      "identicalAnimationMetadata": true
+    },
+    "animations": {
+      "born_in_chaos_v1:animations/babyskeleton.animation.json": {
+        "resourcePresent": true,
+        "repairedAnimationPresent": true,
+        "animationNames": [
+          "walk",
+          "death",
+          "attack",
+          "idle"
+        ]
+      },
+      "born_in_chaos_v1:animations/babyskeletondeamon.animation.json": {
+        "resourcePresent": true,
+        "repairedAnimationPresent": true,
+        "animationNames": [
+          "walk",
+          "death",
+          "attack",
+          "idle"
+        ]
+      },
+      "born_in_chaos_v1:animations/boneimp.animation.json": {
+        "resourcePresent": true,
+        "repairedAnimationPresent": true,
+        "animationNames": [
+          "walk",
+          "death",
+          "attack",
+          "idle"
+        ]
+      },
+      "born_in_chaos_v1:animations/scarletpersecutor.animation.json": {
+        "resourcePresent": true,
+        "repairedAnimationPresent": true,
+        "animationNames": [
+          "walk",
+          "death",
+          "attack",
+          "idle"
+        ]
+      }
+    },
+    "eyes": {
+      "iceandfire:lightning_dragon": {
+        "fireHead": true,
+        "iceHead": true,
+        "lightningHead": true
+      },
+      "iceandfire:ice_dragon": {
+        "fireHead": true,
+        "iceHead": true,
+        "lightningHead": true
+      },
+      "iceandfire:fire_dragon": {
+        "fireHead": true,
+        "iceHead": true,
+        "lightningHead": true
+      }
+    },
+    "brewing": {
+      "recipes": [
+        {
+          "input": "minecraft:awkward",
+          "ingredient": "vintagedelight:salt_dust",
+          "expectedOutput": "vintagedelight:dehydrated",
+          "actualOutput": "vintagedelight:dehydrated",
+          "hasMix": true,
+          "passed": true
+        },
+        {
+          "input": "vintagedelight:dehydrated",
+          "ingredient": "minecraft:redstone",
+          "expectedOutput": "vintagedelight:long_dehydrated",
+          "actualOutput": "vintagedelight:long_dehydrated",
+          "hasMix": true,
+          "passed": true
+        },
+        {
+          "input": "vintagedelight:dehydrated",
+          "ingredient": "minecraft:glowstone_dust",
+          "expectedOutput": "vintagedelight:strong_dehydrated",
+          "actualOutput": "vintagedelight:strong_dehydrated",
+          "hasMix": true,
+          "passed": true
+        }
+      ]
+    },
+    "recipebooks": {
+      "types": [
+        "CRAFTING",
+        "FURNACE",
+        "BLAST_FURNACE",
+        "SMOKER",
+        "COOKING",
+        "HEARTHANDHARVEST_AGING",
+        "HEARTHANDHARVEST_FERMENTING"
+      ],
+      "typeCount": 7,
+      "settingsBytes": 14,
+      "settingsHex": "0000000000000000000000000000"
+    },
+    "sounds": {
+      "naturalist:entity.giraffe.ambient": {
+        "eventPresent": true,
+        "weight": 1,
+        "resolvedSample": "naturalist:mob/giraffe_idle",
+        "sampleExists": true
+      },
+      "alexscaves:luxtructosaurus_breath": {
+        "eventPresent": true,
+        "weight": 3,
+        "resolvedSample": "alexscaves:mob/luxtructosaurus/luxtructosaurus_breath_0",
+        "sampleExists": true
+      },
+      "alexscaves:luxtructosaurus_breathe": {
+        "eventPresent": true,
+        "weight": 3,
+        "resolvedSample": "alexscaves:mob/luxtructosaurus/luxtructosaurus_breath_0",
+        "sampleExists": true
+      },
+      "alexscaves:abyssal_chasm_ambience_mood": {
+        "eventPresent": true,
+        "weight": 4,
+        "resolvedSample": "alexscaves:ambient/abyssal_chasm/mood/mood_3",
+        "sampleExists": true
+      },
+      "ambientadditions:honeycreeper.ambient": {
+        "eventPresent": true,
+        "weight": 1,
+        "resolvedSample": "ambientadditions:iiwi/ambient",
+        "sampleExists": true
+      },
+      "ambientadditions:honeycreeper.hurt": {
+        "eventPresent": true,
+        "weight": 1,
+        "resolvedSample": "ambientadditions:iiwi/hurt",
+        "sampleExists": true
+      },
+      "ambientadditions:honeycreeper.death": {
+        "eventPresent": true,
+        "weight": 1,
+        "resolvedSample": "ambientadditions:iiwi/death",
+        "sampleExists": true
+      }
+    }
+  },
+  "modelDiagnostics": {
+    "missingBlockModels": [],
+    "menuScreenCheckFailed": false,
+    "missingMenuScreens": [],
+    "entityRendererCheckFailed": false
+  }
+}

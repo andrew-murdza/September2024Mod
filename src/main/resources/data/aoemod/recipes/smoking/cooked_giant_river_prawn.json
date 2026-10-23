@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smoking",
+  "ingredient": {
+    "item": "collectorsreap:tiger_prawn"
+  },
+  "result": "aoemod:cooked_giant_river_prawn",
+  "experience": 0.35,
+  "cookingtime": 100
+}

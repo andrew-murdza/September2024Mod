@@ -3,6 +3,8 @@ package net.amurdza.examplemod.entity.render;
 import net.amurdza.examplemod.AOEMod;
 import net.amurdza.examplemod.registry.ModEntities;
 import net.amurdza.examplemod.entity.model.CubozoaEntityModel;
+import net.amurdza.examplemod.entity.model.ArthropleuraModel;
+import net.amurdza.examplemod.entity.model.SwordfishModel;
 import net.amurdza.examplemod.entity.model.EndFishEntityModel;
 import net.amurdza.examplemod.entity.model.SeaSerpentEntityModel;
 import net.amurdza.examplemod.entity.model.future.BoggedModel;
@@ -25,6 +27,10 @@ import net.minecraftforge.fml.common.Mod;
         value = Dist.CLIENT
 )
 public class EntityRenderers {
+    public static final ModelLayerLocation SWORDFISH_MODEL =
+            new ModelLayerLocation(AOEMod.makeID("swordfish"), "main");
+    public static final ModelLayerLocation ARTHROPLEURA_MODEL =
+            new ModelLayerLocation(AOEMod.makeID("arthropleura"), "main");
     public static final ModelLayerLocation END_FISH_MODEL =
             new ModelLayerLocation(AOEMod.makeID("endfish"), "main");
 
@@ -51,7 +57,13 @@ public class EntityRenderers {
 
     @SubscribeEvent
     public static void registerRenderers(EntityRenderersEvent.RegisterRenderers event) {
-        event.registerEntityRenderer(EntityType.DOLPHIN, BabyAwareDolphinRenderer::new);
+        event.registerEntityRenderer(ModEntities.SWORDFISH.get(), SwordfishRenderer::new);
+        event.registerEntityRenderer(ModEntities.ARTHROPLEURA.get(), ArthropleuraRenderer::new);
+        if (net.minecraftforge.fml.ModList.get().isLoaded("tiny_takeover_backport")) {
+            event.registerEntityRenderer(EntityType.DOLPHIN, net.minecraft.client.renderer.entity.DolphinRenderer::new);
+        } else {
+            event.registerEntityRenderer(EntityType.DOLPHIN, BabyAwareDolphinRenderer::new);
+        }
         event.registerEntityRenderer(EntityType.PARROT, BabyAwareParrotRenderer::new);
         event.registerEntityRenderer(ModEntities.ARCHLICH.get(), ArchlichRenderer::new);
         event.registerEntityRenderer(ModEntities.SPIDER_QUEEN.get(), SpiderQueenRenderer::new);
@@ -79,6 +91,8 @@ public class EntityRenderers {
 
     @SubscribeEvent
     public static void registerLayerDefinitions(EntityRenderersEvent.RegisterLayerDefinitions event) {
+        event.registerLayerDefinition(SWORDFISH_MODEL, SwordfishModel::createBodyLayer);
+        event.registerLayerDefinition(ARTHROPLEURA_MODEL, ArthropleuraModel::createBodyLayer);
         event.registerLayerDefinition(END_FISH_MODEL, EndFishEntityModel::getTexturedModelData);
         event.registerLayerDefinition(CUBOZOA_MODEL, CubozoaEntityModel::getTexturedModelData);
         event.registerLayerDefinition(SEA_SERPENT_MODEL, SeaSerpentEntityModel::createBodyLayer);

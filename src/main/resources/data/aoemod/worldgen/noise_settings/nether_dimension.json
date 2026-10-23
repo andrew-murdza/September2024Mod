@@ -1,0 +1,224 @@
+{
+  "aquifers_enabled": false,
+  "default_block": {
+    "Name": "minecraft:netherrack"
+  },
+  "default_fluid": {
+    "Name": "minecraft:lava",
+    "Properties": {
+      "level": "0"
+    }
+  },
+  "disable_mob_generation": false,
+  "legacy_random_source": false,
+  "noise": {
+    "height": 128,
+    "min_y": 0,
+    "size_horizontal": 1,
+    "size_vertical": 1
+  },
+  "noise_router": {
+    "barrier": 0.0,
+    "fluid_level_floodedness": 0.0,
+    "fluid_level_spread": 0.0,
+    "lava": 0.0,
+    "temperature": {
+      "type": "minecraft:cache_2d",
+      "argument": {
+        "type": "minecraft:noise",
+        "noise": "aoemod:terrain/nether/land",
+        "xz_scale": 1,
+        "y_scale": 0
+      }
+    },
+    "vegetation": {
+      "type": "minecraft:noise",
+      "noise": "aoemod:terrain/nether/material",
+      "xz_scale": 1,
+      "y_scale": 1
+    },
+    "continents": {
+      "type": "aoemod:dimension_terrain",
+      "dimension": "nether",
+      "output": "biome",
+      "land": {
+        "type": "minecraft:cache_2d",
+        "argument": {
+          "type": "minecraft:noise",
+          "noise": "aoemod:terrain/nether/land",
+          "xz_scale": 1,
+          "y_scale": 0
+        }
+      },
+      "detail": {
+        "type": "minecraft:cache_2d",
+        "argument": {
+          "type": "minecraft:noise",
+          "noise": "aoemod:terrain/nether/detail",
+          "xz_scale": 1,
+          "y_scale": 0
+        }
+      },
+      "river": {
+        "type": "minecraft:cache_2d",
+        "argument": {
+          "type": "minecraft:noise",
+          "noise": "aoemod:terrain/nether/river",
+          "xz_scale": 1,
+          "y_scale": 0
+        }
+      },
+      "lake": {
+        "type": "minecraft:cache_2d",
+        "argument": {
+          "type": "minecraft:noise",
+          "noise": "aoemod:terrain/nether/lake",
+          "xz_scale": 1,
+          "y_scale": 0
+        }
+      },
+      "cave_a": {
+        "type": "minecraft:noise",
+        "noise": "aoemod:terrain/nether/cave_a",
+        "xz_scale": 1,
+        "y_scale": 1
+      },
+      "cave_b": {
+        "type": "minecraft:noise",
+        "noise": "aoemod:terrain/nether/cave_b",
+        "xz_scale": 1,
+        "y_scale": 1
+      }
+    },
+    "erosion": 0.0,
+    "depth": 0.0,
+    "ridges": {
+      "type": "minecraft:cache_2d",
+      "argument": {
+        "type": "minecraft:noise",
+        "noise": "aoemod:terrain/nether/detail",
+        "xz_scale": 1,
+        "y_scale": 0
+      }
+    },
+    "initial_density_without_jaggedness": {
+      "type": "aoemod:dimension_terrain",
+      "dimension": "nether",
+      "output": "height",
+      "land": {
+        "type": "minecraft:cache_2d",
+        "argument": {
+          "type": "minecraft:noise",
+          "noise": "aoemod:terrain/nether/land",
+          "xz_scale": 1,
+          "y_scale": 0
+        }
+      },
+      "detail": {
+        "type": "minecraft:cache_2d",
+        "argument": {
+          "type": "minecraft:noise",
+          "noise": "aoemod:terrain/nether/detail",
+          "xz_scale": 1,
+          "y_scale": 0
+        }
+      },
+      "river": {
+        "type": "minecraft:cache_2d",
+        "argument": {
+          "type": "minecraft:noise",
+          "noise": "aoemod:terrain/nether/river",
+          "xz_scale": 1,
+          "y_scale": 0
+        }
+      },
+      "lake": {
+        "type": "minecraft:cache_2d",
+        "argument": {
+          "type": "minecraft:noise",
+          "noise": "aoemod:terrain/nether/lake",
+          "xz_scale": 1,
+          "y_scale": 0
+        }
+      },
+      "cave_a": {
+        "type": "minecraft:noise",
+        "noise": "aoemod:terrain/nether/cave_a",
+        "xz_scale": 1,
+        "y_scale": 1
+      },
+      "cave_b": {
+        "type": "minecraft:noise",
+        "noise": "aoemod:terrain/nether/cave_b",
+        "xz_scale": 1,
+        "y_scale": 1
+      }
+    },
+    "final_density": {
+      "type": "minecraft:interpolated",
+      "argument": {
+        "type": "aoemod:dimension_terrain",
+        "dimension": "nether",
+        "output": "density",
+        "land": {
+          "type": "minecraft:cache_2d",
+          "argument": {
+            "type": "minecraft:noise",
+            "noise": "aoemod:terrain/nether/land",
+            "xz_scale": 1,
+            "y_scale": 0
+          }
+        },
+        "detail": {
+          "type": "minecraft:cache_2d",
+          "argument": {
+            "type": "minecraft:noise",
+            "noise": "aoemod:terrain/nether/detail",
+            "xz_scale": 1,
+            "y_scale": 0
+          }
+        },
+        "river": {
+          "type": "minecraft:cache_2d",
+          "argument": {
+            "type": "minecraft:noise",
+            "noise": "aoemod:terrain/nether/river",
+            "xz_scale": 1,
+            "y_scale": 0
+          }
+        },
+        "lake": {
+          "type": "minecraft:cache_2d",
+          "argument": {
+            "type": "minecraft:noise",
+            "noise": "aoemod:terrain/nether/lake",
+            "xz_scale": 1,
+            "y_scale": 0
+          }
+        },
+        "cave_a": {
+          "type": "minecraft:noise",
+          "noise": "aoemod:terrain/nether/cave_a",
+          "xz_scale": 1,
+          "y_scale": 1
+        },
+        "cave_b": {
+          "type": "minecraft:noise",
+          "noise": "aoemod:terrain/nether/cave_b",
+          "xz_scale": 1,
+          "y_scale": 1
+        }
+      }
+    },
+    "vein_toggle": 0.0,
+    "vein_ridged": 0.0,
+    "vein_gap": 0.0
+  },
+  "ore_veins_enabled": false,
+  "sea_level": 12,
+  "spawn_target": [],
+  "surface_rule": {
+    "type": "aoemod:dimension_surface",
+    "dimension": "nether"
+  }
+}

@@ -1,7 +1,7 @@
 package net.amurdza.examplemod.mixins.no_fire_in_tropical;
 
 import net.amurdza.examplemod.registry.ModBlocks;
-import net.amurdza.examplemod.util.ModTags;
+import net.amurdza.examplemod.util.GameplayDimensions;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.resources.ResourceLocation;
@@ -27,7 +27,7 @@ public class NoBaseFirePlacementInTropical {
             return;
         }
 
-        if (pLevel.getBiome(pPos).is(ModTags.Biomes.tropicalBiomes)) {
+        if (GameplayDimensions.is(pLevel, GameplayDimensions.TROPICAL)) {
             cir.setReturnValue(false);
         }
     }

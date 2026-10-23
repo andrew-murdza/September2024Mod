@@ -3,32 +3,40 @@
   "config": {
     "features": [
       {
-        "feature": "aoemod:rainforest/tree/oak_large_tree_worldgen",
+        "feature": "minecraft:fancy_oak",
         "count": 8
       },
       {
-        "feature": "aoemod:rainforest/tree/dark_oak_large_tree_worldgen",
+        "feature": "minecraft:dark_oak",
         "count": 8
       },
       {
-        "feature": "aoemod:rainforest/tree/azalea_large_tree_worldgen",
+        "feature": "minecraft:azalea_tree",
         "count": 8
       },
       {
-        "feature": "aoemod:rainforest/tree/cherry_large_tree_worldgen",
+        "feature": "minecraft:cherry",
         "count": 8
       },
       {
-        "feature": "aoemod:rainforest/tree/jungle_large_tree_worldgen",
+        "feature": "minecraft:jungle_tree_no_vine",
         "count": 4
       },
       {
-        "feature": "aoemod:rainforest/tree/jungle_large_tree_with_cocoa",
+        "feature": "minecraft:jungle_tree",
         "count": 4
       },
       {
-        "feature": "aoemod:rainforest/tree/mangrove_large_tree_worldgen",
+        "feature": "minecraft:mangrove",
         "count": 8
+      },
+      {
+        "feature": "minecraft:huge_red_mushroom",
+        "count": 4
+      },
+      {
+        "feature": "minecraft:huge_brown_mushroom",
+        "count": 4
       }
     ],
     "placement": [],

@@ -1,0 +1,22 @@
+{
+  "format": 1,
+  "scope": "runData only",
+  "artifacts": [
+    {
+      "coordinate": "com.teamabnormals:gallery:1.20.1-1.0.2",
+      "file": "libs/datagen/gallery-1.20.1-1.0.2.jar",
+      "sha256": "2366acec5d924e75ddb3baec48d15258456cc9957bcdeae2309a708af15b2456",
+      "download": "https://maven.teamabnormals.com/com/teamabnormals/gallery/1.20.1-1.0.2/gallery-1.20.1-1.0.2.jar",
+      "upstream_declaration": "https://github.com/team-abnormals/environmental/blob/1.20.x/gradle.properties",
+      "reason": "Environmental4.1.2 links GalleryItemModelProvider during GatherDataEvent even with only AoE selected."
+    },
+    {
+      "coordinate": "dev.xkmc.cuisinedelight:cuisinedelight:1.1.12-slim",
+      "file": "libs/datagen/cuisinedelight-1.1.12-slim.jar",
+      "sha256": "16bb797f7748de9039de0a4ebaa8c2898a9f78dd23beb74e49d0adc93135a43e",
+      "download": "https://raw.githubusercontent.com/Minecraft-LightLand/FruitsDelight/1.20/libs/cuisinedelight-1.1.12-slim.jar",
+      "upstream_declaration": "https://github.com/Minecraft-LightLand/FruitsDelight/blob/1.20/build.gradle",
+      "reason": "FruitsDelight1.1.3 constructs cuisine datagen provider unconditionally; existing L2Library and FarmersDelight satisfy its required dependencies."
+    }
+  ]
+}

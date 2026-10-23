@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smoking",
+  "ingredient": {
+    "item": "hybrid_aquatic:carp"
+  },
+  "result": "aoemod:cooked_carp",
+  "experience": 0.35,
+  "cookingtime": 100
+}

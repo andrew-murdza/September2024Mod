@@ -1,0 +1,27 @@
+{
+  "luxtructosaurus_breath": {
+    "sounds": [
+      {
+        "type": "event",
+        "name": "alexscaves:luxtructosaurus_breathe"
+      }
+    ]
+  },
+  "abyssal_chasm_ambience_mood": {
+    "sounds": [
+      {
+        "type": "event",
+        "name": "alexscaves:abyssal_chasm_mood"
+      }
+    ]
+  },
+  "luxtructosaurus_breathe": {
+    "sounds": [
+      "alexscaves:mob/luxtructosaurus/luxtructosaurus_breath_0",
+      "alexscaves:mob/luxtructosaurus/luxtructosaurus_breath_1",
+      "alexscaves:mob/luxtructosaurus/luxtructosaurus_breath_2"
+    ],
+    "subtitle": "alexscaves.sound.subtitle.luxtructosaurus_breathe",
+    "replace": true
+  }
+}

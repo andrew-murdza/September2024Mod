@@ -1,5 +1,8 @@
 {
+  "replace": false,
   "values": [
-    "aoemod:desert"
+    "aoemod:desert",
+    "aoemod:mesa",
+    "aoemod:deep_dark"
   ]
 }

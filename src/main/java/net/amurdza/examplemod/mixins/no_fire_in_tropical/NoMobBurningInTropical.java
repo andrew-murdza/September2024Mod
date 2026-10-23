@@ -1,6 +1,6 @@
 package net.amurdza.examplemod.mixins.no_fire_in_tropical;
 
-import net.amurdza.examplemod.util.ModTags;
+import net.amurdza.examplemod.util.GameplayDimensions;
 import net.minecraft.world.entity.Entity;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
@@ -17,7 +17,7 @@ public class NoMobBurningInTropical {
             return;
         }
 
-        if (entity.level().getBiome(entity.blockPosition()).is(ModTags.Biomes.tropicalBiomes)) {
+        if (GameplayDimensions.is(entity.level(), GameplayDimensions.TROPICAL)) {
             entity.clearFire();
             ci.cancel();
         }
@@ -31,7 +31,7 @@ public class NoMobBurningInTropical {
             return;
         }
 
-        if (ticks > 0 && entity.level().getBiome(entity.blockPosition()).is(ModTags.Biomes.tropicalBiomes)) {
+        if (ticks > 0 && GameplayDimensions.is(entity.level(), GameplayDimensions.TROPICAL)) {
             entity.clearFire();
             ci.cancel();
         }

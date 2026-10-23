@@ -23,6 +23,8 @@ public class ModBlocks {
     public static final DeferredRegister<Block> BLOCKS= DeferredRegister.create(ForgeRegistries.BLOCKS, AOEMod.MOD_ID);
 
     public static final RegistryObject<Block> SOUL_BERRY_BUSH = registerBlock("soul_berry_bush", ()->new SoulBerryBushBlock(BlockBehaviour.Properties.copy(Blocks.SWEET_BERRY_BUSH)));
+    public static final RegistryObject<SoulBeetrootBlock> SOUL_BEETROOTS = registerBlock("soul_beetroots",
+            () -> new SoulBeetrootBlock(BlockBehaviour.Properties.copy(Blocks.BEETROOTS)));
     public static final RegistryObject<Block> JUNGLE_SWEET_BERRY_BUSH = registerBlock("jungle_sweet_berry_bush", () -> new SweetBerryBushBlock(BlockBehaviour.Properties.copy(Blocks.SWEET_BERRY_BUSH)));
     public static final RegistryObject<Block> BLUE_BERRY_BUSH = registerBlock("blue_berry_bush", () -> new BlueBerryBushBlock(BlockBehaviour.Properties.copy(Blocks.SWEET_BERRY_BUSH)));
     public static final RegistryObject<Block> BASALT_QUARTZ_ORE = registerBlockAndItem("basalt_quartz_ore", ()->new DropExperiencePillarBlock(BlockBehaviour.Properties.copy(Blocks.NETHER_QUARTZ_ORE).mapColor(MapColor.COLOR_BLACK), UniformInt.of(3, 7)));

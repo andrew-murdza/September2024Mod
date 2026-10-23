@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:campfire_cooking",
+  "ingredient": {
+    "item": "aoemod:raw_rubber_belly_glider"
+  },
+  "result": "aoemod:cooked_rubber_belly_glider",
+  "experience": 0.35,
+  "cookingtime": 600
+}

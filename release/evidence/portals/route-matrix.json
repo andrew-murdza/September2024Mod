@@ -1,0 +1,2658 @@
+[
+  {
+    "index": 0,
+    "source": "overworld",
+    "destination": "tropical",
+    "actualDimension": "aoemod:tropical_dimension",
+    "seconds": 0.61,
+    "arrivalXYZ": [
+      1.5,
+      220.0,
+      0.5
+    ],
+    "sourcePortal": [
+      [
+        "1, 200, 0",
+        "aoemod:tropical_portal",
+        "48d05a"
+      ],
+      [
+        "1, 201, 0",
+        "aoemod:tropical_portal",
+        "48d05a"
+      ],
+      [
+        "1, 202, 0",
+        "aoemod:tropical_portal",
+        "48d05a"
+      ],
+      [
+        "2, 200, 0",
+        "aoemod:tropical_portal",
+        "48d05a"
+      ],
+      [
+        "2, 201, 0",
+        "aoemod:tropical_portal",
+        "48d05a"
+      ],
+      [
+        "2, 202, 0",
+        "aoemod:tropical_portal",
+        "48d05a"
+      ]
+    ],
+    "returnPortal": [
+      {
+        "id": "aoemod:overworld_portal",
+        "position": "1, 220, 0",
+        "state": "Block{aoemod:overworld_portal}[axis=x]",
+        "tint": "86a9dc"
+      },
+      {
+        "id": "aoemod:overworld_portal",
+        "position": "2, 220, 0",
+        "state": "Block{aoemod:overworld_portal}[axis=x]",
+        "tint": "86a9dc"
+      },
+      {
+        "id": "aoemod:overworld_portal",
+        "position": "1, 221, 0",
+        "state": "Block{aoemod:overworld_portal}[axis=x]",
+        "tint": "86a9dc"
+      },
+      {
+        "id": "aoemod:overworld_portal",
+        "position": "2, 221, 0",
+        "state": "Block{aoemod:overworld_portal}[axis=x]",
+        "tint": "86a9dc"
+      },
+      {
+        "id": "aoemod:overworld_portal",
+        "position": "1, 222, 0",
+        "state": "Block{aoemod:overworld_portal}[axis=x]",
+        "tint": "86a9dc"
+      },
+      {
+        "id": "aoemod:overworld_portal",
+        "position": "2, 222, 0",
+        "state": "Block{aoemod:overworld_portal}[axis=x]",
+        "tint": "86a9dc"
+      }
+    ],
+    "passed": true
+  },
+  {
+    "index": 1,
+    "source": "overworld",
+    "destination": "savanna",
+    "actualDimension": "aoemod:savanna_dimension",
+    "seconds": 0.703,
+    "arrivalXYZ": [
+      1.5,
+      220.0,
+      0.5
+    ],
+    "sourcePortal": [
+      [
+        "1, 200, 0",
+        "aoemod:savanna_portal",
+        "e99d36"
+      ],
+      [
+        "1, 201, 0",
+        "aoemod:savanna_portal",
+        "e99d36"
+      ],
+      [
+        "1, 202, 0",
+        "aoemod:savanna_portal",
+        "e99d36"
+      ],
+      [
+        "2, 200, 0",
+        "aoemod:savanna_portal",
+        "e99d36"
+      ],
+      [
+        "2, 201, 0",
+        "aoemod:savanna_portal",
+        "e99d36"
+      ],
+      [
+        "2, 202, 0",
+        "aoemod:savanna_portal",
+        "e99d36"
+      ]
+    ],
+    "returnPortal": [
+      {
+        "id": "aoemod:overworld_portal",
+        "position": "1, 220, 0",
+        "state": "Block{aoemod:overworld_portal}[axis=x]",
+        "tint": "86a9dc"
+      },
+      {
+        "id": "aoemod:overworld_portal",
+        "position": "2, 220, 0",
+        "state": "Block{aoemod:overworld_portal}[axis=x]",
+        "tint": "86a9dc"
+      },
+      {
+        "id": "aoemod:overworld_portal",
+        "position": "1, 221, 0",
+        "state": "Block{aoemod:overworld_portal}[axis=x]",
+        "tint": "86a9dc"
+      },
+      {
+        "id": "aoemod:overworld_portal",
+        "position": "2, 221, 0",
+        "state": "Block{aoemod:overworld_portal}[axis=x]",
+        "tint": "86a9dc"
+      },
+      {
+        "id": "aoemod:overworld_portal",
+        "position": "1, 222, 0",
+        "state": "Block{aoemod:overworld_portal}[axis=x]",
+        "tint": "86a9dc"
+      },
+      {
+        "id": "aoemod:overworld_portal",
+        "position": "2, 222, 0",
+        "state": "Block{aoemod:overworld_portal}[axis=x]",
+        "tint": "86a9dc"
+      }
+    ],
+    "passed": true
+  },
+  {
+    "index": 2,
+    "source": "overworld",
+    "destination": "plains",
+    "actualDimension": "aoemod:plains_dimension",
+    "seconds": 0.641,
+    "arrivalXYZ": [
+      1.5,
+      220.0,
+      0.5
+    ],
+    "sourcePortal": [
+      [
+        "1, 200, 0",
+        "aoemod:plains_portal",
+        "929292"
+      ],
+      [
+        "1, 201, 0",
+        "aoemod:plains_portal",
+        "929292"
+      ],
+      [
+        "1, 202, 0",
+        "aoemod:plains_portal",
+        "929292"
+      ],
+      [
+        "2, 200, 0",
+        "aoemod:plains_portal",
+        "929292"
+      ],
+      [
+        "2, 201, 0",
+        "aoemod:plains_portal",
+        "929292"
+      ],
+      [
+        "2, 202, 0",
+        "aoemod:plains_portal",
+        "929292"
+      ]
+    ],
+    "returnPortal": [
+      {
+        "id": "aoemod:overworld_portal",
+        "position": "1, 220, 0",
+        "state": "Block{aoemod:overworld_portal}[axis=x]",
+        "tint": "86a9dc"
+      },
+      {
+        "id": "aoemod:overworld_portal",
+        "position": "2, 220, 0",
+        "state": "Block{aoemod:overworld_portal}[axis=x]",
+        "tint": "86a9dc"
+      },
+      {
+        "id": "aoemod:overworld_portal",
+        "position": "1, 221, 0",
+        "state": "Block{aoemod:overworld_portal}[axis=x]",
+        "tint": "86a9dc"
+      },
+      {
+        "id": "aoemod:overworld_portal",
+        "position": "2, 221, 0",
+        "state": "Block{aoemod:overworld_portal}[axis=x]",
+        "tint": "86a9dc"
+      },
+      {
+        "id": "aoemod:overworld_portal",
+        "position": "1, 222, 0",
+        "state": "Block{aoemod:overworld_portal}[axis=x]",
+        "tint": "86a9dc"
+      },
+      {
+        "id": "aoemod:overworld_portal",
+        "position": "2, 222, 0",
+        "state": "Block{aoemod:overworld_portal}[axis=x]",
+        "tint": "86a9dc"
+      }
+    ],
+    "passed": true
+  },
+  {
+    "index": 3,
+    "source": "overworld",
+    "destination": "snowy",
+    "actualDimension": "aoemod:snowy_dimension",
+    "seconds": 0.703,
+    "arrivalXYZ": [
+      1.5,
+      225.0,
+      0.5
+    ],
+    "sourcePortal": [
+      [
+        "1, 200, 0",
+        "aoemod:snowy_portal",
+        "ffffff"
+      ],
+      [
+        "1, 201, 0",
+        "aoemod:snowy_portal",
+        "ffffff"
+      ],
+      [
+        "1, 202, 0",
+        "aoemod:snowy_portal",
+        "ffffff"
+      ],
+      [
+        "2, 200, 0",
+        "aoemod:snowy_portal",
+        "ffffff"
+      ],
+      [
+        "2, 201, 0",
+        "aoemod:snowy_portal",
+        "ffffff"
+      ],
+      [
+        "2, 202, 0",
+        "aoemod:snowy_portal",
+        "ffffff"
+      ]
+    ],
+    "returnPortal": [
+      {
+        "id": "aoemod:overworld_portal",
+        "position": "1, 225, 0",
+        "state": "Block{aoemod:overworld_portal}[axis=x]",
+        "tint": "86a9dc"
+      },
+      {
+        "id": "aoemod:overworld_portal",
+        "position": "2, 225, 0",
+        "state": "Block{aoemod:overworld_portal}[axis=x]",
+        "tint": "86a9dc"
+      },
+      {
+        "id": "aoemod:overworld_portal",
+        "position": "1, 226, 0",
+        "state": "Block{aoemod:overworld_portal}[axis=x]",
+        "tint": "86a9dc"
+      },
+      {
+        "id": "aoemod:overworld_portal",
+        "position": "2, 226, 0",
+        "state": "Block{aoemod:overworld_portal}[axis=x]",
+        "tint": "86a9dc"
+      },
+      {
+        "id": "aoemod:overworld_portal",
+        "position": "1, 227, 0",
+        "state": "Block{aoemod:overworld_portal}[axis=x]",
+        "tint": "86a9dc"
+      },
+      {
+        "id": "aoemod:overworld_portal",
+        "position": "2, 227, 0",
+        "state": "Block{aoemod:overworld_portal}[axis=x]",
+        "tint": "86a9dc"
+      }
+    ],
+    "passed": true
+  },
+  {
+    "index": 4,
+    "source": "overworld",
+    "destination": "desert",
+    "actualDimension": "aoemod:desert_dimension",
+    "seconds": 0.718,
+    "arrivalXYZ": [
+      1.5,
+      220.0,
+      0.5
+    ],
+    "sourcePortal": [
+      [
+        "1, 200, 0",
+        "aoemod:desert_portal",
+        "f8dd39"
+      ],
+      [
+        "1, 201, 0",
+        "aoemod:desert_portal",
+        "f8dd39"
+      ],
+      [
+        "1, 202, 0",
+        "aoemod:desert_portal",
+        "f8dd39"
+      ],
+      [
+        "2, 200, 0",
+        "aoemod:desert_portal",
+        "f8dd39"
+      ],
+      [
+        "2, 201, 0",
+        "aoemod:desert_portal",
+        "f8dd39"
+      ],
+      [
+        "2, 202, 0",
+        "aoemod:desert_portal",
+        "f8dd39"
+      ]
+    ],
+    "returnPortal": [
+      {
+        "id": "aoemod:overworld_portal",
+        "position": "1, 220, 0",
+        "state": "Block{aoemod:overworld_portal}[axis=x]",
+        "tint": "86a9dc"
+      },
+      {
+        "id": "aoemod:overworld_portal",
+        "position": "2, 220, 0",
+        "state": "Block{aoemod:overworld_portal}[axis=x]",
+        "tint": "86a9dc"
+      },
+      {
+        "id": "aoemod:overworld_portal",
+        "position": "1, 221, 0",
+        "state": "Block{aoemod:overworld_portal}[axis=x]",
+        "tint": "86a9dc"
+      },
+      {
+        "id": "aoemod:overworld_portal",
+        "position": "2, 221, 0",
+        "state": "Block{aoemod:overworld_portal}[axis=x]",
+        "tint": "86a9dc"
+      },
+      {
+        "id": "aoemod:overworld_portal",
+        "position": "1, 222, 0",
+        "state": "Block{aoemod:overworld_portal}[axis=x]",
+        "tint": "86a9dc"
+      },
+      {
+        "id": "aoemod:overworld_portal",
+        "position": "2, 222, 0",
+        "state": "Block{aoemod:overworld_portal}[axis=x]",
+        "tint": "86a9dc"
+      }
+    ],
+    "passed": true
+  },
+  {
+    "index": 5,
+    "source": "tropical",
+    "destination": "overworld",
+    "actualDimension": "minecraft:overworld",
+    "seconds": 0.406,
+    "arrivalXYZ": [
+      1.5,
+      220.0,
+      0.5
+    ],
+    "sourcePortal": [
+      [
+        "1, 200, 0",
+        "aoemod:overworld_portal",
+        "86a9dc"
+      ],
+      [
+        "1, 201, 0",
+        "aoemod:overworld_portal",
+        "86a9dc"
+      ],
+      [
+        "1, 202, 0",
+        "aoemod:overworld_portal",
+        "86a9dc"
+      ],
+      [
+        "2, 200, 0",
+        "aoemod:overworld_portal",
+        "86a9dc"
+      ],
+      [
+        "2, 201, 0",
+        "aoemod:overworld_portal",
+        "86a9dc"
+      ],
+      [
+        "2, 202, 0",
+        "aoemod:overworld_portal",
+        "86a9dc"
+      ]
+    ],
+    "returnPortal": [
+      {
+        "id": "aoemod:tropical_portal",
+        "position": "1, 220, 0",
+        "state": "Block{aoemod:tropical_portal}[axis=x]",
+        "tint": "48d05a"
+      },
+      {
+        "id": "aoemod:tropical_portal",
+        "position": "2, 220, 0",
+        "state": "Block{aoemod:tropical_portal}[axis=x]",
+        "tint": "48d05a"
+      },
+      {
+        "id": "aoemod:tropical_portal",
+        "position": "1, 221, 0",
+        "state": "Block{aoemod:tropical_portal}[axis=x]",
+        "tint": "48d05a"
+      },
+      {
+        "id": "aoemod:tropical_portal",
+        "position": "2, 221, 0",
+        "state": "Block{aoemod:tropical_portal}[axis=x]",
+        "tint": "48d05a"
+      },
+      {
+        "id": "aoemod:tropical_portal",
+        "position": "1, 222, 0",
+        "state": "Block{aoemod:tropical_portal}[axis=x]",
+        "tint": "48d05a"
+      },
+      {
+        "id": "aoemod:tropical_portal",
+        "position": "2, 222, 0",
+        "state": "Block{aoemod:tropical_portal}[axis=x]",
+        "tint": "48d05a"
+      }
+    ],
+    "passed": true
+  },
+  {
+    "index": 6,
+    "source": "tropical",
+    "destination": "savanna",
+    "actualDimension": "aoemod:savanna_dimension",
+    "seconds": 0.703,
+    "arrivalXYZ": [
+      1.5,
+      225.0,
+      0.5
+    ],
+    "sourcePortal": [
+      [
+        "1, 200, 0",
+        "aoemod:savanna_portal",
+        "e99d36"
+      ],
+      [
+        "1, 201, 0",
+        "aoemod:savanna_portal",
+        "e99d36"
+      ],
+      [
+        "1, 202, 0",
+        "aoemod:savanna_portal",
+        "e99d36"
+      ],
+      [
+        "2, 200, 0",
+        "aoemod:savanna_portal",
+        "e99d36"
+      ],
+      [
+        "2, 201, 0",
+        "aoemod:savanna_portal",
+        "e99d36"
+      ],
+      [
+        "2, 202, 0",
+        "aoemod:savanna_portal",
+        "e99d36"
+      ]
+    ],
+    "returnPortal": [
+      {
+        "id": "aoemod:tropical_portal",
+        "position": "1, 225, 0",
+        "state": "Block{aoemod:tropical_portal}[axis=x]",
+        "tint": "48d05a"
+      },
+      {
+        "id": "aoemod:tropical_portal",
+        "position": "2, 225, 0",
+        "state": "Block{aoemod:tropical_portal}[axis=x]",
+        "tint": "48d05a"
+      },
+      {
+        "id": "aoemod:tropical_portal",
+        "position": "1, 226, 0",
+        "state": "Block{aoemod:tropical_portal}[axis=x]",
+        "tint": "48d05a"
+      },
+      {
+        "id": "aoemod:tropical_portal",
+        "position": "2, 226, 0",
+        "state": "Block{aoemod:tropical_portal}[axis=x]",
+        "tint": "48d05a"
+      },
+      {
+        "id": "aoemod:tropical_portal",
+        "position": "1, 227, 0",
+        "state": "Block{aoemod:tropical_portal}[axis=x]",
+        "tint": "48d05a"
+      },
+      {
+        "id": "aoemod:tropical_portal",
+        "position": "2, 227, 0",
+        "state": "Block{aoemod:tropical_portal}[axis=x]",
+        "tint": "48d05a"
+      }
+    ],
+    "passed": true
+  },
+  {
+    "index": 7,
+    "source": "tropical",
+    "destination": "plains",
+    "actualDimension": "aoemod:plains_dimension",
+    "seconds": 0.406,
+    "arrivalXYZ": [
+      1.5,
+      225.0,
+      0.5
+    ],
+    "sourcePortal": [
+      [
+        "1, 200, 0",
+        "aoemod:plains_portal",
+        "929292"
+      ],
+      [
+        "1, 201, 0",
+        "aoemod:plains_portal",
+        "929292"
+      ],
+      [
+        "1, 202, 0",
+        "aoemod:plains_portal",
+        "929292"
+      ],
+      [
+        "2, 200, 0",
+        "aoemod:plains_portal",
+        "929292"
+      ],
+      [
+        "2, 201, 0",
+        "aoemod:plains_portal",
+        "929292"
+      ],
+      [
+        "2, 202, 0",
+        "aoemod:plains_portal",
+        "929292"
+      ]
+    ],
+    "returnPortal": [
+      {
+        "id": "aoemod:tropical_portal",
+        "position": "1, 225, 0",
+        "state": "Block{aoemod:tropical_portal}[axis=x]",
+        "tint": "48d05a"
+      },
+      {
+        "id": "aoemod:tropical_portal",
+        "position": "2, 225, 0",
+        "state": "Block{aoemod:tropical_portal}[axis=x]",
+        "tint": "48d05a"
+      },
+      {
+        "id": "aoemod:tropical_portal",
+        "position": "1, 226, 0",
+        "state": "Block{aoemod:tropical_portal}[axis=x]",
+        "tint": "48d05a"
+      },
+      {
+        "id": "aoemod:tropical_portal",
+        "position": "2, 226, 0",
+        "state": "Block{aoemod:tropical_portal}[axis=x]",
+        "tint": "48d05a"
+      },
+      {
+        "id": "aoemod:tropical_portal",
+        "position": "1, 227, 0",
+        "state": "Block{aoemod:tropical_portal}[axis=x]",
+        "tint": "48d05a"
+      },
+      {
+        "id": "aoemod:tropical_portal",
+        "position": "2, 227, 0",
+        "state": "Block{aoemod:tropical_portal}[axis=x]",
+        "tint": "48d05a"
+      }
+    ],
+    "passed": true
+  },
+  {
+    "index": 8,
+    "source": "tropical",
+    "destination": "snowy",
+    "actualDimension": "aoemod:snowy_dimension",
+    "seconds": 0.703,
+    "arrivalXYZ": [
+      1.5,
+      230.0,
+      0.5
+    ],
+    "sourcePortal": [
+      [
+        "1, 200, 0",
+        "aoemod:snowy_portal",
+        "ffffff"
+      ],
+      [
+        "1, 201, 0",
+        "aoemod:snowy_portal",
+        "ffffff"
+      ],
+      [
+        "1, 202, 0",
+        "aoemod:snowy_portal",
+        "ffffff"
+      ],
+      [
+        "2, 200, 0",
+        "aoemod:snowy_portal",
+        "ffffff"
+      ],
+      [
+        "2, 201, 0",
+        "aoemod:snowy_portal",
+        "ffffff"
+      ],
+      [
+        "2, 202, 0",
+        "aoemod:snowy_portal",
+        "ffffff"
+      ]
+    ],
+    "returnPortal": [
+      {
+        "id": "aoemod:tropical_portal",
+        "position": "1, 230, 0",
+        "state": "Block{aoemod:tropical_portal}[axis=x]",
+        "tint": "48d05a"
+      },
+      {
+        "id": "aoemod:tropical_portal",
+        "position": "2, 230, 0",
+        "state": "Block{aoemod:tropical_portal}[axis=x]",
+        "tint": "48d05a"
+      },
+      {
+        "id": "aoemod:tropical_portal",
+        "position": "1, 231, 0",
+        "state": "Block{aoemod:tropical_portal}[axis=x]",
+        "tint": "48d05a"
+      },
+      {
+        "id": "aoemod:tropical_portal",
+        "position": "2, 231, 0",
+        "state": "Block{aoemod:tropical_portal}[axis=x]",
+        "tint": "48d05a"
+      },
+      {
+        "id": "aoemod:tropical_portal",
+        "position": "1, 232, 0",
+        "state": "Block{aoemod:tropical_portal}[axis=x]",
+        "tint": "48d05a"
+      },
+      {
+        "id": "aoemod:tropical_portal",
+        "position": "2, 232, 0",
+        "state": "Block{aoemod:tropical_portal}[axis=x]",
+        "tint": "48d05a"
+      }
+    ],
+    "passed": true
+  },
+  {
+    "index": 9,
+    "source": "tropical",
+    "destination": "desert",
+    "actualDimension": "aoemod:desert_dimension",
+    "seconds": 0.39,
+    "arrivalXYZ": [
+      1.5,
+      225.0,
+      0.5
+    ],
+    "sourcePortal": [
+      [
+        "1, 200, 0",
+        "aoemod:desert_portal",
+        "f8dd39"
+      ],
+      [
+        "1, 201, 0",
+        "aoemod:desert_portal",
+        "f8dd39"
+      ],
+      [
+        "1, 202, 0",
+        "aoemod:desert_portal",
+        "f8dd39"
+      ],
+      [
+        "2, 200, 0",
+        "aoemod:desert_portal",
+        "f8dd39"
+      ],
+      [
+        "2, 201, 0",
+        "aoemod:desert_portal",
+        "f8dd39"
+      ],
+      [
+        "2, 202, 0",
+        "aoemod:desert_portal",
+        "f8dd39"
+      ]
+    ],
+    "returnPortal": [
+      {
+        "id": "aoemod:tropical_portal",
+        "position": "1, 225, 0",
+        "state": "Block{aoemod:tropical_portal}[axis=x]",
+        "tint": "48d05a"
+      },
+      {
+        "id": "aoemod:tropical_portal",
+        "position": "2, 225, 0",
+        "state": "Block{aoemod:tropical_portal}[axis=x]",
+        "tint": "48d05a"
+      },
+      {
+        "id": "aoemod:tropical_portal",
+        "position": "1, 226, 0",
+        "state": "Block{aoemod:tropical_portal}[axis=x]",
+        "tint": "48d05a"
+      },
+      {
+        "id": "aoemod:tropical_portal",
+        "position": "2, 226, 0",
+        "state": "Block{aoemod:tropical_portal}[axis=x]",
+        "tint": "48d05a"
+      },
+      {
+        "id": "aoemod:tropical_portal",
+        "position": "1, 227, 0",
+        "state": "Block{aoemod:tropical_portal}[axis=x]",
+        "tint": "48d05a"
+      },
+      {
+        "id": "aoemod:tropical_portal",
+        "position": "2, 227, 0",
+        "state": "Block{aoemod:tropical_portal}[axis=x]",
+        "tint": "48d05a"
+      }
+    ],
+    "passed": true
+  },
+  {
+    "index": 10,
+    "source": "savanna",
+    "destination": "overworld",
+    "actualDimension": "minecraft:overworld",
+    "seconds": 0.407,
+    "arrivalXYZ": [
+      1.5,
+      225.0,
+      0.5
+    ],
+    "sourcePortal": [
+      [
+        "1, 200, 0",
+        "aoemod:overworld_portal",
+        "86a9dc"
+      ],
+      [
+        "1, 201, 0",
+        "aoemod:overworld_portal",
+        "86a9dc"
+      ],
+      [
+        "1, 202, 0",
+        "aoemod:overworld_portal",
+        "86a9dc"
+      ],
+      [
+        "2, 200, 0",
+        "aoemod:overworld_portal",
+        "86a9dc"
+      ],
+      [
+        "2, 201, 0",
+        "aoemod:overworld_portal",
+        "86a9dc"
+      ],
+      [
+        "2, 202, 0",
+        "aoemod:overworld_portal",
+        "86a9dc"
+      ]
+    ],
+    "returnPortal": [
+      {
+        "id": "aoemod:savanna_portal",
+        "position": "1, 225, 0",
+        "state": "Block{aoemod:savanna_portal}[axis=x]",
+        "tint": "e99d36"
+      },
+      {
+        "id": "aoemod:savanna_portal",
+        "position": "2, 225, 0",
+        "state": "Block{aoemod:savanna_portal}[axis=x]",
+        "tint": "e99d36"
+      },
+      {
+        "id": "aoemod:savanna_portal",
+        "position": "1, 226, 0",
+        "state": "Block{aoemod:savanna_portal}[axis=x]",
+        "tint": "e99d36"
+      },
+      {
+        "id": "aoemod:savanna_portal",
+        "position": "2, 226, 0",
+        "state": "Block{aoemod:savanna_portal}[axis=x]",
+        "tint": "e99d36"
+      },
+      {
+        "id": "aoemod:savanna_portal",
+        "position": "1, 227, 0",
+        "state": "Block{aoemod:savanna_portal}[axis=x]",
+        "tint": "e99d36"
+      },
+      {
+        "id": "aoemod:savanna_portal",
+        "position": "2, 227, 0",
+        "state": "Block{aoemod:savanna_portal}[axis=x]",
+        "tint": "e99d36"
+      }
+    ],
+    "passed": true
+  },
+  {
+    "index": 11,
+    "source": "savanna",
+    "destination": "tropical",
+    "actualDimension": "aoemod:tropical_dimension",
+    "seconds": 0.703,
+    "arrivalXYZ": [
+      1.5,
+      225.0,
+      0.5
+    ],
+    "sourcePortal": [
+      [
+        "1, 200, 0",
+        "aoemod:tropical_portal",
+        "48d05a"
+      ],
+      [
+        "1, 201, 0",
+        "aoemod:tropical_portal",
+        "48d05a"
+      ],
+      [
+        "1, 202, 0",
+        "aoemod:tropical_portal",
+        "48d05a"
+      ],
+      [
+        "2, 200, 0",
+        "aoemod:tropical_portal",
+        "48d05a"
+      ],
+      [
+        "2, 201, 0",
+        "aoemod:tropical_portal",
+        "48d05a"
+      ],
+      [
+        "2, 202, 0",
+        "aoemod:tropical_portal",
+        "48d05a"
+      ]
+    ],
+    "returnPortal": [
+      {
+        "id": "aoemod:savanna_portal",
+        "position": "1, 225, 0",
+        "state": "Block{aoemod:savanna_portal}[axis=x]",
+        "tint": "e99d36"
+      },
+      {
+        "id": "aoemod:savanna_portal",
+        "position": "2, 225, 0",
+        "state": "Block{aoemod:savanna_portal}[axis=x]",
+        "tint": "e99d36"
+      },
+      {
+        "id": "aoemod:savanna_portal",
+        "position": "1, 226, 0",
+        "state": "Block{aoemod:savanna_portal}[axis=x]",
+        "tint": "e99d36"
+      },
+      {
+        "id": "aoemod:savanna_portal",
+        "position": "2, 226, 0",
+        "state": "Block{aoemod:savanna_portal}[axis=x]",
+        "tint": "e99d36"
+      },
+      {
+        "id": "aoemod:savanna_portal",
+        "position": "1, 227, 0",
+        "state": "Block{aoemod:savanna_portal}[axis=x]",
+        "tint": "e99d36"
+      },
+      {
+        "id": "aoemod:savanna_portal",
+        "position": "2, 227, 0",
+        "state": "Block{aoemod:savanna_portal}[axis=x]",
+        "tint": "e99d36"
+      }
+    ],
+    "passed": true
+  },
+  {
+    "index": 12,
+    "source": "savanna",
+    "destination": "plains",
+    "actualDimension": "aoemod:plains_dimension",
+    "seconds": 0.703,
+    "arrivalXYZ": [
+      1.5,
+      230.0,
+      0.5
+    ],
+    "sourcePortal": [
+      [
+        "1, 200, 0",
+        "aoemod:plains_portal",
+        "929292"
+      ],
+      [
+        "1, 201, 0",
+        "aoemod:plains_portal",
+        "929292"
+      ],
+      [
+        "1, 202, 0",
+        "aoemod:plains_portal",
+        "929292"
+      ],
+      [
+        "2, 200, 0",
+        "aoemod:plains_portal",
+        "929292"
+      ],
+      [
+        "2, 201, 0",
+        "aoemod:plains_portal",
+        "929292"
+      ],
+      [
+        "2, 202, 0",
+        "aoemod:plains_portal",
+        "929292"
+      ]
+    ],
+    "returnPortal": [
+      {
+        "id": "aoemod:savanna_portal",
+        "position": "1, 230, 0",
+        "state": "Block{aoemod:savanna_portal}[axis=x]",
+        "tint": "e99d36"
+      },
+      {
+        "id": "aoemod:savanna_portal",
+        "position": "2, 230, 0",
+        "state": "Block{aoemod:savanna_portal}[axis=x]",
+        "tint": "e99d36"
+      },
+      {
+        "id": "aoemod:savanna_portal",
+        "position": "1, 231, 0",
+        "state": "Block{aoemod:savanna_portal}[axis=x]",
+        "tint": "e99d36"
+      },
+      {
+        "id": "aoemod:savanna_portal",
+        "position": "2, 231, 0",
+        "state": "Block{aoemod:savanna_portal}[axis=x]",
+        "tint": "e99d36"
+      },
+      {
+        "id": "aoemod:savanna_portal",
+        "position": "1, 232, 0",
+        "state": "Block{aoemod:savanna_portal}[axis=x]",
+        "tint": "e99d36"
+      },
+      {
+        "id": "aoemod:savanna_portal",
+        "position": "2, 232, 0",
+        "state": "Block{aoemod:savanna_portal}[axis=x]",
+        "tint": "e99d36"
+      }
+    ],
+    "passed": true
+  },
+  {
+    "index": 13,
+    "source": "savanna",
+    "destination": "snowy",
+    "actualDimension": "aoemod:snowy_dimension",
+    "seconds": 0.406,
+    "arrivalXYZ": [
+      1.5,
+      235.0,
+      0.5
+    ],
+    "sourcePortal": [
+      [
+        "1, 200, 0",
+        "aoemod:snowy_portal",
+        "ffffff"
+      ],
+      [
+        "1, 201, 0",
+        "aoemod:snowy_portal",
+        "ffffff"
+      ],
+      [
+        "1, 202, 0",
+        "aoemod:snowy_portal",
+        "ffffff"
+      ],
+      [
+        "2, 200, 0",
+        "aoemod:snowy_portal",
+        "ffffff"
+      ],
+      [
+        "2, 201, 0",
+        "aoemod:snowy_portal",
+        "ffffff"
+      ],
+      [
+        "2, 202, 0",
+        "aoemod:snowy_portal",
+        "ffffff"
+      ]
+    ],
+    "returnPortal": [
+      {
+        "id": "aoemod:savanna_portal",
+        "position": "1, 235, 0",
+        "state": "Block{aoemod:savanna_portal}[axis=x]",
+        "tint": "e99d36"
+      },
+      {
+        "id": "aoemod:savanna_portal",
+        "position": "2, 235, 0",
+        "state": "Block{aoemod:savanna_portal}[axis=x]",
+        "tint": "e99d36"
+      },
+      {
+        "id": "aoemod:savanna_portal",
+        "position": "1, 236, 0",
+        "state": "Block{aoemod:savanna_portal}[axis=x]",
+        "tint": "e99d36"
+      },
+      {
+        "id": "aoemod:savanna_portal",
+        "position": "2, 236, 0",
+        "state": "Block{aoemod:savanna_portal}[axis=x]",
+        "tint": "e99d36"
+      },
+      {
+        "id": "aoemod:savanna_portal",
+        "position": "1, 237, 0",
+        "state": "Block{aoemod:savanna_portal}[axis=x]",
+        "tint": "e99d36"
+      },
+      {
+        "id": "aoemod:savanna_portal",
+        "position": "2, 237, 0",
+        "state": "Block{aoemod:savanna_portal}[axis=x]",
+        "tint": "e99d36"
+      }
+    ],
+    "passed": true
+  },
+  {
+    "index": 14,
+    "source": "savanna",
+    "destination": "desert",
+    "actualDimension": "aoemod:desert_dimension",
+    "seconds": 0.703,
+    "arrivalXYZ": [
+      1.5,
+      230.0,
+      0.5
+    ],
+    "sourcePortal": [
+      [
+        "1, 200, 0",
+        "aoemod:desert_portal",
+        "f8dd39"
+      ],
+      [
+        "1, 201, 0",
+        "aoemod:desert_portal",
+        "f8dd39"
+      ],
+      [
+        "1, 202, 0",
+        "aoemod:desert_portal",
+        "f8dd39"
+      ],
+      [
+        "2, 200, 0",
+        "aoemod:desert_portal",
+        "f8dd39"
+      ],
+      [
+        "2, 201, 0",
+        "aoemod:desert_portal",
+        "f8dd39"
+      ],
+      [
+        "2, 202, 0",
+        "aoemod:desert_portal",
+        "f8dd39"
+      ]
+    ],
+    "returnPortal": [
+      {
+        "id": "aoemod:savanna_portal",
+        "position": "1, 230, 0",
+        "state": "Block{aoemod:savanna_portal}[axis=x]",
+        "tint": "e99d36"
+      },
+      {
+        "id": "aoemod:savanna_portal",
+        "position": "2, 230, 0",
+        "state": "Block{aoemod:savanna_portal}[axis=x]",
+        "tint": "e99d36"
+      },
+      {
+        "id": "aoemod:savanna_portal",
+        "position": "1, 231, 0",
+        "state": "Block{aoemod:savanna_portal}[axis=x]",
+        "tint": "e99d36"
+      },
+      {
+        "id": "aoemod:savanna_portal",
+        "position": "2, 231, 0",
+        "state": "Block{aoemod:savanna_portal}[axis=x]",
+        "tint": "e99d36"
+      },
+      {
+        "id": "aoemod:savanna_portal",
+        "position": "1, 232, 0",
+        "state": "Block{aoemod:savanna_portal}[axis=x]",
+        "tint": "e99d36"
+      },
+      {
+        "id": "aoemod:savanna_portal",
+        "position": "2, 232, 0",
+        "state": "Block{aoemod:savanna_portal}[axis=x]",
+        "tint": "e99d36"
+      }
+    ],
+    "passed": true
+  },
+  {
+    "index": 15,
+    "source": "plains",
+    "destination": "overworld",
+    "actualDimension": "minecraft:overworld",
+    "seconds": 0.609,
+    "arrivalXYZ": [
+      1.5,
+      230.0,
+      0.5
+    ],
+    "sourcePortal": [
+      [
+        "1, 200, 0",
+        "aoemod:overworld_portal",
+        "86a9dc"
+      ],
+      [
+        "1, 201, 0",
+        "aoemod:overworld_portal",
+        "86a9dc"
+      ],
+      [
+        "1, 202, 0",
+        "aoemod:overworld_portal",
+        "86a9dc"
+      ],
+      [
+        "2, 200, 0",
+        "aoemod:overworld_portal",
+        "86a9dc"
+      ],
+      [
+        "2, 201, 0",
+        "aoemod:overworld_portal",
+        "86a9dc"
+      ],
+      [
+        "2, 202, 0",
+        "aoemod:overworld_portal",
+        "86a9dc"
+      ]
+    ],
+    "returnPortal": [
+      {
+        "id": "aoemod:plains_portal",
+        "position": "1, 230, 0",
+        "state": "Block{aoemod:plains_portal}[axis=x]",
+        "tint": "929292"
+      },
+      {
+        "id": "aoemod:plains_portal",
+        "position": "2, 230, 0",
+        "state": "Block{aoemod:plains_portal}[axis=x]",
+        "tint": "929292"
+      },
+      {
+        "id": "aoemod:plains_portal",
+        "position": "1, 231, 0",
+        "state": "Block{aoemod:plains_portal}[axis=x]",
+        "tint": "929292"
+      },
+      {
+        "id": "aoemod:plains_portal",
+        "position": "2, 231, 0",
+        "state": "Block{aoemod:plains_portal}[axis=x]",
+        "tint": "929292"
+      },
+      {
+        "id": "aoemod:plains_portal",
+        "position": "1, 232, 0",
+        "state": "Block{aoemod:plains_portal}[axis=x]",
+        "tint": "929292"
+      },
+      {
+        "id": "aoemod:plains_portal",
+        "position": "2, 232, 0",
+        "state": "Block{aoemod:plains_portal}[axis=x]",
+        "tint": "929292"
+      }
+    ],
+    "passed": true
+  },
+  {
+    "index": 16,
+    "source": "plains",
+    "destination": "tropical",
+    "actualDimension": "aoemod:tropical_dimension",
+    "seconds": 0.703,
+    "arrivalXYZ": [
+      1.5,
+      230.0,
+      0.5
+    ],
+    "sourcePortal": [
+      [
+        "1, 200, 0",
+        "aoemod:tropical_portal",
+        "48d05a"
+      ],
+      [
+        "1, 201, 0",
+        "aoemod:tropical_portal",
+        "48d05a"
+      ],
+      [
+        "1, 202, 0",
+        "aoemod:tropical_portal",
+        "48d05a"
+      ],
+      [
+        "2, 200, 0",
+        "aoemod:tropical_portal",
+        "48d05a"
+      ],
+      [
+        "2, 201, 0",
+        "aoemod:tropical_portal",
+        "48d05a"
+      ],
+      [
+        "2, 202, 0",
+        "aoemod:tropical_portal",
+        "48d05a"
+      ]
+    ],
+    "returnPortal": [
+      {
+        "id": "aoemod:plains_portal",
+        "position": "1, 230, 0",
+        "state": "Block{aoemod:plains_portal}[axis=x]",
+        "tint": "929292"
+      },
+      {
+        "id": "aoemod:plains_portal",
+        "position": "2, 230, 0",
+        "state": "Block{aoemod:plains_portal}[axis=x]",
+        "tint": "929292"
+      },
+      {
+        "id": "aoemod:plains_portal",
+        "position": "1, 231, 0",
+        "state": "Block{aoemod:plains_portal}[axis=x]",
+        "tint": "929292"
+      },
+      {
+        "id": "aoemod:plains_portal",
+        "position": "2, 231, 0",
+        "state": "Block{aoemod:plains_portal}[axis=x]",
+        "tint": "929292"
+      },
+      {
+        "id": "aoemod:plains_portal",
+        "position": "1, 232, 0",
+        "state": "Block{aoemod:plains_portal}[axis=x]",
+        "tint": "929292"
+      },
+      {
+        "id": "aoemod:plains_portal",
+        "position": "2, 232, 0",
+        "state": "Block{aoemod:plains_portal}[axis=x]",
+        "tint": "929292"
+      }
+    ],
+    "passed": true
+  },
+  {
+    "index": 17,
+    "source": "plains",
+    "destination": "savanna",
+    "actualDimension": "aoemod:savanna_dimension",
+    "seconds": 0.703,
+    "arrivalXYZ": [
+      1.5,
+      230.0,
+      0.5
+    ],
+    "sourcePortal": [
+      [
+        "1, 200, 0",
+        "aoemod:savanna_portal",
+        "e99d36"
+      ],
+      [
+        "1, 201, 0",
+        "aoemod:savanna_portal",
+        "e99d36"
+      ],
+      [
+        "1, 202, 0",
+        "aoemod:savanna_portal",
+        "e99d36"
+      ],
+      [
+        "2, 200, 0",
+        "aoemod:savanna_portal",
+        "e99d36"
+      ],
+      [
+        "2, 201, 0",
+        "aoemod:savanna_portal",
+        "e99d36"
+      ],
+      [
+        "2, 202, 0",
+        "aoemod:savanna_portal",
+        "e99d36"
+      ]
+    ],
+    "returnPortal": [
+      {
+        "id": "aoemod:plains_portal",
+        "position": "1, 230, 0",
+        "state": "Block{aoemod:plains_portal}[axis=x]",
+        "tint": "929292"
+      },
+      {
+        "id": "aoemod:plains_portal",
+        "position": "2, 230, 0",
+        "state": "Block{aoemod:plains_portal}[axis=x]",
+        "tint": "929292"
+      },
+      {
+        "id": "aoemod:plains_portal",
+        "position": "1, 231, 0",
+        "state": "Block{aoemod:plains_portal}[axis=x]",
+        "tint": "929292"
+      },
+      {
+        "id": "aoemod:plains_portal",
+        "position": "2, 231, 0",
+        "state": "Block{aoemod:plains_portal}[axis=x]",
+        "tint": "929292"
+      },
+      {
+        "id": "aoemod:plains_portal",
+        "position": "1, 232, 0",
+        "state": "Block{aoemod:plains_portal}[axis=x]",
+        "tint": "929292"
+      },
+      {
+        "id": "aoemod:plains_portal",
+        "position": "2, 232, 0",
+        "state": "Block{aoemod:plains_portal}[axis=x]",
+        "tint": "929292"
+      }
+    ],
+    "passed": true
+  },
+  {
+    "index": 18,
+    "source": "plains",
+    "destination": "snowy",
+    "actualDimension": "aoemod:snowy_dimension",
+    "seconds": 0.406,
+    "arrivalXYZ": [
+      1.5,
+      240.0,
+      0.5
+    ],
+    "sourcePortal": [
+      [
+        "1, 200, 0",
+        "aoemod:snowy_portal",
+        "ffffff"
+      ],
+      [
+        "1, 201, 0",
+        "aoemod:snowy_portal",
+        "ffffff"
+      ],
+      [
+        "1, 202, 0",
+        "aoemod:snowy_portal",
+        "ffffff"
+      ],
+      [
+        "2, 200, 0",
+        "aoemod:snowy_portal",
+        "ffffff"
+      ],
+      [
+        "2, 201, 0",
+        "aoemod:snowy_portal",
+        "ffffff"
+      ],
+      [
+        "2, 202, 0",
+        "aoemod:snowy_portal",
+        "ffffff"
+      ]
+    ],
+    "returnPortal": [
+      {
+        "id": "aoemod:plains_portal",
+        "position": "1, 240, 0",
+        "state": "Block{aoemod:plains_portal}[axis=x]",
+        "tint": "929292"
+      },
+      {
+        "id": "aoemod:plains_portal",
+        "position": "2, 240, 0",
+        "state": "Block{aoemod:plains_portal}[axis=x]",
+        "tint": "929292"
+      },
+      {
+        "id": "aoemod:plains_portal",
+        "position": "1, 241, 0",
+        "state": "Block{aoemod:plains_portal}[axis=x]",
+        "tint": "929292"
+      },
+      {
+        "id": "aoemod:plains_portal",
+        "position": "2, 241, 0",
+        "state": "Block{aoemod:plains_portal}[axis=x]",
+        "tint": "929292"
+      },
+      {
+        "id": "aoemod:plains_portal",
+        "position": "1, 242, 0",
+        "state": "Block{aoemod:plains_portal}[axis=x]",
+        "tint": "929292"
+      },
+      {
+        "id": "aoemod:plains_portal",
+        "position": "2, 242, 0",
+        "state": "Block{aoemod:plains_portal}[axis=x]",
+        "tint": "929292"
+      }
+    ],
+    "passed": true
+  },
+  {
+    "index": 19,
+    "source": "plains",
+    "destination": "desert",
+    "actualDimension": "aoemod:desert_dimension",
+    "seconds": 0.703,
+    "arrivalXYZ": [
+      1.5,
+      235.0,
+      0.5
+    ],
+    "sourcePortal": [
+      [
+        "1, 200, 0",
+        "aoemod:desert_portal",
+        "f8dd39"
+      ],
+      [
+        "1, 201, 0",
+        "aoemod:desert_portal",
+        "f8dd39"
+      ],
+      [
+        "1, 202, 0",
+        "aoemod:desert_portal",
+        "f8dd39"
+      ],
+      [
+        "2, 200, 0",
+        "aoemod:desert_portal",
+        "f8dd39"
+      ],
+      [
+        "2, 201, 0",
+        "aoemod:desert_portal",
+        "f8dd39"
+      ],
+      [
+        "2, 202, 0",
+        "aoemod:desert_portal",
+        "f8dd39"
+      ]
+    ],
+    "returnPortal": [
+      {
+        "id": "aoemod:plains_portal",
+        "position": "1, 235, 0",
+        "state": "Block{aoemod:plains_portal}[axis=x]",
+        "tint": "929292"
+      },
+      {
+        "id": "aoemod:plains_portal",
+        "position": "2, 235, 0",
+        "state": "Block{aoemod:plains_portal}[axis=x]",
+        "tint": "929292"
+      },
+      {
+        "id": "aoemod:plains_portal",
+        "position": "1, 236, 0",
+        "state": "Block{aoemod:plains_portal}[axis=x]",
+        "tint": "929292"
+      },
+      {
+        "id": "aoemod:plains_portal",
+        "position": "2, 236, 0",
+        "state": "Block{aoemod:plains_portal}[axis=x]",
+        "tint": "929292"
+      },
+      {
+        "id": "aoemod:plains_portal",
+        "position": "1, 237, 0",
+        "state": "Block{aoemod:plains_portal}[axis=x]",
+        "tint": "929292"
+      },
+      {
+        "id": "aoemod:plains_portal",
+        "position": "2, 237, 0",
+        "state": "Block{aoemod:plains_portal}[axis=x]",
+        "tint": "929292"
+      }
+    ],
+    "passed": true
+  },
+  {
+    "index": 20,
+    "source": "snowy",
+    "destination": "overworld",
+    "actualDimension": "minecraft:overworld",
+    "seconds": 0.609,
+    "arrivalXYZ": [
+      1.5,
+      235.0,
+      0.5
+    ],
+    "sourcePortal": [
+      [
+        "1, 200, 0",
+        "aoemod:overworld_portal",
+        "86a9dc"
+      ],
+      [
+        "1, 201, 0",
+        "aoemod:overworld_portal",
+        "86a9dc"
+      ],
+      [
+        "1, 202, 0",
+        "aoemod:overworld_portal",
+        "86a9dc"
+      ],
+      [
+        "2, 200, 0",
+        "aoemod:overworld_portal",
+        "86a9dc"
+      ],
+      [
+        "2, 201, 0",
+        "aoemod:overworld_portal",
+        "86a9dc"
+      ],
+      [
+        "2, 202, 0",
+        "aoemod:overworld_portal",
+        "86a9dc"
+      ]
+    ],
+    "returnPortal": [
+      {
+        "id": "aoemod:snowy_portal",
+        "position": "1, 235, 0",
+        "state": "Block{aoemod:snowy_portal}[axis=x]",
+        "tint": "ffffff"
+      },
+      {
+        "id": "aoemod:snowy_portal",
+        "position": "2, 235, 0",
+        "state": "Block{aoemod:snowy_portal}[axis=x]",
+        "tint": "ffffff"
+      },
+      {
+        "id": "aoemod:snowy_portal",
+        "position": "1, 236, 0",
+        "state": "Block{aoemod:snowy_portal}[axis=x]",
+        "tint": "ffffff"
+      },
+      {
+        "id": "aoemod:snowy_portal",
+        "position": "2, 236, 0",
+        "state": "Block{aoemod:snowy_portal}[axis=x]",
+        "tint": "ffffff"
+      },
+      {
+        "id": "aoemod:snowy_portal",
+        "position": "1, 237, 0",
+        "state": "Block{aoemod:snowy_portal}[axis=x]",
+        "tint": "ffffff"
+      },
+      {
+        "id": "aoemod:snowy_portal",
+        "position": "2, 237, 0",
+        "state": "Block{aoemod:snowy_portal}[axis=x]",
+        "tint": "ffffff"
+      }
+    ],
+    "passed": true
+  },
+  {
+    "index": 21,
+    "source": "snowy",
+    "destination": "tropical",
+    "actualDimension": "aoemod:tropical_dimension",
+    "seconds": 0.703,
+    "arrivalXYZ": [
+      1.5,
+      235.0,
+      0.5
+    ],
+    "sourcePortal": [
+      [
+        "1, 200, 0",
+        "aoemod:tropical_portal",
+        "48d05a"
+      ],
+      [
+        "1, 201, 0",
+        "aoemod:tropical_portal",
+        "48d05a"
+      ],
+      [
+        "1, 202, 0",
+        "aoemod:tropical_portal",
+        "48d05a"
+      ],
+      [
+        "2, 200, 0",
+        "aoemod:tropical_portal",
+        "48d05a"
+      ],
+      [
+        "2, 201, 0",
+        "aoemod:tropical_portal",
+        "48d05a"
+      ],
+      [
+        "2, 202, 0",
+        "aoemod:tropical_portal",
+        "48d05a"
+      ]
+    ],
+    "returnPortal": [
+      {
+        "id": "aoemod:snowy_portal",
+        "position": "1, 235, 0",
+        "state": "Block{aoemod:snowy_portal}[axis=x]",
+        "tint": "ffffff"
+      },
+      {
+        "id": "aoemod:snowy_portal",
+        "position": "2, 235, 0",
+        "state": "Block{aoemod:snowy_portal}[axis=x]",
+        "tint": "ffffff"
+      },
+      {
+        "id": "aoemod:snowy_portal",
+        "position": "1, 236, 0",
+        "state": "Block{aoemod:snowy_portal}[axis=x]",
+        "tint": "ffffff"
+      },
+      {
+        "id": "aoemod:snowy_portal",
+        "position": "2, 236, 0",
+        "state": "Block{aoemod:snowy_portal}[axis=x]",
+        "tint": "ffffff"
+      },
+      {
+        "id": "aoemod:snowy_portal",
+        "position": "1, 237, 0",
+        "state": "Block{aoemod:snowy_portal}[axis=x]",
+        "tint": "ffffff"
+      },
+      {
+        "id": "aoemod:snowy_portal",
+        "position": "2, 237, 0",
+        "state": "Block{aoemod:snowy_portal}[axis=x]",
+        "tint": "ffffff"
+      }
+    ],
+    "passed": true
+  },
+  {
+    "index": 22,
+    "source": "snowy",
+    "destination": "savanna",
+    "actualDimension": "aoemod:savanna_dimension",
+    "seconds": 0.703,
+    "arrivalXYZ": [
+      1.5,
+      235.0,
+      0.5
+    ],
+    "sourcePortal": [
+      [
+        "1, 200, 0",
+        "aoemod:savanna_portal",
+        "e99d36"
+      ],
+      [
+        "1, 201, 0",
+        "aoemod:savanna_portal",
+        "e99d36"
+      ],
+      [
+        "1, 202, 0",
+        "aoemod:savanna_portal",
+        "e99d36"
+      ],
+      [
+        "2, 200, 0",
+        "aoemod:savanna_portal",
+        "e99d36"
+      ],
+      [
+        "2, 201, 0",
+        "aoemod:savanna_portal",
+        "e99d36"
+      ],
+      [
+        "2, 202, 0",
+        "aoemod:savanna_portal",
+        "e99d36"
+      ]
+    ],
+    "returnPortal": [
+      {
+        "id": "aoemod:snowy_portal",
+        "position": "1, 235, 0",
+        "state": "Block{aoemod:snowy_portal}[axis=x]",
+        "tint": "ffffff"
+      },
+      {
+        "id": "aoemod:snowy_portal",
+        "position": "2, 235, 0",
+        "state": "Block{aoemod:snowy_portal}[axis=x]",
+        "tint": "ffffff"
+      },
+      {
+        "id": "aoemod:snowy_portal",
+        "position": "1, 236, 0",
+        "state": "Block{aoemod:snowy_portal}[axis=x]",
+        "tint": "ffffff"
+      },
+      {
+        "id": "aoemod:snowy_portal",
+        "position": "2, 236, 0",
+        "state": "Block{aoemod:snowy_portal}[axis=x]",
+        "tint": "ffffff"
+      },
+      {
+        "id": "aoemod:snowy_portal",
+        "position": "1, 237, 0",
+        "state": "Block{aoemod:snowy_portal}[axis=x]",
+        "tint": "ffffff"
+      },
+      {
+        "id": "aoemod:snowy_portal",
+        "position": "2, 237, 0",
+        "state": "Block{aoemod:snowy_portal}[axis=x]",
+        "tint": "ffffff"
+      }
+    ],
+    "passed": true
+  },
+  {
+    "index": 23,
+    "source": "snowy",
+    "destination": "plains",
+    "actualDimension": "aoemod:plains_dimension",
+    "seconds": 0.703,
+    "arrivalXYZ": [
+      1.5,
+      235.0,
+      0.5
+    ],
+    "sourcePortal": [
+      [
+        "1, 200, 0",
+        "aoemod:plains_portal",
+        "929292"
+      ],
+      [
+        "1, 201, 0",
+        "aoemod:plains_portal",
+        "929292"
+      ],
+      [
+        "1, 202, 0",
+        "aoemod:plains_portal",
+        "929292"
+      ],
+      [
+        "2, 200, 0",
+        "aoemod:plains_portal",
+        "929292"
+      ],
+      [
+        "2, 201, 0",
+        "aoemod:plains_portal",
+        "929292"
+      ],
+      [
+        "2, 202, 0",
+        "aoemod:plains_portal",
+        "929292"
+      ]
+    ],
+    "returnPortal": [
+      {
+        "id": "aoemod:snowy_portal",
+        "position": "1, 235, 0",
+        "state": "Block{aoemod:snowy_portal}[axis=x]",
+        "tint": "ffffff"
+      },
+      {
+        "id": "aoemod:snowy_portal",
+        "position": "2, 235, 0",
+        "state": "Block{aoemod:snowy_portal}[axis=x]",
+        "tint": "ffffff"
+      },
+      {
+        "id": "aoemod:snowy_portal",
+        "position": "1, 236, 0",
+        "state": "Block{aoemod:snowy_portal}[axis=x]",
+        "tint": "ffffff"
+      },
+      {
+        "id": "aoemod:snowy_portal",
+        "position": "2, 236, 0",
+        "state": "Block{aoemod:snowy_portal}[axis=x]",
+        "tint": "ffffff"
+      },
+      {
+        "id": "aoemod:snowy_portal",
+        "position": "1, 237, 0",
+        "state": "Block{aoemod:snowy_portal}[axis=x]",
+        "tint": "ffffff"
+      },
+      {
+        "id": "aoemod:snowy_portal",
+        "position": "2, 237, 0",
+        "state": "Block{aoemod:snowy_portal}[axis=x]",
+        "tint": "ffffff"
+      }
+    ],
+    "passed": true
+  },
+  {
+    "index": 24,
+    "source": "snowy",
+    "destination": "desert",
+    "actualDimension": "aoemod:desert_dimension",
+    "seconds": 0.703,
+    "arrivalXYZ": [
+      1.5,
+      240.0,
+      0.5
+    ],
+    "sourcePortal": [
+      [
+        "1, 200, 0",
+        "aoemod:desert_portal",
+        "f8dd39"
+      ],
+      [
+        "1, 201, 0",
+        "aoemod:desert_portal",
+        "f8dd39"
+      ],
+      [
+        "1, 202, 0",
+        "aoemod:desert_portal",
+        "f8dd39"
+      ],
+      [
+        "2, 200, 0",
+        "aoemod:desert_portal",
+        "f8dd39"
+      ],
+      [
+        "2, 201, 0",
+        "aoemod:desert_portal",
+        "f8dd39"
+      ],
+      [
+        "2, 202, 0",
+        "aoemod:desert_portal",
+        "f8dd39"
+      ]
+    ],
+    "returnPortal": [
+      {
+        "id": "aoemod:snowy_portal",
+        "position": "1, 240, 0",
+        "state": "Block{aoemod:snowy_portal}[axis=x]",
+        "tint": "ffffff"
+      },
+      {
+        "id": "aoemod:snowy_portal",
+        "position": "2, 240, 0",
+        "state": "Block{aoemod:snowy_portal}[axis=x]",
+        "tint": "ffffff"
+      },
+      {
+        "id": "aoemod:snowy_portal",
+        "position": "1, 241, 0",
+        "state": "Block{aoemod:snowy_portal}[axis=x]",
+        "tint": "ffffff"
+      },
+      {
+        "id": "aoemod:snowy_portal",
+        "position": "2, 241, 0",
+        "state": "Block{aoemod:snowy_portal}[axis=x]",
+        "tint": "ffffff"
+      },
+      {
+        "id": "aoemod:snowy_portal",
+        "position": "1, 242, 0",
+        "state": "Block{aoemod:snowy_portal}[axis=x]",
+        "tint": "ffffff"
+      },
+      {
+        "id": "aoemod:snowy_portal",
+        "position": "2, 242, 0",
+        "state": "Block{aoemod:snowy_portal}[axis=x]",
+        "tint": "ffffff"
+      }
+    ],
+    "passed": true
+  },
+  {
+    "index": 25,
+    "source": "desert",
+    "destination": "overworld",
+    "actualDimension": "minecraft:overworld",
+    "seconds": 0.407,
+    "arrivalXYZ": [
+      1.5,
+      240.0,
+      0.5
+    ],
+    "sourcePortal": [
+      [
+        "1, 200, 0",
+        "aoemod:overworld_portal",
+        "86a9dc"
+      ],
+      [
+        "1, 201, 0",
+        "aoemod:overworld_portal",
+        "86a9dc"
+      ],
+      [
+        "1, 202, 0",
+        "aoemod:overworld_portal",
+        "86a9dc"
+      ],
+      [
+        "2, 200, 0",
+        "aoemod:overworld_portal",
+        "86a9dc"
+      ],
+      [
+        "2, 201, 0",
+        "aoemod:overworld_portal",
+        "86a9dc"
+      ],
+      [
+        "2, 202, 0",
+        "aoemod:overworld_portal",
+        "86a9dc"
+      ]
+    ],
+    "returnPortal": [
+      {
+        "id": "aoemod:desert_portal",
+        "position": "1, 240, 0",
+        "state": "Block{aoemod:desert_portal}[axis=x]",
+        "tint": "f8dd39"
+      },
+      {
+        "id": "aoemod:desert_portal",
+        "position": "2, 240, 0",
+        "state": "Block{aoemod:desert_portal}[axis=x]",
+        "tint": "f8dd39"
+      },
+      {
+        "id": "aoemod:desert_portal",
+        "position": "1, 241, 0",
+        "state": "Block{aoemod:desert_portal}[axis=x]",
+        "tint": "f8dd39"
+      },
+      {
+        "id": "aoemod:desert_portal",
+        "position": "2, 241, 0",
+        "state": "Block{aoemod:desert_portal}[axis=x]",
+        "tint": "f8dd39"
+      },
+      {
+        "id": "aoemod:desert_portal",
+        "position": "1, 242, 0",
+        "state": "Block{aoemod:desert_portal}[axis=x]",
+        "tint": "f8dd39"
+      },
+      {
+        "id": "aoemod:desert_portal",
+        "position": "2, 242, 0",
+        "state": "Block{aoemod:desert_portal}[axis=x]",
+        "tint": "f8dd39"
+      }
+    ],
+    "passed": true
+  },
+  {
+    "index": 26,
+    "source": "desert",
+    "destination": "tropical",
+    "actualDimension": "aoemod:tropical_dimension",
+    "seconds": 0.703,
+    "arrivalXYZ": [
+      1.5,
+      240.0,
+      0.5
+    ],
+    "sourcePortal": [
+      [
+        "1, 200, 0",
+        "aoemod:tropical_portal",
+        "48d05a"
+      ],
+      [
+        "1, 201, 0",
+        "aoemod:tropical_portal",
+        "48d05a"
+      ],
+      [
+        "1, 202, 0",
+        "aoemod:tropical_portal",
+        "48d05a"
+      ],
+      [
+        "2, 200, 0",
+        "aoemod:tropical_portal",
+        "48d05a"
+      ],
+      [
+        "2, 201, 0",
+        "aoemod:tropical_portal",
+        "48d05a"
+      ],
+      [
+        "2, 202, 0",
+        "aoemod:tropical_portal",
+        "48d05a"
+      ]
+    ],
+    "returnPortal": [
+      {
+        "id": "aoemod:desert_portal",
+        "position": "1, 240, 0",
+        "state": "Block{aoemod:desert_portal}[axis=x]",
+        "tint": "f8dd39"
+      },
+      {
+        "id": "aoemod:desert_portal",
+        "position": "2, 240, 0",
+        "state": "Block{aoemod:desert_portal}[axis=x]",
+        "tint": "f8dd39"
+      },
+      {
+        "id": "aoemod:desert_portal",
+        "position": "1, 241, 0",
+        "state": "Block{aoemod:desert_portal}[axis=x]",
+        "tint": "f8dd39"
+      },
+      {
+        "id": "aoemod:desert_portal",
+        "position": "2, 241, 0",
+        "state": "Block{aoemod:desert_portal}[axis=x]",
+        "tint": "f8dd39"
+      },
+      {
+        "id": "aoemod:desert_portal",
+        "position": "1, 242, 0",
+        "state": "Block{aoemod:desert_portal}[axis=x]",
+        "tint": "f8dd39"
+      },
+      {
+        "id": "aoemod:desert_portal",
+        "position": "2, 242, 0",
+        "state": "Block{aoemod:desert_portal}[axis=x]",
+        "tint": "f8dd39"
+      }
+    ],
+    "passed": true
+  },
+  {
+    "index": 27,
+    "source": "desert",
+    "destination": "savanna",
+    "actualDimension": "aoemod:savanna_dimension",
+    "seconds": 0.703,
+    "arrivalXYZ": [
+      1.5,
+      240.0,
+      0.5
+    ],
+    "sourcePortal": [
+      [
+        "1, 200, 0",
+        "aoemod:savanna_portal",
+        "e99d36"
+      ],
+      [
+        "1, 201, 0",
+        "aoemod:savanna_portal",
+        "e99d36"
+      ],
+      [
+        "1, 202, 0",
+        "aoemod:savanna_portal",
+        "e99d36"
+      ],
+      [
+        "2, 200, 0",
+        "aoemod:savanna_portal",
+        "e99d36"
+      ],
+      [
+        "2, 201, 0",
+        "aoemod:savanna_portal",
+        "e99d36"
+      ],
+      [
+        "2, 202, 0",
+        "aoemod:savanna_portal",
+        "e99d36"
+      ]
+    ],
+    "returnPortal": [
+      {
+        "id": "aoemod:desert_portal",
+        "position": "1, 240, 0",
+        "state": "Block{aoemod:desert_portal}[axis=x]",
+        "tint": "f8dd39"
+      },
+      {
+        "id": "aoemod:desert_portal",
+        "position": "2, 240, 0",
+        "state": "Block{aoemod:desert_portal}[axis=x]",
+        "tint": "f8dd39"
+      },
+      {
+        "id": "aoemod:desert_portal",
+        "position": "1, 241, 0",
+        "state": "Block{aoemod:desert_portal}[axis=x]",
+        "tint": "f8dd39"
+      },
+      {
+        "id": "aoemod:desert_portal",
+        "position": "2, 241, 0",
+        "state": "Block{aoemod:desert_portal}[axis=x]",
+        "tint": "f8dd39"
+      },
+      {
+        "id": "aoemod:desert_portal",
+        "position": "1, 242, 0",
+        "state": "Block{aoemod:desert_portal}[axis=x]",
+        "tint": "f8dd39"
+      },
+      {
+        "id": "aoemod:desert_portal",
+        "position": "2, 242, 0",
+        "state": "Block{aoemod:desert_portal}[axis=x]",
+        "tint": "f8dd39"
+      }
+    ],
+    "passed": true
+  },
+  {
+    "index": 28,
+    "source": "desert",
+    "destination": "plains",
+    "actualDimension": "aoemod:plains_dimension",
+    "seconds": 0.406,
+    "arrivalXYZ": [
+      1.5,
+      240.0,
+      0.5
+    ],
+    "sourcePortal": [
+      [
+        "1, 200, 0",
+        "aoemod:plains_portal",
+        "929292"
+      ],
+      [
+        "1, 201, 0",
+        "aoemod:plains_portal",
+        "929292"
+      ],
+      [
+        "1, 202, 0",
+        "aoemod:plains_portal",
+        "929292"
+      ],
+      [
+        "2, 200, 0",
+        "aoemod:plains_portal",
+        "929292"
+      ],
+      [
+        "2, 201, 0",
+        "aoemod:plains_portal",
+        "929292"
+      ],
+      [
+        "2, 202, 0",
+        "aoemod:plains_portal",
+        "929292"
+      ]
+    ],
+    "returnPortal": [
+      {
+        "id": "aoemod:desert_portal",
+        "position": "1, 240, 0",
+        "state": "Block{aoemod:desert_portal}[axis=x]",
+        "tint": "f8dd39"
+      },
+      {
+        "id": "aoemod:desert_portal",
+        "position": "2, 240, 0",
+        "state": "Block{aoemod:desert_portal}[axis=x]",
+        "tint": "f8dd39"
+      },
+      {
+        "id": "aoemod:desert_portal",
+        "position": "1, 241, 0",
+        "state": "Block{aoemod:desert_portal}[axis=x]",
+        "tint": "f8dd39"
+      },
+      {
+        "id": "aoemod:desert_portal",
+        "position": "2, 241, 0",
+        "state": "Block{aoemod:desert_portal}[axis=x]",
+        "tint": "f8dd39"
+      },
+      {
+        "id": "aoemod:desert_portal",
+        "position": "1, 242, 0",
+        "state": "Block{aoemod:desert_portal}[axis=x]",
+        "tint": "f8dd39"
+      },
+      {
+        "id": "aoemod:desert_portal",
+        "position": "2, 242, 0",
+        "state": "Block{aoemod:desert_portal}[axis=x]",
+        "tint": "f8dd39"
+      }
+    ],
+    "passed": true
+  },
+  {
+    "index": 29,
+    "source": "desert",
+    "destination": "snowy",
+    "actualDimension": "aoemod:snowy_dimension",
+    "seconds": 0.703,
+    "arrivalXYZ": [
+      1.5,
+      245.0,
+      0.5
+    ],
+    "sourcePortal": [
+      [
+        "1, 200, 0",
+        "aoemod:snowy_portal",
+        "ffffff"
+      ],
+      [
+        "1, 201, 0",
+        "aoemod:snowy_portal",
+        "ffffff"
+      ],
+      [
+        "1, 202, 0",
+        "aoemod:snowy_portal",
+        "ffffff"
+      ],
+      [
+        "2, 200, 0",
+        "aoemod:snowy_portal",
+        "ffffff"
+      ],
+      [
+        "2, 201, 0",
+        "aoemod:snowy_portal",
+        "ffffff"
+      ],
+      [
+        "2, 202, 0",
+        "aoemod:snowy_portal",
+        "ffffff"
+      ]
+    ],
+    "returnPortal": [
+      {
+        "id": "aoemod:desert_portal",
+        "position": "1, 245, 0",
+        "state": "Block{aoemod:desert_portal}[axis=x]",
+        "tint": "f8dd39"
+      },
+      {
+        "id": "aoemod:desert_portal",
+        "position": "2, 245, 0",
+        "state": "Block{aoemod:desert_portal}[axis=x]",
+        "tint": "f8dd39"
+      },
+      {
+        "id": "aoemod:desert_portal",
+        "position": "1, 246, 0",
+        "state": "Block{aoemod:desert_portal}[axis=x]",
+        "tint": "f8dd39"
+      },
+      {
+        "id": "aoemod:desert_portal",
+        "position": "2, 246, 0",
+        "state": "Block{aoemod:desert_portal}[axis=x]",
+        "tint": "f8dd39"
+      },
+      {
+        "id": "aoemod:desert_portal",
+        "position": "1, 247, 0",
+        "state": "Block{aoemod:desert_portal}[axis=x]",
+        "tint": "f8dd39"
+      },
+      {
+        "id": "aoemod:desert_portal",
+        "position": "2, 247, 0",
+        "state": "Block{aoemod:desert_portal}[axis=x]",
+        "tint": "f8dd39"
+      }
+    ],
+    "passed": true
+  },
+  {
+    "index": 30,
+    "source": "desert",
+    "destination": "nether",
+    "actualDimension": "aoemod:nether_dimension",
+    "seconds": 0.406,
+    "arrivalXYZ": [
+      1.5,
+      73.0,
+      0.5
+    ],
+    "sourcePortal": [
+      [
+        "1, 200, 0",
+        "aoemod:nether_portal",
+        "ef4444"
+      ],
+      [
+        "1, 201, 0",
+        "aoemod:nether_portal",
+        "ef4444"
+      ],
+      [
+        "1, 202, 0",
+        "aoemod:nether_portal",
+        "ef4444"
+      ],
+      [
+        "2, 200, 0",
+        "aoemod:nether_portal",
+        "ef4444"
+      ],
+      [
+        "2, 201, 0",
+        "aoemod:nether_portal",
+        "ef4444"
+      ],
+      [
+        "2, 202, 0",
+        "aoemod:nether_portal",
+        "ef4444"
+      ]
+    ],
+    "returnPortal": [
+      {
+        "id": "aoemod:desert_portal",
+        "position": "1, 73, 0",
+        "state": "Block{aoemod:desert_portal}[axis=x]",
+        "tint": "f8dd39"
+      },
+      {
+        "id": "aoemod:desert_portal",
+        "position": "2, 73, 0",
+        "state": "Block{aoemod:desert_portal}[axis=x]",
+        "tint": "f8dd39"
+      },
+      {
+        "id": "aoemod:desert_portal",
+        "position": "1, 74, 0",
+        "state": "Block{aoemod:desert_portal}[axis=x]",
+        "tint": "f8dd39"
+      },
+      {
+        "id": "aoemod:desert_portal",
+        "position": "2, 74, 0",
+        "state": "Block{aoemod:desert_portal}[axis=x]",
+        "tint": "f8dd39"
+      },
+      {
+        "id": "aoemod:desert_portal",
+        "position": "1, 75, 0",
+        "state": "Block{aoemod:desert_portal}[axis=x]",
+        "tint": "f8dd39"
+      },
+      {
+        "id": "aoemod:desert_portal",
+        "position": "2, 75, 0",
+        "state": "Block{aoemod:desert_portal}[axis=x]",
+        "tint": "f8dd39"
+      }
+    ],
+    "passed": true
+  },
+  {
+    "index": 31,
+    "source": "nether",
+    "destination": "desert",
+    "actualDimension": "aoemod:desert_dimension",
+    "seconds": 0.407,
+    "arrivalXYZ": [
+      1.5,
+      245.0,
+      0.5
+    ],
+    "sourcePortal": [
+      [
+        "1, 100, 0",
+        "aoemod:desert_portal",
+        "f8dd39"
+      ],
+      [
+        "1, 101, 0",
+        "aoemod:desert_portal",
+        "f8dd39"
+      ],
+      [
+        "1, 102, 0",
+        "aoemod:desert_portal",
+        "f8dd39"
+      ],
+      [
+        "2, 100, 0",
+        "aoemod:desert_portal",
+        "f8dd39"
+      ],
+      [
+        "2, 101, 0",
+        "aoemod:desert_portal",
+        "f8dd39"
+      ],
+      [
+        "2, 102, 0",
+        "aoemod:desert_portal",
+        "f8dd39"
+      ]
+    ],
+    "returnPortal": [
+      {
+        "id": "aoemod:nether_portal",
+        "position": "1, 245, 0",
+        "state": "Block{aoemod:nether_portal}[axis=x]",
+        "tint": "ef4444"
+      },
+      {
+        "id": "aoemod:nether_portal",
+        "position": "2, 245, 0",
+        "state": "Block{aoemod:nether_portal}[axis=x]",
+        "tint": "ef4444"
+      },
+      {
+        "id": "aoemod:nether_portal",
+        "position": "1, 246, 0",
+        "state": "Block{aoemod:nether_portal}[axis=x]",
+        "tint": "ef4444"
+      },
+      {
+        "id": "aoemod:nether_portal",
+        "position": "2, 246, 0",
+        "state": "Block{aoemod:nether_portal}[axis=x]",
+        "tint": "ef4444"
+      },
+      {
+        "id": "aoemod:nether_portal",
+        "position": "1, 247, 0",
+        "state": "Block{aoemod:nether_portal}[axis=x]",
+        "tint": "ef4444"
+      },
+      {
+        "id": "aoemod:nether_portal",
+        "position": "2, 247, 0",
+        "state": "Block{aoemod:nether_portal}[axis=x]",
+        "tint": "ef4444"
+      }
+    ],
+    "passed": true
+  }
+]

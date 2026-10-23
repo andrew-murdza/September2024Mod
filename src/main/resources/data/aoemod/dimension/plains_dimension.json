@@ -1,0 +1,14 @@
+{
+  "type": "aoemod:plains_dimension",
+  "generator": {
+    "type": "minecraft:noise",
+    "settings": "aoemod:plains_dimension",
+    "biome_source": {
+      "type": "aoemod:dimension_regions",
+      "dimension": "plains",
+      "biomes": [
+        "aoemod:plains"
+      ]
+    }
+  }
+}

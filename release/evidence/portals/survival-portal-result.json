@@ -1,0 +1,106 @@
+{
+  "outbound": {
+    "sourceDimension": "aoemod:desert_dimension",
+    "destinationDimension": "aoemod:nether_dimension",
+    "changedDimension": true,
+    "samples": [
+      {
+        "clientTicks": 5,
+        "elapsedSeconds": 0.266761499,
+        "dimension": "aoemod:desert_dimension"
+      },
+      {
+        "clientTicks": 10,
+        "elapsedSeconds": 0.5007276,
+        "dimension": "aoemod:desert_dimension"
+      },
+      {
+        "clientTicks": 15,
+        "elapsedSeconds": 0.7682806,
+        "dimension": "aoemod:desert_dimension"
+      },
+      {
+        "clientTicks": 20,
+        "elapsedSeconds": 1.0018729,
+        "dimension": "aoemod:desert_dimension"
+      },
+      {
+        "clientTicks": 25,
+        "elapsedSeconds": 1.2686291,
+        "dimension": "aoemod:desert_dimension"
+      },
+      {
+        "clientTicks": 30,
+        "elapsedSeconds": 1.503474099,
+        "dimension": "aoemod:desert_dimension"
+      },
+      {
+        "clientTicks": 35,
+        "elapsedSeconds": 1.7367834,
+        "dimension": "aoemod:desert_dimension"
+      },
+      {
+        "clientTicks": 40,
+        "elapsedSeconds": 2.0049972,
+        "dimension": "aoemod:desert_dimension"
+      },
+      {
+        "clientTicks": 45,
+        "elapsedSeconds": 2.2385163,
+        "dimension": "aoemod:desert_dimension"
+      },
+      {
+        "clientTicks": 50,
+        "elapsedSeconds": 2.505967399,
+        "dimension": "aoemod:desert_dimension"
+      },
+      {
+        "clientTicks": 55,
+        "elapsedSeconds": 2.7400733,
+        "dimension": "aoemod:desert_dimension"
+      },
+      {
+        "clientTicks": 60,
+        "elapsedSeconds": 3.007510199,
+        "dimension": "aoemod:desert_dimension"
+      },
+      {
+        "clientTicks": 65,
+        "elapsedSeconds": 3.242399,
+        "dimension": "aoemod:desert_dimension"
+      },
+      {
+        "clientTicks": 70,
+        "elapsedSeconds": 3.5092941,
+        "dimension": "aoemod:desert_dimension"
+      },
+      {
+        "clientTicks": 75,
+        "elapsedSeconds": 3.743279199,
+        "dimension": "aoemod:desert_dimension"
+      },
+      {
+        "clientTicks": 80,
+        "elapsedSeconds": 4.0107863,
+        "dimension": "aoemod:desert_dimension"
+      },
+      {
+        "clientTicks": 85,
+        "elapsedSeconds": 4.2458086,
+        "dimension": "aoemod:nether_dimension"
+      }
+    ]
+  },
+  "stayedInArrivalWithoutBounce": true,
+  "netherArrivalXYZ": [
+    1.5,
+    73.0,
+    0.5
+  ],
+  "returnedDimension": "aoemod:desert_dimension",
+  "returnedXYZ": [
+    1.5,
+    200.0,
+    0.5
+  ]
+}

@@ -2,14 +2,12 @@ package net.amurdza.examplemod.block;
 
 import net.amurdza.examplemod.config.BlockBehaviorConfig;
 import net.amurdza.examplemod.util.Helper;
-import net.amurdza.examplemod.util.QuadConsumer;
-import net.amurdza.examplemod.worldgen.MushroomCaveRegion;
+import net.amurdza.examplemod.util.GameplayDimensions;
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
-import net.minecraft.tags.BlockTags;
 import net.minecraft.util.Mth;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.InteractionHand;
@@ -20,6 +18,7 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.ShearsItem;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
@@ -29,6 +28,12 @@ import net.minecraftforge.common.ForgeHooks;
 import net.minecraftforge.common.Tags;
 
 public class BlockHelper {
+    public static boolean canGrowGiantMushroom(LevelReader level, BlockPos mushroomPos) {
+        return !GameplayDimensions.isCustom(level)
+                || GameplayDimensions.is(level, GameplayDimensions.TROPICAL)
+                || GameplayDimensions.biomeIs(level, mushroomPos, "mushroom_caves");
+    }
+
     public static InteractionResult useCaveVines(BlockState pState, Level pLevel, BlockPos pPos, Player pEntity, InteractionHand hand){
         BlockState blockState=null;
         ItemStack heldItem = pEntity.getItemInHand(hand);
@@ -54,8 +59,8 @@ public class BlockHelper {
         }
         else if (pState.getValue(BlockStateProperties.BERRIES)&&!heldItem.is(Items.GLOW_BERRIES)) {
             blockState = pState.setValue(BlockStateProperties.BERRIES,false);
-            Float value = Helper.getBiomeValue(pLevel, pPos, BlockBehaviorConfig.BIOME_TO_GLOW_BERRY_AMOUNTS);
-            int count = Helper.computeIncrements(pLevel.random, value != null ? value : 0.0f);
+            Float value = BlockBehaviorConfig.DIMENSION_TO_GLOW_BERRY_AMOUNTS.get(pLevel.dimension());
+            int count = Helper.computeIncrements(pLevel.random, value != null ? value : 1.0f);
             Block.popResource(pLevel, pPos, new ItemStack(Items.GLOW_BERRIES, count));
             sound=SoundEvents.CAVE_VINES_PICK_BERRIES;
         }
@@ -73,8 +78,7 @@ public class BlockHelper {
         return stack.is(Tags.Items.SHEARS) || stack.getItem() instanceof ShearsItem;
     }
 
-    public static void spreadMushroom(BlockState state, ServerLevel level, BlockPos pos, RandomSource random,
-                                        QuadConsumer<ServerLevel,BlockPos,BlockState,RandomSource> growMushroom){
+    public static void spreadMushroom(BlockState state, ServerLevel level, BlockPos pos, RandomSource random){
         if (ForgeHooks.onCropsGrowPre(level,pos,state,random.nextInt(25)==0)) {
             int i = BlockBehaviorConfig.MAX_MUSHROOMS_FOR_GROWTH;
 
@@ -85,13 +89,6 @@ public class BlockHelper {
             }
 
             if (i <= 0) {
-                if(random.nextInt(4) == 0){
-                    BlockState floorState = level.getBlockState(pos.below());
-                    if(floorState.is(BlockTags.MUSHROOM_GROW_BLOCK)
-                            && MushroomCaveRegion.containsFloor(pos.below())){
-                        growMushroom.accept(level, pos, state, random);
-                    }
-                }
                 return;
             }
 

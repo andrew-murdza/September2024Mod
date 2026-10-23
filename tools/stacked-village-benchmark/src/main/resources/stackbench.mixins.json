@@ -1,0 +1,13 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "net.amurdza.stackbench.mixin",
+  "compatibilityLevel": "JAVA_17",
+  "refmap": "stackbench.refmap.json",
+  "mixins": [
+    "ServerTickTiming"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}

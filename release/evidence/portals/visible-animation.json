@@ -1,0 +1,14 @@
+{
+  "comparisonRegion": [
+    440,
+    180,
+    700,
+    295
+  ],
+  "animationVisible": true,
+  "changedGreenPixels": 22303,
+  "sha256": "87af11197d7fced0063f3571bae55d2ac80785c7c463169d7e8f8eb8c7ec1d35",
+  "secondImage": "screenshots/aoe-portal-qa-animation-second-frame.png",
+  "firstImage": "screenshots/aoe-portal-qa-route-00-overworld-tropical.png",
+  "greenInteriorPixelsCompared": 29017
+}

@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smelting",
+  "ingredient": {
+    "item": "aoemod:raw_octopus"
+  },
+  "result": "aoemod:cooked_octopus",
+  "experience": 0.35,
+  "cookingtime": 200
+}

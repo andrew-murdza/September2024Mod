@@ -1,0 +1,17 @@
+{
+  "type": "aoemod:tropical_dimension",
+  "generator": {
+    "type": "minecraft:noise",
+    "settings": "aoemod:tropical_dimension",
+    "biome_source": {
+      "type": "aoemod:dimension_regions",
+      "dimension": "tropical",
+      "biomes": [
+        "aoemod:coral_reef",
+        "aoemod:mangrove_swamp",
+        "aoemod:rainforest",
+        "aoemod:cherry_grove"
+      ]
+    }
+  }
+}

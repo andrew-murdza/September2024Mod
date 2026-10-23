@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smelting",
+  "ingredient": {
+    "item": "hybrid_aquatic:tuna"
+  },
+  "result": "aoemod:cooked_tuna",
+  "experience": 0.35,
+  "cookingtime": 200
+}

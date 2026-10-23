@@ -1,0 +1,91 @@
+{
+  "passed": true,
+  "description": "Two real production clients received live tracked-data and block-entity updates; recorded persisted-final observations verify values after a full server/client restart.",
+  "slug_uuid": "[I;-569355034,1067402785,-1994043309,-1222706121]",
+  "observations": [
+    {
+      "profile": "production-client",
+      "phase": "before",
+      "slug": {
+        "base": "angling:jade",
+        "patternColor": "angling:coquelicot",
+        "pattern": "angling:stripes",
+        "bioluminescent": "1b"
+      },
+      "starfish": {
+        "color": 16733440,
+        "rotation": 35.0
+      }
+    },
+    {
+      "profile": "production-client",
+      "phase": "after",
+      "slug": {
+        "base": "angling:ultramarine",
+        "patternColor": "angling:gamboge",
+        "pattern": "angling:spots",
+        "bioluminescent": "1b"
+      },
+      "starfish": {
+        "color": 65535,
+        "rotation": 90.0
+      }
+    },
+    {
+      "profile": "production-client-2",
+      "phase": "before",
+      "slug": {
+        "base": "angling:jade",
+        "patternColor": "angling:coquelicot",
+        "pattern": "angling:stripes",
+        "bioluminescent": "1b"
+      },
+      "starfish": {
+        "color": 16733440,
+        "rotation": 35.0
+      }
+    },
+    {
+      "profile": "production-client-2",
+      "phase": "after",
+      "slug": {
+        "base": "angling:ultramarine",
+        "patternColor": "angling:gamboge",
+        "pattern": "angling:spots",
+        "bioluminescent": "1b"
+      },
+      "starfish": {
+        "color": 65535,
+        "rotation": 90.0
+      }
+    },
+    {
+      "profile": "production-client",
+      "phase": "persisted-final",
+      "slug": {
+        "base": "angling:ultramarine",
+        "patternColor": "angling:gamboge",
+        "pattern": "angling:spots",
+        "bioluminescent": "1b"
+      },
+      "starfish": {
+        "color": 65535,
+        "rotation": 90.0
+      }
+    },
+    {
+      "profile": "production-client-2",
+      "phase": "persisted-final",
+      "slug": {
+        "base": "angling:ultramarine",
+        "patternColor": "angling:gamboge",
+        "pattern": "angling:spots",
+        "bioluminescent": "1b"
+      },
+      "starfish": {
+        "color": 65535,
+        "rotation": 90.0
+      }
+    }
+  ]
+}

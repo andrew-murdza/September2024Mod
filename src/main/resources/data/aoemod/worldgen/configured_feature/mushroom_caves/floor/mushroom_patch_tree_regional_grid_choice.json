@@ -13,6 +13,10 @@
       {
         "feature": "aoemod:mushroom_caves/floor/glow_shroom_patch_with_giant",
         "count": 4
+      },
+      {
+        "feature": "twilightforest:mushroom/big_mushgloom",
+        "count": 4
       }
     ],
     "default_feature": "aoemod:nothing",

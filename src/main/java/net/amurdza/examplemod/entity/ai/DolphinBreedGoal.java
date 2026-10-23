@@ -1,6 +1,8 @@
 package net.amurdza.examplemod.entity.ai;
 
 import net.amurdza.examplemod.mixins.accessor.SimpleCriterionTriggerInvoker;
+import net.amurdza.examplemod.config.MobConfig;
+import net.amurdza.examplemod.util.Helper;
 import net.minecraft.advancements.CriteriaTriggers;
 import net.minecraft.advancements.critereon.BredAnimalsTrigger;
 import net.minecraft.advancements.critereon.EntityPredicate;
@@ -92,21 +94,19 @@ public final class DolphinBreedGoal extends Goal {
 
     private void spawnBaby(ServerLevel level, Dolphin otherParent) {
         DolphinBreedingAccess otherBreeding = (DolphinBreedingAccess) otherParent;
-        Dolphin baby = EntityType.DOLPHIN.create(level);
-        if (baby == null) {
-            return;
-        }
-
-        DolphinBreedingAccess babyBreeding = (DolphinBreedingAccess) baby;
+        float multiplier = MobConfig.mobTwinsChance(this.dolphin);
+        int children = multiplier < 0.0F ? 1 : Helper.computeIncrements(this.dolphin.getRandom(), multiplier);
         ServerPlayer breeder = this.breeding.aoe$getLoveCause();
-        if (breeder == null) {
-            breeder = otherBreeding.aoe$getLoveCause();
-        }
-
-        babyBreeding.aoe$setAge(DolphinBreedingAccess.BABY_START_AGE);
-        baby.moveTo(this.dolphin.getX(), this.dolphin.getY(), this.dolphin.getZ(), 0.0F, 0.0F);
-        if (breeder != null) {
-            this.awardBreedingCredit(breeder, otherParent, baby);
+        if (breeder == null) breeder = otherBreeding.aoe$getLoveCause();
+        int spawned = 0;
+        for (int i = 0; i < children; i++) {
+            Dolphin baby = EntityType.DOLPHIN.create(level);
+            if (baby == null) continue;
+            ((DolphinBreedingAccess) baby).aoe$setAge(DolphinBreedingAccess.BABY_START_AGE);
+            baby.moveTo(this.dolphin.getX(), this.dolphin.getY(), this.dolphin.getZ(), 0.0F, 0.0F);
+            level.addFreshEntityWithPassengers(baby);
+            if (breeder != null && spawned == 0) this.awardBreedingCredit(breeder, otherParent, baby);
+            spawned++;
         }
 
         this.breeding.aoe$setAge(DolphinBreedingAccess.BREEDING_COOLDOWN);
@@ -114,7 +114,7 @@ public final class DolphinBreedGoal extends Goal {
         this.breeding.aoe$resetLove();
         otherBreeding.aoe$resetLove();
 
-        level.addFreshEntityWithPassengers(baby);
+        if (spawned == 0) return;
         level.broadcastEntityEvent(this.dolphin, (byte) 18);
         level.broadcastEntityEvent(otherParent, (byte) 18);
 

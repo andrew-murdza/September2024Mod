@@ -51,28 +51,20 @@ public class CustomBlockDrops {
         }
 
         List<BlockConfig.BlockLootEntry> dropEntries = BlockConfig.blockDropEntries(level, pos, state);
+        if (dropEntries.isEmpty()) {
+            return;
+        }
         ItemStack tool = player.getMainHandItem();
 
         if (shouldLetVanillaShearsHandle(state, tool)) {
             return;
         }
 
-        /*
-         * Configured block, but no matching biome entries:
-         * replace vanilla with no drops.
-         */
         event.setCanceled(true);
 
         if (player.isCreative()) {
             level.destroyBlock(pos, false, player);
             return;
-        }
-
-        if(isShears(tool)){
-            if(state.is(Blocks.RED_MUSHROOM_BLOCK)||state.is(Blocks.BROWN_MUSHROOM_BLOCK)
-            ||state.is(GlimmeringWealdModule.glow_shroom_block)||state.is(GlimmeringWealdModule.glow_shroom_stem)){
-                dropItem(level, pos, state.getBlock().asItem());
-            }
         }
 
         level.levelEvent(player, 2001, pos, Block.getId(state));
@@ -81,32 +73,7 @@ public class CustomBlockDrops {
         int xp = state.getExpDrop(level, level.random, pos, fortuneLevel(tool), silkTouchLevel(tool));
         event.setExpToDrop(xp);
 
-        List<WeightedDrop> groupedSeedDrops = new ArrayList<>();
-
-        for (BlockConfig.BlockLootEntry entry : dropEntries) {
-            Item item = entry.item();
-
-            if (item == null) {
-                continue;
-            }
-
-            float multiplier = BlockConfig.blockDropAmount(state, entry);
-
-            if (entry.affectedByFortune()) {
-                multiplier = applyFortune(multiplier, tool);
-            }
-
-            if (entry.groupedSeedRoll()) {
-                if (multiplier > 0.0F) {
-                    groupedSeedDrops.add(new WeightedDrop(item, multiplier));
-                }
-                continue;
-            }
-
-            dropItem(level, pos, item, multiplier);
-        }
-
-        dropGroupedSeeds(level, pos, groupedSeedDrops);
+        for (ItemStack drop : configuredDrops(level, pos, state, tool, level.random)) dropStack(level, pos, drop);
 
         if (xp > 0) {
             state.getBlock().popExperience(level, pos, xp);
@@ -114,22 +81,45 @@ public class CustomBlockDrops {
     }
 
     private static boolean hasConfiguredCustomDrops(Block block) {
-        if (BlockConfig.BLOCK_LOOT_ENTRIES_BY_BLOCK_BY_ITEM_BY_TAG.isEmpty()) {
-            return false;
+        return BlockConfig.BLOCK_INFO_BY_BLOCK.containsKey(block);
+    }
+
+    /** A reusable base loot roll for workers; null delegates to the original table, empty is a valid zero roll. */
+    public static List<ItemStack> configuredDrops(ServerLevel level, BlockPos pos, BlockState state,
+                                                 ItemStack tool, RandomSource random) {
+        List<BlockConfig.BlockLootEntry> entries = BlockConfig.blockDropEntries(level, pos, state);
+        if (entries.isEmpty() || shouldLetVanillaShearsHandle(state, tool)) return null;
+        List<ItemStack> drops = new ArrayList<>();
+        if (isShears(tool) && (state.is(Blocks.RED_MUSHROOM_BLOCK) || state.is(Blocks.BROWN_MUSHROOM_BLOCK)
+                || state.is(GlimmeringWealdModule.glow_shroom_block) || state.is(GlimmeringWealdModule.glow_shroom_stem))) {
+            drops.add(new ItemStack(state.getBlock()));
         }
-
-        for (Map<Item, Map<Block, List<BlockConfig.BlockLootEntry>>> byItem
-                : BlockConfig.BLOCK_LOOT_ENTRIES_BY_BLOCK_BY_ITEM_BY_TAG.values()) {
-            for (Map<Block, List<BlockConfig.BlockLootEntry>> byBlock : byItem.values()) {
-                List<BlockConfig.BlockLootEntry> entries = byBlock.get(block);
-
-                if (entries != null && !entries.isEmpty()) {
-                    return true;
-                }
+        List<WeightedDrop> seeds = new ArrayList<>();
+        for (BlockConfig.BlockLootEntry entry : entries) {
+            if (entry.item() == null) continue;
+            float amount = BlockConfig.blockDropAmount(state, entry);
+            if (entry.affectedByFortune()) amount = applyFortune(amount, tool);
+            if (entry.groupedSeedRoll()) {
+                if (amount > 0) seeds.add(new WeightedDrop(entry.item(), amount));
+            } else if (amount > 0) {
+                int count = Helper.computeIncrements(random, amount);
+                if (count > 0) drops.add(new ItemStack(entry.item(), count));
             }
         }
+        float weight = 0;
+        for (WeightedDrop seed : seeds) weight += seed.weight();
+        int rolls = weight > 0 ? Helper.computeIncrements(random, weight) : 0;
+        Map<Item, Integer> selected = new LinkedHashMap<>();
+        for (int roll = 0; roll < rolls; roll++) {
+            Item item = selectWeightedItem(random, seeds, weight);
+            if (item != null) selected.merge(item, 1, Integer::sum);
+        }
+        selected.forEach((item, count) -> drops.add(new ItemStack(item, count)));
+        return drops;
+    }
 
-        return false;
+    public static boolean usesConfiguredDrops(ServerLevel level, BlockPos pos, BlockState state, ItemStack tool) {
+        return !BlockConfig.blockDropEntries(level, pos, state).isEmpty() && !shouldLetVanillaShearsHandle(state, tool);
     }
 
     private static boolean shouldLetVanillaShearsHandle(BlockState state, ItemStack tool) {
@@ -146,7 +136,7 @@ public class CustomBlockDrops {
     }
 
     private static boolean isShears(ItemStack tool) {
-        return tool.getItem() instanceof ShearsItem;
+        return tool.is(Tags.Items.SHEARS) || tool.getItem() instanceof ShearsItem;
     }
 
     private static float applyFortune(float amount, ItemStack tool) {
@@ -170,62 +160,6 @@ public class CustomBlockDrops {
 
     private static int silkTouchLevel(ItemStack tool) {
         return EnchantmentHelper.getItemEnchantmentLevel(Enchantments.SILK_TOUCH, tool);
-    }
-
-    private static void dropItem(ServerLevel level, BlockPos pos, Item item, float multiplier) {
-        if (item == null || multiplier <= 0.0F) {
-            return;
-        }
-
-        int amount = Helper.computeIncrements(level.random, multiplier);
-
-        if (amount <= 0) {
-            return;
-        }
-
-        dropStack(level, pos, new ItemStack(item, amount));
-    }
-
-    private static void dropItem(ServerLevel level, BlockPos pos, Item item) {
-        dropItem(level, pos, item, 1);
-    }
-
-    private static void dropGroupedSeeds(ServerLevel level, BlockPos pos, List<WeightedDrop> seedDrops) {
-        if (seedDrops.isEmpty()) {
-            return;
-        }
-
-        float totalWeight = 0.0F;
-
-        for (WeightedDrop seedDrop : seedDrops) {
-            if (seedDrop.weight() > 0.0F) {
-                totalWeight += seedDrop.weight();
-            }
-        }
-
-        if (totalWeight <= 0.0F) {
-            return;
-        }
-
-        int amount = Helper.computeIncrements(level.random, totalWeight);
-
-        if (amount <= 0) {
-            return;
-        }
-
-        Map<Item, Integer> selectedCounts = new LinkedHashMap<>();
-
-        for (int i = 0; i < amount; i++) {
-            Item selected = selectWeightedItem(level.random, seedDrops, totalWeight);
-
-            if (selected != null) {
-                selectedCounts.merge(selected, 1, Integer::sum);
-            }
-        }
-
-        for (Map.Entry<Item, Integer> entry : selectedCounts.entrySet()) {
-            dropStack(level, pos, new ItemStack(entry.getKey(), entry.getValue()));
-        }
     }
 
     private static Item selectWeightedItem(RandomSource random, List<WeightedDrop> seedDrops, float totalWeight) {

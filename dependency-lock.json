@@ -1,0 +1,2064 @@
+{
+  "format": 1,
+  "minecraft": "1.20.1",
+  "forge": "47.4.22",
+  "description": "Exact local Forge jars selected from the user supplied AnimalTesting profile, plus the completed Angling port. Libraries embedded in these jars are retained. My Nether's Delight is the official Forge dependency added for documented Nether powder cane. Immersive Portals 3.0.7 and Cloth Config 11.1.136 provide the continuous custom desert-Nether stack.",
+  "jars": [
+    {
+      "artifact": "alexscaves",
+      "version": "2.0.2",
+      "file": "libs/pack/alexscaves-2.0.2.jar",
+      "source_filename": "alexscaves-2.0.2.jar",
+      "sha256": "131e205ce3eed384d701b336d8a0d4a671108ed56b6eff6014f0e407db2997f0",
+      "mods": [
+        {
+          "modId": "alexscaves",
+          "version": "2.0.2"
+        }
+      ],
+      "embedded_mods": [],
+      "dependencies": [
+        {
+          "owner": "alexscaves",
+          "modId": "citadel",
+          "mandatory": true,
+          "versionRange": "[2.6.0,)",
+          "ordering": "AFTER",
+          "side": "BOTH"
+        },
+        {
+          "owner": "alexscaves",
+          "modId": "forge",
+          "mandatory": true,
+          "versionRange": "[47.1.3,)",
+          "ordering": "NONE",
+          "side": "BOTH"
+        }
+      ]
+    },
+    {
+      "artifact": "alexsmobs",
+      "version": "1.22.9",
+      "file": "libs/pack/alexsmobs-1.22.9.jar",
+      "source_filename": "alexsmobs-1.22.9.jar",
+      "sha256": "16bc5bcc19db9029c24f951346ec71098e6f5b0afef96e61894a2e9407aad37c",
+      "mods": [
+        {
+          "modId": "alexsmobs",
+          "version": "1.22.9"
+        }
+      ],
+      "embedded_mods": [],
+      "dependencies": [
+        {
+          "owner": "alexsmobs",
+          "modId": "citadel",
+          "mandatory": true,
+          "versionRange": "[2.6.0,)",
+          "ordering": "AFTER",
+          "side": "BOTH"
+        },
+        {
+          "owner": "alexsmobs",
+          "modId": "forge",
+          "mandatory": true,
+          "versionRange": "[47.1.0,)",
+          "ordering": "NONE",
+          "side": "BOTH"
+        }
+      ]
+    },
+    {
+      "artifact": "ambientadditions",
+      "version": "1.20.1-1.1.2",
+      "file": "libs/pack/ambientadditions-1.20.1-1.1.2.jar",
+      "source_filename": "ambientadditions-1.20.1-1.1.2.jar",
+      "sha256": "dc64e192c78c626329500d28430b54d98b2fbbf62288c62434795bc5fac98e5a",
+      "mods": [
+        {
+          "modId": "ambientadditions",
+          "version": "1.20.1-1.1.2"
+        }
+      ],
+      "embedded_mods": [],
+      "dependencies": [
+        {
+          "owner": "ambientadditions",
+          "modId": "forge",
+          "mandatory": true,
+          "versionRange": "[43,)",
+          "ordering": "NONE",
+          "side": "BOTH"
+        },
+        {
+          "owner": "ambientadditions",
+          "modId": "minecraft",
+          "mandatory": true,
+          "versionRange": "[1.20,1.21)",
+          "ordering": "NONE",
+          "side": "BOTH"
+        }
+      ]
+    },
+    {
+      "artifact": "aquatica",
+      "version": "0.0.1",
+      "file": "libs/pack/aquatica-0.0.1.jar",
+      "source_filename": "aquatica-0.0.1.jar",
+      "sha256": "f8cd9654550c08819ef458095f35c96f79dba9bb73e12712d2c2c0c4aefb20f8",
+      "mods": [
+        {
+          "modId": "aquatica",
+          "version": "0.0.1"
+        }
+      ],
+      "embedded_mods": [],
+      "dependencies": [
+        {
+          "owner": "aquatica",
+          "modId": "forge",
+          "mandatory": true,
+          "versionRange": "[47,)",
+          "ordering": "NONE",
+          "side": "BOTH"
+        },
+        {
+          "owner": "aquatica",
+          "modId": "minecraft",
+          "mandatory": true,
+          "versionRange": "[1.20.1,1.21)",
+          "ordering": "NONE",
+          "side": "BOTH"
+        }
+      ]
+    },
+    {
+      "artifact": "architectury",
+      "version": "9.2.14",
+      "file": "libs/pack/architectury-9.2.14.jar",
+      "source_filename": "architectury-9.2.14-forge.jar",
+      "sha256": "218b471d0b8a1f6cda14cfc1beb9eeb0df54304500acc6c5613d9b88ec65d9af",
+      "mods": [
+        {
+          "modId": "architectury",
+          "version": "9.2.14"
+        }
+      ],
+      "embedded_mods": [],
+      "dependencies": [
+        {
+          "owner": "architectury",
+          "modId": "minecraft",
+          "mandatory": true,
+          "versionRange": "[1.20,)",
+          "ordering": "NONE",
+          "side": "BOTH"
+        },
+        {
+          "owner": "architectury",
+          "modId": "forge",
+          "mandatory": true,
+          "versionRange": "[46,)",
+          "ordering": "NONE",
+          "side": "BOTH"
+        }
+      ]
+    },
+    {
+      "artifact": "badpackets",
+      "version": "0.4.3",
+      "file": "libs/pack/badpackets-0.4.3.jar",
+      "source_filename": "badpackets-forge-0.4.3.jar",
+      "sha256": "b621a8e31727324a6010adbfb84fd4dbb78b3c7d87e5a9aebfb4e3223448f1e3",
+      "mods": [
+        {
+          "modId": "badpackets",
+          "version": "0.4.3"
+        }
+      ],
+      "embedded_mods": [],
+      "dependencies": [
+        {
+          "owner": "badpackets",
+          "modId": "minecraft",
+          "mandatory": true,
+          "versionRange": "[1.19.4,)",
+          "ordering": "NONE",
+          "side": "BOTH"
+        }
+      ]
+    },
+    {
+      "artifact": "bclib",
+      "version": "20.0.13",
+      "file": "libs/pack/bclib-20.0.13.jar",
+      "source_filename": "BCLib-20.0.13.jar",
+      "sha256": "75a7d2d8f44f9d9a1ce801f4f236e601bcc11d256964c1f77ce2aaf858818050",
+      "mods": [
+        {
+          "modId": "bclib",
+          "version": "20.0.13"
+        }
+      ],
+      "embedded_mods": [],
+      "dependencies": [
+        {
+          "owner": "bclib",
+          "modId": "forge",
+          "mandatory": true,
+          "versionRange": "[47.2.0,)",
+          "ordering": "NONE",
+          "side": "BOTH"
+        },
+        {
+          "owner": "bclib",
+          "modId": "minecraft",
+          "mandatory": true,
+          "versionRange": "[1.20.1]",
+          "ordering": "NONE",
+          "side": "BOTH"
+        },
+        {
+          "owner": "bclib",
+          "modId": "wunderlib",
+          "mandatory": true,
+          "versionRange": "[20.0.1,)",
+          "ordering": "NONE",
+          "side": "BOTH"
+        },
+        {
+          "owner": "bclib",
+          "modId": "emi",
+          "mandatory": false,
+          "versionRange": "[1.0,)",
+          "ordering": "NONE",
+          "side": "CLIENT"
+        }
+      ]
+    },
+    {
+      "artifact": "betterend",
+      "version": "20.0.11",
+      "file": "libs/pack/betterend-20.0.11.jar",
+      "source_filename": "BetterEnd-20.0.11.jar",
+      "sha256": "8c24d905c4c0d4859c48b210922ebf3b4cb7a316eecc5bf845e57312e258d190",
+      "mods": [
+        {
+          "modId": "betterend",
+          "version": "20.0.11"
+        }
+      ],
+      "embedded_mods": [],
+      "dependencies": [
+        {
+          "owner": "betterend",
+          "modId": "forge",
+          "mandatory": true,
+          "versionRange": "[47.2.0,)",
+          "ordering": "NONE",
+          "side": "BOTH"
+        },
+        {
+          "owner": "betterend",
+          "modId": "minecraft",
+          "mandatory": true,
+          "versionRange": "[1.20.1]",
+          "ordering": "NONE",
+          "side": "BOTH"
+        },
+        {
+          "owner": "betterend",
+          "modId": "bclib",
+          "mandatory": true,
+          "versionRange": "[20.0.12,)",
+          "ordering": "NONE",
+          "side": "BOTH"
+        },
+        {
+          "owner": "betterend",
+          "modId": "emi",
+          "mandatory": false,
+          "versionRange": "[1.0,)",
+          "ordering": "NONE",
+          "side": "CLIENT"
+        },
+        {
+          "owner": "betterend",
+          "modId": "jei",
+          "mandatory": false,
+          "versionRange": "[1.0,)",
+          "ordering": "NONE",
+          "side": "CLIENT"
+        },
+        {
+          "owner": "betterend",
+          "modId": "patchouli",
+          "mandatory": false,
+          "versionRange": "[1.20.1-84-FORGE,)",
+          "ordering": "NONE",
+          "side": "CLIENT"
+        },
+        {
+          "owner": "betterend",
+          "modId": "elytraslot",
+          "mandatory": false,
+          "versionRange": "[1.0,)",
+          "ordering": "NONE",
+          "side": "BOTH"
+        }
+      ]
+    },
+    {
+      "artifact": "biodiverse",
+      "version": "1.1.0",
+      "file": "libs/pack/biodiverse-1.1.0.jar",
+      "source_filename": "Biodiverse-2.1.jar",
+      "sha256": "4f58f00cf43a40ad40af8f64678ee73d2f4eae4117f7d86c0386fc5f7d7e2fde",
+      "mods": [
+        {
+          "modId": "biodiverse",
+          "version": "1.1.0"
+        }
+      ],
+      "embedded_mods": [],
+      "dependencies": [
+        {
+          "owner": "biodiverse",
+          "modId": "minecraft",
+          "mandatory": true,
+          "versionRange": "[1.20.1]",
+          "ordering": "AFTER",
+          "side": "BOTH"
+        },
+        {
+          "owner": "biodiverse",
+          "modId": "geckolib",
+          "mandatory": false,
+          "versionRange": "[0,)",
+          "ordering": "NONE",
+          "side": "BOTH"
+        }
+      ]
+    },
+    {
+      "artifact": "biomesoplenty",
+      "version": "18.0.0.592",
+      "file": "libs/pack/biomesoplenty-18.0.0.592.jar",
+      "source_filename": "BiomesOPlenty-1.20.1-18.0.0.592.jar",
+      "sha256": "c587b49931e62f89c2673936a5e7269c6daabb713dbcc30813cb0f76da37e01d",
+      "mods": [
+        {
+          "modId": "biomesoplenty",
+          "version": "18.0.0.592"
+        }
+      ],
+      "embedded_mods": [],
+      "dependencies": [
+        {
+          "owner": "biomesoplenty",
+          "modId": "forge",
+          "mandatory": true,
+          "versionRange": "[45.0.9,)",
+          "ordering": "NONE",
+          "side": "BOTH"
+        },
+        {
+          "owner": "biomesoplenty",
+          "modId": "terrablender",
+          "mandatory": true,
+          "versionRange": "[2.2.0.154,)",
+          "ordering": "AFTER",
+          "side": "BOTH"
+        }
+      ]
+    },
+    {
+      "artifact": "blueprint",
+      "version": "7.1.5",
+      "file": "libs/pack/blueprint-7.1.5.jar",
+      "source_filename": "blueprint-1.20.1-7.1.5.jar",
+      "sha256": "ab6782901ffb7b08b86325897fb3a2194e0fb1a346af316d74707101c36afb9f",
+      "mods": [
+        {
+          "modId": "blueprint",
+          "version": "7.1.5"
+        }
+      ],
+      "embedded_mods": [],
+      "dependencies": [
+        {
+          "owner": "blueprint",
+          "modId": "minecraft",
+          "mandatory": true,
+          "versionRange": "[1.20.1,1.20.2)",
+          "ordering": "NONE",
+          "side": "BOTH"
+        },
+        {
+          "owner": "blueprint",
+          "modId": "forge",
+          "mandatory": true,
+          "versionRange": "[47.1.3,)",
+          "ordering": "NONE",
+          "side": "BOTH"
+        }
+      ]
+    },
+    {
+      "artifact": "bountiful_critters",
+      "version": "1.5.1",
+      "file": "libs/pack/bountiful_critters-1.5.1.jar",
+      "source_filename": "Bountiful-Critters-1.20.1-1.5.1.jar",
+      "sha256": "cce58933da927994bf28a766a15c7995448d562a4d909b287dae81011ec40b4a",
+      "mods": [
+        {
+          "modId": "bountiful_critters",
+          "version": "1.5.1"
+        }
+      ],
+      "embedded_mods": [],
+      "dependencies": [
+        {
+          "owner": "bountiful_critters",
+          "modId": "minecraft",
+          "mandatory": true,
+          "versionRange": "[1.20.1,1.20.2)",
+          "ordering": "AFTER",
+          "side": "BOTH"
+        },
+        {
+          "owner": "bountiful_critters",
+          "modId": "forge",
+          "mandatory": true,
+          "versionRange": "[47.1.3,)",
+          "ordering": "AFTER",
+          "side": "BOTH"
+        }
+      ]
+    },
+    {
+      "artifact": "citadel",
+      "version": "2.6.3",
+      "file": "libs/pack/citadel-2.6.3.jar",
+      "source_filename": "citadel-2.6.3-1.20.1.jar",
+      "sha256": "56c7ab87348a5292583aac787b6cf11b5193e77f02af1d17ea75a96f8640b3ce",
+      "mods": [
+        {
+          "modId": "citadel",
+          "version": "2.6.3"
+        }
+      ],
+      "embedded_mods": [],
+      "dependencies": [
+        {
+          "owner": "citadel",
+          "modId": "forge",
+          "mandatory": true,
+          "versionRange": "[47.0.34,)",
+          "ordering": "NONE",
+          "side": "BOTH"
+        }
+      ]
+    },
+    {
+      "artifact": "collectorsreap",
+      "version": "1.5.5",
+      "file": "libs/pack/collectorsreap-1.5.5.jar",
+      "source_filename": "collectorsreap-1.20.1-1.5.5.jar",
+      "sha256": "d2a752e26cd252e9e9d5a0c5052c5d590dfe20ea8a2eb386f5db73cc60971501",
+      "mods": [
+        {
+          "modId": "collectorsreap",
+          "version": "1.5.5"
+        }
+      ],
+      "embedded_mods": [],
+      "dependencies": [
+        {
+          "owner": "collectorsreap",
+          "modId": "forge",
+          "mandatory": true,
+          "versionRange": "[47,)",
+          "ordering": "NONE",
+          "side": "BOTH"
+        },
+        {
+          "owner": "collectorsreap",
+          "modId": "farmersdelight",
+          "mandatory": true,
+          "versionRange": "[1.20.1-1.2.3,)",
+          "ordering": "AFTER",
+          "side": "BOTH"
+        },
+        {
+          "owner": "collectorsreap",
+          "modId": "blueprint",
+          "mandatory": true,
+          "versionRange": "[7.1.3,)",
+          "ordering": "AFTER",
+          "side": "BOTH"
+        },
+        {
+          "owner": "collectorsreap",
+          "modId": "neapolitan",
+          "mandatory": false,
+          "versionRange": "[5.1,)",
+          "ordering": "AFTER",
+          "side": "BOTH"
+        },
+        {
+          "owner": "collectorsreap",
+          "modId": "boatload",
+          "mandatory": false,
+          "versionRange": "[5.0.1,)",
+          "ordering": "AFTER",
+          "side": "BOTH"
+        },
+        {
+          "owner": "collectorsreap",
+          "modId": "woodworks",
+          "mandatory": false,
+          "versionRange": "[3.0.2,)",
+          "ordering": "AFTER",
+          "side": "BOTH"
+        },
+        {
+          "owner": "collectorsreap",
+          "modId": "buzzier_bees",
+          "mandatory": false,
+          "versionRange": "[6.0.1,)",
+          "ordering": "AFTER",
+          "side": "BOTH"
+        },
+        {
+          "owner": "collectorsreap",
+          "modId": "abnormals_delight",
+          "mandatory": false,
+          "versionRange": "[5,)",
+          "ordering": "AFTER",
+          "side": "BOTH"
+        },
+        {
+          "owner": "collectorsreap",
+          "modId": "atmospheric",
+          "mandatory": false,
+          "versionRange": "[6.1,)",
+          "ordering": "AFTER",
+          "side": "BOTH"
+        },
+        {
+          "owner": "collectorsreap",
+          "modId": "nethersdelight",
+          "mandatory": false,
+          "versionRange": "[0,)",
+          "ordering": "AFTER",
+          "side": "BOTH"
+        },
+        {
+          "owner": "collectorsreap",
+          "modId": "mynethersdelight",
+          "mandatory": false,
+          "versionRange": "[1.20.1-1.0,)",
+          "ordering": "AFTER",
+          "side": "BOTH"
+        },
+        {
+          "owner": "collectorsreap",
+          "modId": "farmersrespite",
+          "mandatory": false,
+          "versionRange": "[1.20.1-2.1,)",
+          "ordering": "AFTER",
+          "side": "BOTH"
+        },
+        {
+          "owner": "collectorsreap",
+          "modId": "brewinandchewin",
+          "mandatory": false,
+          "versionRange": "[1.20.1-3.2.1,)",
+          "ordering": "AFTER",
+          "side": "BOTH"
+        },
+        {
+          "owner": "collectorsreap",
+          "modId": "botanypots",
+          "mandatory": false,
+          "versionRange": "[13,)",
+          "ordering": "AFTER",
+          "side": "BOTH"
+        },
+        {
+          "owner": "collectorsreap",
+          "modId": "letfishlove",
+          "mandatory": false,
+          "versionRange": "[2,)",
+          "ordering": "AFTER",
+          "side": "BOTH"
+        },
+        {
+          "owner": "collectorsreap",
+          "modId": "letmorefishlove",
+          "mandatory": false,
+          "versionRange": "[0,)",
+          "ordering": "AFTER",
+          "side": "BOTH"
+        }
+      ]
+    },
+    {
+      "artifact": "cooking_expanded",
+      "version": "1.0.0",
+      "file": "libs/pack/cooking_expanded-1.0.0.jar",
+      "source_filename": "cooking_expanded-1.0.2-forge-1.20.1.jar",
+      "sha256": "7d9ff59a4ab57b48d2fb903054e00482c44e6cd68b9e8c7fd7bfdffe00225f97",
+      "mods": [
+        {
+          "modId": "cooking_expanded",
+          "version": "1.0.0"
+        }
+      ],
+      "embedded_mods": [],
+      "dependencies": [
+        {
+          "owner": "cooking_expanded",
+          "modId": "minecraft",
+          "mandatory": true,
+          "versionRange": "[1.20.1]",
+          "ordering": "AFTER",
+          "side": "BOTH"
+        }
+      ]
+    },
+    {
+      "artifact": "corgilib",
+      "version": "4.0.3.6",
+      "file": "libs/pack/corgilib-4.0.3.6.jar",
+      "source_filename": "Corgilib-Forge-1.20.1-4.0.3.6.jar",
+      "sha256": "6f337ceae789bd31f39c0c4e1bfa1bc094dbfcc2d8e4eee3c8b6f50750891298",
+      "mods": [
+        {
+          "modId": "corgilib",
+          "version": "4.0.3.6"
+        }
+      ],
+      "embedded_mods": [],
+      "dependencies": [
+        {
+          "owner": "corgilib",
+          "modId": "forge",
+          "mandatory": true,
+          "versionRange": "[46,)",
+          "ordering": "NONE",
+          "side": "BOTH"
+        },
+        {
+          "owner": "corgilib",
+          "modId": "minecraft",
+          "mandatory": true,
+          "versionRange": "[1.20.1,)",
+          "ordering": "NONE",
+          "side": "BOTH"
+        }
+      ]
+    },
+    {
+      "artifact": "curios",
+      "version": "5.14.1+1.20.1",
+      "file": "libs/pack/curios-5.14.1+1.20.1.jar",
+      "source_filename": "curios-forge-5.14.1+1.20.1.jar",
+      "sha256": "1e817919a35b37cf30524aaec73f0ca5130452f23f168f844854df282eb8e51f",
+      "mods": [
+        {
+          "modId": "curios",
+          "version": "5.14.1+1.20.1"
+        }
+      ],
+      "embedded_mods": [],
+      "dependencies": [
+        {
+          "owner": "curios",
+          "modId": "forge",
+          "mandatory": true,
+          "versionRange": "[46,)",
+          "ordering": "NONE",
+          "side": "BOTH"
+        },
+        {
+          "owner": "curios",
+          "modId": "minecraft",
+          "mandatory": true,
+          "versionRange": "[1.20,1.21)",
+          "ordering": "NONE",
+          "side": "BOTH"
+        }
+      ]
+    },
+    {
+      "artifact": "ecologics",
+      "version": "2.2.7",
+      "file": "libs/pack/ecologics-2.2.7.jar",
+      "source_filename": "ecologics-forge-1.20.1-2.2.7.jar",
+      "sha256": "1d9f7d1f460c1550fc67687c71881f567e6e0f66bb852156e44580e880fe97f6",
+      "mods": [
+        {
+          "modId": "ecologics",
+          "version": "2.2.7"
+        }
+      ],
+      "embedded_mods": [],
+      "dependencies": [
+        {
+          "owner": "ecologics",
+          "modId": "forge",
+          "mandatory": true,
+          "versionRange": "[47.1.3,)",
+          "ordering": "NONE",
+          "side": "BOTH"
+        },
+        {
+          "owner": "ecologics",
+          "modId": "minecraft",
+          "mandatory": true,
+          "versionRange": "[1.20.1,1.20.3)",
+          "ordering": "NONE",
+          "side": "BOTH"
+        }
+      ]
+    },
+    {
+      "artifact": "environmental",
+      "version": "4.1.2",
+      "file": "libs/pack/environmental-4.1.2.jar",
+      "source_filename": "environmental-1.20.1-4.1.2.jar",
+      "sha256": "007084624762d426ef055594c80992d3315514f5b351bbe4164ec18a7183653d",
+      "mods": [
+        {
+          "modId": "environmental",
+          "version": "4.1.2"
+        }
+      ],
+      "embedded_mods": [
+        {
+          "modId": "mixinextras",
+          "version": "0.4.1"
+        }
+      ],
+      "dependencies": [
+        {
+          "owner": "environmental",
+          "modId": "minecraft",
+          "mandatory": true,
+          "versionRange": "[1.20.1,1.20.2)",
+          "ordering": "NONE",
+          "side": "BOTH"
+        },
+        {
+          "owner": "environmental",
+          "modId": "forge",
+          "mandatory": true,
+          "versionRange": "[47.1.3,)",
+          "ordering": "NONE",
+          "side": "BOTH"
+        },
+        {
+          "owner": "environmental",
+          "modId": "blueprint",
+          "mandatory": true,
+          "versionRange": "[7.1.3,)",
+          "ordering": "AFTER",
+          "side": "BOTH"
+        }
+      ]
+    },
+    {
+      "artifact": "farmersdelight",
+      "version": "1.20.1-1.3.4",
+      "file": "libs/pack/farmersdelight-1.20.1-1.3.4.jar",
+      "source_filename": "FarmersDelight-1.20.1-1.3.4.jar",
+      "sha256": "34f03eb671ea1ca579b00c98e4541404cb96d1a292014aed9cc5eb45ad8afbce",
+      "mods": [
+        {
+          "modId": "farmersdelight",
+          "version": "1.20.1-1.3.4"
+        }
+      ],
+      "embedded_mods": [
+        {
+          "modId": "mixinextras",
+          "version": "0.3.6"
+        }
+      ],
+      "dependencies": [
+        {
+          "owner": "farmersdelight",
+          "modId": "forge",
+          "mandatory": true,
+          "versionRange": "[47.1.0,)",
+          "ordering": "NONE",
+          "side": "BOTH"
+        },
+        {
+          "owner": "farmersdelight",
+          "modId": "minecraft",
+          "mandatory": true,
+          "versionRange": "[1.20,1.20.1]",
+          "ordering": "NONE",
+          "side": "BOTH"
+        },
+        {
+          "owner": "farmersdelight",
+          "modId": "crafttweaker",
+          "mandatory": false,
+          "versionRange": "[14.0.6,)",
+          "ordering": "NONE",
+          "side": "BOTH"
+        }
+      ]
+    },
+    {
+      "artifact": "ferdinandsflowers",
+      "version": "3.0",
+      "file": "libs/pack/ferdinandsflowers-3.0.jar",
+      "source_filename": "ferdinandsFlowers1.20.1-3.0-forge.jar",
+      "sha256": "5089f25717538bd8c7bda623b1a128329ddb8ab9863a3dfd8885167cc35359bc",
+      "mods": [
+        {
+          "modId": "ferdinandsflowers",
+          "version": "3.0"
+        }
+      ],
+      "embedded_mods": [],
+      "dependencies": [
+        {
+          "owner": "ferdinandsflowers",
+          "modId": "forge",
+          "mandatory": true,
+          "versionRange": "[47,)",
+          "ordering": "NONE",
+          "side": "BOTH"
+        },
+        {
+          "owner": "ferdinandsflowers",
+          "modId": "minecraft",
+          "mandatory": true,
+          "versionRange": "[1.20.1,1.21)",
+          "ordering": "NONE",
+          "side": "BOTH"
+        }
+      ]
+    },
+    {
+      "artifact": "finsandtails",
+      "version": "1.20.1-1.1.6",
+      "file": "libs/pack/finsandtails-1.20.1-1.1.6.jar",
+      "source_filename": "finsandtails-1.20.1-1.1.6.jar",
+      "sha256": "3559a5a6b8227c651220c13bdc95ae71e7ec24fca3d8976fa6214cd73873da2b",
+      "mods": [
+        {
+          "modId": "finsandtails",
+          "version": "1.20.1-1.1.6"
+        }
+      ],
+      "embedded_mods": [],
+      "dependencies": [
+        {
+          "owner": "finsandtails",
+          "modId": "forge",
+          "mandatory": true,
+          "versionRange": "[47,)",
+          "ordering": "NONE",
+          "side": "BOTH"
+        },
+        {
+          "owner": "finsandtails",
+          "modId": "minecraft",
+          "mandatory": true,
+          "versionRange": "[1.20.1,1.21)",
+          "ordering": "NONE",
+          "side": "BOTH"
+        }
+      ]
+    },
+    {
+      "artifact": "floral",
+      "version": "1.0.0",
+      "file": "libs/pack/floral-1.0.0.jar",
+      "source_filename": "floral-1.0.0.jar",
+      "sha256": "401696a1a55cc387509b4456ae40759e6ef9c775b308226332644518ecf9fcac",
+      "mods": [
+        {
+          "modId": "floral",
+          "version": "1.0.0"
+        }
+      ],
+      "embedded_mods": [],
+      "dependencies": [
+        {
+          "owner": "floral",
+          "modId": "forge",
+          "mandatory": true,
+          "versionRange": "[47,)",
+          "ordering": "NONE",
+          "side": "BOTH"
+        },
+        {
+          "owner": "floral",
+          "modId": "minecraft",
+          "mandatory": true,
+          "versionRange": "[1.20.1,1.21)",
+          "ordering": "NONE",
+          "side": "BOTH"
+        }
+      ]
+    },
+    {
+      "artifact": "floral_flair",
+      "version": "1.20.1-2.2.2",
+      "file": "libs/pack/floral_flair-1.20.1-2.2.2.jar",
+      "source_filename": "Floral-Flair-1.20.1-2.2.2.jar",
+      "sha256": "9cf4f11c9e3400ed2066b05713ece848d3655dec6d227e72e698c2fa049c2f47",
+      "mods": [
+        {
+          "modId": "floral_flair",
+          "version": "1.20.1-2.2.2"
+        }
+      ],
+      "embedded_mods": [],
+      "dependencies": [
+        {
+          "owner": "floral_flair",
+          "modId": "forge",
+          "mandatory": true,
+          "versionRange": "[47,)",
+          "ordering": "NONE",
+          "side": "BOTH"
+        },
+        {
+          "owner": "floral_flair",
+          "modId": "minecraft",
+          "mandatory": true,
+          "versionRange": "[1.20.1,1.21)",
+          "ordering": "NONE",
+          "side": "BOTH"
+        },
+        {
+          "owner": "floral_flair",
+          "modId": "blueprint",
+          "mandatory": true,
+          "versionRange": "[1.20.1-7.0.0,)",
+          "ordering": "BEFORE",
+          "side": "BOTH"
+        }
+      ]
+    },
+    {
+      "artifact": "fruitsdelight",
+      "version": "1.1.3",
+      "file": "libs/pack/fruitsdelight-1.1.3.jar",
+      "source_filename": "fruitsdelight-1.1.3.jar",
+      "sha256": "ad136ea910d1b09bab90425168f64d841ea4f57d49f8a616da9882c7d6d8aec1",
+      "mods": [
+        {
+          "modId": "fruitsdelight",
+          "version": "1.1.3"
+        }
+      ],
+      "embedded_mods": [
+        {
+          "modId": "mixinextras",
+          "version": "0.2.0-beta.8"
+        },
+        {
+          "modId": "l2harvester",
+          "version": "${file.jarVersion}"
+        },
+        {
+          "modId": "l2library",
+          "version": "${file.jarVersion}"
+        }
+      ],
+      "dependencies": [
+        {
+          "owner": "fruitsdelight",
+          "modId": "forge",
+          "mandatory": true,
+          "versionRange": "[46,)",
+          "ordering": "NONE",
+          "side": "BOTH"
+        },
+        {
+          "owner": "fruitsdelight",
+          "modId": "minecraft",
+          "mandatory": true,
+          "versionRange": "[1.20,1.21)",
+          "ordering": "NONE",
+          "side": "BOTH"
+        },
+        {
+          "owner": "fruitsdelight",
+          "modId": "farmersdelight",
+          "mandatory": true,
+          "versionRange": "[1.20.1-1.2.2,)",
+          "ordering": "NONE",
+          "side": "BOTH"
+        },
+        {
+          "owner": "fruitsdelight",
+          "modId": "l2harvester",
+          "mandatory": true,
+          "versionRange": "[0.1.2,)",
+          "ordering": "NONE",
+          "side": "BOTH"
+        }
+      ]
+    },
+    {
+      "artifact": "geckolib",
+      "version": "4.8.4",
+      "file": "libs/pack/geckolib-4.8.4.jar",
+      "source_filename": "geckolib-forge-1.20.1-4.8.4.jar",
+      "sha256": "c04abba4fd354dd8c0e8a732f1f05f4dca893d2e1d962b2ab128bbd411478747",
+      "mods": [
+        {
+          "modId": "geckolib",
+          "version": "4.8.4"
+        }
+      ],
+      "embedded_mods": [],
+      "dependencies": [
+        {
+          "owner": "geckolib",
+          "modId": "forge",
+          "mandatory": true,
+          "versionRange": "[47.1,)",
+          "ordering": "NONE",
+          "side": "BOTH"
+        },
+        {
+          "owner": "geckolib",
+          "modId": "minecraft",
+          "mandatory": true,
+          "versionRange": "[1.20.1,)",
+          "ordering": "NONE",
+          "side": "BOTH"
+        },
+        {
+          "owner": "geckolib",
+          "modId": "geckoanimfix",
+          "mandatory": false,
+          "versionRange": "[9.removeoculusgeckolibcompat,)",
+          "ordering": "NONE",
+          "side": "BOTH"
+        }
+      ]
+    },
+    {
+      "artifact": "hapi",
+      "version": "1.1.3",
+      "file": "libs/pack/hapi-1.1.3.jar",
+      "source_filename": "hapi-forge-1.20.1-1.1.3.jar",
+      "sha256": "5981b3f8319969465dc168d28c6f92fd87cc7733d500917be8bfda22ab9732f9",
+      "mods": [
+        {
+          "modId": "hapi",
+          "version": "1.1.3"
+        }
+      ],
+      "embedded_mods": [],
+      "dependencies": [
+        {
+          "owner": "hapi",
+          "modId": "forge",
+          "mandatory": true,
+          "versionRange": "[47.4.10,)",
+          "ordering": "NONE",
+          "side": "BOTH"
+        },
+        {
+          "owner": "hapi",
+          "modId": "minecraft",
+          "mandatory": true,
+          "versionRange": "[1.20.1, 1.22)",
+          "ordering": "NONE",
+          "side": "BOTH"
+        },
+        {
+          "owner": "hapi",
+          "modId": "geckolib",
+          "mandatory": true,
+          "versionRange": "[4.7.4,)",
+          "side": "BOTH"
+        }
+      ]
+    },
+    {
+      "artifact": "hearthandharvest",
+      "version": "1.4.1",
+      "file": "libs/pack/hearthandharvest-1.4.1.jar",
+      "source_filename": "hearthandharvest-1.20.1-1.4.1.jar",
+      "sha256": "169b5d566fcea0663103d72f6b79400c4d19f2ad35d4213c7f74f0b1e9d9a85a",
+      "mods": [
+        {
+          "modId": "hearthandharvest",
+          "version": "1.4.1"
+        }
+      ],
+      "embedded_mods": [
+        {
+          "modId": "mixinextras",
+          "version": "0.3.6"
+        }
+      ],
+      "dependencies": [
+        {
+          "owner": "hearthandharvest",
+          "modId": "forge",
+          "mandatory": true,
+          "versionRange": "[47.1.0,)",
+          "ordering": "NONE",
+          "side": "BOTH"
+        },
+        {
+          "owner": "hearthandharvest",
+          "modId": "minecraft",
+          "mandatory": true,
+          "versionRange": "[1.20.1,1.20.2)",
+          "ordering": "NONE",
+          "side": "BOTH"
+        },
+        {
+          "owner": "hearthandharvest",
+          "modId": "farmersdelight",
+          "mandatory": true,
+          "versionRange": "[1.2.4,)",
+          "ordering": "AFTER",
+          "side": "BOTH"
+        },
+        {
+          "owner": "hearthandharvest",
+          "modId": "thirst",
+          "mandatory": false,
+          "versionRange": "*",
+          "ordering": "NONE",
+          "side": "BOTH"
+        },
+        {
+          "owner": "hearthandharvest",
+          "modId": "everycomp",
+          "mandatory": false,
+          "versionRange": "*",
+          "ordering": "AFTER",
+          "side": "BOTH"
+        },
+        {
+          "owner": "hearthandharvest",
+          "modId": "moonlight",
+          "mandatory": false,
+          "versionRange": "*",
+          "ordering": "NONE",
+          "side": "BOTH"
+        },
+        {
+          "owner": "hearthandharvest",
+          "modId": "create",
+          "mandatory": false,
+          "versionRange": "*",
+          "ordering": "NONE",
+          "side": "BOTH"
+        },
+        {
+          "owner": "hearthandharvest",
+          "modId": "botanypots",
+          "mandatory": false,
+          "versionRange": "*",
+          "ordering": "NONE",
+          "side": "BOTH"
+        }
+      ]
+    },
+    {
+      "artifact": "hybrid_aquatic",
+      "version": "1.7.4",
+      "file": "libs/pack/hybrid_aquatic-1.7.4.jar",
+      "source_filename": "hybrid_aquatic-forge-1.20.1-1.7.4.jar",
+      "sha256": "c21bc55291a4162475cb46ac742229eee65e478ccad99b58648eb898c5360baa",
+      "mods": [
+        {
+          "modId": "hybrid_aquatic",
+          "version": "1.7.4"
+        }
+      ],
+      "embedded_mods": [],
+      "dependencies": [
+        {
+          "owner": "hybrid_aquatic",
+          "modId": "forge",
+          "mandatory": true,
+          "versionRange": "[47.4.10,)",
+          "ordering": "NONE",
+          "side": "BOTH"
+        },
+        {
+          "owner": "hybrid_aquatic",
+          "modId": "minecraft",
+          "mandatory": true,
+          "versionRange": "[1.20.1, 1.22)",
+          "ordering": "NONE",
+          "side": "BOTH"
+        },
+        {
+          "owner": "hybrid_aquatic",
+          "modId": "geckolib",
+          "mandatory": true,
+          "versionRange": "[4.7.4,)",
+          "side": "BOTH"
+        },
+        {
+          "owner": "hybrid_aquatic",
+          "modId": "curios",
+          "mandatory": false,
+          "versionRange": "[5.9.1+1.20.1,)",
+          "side": "BOTH"
+        },
+        {
+          "owner": "hybrid_aquatic",
+          "modId": "hapi",
+          "mandatory": true,
+          "versionRange": "[1.1.3,)",
+          "side": "BOTH"
+        }
+      ]
+    },
+    {
+      "artifact": "kotlinforforge",
+      "version": "4.12.0",
+      "file": "libs/pack/kotlinforforge-4.12.0.jar",
+      "source_filename": "kotlinforforge-4.12.0-all.jar",
+      "sha256": "6a66c6a68ec09f8717cdbf06883394f0ee24d7cd826b7134a0f81839e8e720ae",
+      "mods": [],
+      "embedded_mods": [
+        {
+          "modId": "kotlinforforge",
+          "version": "4.12.0"
+        }
+      ],
+      "dependencies": []
+    },
+    {
+      "artifact": "legumedelight",
+      "version": "1.20.1-1.4.0",
+      "file": "libs/pack/legumedelight-1.20.1-1.4.0.jar",
+      "source_filename": "legumedelight-1.20.1-1.4.0.jar",
+      "sha256": "4dc5d0e7fcd993dc15a4f068bf3c43819d734e2098a632c4e8effaae033eeb2b",
+      "mods": [
+        {
+          "modId": "legumedelight",
+          "version": "1.20.1-1.4.0"
+        }
+      ],
+      "embedded_mods": [],
+      "dependencies": [
+        {
+          "owner": "legumedelight",
+          "modId": "forge",
+          "mandatory": true,
+          "versionRange": "[47,)",
+          "ordering": "NONE",
+          "side": "BOTH"
+        },
+        {
+          "owner": "legumedelight",
+          "modId": "minecraft",
+          "mandatory": true,
+          "versionRange": "[1.20.0,1.20.2)",
+          "ordering": "NONE",
+          "side": "BOTH"
+        },
+        {
+          "owner": "legumedelight",
+          "modId": "farmersdelight",
+          "mandatory": true,
+          "versionRange": "[1.20.1-1.2.3,)",
+          "ordering": "AFTER",
+          "side": "BOTH"
+        }
+      ]
+    },
+    {
+      "artifact": "wildernature",
+      "version": "1.0.6",
+      "file": "libs/pack/wildernature-1.0.6.jar",
+      "source_filename": "letsdo-wildernature-forge-1.0.6.jar",
+      "sha256": "7e8728b33260d441331fc8894d2875f150acecae0d6051ba4b9792fc9967f280",
+      "mods": [
+        {
+          "modId": "wildernature",
+          "version": "1.0.6"
+        }
+      ],
+      "embedded_mods": [],
+      "dependencies": [
+        {
+          "owner": "wildernature",
+          "modId": "forge",
+          "mandatory": true,
+          "versionRange": "[47,)",
+          "ordering": "NONE",
+          "side": "BOTH"
+        },
+        {
+          "owner": "wildernature",
+          "modId": "minecraft",
+          "mandatory": true,
+          "versionRange": "[1.20.1,)",
+          "ordering": "NONE",
+          "side": "BOTH"
+        },
+        {
+          "owner": "wildernature",
+          "modId": "architectury",
+          "mandatory": true,
+          "versionRange": "[9.1.12,)",
+          "ordering": "AFTER",
+          "side": "BOTH"
+        },
+        {
+          "owner": "wildernature",
+          "modId": "curios",
+          "mandatory": true,
+          "versionRange": "[5.10.0,)",
+          "ordering": "AFTER",
+          "side": "BOTH"
+        }
+      ]
+    },
+    {
+      "artifact": "naturalist",
+      "version": "5.0pre2",
+      "file": "libs/pack/naturalist-5.0pre2.jar",
+      "source_filename": "naturalist-5.0pre2+forge-1.20.1.jar",
+      "sha256": "2bdf7df54d5d0287016aa0f4228e426be74ce83a4ef30c7107d3010056a1d4d2",
+      "mods": [
+        {
+          "modId": "naturalist",
+          "version": "5.0pre2"
+        }
+      ],
+      "embedded_mods": [
+        {
+          "modId": "midnightlib",
+          "version": "1.4.2"
+        }
+      ],
+      "dependencies": [
+        {
+          "owner": "naturalist",
+          "modId": "forge",
+          "mandatory": true,
+          "versionRange": "[41.0.98,)",
+          "ordering": "NONE",
+          "side": "BOTH"
+        },
+        {
+          "owner": "naturalist",
+          "modId": "minecraft",
+          "mandatory": true,
+          "versionRange": "[1.20.1,)",
+          "ordering": "NONE",
+          "side": "BOTH"
+        },
+        {
+          "owner": "naturalist",
+          "modId": "geckolib",
+          "mandatory": true,
+          "versionRange": "[4.0.0,)",
+          "ordering": "NONE",
+          "side": "BOTH"
+        }
+      ]
+    },
+    {
+      "artifact": "biomeswevegone",
+      "version": "1.8.2",
+      "file": "libs/pack/biomeswevegone-1.8.2.jar",
+      "source_filename": "Oh-The-Biomes-Weve-Gone-Forge-1.8.2.jar",
+      "sha256": "38174a9aaf8b087f9f264d0fcd43f3c3180238d7732c7d65582e4bcedaea01d3",
+      "mods": [
+        {
+          "modId": "biomeswevegone",
+          "version": "1.8.2"
+        }
+      ],
+      "embedded_mods": [],
+      "dependencies": [
+        {
+          "owner": "biomeswevegone",
+          "modId": "forge",
+          "mandatory": true,
+          "versionRange": "[47.4,)",
+          "ordering": "NONE",
+          "side": "BOTH"
+        },
+        {
+          "owner": "biomeswevegone",
+          "modId": "terrablender",
+          "mandatory": true,
+          "versionRange": "[3.0.1.7,)",
+          "ordering": "AFTER",
+          "side": "BOTH"
+        },
+        {
+          "owner": "biomeswevegone",
+          "modId": "corgilib",
+          "mandatory": true,
+          "versionRange": "[4.0.3.2,)",
+          "ordering": "AFTER",
+          "side": "BOTH"
+        },
+        {
+          "owner": "biomeswevegone",
+          "modId": "ohthetreesyoullgrow",
+          "mandatory": true,
+          "versionRange": "[1.7.3,)",
+          "ordering": "AFTER",
+          "side": "BOTH"
+        },
+        {
+          "owner": "biomeswevegone",
+          "modId": "geckolib",
+          "mandatory": true,
+          "versionRange": "[4.4,)",
+          "ordering": "AFTER",
+          "side": "BOTH"
+        }
+      ]
+    },
+    {
+      "artifact": "ohthetreesyoullgrow",
+      "version": "1.7.3",
+      "file": "libs/pack/ohthetreesyoullgrow-1.7.3.jar",
+      "source_filename": "Oh-The-Trees-Youll-Grow-forge-1.20.1-1.7.3.jar",
+      "sha256": "5817a5ff8439515b6413ab655cc7d64ecd3d24d4ac5a8605ae34fd73ec8be4cf",
+      "mods": [
+        {
+          "modId": "ohthetreesyoullgrow",
+          "version": "1.7.3"
+        }
+      ],
+      "embedded_mods": [],
+      "dependencies": [
+        {
+          "owner": "ohthetreesyoullgrow",
+          "modId": "forge",
+          "mandatory": true,
+          "versionRange": "[46,)",
+          "ordering": "NONE",
+          "side": "BOTH"
+        },
+        {
+          "owner": "ohthetreesyoullgrow",
+          "modId": "minecraft",
+          "mandatory": true,
+          "versionRange": "[1.20,1.21)",
+          "ordering": "NONE",
+          "side": "BOTH"
+        }
+      ]
+    },
+    {
+      "artifact": "nourished_nether",
+      "version": "0.2.5",
+      "file": "libs/pack/nourished_nether-0.2.5.jar",
+      "source_filename": "phantasmic-1.20.1-0.2.5.jar",
+      "sha256": "1e3a7ea1def6e67baa863264f6d274501ef7afab17615efea2f0bbe02c5c8921",
+      "mods": [
+        {
+          "modId": "nourished_nether",
+          "version": "0.2.5"
+        }
+      ],
+      "embedded_mods": [],
+      "dependencies": [
+        {
+          "owner": "nourished_nether",
+          "modId": "minecraft",
+          "mandatory": true,
+          "versionRange": "[1.20.1]",
+          "ordering": "NONE",
+          "side": "BOTH"
+        }
+      ]
+    },
+    {
+      "artifact": "pineapple_delight",
+      "version": "1.2.0-1.20.1-forge",
+      "file": "libs/pack/pineapple_delight-1.2.0-1.20.1-forge.jar",
+      "source_filename": "PineappleDelight-1.2.0-1.20.1-forge.jar",
+      "sha256": "1f72d439c6329746ca24a68b5fc2cf27b1c2ca98637e733e86ac012081ef7d11",
+      "mods": [
+        {
+          "modId": "pineapple_delight",
+          "version": "1.2.0-1.20.1-forge"
+        }
+      ],
+      "embedded_mods": [],
+      "dependencies": [
+        {
+          "owner": "pineapple_delight",
+          "modId": "farmersdelight",
+          "mandatory": true,
+          "versionRange": "[*,)",
+          "ordering": "NONE",
+          "side": "BOTH"
+        }
+      ]
+    },
+    {
+      "artifact": "quark",
+      "version": "4.0-462",
+      "file": "libs/pack/quark-4.0-462.jar",
+      "source_filename": "Quark-4.0-462.jar",
+      "sha256": "c90b96f049d92825c4a103721988c80d72e5ad380d17be46a0f53e114874c478",
+      "mods": [
+        {
+          "modId": "quark",
+          "version": "4.0-462"
+        }
+      ],
+      "embedded_mods": [],
+      "dependencies": [
+        {
+          "owner": "quark",
+          "modId": "forge",
+          "mandatory": true,
+          "versionRange": "[43.0.8,)",
+          "ordering": "AFTER",
+          "side": "BOTH"
+        },
+        {
+          "owner": "quark",
+          "modId": "zeta",
+          "mandatory": true,
+          "versionRange": "[1.0-28,2.0)",
+          "ordering": "AFTER",
+          "side": "BOTH"
+        },
+        {
+          "owner": "quark",
+          "modId": "curios",
+          "mandatory": false,
+          "versionRange": "[5.6.1,)",
+          "ordering": "AFTER",
+          "side": "BOTH"
+        },
+        {
+          "owner": "quark",
+          "modId": "lootr",
+          "mandatory": false,
+          "versionRange": "[0.4.24.61,)",
+          "ordering": "AFTER",
+          "side": "BOTH"
+        }
+      ]
+    },
+    {
+      "artifact": "terrablender",
+      "version": "3.0.1.10",
+      "file": "libs/pack/terrablender-3.0.1.10.jar",
+      "source_filename": "TerraBlender-forge-1.20.1-3.0.1.10.jar",
+      "sha256": "c109016f46ca9bdae69976bf080bbf2e8e5968cb66c0a78845f8ca6af5dbbeb1",
+      "mods": [
+        {
+          "modId": "terrablender",
+          "version": "3.0.1.10"
+        }
+      ],
+      "embedded_mods": [],
+      "dependencies": [
+        {
+          "owner": "terrablender",
+          "modId": "forge",
+          "mandatory": true,
+          "versionRange": "[47.1.0,)",
+          "ordering": "NONE",
+          "side": "BOTH"
+        }
+      ]
+    },
+    {
+      "artifact": "outer_end",
+      "version": "1.0.0",
+      "file": "libs/pack/outer_end-1.0.0.jar",
+      "source_filename": "TheOuterEnd-1.0.13.jar",
+      "sha256": "f3e375be84c9e84d6ea7d3679635424d536c59d80c49cf5d669abbcd1b3f8b73",
+      "mods": [
+        {
+          "modId": "outer_end",
+          "version": "1.0.0"
+        }
+      ],
+      "embedded_mods": [],
+      "dependencies": [
+        {
+          "owner": "outer_end",
+          "modId": "forge",
+          "mandatory": true,
+          "versionRange": "[47,)",
+          "ordering": "NONE",
+          "side": "BOTH"
+        },
+        {
+          "owner": "outer_end",
+          "modId": "minecraft",
+          "mandatory": true,
+          "versionRange": "[1.20.1,1.21)",
+          "ordering": "NONE",
+          "side": "BOTH"
+        }
+      ]
+    },
+    {
+      "artifact": "twilightforest",
+      "version": "4.3.2508",
+      "file": "libs/pack/twilightforest-4.3.2508.jar",
+      "source_filename": "twilightforest-1.20.1-4.3.2508-universal.jar",
+      "sha256": "0bdc89263616d1b35c32ef82c5e9c14cbd20368e2fe8b468c72a28320be7a778",
+      "mods": [
+        {
+          "modId": "twilightforest",
+          "version": "4.3.2508"
+        }
+      ],
+      "embedded_mods": [],
+      "dependencies": [
+        {
+          "owner": "twilightforest",
+          "modId": "forge",
+          "mandatory": true,
+          "versionRange": "[47.1.0,)",
+          "ordering": "NONE",
+          "side": "BOTH"
+        },
+        {
+          "owner": "twilightforest",
+          "modId": "minecraft",
+          "mandatory": true,
+          "versionRange": "[1.20.1,)",
+          "ordering": "NONE",
+          "side": "BOTH"
+        }
+      ]
+    },
+    {
+      "artifact": "untamedwilds",
+      "version": "4.0.4",
+      "file": "libs/pack/untamedwilds-4.0.4.jar",
+      "source_filename": "untamedwilds-1.20.1-4.0.4.jar",
+      "sha256": "47782ad2e846fa2b3c3dfba5305b9b4dbe752cc6ab1b17b1fd314a1a63b1ebbb",
+      "mods": [
+        {
+          "modId": "untamedwilds",
+          "version": "4.0.4"
+        }
+      ],
+      "embedded_mods": [],
+      "dependencies": [
+        {
+          "owner": "untamedwilds",
+          "modId": "forge",
+          "mandatory": true,
+          "versionRange": "[47,)",
+          "ordering": "NONE",
+          "side": "BOTH"
+        },
+        {
+          "owner": "untamedwilds",
+          "modId": "minecraft",
+          "mandatory": true,
+          "versionRange": "[1.20.1,1.21)",
+          "ordering": "NONE",
+          "side": "BOTH"
+        }
+      ]
+    },
+    {
+      "artifact": "upgrade_aquatic",
+      "version": "6.0.3",
+      "file": "libs/pack/upgrade_aquatic-6.0.3.jar",
+      "source_filename": "upgrade_aquatic-1.20.1-6.0.3.jar",
+      "sha256": "f710dee89a146936b0a126bb429f4f741efb4f7374d8ed1d9db5d0bab172e24c",
+      "mods": [
+        {
+          "modId": "upgrade_aquatic",
+          "version": "6.0.3"
+        }
+      ],
+      "embedded_mods": [],
+      "dependencies": [
+        {
+          "owner": "upgrade_aquatic",
+          "modId": "minecraft",
+          "mandatory": true,
+          "versionRange": "[1.20.1,1.20.2)",
+          "ordering": "AFTER",
+          "side": "BOTH"
+        },
+        {
+          "owner": "upgrade_aquatic",
+          "modId": "forge",
+          "mandatory": true,
+          "versionRange": "[47.1.3,)",
+          "ordering": "NONE",
+          "side": "BOTH"
+        },
+        {
+          "owner": "upgrade_aquatic",
+          "modId": "blueprint",
+          "mandatory": true,
+          "versionRange": "[7.1.0,)",
+          "ordering": "AFTER",
+          "side": "BOTH"
+        }
+      ]
+    },
+    {
+      "artifact": "vintagedelight",
+      "version": "0.1.6",
+      "file": "libs/pack/vintagedelight-0.1.6.jar",
+      "source_filename": "vintagedelight-0.1.6.jar",
+      "sha256": "f3645fcf42546edb5fe09bee833f2e7524dd93b9b5380ecae3d3aa2847a4c9db",
+      "mods": [
+        {
+          "modId": "vintagedelight",
+          "version": "0.1.6"
+        }
+      ],
+      "embedded_mods": [],
+      "dependencies": [
+        {
+          "owner": "vintagedelight",
+          "modId": "forge",
+          "mandatory": true,
+          "versionRange": "[47,)",
+          "ordering": "NONE",
+          "side": "BOTH"
+        },
+        {
+          "owner": "vintagedelight",
+          "modId": "minecraft",
+          "mandatory": true,
+          "versionRange": "[1.20.1,1.21)",
+          "ordering": "NONE",
+          "side": "BOTH"
+        },
+        {
+          "owner": "vintagedelight",
+          "modId": "farmersdelight",
+          "mandatory": true,
+          "versionRange": "[1.2.4,)",
+          "ordering": "NONE",
+          "side": "BOTH"
+        }
+      ]
+    },
+    {
+      "artifact": "wthit",
+      "version": "8.21.1",
+      "file": "libs/pack/wthit-8.21.1.jar",
+      "source_filename": "wthit-1.20.1-forge-8.21.1.jar",
+      "sha256": "70b3d01f7d1ae9cdb7cb743ad4aefef4b21f5ccfdfbf3157e9c455de3400c0f3",
+      "mods": [
+        {
+          "modId": "wthit",
+          "version": "8.21.1"
+        },
+        {
+          "modId": "waila",
+          "version": "8.21.1"
+        }
+      ],
+      "embedded_mods": [],
+      "dependencies": [
+        {
+          "owner": "wthit",
+          "modId": "forge",
+          "mandatory": true,
+          "versionRange": "[46.0.2,)",
+          "ordering": "NONE",
+          "side": "BOTH"
+        },
+        {
+          "owner": "wthit",
+          "modId": "minecraft",
+          "mandatory": true,
+          "versionRange": "[1.20,)",
+          "ordering": "NONE",
+          "side": "BOTH"
+        },
+        {
+          "owner": "wthit",
+          "modId": "badpackets",
+          "mandatory": true,
+          "versionRange": "[0.4.1,)",
+          "ordering": "NONE",
+          "side": "BOTH"
+        }
+      ]
+    },
+    {
+      "artifact": "wunderlib",
+      "version": "20.0.1",
+      "file": "libs/pack/wunderlib-20.0.1.jar",
+      "source_filename": "WunderLib-20.0.1.jar",
+      "sha256": "33d30150d69f0b1f1b077dab0edbefdca5e274bfa9a56578c6fe35d4dc62ccbd",
+      "mods": [
+        {
+          "modId": "wunderlib",
+          "version": "20.0.1"
+        }
+      ],
+      "embedded_mods": [],
+      "dependencies": [
+        {
+          "owner": "wunderlib",
+          "modId": "forge",
+          "mandatory": true,
+          "versionRange": "[47.2.0,)",
+          "ordering": "NONE",
+          "side": "BOTH"
+        },
+        {
+          "owner": "wunderlib",
+          "modId": "minecraft",
+          "mandatory": true,
+          "versionRange": "[1.20.1]",
+          "ordering": "NONE",
+          "side": "BOTH"
+        }
+      ]
+    },
+    {
+      "artifact": "zeta",
+      "version": "1.0-31",
+      "file": "libs/pack/zeta-1.0-31.jar",
+      "source_filename": "Zeta-1.0-31.jar",
+      "sha256": "cd1786902a79434f8fd762d741019d9c8a79725fef7e30a89c153c934e1e6a9e",
+      "mods": [
+        {
+          "modId": "zeta",
+          "version": "1.0-31"
+        }
+      ],
+      "embedded_mods": [
+        {
+          "modId": "mixinextras",
+          "version": "0.3.2"
+        }
+      ],
+      "dependencies": [
+        {
+          "owner": "zeta",
+          "modId": "forge",
+          "mandatory": true,
+          "versionRange": "[43.0.8,)",
+          "ordering": "AFTER",
+          "side": "BOTH"
+        },
+        {
+          "owner": "zeta",
+          "modId": "quark",
+          "mandatory": false,
+          "versionRange": "[4.0-461,)",
+          "side": "BOTH"
+        }
+      ]
+    },
+    {
+      "artifact": "angling",
+      "version": "1.0.1-forge.1",
+      "file": "libs/pack/angling-1.0.1-forge.1.jar",
+      "source_filename": "angling-forge-1.20.1-1.0.1-forge.1.jar",
+      "sha256": "36c6857fc4ce52eb02ca6f78720223c0a3b781512dbdd0137b00bead9f1d139a",
+      "mods": [
+        {
+          "modId": "angling",
+          "version": "1.0.1-forge.1"
+        }
+      ],
+      "embedded_mods": [],
+      "dependencies": [
+        {
+          "owner": "angling",
+          "modId": "forge",
+          "mandatory": true,
+          "versionRange": "[47.4.0,48)",
+          "ordering": "NONE",
+          "side": "BOTH"
+        },
+        {
+          "owner": "angling",
+          "modId": "minecraft",
+          "mandatory": true,
+          "versionRange": "[1.20.1,1.20.2)",
+          "ordering": "NONE",
+          "side": "BOTH"
+        },
+        {
+          "owner": "angling",
+          "modId": "geckolib",
+          "mandatory": true,
+          "versionRange": "[4.4.9,5)",
+          "ordering": "AFTER",
+          "side": "BOTH"
+        }
+      ]
+    },
+    {
+      "artifact": "mynethersdelight",
+      "version": "1.20.1-1.10.4-backport.1",
+      "file": "libs/pack/mynethersdelight-1.20.1-1.10.4-backport.1.jar",
+      "source_filename": "MyNethersDelight-1.20.1-1.10.4-backport.1.jar",
+      "sha256": "489bd70663a71f6c54c16de6d48a8e8778969bba40108a2b9b981c3c47138db2",
+      "mods": [
+        {
+          "modId": "mynethersdelight",
+          "version": "1.20.1-1.10.4-backport.1"
+        }
+      ],
+      "embedded_mods": [],
+      "dependencies": [
+        {
+          "owner": "mynethersdelight",
+          "modId": "forge",
+          "mandatory": true,
+          "versionRange": "[47.1.0,)",
+          "ordering": "NONE",
+          "side": "BOTH"
+        },
+        {
+          "owner": "mynethersdelight",
+          "modId": "minecraft",
+          "mandatory": true,
+          "versionRange": "[1.20.1,1.21)",
+          "ordering": "NONE",
+          "side": "BOTH"
+        },
+        {
+          "owner": "mynethersdelight",
+          "modId": "farmersdelight",
+          "mandatory": true,
+          "versionRange": "[1.3.2,)",
+          "ordering": "NONE",
+          "side": "BOTH"
+        },
+        {
+          "owner": "mynethersdelight",
+          "modId": "miners_delight",
+          "mandatory": false,
+          "versionRange": "[1.20.1-1.4.5-backport,)",
+          "ordering": "AFTER",
+          "side": "BOTH"
+        },
+        {
+          "owner": "mynethersdelight",
+          "modId": "brewinandchewin",
+          "mandatory": false,
+          "versionRange": "[1.20.1-3.0.0,)",
+          "ordering": "AFTER",
+          "side": "BOTH"
+        },
+        {
+          "owner": "mynethersdelight",
+          "modId": "farmersrespite",
+          "mandatory": false,
+          "versionRange": "[1.0.0,)",
+          "ordering": "AFTER",
+          "side": "BOTH"
+        }
+      ],
+      "source_url": "https://modrinth.com/mod/my-nethers-delight/version/pOBasFQT",
+      "download_url": "https://cdn.modrinth.com/data/O53VhQoZ/versions/pOBasFQT/MyNethersDelight-1.20.1-1.10.4-backport.1.jar",
+      "license_note": "Modrinth project states All Rights Reserved; the released Forge metadata states MIT License. Used only as an unmodified local dependency; no source/assets copied or redistributed."
+    },
+    {
+      "artifact": "immersive-portals",
+      "version": "3.0.7",
+      "file": "libs/pack/immersive-portals-3.0.7.jar",
+      "source_filename": "immersive-portals-3.0.7-all.jar",
+      "sha256": "deb233d1e530e5e208ba6f3529a3b90ad071a06a2dc8d7ea60f14b0d67912efc",
+      "mods": [
+        {
+          "modId": "immersive_portals",
+          "version": "3.0.7"
+        },
+        {
+          "modId": "imm_ptl_core",
+          "version": "3.0.7"
+        },
+        {
+          "modId": "q_misc_util",
+          "version": "3.0.7"
+        }
+      ],
+      "embedded_mods": [
+        {
+          "modId": "mixinextras",
+          "version": "0.4.1"
+        }
+      ],
+      "dependencies": [
+        {
+          "owner": "immersive_portals",
+          "modId": "imm_ptl_core",
+          "mandatory": true,
+          "versionRange": "[0.0.0,)"
+        },
+        {
+          "owner": "immersive_portals",
+          "modId": "q_misc_util",
+          "mandatory": true,
+          "versionRange": "[0.0.0,)"
+        },
+        {
+          "owner": "q_misc_util",
+          "modId": "forge",
+          "mandatory": true,
+          "versionRange": "[47,)"
+        },
+        {
+          "owner": "q_misc_util",
+          "modId": "cloth_config",
+          "mandatory": true,
+          "versionRange": "[11.1,)"
+        }
+      ],
+      "source_url": "https://modrinth.com/mod/immersive-portals-neoforge/version/Q6Z7eOLL",
+      "download_url": "https://cdn.modrinth.com/data/zf4Szzx2/versions/Q6Z7eOLL/immersive-portals-3.0.7-all.jar"
+    },
+    {
+      "artifact": "cloth-config",
+      "version": "11.1.136+forge",
+      "file": "libs/pack/cloth-config-11.1.136+forge.jar",
+      "source_filename": "cloth-config-11.1.136-forge.jar",
+      "sha256": "1e895e85cf5b1e1905ef3178ec155c8badfe22a1577b92c09143a5aa1f4ce0f2",
+      "mods": [
+        {
+          "modId": "cloth_config",
+          "version": "11.1.136"
+        }
+      ],
+      "embedded_mods": [],
+      "dependencies": [
+        {
+          "owner": "cloth_config",
+          "modId": "forge",
+          "mandatory": true,
+          "versionRange": "[45,)",
+          "ordering": "NONE",
+          "side": "BOTH"
+        }
+      ],
+      "source_url": "https://modrinth.com/mod/cloth-config/version/t8TXrZvZ",
+      "download_url": "https://cdn.modrinth.com/data/9s6osm5g/versions/t8TXrZvZ/cloth-config-11.1.136-forge.jar"
+    }
+  ]
+}

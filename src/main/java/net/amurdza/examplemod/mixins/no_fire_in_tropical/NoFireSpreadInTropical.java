@@ -1,6 +1,6 @@
 package net.amurdza.examplemod.mixins.no_fire_in_tropical;
 
-import net.amurdza.examplemod.util.ModTags;
+import net.amurdza.examplemod.util.GameplayDimensions;
 import net.amurdza.examplemod.registry.ModBlocks;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -33,7 +33,7 @@ public class NoFireSpreadInTropical {
             return;
         }
 
-        if (level.getBiome(pos).is(ModTags.Biomes.tropicalBiomes)) {
+        if (GameplayDimensions.is(level, GameplayDimensions.TROPICAL)) {
             level.removeBlock(pos, false);
             ci.cancel();
         }

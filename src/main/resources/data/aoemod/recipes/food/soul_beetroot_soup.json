@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "food",
+  "ingredients": [
+    { "item": "aoemod:soul_beetroot" },
+    { "item": "aoemod:soul_beetroot" },
+    { "item": "aoemod:soul_beetroot" },
+    { "item": "aoemod:soul_beetroot" },
+    { "item": "aoemod:soul_beetroot" },
+    { "item": "aoemod:soul_beetroot" },
+    { "item": "minecraft:bowl" }
+  ],
+  "result": {
+    "item": "aoemod:soul_beetroot_soup"
+  }
+}

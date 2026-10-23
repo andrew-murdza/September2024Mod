@@ -1,0 +1,820 @@
+2026-10-20 10:21:57,364 main WARN Advanced terminal features are not available in this environment
+[10:21:57] [main/INFO] [cp.mo.mo.Launcher/MODLAUNCHER]: ModLauncher running: args [--launchTarget, forgeserver, --fml.forgeVersion, 47.4.22, --fml.mcVersion, 1.20.1, --fml.forgeGroup, net.minecraftforge, --fml.mcpVersion, 20230612.114412, --nogui]
+[10:21:57] [main/INFO] [cp.mo.mo.Launcher/MODLAUNCHER]: ModLauncher 10.0.9+10.0.9+main.dcd20f30 starting: java version 17.0.9 by Eclipse Adoptium; OS Windows 11 arch amd64 version 10.0
+[10:21:58] [main/INFO] [ne.mi.fm.lo.ImmediateWindowHandler/]: ImmediateWindowProvider not loading because launch target is forgeserver
+[10:21:58] [main/INFO] [mixin/]: SpongePowered MIXIN Subsystem Version=0.8.5 Source=union:/C:/Users/andre/Downloads/Games/September2024Mod/run/september-production/libraries/org/spongepowered/mixin/0.8.5/mixin-0.8.5.jar%2365!/ Service=ModLauncher Env=SERVER
+[10:21:58] [main/WARN] [ne.mi.fm.lo.mo.ModFileParser/LOADING]: Mod file C:\Users\andre\Downloads\Games\September2024Mod\run\september-production\libraries\net\minecraftforge\fmlcore\1.20.1-47.4.22\fmlcore-1.20.1-47.4.22.jar is missing mods.toml file
+[10:21:58] [main/WARN] [ne.mi.fm.lo.mo.ModFileParser/LOADING]: Mod file C:\Users\andre\Downloads\Games\September2024Mod\run\september-production\libraries\net\minecraftforge\javafmllanguage\1.20.1-47.4.22\javafmllanguage-1.20.1-47.4.22.jar is missing mods.toml file
+[10:21:58] [main/WARN] [ne.mi.fm.lo.mo.ModFileParser/LOADING]: Mod file C:\Users\andre\Downloads\Games\September2024Mod\run\september-production\libraries\net\minecraftforge\lowcodelanguage\1.20.1-47.4.22\lowcodelanguage-1.20.1-47.4.22.jar is missing mods.toml file
+[10:21:58] [main/WARN] [ne.mi.fm.lo.mo.ModFileParser/LOADING]: Mod file C:\Users\andre\Downloads\Games\September2024Mod\run\september-production\libraries\net\minecraftforge\mclanguage\1.20.1-47.4.22\mclanguage-1.20.1-47.4.22.jar is missing mods.toml file
+[10:21:58] [main/INFO] [ne.mi.fm.lo.mo.JarInJarDependencyLocator/]: Found 25 dependencies adding them to mods collection
+[10:22:00] [main/INFO] [mixin/]: Compatibility level set to JAVA_17
+[10:22:00] [main/ERROR] [mixin/]: Mixin config finsandtails.mixins.json does not specify "minVersion" property
+[10:22:00] [main/ERROR] [mixin/]: Mixin config ferdinandsflowers.mixins.json does not specify "minVersion" property
+[10:22:00] [main/ERROR] [mixin/]: Mixin config yacl.mixins.json does not specify "minVersion" property
+[10:22:00] [main/INFO] [cp.mo.mo.LaunchServiceHandler/MODLAUNCHER]: Launching target 'forgeserver' with arguments [--nogui]
+[10:22:00] [main/WARN] [mixin/]: Reference map 'untamedwilds.refmap.json' for mixins.untamedwilds.json could not be read. If this is a development environment you can ignore this message
+[10:22:00] [main/WARN] [mixin/]: Reference map 'finsandtails.refmap.json' for finsandtails.mixins.json could not be read. If this is a development environment you can ignore this message
+[10:22:00] [main/WARN] [mixin/]: Reference map 'netherdepthsupgrade.refmap.json' for netherdepthsupgrade.mixins.json could not be read. If this is a development environment you can ignore this message
+[10:22:01] [main/WARN] [mixin/]: Reference map 'wildernature.forge.mixins.refmap.json' for wildernature.forge.mixins.json could not be read. If this is a development environment you can ignore this message
+[10:22:01] [main/WARN] [mixin/]: Error loading class: sereneseasons/season/RandomUpdateHandler (java.lang.ClassNotFoundException: sereneseasons.season.RandomUpdateHandler)
+[10:22:01] [main/WARN] [mixin/]: @Mixin target sereneseasons.season.RandomUpdateHandler was not found snowrealmagic.mixins.json:sereneseasons.RandomUpdateHandlerMixin
+[10:22:01] [main/WARN] [mixin/]: Error loading class: net/mehvahdjukaar/moonlight/api/set/leaves/LeavesType (java.lang.ClassNotFoundException: net.mehvahdjukaar.moonlight.api.set.leaves.LeavesType)
+[10:22:01] [main/WARN] [mixin/]: Error loading class: net/mehvahdjukaar/stone_zone/api/set/stone/StoneType (java.lang.ClassNotFoundException: net.mehvahdjukaar.stone_zone.api.set.stone.StoneType)
+[10:22:01] [main/WARN] [mixin/]: Error loading class: net/mehvahdjukaar/moonlight/api/set/wood/WoodType (java.lang.ClassNotFoundException: net.mehvahdjukaar.moonlight.api.set.wood.WoodType)
+[10:22:01] [main/WARN] [mixin/]: Error loading class: jeresources/api/util/BiomeHelper (java.lang.ClassNotFoundException: jeresources.api.util.BiomeHelper)
+[10:22:01] [main/WARN] [mixin/]: Error loading class: yalter/mousetweaks/Main (java.lang.ClassNotFoundException: yalter.mousetweaks.Main)
+[10:22:02] [main/WARN] [mixin/]: Error loading class: noobanidus/mods/lootr/config/ConfigManager (java.lang.ClassNotFoundException: noobanidus.mods.lootr.config.ConfigManager)
+[10:22:02] [main/WARN] [mixin/]: @Mixin target noobanidus.mods.lootr.config.ConfigManager was not found quark_integrations.mixins.json:lootr.ConfigManagerMixin
+[10:22:02] [main/INFO] [MixinExtras|Service/]: Initializing MixinExtras via com.llamalad7.mixinextras.service.MixinExtrasServiceImpl(version=0.5.5).
+[10:22:05] [main/WARN] [mixin/]: @Final field f_207902_:Ljava/util/List; in diversity.mixins.json:general.enchantTableAcceptFurtherBookshelf.EnchantingTableBlockMixin should be final
+[10:22:07] [main/WARN] [mixin/]: Method overwrite conflict for m_7350_ in aoemod.mixins.json:add_ai.BreedableDolphins, previously written by com.evandev.tiny_takeover_backport.mixin.DolphinMixin. Skipping method.
+[10:22:08] [main/WARN] [mixin/]: Mixin alexscaves.mixins.json:SwampHutPieceMixin has multiple constructors, (Lnet/minecraft/world/level/levelgen/structure/pieces/StructurePieceType;IIIIIILnet/minecraft/core/Direction;)V was selected
+
+[10:22:08] [modloading-worker-0/INFO] [floral/]: Registering Mod Itemsfloral
+[10:22:08] [modloading-worker-0/INFO] [co.sc.ne.mo.FarmersDelightCompat/]: Setting up compat for Farmers Delight
+[10:22:08] [modloading-worker-0/INFO] [ne.mi.co.ForgeMod/FORGEMOD]: Forge mod loading, version 47.4.22, for MC 1.20.1 with MCP 20230612.114412
+[10:22:08] [modloading-worker-0/INFO] [ne.mi.co.MinecraftForge/FORGE]: MinecraftForge v47.4.22 Initialized
+[10:22:08] [modloading-worker-0/INFO] [floral/]: Registering ModBlocks for floral
+[10:22:08] [modloading-worker-0/INFO] [floral/]: Registering Item Groups for floral
+[10:22:08] [modloading-worker-0/INFO] [sn.ki.Kiwi/INIT]: Processing 6 KiwiModule annotations
+[10:22:08] [modloading-worker-0/INFO] [floral/]: Registering enchantments forfloral
+[10:22:08] [modloading-worker-0/INFO] [Faewulf's Lib/]: [Faewulf's Lib] Loading
+[10:22:08] [modloading-worker-0/INFO] [Faewulf's Lib/]: [Faewulf's Lib] Initializing...
+[10:22:08] [modloading-worker-0/INFO] [Faewulf's Lib/]: [Faewulf's Lib] Hello from Faewulf with <3
+[10:22:08] [modloading-worker-0/INFO] [Faewulf's Lib/]: [Faewulf's Lib] Init done
+[10:22:09] [modloading-worker-0/INFO] [Diversity/]: [Diversity] Loading
+[10:22:09] [modloading-worker-0/INFO] [Diversity/]: [Diversity] Register commands...
+[10:22:09] [modloading-worker-0/INFO] [Diversity/]: [Diversity] Init done
+[10:22:09] [modloading-worker-0/INFO] [ne.po.bi.BiomesWeveGone/]: Registering Oh The Biomes We've Gone items
+[10:22:09] [modloading-worker-0/INFO] [de.ar.ne.fo.NetworkManagerImpl/]: Registering C2S receiver with id architectury:sync_ids
+[10:22:10] [modloading-worker-0/INFO] [ne.po.bi.BiomesWeveGone/]: Registering Oh The Biomes We've Gone Blocks
+[10:22:10] [modloading-worker-0/INFO] [YetAnotherConfigLib/]: Deserializing YACLConfig from 'C:\Users\andre\Downloads\Games\September2024Mod\run\september-production\config\yacl.json5'
+[10:22:10] [modloading-worker-0/INFO] [ne.po.bi.BiomesWeveGone/]: Registering Oh The Biomes We've Gone Wood
+[10:22:10] [modloading-worker-0/INFO] [ne.po.bi.BiomesWeveGone/]: Registering Oh The Biomes We've Gone Block Entities
+[10:22:10] [modloading-worker-0/INFO] [ne.po.bi.BiomesWeveGone/]: Registering Oh The Biomes We've Gone Entities
+[10:22:10] [modloading-worker-0/INFO] [ne.po.bi.BiomesWeveGone/]: Registering Oh The Biomes We've Gone Creative Tabs
+[10:22:10] [modloading-worker-0/INFO] [ne.po.bi.BiomesWeveGone/]: Registering Oh The Biomes We've Gone Sounds
+[10:22:10] [modloading-worker-0/INFO] [ne.po.bi.BiomesWeveGone/]: Registering Oh The Biomes We've Gone Block Predicate
+[10:22:10] [modloading-worker-0/INFO] [ne.po.bi.BiomesWeveGone/]: Registering Oh The Biomes We've Gone State Providers
+[10:22:10] [modloading-worker-0/INFO] [ne.po.bi.BiomesWeveGone/]: Registering Oh The Biomes We've Gone Tree Decorators
+[10:22:10] [modloading-worker-0/INFO] [ne.po.bi.BiomesWeveGone/]: Registering Oh The Biomes We've Gone Custom Features
+[10:22:10] [modloading-worker-0/INFO] [ne.po.bi.BiomesWeveGone/]: Registering Oh The Biomes We've Gone Structure Pieces
+[10:22:10] [modloading-worker-0/INFO] [ne.po.bi.BiomesWeveGone/]: Registering Oh The Biomes We've Gone Custom Structure Types
+[10:22:10] [modloading-worker-0/INFO] [ne.po.bi.BiomesWeveGone/]: Registering Oh The Biomes We've Gone Configured Features
+[10:22:10] [modloading-worker-0/INFO] [quark/]: Initializing TerraBlender underground biome compat
+[10:22:10] [modloading-worker-0/INFO] [ne.po.bi.BiomesWeveGone/]: Creating and Registering Overworld Vegetation Configured Features
+[10:22:10] [modloading-worker-0/INFO] [de.ar.ne.fo.NetworkManagerImpl/]: Registering C2S receiver with id wildernature:screen_action
+[10:22:10] [modloading-worker-0/INFO] [zeta/]: Doing super early config setup for zeta
+[10:22:10] [modloading-worker-0/INFO] [ne.po.bi.BiomesWeveGone/]: Registering Oh The Biomes We've Gone Tree Configured Features
+[10:22:10] [modloading-worker-0/INFO] [ne.po.bi.BiomesWeveGone/]: Creating and Registering Vanilla Configured Features
+[10:22:10] [modloading-worker-0/INFO] [ne.po.bi.BiomesWeveGone/]: Registering Oh The Biomes You'll Go Overworld Configured Features
+[10:22:10] [modloading-worker-0/INFO] [ne.po.bi.BiomesWeveGone/]: Registering Oh The Biomes We've Gone Placed Features
+[10:22:10] [modloading-worker-0/INFO] [ne.po.bi.BiomesWeveGone/]: Creating and Registering Overworld Tree Placed Features
+[10:22:10] [modloading-worker-0/INFO] [ne.po.bi.BiomesWeveGone/]: Creating and Registering Overworld Vegetation Placed Features
+[10:22:10] [modloading-worker-0/INFO] [ne.po.bi.BiomesWeveGone/]: Creating and Registering Vanilla Placed Features
+[10:22:10] [modloading-worker-0/INFO] [ne.po.bi.BiomesWeveGone/]: Registering Oh The Biomes We've Gone Custom Surface Rules
+[10:22:10] [modloading-worker-0/INFO] [ne.po.bi.BiomesWeveGone/]: Registering Oh The Biomes We've Gone Template Pools
+[10:22:10] [modloading-worker-0/INFO] [ne.po.bi.BiomesWeveGone/]: Registering Oh The Biome's We've Gone Village Template Pools
+[10:22:10] [modloading-worker-0/INFO] [ne.po.bi.BiomesWeveGone/]: Registering Oh The Biomes We've Gone Poi Types
+[10:22:10] [modloading-worker-0/INFO] [ne.po.bi.BiomesWeveGone/]: Registering Oh The Biomes We've Gone Villager Professions
+[10:22:10] [modloading-worker-0/INFO] [ne.po.bi.BiomesWeveGone/]: Registering Oh The Biomes We've Gone Custom Structure Processors
+[10:22:10] [modloading-worker-0/INFO] [ne.po.bi.BiomesWeveGone/]: Registering Oh The Biomes We've Gone villager types
+[10:22:10] [modloading-worker-0/INFO] [ne.po.bi.BiomesWeveGone/]: Registering Oh The Biomes We've Gone Schedules
+[10:22:10] [modloading-worker-0/INFO] [ne.po.bi.BiomesWeveGone/]: Registering Oh The Biomes We've Gone Memory Module Types
+[10:22:10] [modloading-worker-0/INFO] [ne.po.bi.BiomesWeveGone/]: Registering Oh The Biomes We've Gone Sensor Types
+[10:22:10] [modloading-worker-0/INFO] [quark-zeta/]: Discovered 164 modules to load.
+[10:22:10] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Abacus...
+[10:22:10] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Adjustable Chat...
+[10:22:10] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Ambient Discs...
+[10:22:10] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Ancient Tomes...
+[10:22:10] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Ancient Wood...
+[10:22:10] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Armed Armor Stands...
+[10:22:10] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Auto Walk Keybind...
+[10:22:10] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Automatic Recipe Unlock...
+[10:22:10] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Automatic Tool Restock...
+[10:22:10] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Azalea Wood...
+[10:22:10] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Back Button Keybind...
+[10:22:10] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Backpack...
+[10:22:10] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Beacon Redirection...
+[10:22:10] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Better Elytra Rocket...
+[10:22:10] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Big Stone Clusters...
+[10:22:10] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Blossom Trees...
+[10:22:10] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Bottled Cloud...
+[10:22:10] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Buckets Show Inhabitants...
+[10:22:10] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Camera...
+[10:22:10] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Campfires Boost Elytra...
+[10:22:10] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Celebratory Lamps...
+[10:22:10] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Chains Connect Blocks...
+[10:22:10] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Chest Searching...
+[10:22:10] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Chorus Vegetation...
+[10:22:10] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Chute...
+[10:22:10] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Climate Control Remover...
+[10:22:10] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Color Runes...
+[10:22:11] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Compasses Work Everywhere...
+[10:22:11] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Compressed Blocks...
+[10:22:11] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Coral On Cactus...
+[10:22:11] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Corundum...
+[10:22:11] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Crabs...
+[10:22:11] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Crafter...
+[10:22:11] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Crate...
+[10:22:11] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Diamond Repair...
+[10:22:11] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Dispensers Place Blocks...
+[10:22:11] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Double Door Opening...
+[10:22:11] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Dragon Scales...
+[10:22:11] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Duskbound Blocks...
+[10:22:11] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Dyeable Item Frames...
+[10:22:11] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Easy Transfering...
+[10:22:11] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Elytra Indicator...
+[10:22:11] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Emotes...
+[10:22:11] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Enchantment Predicates...
+[10:22:11] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Enchantments Begone...
+[10:22:11] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Ender Watcher...
+[10:22:11] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Endermosh Music Disc...
+[10:22:11] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Enhanced Ladders...
+[10:22:11] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Expanded Item Interactions...
+[10:22:11] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Fairy Rings...
+[10:22:11] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Fallen Logs...
+[10:22:11] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Feeding Trough...
+[10:22:11] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Forgotten...
+[10:22:11] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Foxhound...
+[10:22:11] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Framed Glass...
+[10:22:11] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Game Nerfs...
+[10:22:11] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Glass Item Frame...
+[10:22:11] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Glass Shard...
+[10:22:11] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Glimmering Weald...
+[10:22:11] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Gold Bars...
+[10:22:11] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Gold Tools Have Fortune...
+[10:22:11] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Grab Chickens...
+[10:22:11] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Grate...
+[10:22:11] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Gravisand...
+[10:22:11] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Greener Grass...
+[10:22:11] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Hedges...
+[10:22:11] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Hoe Harvesting...
+[10:22:11] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Hollow Logs...
+[10:22:11] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Horses Swim...
+[10:22:11] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Hotbar Changer...
+[10:22:11] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Improved Sponges...
+[10:22:11] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Improved Tooltips...
+[10:22:11] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Industrial Palette...
+[10:22:11] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Inventory Sorting...
+[10:22:11] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Iron Rod...
+[10:22:11] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Item Sharing...
+[10:22:11] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Japanese Palette...
+[10:22:11] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Leaf Carpet...
+[10:22:11] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Lock Rotation...
+[10:22:11] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Long Range Pick Block...
+[10:22:11] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Magma Keeps Concrete Powder...
+[10:22:11] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Magnets...
+[10:22:11] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Map Washing...
+[10:22:11] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Matrix Enchanting...
+[10:22:11] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Metal Buttons...
+[10:22:11] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Microcrafting Helper...
+[10:22:11] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Midori...
+[10:22:11] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Monster Box...
+[10:22:11] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module More Banner Layers...
+[10:22:11] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module More Brick Types...
+[10:22:11] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module More Mud Blocks...
+[10:22:11] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module More Note Block Sounds...
+[10:22:11] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module More Potted Plants...
+[10:22:11] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module More Villagers...
+[10:22:11] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Narrator Readout...
+[10:22:11] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Nether Brick Fence Gate...
+[10:22:11] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Nether Obsidian Spikes...
+[10:22:11] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module New Stone Types...
+[10:22:11] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module No Durability On Cosmetics...
+[10:22:11] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module No More Lava Pockets...
+[10:22:11] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Obsidian Plate...
+[10:22:11] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Overlay Shader...
+[10:22:11] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Parrot Eggs...
+[10:22:11] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Pat The Dogs...
+[10:22:11] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Pathfinder Maps...
+[10:22:11] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Permafrost...
+[10:22:11] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Petals On Water...
+[10:22:11] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Pickarang...
+[10:22:11] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Pig Litters...
+[10:22:11] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Pipes...
+[10:22:11] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Pistons Move Tile Entities...
+[10:22:11] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Poison Potato Usage...
+[10:22:11] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Quick Armor Swapping...
+[10:22:11] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Rainbow Lamps...
+[10:22:11] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Raw Metal Bricks...
+[10:22:11] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Reacharound Placing...
+[10:22:11] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Redstone Randomizer...
+[10:22:11] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Renewable Spore Blossoms...
+[10:22:11] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Replace Scaffolding...
+[10:22:11] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Rope...
+[10:22:11] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Safer Creatures...
+[10:22:11] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Seed Pouch...
+[10:22:11] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Shear Vines...
+[10:22:11] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Shiba...
+[10:22:11] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Shingles...
+[10:22:11] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Shulker Packing...
+[10:22:11] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Simple Harvest...
+[10:22:11] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Skull Pikes...
+[10:22:11] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Slabs To Blocks...
+[10:22:11] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Slime In A Bucket...
+[10:22:11] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Slimes To Magma Cubes...
+[10:22:11] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Snow Golem Player Heads...
+[10:22:11] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Soul Candles...
+[10:22:11] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Soul Sandstone...
+[10:22:11] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Spawner Replacer...
+[10:22:11] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Spiral Spires...
+[10:22:11] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Stonelings...
+[10:22:11] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Stools...
+[10:22:11] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Sturdy Stone...
+[10:22:11] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Thatch...
+[10:22:11] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Tiny Potato...
+[10:22:11] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Torch Arrow...
+[10:22:11] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Toretoise...
+[10:22:11] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Totem Of Holding...
+[10:22:11] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Trowel...
+[10:22:11] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Usage Ticker...
+[10:22:11] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Uses For Curses...
+[10:22:11] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Utility Recipes...
+[10:22:11] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Variant Animal Textures...
+[10:22:11] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Variant Bookshelves...
+[10:22:11] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Variant Chests...
+[10:22:11] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Variant Furnaces...
+[10:22:11] [modloading-worker-0/INFO] [th.ko.te.KotlinForForge/]: Kotlin For Forge Enabled!
+[10:22:11] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Variant Ladders...
+[10:22:11] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Variant Selector...
+[10:22:11] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Vertical Planks...
+[10:22:11] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Vertical Slabs...
+[10:22:11] [modloading-worker-0/INFO] [Hybrid API/]: Hello from Common init on Forge! we are currently in a production environment!
+[10:22:11] [modloading-worker-0/INFO] [Hybrid API/]: Hybrid API loaded.
+[10:22:11] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Vexes Die With Their Masters...
+[10:22:11] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Villager Rerolling Rework...
+[10:22:11] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Villagers Follow Emeralds...
+[10:22:11] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Wooden Posts...
+[10:22:11] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Wool Shuts Up Minecarts...
+[10:22:11] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Wraith...
+[10:22:11] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Zombie Villagers On Normal...
+[10:22:11] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module More Stone Variants...
+[10:22:11] [modloading-worker-0/INFO] [quark-zeta/]: Constructed 164 modules.
+[10:22:11] [modloading-worker-0/INFO] [Hybrid Aquatic/]: Hybrid Aquatic loaded.
+[10:22:11] [modloading-worker-0/INFO] [quark-zeta/]: Doing super early config setup for quark
+[10:22:11] [main/INFO] [sn.ki.Kiwi/INIT]: Module [snowrealmagic:core] initialized
+[10:22:11] [main/INFO] [sn.ki.Kiwi/INIT]: 		block: 7, block_entity_type: 2, entity_type: 1, loot_pool_entry_type: 1
+[10:22:11] [main/INFO] [sn.ki.Kiwi/INIT]: Module [kiwi:block_templates] initialized
+[10:22:11] [main/INFO] [sn.ki.Kiwi/INIT]: Module [kiwi:block_components] initialized
+[10:22:11] [main/INFO] [sn.ki.Kiwi/INIT]: Module [kiwi:data] initialized
+[10:22:11] [main/INFO] [sn.ki.Kiwi/INIT]: 		recipe_serializer: 3
+[10:22:11] [main/INFO] [sn.ki.Kiwi/INIT]: Module [kiwi:item_templates] initialized
+[10:22:13] [main/INFO] [or.be.wo.to.ut.Logger/]: [bclib] Added Config betterend.entities to auto sync (file hash)
+[10:22:13] [main/INFO] [or.be.wo.to.ut.Logger/]: [bclib] Added Config betterend.blocks to auto sync (file hash)
+[10:22:13] [main/INFO] [or.be.wo.to.ut.Logger/]: [bclib] Added Config betterend.items to auto sync (file hash)
+[10:22:13] [main/INFO] [or.be.wo.to.ut.Logger/]: [bclib] Added Config betterend.biomes to auto sync (file hash)
+[10:22:13] [main/INFO] [or.be.wo.to.ut.Logger/]: [bclib] Added Config betterend.structures to auto sync (file hash)
+[10:22:13] [main/INFO] [or.be.wo.to.ut.Logger/]: [bclib] Added Config betterend.features to auto sync (file hash)
+[10:22:13] [main/INFO] [or.be.wo.to.ut.Logger/]: [bclib] Added Config betterend.recipes to auto sync (file hash)
+[10:22:13] [main/INFO] [or.be.wo.to.ut.Logger/]: [bclib] Added Config betterend.enchantments to auto sync (file hash)
+[10:22:20] [main/WARN] [minecraft/SynchedEntityData]: defineId called for: class com.github.alexmodguy.alexscaves.server.entity.living.TremorzillaEntity from class com.github.alexmodguy.alexscaves.server.entity.living.LicowitchEntity
+[10:22:20] [main/WARN] [minecraft/SynchedEntityData]: defineId called for: class net.mcreator.borninchaosv.entity.BabySpiderEntity from class net.mcreator.borninchaosv.entity.MotherSpiderEntity
+[10:22:20] [main/WARN] [minecraft/SynchedEntityData]: defineId called for: class net.mcreator.biodiverse.entity.LionEntity from class net.mcreator.biodiverse.entity.FennecFoxEntity
+[10:22:20] [modloading-worker-0/INFO] [ne.pa.le.LegumeDelight/]: Legume Delight loaded
+[10:22:20] [Thread-1/INFO] [quark-zeta/]: About to refresh quark's config, looking for better thread than 'Thread-1'...
+[10:22:20] [Thread-1/WARN] [quark-zeta/]: Using thread 'Thread-1' instead of the server thread
+[10:22:20] [Thread-1/INFO] [quark-zeta/]: quark's config is 'BEFORE_INIT', ignoring config refresh. Current thread: Thread-1
+[10:22:20] [modloading-worker-0/INFO] [un.UntamedWilds/]: Registering Packets!
+[10:22:20] [modloading-worker-0/INFO] [co.co.hu.HugeStructureBlocksMod/]: Huge Structure Blocks is now making your structure blocks even bigger!
+[10:22:20] [modloading-worker-0/INFO] [co.co.hu.HugeStructureBlocksMod/]: New structure size = 512
+[10:22:20] [modloading-worker-0/INFO] [CorgiLib/]: Initializing network...
+[10:22:20] [modloading-worker-0/INFO] [CorgiLib/]: Initialized network!
+[10:22:20] [modloading-worker-0/INFO] [or.be.wo.to.ut.Logger/]: [bclib] Added Config bclib.generator to auto sync (file hash)
+[10:22:20] [modloading-worker-0/INFO] [or.be.wo.to.ut.Logger/]: [bclib] Added Config bclib.main to auto sync (content diff)
+[10:22:20] [modloading-worker-0/INFO] [or.be.wo.to.ut.Logger/]: [bclib] Added Config bclib.biomes to auto sync (file hash)
+[10:22:20] [modloading-worker-0/INFO] [Hybrid Aquatic/]: Loading Hybrid Aquatic config file
+[10:22:20] [Forge Version Check/INFO] [ne.mi.fm.VersionChecker/]: [forge] Starting version check at https://files.minecraftforge.net/net/minecraftforge/forge/promotions_slim.json
+[10:22:21] [modloading-worker-0/INFO] [co.sk.wo.ex.pl.PlatformManager/]: Got request to register class com.sk89q.worldedit.forge.ForgePlatform with WorldEdit [com.sk89q.worldedit.extension.platform.PlatformManager@54f062ed]
+[10:22:21] [modloading-worker-0/INFO] [co.sk.wo.fo.ForgeWorldEdit/]: WorldEdit for Forge (version 7.2.15+6463-5ca4dff) is loaded
+[10:22:21] [Forge Version Check/INFO] [ne.mi.fm.VersionChecker/]: [forge] Found status: OUTDATED Current: 47.4.22 Target: 47.4.28
+[10:22:21] [Forge Version Check/INFO] [ne.mi.fm.VersionChecker/]: [twilightforest] Starting version check at https://gh.tamaized.com/TeamTwilight/twilightforest/update.json
+[10:22:21] [main/INFO] [terrablender/]: Registered region minecraft:overworld to index 0 for type OVERWORLD
+[10:22:21] [main/INFO] [terrablender/]: Registered region minecraft:nether to index 0 for type NETHER
+[10:22:21] [main/INFO] [terrablender/]: Registered region biomesoplenty:overworld_primary to index 1 for type OVERWORLD
+[10:22:21] [main/INFO] [terrablender/]: Registered region biomesoplenty:overworld_secondary to index 2 for type OVERWORLD
+[10:22:21] [main/INFO] [terrablender/]: Registered region biomesoplenty:overworld_rare to index 3 for type OVERWORLD
+[10:22:21] [main/INFO] [terrablender/]: Registered region biomesoplenty:nether_common to index 1 for type NETHER
+[10:22:21] [main/INFO] [terrablender/]: Registered region biomesoplenty:nether_rare to index 2 for type NETHER
+[10:22:21] [main/INFO] [ne.po.bi.BiomesWeveGone/]: Creating and Registering BWG Biome Modifiers for Vanilla Biomes
+[10:22:21] [main/INFO] [ne.po.bi.BiomesWeveGone/]: Will add Flower Patch, Clover Patch, White Anemone, Pink Anemone, Orange Daisy, Horseweed and rose to 
+[10:22:21] [main/INFO] [ne.po.bi.BiomesWeveGone/]: Will add Palm Trees to 
+[10:22:21] [main/INFO] [ne.po.bi.BiomesWeveGone/]: Will add Flower Patch, Clover Patch, White Anemone, Pink Anemone, Orange Daisy, Horseweed and rose to 
+[10:22:21] [main/INFO] [ne.po.bi.BiomesWeveGone/]: Will add Flower Patch, Clover Patch, Blue Rose Bush and Blue Berry Bushes to 
+[10:22:21] [main/INFO] [ne.po.bi.BiomesWeveGone/]: Will add Green/Cyan/Magenta/Purple/Yellow Tulips, Rose, Orange Daisy, Flower and Clover Patches to 
+[10:22:21] [main/INFO] [ne.po.bi.BiomesWeveGone/]: Creating and Registering BWG Biome Modifiers for Vanilla Biomes
+[10:22:21] [main/INFO] [ne.po.bi.BiomesWeveGone/]: Will add Flower Patch, Clover Patch, White Anemone, Pink Anemone, Orange Daisy, Horseweed and rose to 
+[10:22:21] [main/INFO] [ne.po.bi.BiomesWeveGone/]: Will add Flower Patch, Clover Patch, White Anemone, Pink Anemone, Orange Daisy, Horseweed and rose to 
+[10:22:21] [main/INFO] [ne.po.bi.BiomesWeveGone/]: Will add Palm Trees to 
+[10:22:21] [main/INFO] [ne.po.bi.BiomesWeveGone/]: Will add Flower Patch, Clover Patch, White Anemone, Pink Anemone, Orange Daisy, Horseweed and rose to 
+[10:22:21] [main/INFO] [ne.po.bi.BiomesWeveGone/]: Will add Flower Patch, Clover Patch, Blue Rose Bush and Blue Berry Bushes to 
+[10:22:21] [main/INFO] [ne.po.bi.BiomesWeveGone/]: Will add Green/Cyan/Magenta/Purple/Yellow Tulips, Rose, Orange Daisy, Flower and Clover Patches to 
+[10:22:21] [main/INFO] [ne.po.bi.BiomesWeveGone/]: Will add Palm Trees to 
+[10:22:21] [main/INFO] [ne.po.bi.BiomesWeveGone/]: Will add Green/Cyan/Magenta/Purple/Yellow Tulips, Rose, Orange Daisy, Flower and Clover Patches to 
+[10:22:21] [main/INFO] [ne.po.bi.BiomesWeveGone/]: Will add Flower Patch, Clover Patch, White Anemone, Pink Anemone, Orange Daisy, Horseweed and rose to 
+[10:22:21] [main/INFO] [ne.po.bi.BiomesWeveGone/]: Will add Flower Patch, Clover Patch, Blue Rose Bush and Blue Berry Bushes to 
+[10:22:21] [main/INFO] [terrablender/]: Registered region biomeswevegone:region_0 to index 4 for type OVERWORLD
+[10:22:21] [main/INFO] [terrablender/]: Registered region biomeswevegone:region_1 to index 5 for type OVERWORLD
+[10:22:21] [main/INFO] [terrablender/]: Registered region biomeswevegone:region_2 to index 6 for type OVERWORLD
+[10:22:21] [main/INFO] [terrablender/]: Registered region quark:biome_provider to index 7 for type OVERWORLD
+[10:22:21] [main/INFO] [quark-zeta/]: Common setup: Performing initial refresh of quark's config on thread 'main'
+[10:22:21] [main/INFO] [quark-zeta/]: Waiting for server start before accepting filewatcher changes to quark's config
+[10:22:21] [main/INFO] [zeta/]: Common setup: Performing initial refresh of zeta's config on thread 'main'
+[10:22:21] [main/INFO] [zeta/]: 'zeta' is enabling Zeta's piston structure resolver.
+[10:22:21] [main/INFO] [zeta/]: Waiting for server start before accepting filewatcher changes to zeta's config
+[10:22:21] [modloading-worker-0/INFO] [Hybrid API/]: Server starting...
+[10:22:21] [modloading-worker-0/INFO] [Hybrid Aquatic/]: Server starting...
+[10:22:21] [Forge Version Check/INFO] [ne.mi.fm.VersionChecker/]: [twilightforest] Found status: AHEAD Current: 4.3.2508 Target: null
+[10:22:21] [Forge Version Check/INFO] [ne.mi.fm.VersionChecker/]: [collectorsreap] Starting version check at https://raw.githubusercontent.com/brnbrd/CollectorsReap/1.20.1/update.json
+[10:22:21] [main/INFO] [mc.mo.wa.pl.PluginLoader/]: [WTHIT] Initializing common plugin biomeswevegone:plugin at net.potionstudios.biomeswevegone.compat.wthit.BWGWTHITPlugin
+[10:22:21] [main/INFO] [mc.mo.wa.pl.PluginLoader/]: [WTHIT] Initializing common plugin waila:core at mcp.mobius.waila.plugin.core.CoreCommonPlugin
+[10:22:21] [Forge Version Check/INFO] [ne.mi.fm.VersionChecker/]: [collectorsreap] Found status: UP_TO_DATE Current: 1.5.5 Target: null
+[10:22:21] [main/INFO] [mc.mo.wa.pl.PluginLoader/]: [WTHIT] Initializing common plugin waila:vanilla at mcp.mobius.waila.plugin.vanilla.VanillaCommonPlugin
+[10:22:21] [main/INFO] [mc.mo.wa.pl.PluginLoader/]: [WTHIT] Initializing common plugin waila:harvest at mcp.mobius.waila.plugin.harvest.HarvestCommonPlugin
+[10:22:21] [main/INFO] [mc.mo.wa.pl.PluginLoader/]: [WTHIT] Initializing common plugin waila:forge at mcp.mobius.waila.plugin.forge.ForgeCommonPlugin
+[10:22:21] [main/INFO] [mc.mo.wa.pl.PluginLoader/]: [WTHIT] Initializing common plugin waila:extra at mcp.mobius.waila.plugin.extra.ExtraPlugin
+[10:22:21] [main/INFO] [mc.mo.wa.co.PluginConfig/]: [WTHIT] Plugin config reloaded
+[10:22:21] [main/INFO] [citadel/]: adding citadel surface rules via terrablender...
+[10:22:21] [main/INFO] [citadel/]: Added 0 vanilla biome surface rule types via terrablender
+[10:22:21] [main/INFO] [citadel/]: Added 1 modded biome surface rule types via terrablender
+[10:22:26] [main/INFO] [mojang/YggdrasilAuthenticationService]: Environment: authHost='https://authserver.mojang.com', accountsHost='https://api.mojang.com', sessionHost='https://sessionserver.mojang.com', servicesHost='https://api.minecraftservices.com', name='PROD'
+[10:22:30] [main/INFO] [or.be.wo.to.ut.Logger/]: [DataFixerAPI] Applying Patch{bclib:3.0.11:12582923}
+[10:22:30] [main/INFO] [or.be.wo.to.ut.Logger/]: [bclib] Running Pre Patchers on .\world\.
+[10:22:30] [main/WARN] [or.be.wo.to.ut.Logger/]: [bclib] Applying Fixes on Level
+[10:22:30] [main/INFO] [or.be.wo.to.ut.Logger/]: [bclib] Patcher Stage... message.bclib.datafixer.progress.reading%
+[10:22:30] [main/INFO] [or.be.wo.to.ut.Logger/]: [bclib] Patcher Stage... message.bclib.datafixer.progress.players%
+[10:22:30] [main/INFO] [or.be.wo.to.ut.Logger/]: [DataFixerAPI] Inspecting .\world\.\playerdata\d45649dc-c76d-36e6-af6e-0b3bac6bfcc1.dat
+[10:22:30] [main/INFO] [or.be.wo.to.ut.Logger/]: [bclib] Patcher Stage... message.bclib.datafixer.progress.level%
+[10:22:30] [main/INFO] [or.be.wo.to.ut.Logger/]: [DataFixerAPI] Inspecting level.dat in .\world\.
+[10:22:30] [main/INFO] [or.be.wo.to.ut.Logger/]: [bclib] Patcher Stage... message.bclib.datafixer.progress.worlddata%
+[10:22:30] [main/INFO] [or.be.wo.to.ut.Logger/]: [bclib] Patcher Stage... message.bclib.datafixer.progress.regions%
+[10:22:30] [main/INFO] [or.be.wo.to.ut.Logger/]: [DataFixerAPI] Inspecting .\world\.\dimensions\aoemod\snowy_dimension\poi\r.0.-1.mca
+[10:22:30] [ForkJoinPool.commonPool-worker-1/INFO] [or.be.wo.to.ut.Logger/]: [DataFixerAPI] Inspecting .\world\.\dimensions\aoemod\plains_dimension\entities\r.0.0.mca
+[10:22:30] [ForkJoinPool.commonPool-worker-2/INFO] [or.be.wo.to.ut.Logger/]: [DataFixerAPI] Inspecting .\world\.\entities\r.0.0.mca
+[10:22:30] [ForkJoinPool.commonPool-worker-3/INFO] [or.be.wo.to.ut.Logger/]: [DataFixerAPI] Inspecting .\world\.\dimensions\aoemod\nether_dimension\entities\r.-1.-1.mca
+[10:22:30] [ForkJoinPool.commonPool-worker-4/INFO] [or.be.wo.to.ut.Logger/]: [DataFixerAPI] Inspecting .\world\.\dimensions\aoemod\savanna_dimension\entities\r.-1.0.mca
+[10:22:30] [ForkJoinPool.commonPool-worker-11/INFO] [or.be.wo.to.ut.Logger/]: [DataFixerAPI] Inspecting .\world\.\dimensions\aoemod\plains_dimension\entities\r.0.-1.mca
+[10:22:30] [ForkJoinPool.commonPool-worker-7/INFO] [or.be.wo.to.ut.Logger/]: [DataFixerAPI] Inspecting .\world\.\dimensions\aoemod\nether_dimension\region\r.0.-1.mca
+[10:22:30] [ForkJoinPool.commonPool-worker-12/INFO] [or.be.wo.to.ut.Logger/]: [DataFixerAPI] Inspecting .\world\.\entities\r.-1.0.mca
+[10:22:30] [ForkJoinPool.commonPool-worker-15/INFO] [or.be.wo.to.ut.Logger/]: [DataFixerAPI] Inspecting .\world\.\dimensions\aoemod\nether_dimension\poi\r.0.-1.mca
+[10:22:30] [ForkJoinPool.commonPool-worker-16/INFO] [or.be.wo.to.ut.Logger/]: [DataFixerAPI] Inspecting .\world\.\dimensions\aoemod\nether_dimension\region\r.-1.0.mca
+[10:22:30] [ForkJoinPool.commonPool-worker-9/INFO] [or.be.wo.to.ut.Logger/]: [DataFixerAPI] Inspecting .\world\.\dimensions\aoemod\plains_dimension\poi\r.-1.0.mca
+[10:22:30] [ForkJoinPool.commonPool-worker-5/INFO] [or.be.wo.to.ut.Logger/]: [DataFixerAPI] Inspecting .\world\.\dimensions\aoemod\nether_dimension\region\r.0.0.mca
+[10:22:30] [ForkJoinPool.commonPool-worker-13/INFO] [or.be.wo.to.ut.Logger/]: [DataFixerAPI] Inspecting .\world\.\dimensions\aoemod\tropical_dimension\region\r.0.0.mca
+[10:22:30] [ForkJoinPool.commonPool-worker-10/INFO] [or.be.wo.to.ut.Logger/]: [DataFixerAPI] Inspecting .\world\.\entities\r.0.-1.mca
+[10:22:30] [ForkJoinPool.commonPool-worker-18/INFO] [or.be.wo.to.ut.Logger/]: [DataFixerAPI] Inspecting .\world\.\dimensions\aoemod\snowy_dimension\entities\r.-1.-1.mca
+[10:22:30] [ForkJoinPool.commonPool-worker-17/INFO] [or.be.wo.to.ut.Logger/]: [DataFixerAPI] Inspecting .\world\.\dimensions\aoemod\tropical_dimension\poi\r.-1.0.mca
+[10:22:30] [ForkJoinPool.commonPool-worker-19/INFO] [or.be.wo.to.ut.Logger/]: [DataFixerAPI] Inspecting .\world\.\dimensions\aoemod\plains_dimension\region\r.-1.0.mca
+[10:22:30] [ForkJoinPool.commonPool-worker-14/INFO] [or.be.wo.to.ut.Logger/]: [DataFixerAPI] Inspecting .\world\.\dimensions\aoemod\desert_dimension\poi\r.0.-1.mca
+[10:22:30] [ForkJoinPool.commonPool-worker-8/INFO] [or.be.wo.to.ut.Logger/]: [DataFixerAPI] Inspecting .\world\.\region\r.-1.0.mca
+[10:22:30] [ForkJoinPool.commonPool-worker-20/INFO] [or.be.wo.to.ut.Logger/]: [DataFixerAPI] Inspecting .\world\.\dimensions\aoemod\desert_dimension\entities\r.0.-1.mca
+[10:22:30] [ForkJoinPool.commonPool-worker-21/INFO] [or.be.wo.to.ut.Logger/]: [DataFixerAPI] Inspecting .\world\.\dimensions\aoemod\plains_dimension\entities\r.-1.0.mca
+[10:22:30] [ForkJoinPool.commonPool-worker-22/INFO] [or.be.wo.to.ut.Logger/]: [DataFixerAPI] Inspecting .\world\.\dimensions\aoemod\plains_dimension\entities\r.-1.-1.mca
+[10:22:30] [ForkJoinPool.commonPool-worker-6/INFO] [or.be.wo.to.ut.Logger/]: [DataFixerAPI] Inspecting .\world\.\dimensions\aoemod\tropical_dimension\region\r.-1.0.mca
+[10:22:30] [ForkJoinPool.commonPool-worker-23/INFO] [or.be.wo.to.ut.Logger/]: [DataFixerAPI] Inspecting .\world\.\poi\r.0.0.mca
+[10:22:30] [main/INFO] [or.be.wo.to.ut.Logger/]: [DataFixerAPI] Inspecting .\world\.\dimensions\aoemod\snowy_dimension\region\r.-1.-1.mca
+[10:22:30] [ForkJoinPool.commonPool-worker-14/INFO] [or.be.wo.to.ut.Logger/]: [DataFixerAPI] Inspecting .\world\.\dimensions\aoemod\desert_dimension\poi\r.-1.0.mca
+[10:22:30] [ForkJoinPool.commonPool-worker-9/INFO] [or.be.wo.to.ut.Logger/]: [DataFixerAPI] Inspecting .\world\.\dimensions\aoemod\plains_dimension\poi\r.0.-1.mca
+[10:22:30] [ForkJoinPool.commonPool-worker-18/INFO] [or.be.wo.to.ut.Logger/]: [DataFixerAPI] Inspecting .\world\.\dimensions\aoemod\savanna_dimension\region\r.0.0.mca
+[10:22:30] [ForkJoinPool.commonPool-worker-1/INFO] [or.be.wo.to.ut.Logger/]: [DataFixerAPI] Inspecting .\world\.\dimensions\aoemod\tropical_dimension\entities\r.-1.-1.mca
+[10:22:30] [ForkJoinPool.commonPool-worker-3/INFO] [or.be.wo.to.ut.Logger/]: [DataFixerAPI] Inspecting .\world\.\dimensions\aoemod\nether_dimension\entities\r.0.-1.mca
+[10:22:30] [ForkJoinPool.commonPool-worker-22/INFO] [or.be.wo.to.ut.Logger/]: [DataFixerAPI] Inspecting .\world\.\poi\r.0.-1.mca
+[10:22:30] [ForkJoinPool.commonPool-worker-20/INFO] [or.be.wo.to.ut.Logger/]: [DataFixerAPI] Inspecting .\world\.\dimensions\aoemod\desert_dimension\poi\r.-1.-1.mca
+[10:22:30] [ForkJoinPool.commonPool-worker-11/INFO] [or.be.wo.to.ut.Logger/]: [DataFixerAPI] Inspecting .\world\.\dimensions\aoemod\snowy_dimension\region\r.0.-1.mca
+[10:22:30] [ForkJoinPool.commonPool-worker-15/INFO] [or.be.wo.to.ut.Logger/]: [DataFixerAPI] Inspecting .\world\.\dimensions\aoemod\nether_dimension\region\r.-1.-1.mca
+[10:22:30] [ForkJoinPool.commonPool-worker-17/INFO] [or.be.wo.to.ut.Logger/]: [DataFixerAPI] Inspecting .\world\.\dimensions\aoemod\tropical_dimension\poi\r.0.0.mca
+[10:22:30] [ForkJoinPool.commonPool-worker-10/INFO] [or.be.wo.to.ut.Logger/]: [DataFixerAPI] Inspecting .\world\.\poi\r.-1.0.mca
+[10:22:30] [ForkJoinPool.commonPool-worker-2/INFO] [or.be.wo.to.ut.Logger/]: [DataFixerAPI] Inspecting .\world\.\dimensions\aoemod\snowy_dimension\poi\r.-1.0.mca
+[10:22:30] [ForkJoinPool.commonPool-worker-12/INFO] [or.be.wo.to.ut.Logger/]: [DataFixerAPI] Inspecting .\world\.\poi\r.-1.-1.mca
+[10:22:30] [ForkJoinPool.commonPool-worker-23/INFO] [or.be.wo.to.ut.Logger/]: [DataFixerAPI] Inspecting .\world\.\region\r.-1.-1.mca
+[10:22:30] [ForkJoinPool.commonPool-worker-3/INFO] [or.be.wo.to.ut.Logger/]: [DataFixerAPI] Inspecting .\world\.\dimensions\aoemod\nether_dimension\entities\r.-1.0.mca
+[10:22:30] [ForkJoinPool.commonPool-worker-20/INFO] [or.be.wo.to.ut.Logger/]: [DataFixerAPI] Inspecting .\world\.\dimensions\aoemod\desert_dimension\entities\r.0.0.mca
+[10:22:30] [ForkJoinPool.commonPool-worker-17/INFO] [or.be.wo.to.ut.Logger/]: [DataFixerAPI] Inspecting .\world\.\dimensions\aoemod\tropical_dimension\poi\r.0.-1.mca
+[10:22:30] [ForkJoinPool.commonPool-worker-21/INFO] [or.be.wo.to.ut.Logger/]: [DataFixerAPI] Inspecting .\world\.\dimensions\aoemod\nether_dimension\poi\r.-1.-1.mca
+[10:22:30] [ForkJoinPool.commonPool-worker-4/INFO] [or.be.wo.to.ut.Logger/]: [DataFixerAPI] Inspecting .\world\.\dimensions\aoemod\savanna_dimension\entities\r.0.-1.mca
+[10:22:30] [ForkJoinPool.commonPool-worker-9/INFO] [or.be.wo.to.ut.Logger/]: [DataFixerAPI] Inspecting .\world\.\dimensions\aoemod\plains_dimension\poi\r.-1.-1.mca
+[10:22:30] [ForkJoinPool.commonPool-worker-14/INFO] [or.be.wo.to.ut.Logger/]: [DataFixerAPI] Inspecting .\world\.\dimensions\aoemod\desert_dimension\region\r.-1.-1.mca
+[10:22:30] [ForkJoinPool.commonPool-worker-22/INFO] [or.be.wo.to.ut.Logger/]: [DataFixerAPI] Inspecting .\world\.\dimensions\aoemod\snowy_dimension\poi\r.-1.-1.mca
+[10:22:30] [ForkJoinPool.commonPool-worker-2/INFO] [or.be.wo.to.ut.Logger/]: [DataFixerAPI] Inspecting .\world\.\dimensions\aoemod\snowy_dimension\poi\r.0.0.mca
+[10:22:30] [ForkJoinPool.commonPool-worker-10/INFO] [or.be.wo.to.ut.Logger/]: [DataFixerAPI] Inspecting .\world\.\dimensions\aoemod\desert_dimension\entities\r.-1.-1.mca
+[10:22:30] [ForkJoinPool.commonPool-worker-20/INFO] [or.be.wo.to.ut.Logger/]: [DataFixerAPI] Inspecting .\world\.\dimensions\aoemod\desert_dimension\entities\r.-1.0.mca
+[10:22:30] [ForkJoinPool.commonPool-worker-12/INFO] [or.be.wo.to.ut.Logger/]: [DataFixerAPI] Inspecting .\world\.\region\r.0.0.mca
+[10:22:30] [ForkJoinPool.commonPool-worker-21/INFO] [or.be.wo.to.ut.Logger/]: [DataFixerAPI] Inspecting .\world\.\dimensions\aoemod\nether_dimension\poi\r.-1.0.mca
+[10:22:30] [ForkJoinPool.commonPool-worker-3/INFO] [or.be.wo.to.ut.Logger/]: [DataFixerAPI] Inspecting .\world\.\dimensions\aoemod\desert_dimension\region\r.0.0.mca
+[10:22:30] [ForkJoinPool.commonPool-worker-4/INFO] [or.be.wo.to.ut.Logger/]: [DataFixerAPI] Inspecting .\world\.\dimensions\aoemod\savanna_dimension\entities\r.-1.-1.mca
+[10:22:30] [ForkJoinPool.commonPool-worker-17/INFO] [or.be.wo.to.ut.Logger/]: [DataFixerAPI] Inspecting .\world\.\dimensions\aoemod\tropical_dimension\poi\r.-1.-1.mca
+[10:22:30] [ForkJoinPool.commonPool-worker-1/INFO] [or.be.wo.to.ut.Logger/]: [DataFixerAPI] Inspecting .\world\.\dimensions\aoemod\tropical_dimension\entities\r.0.-1.mca
+[10:22:30] [ForkJoinPool.commonPool-worker-21/INFO] [or.be.wo.to.ut.Logger/]: [DataFixerAPI] Inspecting .\world\.\dimensions\aoemod\nether_dimension\entities\r.0.0.mca
+[10:22:30] [ForkJoinPool.commonPool-worker-20/INFO] [or.be.wo.to.ut.Logger/]: [DataFixerAPI] Inspecting .\world\.\dimensions\aoemod\desert_dimension\poi\r.0.0.mca
+[10:22:30] [ForkJoinPool.commonPool-worker-9/INFO] [or.be.wo.to.ut.Logger/]: [DataFixerAPI] Inspecting .\world\.\dimensions\aoemod\tropical_dimension\entities\r.-1.0.mca
+[10:22:30] [ForkJoinPool.commonPool-worker-2/INFO] [or.be.wo.to.ut.Logger/]: [DataFixerAPI] Inspecting .\world\.\dimensions\aoemod\tropical_dimension\entities\r.0.0.mca
+[10:22:30] [ForkJoinPool.commonPool-worker-22/INFO] [or.be.wo.to.ut.Logger/]: [DataFixerAPI] Inspecting .\world\.\dimensions\aoemod\tropical_dimension\region\r.-1.-1.mca
+[10:22:30] [ForkJoinPool.commonPool-worker-10/INFO] [or.be.wo.to.ut.Logger/]: [DataFixerAPI] Inspecting .\world\.\dimensions\aoemod\savanna_dimension\poi\r.-1.-1.mca
+[10:22:30] [ForkJoinPool.commonPool-worker-17/INFO] [or.be.wo.to.ut.Logger/]: [DataFixerAPI] Inspecting .\world\.\dimensions\aoemod\tropical_dimension\region\r.0.-1.mca
+[10:22:30] [ForkJoinPool.commonPool-worker-20/INFO] [or.be.wo.to.ut.Logger/]: [DataFixerAPI] Inspecting .\world\.\dimensions\aoemod\desert_dimension\region\r.-1.0.mca
+[10:22:30] [ForkJoinPool.commonPool-worker-4/INFO] [or.be.wo.to.ut.Logger/]: [DataFixerAPI] Inspecting .\world\.\dimensions\aoemod\snowy_dimension\region\r.-1.0.mca
+[10:22:30] [ForkJoinPool.commonPool-worker-21/INFO] [or.be.wo.to.ut.Logger/]: [DataFixerAPI] Inspecting .\world\.\dimensions\aoemod\nether_dimension\poi\r.0.0.mca
+[10:22:30] [ForkJoinPool.commonPool-worker-10/INFO] [or.be.wo.to.ut.Logger/]: [DataFixerAPI] Inspecting .\world\.\dimensions\aoemod\savanna_dimension\poi\r.-1.0.mca
+[10:22:30] [ForkJoinPool.commonPool-worker-1/INFO] [or.be.wo.to.ut.Logger/]: [DataFixerAPI] Inspecting .\world\.\dimensions\aoemod\plains_dimension\region\r.-1.-1.mca
+[10:22:30] [ForkJoinPool.commonPool-worker-9/INFO] [or.be.wo.to.ut.Logger/]: [DataFixerAPI] Inspecting .\world\.\dimensions\aoemod\plains_dimension\poi\r.0.0.mca
+[10:22:30] [ForkJoinPool.commonPool-worker-21/INFO] [or.be.wo.to.ut.Logger/]: [DataFixerAPI] Inspecting .\world\.\region\r.0.-1.mca
+[10:22:30] [ForkJoinPool.commonPool-worker-10/INFO] [or.be.wo.to.ut.Logger/]: [DataFixerAPI] Inspecting .\world\.\dimensions\aoemod\savanna_dimension\entities\r.0.0.mca
+[10:22:30] [ForkJoinPool.commonPool-worker-9/INFO] [or.be.wo.to.ut.Logger/]: [DataFixerAPI] Inspecting .\world\.\entities\r.-1.-1.mca
+[10:22:30] [ForkJoinPool.commonPool-worker-10/INFO] [or.be.wo.to.ut.Logger/]: [DataFixerAPI] Inspecting .\world\.\dimensions\aoemod\savanna_dimension\region\r.-1.-1.mca
+[10:22:30] [ForkJoinPool.commonPool-worker-2/INFO] [or.be.wo.to.ut.Logger/]: [DataFixerAPI] Inspecting .\world\.\dimensions\aoemod\snowy_dimension\entities\r.0.-1.mca
+[10:22:30] [ForkJoinPool.commonPool-worker-2/INFO] [or.be.wo.to.ut.Logger/]: [DataFixerAPI] Inspecting .\world\.\dimensions\aoemod\snowy_dimension\entities\r.0.0.mca
+[10:22:30] [ForkJoinPool.commonPool-worker-9/INFO] [or.be.wo.to.ut.Logger/]: [DataFixerAPI] Inspecting .\world\.\dimensions\aoemod\desert_dimension\region\r.0.-1.mca
+[10:22:30] [ForkJoinPool.commonPool-worker-2/INFO] [or.be.wo.to.ut.Logger/]: [DataFixerAPI] Inspecting .\world\.\dimensions\aoemod\snowy_dimension\entities\r.-1.0.mca
+[10:22:30] [ForkJoinPool.commonPool-worker-2/INFO] [or.be.wo.to.ut.Logger/]: [DataFixerAPI] Inspecting .\world\.\dimensions\aoemod\savanna_dimension\poi\r.0.0.mca
+[10:22:30] [ForkJoinPool.commonPool-worker-2/INFO] [or.be.wo.to.ut.Logger/]: [DataFixerAPI] Inspecting .\world\.\dimensions\aoemod\savanna_dimension\poi\r.0.-1.mca
+[10:22:30] [ForkJoinPool.commonPool-worker-2/INFO] [or.be.wo.to.ut.Logger/]: [DataFixerAPI] Inspecting .\world\.\dimensions\aoemod\savanna_dimension\region\r.0.-1.mca
+[10:22:30] [ForkJoinPool.commonPool-worker-16/INFO] [or.be.wo.to.ut.Logger/]: [DataFixerAPI] Inspecting .\world\.\dimensions\aoemod\savanna_dimension\region\r.-1.0.mca
+[10:22:30] [ForkJoinPool.commonPool-worker-19/INFO] [or.be.wo.to.ut.Logger/]: [DataFixerAPI] Inspecting .\world\.\dimensions\aoemod\plains_dimension\region\r.0.0.mca
+[10:22:30] [ForkJoinPool.commonPool-worker-5/INFO] [or.be.wo.to.ut.Logger/]: [DataFixerAPI] Inspecting .\world\.\dimensions\aoemod\snowy_dimension\region\r.0.0.mca
+[10:22:31] [ForkJoinPool.commonPool-worker-10/INFO] [or.be.wo.to.ut.Logger/]: [DataFixerAPI] Inspecting .\world\.\dimensions\aoemod\plains_dimension\region\r.0.-1.mca
+[10:22:31] [main/INFO] [or.be.wo.to.ut.Logger/]: [bclib] Patcher Stage... message.bclib.datafixer.progress.saving%
+[10:22:31] [main/INFO] [or.be.wo.to.ut.Logger/]: [DataFixerAPI] Updating Patch-Level for 'bclib' from 0.0.0 to 3.0.11
+[10:22:31] [main/WARN] [minecraft/VanillaPackResourcesBuilder]: Assets URL 'union:/C:/Users/andre/Downloads/Games/September2024Mod/run/september-production/libraries/net/minecraft/server/1.20.1-20230612.114412/server-1.20.1-20230612.114412-srg.jar%23241!/assets/.mcassetsroot' uses unexpected schema
+[10:22:31] [main/WARN] [minecraft/VanillaPackResourcesBuilder]: Assets URL 'union:/C:/Users/andre/Downloads/Games/September2024Mod/run/september-production/libraries/net/minecraft/server/1.20.1-20230612.114412/server-1.20.1-20230612.114412-srg.jar%23241!/data/.mcassetsroot' uses unexpected schema
+[10:22:31] [main/INFO] [co.te.bl.co.Blueprint/]: Successfully loaded 0 data remolders!
+[10:22:31] [main/INFO] [or.be.wo.to.ut.Logger/]: [bclib] Updating Pickers for BCLib - The End  BiomeSource (20226d8d)
+[10:22:31] [main/INFO] [or.be.wo.to.ut.Logger/]: [bclib] [datagen] register BCLBiome minecraft:the_end
+[10:22:31] [main/INFO] [or.be.wo.to.ut.Logger/]: [bclib] [datagen] register BCLBiome minecraft:end_highlands
+[10:22:31] [main/INFO] [or.be.wo.to.ut.Logger/]: [bclib] [datagen] register BCLBiome minecraft:end_midlands
+[10:22:31] [main/INFO] [or.be.wo.to.ut.Logger/]: [bclib] [datagen] register BCLBiome minecraft:end_barrens
+[10:22:31] [main/INFO] [or.be.wo.to.ut.Logger/]: [bclib] [datagen] register BCLBiome minecraft:small_end_islands
+[10:22:31] [main/INFO] [or.be.wo.to.ut.Logger/]: [bclib] Unable to build Biome List yet
+[10:22:31] [main/INFO] [or.be.wo.to.ut.Logger/]: [bclib] [BiomeSourceCompat] Combined possible biomes for BCLib - The End  BiomeSource (20226d8d): owned=0, external=0, combined=0
+[10:22:31] [main/INFO] [or.be.wo.to.ut.Logger/]: [bclib] No Void Biomes found. Disabling by using barrens
+[10:22:31] [main/INFO] [or.be.wo.to.ut.Logger/]: [bclib] No Barrens Biomes found. Disabling by using land Biomes
+[10:22:31] [main/WARN] [or.be.wo.to.ut.Logger/]: [bclib] No Center Island Biomes found. Forcing use of vanilla center.
+[10:22:31] [main/INFO] [or.be.wo.to.ut.Logger/]: [bclib] Make sure features are loaded from terrablender:org.betterx.bclib.api.v2.generator.BCLibEndBiomeSource
+[10:22:31] [main/INFO] [or.be.wo.to.ut.Logger/]: [bclib] [ChunkGeneratorCompat] Rebuilt featuresPerStep for org.betterx.bclib.api.v2.generator.BCLChunkGenerator@582a2e51 with 0 possible biomes: 
+[10:22:31] [main/INFO] [or.be.wo.to.ut.Logger/]: [bclib] Updating Pickers for BCLib - Nether BiomeSource (4e968fd8)
+[10:22:31] [main/INFO] [or.be.wo.to.ut.Logger/]: [bclib] [datagen] register BCLBiome minecraft:nether_wastes
+[10:22:31] [main/INFO] [or.be.wo.to.ut.Logger/]: [bclib] [datagen] register BCLBiome minecraft:soul_sand_valley
+[10:22:31] [main/INFO] [or.be.wo.to.ut.Logger/]: [bclib] [datagen] register BCLBiome minecraft:crimson_forest
+[10:22:31] [main/INFO] [or.be.wo.to.ut.Logger/]: [bclib] [datagen] register BCLBiome minecraft:warped_forest
+[10:22:31] [main/INFO] [or.be.wo.to.ut.Logger/]: [bclib] [datagen] register BCLBiome minecraft:basalt_deltas
+[10:22:31] [main/INFO] [or.be.wo.to.ut.Logger/]: [bclib] Unable to build Biome List yet
+[10:22:31] [main/INFO] [or.be.wo.to.ut.Logger/]: [bclib] [BiomeSourceCompat] Combined possible biomes for BCLib - Nether BiomeSource (4e968fd8): owned=0, external=0, combined=0
+[10:22:31] [main/INFO] [or.be.wo.to.ut.Logger/]: [bclib] Make sure features are loaded from terrablender:org.betterx.bclib.api.v2.generator.BCLibNetherBiomeSource
+[10:22:31] [main/INFO] [or.be.wo.to.ut.Logger/]: [bclib] [ChunkGeneratorCompat] Rebuilt featuresPerStep for org.betterx.bclib.api.v2.generator.BCLChunkGenerator@728ba43 with 0 possible biomes: 
+[10:22:31] [main/INFO] [or.be.wo.to.ut.Logger/]: [bclib] Updating Pickers for BCLib - The End  BiomeSource (3a91e34)
+[10:22:31] [main/INFO] [or.be.wo.to.ut.Logger/]: [bclib] Unable to build Biome List yet
+[10:22:31] [main/INFO] [or.be.wo.to.ut.Logger/]: [bclib] [BiomeSourceCompat] Combined possible biomes for BCLib - The End  BiomeSource (3a91e34): owned=0, external=0, combined=0
+[10:22:31] [main/INFO] [or.be.wo.to.ut.Logger/]: [bclib] No Void Biomes found. Disabling by using barrens
+[10:22:31] [main/INFO] [or.be.wo.to.ut.Logger/]: [bclib] No Barrens Biomes found. Disabling by using land Biomes
+[10:22:31] [main/WARN] [or.be.wo.to.ut.Logger/]: [bclib] No Center Island Biomes found. Forcing use of vanilla center.
+[10:22:31] [main/INFO] [or.be.wo.to.ut.Logger/]: [bclib] Make sure features are loaded from terrablender:org.betterx.bclib.api.v2.generator.BCLibEndBiomeSource
+[10:22:31] [main/INFO] [or.be.wo.to.ut.Logger/]: [bclib] [ChunkGeneratorCompat] Rebuilt featuresPerStep for org.betterx.bclib.api.v2.generator.BCLChunkGenerator@454d7056 with 0 possible biomes: 
+[10:22:31] [main/INFO] [or.be.wo.to.ut.Logger/]: [bclib] Updating Pickers for BCLib - Nether BiomeSource (65845944)
+[10:22:31] [main/INFO] [or.be.wo.to.ut.Logger/]: [bclib] Unable to build Biome List yet
+[10:22:31] [main/INFO] [or.be.wo.to.ut.Logger/]: [bclib] [BiomeSourceCompat] Combined possible biomes for BCLib - Nether BiomeSource (65845944): owned=0, external=0, combined=0
+[10:22:31] [main/INFO] [or.be.wo.to.ut.Logger/]: [bclib] Make sure features are loaded from terrablender:org.betterx.bclib.api.v2.generator.BCLibNetherBiomeSource
+[10:22:31] [main/INFO] [or.be.wo.to.ut.Logger/]: [bclib] [ChunkGeneratorCompat] Rebuilt featuresPerStep for org.betterx.bclib.api.v2.generator.BCLChunkGenerator@3cd62e5e with 0 possible biomes: 
+[10:22:31] [main/INFO] [or.be.wo.to.ut.Logger/]: [bclib] Updating Pickers for BCLib - The End  BiomeSource (f34c6d8)
+[10:22:31] [main/INFO] [or.be.wo.to.ut.Logger/]: [bclib] Unable to build Biome List yet
+[10:22:31] [main/INFO] [or.be.wo.to.ut.Logger/]: [bclib] [BiomeSourceCompat] Combined possible biomes for BCLib - The End  BiomeSource (f34c6d8): owned=0, external=0, combined=0
+[10:22:31] [main/INFO] [or.be.wo.to.ut.Logger/]: [bclib] No Void Biomes found. Disabling by using barrens
+[10:22:31] [main/INFO] [or.be.wo.to.ut.Logger/]: [bclib] No Barrens Biomes found. Disabling by using land Biomes
+[10:22:31] [main/WARN] [or.be.wo.to.ut.Logger/]: [bclib] No Center Island Biomes found. Forcing use of vanilla center.
+[10:22:31] [main/INFO] [or.be.wo.to.ut.Logger/]: [bclib] Make sure features are loaded from terrablender:org.betterx.bclib.api.v2.generator.BCLibEndBiomeSource
+[10:22:31] [main/INFO] [or.be.wo.to.ut.Logger/]: [bclib] [ChunkGeneratorCompat] Rebuilt featuresPerStep for org.betterx.bclib.api.v2.generator.BCLChunkGenerator@6d5e2d16 with 0 possible biomes: 
+[10:22:31] [main/INFO] [or.be.wo.to.ut.Logger/]: [bclib] Updating Pickers for BCLib - Nether BiomeSource (201782e9)
+[10:22:31] [main/INFO] [or.be.wo.to.ut.Logger/]: [bclib] Unable to build Biome List yet
+[10:22:31] [main/INFO] [or.be.wo.to.ut.Logger/]: [bclib] [BiomeSourceCompat] Combined possible biomes for BCLib - Nether BiomeSource (201782e9): owned=0, external=0, combined=0
+[10:22:31] [main/INFO] [or.be.wo.to.ut.Logger/]: [bclib] Make sure features are loaded from terrablender:org.betterx.bclib.api.v2.generator.BCLibNetherBiomeSource
+[10:22:31] [main/INFO] [or.be.wo.to.ut.Logger/]: [bclib] [ChunkGeneratorCompat] Rebuilt featuresPerStep for org.betterx.bclib.api.v2.generator.BCLChunkGenerator@20ba47e with 0 possible biomes: 
+[10:22:31] [main/INFO] [or.be.wo.to.ut.Logger/]: [bclib] Updating Pickers for BCLib - The End  BiomeSource (cb34bff)
+[10:22:31] [main/INFO] [or.be.wo.to.ut.Logger/]: [bclib] Unable to build Biome List yet
+[10:22:31] [main/INFO] [or.be.wo.to.ut.Logger/]: [bclib] [BiomeSourceCompat] Combined possible biomes for BCLib - The End  BiomeSource (cb34bff): owned=0, external=0, combined=0
+[10:22:31] [main/INFO] [or.be.wo.to.ut.Logger/]: [bclib] No Void Biomes found. Disabling by using barrens
+[10:22:31] [main/INFO] [or.be.wo.to.ut.Logger/]: [bclib] No Barrens Biomes found. Disabling by using land Biomes
+[10:22:31] [main/WARN] [or.be.wo.to.ut.Logger/]: [bclib] No Center Island Biomes found. Forcing use of vanilla center.
+[10:22:31] [main/INFO] [or.be.wo.to.ut.Logger/]: [bclib] Make sure features are loaded from terrablender:org.betterx.bclib.api.v2.generator.BCLibEndBiomeSource
+[10:22:31] [main/INFO] [or.be.wo.to.ut.Logger/]: [bclib] [ChunkGeneratorCompat] Rebuilt featuresPerStep for org.betterx.bclib.api.v2.generator.BCLChunkGenerator@40d358e5 with 0 possible biomes: 
+[10:22:31] [main/INFO] [or.be.wo.to.ut.Logger/]: [bclib] Updating Pickers for BCLib - Nether BiomeSource (500e5bf0)
+[10:22:31] [main/INFO] [or.be.wo.to.ut.Logger/]: [bclib] Unable to build Biome List yet
+[10:22:31] [main/INFO] [or.be.wo.to.ut.Logger/]: [bclib] [BiomeSourceCompat] Combined possible biomes for BCLib - Nether BiomeSource (500e5bf0): owned=0, external=0, combined=0
+[10:22:31] [main/INFO] [or.be.wo.to.ut.Logger/]: [bclib] Make sure features are loaded from terrablender:org.betterx.bclib.api.v2.generator.BCLibNetherBiomeSource
+[10:22:31] [main/INFO] [or.be.wo.to.ut.Logger/]: [bclib] [ChunkGeneratorCompat] Rebuilt featuresPerStep for org.betterx.bclib.api.v2.generator.BCLChunkGenerator@4dae320e with 0 possible biomes: 
+[10:22:32] [main/INFO] [or.be.wo.to.ut.Logger/]: [bclib] Updating Pickers for BCLib - Nether BiomeSource (2e79e66f)
+[10:22:32] [main/INFO] [or.be.wo.to.ut.Logger/]: [bclib] Unable to build Biome List yet
+[10:22:32] [main/INFO] [or.be.wo.to.ut.Logger/]: [bclib] [BiomeSourceCompat] Combined possible biomes for BCLib - Nether BiomeSource (2e79e66f): owned=0, external=0, combined=0
+[10:22:32] [main/INFO] [or.be.wo.to.ut.Logger/]: [bclib] Make sure features are loaded from terrablender:org.betterx.bclib.api.v2.generator.BCLibNetherBiomeSource
+[10:22:32] [main/INFO] [or.be.wo.to.ut.Logger/]: [bclib] [ChunkGeneratorCompat] Rebuilt featuresPerStep for org.betterx.bclib.api.v2.generator.BCLChunkGenerator@7ca42327 with 0 possible biomes: 
+[10:22:32] [main/INFO] [or.be.wo.to.ut.Logger/]: [bclib] Updating Pickers for BCLib - The End  BiomeSource (7a034df2)
+[10:22:32] [main/INFO] [or.be.wo.to.ut.Logger/]: [bclib] Unable to build Biome List yet
+[10:22:32] [main/INFO] [or.be.wo.to.ut.Logger/]: [bclib] [BiomeSourceCompat] Combined possible biomes for BCLib - The End  BiomeSource (7a034df2): owned=0, external=0, combined=0
+[10:22:32] [main/INFO] [or.be.wo.to.ut.Logger/]: [bclib] No Void Biomes found. Disabling by using barrens
+[10:22:32] [main/INFO] [or.be.wo.to.ut.Logger/]: [bclib] No Barrens Biomes found. Disabling by using land Biomes
+[10:22:32] [main/WARN] [or.be.wo.to.ut.Logger/]: [bclib] No Center Island Biomes found. Forcing use of vanilla center.
+[10:22:32] [main/INFO] [or.be.wo.to.ut.Logger/]: [bclib] Make sure features are loaded from terrablender:org.betterx.bclib.api.v2.generator.BCLibEndBiomeSource
+[10:22:32] [main/INFO] [or.be.wo.to.ut.Logger/]: [bclib] [ChunkGeneratorCompat] Rebuilt featuresPerStep for org.betterx.bclib.api.v2.generator.BCLChunkGenerator@22e41bf8 with 0 possible biomes: 
+[10:22:32] [main/INFO] [or.be.wo.to.ut.Logger/]: [bclib] Did not manage biome betterend:empty_smaragdant_cave
+[10:22:32] [main/INFO] [or.be.wo.to.ut.Logger/]: [bclib] Did not manage biome betterend:megalake_grove
+[10:22:32] [main/INFO] [or.be.wo.to.ut.Logger/]: [bclib] Did not manage biome betterend:empty_aurora_cave
+[10:22:32] [main/INFO] [or.be.wo.to.ut.Logger/]: [bclib] Did not manage biome betterend:lush_smaragdant_cave
+[10:22:32] [main/INFO] [or.be.wo.to.ut.Logger/]: [bclib] Did not manage biome betterend:neon_oasis
+[10:22:32] [main/INFO] [or.be.wo.to.ut.Logger/]: [bclib] Did not manage biome betterend:lush_aurora_cave
+[10:22:32] [main/INFO] [or.be.wo.to.ut.Logger/]: [bclib] Did not manage biome betterend:jade_cave
+[10:22:32] [main/INFO] [or.be.wo.to.ut.Logger/]: [bclib] Did not manage biome betterend:empty_end_cave
+[10:22:32] [main/INFO] [or.be.wo.to.ut.Logger/]: [bclib] Did not manage biome betterend:painted_mountains
+[10:22:32] [main/INFO] [co.sk.wo.ex.pl.PlatformCommandManager/]: Registering commands with com.sk89q.worldedit.forge.ForgePlatform
+[10:22:32] [main/INFO] [co.gi.al.al.AlexsMobs/]: Adding datapack listener capsid_recipes
+[10:22:32] [Worker-Main-5/INFO] [Faewulf's Lib/]: [Faewulf's Lib] Reloaded diversity config file.
+[10:22:32] [Worker-Main-5/INFO] [Faewulf's Lib/]: [Faewulf's Lib] Total config reloaded: 1
+[10:22:33] [main/INFO] [co.te.bl.co.Blueprint/]: Loot Modification Manager has loaded 18 modifier groups
+[10:22:33] [main/INFO] [or.be.wo.to.ut.Logger/]: [bclib] Disabling Recipe: bclib:test_star
+[10:22:34] [main/INFO] [minecraft/RecipeManager]: Loaded 7 recipes
+[10:22:34] [main/INFO] [ne.am.ex.AOEMod/]: Applied AOE recipe namespace and backport-content policy.
+[10:22:34] [main/INFO] [co.te.bl.co.Blueprint/]: Skipped modifier group named 'environmental:husbandry/tame_all_slabfish_atmospheric' as its conditions were not met
+[10:22:34] [main/INFO] [co.te.bl.co.Blueprint/]: Skipped modifier group named 'environmental:husbandry/tame_all_slabfish_autumnity' as its conditions were not met
+[10:22:34] [main/INFO] [co.te.bl.co.Blueprint/]: Skipped modifier group named 'environmental:husbandry/tame_all_slabfish_endergetic' as its conditions were not met
+[10:22:34] [main/INFO] [co.te.bl.co.Blueprint/]: Advancement Modification Manager has loaded 19 modifier groups
+[10:22:34] [main/INFO] [quark/]: [Automatic Recipe Unlock] Removed 6098 recipe advancements
+[10:22:34] [main/INFO] [minecraft/AdvancementList]: Loaded 794 advancements
+[10:22:34] [main/INFO] [twilightforest/]: Loaded 9 Stalactite configs!
+[10:22:34] [main/INFO] [co.te.bl.co.Blueprint/]: Chunk Generator Modification Manager has loaded 2 modifier groups
+[10:22:34] [main/INFO] [to.th.cu.Curios/]: Loaded 10 curio slots
+[10:22:34] [main/INFO] [to.th.cu.Curios/]: Loaded 1 curio entities
+[10:22:34] [main/INFO] [un.UntamedWilds/]: Beginning loading of data for data loader: spawn_tables
+[10:22:34] [main/INFO] [un.UntamedWilds/]: Data loader for spawn_tables loaded 8 jsons
+[10:22:34] [main/INFO] [un.UntamedWilds/]: Beginning loading of data for data loader: entities
+[10:22:34] [main/INFO] [un.UntamedWilds/]: Data loader for entities loaded 38 jsons
+[10:22:34] [main/INFO] [quark-zeta/]: Modified advancement minecraft:husbandry/wax_on with 2 patches
+[10:22:34] [main/INFO] [quark-zeta/]: Modified advancement minecraft:adventure/kill_a_mob with 3 patches
+[10:22:34] [main/INFO] [quark-zeta/]: Modified advancement minecraft:husbandry/bred_all_animals with 3 patches
+[10:22:34] [main/INFO] [quark-zeta/]: Modified advancement minecraft:adventure/kill_all_mobs with 3 patches
+[10:22:34] [main/INFO] [quark-zeta/]: Modified advancement minecraft:husbandry/balanced_diet with 2 patches
+[10:22:34] [main/INFO] [quark-zeta/]: Modified advancement minecraft:nether/all_effects with 1 patches
+[10:22:34] [main/INFO] [quark-zeta/]: Modified advancement minecraft:husbandry/wax_off with 2 patches
+[10:22:34] [main/INFO] [quark-zeta/]: Modified advancement minecraft:adventure/adventuring_time with 1 patches
+[10:22:34] [main/INFO] [quark-zeta/]: Modified advancement minecraft:nether/all_potions with 1 patches
+[10:22:34] [main/INFO] [al.he.HearthAndHarvest/]: Loaded 27 fluid bottle mappings and 20 vintage styles
+[10:22:38] [main/INFO] [or.be.wo.to.ut.Logger/]: [bclib] Did not manage biome betterend:empty_smaragdant_cave
+[10:22:38] [main/INFO] [or.be.wo.to.ut.Logger/]: [bclib] Did not manage biome betterend:megalake_grove
+[10:22:38] [main/INFO] [or.be.wo.to.ut.Logger/]: [bclib] Did not manage biome betterend:empty_aurora_cave
+[10:22:38] [main/INFO] [or.be.wo.to.ut.Logger/]: [bclib] Did not manage biome betterend:lush_smaragdant_cave
+[10:22:38] [main/INFO] [or.be.wo.to.ut.Logger/]: [bclib] Did not manage biome betterend:neon_oasis
+[10:22:38] [main/INFO] [or.be.wo.to.ut.Logger/]: [bclib] Did not manage biome betterend:lush_aurora_cave
+[10:22:38] [main/INFO] [or.be.wo.to.ut.Logger/]: [bclib] Did not manage biome betterend:jade_cave
+[10:22:38] [main/INFO] [or.be.wo.to.ut.Logger/]: [bclib] Did not manage biome betterend:empty_end_cave
+[10:22:38] [main/INFO] [or.be.wo.to.ut.Logger/]: [bclib] Did not manage biome betterend:painted_mountains
+[10:22:38] [main/INFO] [or.be.wo.to.ut.Logger/]: [bclib] [BiomeRepairCompat] No external base generator for minecraft:the_end
+[10:22:38] [main/INFO] [or.be.wo.to.ut.Logger/]: [bclib] [BiomeRepairCompat] Repair dimension minecraft:the_end: referenceGenerator=org.betterx.bclib.api.v2.generator.BCLChunkGenerator@40d358e5, referenceBiomeSource=org.betterx.bclib.api.v2.generator.BCLibEndBiomeSource@cb34bff, loadedGenerator=org.betterx.bclib.api.v2.generator.BCLChunkGenerator@22e41bf8, loadedBiomeSource=org.betterx.bclib.api.v2.generator.BCLibEndBiomeSource@7a034df2, externalGenerator=null, externalBiomeSource=null
+[10:22:38] [main/INFO] [or.be.wo.to.ut.Logger/]: [bclib] [BiomeRepairCompat] Skipping attach for minecraft:the_end: targetGenerator=org.betterx.bclib.api.v2.generator.BCLChunkGenerator@40d358e5, externalGenerator=null
+[10:22:38] [main/INFO] [or.be.wo.to.ut.Logger/]: [bclib] [BiomeRepairCompat] Skipping attach for minecraft:the_end: targetGenerator=org.betterx.bclib.api.v2.generator.BCLChunkGenerator@22e41bf8, externalGenerator=null
+[10:22:38] [main/INFO] [or.be.wo.to.ut.Logger/]: [bclib] Updating Pickers for BCLib - The End  BiomeSource (7a034df2)
+[10:22:38] [main/INFO] [or.be.wo.to.ut.Logger/]: [bclib] [BiomeSourceCompat] Combined possible biomes for BCLib - The End  BiomeSource (7a034df2): owned=26, external=0, combined=26
+[10:22:38] [main/INFO] [or.be.wo.to.ut.Logger/]: [bclib] [BiomeRepairCompat] Created external vanilla Nether generator: generator=net.minecraft.world.level.levelgen.NoiseBasedChunkGenerator@679172e3, biomeSource=net.minecraft.world.level.biome.MultiNoiseBiomeSource@4a022ca2, settings=minecraft:nether
+[10:22:38] [main/INFO] [or.be.wo.to.ut.Logger/]: [bclib] [BiomeRepairCompat] Repair dimension minecraft:the_nether: referenceGenerator=org.betterx.bclib.api.v2.generator.BCLChunkGenerator@4dae320e, referenceBiomeSource=org.betterx.bclib.api.v2.generator.BCLibNetherBiomeSource@500e5bf0, loadedGenerator=org.betterx.bclib.api.v2.generator.BCLChunkGenerator@7ca42327, loadedBiomeSource=org.betterx.bclib.api.v2.generator.BCLibNetherBiomeSource@2e79e66f, externalGenerator=net.minecraft.world.level.levelgen.NoiseBasedChunkGenerator@679172e3, externalBiomeSource=net.minecraft.world.level.biome.MultiNoiseBiomeSource@4a022ca2
+[10:22:38] [main/INFO] [or.be.wo.to.ut.Logger/]: [bclib] [BiomeRepairCompat] Attaching external biome source for minecraft:the_nether: targetGenerator=org.betterx.bclib.api.v2.generator.BCLChunkGenerator@4dae320e, targetBiomeSource=org.betterx.bclib.api.v2.generator.BCLibNetherBiomeSource@500e5bf0, externalGenerator=net.minecraft.world.level.levelgen.NoiseBasedChunkGenerator@679172e3, externalBiomeSource=net.minecraft.world.level.biome.MultiNoiseBiomeSource@4a022ca2
+[10:22:38] [main/INFO] [or.be.wo.to.ut.Logger/]: [bclib] [ChunkGeneratorCompat] Merging external biome source for minecraft:the_nether: targetGenerator=org.betterx.bclib.api.v2.generator.BCLChunkGenerator@4dae320e, targetBiomeSource=org.betterx.bclib.api.v2.generator.BCLibNetherBiomeSource@500e5bf0, externalGenerator=net.minecraft.world.level.levelgen.NoiseBasedChunkGenerator@679172e3, externalBiomeSource=net.minecraft.world.level.biome.MultiNoiseBiomeSource@4a022ca2
+[10:22:38] [main/INFO] [or.be.wo.to.ut.Logger/]: [bclib] [BiomeSourceCompat] Assigned external biome source for BCLib - Nether BiomeSource (500e5bf0): source=net.minecraft.world.level.biome.MultiNoiseBiomeSource@4a022ca2
+[10:22:38] [main/INFO] [or.be.wo.to.ut.Logger/]: [bclib] [BiomeSourceCompat] Skipping external preparation for BCLib - Nether BiomeSource (500e5bf0): source=net.minecraft.world.level.biome.MultiNoiseBiomeSource@4a022ca2, registryAccess=false, dimensionType=null, dimension=null, generator=null, hasSeed=false, preparedSeed=-9223372036854775808, currentSeed=0
+[10:22:38] [main/INFO] [or.be.wo.to.ut.Logger/]: [bclib] [BiomeSourceCompat] Combined possible biomes for BCLib - Nether BiomeSource (500e5bf0): owned=0, external=5, combined=5, externalNamespaces=minecraft(5)
+[10:22:38] [main/INFO] [or.be.wo.to.ut.Logger/]: [bclib] [BiomeSourceCompat] Combined possible biomes for BCLib - Nether BiomeSource (500e5bf0): owned=0, external=5, combined=5, externalNamespaces=minecraft(5)
+[10:22:38] [main/INFO] [or.be.wo.to.ut.Logger/]: [bclib] [BiomeSourceCompat] Updated external context for BCLib - Nether BiomeSource (500e5bf0): dimension=minecraft:the_nether, dimensionType=minecraft:the_nether, generator=net.minecraft.world.level.levelgen.NoiseBasedChunkGenerator@679172e3, generatorBiomeSource=net.minecraft.world.level.biome.MultiNoiseBiomeSource@4a022ca2, seedReady=false
+[10:22:38] [main/INFO] [or.be.wo.to.ut.Logger/]: [bclib] [BiomeSourceCompat] Skipping external preparation for BCLib - Nether BiomeSource (500e5bf0): source=net.minecraft.world.level.biome.MultiNoiseBiomeSource@4a022ca2, registryAccess=true, dimensionType=minecraft:the_nether, dimension=minecraft:the_nether, generator=net.minecraft.world.level.levelgen.NoiseBasedChunkGenerator@679172e3, hasSeed=false, preparedSeed=-9223372036854775808, currentSeed=0
+[10:22:38] [main/INFO] [or.be.wo.to.ut.Logger/]: [bclib] [BiomeSourceCompat] Combined possible biomes for BCLib - Nether BiomeSource (500e5bf0): owned=0, external=5, combined=5, externalNamespaces=minecraft(5)
+[10:22:38] [main/INFO] [or.be.wo.to.ut.Logger/]: [bclib] [ChunkGeneratorCompat] Rebuilt featuresPerStep for org.betterx.bclib.api.v2.generator.BCLChunkGenerator@4dae320e with 5 possible biomes: minecraft(5)
+[10:22:38] [main/INFO] [or.be.wo.to.ut.Logger/]: [bclib] [BiomeRepairCompat] Attaching external biome source for minecraft:the_nether: targetGenerator=org.betterx.bclib.api.v2.generator.BCLChunkGenerator@7ca42327, targetBiomeSource=org.betterx.bclib.api.v2.generator.BCLibNetherBiomeSource@2e79e66f, externalGenerator=net.minecraft.world.level.levelgen.NoiseBasedChunkGenerator@679172e3, externalBiomeSource=net.minecraft.world.level.biome.MultiNoiseBiomeSource@4a022ca2
+[10:22:38] [main/INFO] [or.be.wo.to.ut.Logger/]: [bclib] [ChunkGeneratorCompat] Merging external biome source for minecraft:the_nether: targetGenerator=org.betterx.bclib.api.v2.generator.BCLChunkGenerator@7ca42327, targetBiomeSource=org.betterx.bclib.api.v2.generator.BCLibNetherBiomeSource@2e79e66f, externalGenerator=net.minecraft.world.level.levelgen.NoiseBasedChunkGenerator@679172e3, externalBiomeSource=net.minecraft.world.level.biome.MultiNoiseBiomeSource@4a022ca2
+[10:22:38] [main/INFO] [or.be.wo.to.ut.Logger/]: [bclib] [BiomeSourceCompat] Assigned external biome source for BCLib - Nether BiomeSource (2e79e66f): source=net.minecraft.world.level.biome.MultiNoiseBiomeSource@4a022ca2
+[10:22:38] [main/INFO] [or.be.wo.to.ut.Logger/]: [bclib] [BiomeSourceCompat] Skipping external preparation for BCLib - Nether BiomeSource (2e79e66f): source=net.minecraft.world.level.biome.MultiNoiseBiomeSource@4a022ca2, registryAccess=false, dimensionType=null, dimension=null, generator=null, hasSeed=false, preparedSeed=-9223372036854775808, currentSeed=4520476031201774798
+[10:22:38] [main/INFO] [or.be.wo.to.ut.Logger/]: [bclib] [BiomeSourceCompat] Combined possible biomes for BCLib - Nether BiomeSource (2e79e66f): owned=0, external=5, combined=5, externalNamespaces=minecraft(5)
+[10:22:38] [main/INFO] [or.be.wo.to.ut.Logger/]: [bclib] [BiomeSourceCompat] Combined possible biomes for BCLib - Nether BiomeSource (2e79e66f): owned=0, external=5, combined=5, externalNamespaces=minecraft(5)
+[10:22:38] [main/INFO] [or.be.wo.to.ut.Logger/]: [bclib] [BiomeSourceCompat] Updated external context for BCLib - Nether BiomeSource (2e79e66f): dimension=minecraft:the_nether, dimensionType=minecraft:the_nether, generator=net.minecraft.world.level.levelgen.NoiseBasedChunkGenerator@679172e3, generatorBiomeSource=net.minecraft.world.level.biome.MultiNoiseBiomeSource@4a022ca2, seedReady=false
+[10:22:38] [main/INFO] [or.be.wo.to.ut.Logger/]: [bclib] [BiomeSourceCompat] Skipping external preparation for BCLib - Nether BiomeSource (2e79e66f): source=net.minecraft.world.level.biome.MultiNoiseBiomeSource@4a022ca2, registryAccess=true, dimensionType=minecraft:the_nether, dimension=minecraft:the_nether, generator=net.minecraft.world.level.levelgen.NoiseBasedChunkGenerator@679172e3, hasSeed=false, preparedSeed=-9223372036854775808, currentSeed=4520476031201774798
+[10:22:38] [main/INFO] [or.be.wo.to.ut.Logger/]: [bclib] [BiomeSourceCompat] Combined possible biomes for BCLib - Nether BiomeSource (2e79e66f): owned=0, external=5, combined=5, externalNamespaces=minecraft(5)
+[10:22:38] [main/INFO] [or.be.wo.to.ut.Logger/]: [bclib] [ChunkGeneratorCompat] Rebuilt featuresPerStep for org.betterx.bclib.api.v2.generator.BCLChunkGenerator@7ca42327 with 5 possible biomes: minecraft(5)
+[10:22:38] [main/INFO] [or.be.wo.to.ut.Logger/]: [bclib] Updating Pickers for BCLib - Nether BiomeSource (2e79e66f)
+[10:22:38] [main/INFO] [or.be.wo.to.ut.Logger/]: [bclib] [BiomeSourceCompat] Combined possible biomes for BCLib - Nether BiomeSource (2e79e66f): owned=5, external=5, combined=5, externalNamespaces=minecraft(5)
+[10:22:38] [Server thread/INFO] [minecraft/DedicatedServer]: Starting minecraft server version 1.20.1
+[10:22:38] [Server thread/INFO] [minecraft/DedicatedServer]: Loading properties
+[10:22:38] [Server thread/INFO] [minecraft/DedicatedServer]: Default game type: SURVIVAL
+[10:22:38] [Server thread/INFO] [minecraft/MinecraftServer]: Generating keypair
+[10:22:38] [Server thread/INFO] [minecraft/DedicatedServer]: Starting Minecraft server on 127.0.0.1:25579
+[10:22:38] [Server thread/INFO] [minecraft/ServerConnectionListener]: Using default channel type
+[10:22:38] [Server thread/WARN] [minecraft/DedicatedServer]: **** SERVER IS RUNNING IN OFFLINE/INSECURE MODE!
+[10:22:38] [Server thread/WARN] [minecraft/DedicatedServer]: The server will make no attempt to authenticate usernames. Beware.
+[10:22:38] [Server thread/WARN] [minecraft/DedicatedServer]: While this makes the game possible to play without internet access, it also opens up the ability for hackers to connect with any username they choose.
+[10:22:38] [Server thread/WARN] [minecraft/DedicatedServer]: To change this, set "online-mode" to "true" in the server.properties file.
+[10:22:38] [Server thread/INFO] [quark-zeta/]: Server starting, accepting filewatcher changes for quark's config
+[10:22:38] [Server thread/INFO] [zeta/]: Server starting, accepting filewatcher changes for zeta's config
+[10:22:39] [Server thread/INFO] [terrablender/]: Initialized TerraBlender biomes for level stem minecraft:overworld
+[10:22:39] [Server thread/INFO] [minecraft/DedicatedServer]: Preparing level "world"
+[10:22:39] [Server thread/WARN] [minecraft/DensityFunctions$TwoArgumentSimpleFunction]: Creating a MAX function between two non-overlapping inputs: HolderHolder[function=Direct{Ap2[type=ADD, argument1=HolderHolder[function=Direct{Constant[value=-0.5]}], argument2=HolderHolder[function=Direct{Ap2[type=MUL, argument1=HolderHolder[function=Direct{Ap2[type=ADD, argument1=HolderHolder[function=Direct{Constant[value=0.5]}], argument2=HolderHolder[function=Direct{dev.hybridlabs.aquatic.world.gen.densityfunction.DensityFunctionWrappers$WrappedMarker@28f4f929}], minValue=0.5, maxValue=0.5]}], argument2=HolderHolder[function=Direct{Ap2[type=ADD, argument1=HolderHolder[function=Direct{Constant[value=1.0]}], argument2=HolderHolder[function=Direct{Spline[spline=Multipoint[coordinate=continents, locations=[F@7580a729, values=[Constant[value=0.0], Constant[value=1.0], Constant[value=0.0]], derivatives=[F@1d9e1ab4, minValue=0.0, maxValue=1.0]]}], minValue=1.0, maxValue=2.0]}], minValue=0.5, maxValue=1.0]}], minValue=0.0, maxValue=0.5]}] and HolderHolder[function=Direct{Spline[spline=Multipoint[coordinate=continents, locations=[F@5be4a037, values=[Constant[value=-1.0], Constant[value=-1.3], Constant[value=-1.3], Constant[value=-1.0]], derivatives=[F@a019927, minValue=-1.3, maxValue=-1.0]]}]
+[10:22:39] [Server thread/INFO] [Hybrid Aquatic/]: Trenches follow the overworld offset
+[10:22:39] [Server thread/INFO] [or.be.wo.to.ut.Logger/]: [bclib] Updating Pickers for BCLib - The End  BiomeSource (7a034df2)
+[10:22:39] [Server thread/INFO] [or.be.wo.to.ut.Logger/]: [bclib] [BiomeSourceCompat] Combined possible biomes for BCLib - The End  BiomeSource (7a034df2): owned=26, external=0, combined=26
+[10:22:39] [Server thread/INFO] [or.be.wo.to.ut.Logger/]: [bclib] [ChunkGeneratorCompat] Keeping Blueprint modded biome source for minecraft:the_end: wrapper=com.teamabnormals.blueprint.common.world.modification.ModdedBiomeSource@3011442d, original=org.betterx.bclib.api.v2.generator.BCLibEndBiomeSource@7a034df2
+[10:22:39] [Server thread/INFO] [or.be.wo.to.ut.Logger/]: [bclib] [ChunkGeneratorCompat] Rebuilt featuresPerStep for org.betterx.bclib.api.v2.generator.BCLChunkGenerator@22e41bf8 with 29 possible biomes: 29
+[10:22:39] [Server thread/INFO] [or.be.wo.to.ut.Logger/]: [bclib] 
+Apply Modifications for aoemod:snowy_dimension
+    MultiNoiseBiomeSource (547a1fd4)
+        biomes     = 3
+        namespaces = aoemod(3)
+[10:22:39] [Server thread/INFO] [or.be.wo.to.ut.Logger/]: [bclib] 
+Apply Modifications for aoemod:tropical_dimension
+    MultiNoiseBiomeSource (45d78f81)
+        biomes     = 5
+        namespaces = aoemod(5)
+[10:22:39] [Server thread/INFO] [or.be.wo.to.ut.Logger/]: [bclib] 
+Apply Modifications for minecraft:the_end
+    ModdedBiomeSource (3011442d)
+        biomes     = 29
+        namespaces = betterend(21), minecraft(5), outer_end(3)
+[10:22:39] [Server thread/INFO] [or.be.wo.to.ut.Logger/]: [bclib] 
+Apply Modifications for minecraft:overworld
+    ModdedBiomeSource (4f166777)
+        biomes     = 181
+        namespaces = minecraft(53), biomesoplenty(58), terrablender(1), biomeswevegone(53), quark(1), alexscaves(6), environmental(8), blueprint(1)
+[10:22:39] [Server thread/INFO] [or.be.wo.to.ut.Logger/]: [bclib] 
+Apply Modifications for aquatica:eternal_deep
+    MultiNoiseBiomeSource (2a1a40f6)
+        biomes     = 6
+        namespaces = aquatica(6)
+[10:22:39] [Server thread/INFO] [or.be.wo.to.ut.Logger/]: [bclib] 
+Apply Modifications for minecraft:the_nether
+    BCLib - Nether BiomeSource (2e79e66f)
+        biomes     = 5
+        namespaces = minecraft(5)
+        seed       = 4520476031201774798
+        height     = 128
+        config     = BCLibNetherBiomeSourceConfig{mapVersion=hex, useVerticalBiomes=true, amplified=false, biomeSize=256, biomeSizeVertical=86}
+[10:22:39] [Server thread/INFO] [or.be.wo.to.ut.Logger/]: [bclib] 
+Apply Modifications for aoemod:savanna_dimension
+    FixedBiomeSource (25f1eae3)
+        biomes     = 1
+        namespaces = aoemod(1)
+[10:22:39] [Server thread/INFO] [or.be.wo.to.ut.Logger/]: [bclib] 
+Apply Modifications for twilightforest:twilight_forest
+    TFBiomeProvider (7814f4b2)
+        biomes     = 21
+        namespaces = twilightforest(21)
+[10:22:39] [Server thread/INFO] [or.be.wo.to.ut.Logger/]: [bclib] 
+Apply Modifications for aoemod:nether_dimension
+    MultiNoiseBiomeSource (5c20ca38)
+        biomes     = 4
+        namespaces = aoemod(4)
+[10:22:39] [Server thread/INFO] [or.be.wo.to.ut.Logger/]: [bclib] 
+Apply Modifications for aoemod:plains_dimension
+    FixedBiomeSource (14657db8)
+        biomes     = 1
+        namespaces = aoemod(1)
+[10:22:39] [Server thread/INFO] [or.be.wo.to.ut.Logger/]: [bclib] 
+Apply Modifications for aoemod:desert_dimension
+    MultiNoiseBiomeSource (3d8f1dc2)
+        biomes     = 3
+        namespaces = aoemod(3)
+[10:22:39] [Server thread/INFO] [or.be.wo.to.ut.Logger/]: [bclib] World Dimensions: 
+ - aoemod:snowy_dimension: 
+     net.minecraft.world.level.levelgen.NoiseBasedChunkGenerator@65e13ce4 
+     MultiNoiseBiomeSource (547a1fd4)
+         biomes     = 3
+         namespaces = aoemod(3)
+ - aoemod:tropical_dimension: 
+     net.minecraft.world.level.levelgen.NoiseBasedChunkGenerator@2e4193c0 
+     MultiNoiseBiomeSource (45d78f81)
+         biomes     = 5
+         namespaces = aoemod(5)
+ - minecraft:the_end: 
+     BCLib - Chunk Generator (22e41bf8) 
+     ModdedBiomeSource (3011442d)
+         biomes     = 29
+         namespaces = betterend(21), minecraft(5), outer_end(3)
+ - minecraft:overworld: 
+     net.minecraft.world.level.levelgen.NoiseBasedChunkGenerator@274ea25 
+     ModdedBiomeSource (4f166777)
+         biomes     = 181
+         namespaces = minecraft(53), biomesoplenty(58), terrablender(1), biomeswevegone(53), quark(1), alexscaves(6), environmental(8), blueprint(1)
+ - aquatica:eternal_deep: 
+     com.min01.aquatica.world.chunk.EternalDeepChunkGenerator@5920036f 
+     MultiNoiseBiomeSource (2a1a40f6)
+         biomes     = 6
+         namespaces = aquatica(6)
+ - minecraft:the_nether: 
+     BCLib - Chunk Generator (7ca42327) 
+     BCLib - Nether BiomeSource (2e79e66f)
+         biomes     = 5
+         namespaces = minecraft(5)
+         seed       = 4520476031201774798
+         height     = 128
+         config     = BCLibNetherBiomeSourceConfig{mapVersion=hex, useVerticalBiomes=true, amplified=false, biomeSize=256, biomeSizeVertical=86}
+ - aoemod:savanna_dimension: 
+     net.minecraft.world.level.levelgen.NoiseBasedChunkGenerator@7109ba 
+     FixedBiomeSource (25f1eae3)
+         biomes     = 1
+         namespaces = aoemod(1)
+ - twilightforest:twilight_forest: 
+     twilightforest.world.components.chunkgenerators.ChunkGeneratorTwilight@3ce0f97 
+     TFBiomeProvider (7814f4b2)
+         biomes     = 21
+         namespaces = twilightforest(21)
+ - aoemod:nether_dimension: 
+     net.minecraft.world.level.levelgen.NoiseBasedChunkGenerator@481ff193 
+     MultiNoiseBiomeSource (5c20ca38)
+         biomes     = 4
+         namespaces = aoemod(4)
+ - aoemod:plains_dimension: 
+     net.minecraft.world.level.levelgen.NoiseBasedChunkGenerator@67247a14 
+     FixedBiomeSource (14657db8)
+         biomes     = 1
+         namespaces = aoemod(1)
+ - aoemod:desert_dimension: 
+     net.minecraft.world.level.levelgen.NoiseBasedChunkGenerator@aabe089 
+     MultiNoiseBiomeSource (3d8f1dc2)
+         biomes     = 3
+         namespaces = aoemod(3)
+[10:22:39] [Server thread/INFO] [or.be.wo.to.ut.Logger/]: [bclib] Merged 21 additional Surface Rules for 
+ModdedBiomeSource (3011442d)
+    biomes     = 29
+    namespaces = betterend(21), minecraft(5), outer_end(3) => 22
+[10:22:40] [Server thread/INFO] [or.be.wo.to.ut.Logger/]: [bclib] [BiomeSourceCompat] Skipping external preparation for BCLib - The End  BiomeSource (7a034df2): source=null, registryAccess=false, dimensionType=null, dimension=null, generator=null, hasSeed=true, preparedSeed=-9223372036854775808, currentSeed=4520476031201774798
+[10:22:40] [Server thread/INFO] [or.be.wo.to.ut.Logger/]: [bclib] [BiomeSourceCompat] Preparing external biome source for BCLib - Nether BiomeSource (2e79e66f): source=net.minecraft.world.level.biome.MultiNoiseBiomeSource@4a022ca2, generator=net.minecraft.world.level.levelgen.NoiseBasedChunkGenerator@679172e3, generatorBiomeSource=net.minecraft.world.level.biome.MultiNoiseBiomeSource@4a022ca2, dimension=minecraft:the_nether, seed=4520476031201774798
+[10:22:40] [Server thread/INFO] [or.be.wo.to.ut.Logger/]: [bclib] [BiomeSourceCompat] TerraBlender check for BCLib - Nether BiomeSource (2e79e66f): canApply=true, externalGenerator=net.minecraft.world.level.levelgen.NoiseBasedChunkGenerator@679172e3, externalGeneratorBiomeSource=net.minecraft.world.level.biome.MultiNoiseBiomeSource@4a022ca2
+[10:22:40] [Server thread/INFO] [or.be.wo.to.ut.Logger/]: [bclib] [BiomeSourceCompat] TerraBlender region type for BCLib - Nether BiomeSource (2e79e66f): dimension=minecraft:the_nether, regionType=NETHER
+[10:22:40] [Server thread/INFO] [or.be.wo.to.ut.Logger/]: [bclib] [BiomeSourceCompat] TerraBlender parameter list for BCLib - Nether BiomeSource (2e79e66f): parameterList=net.minecraft.world.level.biome.Climate$ParameterList@71f6cc7b, isExtended=true
+[10:22:40] [Server thread/INFO] [or.be.wo.to.ut.Logger/]: [bclib] [BiomeSourceCompat] TerraBlender initialized parameter list for BCLib - Nether BiomeSource (2e79e66f) with seed 4520476031201774798
+[10:22:40] [Server thread/INFO] [or.be.wo.to.ut.Logger/]: [bclib] [BiomeSourceCompat] TerraBlender regions for BCLib - Nether BiomeSource (2e79e66f): regionType=NETHER, count=3
+[10:22:40] [Server thread/INFO] [or.be.wo.to.ut.Logger/]: [bclib] [BiomeSourceCompat] TerraBlender region result for BCLib - Nether BiomeSource (2e79e66f): region=minecraft:nether, weight=10, addedBiomes=0
+[10:22:40] [Server thread/INFO] [or.be.wo.to.ut.Logger/]: [bclib] [BiomeSourceCompat] TerraBlender region result for BCLib - Nether BiomeSource (2e79e66f): region=biomesoplenty:nether_common, weight=13, addedBiomes=4
+[10:22:40] [Server thread/INFO] [or.be.wo.to.ut.Logger/]: [bclib] [BiomeSourceCompat] TerraBlender region result for BCLib - Nether BiomeSource (2e79e66f): region=biomesoplenty:nether_rare, weight=2, addedBiomes=1
+[10:22:40] [Server thread/INFO] [or.be.wo.to.ut.Logger/]: [bclib] [BiomeSourceCompat] TerraBlender collected deferred biomes for BCLib - Nether BiomeSource (2e79e66f): count=5, biomes=biomesoplenty:crystalline_chasm, biomesoplenty:undergrowth, biomesoplenty:visceral_heap, biomesoplenty:erupting_inferno, biomesoplenty:withered_abyss
+[10:22:40] [Server thread/INFO] [or.be.wo.to.ut.Logger/]: [bclib] [BiomeSourceCompat] TerraBlender external biome source append check for BCLib - Nether BiomeSource (2e79e66f): source=net.minecraft.world.level.biome.MultiNoiseBiomeSource@4a022ca2, isExtended=true
+[10:22:40] [Server thread/INFO] [or.be.wo.to.ut.Logger/]: [bclib] [BiomeSourceCompat] TerraBlender appended deferred biomes for BCLib - Nether BiomeSource (2e79e66f): afterAppend=minecraft(5), biomesoplenty(5)
+[10:22:40] [Server thread/INFO] [or.be.wo.to.ut.Logger/]: [bclib] [BiomeSourceCompat] Combined possible biomes for BCLib - Nether BiomeSource (2e79e66f): owned=5, external=10, combined=10, externalNamespaces=minecraft(5), biomesoplenty(5)
+[10:22:40] [Server thread/INFO] [or.be.wo.to.ut.Logger/]: [bclib] [ChunkGeneratorCompat] Rebuilt featuresPerStep for org.betterx.bclib.api.v2.generator.BCLChunkGenerator@7ca42327 with 10 possible biomes: minecraft(5), biomesoplenty(5)
+[10:22:40] [Server thread/INFO] [or.be.wo.to.ut.Logger/]: [bclib] Prepared external biome source for BCLib - Nether BiomeSource (2e79e66f): minecraft(5), biomesoplenty(5) (minecraft:nether_wastes, minecraft:crimson_forest, biomesoplenty:withered_abyss, biomesoplenty:visceral_heap, biomesoplenty:erupting_inferno, minecraft:warped_forest, minecraft:basalt_deltas, biomesoplenty:crystalline_chasm, minecraft:soul_sand_valley, biomesoplenty:undergrowth)
+[10:22:40] [Server thread/INFO] [minecraft/MinecraftServer]: Preparing start region for dimension minecraft:overworld
+[10:22:42] [Worker-Main-21/INFO] [minecraft/LoggerChunkProgressListener]: Preparing spawn area: 0%
+[10:22:42] [Worker-Main-21/INFO] [minecraft/LoggerChunkProgressListener]: Preparing spawn area: 0%
+[10:22:42] [Worker-Main-21/INFO] [minecraft/LoggerChunkProgressListener]: Preparing spawn area: 0%
+[10:22:42] [Worker-Main-21/INFO] [minecraft/LoggerChunkProgressListener]: Preparing spawn area: 0%
+[10:22:42] [Worker-Main-19/INFO] [minecraft/LoggerChunkProgressListener]: Preparing spawn area: 9%
+[10:22:42] [Server thread/INFO] [minecraft/LoggerChunkProgressListener]: Time elapsed: 2317 ms
+[10:22:42] [Server thread/INFO] [minecraft/DedicatedServer]: Done (4.203s)! For help, type "help"
+[10:22:42] [Server thread/INFO] [ne.mi.se.pe.PermissionAPI/]: Successfully initialized permission handler forge:default_handler
+[10:22:42] [Server thread/INFO] [al.he.HearthAndHarvest/]: Hearth and Harvest is starting
+[10:22:42] [Server thread/INFO] [mc.mo.wa.co.PluginConfig/]: [WTHIT] Plugin config reloaded
+[10:22:42] [Server thread/INFO] [co.gi.al.ic.IceAndFire/]: {iceandfire:fire_dragon_roost=true, iceandfire:fire_lily=true, iceandfire:spawn_dragon_skeleton_fire=true, iceandfire:lightning_dragon_roost=true, iceandfire:spawn_dragon_skeleton_lightning=true, iceandfire:ice_dragon_roost=true, iceandfire:ice_dragon_cave=true, iceandfire:lightning_dragon_cave=true, iceandfire:cyclops_cave=true, iceandfire:spawn_wandering_cyclops=true, iceandfire:spawn_sea_serpent=true, iceandfire:frost_lily=true, iceandfire:hydra_cave=true, iceandfire:lightning_lily=true, iceandfire:pixie_village=true, iceandfire:myrmex_hive_jungle=true, iceandfire:myrmex_hive_desert=true, iceandfire:silver_ore=true, iceandfire:siren_island=true, iceandfire:spawn_dragon_skeleton_ice=true, iceandfire:spawn_stymphalian_bird=true, iceandfire:fire_dragon_cave=true, iceandfire:sapphire_ore=true, iceandfire:spawn_hippocampus=true, iceandfire:spawn_death_worm=true}
+[10:22:42] [Server thread/INFO] [co.gi.al.ic.IceAndFire/]: {TROLL_S=true, HIPPOGRYPH=true, AMPHITHERE=true, COCKATRICE=true, TROLL_M=true, DREAD_LICH=true, TROLL_F=true}
+[10:22:53] [Server thread/INFO] [ne.am.ex.AOEMod/]: Wrote block availability and random-tick reports to C:\Users\andre\Downloads\Games\September2024Mod\run\september-production\build\reports
+[10:22:53] [Server thread/INFO] [minecraft/MinecraftServer]: There are 0 of a max of 4 players online: 
+[10:23:13] [Server thread/INFO] [minecraft/PlayerList]: AOEPortalQA[/127.0.0.1:54542] logged in with entity id 2 at (1.5, 200.0, -3.0)
+[10:23:13] [Server thread/INFO] [minecraft/MinecraftServer]: AOEPortalQA joined the game
+[10:23:13] [Server thread/INFO] [un.UntamedWilds/]: Firing player login event
+[10:23:14] [Server thread/INFO] [or.be.wo.to.ut.Logger/]: [bclib] Received Hello from Client. (server=20.0.13, client=20.0.13)
+[10:23:14] [Server thread/INFO] [or.be.wo.to.ut.Logger/]: [bclib] Sending Hello to Client. (server=20.0.13)
+[10:23:14] [Server thread/INFO] [or.be.wo.to.ut.Logger/]: [bclib] 	- Listing Mod bclib v20.0.13 (size: 2.1 MiB, download=true)
+[10:23:14] [Server thread/INFO] [or.be.wo.to.ut.Logger/]: [bclib] 	- Offering Config bclib.CONFIG_betterend.entities
+[10:23:14] [Server thread/INFO] [or.be.wo.to.ut.Logger/]: [bclib] 	- Offering Config bclib.CONFIG_betterend.blocks
+[10:23:14] [Server thread/INFO] [or.be.wo.to.ut.Logger/]: [bclib] 	- Offering Config bclib.CONFIG_betterend.items
+[10:23:14] [Server thread/INFO] [or.be.wo.to.ut.Logger/]: [bclib] 	- Offering Config bclib.CONFIG_betterend.biomes
+[10:23:14] [Server thread/INFO] [or.be.wo.to.ut.Logger/]: [bclib] 	- Offering Config bclib.CONFIG_betterend.structures
+[10:23:14] [Server thread/INFO] [or.be.wo.to.ut.Logger/]: [bclib] 	- Offering Config bclib.CONFIG_betterend.features
+[10:23:14] [Server thread/INFO] [or.be.wo.to.ut.Logger/]: [bclib] 	- Offering Config bclib.CONFIG_betterend.enchantments
+[10:23:14] [Server thread/INFO] [or.be.wo.to.ut.Logger/]: [bclib] 	- Offering Config bclib.CONFIG_bclib.generator
+[10:23:14] [Server thread/INFO] [or.be.wo.to.ut.Logger/]: [bclib] 	- Offering Config bclib.CONFIG_bclib.main
+[10:23:14] [Server thread/INFO] [or.be.wo.to.ut.Logger/]: [bclib] 	- Offering Config bclib.CONFIG_bclib.biomes
+[10:23:14] [Server thread/INFO] [or.be.wo.to.ut.Logger/]: [bclib] 	- Offering Folder C:\Users\andre\Downloads\Games\September2024Mod\run\september-production\bclib-sync (allowDelete=true)
+[10:23:34] [Server thread/INFO] [minecraft/MinecraftServer]: [AOEPortalQA: Teleported AOEPortalQA to 1.500000, 200.000000, -3.000000]
+[10:23:40] [Server thread/INFO] [minecraft/MinecraftServer]: [AOEPortalQA: Teleported AOEPortalQA to 1.500000, 200.000000, 0.500000]
+[10:23:40] [Server thread/WARN] [minecraft/ServerGamePacketListenerImpl]: AOEPortalQA moved too quickly! 0.0,-127.0,0.0
+[10:23:40] [Server thread/INFO] [minecraft/MinecraftServer]: [AOEPortalQA: Teleported AOEPortalQA to 1.500000, 73.000000, -0.500000]
+[10:23:46] [Server thread/INFO] [minecraft/MinecraftServer]: [AOEPortalQA: Teleported AOEPortalQA to 1.500000, 73.000000, 0.500000]
+[10:23:47] [Server thread/WARN] [minecraft/ServerGamePacketListenerImpl]: AOEPortalQA moved too quickly! 0.0,127.0,0.0
+[10:23:47] [Server thread/INFO] [minecraft/MinecraftServer]: [AOEPortalQA: Teleported AOEPortalQA to 1.500000, 200.000000, -3.000000]
+[10:24:05] [Server thread/INFO] [minecraft/ServerGamePacketListenerImpl]: AOEPortalQA lost connection: Disconnected
+[10:24:05] [Server thread/INFO] [minecraft/MinecraftServer]: AOEPortalQA left the game
+[10:24:37] [Server thread/INFO] [minecraft/MinecraftServer]: Stopping the server
+[10:24:38] [Server thread/INFO] [minecraft/MinecraftServer]: Stopping server
+[10:24:38] [Server thread/INFO] [minecraft/MinecraftServer]: Saving players
+[10:24:38] [Server thread/INFO] [minecraft/MinecraftServer]: Saving worlds
+[10:24:38] [Server thread/INFO] [minecraft/MinecraftServer]: Saving chunks for level 'ServerLevel[world]'/minecraft:overworld
+[10:24:38] [Server thread/INFO] [minecraft/MinecraftServer]: Saving chunks for level 'ServerLevel[world]'/aoemod:snowy_dimension
+[10:24:38] [Server thread/INFO] [minecraft/MinecraftServer]: Saving chunks for level 'ServerLevel[world]'/aoemod:tropical_dimension
+[10:24:38] [Server thread/INFO] [minecraft/MinecraftServer]: Saving chunks for level 'ServerLevel[world]'/minecraft:the_end
+[10:24:38] [Server thread/INFO] [minecraft/MinecraftServer]: Saving chunks for level 'ServerLevel[world]'/aquatica:eternal_deep
+[10:24:38] [Server thread/INFO] [minecraft/MinecraftServer]: Saving chunks for level 'ServerLevel[world]'/minecraft:the_nether
+[10:24:38] [Server thread/INFO] [minecraft/MinecraftServer]: Saving chunks for level 'ServerLevel[world]'/aoemod:savanna_dimension
+[10:24:38] [Server thread/INFO] [minecraft/MinecraftServer]: Saving chunks for level 'ServerLevel[world]'/twilightforest:twilight_forest
+[10:24:38] [Server thread/INFO] [minecraft/MinecraftServer]: Saving chunks for level 'ServerLevel[world]'/aoemod:nether_dimension
+[10:24:38] [Server thread/INFO] [minecraft/MinecraftServer]: Saving chunks for level 'ServerLevel[world]'/aoemod:plains_dimension
+[10:24:38] [Server thread/INFO] [minecraft/MinecraftServer]: Saving chunks for level 'ServerLevel[world]'/aoemod:desert_dimension
+[10:24:38] [Server thread/INFO] [minecraft/MinecraftServer]: ThreadedAnvilChunkStorage (world): All chunks are saved
+[10:24:38] [Server thread/INFO] [minecraft/MinecraftServer]: ThreadedAnvilChunkStorage (snowy_dimension): All chunks are saved
+[10:24:38] [Server thread/INFO] [minecraft/MinecraftServer]: ThreadedAnvilChunkStorage (tropical_dimension): All chunks are saved
+[10:24:38] [Server thread/INFO] [minecraft/MinecraftServer]: ThreadedAnvilChunkStorage (DIM1): All chunks are saved
+[10:24:38] [Server thread/INFO] [minecraft/MinecraftServer]: ThreadedAnvilChunkStorage (eternal_deep): All chunks are saved
+[10:24:38] [Server thread/INFO] [minecraft/MinecraftServer]: ThreadedAnvilChunkStorage (DIM-1): All chunks are saved
+[10:24:38] [Server thread/INFO] [minecraft/MinecraftServer]: ThreadedAnvilChunkStorage (savanna_dimension): All chunks are saved
+[10:24:38] [Server thread/INFO] [minecraft/MinecraftServer]: ThreadedAnvilChunkStorage (twilight_forest): All chunks are saved
+[10:24:38] [Server thread/INFO] [minecraft/MinecraftServer]: ThreadedAnvilChunkStorage (nether_dimension): All chunks are saved
+[10:24:38] [Server thread/INFO] [minecraft/MinecraftServer]: ThreadedAnvilChunkStorage (plains_dimension): All chunks are saved
+[10:24:38] [Server thread/INFO] [minecraft/MinecraftServer]: ThreadedAnvilChunkStorage (desert_dimension): All chunks are saved
+[10:24:38] [Server thread/INFO] [minecraft/MinecraftServer]: ThreadedAnvilChunkStorage: All dimensions are saved

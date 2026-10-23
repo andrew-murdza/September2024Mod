@@ -4,28 +4,6 @@
     "features": [
       {
         "feature": {
-          "feature": "aoemod:mountains/floor/forest_floor",
-          "placement": []
-        },
-        "guaranteed_features": [
-          {
-            "feature": "aoemod:mushroom_caves/floor/spruce_grid_choice",
-            "placement": []
-          }
-        ],
-        "target": "air",
-        "all_layers": true,
-        "skip_height": 55,
-        "max_y": 63,
-        "min_y": -61,
-        "predicate": {
-          "type": "minecraft:matching_blocks",
-          "blocks": ["minecraft:grass_block"]
-        },
-        "biomes": "aoemod:mountain_biomes"
-      },
-      {
-        "feature": {
           "feature": "aoemod:nothing",
           "placement": []
         },
@@ -38,11 +16,13 @@
         "target": "air",
         "all_layers": true,
         "skip_height": 55,
-        "max_y": 63,
-        "min_y": -61,
+        "max_y": 319,
+        "min_y": -64,
         "predicate": {
           "type": "minecraft:matching_blocks",
-          "blocks": ["minecraft:mycelium"]
+          "blocks": [
+            "minecraft:mycelium"
+          ]
         },
         "biomes": "aoemod:mountain_biomes"
       }

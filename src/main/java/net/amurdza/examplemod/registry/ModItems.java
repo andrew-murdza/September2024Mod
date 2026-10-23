@@ -3,11 +3,13 @@ package net.amurdza.examplemod.registry;
 import com.github.alexthe666.alexsmobs.item.ItemModFishBucket;
 import net.amurdza.examplemod.AOEMod;
 import net.amurdza.examplemod.item.CopperArmorMaterial;
+import net.amurdza.examplemod.item.BoneBucketItem;
 import net.amurdza.examplemod.item.CropSeedItem;
 import net.amurdza.examplemod.item.MaceItem;
 import net.amurdza.examplemod.item.MaterialShieldItem;
 import net.amurdza.examplemod.item.ModToolTiers;
 import net.amurdza.examplemod.item.SpearItem;
+import net.amurdza.examplemod.item.StackableBowlFoodItem;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.food.Foods;
@@ -22,6 +24,15 @@ import net.minecraftforge.registries.RegistryObject;
 
 public class ModItems {
     public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, AOEMod.MOD_ID);
+
+    public static final RegistryObject<Item> BONE_BUCKET = ITEMS.register("bone_bucket",
+            () -> new BoneBucketItem(Fluids.EMPTY, new Item.Properties().stacksTo(16)));
+    public static final RegistryObject<Item> BONE_WATER_BUCKET = ITEMS.register("bone_water_bucket",
+            () -> new BoneBucketItem(Fluids.WATER, new Item.Properties().stacksTo(1).craftRemainder(BONE_BUCKET.get())));
+    public static final RegistryObject<Item> BONE_LAVA_BUCKET = ITEMS.register("bone_lava_bucket",
+            () -> new BoneBucketItem(Fluids.LAVA, new Item.Properties().stacksTo(1).craftRemainder(BONE_BUCKET.get())));
+    public static final RegistryObject<Item> BOSS_AXE = ITEMS.register("boss_axe",
+            () -> new AxeItem(Tiers.IRON, 6.0F, -3.1F, new Item.Properties()));
 
     private static final FoodProperties RAW_FISH_FOOD = new FoodProperties.Builder()
             .nutrition(3)
@@ -55,6 +66,9 @@ public class ModItems {
     }
 
     public static Item endFishForVariant(int variant, boolean cooked) {
+        if (variant >= 5 && variant <= 7) {
+            return DimensionFoods.get(cooked ? "cooked_sulfur_end_fish" : "sulfur_end_fish");
+        }
         return cooked ? COOKED_END_FISH.get() : END_FISH.get();
     }
 
@@ -99,6 +113,14 @@ public class ModItems {
             "nether_fish",
             () -> new Item(new Item.Properties().food(Foods.COD))
     );
+
+    public static final RegistryObject<Item> RAW_SWORDFISH = ITEMS.register("raw_swordfish",
+            () -> new Item(new Item.Properties().food(new FoodProperties.Builder()
+                    .nutrition(3).saturationMod(0.2F).build())));
+
+    public static final RegistryObject<Item> COOKED_SWORDFISH = ITEMS.register("cooked_swordfish",
+            () -> new Item(new Item.Properties().food(new FoodProperties.Builder()
+                    .nutrition(7).saturationMod(0.8F).build())));
 
     public static final RegistryObject<Item> COOKED_GLOW_SQUID = ITEMS.register(
             "cooked_glow_squid",
@@ -178,6 +200,21 @@ public class ModItems {
             )
     );
 
+    public static final RegistryObject<Item> SOUL_BEETROOT = ITEMS.register(
+            "soul_beetroot",
+            () -> new Item(new Item.Properties().food(Foods.BEETROOT))
+    );
+
+    public static final RegistryObject<Item> SOUL_BEETROOT_SEEDS = ITEMS.register(
+            "soul_beetroot_seeds",
+            () -> new ItemNameBlockItem(ModBlocks.SOUL_BEETROOTS.get(), new Item.Properties())
+    );
+
+    public static final RegistryObject<Item> SOUL_BEETROOT_SOUP = ITEMS.register(
+            "soul_beetroot_soup",
+            () -> new StackableBowlFoodItem(new Item.Properties().food(Foods.BEETROOT_SOUP))
+    );
+
     public static final RegistryObject<Item> SOUL_BERRY_COOKIE = ITEMS.register(
             "soul_berry_cookie",
             () -> new Item(new Item.Properties().food(Foods.COOKIE))
@@ -239,7 +276,7 @@ public class ModItems {
             "diamond_shield", "shield_diamond", 896, () -> Ingredient.of(Items.DIAMOND), false, 1.0F
     );
     public static final RegistryObject<Item> NETHERITE_SHIELD = materialShield(
-            "netherite_shield", "shield_netherite", 1120, () -> Ingredient.of(Items.NETHERITE_INGOT), true, 1.0F
+            "netherite_shield", "shield_netherite", 504, () -> Ingredient.of(Items.NETHERITE_INGOT), true, 1.0F
     );
     public static final RegistryObject<Item> BOSS_SHIELD = materialShield(
             "boss_shield", "boss_shield", 1120, () -> Ingredient.of(Items.IRON_INGOT), false, 1.2F

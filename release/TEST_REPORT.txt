@@ -1,0 +1,97 @@
+September 2024 and Angling — final validation
+Completed: October 20, 2026
+Environment: Minecraft 1.20.1, Forge 47.4.22, Java 17.0.9, Windows 11
+
+Delivered and tested files
+aoemod-1.0.0-1.20.1-all.jar
+  SHA256 87af11197d7fced0063f3571bae55d2ac80785c7c463169d7e8f8eb8c7ec1d35
+  2630330 bytes
+angling-forge-1.20.1-1.0.1-forge.1.jar
+  SHA256 36c6857fc4ce52eb02ca6f78720223c0a3b781512dbdd0137b00bead9f1d139a
+  662453 bytes
+
+Both installed test profiles and the delivered files have identical hashes. The
+local client instrumentation helper is excluded from both release jars.
+
+Measured results
+- September: build, all 68 required GameTests, and runData passed. Data generation
+  has no AoE providers and wrote no generated resources.
+- Registry-backed resource audit: 3603 checks across
+  1257 JSON files, zero errors. Absent optional compatibility
+  entries are listed separately in the resource audit.
+- Model-reference audit: 104 adapters, 184 transitive chains, zero reference errors.
+- Installed client: no missing baked block models, missing menu screens or entity
+  renderer registration failures. Four repaired Gecko animation resources, all
+  nine dragon-eye models, three brewing recipes and seven repaired sound events
+  were checked. Recipe-book registration matches the server's seven types.
+- All 32 allowed directed portal routes passed in a real installed client connected
+  to a dedicated server. Each check activated the actual picker, entered the
+  portal, verified the destination, and checked the return portal and tint.
+- All 17 forbidden or same-dimension selections were rejected by the server using
+  real issued picker tokens. All seven picker destination lists were checked.
+- A mixed birch/oak/crimson/warped frame on the other axis activated and transported
+  the player. Survival Desert/Nether charging, staying in the arrival portal
+  without bouncing back, and the return trip passed.
+- Client resource reload and server data reload passed while connected.
+- A clean dedicated-server restart preserved both exact Desert/Nether arrival and
+  return coordinates. Test client and server were shut down cleanly.
+- Portal colors and picker layouts have screenshot evidence. The generated portal
+  texture is checked against all 8,192 source pixels and retains vanilla animation
+  metadata. Client assets were checked again after resource reload.
+- The unchanged Angling jar previously passed all 13 port GameTests and 3,118
+  resource checks, installed-server save/restart, two-client synchronization and
+  aquarium visual checks. Those reports are retained under evidence/angling/.
+
+Directed route coverage (Nether means AOE Nether)
+- Overworld: Tropical, Savanna, Plains, Snowy, Desert
+- Tropical: Overworld, Savanna, Plains, Snowy, Desert
+- Savanna: Overworld, Tropical, Plains, Snowy, Desert
+- Plains: Overworld, Tropical, Savanna, Snowy, Desert
+- Snowy: Overworld, Tropical, Savanna, Plains, Desert
+- Desert: Overworld, Tropical, Savanna, Plains, Snowy, Nether
+- Nether: Desert
+
+Important fixes confirmed in the final build
+- Hearth & Harvest recipe-book types now initialize on both sides before login;
+  this fixes the observed multiplayer packet decoding failure.
+- Wild-peanut generation no longer references a missing biome tag. The selected
+  compatibility meaning of temperate is Overworld biomes excluding those tagged
+  hot or cold. Original explicit exclusions and feature settings remain.
+- Floral Flair's 45 block loot contexts are corrected; flower/pot/tall-half drops
+  remain intact. Pineapple's duplicate unreachable alternative is removed while
+  preserving normal and Fortune drops.
+- The broader placement, tree/growth, tag, recipe, mob, model, animation and portal
+  changes are described in CHANGELOG.txt and MODPACK_COMPATIBILITY.md.
+
+Test method and limits
+Operator commands prepared isolated fixtures and positioned the test player.
+Interactions used the actual game client, picker, network messages and portal
+travel implementation. The main route matrix used creative mode; the separate
+survival test exercised charging and cooldown. The user's AnimalTesting profile
+was not modified. These results are substantial focused validation, not proof that
+every possible interaction in the complete modpack is free of bugs.
+
+Still needing testing or attention
+- Extended survival progression, biome balance and world generation across many seeds have not been exhaustively tested.
+- The September portal matrix used one local player on a dedicated server. WAN latency, many simultaneous players and long-running load/performance still need testing.
+- All 32 directed routes were traversed in creative mode. Survival charging and cooldown received an additional Desert/Nether roundtrip.
+- Large existing-world upgrades, Fabric-to-Forge world migration, and every third-party mod interaction are not certified.
+- Shader packs, performance-mod combinations, other graphics drivers and operating systems still need compatibility testing.
+- Some original dependency jars omit declared sound files. Entirely absent events include Luxtructosaurus snort, hippo hurt, jaguar ambient and jaguar hurt; partial sample omissions also remain. See client-audio-compatibility.json.
+- Nonfatal upstream diagnostics remain, including optional integration/minVersion metadata, BCLib registry/color notices, unused dragon-model preloads, shaders and CorgiLib's announcement redirect. They did not prevent the recorded checks.
+- Set the real September project maintainer, credits and support information before public publication. No CurseForge upload has been performed.
+
+Evidence
+Current build/test log: evidence/september-final-resource-regression.log
+Current test results: evidence/game-test-results.xml
+Installed client: evidence/portal-client-validation.json
+Installed server: evidence/native-server-validation.json
+Route details/screenshots: evidence/portals/
+Sound limitations: evidence/client-audio-compatibility.json
+Machine-readable combined results: validation.json
+File integrity: SHA256SUMS.txt
+
+Earlier candidate logs may remain as historical debugging evidence. The hashes and
+current report paths above identify the delivered build. Install with the pinned
+dependencies listed in production-dependencies.json; these two jars alone are not
+the complete September modpack.

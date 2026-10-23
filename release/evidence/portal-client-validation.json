@@ -1,0 +1,619 @@
+{
+  "verifiedAtUtc": "2026-10-20T14:24:47.405994+00:00",
+  "artifact": {
+    "path": "build\\libs\\aoemod-1.0.0-1.20.1-all.jar",
+    "sha256": "87af11197d7fced0063f3571bae55d2ac80785c7c463169d7e8f8eb8c7ec1d35",
+    "sizeBytes": 2630330
+  },
+  "runtime": {
+    "minecraft": "1.20.1",
+    "forge": "47.4.22",
+    "java": "17.0.9",
+    "client": "Isolated stock Forge installed production client",
+    "server": "Isolated dedicated stock Forge server at 127.0.0.1:25579",
+    "player": "AOEPortalQA",
+    "dependencyJars": 69,
+    "qaHelper": "One local instrumentation helper, excluded from release"
+  },
+  "tests": {
+    "allowedDirectedRoutes": {
+      "expected": 32,
+      "passed": 32,
+      "evidence": "run/portal-production-client/game/qa-route-matrix.json"
+    },
+    "forbiddenSelections": {
+      "expected": 17,
+      "passed": 17,
+      "evidence": "run/portal-production-client/game/qa-forbidden-routes.json"
+    },
+    "allSevenPickers": true,
+    "startupAssets": {
+      "allPassed": true,
+      "checks": {
+        "texture": {
+          "width": 16,
+          "height": 512,
+          "vanillaWidth": 16,
+          "vanillaHeight": 512,
+          "pixelMismatches": 0,
+          "identicalAnimationMetadata": true
+        },
+        "animations": {
+          "born_in_chaos_v1:animations/babyskeleton.animation.json": {
+            "resourcePresent": true,
+            "repairedAnimationPresent": true,
+            "animationNames": [
+              "walk",
+              "death",
+              "attack",
+              "idle"
+            ]
+          },
+          "born_in_chaos_v1:animations/babyskeletondeamon.animation.json": {
+            "resourcePresent": true,
+            "repairedAnimationPresent": true,
+            "animationNames": [
+              "walk",
+              "death",
+              "attack",
+              "idle"
+            ]
+          },
+          "born_in_chaos_v1:animations/boneimp.animation.json": {
+            "resourcePresent": true,
+            "repairedAnimationPresent": true,
+            "animationNames": [
+              "walk",
+              "death",
+              "attack",
+              "idle"
+            ]
+          },
+          "born_in_chaos_v1:animations/scarletpersecutor.animation.json": {
+            "resourcePresent": true,
+            "repairedAnimationPresent": true,
+            "animationNames": [
+              "walk",
+              "death",
+              "attack",
+              "idle"
+            ]
+          }
+        },
+        "eyes": {
+          "iceandfire:lightning_dragon": {
+            "fireHead": true,
+            "iceHead": true,
+            "lightningHead": true
+          },
+          "iceandfire:ice_dragon": {
+            "fireHead": true,
+            "iceHead": true,
+            "lightningHead": true
+          },
+          "iceandfire:fire_dragon": {
+            "fireHead": true,
+            "iceHead": true,
+            "lightningHead": true
+          }
+        },
+        "brewing": {
+          "recipes": [
+            {
+              "input": "minecraft:awkward",
+              "ingredient": "vintagedelight:salt_dust",
+              "expectedOutput": "vintagedelight:dehydrated",
+              "actualOutput": "vintagedelight:dehydrated",
+              "hasMix": true,
+              "passed": true
+            },
+            {
+              "input": "vintagedelight:dehydrated",
+              "ingredient": "minecraft:redstone",
+              "expectedOutput": "vintagedelight:long_dehydrated",
+              "actualOutput": "vintagedelight:long_dehydrated",
+              "hasMix": true,
+              "passed": true
+            },
+            {
+              "input": "vintagedelight:dehydrated",
+              "ingredient": "minecraft:glowstone_dust",
+              "expectedOutput": "vintagedelight:strong_dehydrated",
+              "actualOutput": "vintagedelight:strong_dehydrated",
+              "hasMix": true,
+              "passed": true
+            }
+          ]
+        },
+        "recipebooks": {
+          "types": [
+            "CRAFTING",
+            "FURNACE",
+            "BLAST_FURNACE",
+            "SMOKER",
+            "COOKING",
+            "HEARTHANDHARVEST_AGING",
+            "HEARTHANDHARVEST_FERMENTING"
+          ],
+          "typeCount": 7,
+          "settingsBytes": 14,
+          "settingsHex": "0000000000000000000000000000"
+        },
+        "sounds": {
+          "naturalist:entity.giraffe.ambient": {
+            "eventPresent": true,
+            "weight": 1,
+            "resolvedSample": "naturalist:mob/giraffe_idle",
+            "sampleExists": true
+          },
+          "alexscaves:luxtructosaurus_breath": {
+            "eventPresent": true,
+            "weight": 3,
+            "resolvedSample": "alexscaves:mob/luxtructosaurus/luxtructosaurus_breath_0",
+            "sampleExists": true
+          },
+          "alexscaves:luxtructosaurus_breathe": {
+            "eventPresent": true,
+            "weight": 3,
+            "resolvedSample": "alexscaves:mob/luxtructosaurus/luxtructosaurus_breath_0",
+            "sampleExists": true
+          },
+          "alexscaves:abyssal_chasm_ambience_mood": {
+            "eventPresent": true,
+            "weight": 4,
+            "resolvedSample": "alexscaves:ambient/abyssal_chasm/mood/mood_3",
+            "sampleExists": true
+          },
+          "ambientadditions:honeycreeper.ambient": {
+            "eventPresent": true,
+            "weight": 1,
+            "resolvedSample": "ambientadditions:iiwi/ambient",
+            "sampleExists": true
+          },
+          "ambientadditions:honeycreeper.hurt": {
+            "eventPresent": true,
+            "weight": 1,
+            "resolvedSample": "ambientadditions:iiwi/hurt",
+            "sampleExists": true
+          },
+          "ambientadditions:honeycreeper.death": {
+            "eventPresent": true,
+            "weight": 1,
+            "resolvedSample": "ambientadditions:iiwi/death",
+            "sampleExists": true
+          }
+        }
+      },
+      "modelDiagnostics": {
+        "missingBlockModels": [],
+        "menuScreenCheckFailed": false,
+        "missingMenuScreens": [],
+        "entityRendererCheckFailed": false
+      }
+    },
+    "mixedBurnableNonburnableRotatedFrame": {
+      "planks": [
+        "birch",
+        "crimson",
+        "oak",
+        "warped"
+      ],
+      "axis": "z",
+      "picker": [
+        "AOE Tropical",
+        "AOE Savanna",
+        "AOE Plains",
+        "AOE Snowy",
+        "AOE Desert",
+        "Cancel"
+      ],
+      "portalStates": [
+        {
+          "id": "aoemod:tropical_portal",
+          "position": "10, 200, 1",
+          "state": "Block{aoemod:tropical_portal}[axis=z]",
+          "tint": "48d05a"
+        },
+        {
+          "id": "aoemod:tropical_portal",
+          "position": "10, 201, 1",
+          "state": "Block{aoemod:tropical_portal}[axis=z]",
+          "tint": "48d05a"
+        },
+        {
+          "id": "aoemod:tropical_portal",
+          "position": "10, 202, 1",
+          "state": "Block{aoemod:tropical_portal}[axis=z]",
+          "tint": "48d05a"
+        },
+        {
+          "id": "aoemod:tropical_portal",
+          "position": "10, 200, 2",
+          "state": "Block{aoemod:tropical_portal}[axis=z]",
+          "tint": "48d05a"
+        },
+        {
+          "id": "aoemod:tropical_portal",
+          "position": "10, 201, 2",
+          "state": "Block{aoemod:tropical_portal}[axis=z]",
+          "tint": "48d05a"
+        },
+        {
+          "id": "aoemod:tropical_portal",
+          "position": "10, 202, 2",
+          "state": "Block{aoemod:tropical_portal}[axis=z]",
+          "tint": "48d05a"
+        }
+      ],
+      "actualDestination": "aoemod:tropical_dimension",
+      "passed": true
+    },
+    "survivalChargeAndArrivalCooldown": {
+      "outbound": {
+        "sourceDimension": "aoemod:desert_dimension",
+        "destinationDimension": "aoemod:nether_dimension",
+        "changedDimension": true,
+        "samples": [
+          {
+            "clientTicks": 5,
+            "elapsedSeconds": 0.266761499,
+            "dimension": "aoemod:desert_dimension"
+          },
+          {
+            "clientTicks": 10,
+            "elapsedSeconds": 0.5007276,
+            "dimension": "aoemod:desert_dimension"
+          },
+          {
+            "clientTicks": 15,
+            "elapsedSeconds": 0.7682806,
+            "dimension": "aoemod:desert_dimension"
+          },
+          {
+            "clientTicks": 20,
+            "elapsedSeconds": 1.0018729,
+            "dimension": "aoemod:desert_dimension"
+          },
+          {
+            "clientTicks": 25,
+            "elapsedSeconds": 1.2686291,
+            "dimension": "aoemod:desert_dimension"
+          },
+          {
+            "clientTicks": 30,
+            "elapsedSeconds": 1.503474099,
+            "dimension": "aoemod:desert_dimension"
+          },
+          {
+            "clientTicks": 35,
+            "elapsedSeconds": 1.7367834,
+            "dimension": "aoemod:desert_dimension"
+          },
+          {
+            "clientTicks": 40,
+            "elapsedSeconds": 2.0049972,
+            "dimension": "aoemod:desert_dimension"
+          },
+          {
+            "clientTicks": 45,
+            "elapsedSeconds": 2.2385163,
+            "dimension": "aoemod:desert_dimension"
+          },
+          {
+            "clientTicks": 50,
+            "elapsedSeconds": 2.505967399,
+            "dimension": "aoemod:desert_dimension"
+          },
+          {
+            "clientTicks": 55,
+            "elapsedSeconds": 2.7400733,
+            "dimension": "aoemod:desert_dimension"
+          },
+          {
+            "clientTicks": 60,
+            "elapsedSeconds": 3.007510199,
+            "dimension": "aoemod:desert_dimension"
+          },
+          {
+            "clientTicks": 65,
+            "elapsedSeconds": 3.242399,
+            "dimension": "aoemod:desert_dimension"
+          },
+          {
+            "clientTicks": 70,
+            "elapsedSeconds": 3.5092941,
+            "dimension": "aoemod:desert_dimension"
+          },
+          {
+            "clientTicks": 75,
+            "elapsedSeconds": 3.743279199,
+            "dimension": "aoemod:desert_dimension"
+          },
+          {
+            "clientTicks": 80,
+            "elapsedSeconds": 4.0107863,
+            "dimension": "aoemod:desert_dimension"
+          },
+          {
+            "clientTicks": 85,
+            "elapsedSeconds": 4.2458086,
+            "dimension": "aoemod:nether_dimension"
+          }
+        ]
+      },
+      "stayedInArrivalWithoutBounce": true,
+      "netherArrivalXYZ": [
+        1.5,
+        73.0,
+        0.5
+      ],
+      "returnedDimension": "aoemod:desert_dimension",
+      "returnedXYZ": [
+        1.5,
+        200.0,
+        0.5
+      ]
+    },
+    "clientResourceReload": {
+      "connected": true,
+      "dimension": "aoemod:desert_dimension",
+      "resourcePacks": [
+        "vanilla",
+        "mod_resources",
+        "aoemod_portal_colors"
+      ],
+      "allPassed": true
+    },
+    "postReloadAssets": {
+      "allPassed": true,
+      "checks": {
+        "texture": {
+          "width": 16,
+          "height": 512,
+          "vanillaWidth": 16,
+          "vanillaHeight": 512,
+          "pixelMismatches": 0,
+          "identicalAnimationMetadata": true
+        },
+        "animations": {
+          "born_in_chaos_v1:animations/babyskeleton.animation.json": {
+            "resourcePresent": true,
+            "repairedAnimationPresent": true,
+            "animationNames": [
+              "walk",
+              "death",
+              "attack",
+              "idle"
+            ]
+          },
+          "born_in_chaos_v1:animations/babyskeletondeamon.animation.json": {
+            "resourcePresent": true,
+            "repairedAnimationPresent": true,
+            "animationNames": [
+              "walk",
+              "death",
+              "attack",
+              "idle"
+            ]
+          },
+          "born_in_chaos_v1:animations/boneimp.animation.json": {
+            "resourcePresent": true,
+            "repairedAnimationPresent": true,
+            "animationNames": [
+              "walk",
+              "death",
+              "attack",
+              "idle"
+            ]
+          },
+          "born_in_chaos_v1:animations/scarletpersecutor.animation.json": {
+            "resourcePresent": true,
+            "repairedAnimationPresent": true,
+            "animationNames": [
+              "walk",
+              "death",
+              "attack",
+              "idle"
+            ]
+          }
+        },
+        "eyes": {
+          "iceandfire:lightning_dragon": {
+            "fireHead": true,
+            "iceHead": true,
+            "lightningHead": true
+          },
+          "iceandfire:ice_dragon": {
+            "fireHead": true,
+            "iceHead": true,
+            "lightningHead": true
+          },
+          "iceandfire:fire_dragon": {
+            "fireHead": true,
+            "iceHead": true,
+            "lightningHead": true
+          }
+        },
+        "brewing": {
+          "recipes": [
+            {
+              "input": "minecraft:awkward",
+              "ingredient": "vintagedelight:salt_dust",
+              "expectedOutput": "vintagedelight:dehydrated",
+              "actualOutput": "vintagedelight:dehydrated",
+              "hasMix": true,
+              "passed": true
+            },
+            {
+              "input": "vintagedelight:dehydrated",
+              "ingredient": "minecraft:redstone",
+              "expectedOutput": "vintagedelight:long_dehydrated",
+              "actualOutput": "vintagedelight:long_dehydrated",
+              "hasMix": true,
+              "passed": true
+            },
+            {
+              "input": "vintagedelight:dehydrated",
+              "ingredient": "minecraft:glowstone_dust",
+              "expectedOutput": "vintagedelight:strong_dehydrated",
+              "actualOutput": "vintagedelight:strong_dehydrated",
+              "hasMix": true,
+              "passed": true
+            }
+          ]
+        },
+        "recipebooks": {
+          "types": [
+            "CRAFTING",
+            "FURNACE",
+            "BLAST_FURNACE",
+            "SMOKER",
+            "COOKING",
+            "HEARTHANDHARVEST_AGING",
+            "HEARTHANDHARVEST_FERMENTING"
+          ],
+          "typeCount": 7,
+          "settingsBytes": 14,
+          "settingsHex": "0000000000000000000000000000"
+        },
+        "sounds": {
+          "naturalist:entity.giraffe.ambient": {
+            "eventPresent": true,
+            "weight": 1,
+            "resolvedSample": "naturalist:mob/giraffe_idle",
+            "sampleExists": true
+          },
+          "alexscaves:luxtructosaurus_breath": {
+            "eventPresent": true,
+            "weight": 3,
+            "resolvedSample": "alexscaves:mob/luxtructosaurus/luxtructosaurus_breath_0",
+            "sampleExists": true
+          },
+          "alexscaves:luxtructosaurus_breathe": {
+            "eventPresent": true,
+            "weight": 3,
+            "resolvedSample": "alexscaves:mob/luxtructosaurus/luxtructosaurus_breath_0",
+            "sampleExists": true
+          },
+          "alexscaves:abyssal_chasm_ambience_mood": {
+            "eventPresent": true,
+            "weight": 4,
+            "resolvedSample": "alexscaves:ambient/abyssal_chasm/mood/mood_3",
+            "sampleExists": true
+          },
+          "ambientadditions:honeycreeper.ambient": {
+            "eventPresent": true,
+            "weight": 1,
+            "resolvedSample": "ambientadditions:iiwi/ambient",
+            "sampleExists": true
+          },
+          "ambientadditions:honeycreeper.hurt": {
+            "eventPresent": true,
+            "weight": 1,
+            "resolvedSample": "ambientadditions:iiwi/hurt",
+            "sampleExists": true
+          },
+          "ambientadditions:honeycreeper.death": {
+            "eventPresent": true,
+            "weight": 1,
+            "resolvedSample": "ambientadditions:iiwi/death",
+            "sampleExists": true
+          }
+        }
+      },
+      "modelDiagnostics": {
+        "missingBlockModels": [],
+        "menuScreenCheckFailed": false,
+        "missingMenuScreens": [],
+        "entityRendererCheckFailed": false
+      }
+    },
+    "restartSavedLinkRoundtrip": {
+      "sameNetherArrival": [
+        1.5,
+        73.0,
+        0.5
+      ],
+      "sameDesertReturn": [
+        1.5,
+        200.0,
+        0.5
+      ],
+      "passed": true
+    },
+    "cleanClientShutdown": {
+      "passed": true,
+      "exitCode": 0,
+      "observedAtUtc": "2026-10-20T14:24:21.151588+00:00",
+      "launchSession": 98849,
+      "shutdownRequest": "quit final-qa-complete",
+      "evidence": "functions.write_stdin(session_id=98849) returned Process exited with code 0 after explicit Minecraft.stop request",
+      "log": "run/portal-production-client/client-launch.log",
+      "sha256": "87af11197d7fced0063f3571bae55d2ac80785c7c463169d7e8f8eb8c7ec1d35"
+    },
+    "visibleAnimation": {
+      "comparisonRegion": [
+        440,
+        180,
+        700,
+        295
+      ],
+      "animationVisible": true,
+      "changedGreenPixels": 22303,
+      "sha256": "87af11197d7fced0063f3571bae55d2ac80785c7c463169d7e8f8eb8c7ec1d35",
+      "secondImage": "screenshots/aoe-portal-qa-animation-second-frame.png",
+      "firstImage": "screenshots/aoe-portal-qa-route-00-overworld-tropical.png",
+      "greenInteriorPixelsCompared": 29017
+    }
+  },
+  "screenshots": {
+    "colors": {
+      "tropical": "run\\portal-production-client\\game\\screenshots\\aoe-portal-qa-route-00-overworld-tropical.png",
+      "savanna": "run\\portal-production-client\\game\\screenshots\\aoe-portal-qa-route-01-overworld-savanna.png",
+      "plains": "run\\portal-production-client\\game\\screenshots\\aoe-portal-qa-route-02-overworld-plains.png",
+      "snowy": "run\\portal-production-client\\game\\screenshots\\aoe-portal-qa-route-03-overworld-snowy.png",
+      "desert": "run\\portal-production-client\\game\\screenshots\\aoe-portal-qa-route-04-overworld-desert.png",
+      "overworld": "run\\portal-production-client\\game\\screenshots\\aoe-portal-qa-route-05-tropical-overworld.png",
+      "nether": "run\\portal-production-client\\game\\screenshots\\aoe-portal-qa-route-30-desert-nether.png"
+    },
+    "pickers": {
+      "tropical": "run\\portal-production-client\\game\\screenshots\\aoe-portal-qa-picker-tropical.png",
+      "savanna": "run\\portal-production-client\\game\\screenshots\\aoe-portal-qa-picker-savanna.png",
+      "plains": "run\\portal-production-client\\game\\screenshots\\aoe-portal-qa-picker-plains.png",
+      "snowy": "run\\portal-production-client\\game\\screenshots\\aoe-portal-qa-picker-snowy.png",
+      "desert": "run\\portal-production-client\\game\\screenshots\\aoe-portal-qa-picker-desert.png",
+      "overworld": "run\\portal-production-client\\game\\screenshots\\aoe-portal-qa-picker-overworld.png",
+      "nether": "run\\portal-production-client\\game\\screenshots\\aoe-portal-qa-picker-nether.png"
+    },
+    "animationPair": [
+      "run\\portal-production-client\\game\\screenshots\\aoe-portal-qa-route-00-overworld-tropical.png",
+      "run\\portal-production-client\\game\\screenshots\\aoe-portal-qa-animation-second-frame.png"
+    ],
+    "mixedRotated": "run\\portal-production-client\\game\\screenshots\\aoe-portal-qa-mixed-rotated-portal.png",
+    "postReload": "run\\portal-production-client\\game\\screenshots\\aoe-portal-qa-post-reload-capture.png",
+    "afterRestart": "run\\portal-production-client\\game\\screenshots\\aoe-portal-qa-final-after-restart.png"
+  },
+  "method": "Explicit operator commands position the player and prepare fixtures; crouch-stick interactions use the real game client, selections use the actual picker/network packets, and each route requires actual dimension travel and return portal state/tint. Forbidden choices use the genuine issued picker token with a deliberately forbidden destination.",
+  "limits": [
+    "One local offline test player; external latency and concurrent-player stress were not exercised.",
+    "All 32 directed routes were traversed in creative mode; survival charge and return cooldown received an additional dedicated Desert/Nether roundtrip.",
+    "This is focused portal and repaired-asset compatibility QA, not exhaustive gameplay coverage for every dependency."
+  ],
+  "runMetadata": {
+    "sha256": "87af11197d7fced0063f3571bae55d2ac80785c7c463169d7e8f8eb8c7ec1d35",
+    "modBytes": 2630330,
+    "testDateUtc": "2026-10-20T14:13:22.275169+00:00",
+    "clientSession": 98849,
+    "serverSession": 33766,
+    "serverEndpoint": "127.0.0.1:25579",
+    "liveServerReload": {
+      "start": "2026-10-20T10:12:19.295-04:00",
+      "completed": "2026-10-20T10:12:20.022-04:00",
+      "passed": true,
+      "clientStayedConnected": true,
+      "serverProof": "build/reports/native-server-validation.json"
+    }
+  },
+  "nativeServerValidationReport": "build/reports/native-server-validation.json",
+  "allPassed": true
+}

@@ -1,0 +1,30 @@
+{
+  "type": "minecraft:block",
+  "pools": [
+    {
+      "bonus_rolls": 0.0,
+      "conditions": [
+        {
+          "condition": "minecraft:survives_explosion"
+        }
+      ],
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "conditions": [
+            {
+              "block": "floral_flair:fairy_blossom",
+              "condition": "minecraft:block_state_property",
+              "properties": {
+                "half": "lower"
+              }
+            }
+          ],
+          "name": "floral_flair:fairy_blossom"
+        }
+      ],
+      "rolls": 1.0
+    }
+  ],
+  "random_sequence": "floral_flair:blocks/fairy_blossom"
+}

@@ -59,6 +59,8 @@ public final class MobTierBalancing {
 
     private static final ResourceLocation ALEX_CENTIPEDE_HEAD = new ResourceLocation("alexsmobs", "centipede_head");
     private static final ResourceLocation QUARK_WRAITH = new ResourceLocation("quark", "wraith");
+    private static final ResourceLocation BACKPORTED_PARCHED = new ResourceLocation("minecraft", "parched");
+    private static final ResourceLocation BACKPORTED_CAMEL_HUSK = new ResourceLocation("minecraft", "camel_husk");
 
     private MobTierBalancing() {}
 
@@ -90,12 +92,13 @@ public final class MobTierBalancing {
         DamageSource source = event.getSource();
         Entity attackerEntity = source.getEntity();
 
-        if (!(attackerEntity instanceof LivingEntity attacker) || source.getDirectEntity() != attacker) {
-            return;
+        if (target.getType() == EntityType.GHAST && source.getDirectEntity() instanceof LargeFireball
+                && attackerEntity instanceof Player) {
+            event.setAmount(event.getAmount() * 0.3F);
         }
 
-        if (target.getType() == EntityType.GHAST && source.getDirectEntity() instanceof LargeFireball && source.getEntity() instanceof Player) {
-            event.setAmount(event.getAmount() * 0.3F);
+        if (!(attackerEntity instanceof LivingEntity attacker) || source.getDirectEntity() != attacker) {
+            return;
         }
 
         if (attacker instanceof Husk) {
@@ -183,9 +186,10 @@ public final class MobTierBalancing {
             stats(mob, 280.0D, 16.0D, 0.24D, 12.0D, 0.55D);
         } else if (type == EntityType.HUSK) {
             stats(mob, 28.0D, 3.5D, 0.23D, 3.0D, 0.0D);
-        } else if (type == ModEntities.PARCHED.get()) {
+        } else if (type == ModEntities.PARCHED.get() || isType(mob, BACKPORTED_PARCHED)) {
             stats(mob, 24.0D, 2.0D, 0.25D, 2.0D, 0.0D);
-        } else if (type == ModEntities.CAMEL_HUSK_JOCKEY.get()) {
+        } else if (type == ModEntities.CAMEL_HUSK_JOCKEY.get()
+                || isType(mob, BACKPORTED_CAMEL_HUSK) && mob.getPassengers().stream().anyMatch(Husk.class::isInstance)) {
             stats(mob, 38.0D, 0.0D, 0.25D, 2.0D, 0.2D);
         } else if (mob instanceof EnderMan) {
             stats(mob, 32.0D, 5.0D, 0.25D, 2.0D, 0.1D);

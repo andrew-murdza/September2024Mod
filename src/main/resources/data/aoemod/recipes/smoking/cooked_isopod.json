@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smoking",
+  "ingredient": {
+    "item": "aoemod:raw_isopod"
+  },
+  "result": "aoemod:cooked_isopod",
+  "experience": 0.35,
+  "cookingtime": 100
+}

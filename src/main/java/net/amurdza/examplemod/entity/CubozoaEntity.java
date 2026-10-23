@@ -75,7 +75,9 @@ public class CubozoaEntity extends AbstractLavaSchoolingFish implements VariantH
     private Variant chooseNaturalVariant(ServerLevelAccessor world) {
         var biome = world.getBiome(this.blockPosition());
 
-        if (biome.is(ModTags.Biomes.basaltDeltasBiomes) || biome.is(ModTags.Biomes.crimsonForestBiomes)) {
+        if (net.amurdza.examplemod.util.GameplayDimensions.is(world,
+                net.amurdza.examplemod.util.GameplayDimensions.NETHER)
+                || biome.is(ModTags.Biomes.basaltDeltasBiomes) || biome.is(ModTags.Biomes.crimsonForestBiomes)) {
             return Variant.VARIANT_1;
         }
 

@@ -1,0 +1,109 @@
+{
+  "variants": {
+    "facing=east,bites=0": {
+      "model": "bountiful_critters:block/roasted_pillbug",
+      "y": 90
+    },
+    "facing=east,bites=1": {
+      "model": "bountiful_critters:block/roasted_pillbug_1",
+      "y": 90
+    },
+    "facing=east,bites=2": {
+      "model": "bountiful_critters:block/roasted_pillbug_2",
+      "y": 90
+    },
+    "facing=east,bites=3": {
+      "model": "bountiful_critters:block/roasted_pillbug_3",
+      "y": 90
+    },
+    "facing=north,bites=0": {
+      "model": "bountiful_critters:block/roasted_pillbug"
+    },
+    "facing=north,bites=1": {
+      "model": "bountiful_critters:block/roasted_pillbug_1"
+    },
+    "facing=north,bites=2": {
+      "model": "bountiful_critters:block/roasted_pillbug_2"
+    },
+    "facing=north,bites=3": {
+      "model": "bountiful_critters:block/roasted_pillbug_3"
+    },
+    "facing=south,bites=0": {
+      "model": "bountiful_critters:block/roasted_pillbug",
+      "y": 180
+    },
+    "facing=south,bites=1": {
+      "model": "bountiful_critters:block/roasted_pillbug_1",
+      "y": 180
+    },
+    "facing=south,bites=2": {
+      "model": "bountiful_critters:block/roasted_pillbug_2",
+      "y": 180
+    },
+    "facing=south,bites=3": {
+      "model": "bountiful_critters:block/roasted_pillbug_3",
+      "y": 180
+    },
+    "facing=west,bites=0": {
+      "model": "bountiful_critters:block/roasted_pillbug",
+      "y": 270
+    },
+    "facing=west,bites=1": {
+      "model": "bountiful_critters:block/roasted_pillbug_1",
+      "y": 270
+    },
+    "facing=west,bites=2": {
+      "model": "bountiful_critters:block/roasted_pillbug_2",
+      "y": 270
+    },
+    "facing=west,bites=3": {
+      "model": "bountiful_critters:block/roasted_pillbug_3",
+      "y": 270
+    },
+    "facing=north,bites=4": {
+      "model": "bountiful_critters:block/roasted_pillbug_3"
+    },
+    "facing=north,bites=5": {
+      "model": "bountiful_critters:block/roasted_pillbug_3"
+    },
+    "facing=north,bites=6": {
+      "model": "bountiful_critters:block/roasted_pillbug_3"
+    },
+    "facing=east,bites=4": {
+      "model": "bountiful_critters:block/roasted_pillbug_3",
+      "y": 90
+    },
+    "facing=east,bites=5": {
+      "model": "bountiful_critters:block/roasted_pillbug_3",
+      "y": 90
+    },
+    "facing=east,bites=6": {
+      "model": "bountiful_critters:block/roasted_pillbug_3",
+      "y": 90
+    },
+    "facing=south,bites=4": {
+      "model": "bountiful_critters:block/roasted_pillbug_3",
+      "y": 180
+    },
+    "facing=south,bites=5": {
+      "model": "bountiful_critters:block/roasted_pillbug_3",
+      "y": 180
+    },
+    "facing=south,bites=6": {
+      "model": "bountiful_critters:block/roasted_pillbug_3",
+      "y": 180
+    },
+    "facing=west,bites=4": {
+      "model": "bountiful_critters:block/roasted_pillbug_3",
+      "y": 270
+    },
+    "facing=west,bites=5": {
+      "model": "bountiful_critters:block/roasted_pillbug_3",
+      "y": 270
+    },
+    "facing=west,bites=6": {
+      "model": "bountiful_critters:block/roasted_pillbug_3",
+      "y": 270
+    }
+  }
+}

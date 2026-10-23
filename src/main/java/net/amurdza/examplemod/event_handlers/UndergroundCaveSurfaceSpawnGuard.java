@@ -52,6 +52,8 @@ public class UndergroundCaveSurfaceSpawnGuard {
 
     @SubscribeEvent
     public static void onSpawnPlacement(MobSpawnEvent.SpawnPlacementCheck event) {
+        // The six independent dimensions no longer use the legacy spiral cave footprints.
+        if (net.amurdza.examplemod.util.GameplayDimensions.isCustom(event.getLevel())) return;
         if (!isNaturalWorldSpawn(event.getSpawnType())) {
             return;
         }

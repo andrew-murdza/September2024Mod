@@ -87,12 +87,12 @@ Sources: [ModBlocks](src/main/java/net/amurdza/examplemod/registry/ModBlocks.jav
 Block items check the destination biome before placement and display a message naming the block and biome when placement is rejected. This is a player/item placement check, not a blanket prohibition on every way blocks can appear. If a block belongs to multiple allowed-biome groups, matching any one group is enough.
 
 The following restriction groups have valid entries in the checked-in data:
-
+- Add features below (except worldgen: biomes, configured/placed features, structures; just blocks, items, mobs, and behavior)
+- Add sulfur and cinnabar update features, wilderness bound features (except red shrubs have the properties of crimson roots and are placeable on crimson nylium), chaos cubed features, full mounted mayhem features (except no zombie nautilus and keeping the current limited nautilus), all copper age features (except the new dye textures), all tiny takeover changes (except rabbit texture changes), add wildflowers, warm pigs (called boars), use the updated temperate cow and mooshroom textures, bundles of bravery's colored bundles and leather and string recipe (rabbit hide + string also works), the tuff and copper blocks and bogged from 1.21, updated bat texture from bats and pots, all armored paws features.
+- 
 - Add the six dimensions: aoemod:... tropical_dimension, savanna_dimension, plains_dimension, snowy_dimension, desert_dimension, and nether_dimension and remove any other aoemod dimensions
-- Add the biomes: aoemod:... coral_reef, mangrove_swamp, rainforest, tropical river, cherry_grove, lush_caves, savanna, savanna_river, plains, plains_river, frozen_river, frozen_lake, poplar_forest, snowy_taiga, mushroom_caves, dripstone_caves, desert, mesa, deep_dark, crimson_forest, warped_forest, soul_sand_valley, basalt_deltas and remove any other aoemod biomes
-
+- Add the biomes: aoemod:... coral_reef, mangrove_swamp, rainforest, cherry_grove, lush_caves, savanna, plains, snowy_forest, mushroom_caves, dripstone_caves, desert, mesa, deep_dark, crimson_forest, warped_forest, soul_sand_valley, basalt_deltas and remove any other aoemod biomes
 #CHANGES:
-- Leave the vanilla and other mod's dimensions the same. All blocks follow the normal rules for those. When I say "only" I meant out of the 6 custom dimensions: tropical_dimension, savanna_dimension, plains_dimension, snowy_dimension, desert_dimension, and nether_dimension.
 - A block can only exist in a dimension if it can be crafted from the blocks available in that dimension with the exception of non-living nether materials and non-living world materials (stones, sediments, ores) and products made by the nether can be transferred to the desert. Also things made from ores (like blocks of diamond but not diamond ore itself because diamond ore would look weird surrounded in netherrack) and charcoal can be transferred to the nether. Assume that wood products count as living materials. For example, since spruce saplings are the only way to grow spruce trees, spruce leaves, spruce logs, and everything made from spruce logs only exist there. As a another example, torches can be made with both coal and charcoal, so it can exist in dimensions that don't have coal as long as there are logs that can be made into charcoal. Since coal is a non-living material in the desert and sticks can be made from nether trees, torches can exist in the nether even though there is no coal or charcoal in the nether since nether logs cannot be burned into charcoal.
 - If something grows from a nether sapling (like crimson fungus), the logs and "leaves" (e.g. nether wart blocks) can exist anywhere in the nether, not just in the crimson forest. This allows trees to grow from one biome to another biome in the nether above it.
 - Grass block should not exist in rainforest; Grass stays in rainforest.
@@ -101,46 +101,45 @@ The following restriction groups have valid entries in the checked-in data:
 - Spruce saplings only exist in aoemod:snow_dimension instead of just grove
 - Poplar saplings and red bush only exist in aoemod:snow_dimension
 - Everything else that says rainforest only, savanna only, plains only, grove only, desert only, or nether only should instead point to aoemod:tropical_dimension, aoemod:savanna_dimension, aoemod:plains_dimension; aoemod:snowy_dimension, aoemod:desert_dimension, aoemod:nether_dimension
-- Trollber and ripe trollber only exists in snow_dimension
 - Fix the broken rules
 - Ancient debris only exists in nether and desert
 - Bee nest and beehive only exist in tropical, savanna, and plains
 - Bell does not exist in biomes without gold ore
-- Terracotta only exists in desert and nether
+- Terracotta only exists in desert
 - Amethyst family blocks only exist in snow
-- Ice and snow blocks only exist in snow
-- Clay only exists in plains, snow
-- Mud only exists in savanna
-- Cinnabar and sulfur related blocks only in desert and nether
+- Ice and snow related blocks only exist in snow
+- Clay only exists in plains
+- Mud only exists in savanna, snowy
+- Cinnabar only in desert
+- Sulfur related blocks only in nether
 - Add the pickaxe rule to savanna, also removing gravel, sand, red sand (with the same exceptions other than those). This means that all things that need ores that are from pickaxes are not allowed either.
 - Red sand and red sandstone is only in desert and nether
 - Fire doesn't exist in tropical
 - Farmland doesn't exist in tropical, desert, or nether
 - Noteblock allowed everywhere even though it requires redstone as I will add another recipe
 - Lapis, emerald, and diamond ores (and therefore products by the rule) only in snowy
-- Redstone ores only in desert and nether
+- Redstone ores only in desert and redstone ore products only in desert and nether
 - Lava only in desert and nether
-- netherrack, soul sand, soul soil, crying obsidian, nether ores only in nether (I know this is against the rule I set since they are not living and not in desert, this is an explicit exception; other blocks like blackstone, blocks crafted from Quartz remain in both)
-- Obsidian, Magma block only in desert and nether
+- Netherrack, Blackstone, Basalt, Crying Obsidian, Obsidian, Magma only in nether
+- Soul sand, soul soil only if it is in the soul sand valley or the block above is in the soul sand valley
+- Glowstone only in desert and nether
+- Quartz ores only in nether and quartz products only in nether and desert
 - Prismarine-related only in snow
 - Frogspawn only in tropical
 - Polished basalt exists in snow, so things that can be made from it that do not require the regular basalt can be in snow
 - Calcite is only in snow
-- Deepslate, stone, andesite, diorite, granite, gravel in plains, snow, and desert
-- Gold, copper, coal ores in plains, snow, desert
+- Stone, andesite, diorite, granite, gravel in plains, snow, and desert
+- Deepslate and tuff in snow, desert
+- Gold, copper, and coal ores in plains, snow, desert
 - Iron ore in plains, snow
 - Coarse dirt in plains, snow
-- End items: desert and nether only
-- Beetroots are allowed in tropical and snow
-- Wheat is allowed everywhere except snow and nether
-- Potatoes, carrots allowed in tropical, savanna, plains
-- Firefly Bush only in tropical
-- Dried Ghast only in nether and desert
+- End items: desert only
+- Beetroots are allowed in tropical, savanna, plains, snow
+- Wheat, Carrots, Potatoes are allowed in tropical, savanna, plains
+- Firefly Bush only in tropical (add if not present)
 - Dripstone block, pointed dripstone only in snow
-- Soul sand/soil only in soul sand valley or the block directly below the soul sand valley
 - Netherrack can only be be placed in warped forest, crimson forest, or a block directly below one of those biomes
 - Crimson nylium can only be placed if the block above it is crimson forest. Similarly for warped nylium and the warped forest.
-- Soul sand/soil can only be placed in the soul sand valley or a block directly below it.
 - Prevent mycelium from being placed or dirt growing into mycelium unless the block above it is the mushroom caves
 | Blocks | Allowed placement biomes |
 | --- | --- |
@@ -229,16 +228,14 @@ Sources: [config/BlockGrowthConfig.java](src/main/java/net/amurdza/examplemod/co
 
 
 #CHANGES:
-- Remove the dependence on the hydration range, since it can only be replaced in the tropical dimension, just use the value for that dimension and similar cases of things that only exist in one-dimension.
+- Remove the dependence on the hydration range, since it can only be placed in the tropical dimension, just use the value for that dimension and similar cases of things that only exist in one-dimension.
 - Remove all bonemealing ability from rich soil farmland
-- Remove behavior from blocks that only happen in dimensions that they cannot be placed in. Like grass blocks not spreading in certain biomes and dying in those biomes despite not being placeable there.
+- Remove behavior from blocks that only happen in dimensions that they cannot be placed in. Like grass blocks not spreading in certain biomes and dying in those biomes despite not being placeable there. This can shorten the code
 - Change the mycelium, and warped/crimson nylium to check for the biome above the block for placement restrictions.
-- Skip the nylium water check and the survival requirements should also include being in a biome in can be placed in.
+- Skip the nylium water check
 - Keep the crimson/warped fungi spreading but remove giant mushrooms and fungi growing on their own without bonemeal.
 - Remove the cocoa being available on non-jungle logs
 - Remove the prevention of podzol for giant spruce trees
-- Allow pale oak saplings to be placed on grass. That may its behavior isn't restricted in non-aoemod dimensions and since the only aoemod dimension it can be placed on is the nether which cannot have dirt or grass
-- Make all custom behavior for block placement only apply in the aoemod dimensions. Other changes can work anywhere.
 
 ### Soil, support and growth behavior
 - **Farmland cannot be trampled.** Pumpkins and melons placed or grown above farmland no longer make it revert simply because those blocks are solid.
@@ -266,8 +263,8 @@ Sources: [event_handlers/HoeOnPodzolMoss.java](src/main/java/net/amurdza/example
 
 ### Sapling planting requirements and decorative plants
 
+#CHANGES:
 - Remove the custom 2x2 rules and custom trees.
-- Replace the desert (tall) grass with the vanilla block, except they can only be placed in desert dimension and only on sand. (They can still be placed regularly in all vanilla dimensions).
 
 - **Rainforest oak, dark oak, mangrove, cherry and jungle tree growth requires a 2-by-2 square of matching saplings/propagules.** A solitary plant no longer grows through that rainforest route. Failed tree placement restores the saplings. Outside rainforest, oak, birch, spruce and acacia use the mod's selected ordinary-tree growth route; the actual tree designs are excluded here.
 - **AOE azalea saplings require a 2-by-2 square of matching azalea saplings entirely inside AOE jungle.** They refuse tree advancement elsewhere. They can be composted.
@@ -324,7 +321,7 @@ Sources: [event_handlers/BoneMeal.java](src/main/java/net/amurdza/examplemod/eve
 
 #CHANGES:
 - Add the shear tag as well the ShearsItem
-- You don't need to change the drops for a block that cannot exist in the aoemod dimension or in a vanilla dimension.
+- You don't need to change the drops for a block that cannot exist in a particular aoemod dimension. This can shorten the code
 - Make grass, ferns, tall ferns drop beetroot seeds only in snow instead of both wheat seeds and beetroot seeds
 - Remove preventing drops from blocks in dimensions where they cannot be placed. This means it should only affect the quantity and type of drops, not whether drops occur.
 

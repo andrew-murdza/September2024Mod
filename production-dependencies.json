@@ -1,0 +1,1407 @@
+{
+  "format": 1,
+  "minecraft": "1.20.1",
+  "forge": "47.4.22",
+  "java": 17,
+  "note": "Local test/runtime inventory only. Third-party binaries are not redistributed. embedded-in-release entries must be present inside the reobfuscated AoE -all.jar, not separately copied to mods.",
+  "artifacts": [
+    {
+      "filename": "alexscaves-2.0.2.jar",
+      "coordinate": "local.pack:alexscaves:2.0.2",
+      "category": "requested-pack",
+      "source": {
+        "kind": "project",
+        "path": "libs/pack/alexscaves-2.0.2.jar"
+      },
+      "sha256": "131e205ce3eed384d701b336d8a0d4a671108ed56b6eff6014f0e407db2997f0",
+      "bytes": 74871657,
+      "mods": [
+        {
+          "modId": "alexscaves",
+          "version": "2.0.2",
+          "embedded": false
+        }
+      ]
+    },
+    {
+      "filename": "alexsmobs-1.22.9.jar",
+      "coordinate": "local.pack:alexsmobs:1.22.9",
+      "category": "requested-pack",
+      "source": {
+        "kind": "project",
+        "path": "libs/pack/alexsmobs-1.22.9.jar"
+      },
+      "sha256": "16bc5bcc19db9029c24f951346ec71098e6f5b0afef96e61894a2e9407aad37c",
+      "bytes": 26350793,
+      "mods": [
+        {
+          "modId": "alexsmobs",
+          "version": "1.22.9",
+          "embedded": false
+        }
+      ]
+    },
+    {
+      "filename": "ambientadditions-1.20.1-1.1.2.jar",
+      "coordinate": "local.pack:ambientadditions:1.20.1-1.1.2",
+      "category": "requested-pack",
+      "source": {
+        "kind": "project",
+        "path": "libs/pack/ambientadditions-1.20.1-1.1.2.jar"
+      },
+      "sha256": "dc64e192c78c626329500d28430b54d98b2fbbf62288c62434795bc5fac98e5a",
+      "bytes": 1435595,
+      "mods": [
+        {
+          "modId": "ambientadditions",
+          "version": "1.20.1-1.1.2",
+          "embedded": false
+        }
+      ]
+    },
+    {
+      "filename": "aquatica-0.0.1.jar",
+      "coordinate": "local.pack:aquatica:0.0.1",
+      "category": "requested-pack",
+      "source": {
+        "kind": "project",
+        "path": "libs/pack/aquatica-0.0.1.jar"
+      },
+      "sha256": "f8cd9654550c08819ef458095f35c96f79dba9bb73e12712d2c2c0c4aefb20f8",
+      "bytes": 992901,
+      "mods": [
+        {
+          "modId": "aquatica",
+          "version": "0.0.1",
+          "embedded": false
+        }
+      ]
+    },
+    {
+      "filename": "architectury-9.2.14.jar",
+      "coordinate": "local.pack:architectury:9.2.14",
+      "category": "requested-pack",
+      "source": {
+        "kind": "project",
+        "path": "libs/pack/architectury-9.2.14.jar"
+      },
+      "sha256": "218b471d0b8a1f6cda14cfc1beb9eeb0df54304500acc6c5613d9b88ec65d9af",
+      "bytes": 580602,
+      "mods": [
+        {
+          "modId": "architectury",
+          "version": "9.2.14",
+          "embedded": false
+        }
+      ]
+    },
+    {
+      "filename": "badpackets-0.4.3.jar",
+      "coordinate": "local.pack:badpackets:0.4.3",
+      "category": "requested-pack",
+      "source": {
+        "kind": "project",
+        "path": "libs/pack/badpackets-0.4.3.jar"
+      },
+      "sha256": "b621a8e31727324a6010adbfb84fd4dbb78b3c7d87e5a9aebfb4e3223448f1e3",
+      "bytes": 27919,
+      "mods": [
+        {
+          "modId": "badpackets",
+          "version": "0.4.3",
+          "embedded": false
+        }
+      ]
+    },
+    {
+      "filename": "bclib-20.0.13.jar",
+      "coordinate": "local.pack:bclib:20.0.13",
+      "category": "requested-pack",
+      "source": {
+        "kind": "project",
+        "path": "libs/pack/bclib-20.0.13.jar"
+      },
+      "sha256": "75a7d2d8f44f9d9a1ce801f4f236e601bcc11d256964c1f77ce2aaf858818050",
+      "bytes": 2236939,
+      "mods": [
+        {
+          "modId": "bclib",
+          "version": "20.0.13",
+          "embedded": false
+        }
+      ]
+    },
+    {
+      "filename": "betterend-20.0.11.jar",
+      "coordinate": "local.pack:betterend:20.0.11",
+      "category": "requested-pack",
+      "source": {
+        "kind": "project",
+        "path": "libs/pack/betterend-20.0.11.jar"
+      },
+      "sha256": "8c24d905c4c0d4859c48b210922ebf3b4cb7a316eecc5bf845e57312e258d190",
+      "bytes": 97337194,
+      "mods": [
+        {
+          "modId": "betterend",
+          "version": "20.0.11",
+          "embedded": false
+        }
+      ]
+    },
+    {
+      "filename": "biodiverse-1.1.0.jar",
+      "coordinate": "local.pack:biodiverse:1.1.0",
+      "category": "requested-pack",
+      "source": {
+        "kind": "project",
+        "path": "libs/pack/biodiverse-1.1.0.jar"
+      },
+      "sha256": "4f58f00cf43a40ad40af8f64678ee73d2f4eae4117f7d86c0386fc5f7d7e2fde",
+      "bytes": 5939212,
+      "mods": [
+        {
+          "modId": "biodiverse",
+          "version": "1.1.0",
+          "embedded": false
+        }
+      ]
+    },
+    {
+      "filename": "biomesoplenty-18.0.0.592.jar",
+      "coordinate": "local.pack:biomesoplenty:18.0.0.592",
+      "category": "requested-pack",
+      "source": {
+        "kind": "project",
+        "path": "libs/pack/biomesoplenty-18.0.0.592.jar"
+      },
+      "sha256": "c587b49931e62f89c2673936a5e7269c6daabb713dbcc30813cb0f76da37e01d",
+      "bytes": 21800460,
+      "mods": [
+        {
+          "modId": "biomesoplenty",
+          "version": "18.0.0.592",
+          "embedded": false
+        }
+      ]
+    },
+    {
+      "filename": "blueprint-7.1.5.jar",
+      "coordinate": "local.pack:blueprint:7.1.5",
+      "category": "requested-pack",
+      "source": {
+        "kind": "project",
+        "path": "libs/pack/blueprint-7.1.5.jar"
+      },
+      "sha256": "ab6782901ffb7b08b86325897fb3a2194e0fb1a346af316d74707101c36afb9f",
+      "bytes": 1160817,
+      "mods": [
+        {
+          "modId": "blueprint",
+          "version": "7.1.5",
+          "embedded": false
+        }
+      ]
+    },
+    {
+      "filename": "bountiful_critters-1.5.1.jar",
+      "coordinate": "local.pack:bountiful_critters:1.5.1",
+      "category": "requested-pack",
+      "source": {
+        "kind": "project",
+        "path": "libs/pack/bountiful_critters-1.5.1.jar"
+      },
+      "sha256": "cce58933da927994bf28a766a15c7995448d562a4d909b287dae81011ec40b4a",
+      "bytes": 20960146,
+      "mods": [
+        {
+          "modId": "bountiful_critters",
+          "version": "1.5.1",
+          "embedded": false
+        }
+      ]
+    },
+    {
+      "filename": "citadel-2.6.3.jar",
+      "coordinate": "local.pack:citadel:2.6.3",
+      "category": "requested-pack",
+      "source": {
+        "kind": "project",
+        "path": "libs/pack/citadel-2.6.3.jar"
+      },
+      "sha256": "56c7ab87348a5292583aac787b6cf11b5193e77f02af1d17ea75a96f8640b3ce",
+      "bytes": 3185275,
+      "mods": [
+        {
+          "modId": "citadel",
+          "version": "2.6.3",
+          "embedded": false
+        }
+      ]
+    },
+    {
+      "filename": "collectorsreap-1.5.5.jar",
+      "coordinate": "local.pack:collectorsreap:1.5.5",
+      "category": "requested-pack",
+      "source": {
+        "kind": "project",
+        "path": "libs/pack/collectorsreap-1.5.5.jar"
+      },
+      "sha256": "d2a752e26cd252e9e9d5a0c5052c5d590dfe20ea8a2eb386f5db73cc60971501",
+      "bytes": 1547312,
+      "mods": [
+        {
+          "modId": "collectorsreap",
+          "version": "1.5.5",
+          "embedded": false
+        }
+      ]
+    },
+    {
+      "filename": "cooking_expanded-1.0.0.jar",
+      "coordinate": "local.pack:cooking_expanded:1.0.0",
+      "category": "requested-pack",
+      "source": {
+        "kind": "project",
+        "path": "libs/pack/cooking_expanded-1.0.0.jar"
+      },
+      "sha256": "7d9ff59a4ab57b48d2fb903054e00482c44e6cd68b9e8c7fd7bfdffe00225f97",
+      "bytes": 14982,
+      "mods": [
+        {
+          "modId": "cooking_expanded",
+          "version": "1.0.0",
+          "embedded": false
+        }
+      ]
+    },
+    {
+      "filename": "corgilib-4.0.3.6.jar",
+      "coordinate": "local.pack:corgilib:4.0.3.6",
+      "category": "requested-pack",
+      "source": {
+        "kind": "project",
+        "path": "libs/pack/corgilib-4.0.3.6.jar"
+      },
+      "sha256": "6f337ceae789bd31f39c0c4e1bfa1bc094dbfcc2d8e4eee3c8b6f50750891298",
+      "bytes": 318788,
+      "mods": [
+        {
+          "modId": "corgilib",
+          "version": "4.0.3.6",
+          "embedded": false
+        }
+      ]
+    },
+    {
+      "filename": "curios-5.14.1+1.20.1.jar",
+      "coordinate": "local.pack:curios:5.14.1+1.20.1",
+      "category": "requested-pack",
+      "source": {
+        "kind": "project",
+        "path": "libs/pack/curios-5.14.1+1.20.1.jar"
+      },
+      "sha256": "1e817919a35b37cf30524aaec73f0ca5130452f23f168f844854df282eb8e51f",
+      "bytes": 398066,
+      "mods": [
+        {
+          "modId": "curios",
+          "version": "5.14.1+1.20.1",
+          "embedded": false
+        }
+      ]
+    },
+    {
+      "filename": "ecologics-2.2.7.jar",
+      "coordinate": "local.pack:ecologics:2.2.7",
+      "category": "requested-pack",
+      "source": {
+        "kind": "project",
+        "path": "libs/pack/ecologics-2.2.7.jar"
+      },
+      "sha256": "1d9f7d1f460c1550fc67687c71881f567e6e0f66bb852156e44580e880fe97f6",
+      "bytes": 1865435,
+      "mods": [
+        {
+          "modId": "ecologics",
+          "version": "2.2.7",
+          "embedded": false
+        }
+      ]
+    },
+    {
+      "filename": "environmental-4.1.2.jar",
+      "coordinate": "local.pack:environmental:4.1.2",
+      "category": "requested-pack",
+      "source": {
+        "kind": "project",
+        "path": "libs/pack/environmental-4.1.2.jar"
+      },
+      "sha256": "007084624762d426ef055594c80992d3315514f5b351bbe4164ec18a7183653d",
+      "bytes": 8082615,
+      "mods": [
+        {
+          "modId": "environmental",
+          "version": "4.1.2",
+          "embedded": false
+        },
+        {
+          "modId": "mixinextras",
+          "version": "0.4.1",
+          "embedded": true
+        }
+      ]
+    },
+    {
+      "filename": "farmersdelight-1.20.1-1.3.4.jar",
+      "coordinate": "local.pack:farmersdelight:1.20.1-1.3.4",
+      "category": "requested-pack",
+      "source": {
+        "kind": "project",
+        "path": "libs/pack/farmersdelight-1.20.1-1.3.4.jar"
+      },
+      "sha256": "34f03eb671ea1ca579b00c98e4541404cb96d1a292014aed9cc5eb45ad8afbce",
+      "bytes": 3311051,
+      "mods": [
+        {
+          "modId": "farmersdelight",
+          "version": "1.20.1-1.3.4",
+          "embedded": false
+        },
+        {
+          "modId": "mixinextras",
+          "version": "0.3.6",
+          "embedded": true
+        }
+      ]
+    },
+    {
+      "filename": "ferdinandsflowers-3.0.jar",
+      "coordinate": "local.pack:ferdinandsflowers:3.0",
+      "category": "requested-pack",
+      "source": {
+        "kind": "project",
+        "path": "libs/pack/ferdinandsflowers-3.0.jar"
+      },
+      "sha256": "5089f25717538bd8c7bda623b1a128329ddb8ab9863a3dfd8885167cc35359bc",
+      "bytes": 2167059,
+      "mods": [
+        {
+          "modId": "ferdinandsflowers",
+          "version": "3.0",
+          "embedded": false
+        }
+      ]
+    },
+    {
+      "filename": "finsandtails-1.20.1-1.1.6.jar",
+      "coordinate": "local.pack:finsandtails:1.20.1-1.1.6",
+      "category": "requested-pack",
+      "source": {
+        "kind": "project",
+        "path": "libs/pack/finsandtails-1.20.1-1.1.6.jar"
+      },
+      "sha256": "3559a5a6b8227c651220c13bdc95ae71e7ec24fca3d8976fa6214cd73873da2b",
+      "bytes": 3289342,
+      "mods": [
+        {
+          "modId": "finsandtails",
+          "version": "1.20.1-1.1.6",
+          "embedded": false
+        }
+      ]
+    },
+    {
+      "filename": "floral-1.0.0.jar",
+      "coordinate": "local.pack:floral:1.0.0",
+      "category": "requested-pack",
+      "source": {
+        "kind": "project",
+        "path": "libs/pack/floral-1.0.0.jar"
+      },
+      "sha256": "401696a1a55cc387509b4456ae40759e6ef9c775b308226332644518ecf9fcac",
+      "bytes": 468481,
+      "mods": [
+        {
+          "modId": "floral",
+          "version": "1.0.0",
+          "embedded": false
+        }
+      ]
+    },
+    {
+      "filename": "floral_flair-1.20.1-2.2.2.jar",
+      "coordinate": "local.pack:floral_flair:1.20.1-2.2.2",
+      "category": "requested-pack",
+      "source": {
+        "kind": "project",
+        "path": "libs/pack/floral_flair-1.20.1-2.2.2.jar"
+      },
+      "sha256": "9cf4f11c9e3400ed2066b05713ece848d3655dec6d227e72e698c2fa049c2f47",
+      "bytes": 550208,
+      "mods": [
+        {
+          "modId": "floral_flair",
+          "version": "1.20.1-2.2.2",
+          "embedded": false
+        }
+      ]
+    },
+    {
+      "filename": "fruitsdelight-1.1.3.jar",
+      "coordinate": "local.pack:fruitsdelight:1.1.3",
+      "category": "requested-pack",
+      "source": {
+        "kind": "project",
+        "path": "libs/pack/fruitsdelight-1.1.3.jar"
+      },
+      "sha256": "ad136ea910d1b09bab90425168f64d841ea4f57d49f8a616da9882c7d6d8aec1",
+      "bytes": 1895935,
+      "mods": [
+        {
+          "modId": "fruitsdelight",
+          "version": "1.1.3",
+          "embedded": false
+        },
+        {
+          "modId": "mixinextras",
+          "version": "0.2.0-beta.8",
+          "embedded": true
+        },
+        {
+          "modId": "l2harvester",
+          "version": "0.1.2",
+          "embedded": true
+        },
+        {
+          "modId": "l2harvester05x",
+          "version": "0.1.2",
+          "embedded": true
+        },
+        {
+          "modId": "l2harvester60x",
+          "version": "0.1.2",
+          "embedded": true
+        },
+        {
+          "modId": "l2library",
+          "version": "2.4.11",
+          "embedded": true
+        }
+      ]
+    },
+    {
+      "filename": "geckolib-4.8.4.jar",
+      "coordinate": "local.pack:geckolib:4.8.4",
+      "category": "requested-pack",
+      "source": {
+        "kind": "project",
+        "path": "libs/pack/geckolib-4.8.4.jar"
+      },
+      "sha256": "c04abba4fd354dd8c0e8a732f1f05f4dca893d2e1d962b2ab128bbd411478747",
+      "bytes": 1038209,
+      "mods": [
+        {
+          "modId": "geckolib",
+          "version": "4.8.4",
+          "embedded": false
+        }
+      ]
+    },
+    {
+      "filename": "hapi-1.1.3.jar",
+      "coordinate": "local.pack:hapi:1.1.3",
+      "category": "requested-pack",
+      "source": {
+        "kind": "project",
+        "path": "libs/pack/hapi-1.1.3.jar"
+      },
+      "sha256": "5981b3f8319969465dc168d28c6f92fd87cc7733d500917be8bfda22ab9732f9",
+      "bytes": 1411778,
+      "mods": [
+        {
+          "modId": "hapi",
+          "version": "1.1.3",
+          "embedded": false
+        }
+      ]
+    },
+    {
+      "filename": "hearthandharvest-1.4.1.jar",
+      "coordinate": "local.pack:hearthandharvest:1.4.1",
+      "category": "requested-pack",
+      "source": {
+        "kind": "project",
+        "path": "libs/pack/hearthandharvest-1.4.1.jar"
+      },
+      "sha256": "169b5d566fcea0663103d72f6b79400c4d19f2ad35d4213c7f74f0b1e9d9a85a",
+      "bytes": 3159718,
+      "mods": [
+        {
+          "modId": "hearthandharvest",
+          "version": "1.4.1",
+          "embedded": false
+        },
+        {
+          "modId": "mixinextras",
+          "version": "0.3.6",
+          "embedded": true
+        }
+      ]
+    },
+    {
+      "filename": "hybrid_aquatic-1.7.4.jar",
+      "coordinate": "local.pack:hybrid_aquatic:1.7.4",
+      "category": "requested-pack",
+      "source": {
+        "kind": "project",
+        "path": "libs/pack/hybrid_aquatic-1.7.4.jar"
+      },
+      "sha256": "c21bc55291a4162475cb46ac742229eee65e478ccad99b58648eb898c5360baa",
+      "bytes": 6782908,
+      "mods": [
+        {
+          "modId": "hybrid_aquatic",
+          "version": "1.7.4",
+          "embedded": false
+        }
+      ]
+    },
+    {
+      "filename": "kotlinforforge-4.12.0.jar",
+      "coordinate": "local.pack:kotlinforforge:4.12.0",
+      "category": "requested-pack",
+      "source": {
+        "kind": "project",
+        "path": "libs/pack/kotlinforforge-4.12.0.jar"
+      },
+      "sha256": "6a66c6a68ec09f8717cdbf06883394f0ee24d7cd826b7134a0f81839e8e720ae",
+      "bytes": 7442998,
+      "mods": [
+        {
+          "modId": "kotlinforforge",
+          "version": "4.12.0",
+          "embedded": true
+        }
+      ]
+    },
+    {
+      "filename": "legumedelight-1.20.1-1.4.0.jar",
+      "coordinate": "local.pack:legumedelight:1.20.1-1.4.0",
+      "category": "requested-pack",
+      "source": {
+        "kind": "project",
+        "path": "libs/pack/legumedelight-1.20.1-1.4.0.jar"
+      },
+      "sha256": "4dc5d0e7fcd993dc15a4f068bf3c43819d734e2098a632c4e8effaae033eeb2b",
+      "bytes": 209210,
+      "mods": [
+        {
+          "modId": "legumedelight",
+          "version": "1.20.1-1.4.0",
+          "embedded": false
+        }
+      ]
+    },
+    {
+      "filename": "wildernature-1.0.6.jar",
+      "coordinate": "local.pack:wildernature:1.0.6",
+      "category": "requested-pack",
+      "source": {
+        "kind": "project",
+        "path": "libs/pack/wildernature-1.0.6.jar"
+      },
+      "sha256": "7e8728b33260d441331fc8894d2875f150acecae0d6051ba4b9792fc9967f280",
+      "bytes": 2102995,
+      "mods": [
+        {
+          "modId": "wildernature",
+          "version": "1.0.6",
+          "embedded": false
+        }
+      ]
+    },
+    {
+      "filename": "naturalist-5.0pre2.jar",
+      "coordinate": "local.pack:naturalist:5.0pre2",
+      "category": "requested-pack",
+      "source": {
+        "kind": "project",
+        "path": "libs/pack/naturalist-5.0pre2.jar"
+      },
+      "sha256": "2bdf7df54d5d0287016aa0f4228e426be74ce83a4ef30c7107d3010056a1d4d2",
+      "bytes": 3793857,
+      "mods": [
+        {
+          "modId": "naturalist",
+          "version": "5.0pre2",
+          "embedded": false
+        },
+        {
+          "modId": "midnightlib",
+          "version": "1.4.2",
+          "embedded": true
+        }
+      ]
+    },
+    {
+      "filename": "biomeswevegone-1.8.2.jar",
+      "coordinate": "local.pack:biomeswevegone:1.8.2",
+      "category": "requested-pack",
+      "source": {
+        "kind": "project",
+        "path": "libs/pack/biomeswevegone-1.8.2.jar"
+      },
+      "sha256": "38174a9aaf8b087f9f264d0fcd43f3c3180238d7732c7d65582e4bcedaea01d3",
+      "bytes": 19071374,
+      "mods": [
+        {
+          "modId": "biomeswevegone",
+          "version": "1.8.2",
+          "embedded": false
+        }
+      ]
+    },
+    {
+      "filename": "ohthetreesyoullgrow-1.7.3.jar",
+      "coordinate": "local.pack:ohthetreesyoullgrow:1.7.3",
+      "category": "requested-pack",
+      "source": {
+        "kind": "project",
+        "path": "libs/pack/ohthetreesyoullgrow-1.7.3.jar"
+      },
+      "sha256": "5817a5ff8439515b6413ab655cc7d64ecd3d24d4ac5a8605ae34fd73ec8be4cf",
+      "bytes": 178409,
+      "mods": [
+        {
+          "modId": "ohthetreesyoullgrow",
+          "version": "1.7.3",
+          "embedded": false
+        }
+      ]
+    },
+    {
+      "filename": "nourished_nether-0.2.5.jar",
+      "coordinate": "local.pack:nourished_nether:0.2.5",
+      "category": "requested-pack",
+      "source": {
+        "kind": "project",
+        "path": "libs/pack/nourished_nether-0.2.5.jar"
+      },
+      "sha256": "1e3a7ea1def6e67baa863264f6d274501ef7afab17615efea2f0bbe02c5c8921",
+      "bytes": 1230526,
+      "mods": [
+        {
+          "modId": "nourished_nether",
+          "version": "0.2.5",
+          "embedded": false
+        }
+      ]
+    },
+    {
+      "filename": "pineapple_delight-1.2.0-1.20.1-forge.jar",
+      "coordinate": "local.pack:pineapple_delight:1.2.0-1.20.1-forge",
+      "category": "requested-pack",
+      "source": {
+        "kind": "project",
+        "path": "libs/pack/pineapple_delight-1.2.0-1.20.1-forge.jar"
+      },
+      "sha256": "1f72d439c6329746ca24a68b5fc2cf27b1c2ca98637e733e86ac012081ef7d11",
+      "bytes": 676472,
+      "mods": [
+        {
+          "modId": "pineapple_delight",
+          "version": "1.2.0-1.20.1-forge",
+          "embedded": false
+        }
+      ]
+    },
+    {
+      "filename": "quark-4.0-462.jar",
+      "coordinate": "local.pack:quark:4.0-462",
+      "category": "requested-pack",
+      "source": {
+        "kind": "project",
+        "path": "libs/pack/quark-4.0-462.jar"
+      },
+      "sha256": "c90b96f049d92825c4a103721988c80d72e5ad380d17be46a0f53e114874c478",
+      "bytes": 14935230,
+      "mods": [
+        {
+          "modId": "quark",
+          "version": "4.0-462",
+          "embedded": false
+        }
+      ]
+    },
+    {
+      "filename": "terrablender-3.0.1.10.jar",
+      "coordinate": "local.pack:terrablender:3.0.1.10",
+      "category": "requested-pack",
+      "source": {
+        "kind": "project",
+        "path": "libs/pack/terrablender-3.0.1.10.jar"
+      },
+      "sha256": "c109016f46ca9bdae69976bf080bbf2e8e5968cb66c0a78845f8ca6af5dbbeb1",
+      "bytes": 107532,
+      "mods": [
+        {
+          "modId": "terrablender",
+          "version": "3.0.1.10",
+          "embedded": false
+        }
+      ]
+    },
+    {
+      "filename": "outer_end-1.0.0.jar",
+      "coordinate": "local.pack:outer_end:1.0.0",
+      "category": "requested-pack",
+      "source": {
+        "kind": "project",
+        "path": "libs/pack/outer_end-1.0.0.jar"
+      },
+      "sha256": "f3e375be84c9e84d6ea7d3679635424d536c59d80c49cf5d669abbcd1b3f8b73",
+      "bytes": 14375300,
+      "mods": [
+        {
+          "modId": "outer_end",
+          "version": "1.0.0",
+          "embedded": false
+        }
+      ]
+    },
+    {
+      "filename": "twilightforest-4.3.2508.jar",
+      "coordinate": "local.pack:twilightforest:4.3.2508",
+      "category": "requested-pack",
+      "source": {
+        "kind": "project",
+        "path": "libs/pack/twilightforest-4.3.2508.jar"
+      },
+      "sha256": "0bdc89263616d1b35c32ef82c5e9c14cbd20368e2fe8b468c72a28320be7a778",
+      "bytes": 23332091,
+      "mods": [
+        {
+          "modId": "twilightforest",
+          "version": "4.3.2508",
+          "embedded": false
+        }
+      ]
+    },
+    {
+      "filename": "untamedwilds-4.0.4.jar",
+      "coordinate": "local.pack:untamedwilds:4.0.4",
+      "category": "requested-pack",
+      "source": {
+        "kind": "project",
+        "path": "libs/pack/untamedwilds-4.0.4.jar"
+      },
+      "sha256": "47782ad2e846fa2b3c3dfba5305b9b4dbe752cc6ab1b17b1fd314a1a63b1ebbb",
+      "bytes": 2894716,
+      "mods": [
+        {
+          "modId": "untamedwilds",
+          "version": "4.0.4",
+          "embedded": false
+        }
+      ]
+    },
+    {
+      "filename": "upgrade_aquatic-6.0.3.jar",
+      "coordinate": "local.pack:upgrade_aquatic:6.0.3",
+      "category": "requested-pack",
+      "source": {
+        "kind": "project",
+        "path": "libs/pack/upgrade_aquatic-6.0.3.jar"
+      },
+      "sha256": "f710dee89a146936b0a126bb429f4f741efb4f7374d8ed1d9db5d0bab172e24c",
+      "bytes": 4981396,
+      "mods": [
+        {
+          "modId": "upgrade_aquatic",
+          "version": "6.0.3",
+          "embedded": false
+        }
+      ]
+    },
+    {
+      "filename": "vintagedelight-0.1.6.jar",
+      "coordinate": "local.pack:vintagedelight:0.1.6",
+      "category": "requested-pack",
+      "source": {
+        "kind": "project",
+        "path": "libs/pack/vintagedelight-0.1.6.jar"
+      },
+      "sha256": "f3645fcf42546edb5fe09bee833f2e7524dd93b9b5380ecae3d3aa2847a4c9db",
+      "bytes": 1120218,
+      "mods": [
+        {
+          "modId": "vintagedelight",
+          "version": "0.1.6",
+          "embedded": false
+        }
+      ]
+    },
+    {
+      "filename": "wthit-8.21.1.jar",
+      "coordinate": "local.pack:wthit:8.21.1",
+      "category": "requested-pack",
+      "source": {
+        "kind": "project",
+        "path": "libs/pack/wthit-8.21.1.jar"
+      },
+      "sha256": "70b3d01f7d1ae9cdb7cb743ad4aefef4b21f5ccfdfbf3157e9c455de3400c0f3",
+      "bytes": 831790,
+      "mods": [
+        {
+          "modId": "wthit",
+          "version": "8.21.1",
+          "embedded": false
+        },
+        {
+          "modId": "waila",
+          "version": "8.21.1",
+          "embedded": false
+        }
+      ]
+    },
+    {
+      "filename": "wunderlib-20.0.1.jar",
+      "coordinate": "local.pack:wunderlib:20.0.1",
+      "category": "requested-pack",
+      "source": {
+        "kind": "project",
+        "path": "libs/pack/wunderlib-20.0.1.jar"
+      },
+      "sha256": "33d30150d69f0b1f1b077dab0edbefdca5e274bfa9a56578c6fe35d4dc62ccbd",
+      "bytes": 227846,
+      "mods": [
+        {
+          "modId": "wunderlib",
+          "version": "20.0.1",
+          "embedded": false
+        }
+      ]
+    },
+    {
+      "filename": "zeta-1.0-31.jar",
+      "coordinate": "local.pack:zeta:1.0-31",
+      "category": "requested-pack",
+      "source": {
+        "kind": "project",
+        "path": "libs/pack/zeta-1.0-31.jar"
+      },
+      "sha256": "cd1786902a79434f8fd762d741019d9c8a79725fef7e30a89c153c934e1e6a9e",
+      "bytes": 1006518,
+      "mods": [
+        {
+          "modId": "zeta",
+          "version": "1.0-31",
+          "embedded": false
+        },
+        {
+          "modId": "mixinextras",
+          "version": "0.3.2",
+          "embedded": true
+        }
+      ]
+    },
+    {
+      "filename": "angling-1.0.1-forge.1.jar",
+      "coordinate": "local.pack:angling:1.0.1-forge.1",
+      "category": "requested-pack",
+      "source": {
+        "kind": "project",
+        "path": "libs/pack/angling-1.0.1-forge.1.jar"
+      },
+      "sha256": "36c6857fc4ce52eb02ca6f78720223c0a3b781512dbdd0137b00bead9f1d139a",
+      "bytes": 662453,
+      "mods": [
+        {
+          "modId": "angling",
+          "version": "1.0.1-forge.1",
+          "embedded": false
+        }
+      ]
+    },
+    {
+      "filename": "Platform-forge-1.20.1-1.4.0.2640.1.jar",
+      "coordinate": "local:Platform-forge-1.20.1:1.4.0.2640.1",
+      "category": "retained-required",
+      "source": {
+        "kind": "project",
+        "path": "libs/Platform-forge-1.20.1-1.4.0.2640.1.jar"
+      },
+      "sha256": "75b5099f74710a529c640885366e21f5e5f0d063d210fc2caba86b086fc5105a",
+      "bytes": 1191183,
+      "mods": [
+        {
+          "modId": "platform",
+          "version": "1.4.0.2640.1",
+          "embedded": false
+        }
+      ]
+    },
+    {
+      "filename": "VanillaBackport-forge-1.20.1-1.2.0.2640.1.jar",
+      "coordinate": "local:VanillaBackport-forge-1.20.1:1.2.0.2640.1",
+      "category": "retained-required",
+      "source": {
+        "kind": "project",
+        "path": "libs/VanillaBackport-forge-1.20.1-1.2.0.2640.1.jar"
+      },
+      "sha256": "01371a3b2ade997f1e30816b97951f9581610bfe940944e93f0a796bf103e5db",
+      "bytes": 65055502,
+      "mods": [
+        {
+          "modId": "vanillabackport",
+          "version": "1.2.0.2640.1",
+          "embedded": false
+        }
+      ]
+    },
+    {
+      "filename": "tiny_takeover_backport-forge-1.20.1-1.6.3-aoe.jar",
+      "coordinate": "local:tiny_takeover_backport-forge-1.20.1:1.6.3-aoe",
+      "category": "retained-required",
+      "source": {
+        "kind": "project",
+        "path": "libs/tiny_takeover_backport-forge-1.20.1-1.6.3-aoe.jar"
+      },
+      "sha256": "f0a2d9036a5231cc14c1792c4f4115a7b59cf4a5f7e7e7bbb0662d15c7a94e50",
+      "bytes": 2782875,
+      "mods": [
+        {
+          "modId": "tiny_takeover_backport",
+          "version": "1.6.3",
+          "embedded": false
+        }
+      ]
+    },
+    {
+      "filename": "yacl-3.6.6+1.20.1-forge.jar",
+      "coordinate": "maven.modrinth:yacl:3.6.6+1.20.1-forge",
+      "category": "retained-required",
+      "source": {
+        "kind": "gradle-cache",
+        "path": "maven.modrinth/yacl/3.6.6+1.20.1-forge/644731e321c53a35a0b3177a3cc6347fe38002f4/yacl-3.6.6+1.20.1-forge.jar"
+      },
+      "sha256": "bd05da3d9df29b914165583f1c6dfd918a138996447ff32c0418329824027a8f",
+      "bytes": 1105891,
+      "mods": [
+        {
+          "modId": "yet_another_config_lib_v3",
+          "version": "3.6.6+1.20.1-forge",
+          "embedded": false
+        }
+      ]
+    },
+    {
+      "filename": "drop-the-meat-404141-6564010.jar",
+      "coordinate": "curse.maven:drop-the-meat-404141:6564010",
+      "category": "retained-required",
+      "source": {
+        "kind": "gradle-cache",
+        "path": "curse.maven/drop-the-meat-404141/6564010/46822bb4e373b3add106123dc91ca005788a4b50/drop-the-meat-404141-6564010.jar"
+      },
+      "sha256": "adc07bad59c1a9b84536d13d882c67cea348b737070dafabdf4f8da0366fe644",
+      "bytes": 108158,
+      "mods": [
+        {
+          "modId": "dropthemeat",
+          "version": "1.7",
+          "embedded": false
+        }
+      ]
+    },
+    {
+      "filename": "cultural-delights-574622-6029441.jar",
+      "coordinate": "curse.maven:cultural-delights-574622:6029441",
+      "category": "retained-required",
+      "source": {
+        "kind": "gradle-cache",
+        "path": "curse.maven/cultural-delights-574622/6029441/4ccf70bb03a5d2d2d1fd5e0ecf553e272e06092f/cultural-delights-574622-6029441.jar"
+      },
+      "sha256": "400d2b111ef1402a8467ba9be30397acbd8365bee03a3ae56c9451826ab6a5c5",
+      "bytes": 242887,
+      "mods": [
+        {
+          "modId": "culturaldelights",
+          "version": "0.16.1",
+          "embedded": false
+        }
+      ]
+    },
+    {
+      "filename": "wooden-bucket-585328-6773030.jar",
+      "coordinate": "curse.maven:wooden-bucket-585328:6773030",
+      "category": "retained-required",
+      "source": {
+        "kind": "gradle-cache",
+        "path": "curse.maven/wooden-bucket-585328/6773030/f32d27d5a905e8b0f0ae1b719dee88f12ad689c4/wooden-bucket-585328-6773030.jar"
+      },
+      "sha256": "d944524aa8041421b1856d209434ed4297caf4b20ae5e66781f6d41087d02811",
+      "bytes": 17458,
+      "mods": [
+        {
+          "modId": "woodenbucket",
+          "version": "1.20.1-2.1.1.0",
+          "embedded": false
+        }
+      ]
+    },
+    {
+      "filename": "bucketlib-560156-6632367.jar",
+      "coordinate": "curse.maven:bucketlib-560156:6632367",
+      "category": "retained-required",
+      "source": {
+        "kind": "gradle-cache",
+        "path": "curse.maven/bucketlib-560156/6632367/a1aef2d1a74ef37b3a6321524ad47dfaf7df2546/bucketlib-560156-6632367.jar"
+      },
+      "sha256": "d15ddbeabcd0e377ce543d05fe0cdf7b65d8a0db373522b4e30c4b01d313e1e3",
+      "bytes": 153080,
+      "mods": [
+        {
+          "modId": "bucketlib",
+          "version": "1.20.1-2.3.7.1",
+          "embedded": false
+        }
+      ]
+    },
+    {
+      "filename": "wooden-shears-443192-6289965.jar",
+      "coordinate": "curse.maven:wooden-shears-443192:6289965",
+      "category": "retained-required",
+      "source": {
+        "kind": "gradle-cache",
+        "path": "curse.maven/wooden-shears-443192/6289965/d13df7a5efd521fb876f95033564c5c1459da54/wooden-shears-443192-6289965.jar"
+      },
+      "sha256": "a7a33a44fa10ad8388b735206f9e0adffd0d7f8062574835e1aff92876d2f851",
+      "bytes": 12382,
+      "mods": [
+        {
+          "modId": "woodenshears",
+          "version": "1.20.1-1.5.0.1",
+          "embedded": false
+        }
+      ]
+    },
+    {
+      "filename": "snow-real-magic-308663-5801189.jar",
+      "coordinate": "curse.maven:snow-real-magic-308663:5801189",
+      "category": "retained-required",
+      "source": {
+        "kind": "gradle-cache",
+        "path": "curse.maven/snow-real-magic-308663/5801189/92fc22893a6b69753e710b5115e68ea4356ee3fb/snow-real-magic-308663-5801189.jar"
+      },
+      "sha256": "7903848ebfec370cf8353d1545bd1f6ce960c01f87ebe45effc4b845e2328c01",
+      "bytes": 343776,
+      "mods": [
+        {
+          "modId": "snowrealmagic",
+          "version": "10.5.2",
+          "embedded": false
+        },
+        {
+          "modId": "fabric_api_base",
+          "version": "0.4.31+ef105b4977",
+          "embedded": true
+        },
+        {
+          "modId": "fabric_renderer_api_v1",
+          "version": "3.2.1+1d29b44577",
+          "embedded": true
+        },
+        {
+          "modId": "fabric_renderer_indigo",
+          "version": "1.5.2+b5b2da4177",
+          "embedded": true
+        }
+      ]
+    },
+    {
+      "filename": "kiwi-303657-5603816.jar",
+      "coordinate": "curse.maven:kiwi-303657:5603816",
+      "category": "retained-required",
+      "source": {
+        "kind": "gradle-cache",
+        "path": "curse.maven/kiwi-303657/5603816/4b38a5d5e38f35d4e5685b117e9cf0f247070296/kiwi-303657-5603816.jar"
+      },
+      "sha256": "b0c4ceaea21c224398be0975fbc309df26f3c6a4c6ef66c68df4a18c7f92b696",
+      "bytes": 1611987,
+      "mods": [
+        {
+          "modId": "kiwi",
+          "version": "11.8.20+forge",
+          "embedded": false
+        },
+        {
+          "modId": "mixinextras",
+          "version": "0.3.2",
+          "embedded": true
+        }
+      ]
+    },
+    {
+      "filename": "nether-depths-upgrade-670011-5150560.jar",
+      "coordinate": "curse.maven:nether-depths-upgrade-670011:5150560",
+      "category": "retained-required",
+      "source": {
+        "kind": "gradle-cache",
+        "path": "curse.maven/nether-depths-upgrade-670011/5150560/513e147f30efd46cc70d75831802947fa1a92273/nether-depths-upgrade-670011-5150560.jar"
+      },
+      "sha256": "57ad56e79832ed7e2498c723122c2a8f45336364bd5ba564f3f110c715acb96f",
+      "bytes": 590209,
+      "mods": [
+        {
+          "modId": "netherdepthsupgrade",
+          "version": "3.1.4-1.20",
+          "embedded": false
+        }
+      ]
+    },
+    {
+      "filename": "better-carrots-548721-5306948.jar",
+      "coordinate": "curse.maven:better-carrots-548721:5306948",
+      "category": "retained-required",
+      "source": {
+        "kind": "gradle-cache",
+        "path": "curse.maven/better-carrots-548721/5306948/6e9f68d849a3f3e4b2600483c034d17fcd803070/better-carrots-548721-5306948.jar"
+      },
+      "sha256": "629831a74716d6bcd9ea9b680dc0895abbd0931991cc710b7706e0df2e05c7c7",
+      "bytes": 41909,
+      "mods": [
+        {
+          "modId": "bettercarrots",
+          "version": "1.0.0",
+          "embedded": false
+        }
+      ]
+    },
+    {
+      "filename": "lithostitched-936015-6742615.jar",
+      "coordinate": "curse.maven:lithostitched-936015:6742615",
+      "category": "retained-required",
+      "source": {
+        "kind": "gradle-cache",
+        "path": "curse.maven/lithostitched-936015/6742615/d1a755de84ee5d8910ff1e65e815473056e93ece/lithostitched-936015-6742615.jar"
+      },
+      "sha256": "c19a5a36c0e6cb3782cf7ca5b9648fb1bce5fc41fd737bed423a1f4971bccf75",
+      "bytes": 476347,
+      "mods": [
+        {
+          "modId": "lithostitched",
+          "version": "1.4.11",
+          "embedded": false
+        }
+      ]
+    },
+    {
+      "filename": "faewulfs-lib-1209568-6758845.jar",
+      "coordinate": "curse.maven:faewulfs-lib-1209568:6758845",
+      "category": "retained-required",
+      "source": {
+        "kind": "gradle-cache",
+        "path": "curse.maven/faewulfs-lib-1209568/6758845/6ce2fc65f3e85d39190f0b94c08671e195be2c71/faewulfs-lib-1209568-6758845.jar"
+      },
+      "sha256": "e7113fd030a3e069f306721abac9d4c714b0b86fa733524fe7e5176d92425d90",
+      "bytes": 962290,
+      "mods": [
+        {
+          "modId": "faewulf_lib",
+          "version": "1.3.2",
+          "embedded": false
+        }
+      ]
+    },
+    {
+      "filename": "diversity-1039632-7130442.jar",
+      "coordinate": "curse.maven:diversity-1039632:7130442",
+      "category": "retained-required",
+      "source": {
+        "kind": "gradle-cache",
+        "path": "curse.maven/diversity-1039632/7130442/37f3870343ca8e7d215c270cfc03afbf8d7b37c/diversity-1039632-7130442.jar"
+      },
+      "sha256": "275b7344b2c9e8e8e3b2e7be63a0d1160db2a5a6eb39b295a070acfbd2afa844",
+      "bytes": 1241353,
+      "mods": [
+        {
+          "modId": "diversity",
+          "version": "2.5.4",
+          "embedded": false
+        }
+      ]
+    },
+    {
+      "filename": "iceandfire-264231-5633453.jar",
+      "coordinate": "curse.maven:iceandfire-264231:5633453",
+      "category": "retained-required",
+      "source": {
+        "kind": "gradle-cache",
+        "path": "curse.maven/iceandfire-264231/5633453/7e828cbb046ca3d622e92c68f956bd1c0155dc6f/iceandfire-264231-5633453.jar"
+      },
+      "sha256": "2b80245fc9b7d6fdc61d71f9892f4c6114eb7f303f65634845aaab25f84d1e82",
+      "bytes": 21854126,
+      "mods": [
+        {
+          "modId": "iceandfire",
+          "version": "2.1.13-1.20.1",
+          "embedded": false
+        }
+      ]
+    },
+    {
+      "filename": "born-in-chaos-686437-7917933.jar",
+      "coordinate": "curse.maven:born-in-chaos-686437:7917933",
+      "category": "retained-required",
+      "source": {
+        "kind": "gradle-cache",
+        "path": "curse.maven/born-in-chaos-686437/7917933/4d616e1ccef4c55e14b04ca63228d826f4fdda5e/born-in-chaos-686437-7917933.jar"
+      },
+      "sha256": "9f242f4f3330f3d0d985f5f3ce9a92fe09016ff9c6162252f201d17009b28d7d",
+      "bytes": 11839865,
+      "mods": [
+        {
+          "modId": "born_in_chaos_v1",
+          "version": "1.7.5",
+          "embedded": false
+        }
+      ]
+    },
+    {
+      "filename": "worldedit-225608-4586218.jar",
+      "coordinate": "curse.maven:worldedit-225608:4586218",
+      "category": "retained-runtime",
+      "source": {
+        "kind": "gradle-cache",
+        "path": "curse.maven/worldedit-225608/4586218/9c52765ca56f917ef8cbafc20e9a4f45c346508f/worldedit-225608-4586218.jar"
+      },
+      "sha256": "17db6b3e94f52d25426684663e1e1846823cbb7907f1c365ac329e5bc7bfaf2c",
+      "bytes": 5825402,
+      "mods": [
+        {
+          "modId": "worldedit",
+          "version": "7.2.15+6463-5ca4dff",
+          "embedded": false
+        }
+      ]
+    },
+    {
+      "filename": "snow-under-trees-353942-5801187.jar",
+      "coordinate": "curse.maven:snow-under-trees-353942:5801187",
+      "category": "retained-runtime",
+      "source": {
+        "kind": "gradle-cache",
+        "path": "curse.maven/snow-under-trees-353942/5801187/c66671ef17ffaa47b4e8aa2db22708b8db311e0/snow-under-trees-353942-5801187.jar"
+      },
+      "sha256": "e39209835cb25e4d3e7598f26acb17922a7176cd166183667c4848c470a67185",
+      "bytes": 27239,
+      "mods": [
+        {
+          "modId": "snowundertrees",
+          "version": "1.4.5",
+          "embedded": false
+        }
+      ]
+    },
+    {
+      "filename": "huge-structure-blocks-474114-4803547.jar",
+      "coordinate": "curse.maven:huge-structure-blocks-474114:4803547",
+      "category": "retained-runtime",
+      "source": {
+        "kind": "gradle-cache",
+        "path": "curse.maven/huge-structure-blocks-474114/4803547/8dc220c1fb37bcbc8910faa595862aa449e3a397/huge-structure-blocks-474114-4803547.jar"
+      },
+      "sha256": "848ba9449efd560abde9484693643f316dcce1e900a5fff98e528f7574d58387",
+      "bytes": 97616,
+      "mods": [
+        {
+          "modId": "hugestructureblocks",
+          "version": "1.0.9",
+          "embedded": false
+        }
+      ]
+    },
+    {
+      "filename": "mixinextras-forge-0.5.0.jar",
+      "coordinate": "io.github.llamalad7:mixinextras-forge:0.5.0",
+      "category": "embedded-in-release",
+      "source": {
+        "kind": "gradle-cache",
+        "path": "io.github.llamalad7/mixinextras-forge/0.5.0/cebe4d98a42a4a32ebf0ddec7b93d5bdbdad009/mixinextras-forge-0.5.0.jar"
+      },
+      "sha256": "12eed47509e3733a59135a52edd8a90807332248d292b7f1668afd42407ca01d",
+      "bytes": 630114,
+      "mods": []
+    },
+    {
+      "filename": "mynethersdelight-1.20.1-1.10.4-backport.1.jar",
+      "coordinate": "local.pack:mynethersdelight:1.20.1-1.10.4-backport.1",
+      "category": "requested-dimension",
+      "source": {
+        "kind": "project",
+        "path": "libs/pack/mynethersdelight-1.20.1-1.10.4-backport.1.jar"
+      },
+      "sha256": "489bd70663a71f6c54c16de6d48a8e8778969bba40108a2b9b981c3c47138db2",
+      "bytes": 903317,
+      "mods": [
+        {
+          "modId": "mynethersdelight",
+          "version": "1.20.1-1.10.4-backport.1",
+          "embedded": false
+        }
+      ]
+    },
+    {
+      "filename": "immersive-portals-3.0.7.jar",
+      "coordinate": "local.pack:immersive-portals:3.0.7",
+      "category": "requested-pack",
+      "source": {
+        "kind": "project",
+        "path": "libs/pack/immersive-portals-3.0.7.jar"
+      },
+      "sha256": "deb233d1e530e5e208ba6f3529a3b90ad071a06a2dc8d7ea60f14b0d67912efc",
+      "bytes": 2137648,
+      "mods": [
+        {
+          "modId": "immersive_portals",
+          "version": "3.0.7",
+          "embedded": false
+        },
+        {
+          "modId": "imm_ptl_core",
+          "version": "3.0.7",
+          "embedded": false
+        },
+        {
+          "modId": "q_misc_util",
+          "version": "3.0.7",
+          "embedded": false
+        },
+        {
+          "modId": "mixinextras",
+          "version": "0.4.1",
+          "embedded": true
+        }
+      ]
+    },
+    {
+      "filename": "cloth-config-11.1.136+forge.jar",
+      "coordinate": "local.pack:cloth-config:11.1.136+forge",
+      "category": "requested-pack",
+      "source": {
+        "kind": "project",
+        "path": "libs/pack/cloth-config-11.1.136+forge.jar"
+      },
+      "sha256": "1e895e85cf5b1e1905ef3178ec155c8badfe22a1577b92c09143a5aa1f4ce0f2",
+      "bytes": 1181413,
+      "mods": [
+        {
+          "modId": "cloth_config",
+          "version": "11.1.136",
+          "embedded": false
+        }
+      ]
+    }
+  ]
+}

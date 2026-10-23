@@ -16,6 +16,7 @@ public class ModFeatures {
     public static final DeferredRegister<Feature<?>> FEATURES=DeferredRegister.create(ForgeRegistries.FEATURES, AOEMod.MOD_ID);
 
     static {
+        FEATURES.register("lava_border_sulfur", LavaBorderSulfurFeature::new);
         FEATURES.register("special_biome_tree", ()->new AOETree(AOETreeConfiguration.CODEC));
         FEATURES.register("seagrass",()->new SeagrassFeature(ProbabilityFeatureConfiguration.CODEC));
         FEATURES.register("kelp",()->new KelpFeature(KelpFeatureConfig.CODEC));

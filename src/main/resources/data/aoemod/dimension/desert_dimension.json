@@ -1,0 +1,15 @@
+{
+  "type": "aoemod:desert_dimension",
+  "generator": {
+    "type": "minecraft:noise",
+    "settings": "aoemod:desert_dimension",
+    "biome_source": {
+      "type": "aoemod:dimension_regions",
+      "dimension": "desert",
+      "biomes": [
+        "aoemod:desert",
+        "aoemod:deep_dark"
+      ]
+    }
+  }
+}

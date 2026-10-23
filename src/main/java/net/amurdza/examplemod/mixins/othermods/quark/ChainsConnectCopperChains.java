@@ -27,7 +27,7 @@ public class ChainsConnectCopperChains {
 
     @Inject(method = "<clinit>", at = @At("TAIL"))
     private static void aoemod$allowCopperChains(CallbackInfo ci) {
-        PREDICATE = ChainsConnectCopperChains::aoemod$isSupportedChain;
+        PREDICATE = PREDICATE.or(ChainsConnectCopperChains::aoemod$isSupportedChain);
     }
 
     @Unique
@@ -36,6 +36,8 @@ public class ChainsConnectCopperChains {
             return true;
         }
 
-        return AOEMOD_COPPER_CHAIN.equals(ForgeRegistries.BLOCKS.getKey(state.getBlock()));
+        ResourceLocation id = ForgeRegistries.BLOCKS.getKey(state.getBlock());
+        return AOEMOD_COPPER_CHAIN.equals(id) || id != null && id.getNamespace().equals("minecraft")
+                && (id.getPath().equals("copper_chain") || id.getPath().endsWith("_copper_chain"));
     }
 }

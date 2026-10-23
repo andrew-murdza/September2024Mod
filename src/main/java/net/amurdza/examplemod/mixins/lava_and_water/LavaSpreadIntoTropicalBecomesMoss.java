@@ -1,6 +1,6 @@
 package net.amurdza.examplemod.mixins.lava_and_water;
 
-import net.amurdza.examplemod.util.ModTags;
+import net.amurdza.examplemod.util.GameplayDimensions;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.world.level.LevelAccessor;
@@ -23,8 +23,13 @@ public abstract class LavaSpreadIntoTropicalBecomesMoss {
     private void aoe$spreadToTropicalFizzToMoss(LevelAccessor level, BlockPos pos, BlockState state,
                                                 Direction dir, FluidState fluidState,
                                                 CallbackInfo ci) {
-        // Only when the *spread target position* is in tropical biomes
-        if (level.getBiome(pos).is(ModTags.Biomes.tropicalBiomes)) {
+        if (GameplayDimensions.isCustom(level) && !GameplayDimensions.is(level, GameplayDimensions.TROPICAL)
+                && !GameplayDimensions.is(level, GameplayDimensions.DESERT) && !GameplayDimensions.is(level, GameplayDimensions.NETHER) && !GameplayDimensions.is(level, GameplayDimensions.SNOWY)) {
+            ci.cancel();
+            return;
+        }
+        // Tropical lava converts to moss; the other non-lava dimensions reject spread.
+        if (GameplayDimensions.is(level, GameplayDimensions.TROPICAL)) {
 
             // Place moss instead of the lava that would have been placed here
             level.setBlock(pos, Blocks.MOSS_BLOCK.defaultBlockState(), 3);

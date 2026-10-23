@@ -1,0 +1,264 @@
+{
+  "schema_version": 1,
+  "evaluated_release_sha256": "6277050e0feb563c968f87b97f20f8f151807bc84f076c8557d90925df95d673",
+  "mode": "read-only original-jar and installed Forge source analysis",
+  "source_edits": false,
+  "findings": [
+    {
+      "component": "Floral Flair 2.2.2",
+      "diagnostic": "Parameters [minecraft:explosion_radius / minecraft:block_state] are not provided in this context",
+      "classification": "Incorrect loot-context metadata; no runtime drop failure demonstrated",
+      "affected_count": 45,
+      "resources": [
+        {
+          "resource": "data/floral_flair/loot_tables/blocks/black_hyacinth.json",
+          "declared_type": "minecraft:empty"
+        },
+        {
+          "resource": "data/floral_flair/loot_tables/blocks/blue_hyacinth.json",
+          "declared_type": "minecraft:empty"
+        },
+        {
+          "resource": "data/floral_flair/loot_tables/blocks/chocolate_cosmos.json",
+          "declared_type": "minecraft:empty"
+        },
+        {
+          "resource": "data/floral_flair/loot_tables/blocks/dawn_orchid.json",
+          "declared_type": "minecraft:empty"
+        },
+        {
+          "resource": "data/floral_flair/loot_tables/blocks/fairy_blossom.json",
+          "declared_type": "minecraft:empty"
+        },
+        {
+          "resource": "data/floral_flair/loot_tables/blocks/foxnip.json",
+          "declared_type": "minecraft:empty"
+        },
+        {
+          "resource": "data/floral_flair/loot_tables/blocks/frosted_foxnip.json",
+          "declared_type": "minecraft:empty"
+        },
+        {
+          "resource": "data/floral_flair/loot_tables/blocks/gem_of_the_jungle.json",
+          "declared_type": "minecraft:empty"
+        },
+        {
+          "resource": "data/floral_flair/loot_tables/blocks/lunula.json",
+          "declared_type": "minecraft:empty"
+        },
+        {
+          "resource": "data/floral_flair/loot_tables/blocks/morning_orchid.json",
+          "declared_type": "minecraft:empty"
+        },
+        {
+          "resource": "data/floral_flair/loot_tables/blocks/muscari.json",
+          "declared_type": "minecraft:empty"
+        },
+        {
+          "resource": "data/floral_flair/loot_tables/blocks/orange_cosmos.json",
+          "declared_type": "minecraft:empty"
+        },
+        {
+          "resource": "data/floral_flair/loot_tables/blocks/pink_cosmos.json",
+          "declared_type": "minecraft:empty"
+        },
+        {
+          "resource": "data/floral_flair/loot_tables/blocks/pink_hyacinth.json",
+          "declared_type": "minecraft:empty"
+        },
+        {
+          "resource": "data/floral_flair/loot_tables/blocks/potted_black_hyacinth.json",
+          "declared_type": "minecraft:empty"
+        },
+        {
+          "resource": "data/floral_flair/loot_tables/blocks/potted_blue_hyacinth.json",
+          "declared_type": "minecraft:empty"
+        },
+        {
+          "resource": "data/floral_flair/loot_tables/blocks/potted_chocolate_cosmos.json",
+          "declared_type": "minecraft:empty"
+        },
+        {
+          "resource": "data/floral_flair/loot_tables/blocks/potted_dawn_orchid.json",
+          "declared_type": "minecraft:empty"
+        },
+        {
+          "resource": "data/floral_flair/loot_tables/blocks/potted_foxnip.json",
+          "declared_type": "minecraft:empty"
+        },
+        {
+          "resource": "data/floral_flair/loot_tables/blocks/potted_frosted_foxnip.json",
+          "declared_type": "minecraft:empty"
+        },
+        {
+          "resource": "data/floral_flair/loot_tables/blocks/potted_gem_of_the_jungle.json",
+          "declared_type": "minecraft:empty"
+        },
+        {
+          "resource": "data/floral_flair/loot_tables/blocks/potted_lunula.json",
+          "declared_type": "minecraft:empty"
+        },
+        {
+          "resource": "data/floral_flair/loot_tables/blocks/potted_morning_orchid.json",
+          "declared_type": "minecraft:empty"
+        },
+        {
+          "resource": "data/floral_flair/loot_tables/blocks/potted_muscari.json",
+          "declared_type": "minecraft:empty"
+        },
+        {
+          "resource": "data/floral_flair/loot_tables/blocks/potted_orange_cosmos.json",
+          "declared_type": "minecraft:empty"
+        },
+        {
+          "resource": "data/floral_flair/loot_tables/blocks/potted_pink_cosmos.json",
+          "declared_type": "minecraft:empty"
+        },
+        {
+          "resource": "data/floral_flair/loot_tables/blocks/potted_pink_hyacinth.json",
+          "declared_type": "minecraft:empty"
+        },
+        {
+          "resource": "data/floral_flair/loot_tables/blocks/potted_pulse_petal.json",
+          "declared_type": "minecraft:empty"
+        },
+        {
+          "resource": "data/floral_flair/loot_tables/blocks/potted_rose.json",
+          "declared_type": "minecraft:empty"
+        },
+        {
+          "resource": "data/floral_flair/loot_tables/blocks/potted_scilla.json",
+          "declared_type": "minecraft:empty"
+        },
+        {
+          "resource": "data/floral_flair/loot_tables/blocks/potted_stonette.json",
+          "declared_type": "minecraft:empty"
+        },
+        {
+          "resource": "data/floral_flair/loot_tables/blocks/potted_sunset_orchid.json",
+          "declared_type": "minecraft:empty"
+        },
+        {
+          "resource": "data/floral_flair/loot_tables/blocks/potted_twilight_orchid.json",
+          "declared_type": "minecraft:empty"
+        },
+        {
+          "resource": "data/floral_flair/loot_tables/blocks/potted_white_cosmos.json",
+          "declared_type": "minecraft:empty"
+        },
+        {
+          "resource": "data/floral_flair/loot_tables/blocks/potted_yellow_hyacinth.json",
+          "declared_type": "minecraft:empty"
+        },
+        {
+          "resource": "data/floral_flair/loot_tables/blocks/pulse_petal.json",
+          "declared_type": "minecraft:empty"
+        },
+        {
+          "resource": "data/floral_flair/loot_tables/blocks/purpureum.json",
+          "declared_type": "minecraft:empty"
+        },
+        {
+          "resource": "data/floral_flair/loot_tables/blocks/rose.json",
+          "declared_type": "minecraft:empty"
+        },
+        {
+          "resource": "data/floral_flair/loot_tables/blocks/scilla.json",
+          "declared_type": "minecraft:empty"
+        },
+        {
+          "resource": "data/floral_flair/loot_tables/blocks/stonette.json",
+          "declared_type": "minecraft:empty"
+        },
+        {
+          "resource": "data/floral_flair/loot_tables/blocks/sunset_orchid.json",
+          "declared_type": "minecraft:empty"
+        },
+        {
+          "resource": "data/floral_flair/loot_tables/blocks/thorn_blossom.json",
+          "declared_type": "minecraft:empty"
+        },
+        {
+          "resource": "data/floral_flair/loot_tables/blocks/twilight_orchid.json",
+          "declared_type": "minecraft:empty"
+        },
+        {
+          "resource": "data/floral_flair/loot_tables/blocks/white_cosmos.json",
+          "declared_type": "minecraft:empty"
+        },
+        {
+          "resource": "data/floral_flair/loot_tables/blocks/yellow_hyacinth.json",
+          "declared_type": "minecraft:empty"
+        }
+      ],
+      "cause": "All 45 block loot tables declare minecraft:empty, although their conditions refer to block-state and explosion parameters.",
+      "runtime_effect": "Vanilla BlockBehaviour.getDrops builds LootParams using LootContextParamSets.BLOCK before invoking LootTable.getRandomItems. LootTable preserves the supplied parameters rather than rebuilding from its declared paramSet, so ordinary block drops still have the expected context.",
+      "evidence": [
+        "Original floral_flair-1.20.1-2.2.2.jar JSON resources listed above",
+        "Forge 47.4.22 mapped source: net.minecraft.world.level.block.state.BlockBehaviour#getDrops",
+        "Forge 47.4.22 mapped source: net.minecraft.world.level.storage.loot.LootTable#getRandomItems and LootContext.Builder#create"
+      ],
+      "possible_repair": "Change only each table's type to minecraft:block. This is exact metadata repair, but not applied during source freeze."
+    },
+    {
+      "component": "Pineapple Delight 1.2.0",
+      "diagnostic": "Unreachable entry!",
+      "resource": "data/pineapple_delight/loot_tables/blocks/pineapple_wild_crop.json",
+      "classification": "Redundant identical alternative, no distinct drop lost",
+      "identical_children_confirmed": true,
+      "selected_drop": {
+        "type": "minecraft:item",
+        "functions": [
+          {
+            "function": "minecraft:apply_bonus",
+            "enchantment": "minecraft:fortune",
+            "formula": "minecraft:uniform_bonus_count",
+            "parameters": {
+              "bonusMultiplier": 2
+            }
+          },
+          {
+            "function": "minecraft:explosion_decay"
+          }
+        ],
+        "name": "pineapple_delight:pineapple_crop"
+      },
+      "runtime_effect": "AlternativesEntry chooses its first successful child. Both children are the same unconditional pineapple_crop drop with identical fortune and explosion functions. Removing the duplicate would preserve behavior; retaining it does not suppress a distinct drop.",
+      "evidence": [
+        "Original pineapple_delight-1.2.0-1.20.1-forge.jar",
+        "Forge 47.4.22 mapped source: net.minecraft.world.level.storage.loot.entries.AlternativesEntry#compose and #validate"
+      ]
+    },
+    {
+      "component": "Hearth & Harvest 1.4.1",
+      "diagnostic": "Not all defined tags for minecraft:worldgen/biome are present: forge:is_temperate/overworld",
+      "resource": "data/hearthandharvest/forge/biome_modifier/wild_peanuts.json",
+      "original_modifier": {
+        "type": "farmersdelight:add_features_by_filter",
+        "allowed_biomes": "#forge:is_temperate/overworld",
+        "denied_biomes": [
+          "minecraft:lush_caves",
+          "minecraft:mushroom_fields"
+        ],
+        "features": "hearthandharvest:patch_wild_peanuts",
+        "step": "vegetal_decoration"
+      },
+      "classification": "Functional upstream wild-peanut generation omission",
+      "runtime_effect": "The only located consumer is this biome modifier. Farmer's Delight AddFeaturesByFilterBiomeModifier first requires allowedBiomes.contains(biome); the missing empty tag selects no biomes, so hearthandharvest:patch_wild_peanuts is not added through this modifier.",
+      "canonical_replacement_verified": false,
+      "evidence": [
+        "All 70 staged outer jars searched for is_temperate in JSON/class content: only this JSON matched.",
+        "javap -c -p vectorwing.farmersdelight.common.world.modifier.AddFeaturesByFilterBiomeModifier from supplied Farmer's Delight 1.3.4: allowedBiomes.contains is tested at offsets7-17 before adding features.",
+        "AoE dimension_sources/desert.json maps vintagedelight:peanut_crop and vintagedelight:wild_peanuts, not this separate Hearth & Harvest crop."
+      ],
+      "unverified_inference": "Neighboring Hearth & Harvest blueberry/raspberry modifiers use minecraft:is_overworld with min_temperature0.4 and max_temperature0.9. Applying those thresholds to peanuts would be an inferred design choice, not an exact recovered reference.",
+      "next_step": "Parent decides placement-policy-compatible repair before any edit; do not substitute all Overworld biomes or invent a global canonical tag silently."
+    }
+  ],
+  "follow_up": {
+    "source_repairs_applied": true,
+    "report": "build/reports/reload-resource-repairs.json",
+    "runtime_validation": "pending final rebuilt candidate",
+    "definition": "Temperate compatibility filter explicitly chosen as Overworld excluding existing hot and cold Overworld tags."
+  }
+}

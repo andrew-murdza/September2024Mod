@@ -1,0 +1,45 @@
+{
+  "advancements": [
+    {
+      "advancement": {
+        "parent": "minecraft:recipes/root",
+        "criteria": {
+          "has_cooked_prawn": {
+            "conditions": {
+              "items": [
+                {
+                  "tag": "forge:cooked_crab_meat"
+                }
+              ]
+            },
+            "trigger": "minecraft:inventory_changed"
+          },
+          "has_the_recipe": {
+            "conditions": {
+              "recipe": "collectorsreap:food/crab_noodles"
+            },
+            "trigger": "minecraft:recipe_unlocked"
+          }
+        },
+        "requirements": [
+          [
+            "has_cooked_prawn",
+            "has_the_recipe"
+          ]
+        ],
+        "rewards": {
+          "recipes": [
+            "collectorsreap:food/crab_noodles"
+          ]
+        },
+        "sends_telemetry_event": true
+      },
+      "conditions": [
+        {
+          "type": "collectorsreap:enabled",
+          "value": "crab_noodles"
+        }
+      ]
+    }
+  ]
+}

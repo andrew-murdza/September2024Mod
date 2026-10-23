@@ -1,8 +1,6 @@
 package net.amurdza.examplemod.registry;
 
 import net.amurdza.examplemod.AOEMod;
-import net.minecraft.client.Camera;
-import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.DimensionSpecialEffects;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.phys.Vec3;
@@ -16,32 +14,23 @@ import org.jetbrains.annotations.NotNull;
 @OnlyIn(Dist.CLIENT)
 @Mod.EventBusSubscriber(
         modid = AOEMod.MOD_ID,
-        value = {Dist.CLIENT}
+        value = Dist.CLIENT,
+        bus = Mod.EventBusSubscriber.Bus.MOD
 )
 public class ModDimensionEffects extends DimensionSpecialEffects {
 
-    public ModDimensionEffects() {
-        super(256.0F, true, SkyType.NORMAL, false, false);
-    }
+    public static final ResourceLocation OVERWORLD_REGIONS = new ResourceLocation(AOEMod.MOD_ID, "overworld_regions");
+    public static final ResourceLocation NETHER_REGIONS = new ResourceLocation(AOEMod.MOD_ID, "nether_regions");
+    private final boolean nether;
 
-    private static boolean isNetherLayer() {
-        Camera camera = Minecraft.getInstance().gameRenderer.getMainCamera();
-        return camera.getPosition().y < 1.0D;
-    }
-
-    @Override
-    public @NotNull SkyType skyType() {
-        return isNetherLayer() ? SkyType.NONE : SkyType.NORMAL;
-    }
-
-    @Override
-    public boolean constantAmbientLight() {
-        return true;
+    public ModDimensionEffects(boolean nether) {
+        super(nether ? Float.NaN : 256.0F, !nether, nether ? SkyType.NONE : SkyType.NORMAL, nether, false);
+        this.nether = nether;
     }
 
     @Override
     public @NotNull Vec3 getBrightnessDependentFogColor(@NotNull Vec3 fogColor, float brightness) {
-        if (isNetherLayer()) {
+        if (nether) {
             return fogColor;
         }
 
@@ -54,11 +43,12 @@ public class ModDimensionEffects extends DimensionSpecialEffects {
 
     @Override
     public boolean isFoggyAt(int x, int y) {
-        return y<1;
+        return nether;
     }
 
     @SubscribeEvent
-    public static void hi(RegisterDimensionSpecialEffectsEvent event){
-        event.register(new ResourceLocation("minecraft","overworld"),new ModDimensionEffects());
+    public static void registerEffects(RegisterDimensionSpecialEffectsEvent event) {
+        event.register(OVERWORLD_REGIONS, new ModDimensionEffects(false));
+        event.register(NETHER_REGIONS, new ModDimensionEffects(true));
     }
 }

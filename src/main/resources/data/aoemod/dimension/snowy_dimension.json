@@ -1,0 +1,15 @@
+{
+  "type": "aoemod:snowy_dimension",
+  "generator": {
+    "type": "minecraft:noise",
+    "settings": "aoemod:snowy_dimension",
+    "biome_source": {
+      "type": "aoemod:dimension_regions",
+      "dimension": "snowy",
+      "biomes": [
+        "aoemod:snowy_forest",
+        "aoemod:mushroom_caves"
+      ]
+    }
+  }
+}

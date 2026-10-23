@@ -1,0 +1,27 @@
+{
+  "replace": false,
+  "values": [
+    "aoemod:raw_mahi_mahi",
+    "aoemod:raw_anomalocaris",
+    "aoemod:raw_octopus",
+    "aoemod:raw_rubber_belly_glider",
+    "aoemod:raw_flying_fish",
+    "aoemod:raw_arrow_squid",
+    "aoemod:raw_vampire_squid",
+    "aoemod:raw_anglerfish",
+    "aoemod:raw_spider_crab_leg",
+    "aoemod:raw_isopod",
+    "aoemod:raw_triops",
+    "aoemod:raw_blue_spotted_stingray",
+    "aoemod:raw_hound_shark",
+    "aoemod:raw_shame_faced_crab",
+    "hybrid_aquatic:trout",
+    "hybrid_aquatic:carp",
+    "finsandtails:swamp_mucker",
+    "hybrid_aquatic:needlefish",
+    "hybrid_aquatic:tuna",
+    "hybrid_aquatic:dragonfish",
+    "collectorsreap:tiger_prawn",
+    "aoemod:sulfur_end_fish"
+  ]
+}

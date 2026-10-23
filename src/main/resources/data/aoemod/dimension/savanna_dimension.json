@@ -1,0 +1,14 @@
+{
+  "type": "aoemod:savanna_dimension",
+  "generator": {
+    "type": "minecraft:noise",
+    "settings": "aoemod:savanna_dimension",
+    "biome_source": {
+      "type": "aoemod:dimension_regions",
+      "dimension": "savanna",
+      "biomes": [
+        "aoemod:savanna"
+      ]
+    }
+  }
+}

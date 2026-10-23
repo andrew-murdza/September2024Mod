@@ -1,6 +1,6 @@
 {
   "carvers": {},
-  "downfall": 0.8,
+  "downfall": 0.7,
   "effects": {
     "fog_color": 12638463,
     "mood_sound": {
@@ -11,7 +11,9 @@
     },
     "sky_color": 7254527,
     "water_color": 4159204,
-    "water_fog_color": 329011
+    "water_fog_color": 329011,
+    "grass_color": 7972930,
+    "foliage_color": 6791997
   },
   "features": [
     [],
@@ -31,9 +33,7 @@
       "aoemod:savanna/seafloor",
       "aoemod:plains/seafloor"
     ],
-    [
-      "minecraft:freeze_top_layer"
-    ]
+    []
   ],
   "has_precipitation": true,
   "spawn_costs": {},
@@ -143,6 +143,12 @@
         "weight": 10,
         "minCount": 2,
         "maxCount": 5
+      },
+      {
+        "type": "minecraft:armadillo",
+        "weight": 10,
+        "minCount": 2,
+        "maxCount": 3
       }
     ],
     "misc": [],
@@ -164,6 +170,12 @@
         "maxCount": 4,
         "minCount": 4,
         "weight": 100
+      },
+      {
+        "type": "minecraft:zombie_horse",
+        "weight": 5,
+        "minCount": 1,
+        "maxCount": 1
       }
     ],
     "underground_water_creature": [
@@ -221,5 +233,5 @@
       }
     ]
   },
-  "temperature": 0.8
+  "temperature": 0.9
 }

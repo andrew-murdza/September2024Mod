@@ -34,10 +34,10 @@ public class BerryDrops {
             int age=state.getValue(BlockStateProperties.AGE_3);
             Float value = null;
             if(age==2&&!event.getItemStack().is(Items.BONE_MEAL)){
-                value = Helper.getBiomeValue(level, pos, BlockBehaviorConfig.BIOME_TO_SWEET_BERRIES_PARTIALLY_GROWN_AMOUNTS);
+                value = BlockBehaviorConfig.DIMENSION_TO_SWEET_BERRIES_PARTIALLY_GROWN_AMOUNTS.get(level.dimension());
             }
             if(age==3){
-                value = Helper.getBiomeValue(level, pos, BlockBehaviorConfig.BIOME_TO_MATURE_SWEET_BERRY_AMOUNTS);
+                value = BlockBehaviorConfig.DIMENSION_TO_MATURE_SWEET_BERRY_AMOUNTS.get(level.dimension());
             }
             float count = value != null ? value : 0;
             int amount = Helper.computeIncrements(level.random,count);

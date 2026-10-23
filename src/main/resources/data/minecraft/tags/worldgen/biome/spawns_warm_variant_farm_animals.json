@@ -1,0 +1,11 @@
+{
+  "replace": false,
+  "values": [
+    "aoemod:savanna",
+    "aoemod:desert",
+    "aoemod:mesa",
+    "aoemod:rainforest",
+    "aoemod:mangrove_swamp",
+    "aoemod:coral_reef"
+  ]
+}

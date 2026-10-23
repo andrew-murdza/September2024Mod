@@ -2,13 +2,15 @@
   "type": "minecraft:crafting_shaped",
   "category": "equipment",
   "key": {
-    "#": "minecraft:bone"
+    "#": {
+      "item": "minecraft:bone"
+    }
   },
   "pattern": [
     " #",
     "# "
   ],
   "result": {
-    "id": "minecraft:shears"
+    "item": "aoemod:bone_shears"
   }
 }

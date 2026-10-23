@@ -1,0 +1,9 @@
+{
+  "sources": [
+    {
+      "type": "minecraft:single",
+      "resource": "farmersdelight:block/tray",
+      "sprite": "farmersdelight:block/tray_top"
+    }
+  ]
+}

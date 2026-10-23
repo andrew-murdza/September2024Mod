@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:campfire_cooking",
+  "ingredient": {
+    "item": "aoemod:raw_arrow_squid"
+  },
+  "result": "aoemod:cooked_arrow_squid",
+  "experience": 0.35,
+  "cookingtime": 600
+}

@@ -1,0 +1,36 @@
+plugins {
+    id 'java'
+    id 'net.minecraftforge.gradle' version '[6.0,6.2)'
+    id 'org.spongepowered.mixin' version '0.7.+'
+}
+
+group = 'net.amurdza.qa'
+version = '1.0.0'
+base.archivesName = 'stacked-village-benchmark'
+java.toolchain.languageVersion = JavaLanguageVersion.of(17)
+
+minecraft {
+    mappings channel: 'official', version: '1.20.1'
+}
+
+def vrProject = file(providers.gradleProperty('vrProject').getOrElse('../../../../VillagerRealmsMod'))
+dependencies {
+    minecraft 'net.minecraftforge:forge:1.20.1-47.4.22'
+    // Compile against the locally built public API; the isolated server loads the real release jar.
+    compileOnly files(new File(vrProject, 'build/classes/java/main'))
+    annotationProcessor 'org.spongepowered:mixin:0.8.5:processor'
+}
+
+mixin {
+    add sourceSets.main, 'stackbench.refmap.json'
+    config 'stackbench.mixins.json'
+}
+
+tasks.withType(JavaCompile).configureEach {
+    options.encoding = 'UTF-8'
+}
+
+jar {
+    manifest.attributes('MixinConfigs': 'stackbench.mixins.json')
+    finalizedBy 'reobfJar'
+}

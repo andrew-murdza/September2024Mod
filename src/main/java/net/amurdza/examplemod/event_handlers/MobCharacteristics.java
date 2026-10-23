@@ -24,15 +24,13 @@ import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import org.violetmoon.quark.content.mobs.entity.Crab;
 
-import java.lang.reflect.Field;
-import java.lang.reflect.InvocationTargetException;
-import java.lang.reflect.Method;
+import net.amurdza.examplemod.mixins.accessor.LlamaStrengthInvoker;
 @Mod.EventBusSubscriber(modid = AOEMod.MOD_ID, bus=Mod.EventBusSubscriber.Bus.FORGE)
 public class MobCharacteristics {
     private static final String PARENT_VARIANT_TAG = "aoe.parentVariant";
 
     @SubscribeEvent
-    public static void CharacteristicChangesEventHandler(EntityJoinLevelEvent event) throws NoSuchMethodException, InvocationTargetException, IllegalAccessException, NoSuchFieldException {
+    public static void CharacteristicChangesEventHandler(EntityJoinLevelEvent event) {
         Entity entity=event.getEntity();
         Level level=event.getLevel();
 
@@ -50,9 +48,7 @@ public class MobCharacteristics {
                 ((Frog) mob).setVariant(Helper.select(level,FrogVariant.COLD,FrogVariant.TEMPERATE,FrogVariant.WARM));
             }
             else if(mob instanceof Llama){
-                Method setStrength=Llama.class.getDeclaredMethod("setStrength",int.class);
-                setStrength.setAccessible(true);
-                setStrength.invoke(mob,5);
+                ((LlamaStrengthInvoker) mob).aoe$setStrength(5);
                 Integer hp = Helper.getBiomeValue(mob.level(),mob.blockPosition(),MobStatsConfig.BIOME_TO_LLAMA_HEALTH);
                 if(hp!= null){
                     mob.getAttribute(Attributes.MAX_HEALTH).setBaseValue(hp);

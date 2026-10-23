@@ -1,0 +1,37 @@
+September 2024 / AOE Mod update
+Minecraft 1.20.1, Forge 47.4.22, Java 17
+
+Implemented behavior
+- Angling Forge 1.0.1-forge.1 is a required client/server dependency. The 47 supplied mod jars plus Angling are pinned in dependency-lock.json; production-dependencies.json also records retained dependencies and embedded libraries.
+- Crouch and right-click a rectangular planks frame with a stick to choose a destination. Mixed burnable/non-burnable planks work; the opening is 2-21 blocks wide and 3-21 high, with optional corners.
+- Overworld reaches the five AOE overworld dimensions. Those dimensions can reach each other and the Overworld. Desert additionally reaches AOE Nether; AOE Nether returns only to Desert.
+- Tropical green, Savanna amber, Plains stone grey, Snowy white, Desert yellow, Nether red, Overworld blue. Portal animation is derived at runtime from the installed vanilla Nether portal texture.
+- Selection is validated by the server. Frame destruction collapses the portal. Linked return portals persist. Arrival construction avoids existing terrain/builds/containers/fluids and rolls back failed writes.
+- The six dimension documents take priority over conflicting older placement annotations, as requested. Unique AoE/BetterEnd snowy/desert Endfish and aquatic/lava jellyfish variants remain; the lava variant is named Lava Jellyfish.
+
+Placement source documents
+Tropical: https://docs.google.com/document/d/15fNiZFE4z0uDmWzB47P0lOE945R9EROQW5uU76qnLvY/edit
+Savanna: https://docs.google.com/document/d/12IZNouXQUlu0wL1ndwp99NZiuVmSNE41qDzFCUZ2Y8U/edit
+Plains: https://docs.google.com/document/d/1sQdSan5AkU126oNWD_XmmMvMuQYlcDxn50YLWJpLOoA/edit
+Snowy: https://docs.google.com/document/d/19vvAZzYl60L_4_B0XzWkINxOO6nM5uR_0KJjIRaZRcc/edit
+Desert: https://docs.google.com/document/d/1DbxIKqmAmXv7cfalvJgyR0NUp8ok9cqOtQ5PaQ4x05A/edit
+Nether: https://docs.google.com/document/d/1QMHsk6-aToT7Zha9k6WtLptjgXUU_o3QDoVsdTSm3QQ/edit
+
+Examples of document precedence: tropical mud; plains/snowy clay; snowy lava; ancient debris only Nether; obsidian/basalt/blackstone/magma/sulfur Desert and Nether; snowy beetroot/mushrooms/glow lichen in mushroom caves; snowy sapling foliage in snowy forest; Nether living trunks restricted to their forest; finished Nether planks across Nether biomes; pale oak finished wood also in Desert; player-planted chorus flowers in Desert deep dark with later growth allowed across Desert biomes. The warped-forest paragraph's repeated crimson-trunk wording is treated as the corresponding warped family.
+
+#CHANGES coverage in NON_WORLDGEN_CHANGES.md
+- Dimension/material placement and recipe reachability, fixed tags and source-document precedence: BiomePlacementRestrictions, DocumentedPlacementRules, DimensionMaterialAvailability and dimension_sources block tags.
+- Sunflower/blueberry direct-placement checks: ItemsPlaceModBlocks.
+- Dimension growth eligibility and absent-zero behavior: BlockConfig / BlockGrowthConfig and shared placement checks.
+- Rich farmland fixed hydration distance and removal of automatic fertilization: updated Farmer's Delight 1.3.4 mixins. Removed obsolete unreachable growth rules; substrate rules use biome above; nylium skips the old water check; fungi spread without spontaneous huge growth; cocoa uses jungle logs; giant spruce can make podzol.
+- Removed custom forced 2x2 tree routing. Vanilla-compatible sapling growth is restored; single-sapling pale oak uses the installed backport's variable 6/2/1 trunk height and vanilla geometry while retaining AoE blocks and soul-soil support. Tropical azalea retains its existing soil so its vanilla rooted-dirt conversion cannot invalidate the complete tree. Trees/fungi validate complete growth before committing and roll back failures at habitat boundaries.
+- Shears tag support, unchanged drops for unconfigured blocks, snowy beetroot seed pool, both campfires harmless, snowy-only lapis golems and unchanged vanilla-dimension golem behavior.
+- Registry-derived BLOCK_AVAILABILITY.md lists all/none and per-dimension block eligibility; RANDOM_TICK_BLOCKS.md lists loaded random-ticking blocks outside the configured growth table, including installed backports.
+
+Additional confirmed fixes
+Food tags no longer classify wolf meat as fish; corrected cooked End Fish ID, duplicate entries, malformed JSON, barrier block/tag confusion, nested sniffer loot entries and five inactive loot tables with unregistered AoE items. Repaired the supplied pack's merged food/vertical-slab tags, loot conditions/item IDs, advancements and disabled malformed recipes without changing its existing namespace recipe policy; see MODPACK_COMPATIBILITY.md.
+Gameplay fixes cover alternate feeding, creative inventory, fertility/offspring, custom polar-bear targeting, returned ghast fireballs, water-depth detection, first-join horseman rider stats, species-specific AI, special boss drops and Looting behavior.
+Installed multiplayer testing exposed Hearth & Harvest's lazy recipe-book type initialization: the client created two types that the dedicated server had not initialized, corrupting recipe-book packet decoding on login. Common setup now initializes the existing upstream types on both sides before player connections. A regression checks the complete type list and INIT/ADD/REMOVE packet alignment, settings, IDs, and highlight lists.
+The reload audit also found Hearth & Harvest's wild peanuts referencing a nonexistent temperate-biome tag, which prevented their patches from being added. The compatibility filter defines temperate as existing Overworld biomes excluding those tagged hot or cold; this is an explicit interpretation of the missing upstream category. The original excluded lush-cave/mushroom biomes, feature, and generation step remain unchanged. Floral Flair's 45 block loot tables now declare the correct block context, and Pineapple Delight's duplicate unreachable crop alternative is removed without changing its drops.
+
+Validation results are recorded separately in validation.json after the final build and runtime checks. Test worlds and clients are isolated under run/; the user's existing AnimalTesting profile is unchanged.

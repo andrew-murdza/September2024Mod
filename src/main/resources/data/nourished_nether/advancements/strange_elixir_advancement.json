@@ -1,0 +1,33 @@
+{
+  "display": {
+    "icon": {
+      "item": "nourished_nether:strange_elixir"
+    },
+    "title": {
+      "translate": "advancements.strange_elixir_advancement.title"
+    },
+    "description": {
+      "translate": "advancements.strange_elixir_advancement.descr"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": true
+  },
+  "criteria": {
+    "strange_elixir_advancement": {
+      "trigger": "minecraft:consume_item",
+      "conditions": {
+        "item": {
+          "items": [
+            "nourished_nether:strange_elixir"
+          ]
+        }
+      }
+    }
+  },
+  "rewards": {
+    "experience": 50
+  },
+  "parent": "nourished_nether:nourished_nether_root"
+}

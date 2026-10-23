@@ -1,0 +1,32 @@
+{
+  "replace": false,
+  "values": [
+    "collectorsreap:budding_pink_dragon_fruits",
+    "collectorsreap:dragon_bush",
+    "collectorsreap:pink_dragon_fruits",
+    "ecologics:prickly_pear",
+    "hybrid_aquatic:bull_kelp",
+    "hybrid_aquatic:bull_kelp_plant",
+    "minecraft:basalt",
+    "minecraft:blackstone",
+    "minecraft:brown_mushroom",
+    "minecraft:cactus",
+    "minecraft:chorus_flower",
+    "minecraft:chorus_plant",
+    "minecraft:cut_sandstone",
+    "minecraft:glow_lichen",
+    "minecraft:lava",
+    "minecraft:lava_cauldron",
+    "minecraft:magma_block",
+    "minecraft:obsidian",
+    "minecraft:potent_sulfur",
+    "minecraft:red_mushroom",
+    "minecraft:sand",
+    "minecraft:sandstone",
+    "minecraft:smooth_basalt",
+    "minecraft:smooth_sandstone",
+    "minecraft:sulfur",
+    "vintagedelight:peanut_crop",
+    "vintagedelight:wild_peanuts"
+  ]
+}

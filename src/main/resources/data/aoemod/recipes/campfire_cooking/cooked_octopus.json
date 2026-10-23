@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:campfire_cooking",
+  "ingredient": {
+    "item": "aoemod:raw_octopus"
+  },
+  "result": "aoemod:cooked_octopus",
+  "experience": 0.35,
+  "cookingtime": 600
+}

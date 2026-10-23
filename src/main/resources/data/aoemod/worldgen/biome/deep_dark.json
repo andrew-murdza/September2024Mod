@@ -24,22 +24,46 @@
     [],
     [],
     [
-      "aoemod:nether_cave_chunk"
+      "minecraft:monster_room",
+      "minecraft:monster_room_deep"
     ],
     [],
     [],
     [
-      "aoemod:deep_dark/ores/coal",
-      "aoemod:deep_dark/ores/copper",
-      "aoemod:deep_dark/ores/gold",
-      "aoemod:deep_dark/ores/redstone"
+      "aoemod:dimension_blobs/desert/andesite",
+      "aoemod:dimension_blobs/desert/diorite",
+      "aoemod:dimension_blobs/desert/granite",
+      "aoemod:dimension_blobs/desert/terracotta",
+      "aoemod:dimension_blobs/desert/cinnabar",
+      "aoemod:dimension_blobs/desert/tuff",
+      "minecraft:disk_sand",
+      "minecraft:disk_gravel",
+      "aoemod:dimension_ores/desert/coal",
+      "aoemod:dimension_ores/desert/coal_upper",
+      "aoemod:dimension_ores/desert/coal_deep",
+      "aoemod:dimension_ores/desert/copper",
+      "aoemod:dimension_ores/desert/copper_deep",
+      "aoemod:dimension_ores/desert/gold_deep",
+      "aoemod:dimension_ores/desert/gold_upper",
+      "aoemod:dimension_ores/desert/redstone",
+      "aoemod:dimension_ores/desert/redstone_deep"
+    ],
+    [
+      "minecraft:sculk_vein",
+      "minecraft:sculk_patch_deep_dark"
     ],
     [],
-    [],
-    [],
     [
-      "minecraft:freeze_top_layer"
-    ]
+      "minecraft:glow_lichen",
+      "minecraft:patch_tall_grass_2",
+      "minecraft:flower_plains",
+      "minecraft:patch_grass_plain",
+      "minecraft:brown_mushroom_normal",
+      "minecraft:red_mushroom_normal",
+      "minecraft:patch_sugar_cane",
+      "minecraft:patch_pumpkin"
+    ],
+    []
   ],
   "has_precipitation": false,
   "spawn_costs": {},
@@ -71,9 +95,7 @@
       }
     ],
     "water_ambient": [],
-    "water_creature": [
-
-    ]
+    "water_creature": []
   },
   "temperature": 2
 }

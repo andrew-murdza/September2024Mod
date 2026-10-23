@@ -1,7 +1,5 @@
 {
-  "carvers": {
-    "air": []
-  },
+  "carvers": {},
   "downfall": 0.5,
   "effects": {
     "fog_color": 12638463,
@@ -23,16 +21,18 @@
     [],
     [],
     [
+      "aoemod:dimension_blobs/plains/andesite",
+      "aoemod:dimension_blobs/plains/diorite",
+      "aoemod:dimension_blobs/plains/granite",
+      "aoemod:dimension_blobs/plains/gravel",
       "aoemod:blobs/clay",
       "aoemod:blobs/gravel",
-      "aoemod:plains/ores/iron_upper",
-      "aoemod:plains/ores/copper_upper",
-      "aoemod:plains/ores/coal_upper",
-      "aoemod:plains/ores/gold_upper",
-      "aoemod:plains/ores/iron_lower",
-      "aoemod:plains/ores/copper_lower",
-      "aoemod:plains/ores/coal_lower",
-      "aoemod:plains/ores/gold_lower"
+      "aoemod:dimension_ores/plains/coal_upper",
+      "aoemod:dimension_ores/plains/coal_lower",
+      "aoemod:dimension_ores/plains/iron_main",
+      "aoemod:dimension_ores/plains/iron_scattered",
+      "aoemod:dimension_ores/plains/copper",
+      "aoemod:dimension_ores/plains/gold"
     ],
     [],
     [],
@@ -44,9 +44,7 @@
       "aoemod:savanna/seafloor",
       "aoemod:plains/seafloor"
     ],
-    [
-      "minecraft:freeze_top_layer"
-    ]
+    []
   ],
   "has_precipitation": true,
   "spawn_costs": {},
@@ -114,6 +112,12 @@
         "maxCount": 5,
         "minCount": 2,
         "weight": 5
+      },
+      {
+        "type": "minecraft:wolf",
+        "weight": 5,
+        "minCount": 2,
+        "maxCount": 4
       }
     ],
     "misc": [],
@@ -135,6 +139,12 @@
         "maxCount": 3,
         "minCount": 3,
         "weight": 20
+      },
+      {
+        "type": "minecraft:zombie_horse",
+        "weight": 5,
+        "minCount": 1,
+        "maxCount": 1
       }
     ],
     "underground_water_creature": [],

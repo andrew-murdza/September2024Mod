@@ -1,0 +1,27 @@
+{
+  "type": "minecraft:scattered_ore",
+  "config": {
+    "size": 3,
+    "discard_chance_on_air_exposure": 1,
+    "targets": [
+      {
+        "target": {
+          "predicate_type": "minecraft:block_match",
+          "block": "minecraft:basalt"
+        },
+        "state": {
+          "Name": "minecraft:ancient_debris"
+        }
+      },
+      {
+        "target": {
+          "predicate_type": "minecraft:block_match",
+          "block": "minecraft:blackstone"
+        },
+        "state": {
+          "Name": "minecraft:ancient_debris"
+        }
+      }
+    ]
+  }
+}

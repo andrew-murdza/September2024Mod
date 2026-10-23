@@ -13,11 +13,13 @@
     ],
     "target": "air",
     "all_layers": false,
-    "max_y": 64,
-    "min_y": 64,
+    "max_y": 319,
+    "min_y": 0,
     "predicate": {
       "type": "minecraft:matching_blocks",
-      "blocks": ["minecraft:grass_block"]
+      "blocks": [
+        "minecraft:grass_block"
+      ]
     },
     "biomes": "aoemod:mountain_biomes"
   }

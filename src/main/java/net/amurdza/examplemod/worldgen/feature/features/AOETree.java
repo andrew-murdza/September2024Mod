@@ -4,6 +4,7 @@ import com.mojang.serialization.Codec;
 import net.amurdza.examplemod.util.QuintConsumer;
 import net.amurdza.examplemod.util.SixConsumer;
 import net.amurdza.examplemod.worldgen.feature.configs.AOETreeConfiguration;
+import net.amurdza.examplemod.worldgen.AtomicTreeGrowth;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.util.RandomSource;
@@ -28,6 +29,10 @@ public class AOETree extends Feature<AOETreeConfiguration> {
     }
     @Override
     public boolean place(FeaturePlaceContext<AOETreeConfiguration> pContext) {
+        return AtomicTreeGrowth.place(pContext, this::placeTree);
+    }
+
+    private boolean placeTree(FeaturePlaceContext<AOETreeConfiguration> pContext) {
         WorldGenLevel level=pContext.level();
         BlockPos pos = pContext.origin();
         RandomSource random = pContext.random();

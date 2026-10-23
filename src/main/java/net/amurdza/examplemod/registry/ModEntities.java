@@ -2,11 +2,13 @@ package net.amurdza.examplemod.registry;
 
 import net.amurdza.examplemod.AOEMod;
 import net.amurdza.examplemod.entity.ArchlichEntity;
+import net.amurdza.examplemod.entity.ArthropleuraEntity;
 import net.amurdza.examplemod.entity.CubozoaEntity;
 import net.amurdza.examplemod.entity.EndFishEntity;
 import net.amurdza.examplemod.entity.IllagerLordEntity;
 import net.amurdza.examplemod.entity.NetherFishEntity;
 import net.amurdza.examplemod.entity.SpiderQueenEntity;
+import net.amurdza.examplemod.entity.SwordfishEntity;
 import net.amurdza.examplemod.entity.future.*;
 import net.amurdza.examplemod.entity.sea_serpent.SeaSerpentEntity;
 import net.amurdza.examplemod.util.ColorUtil;
@@ -57,6 +59,18 @@ public final class ModEntities {
             0.5F,
             EndFishEntity::new
     );
+
+    public static final RegistryObject<EntityType<SwordfishEntity>> SWORDFISH = registerMob(
+            "swordfish", MobCategory.WATER_CREATURE, 1.2F, 0.7F, SwordfishEntity::new);
+
+    public static final RegistryObject<EntityType<ArthropleuraEntity>> ARTHROPLEURA = registerMob(
+            "arthropleura", MobCategory.CREATURE, 1.4F, 0.55F, ArthropleuraEntity::new);
+
+    public static final RegistryObject<ForgeSpawnEggItem> SWORDFISH_SPAWN_EGG =
+            spawnEgg("swordfish", SWORDFISH, 0x294F63, 0xCAD6D6);
+
+    public static final RegistryObject<ForgeSpawnEggItem> ARTHROPLEURA_SPAWN_EGG =
+            spawnEgg("arthropleura", ARTHROPLEURA, 0x743B18, 0xBC8749);
 
     public static final RegistryObject<EntityType<NetherFishEntity>> NETHER_FISH = registerMob(
             "nether_fish",
@@ -283,6 +297,8 @@ public final class ModEntities {
     public static void onEntityAttributes(EntityAttributeCreationEvent event) {
         // Config gating: attribute registration is harmless even if you later disable spawns/eggs.
         event.put(END_FISH.get(), EndFishEntity.createMobAttributes().build());
+        event.put(SWORDFISH.get(), SwordfishEntity.createAttributes().build());
+        event.put(ARTHROPLEURA.get(), ArthropleuraEntity.createAttributes().build());
         event.put(NETHER_FISH.get(), NetherFishEntity.createMobAttributes().build());
         event.put(CUBOZOA.get(), CubozoaEntity.createMobAttributes().build());
         event.put(ModEntities.SEA_SERPENT.get(), SeaSerpentEntity.createAttributes().build());
@@ -302,6 +318,10 @@ public final class ModEntities {
 
     @SubscribeEvent
     public static void onSpawnPlacements(SpawnPlacementRegisterEvent event) {
+        event.register(SWORDFISH.get(), SpawnPlacements.Type.IN_WATER, Heightmap.Types.MOTION_BLOCKING,
+                SwordfishEntity::checkSpawnRules, SpawnPlacementRegisterEvent.Operation.OR);
+        event.register(ARTHROPLEURA.get(), SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
+                ArthropleuraEntity::checkSpawnRules, SpawnPlacementRegisterEvent.Operation.OR);
         // If you want Fabric-like “config disables entity entirely”, the closest Forge pattern is:
         // - always register EntityType
         // - if disabled in config, DON'T register spawn placements / biome spawns / eggs.

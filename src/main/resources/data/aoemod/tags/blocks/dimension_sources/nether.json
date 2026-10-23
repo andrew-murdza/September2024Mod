@@ -1,0 +1,17 @@
+{
+  "replace": false,
+  "values": [
+    "minecraft:ancient_debris",
+    "minecraft:basalt",
+    "minecraft:blackstone",
+    "minecraft:lava",
+    "minecraft:lava_cauldron",
+    "minecraft:magma_block",
+    "minecraft:obsidian",
+    "mynethersdelight:powdery_cane",
+    "mynethersdelight:powdery_cannon",
+    "minecraft:potent_sulfur",
+    "minecraft:smooth_basalt",
+    "minecraft:sulfur"
+  ]
+}

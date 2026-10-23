@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smoking",
+  "ingredient": {
+    "item": "aoemod:raw_shame_faced_crab"
+  },
+  "result": "aoemod:cooked_shame_faced_crab",
+  "experience": 0.35,
+  "cookingtime": 100
+}

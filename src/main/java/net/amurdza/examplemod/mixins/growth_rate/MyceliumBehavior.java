@@ -1,9 +1,6 @@
 package net.amurdza.examplemod.mixins.growth_rate;
 
-import net.amurdza.examplemod.config.BlockBehaviorConfig;
-import net.amurdza.examplemod.util.Helper;
-import net.amurdza.examplemod.util.ModTags;
-import net.amurdza.examplemod.worldgen.MushroomCaveRegion;
+import net.amurdza.examplemod.util.BiomePlacementRestrictions;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.server.level.ServerLevel;
@@ -18,25 +15,16 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.lighting.LightEngine;
 import org.spongepowered.asm.mixin.Mixin;
 
-
 @Mixin(MyceliumBlock.class)
 public abstract class MyceliumBehavior extends MyceliumGrassSpreadRate {
     public MyceliumBehavior(Properties pProperties) {
         super(pProperties);
     }
 
-    @Override
-    public int randomTick1(int constant, BlockState state, ServerLevel world, BlockPos pos, RandomSource random){
-        Integer value = Helper.getBiomeValue(world, pos, BlockBehaviorConfig.BIOME_TO_MYCELIUM_SPREAD_NUM_TRIES);
-        return value != null ? value : 0;
-    }
     private static boolean canBeGrass(BlockState pState, LevelReader pLevelReader, BlockPos pPos) {
         BlockPos blockpos = pPos.above();
         BlockState blockstate = pLevelReader.getBlockState(blockpos);
-        if (!pLevelReader.getBiome(pPos).is(ModTags.Biomes.mountainBiomes)
-                || !MushroomCaveRegion.containsFloor(pPos)) {
-            return false;
-        } else if (blockstate.is(Blocks.SNOW) && blockstate.getValue(SnowLayerBlock.LAYERS) == 1) {
+        if (blockstate.is(Blocks.SNOW) && blockstate.getValue(SnowLayerBlock.LAYERS) == 1) {
             return true;
         } else if (blockstate.getFluidState().getAmount() == 8) {
             return false;
@@ -48,7 +36,9 @@ public abstract class MyceliumBehavior extends MyceliumGrassSpreadRate {
 
     private static boolean canPropagate(BlockState pState, LevelReader pLevel, BlockPos pPos) {
         BlockPos blockpos = pPos.above();
-        return canBeGrass(pState, pLevel, pPos) && !pLevel.getFluidState(blockpos).is(FluidTags.WATER);
+        return canBeGrass(pState, pLevel, pPos)
+                && BiomePlacementRestrictions.isAllowed(pLevel, pPos, pState)
+                && !pLevel.getFluidState(blockpos).is(FluidTags.WATER);
     }
 
     @Override

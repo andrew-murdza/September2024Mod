@@ -32,10 +32,13 @@ public class ZombieHorsemanEntity extends ZombieHorse {
     ) {
         SpawnGroupData result = super.finalizeSpawn(level, difficulty, spawnType, spawnData, tag);
         if (!this.level().isClientSide && !this.isVehicle()) {
-            Zombie rider = EntityType.ZOMBIE.spawn(level.getLevel(), this.blockPosition(), MobSpawnType.MOB_SUMMONED);
+            Zombie rider = EntityType.ZOMBIE.create(level.getLevel());
             if (rider != null) {
                 rider.addTag(RIDER_TAG);
+                rider.moveTo(this.getX(), this.getY(), this.getZ(), this.getYRot(), 0.0F);
+                rider.finalizeSpawn(level, difficulty, MobSpawnType.MOB_SUMMONED, null, null);
                 rider.setItemSlot(EquipmentSlot.MAINHAND, new ItemStack(ModItems.IRON_SPEAR.get()));
+                // The mount's spawn call adds its passengers after finalizeSpawn returns.
                 rider.startRiding(this, true);
             }
         }

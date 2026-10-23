@@ -1,0 +1,1867 @@
+2026-10-20 10:09:49,393 main WARN Advanced terminal features are not available in this environment
+[10:09:49] [main/INFO] [cp.mo.mo.Launcher/MODLAUNCHER]: ModLauncher running: args [--username, AOEPortalQA, --version, 1.20.1-forge-47.4.22, --gameDir, C:/Users/andre/Downloads/Games/September2024Mod/run/portal-production-client/game, --assetsDir, C:/Users/andre/.gradle/caches/fabric-loom/assets, --assetIndex, 1.20.1-5, --uuid, d45649dcc76d36e6af6e0b3bac6bfcc1, --accessToken, ????????, --clientId, 0, --xuid, 0, --userType, legacy, --versionType, release, --width, 1280, --height, 720, --launchTarget, forgeclient, --fml.forgeVersion, 47.4.22, --fml.mcVersion, 1.20.1, --fml.forgeGroup, net.minecraftforge, --fml.mcpVersion, 20230612.114412]
+[10:09:49] [main/INFO] [cp.mo.mo.Launcher/MODLAUNCHER]: ModLauncher 10.0.9+10.0.9+main.dcd20f30 starting: java version 17.0.9 by Eclipse Adoptium; OS Windows 11 arch amd64 version 10.0
+[10:09:50] [main/INFO] [ne.mi.fm.lo.ImmediateWindowHandler/]: Loading ImmediateWindowProvider fmlearlywindow
+[10:09:50] [main/INFO] [EARLYDISPLAY/]: Trying GL version 4.6
+[10:09:50] [main/INFO] [EARLYDISPLAY/]: Requested GL version 4.6 got version 4.6
+[10:09:50] [main/INFO] [mixin/]: SpongePowered MIXIN Subsystem Version=0.8.5 Source=union:/C:/Users/andre/Downloads/Games/September2024Mod/run/portal-production-client/libraries/org/spongepowered/mixin/0.8.5/mixin-0.8.5.jar%23150!/ Service=ModLauncher Env=CLIENT
+[10:09:50] [pool-2-thread-1/INFO] [EARLYDISPLAY/]: GL info: NVIDIA GeForce RTX 4070 Ti/PCIe/SSE2 GL version 4.6.0 NVIDIA 610.88, NVIDIA Corporation
+[10:09:50] [main/WARN] [ne.mi.fm.lo.mo.ModFileParser/LOADING]: Mod file C:\Users\andre\Downloads\Games\September2024Mod\run\portal-production-client\libraries\net\minecraftforge\fmlcore\1.20.1-47.4.22\fmlcore-1.20.1-47.4.22.jar is missing mods.toml file
+[10:09:50] [main/WARN] [ne.mi.fm.lo.mo.ModFileParser/LOADING]: Mod file C:\Users\andre\Downloads\Games\September2024Mod\run\portal-production-client\libraries\net\minecraftforge\javafmllanguage\1.20.1-47.4.22\javafmllanguage-1.20.1-47.4.22.jar is missing mods.toml file
+[10:09:50] [main/WARN] [ne.mi.fm.lo.mo.ModFileParser/LOADING]: Mod file C:\Users\andre\Downloads\Games\September2024Mod\run\portal-production-client\libraries\net\minecraftforge\lowcodelanguage\1.20.1-47.4.22\lowcodelanguage-1.20.1-47.4.22.jar is missing mods.toml file
+[10:09:50] [main/WARN] [ne.mi.fm.lo.mo.ModFileParser/LOADING]: Mod file C:\Users\andre\Downloads\Games\September2024Mod\run\portal-production-client\libraries\net\minecraftforge\mclanguage\1.20.1-47.4.22\mclanguage-1.20.1-47.4.22.jar is missing mods.toml file
+[10:09:50] [main/INFO] [ne.mi.fm.lo.mo.JarInJarDependencyLocator/]: Found 25 dependencies adding them to mods collection
+[10:09:52] [main/INFO] [mixin/]: Compatibility level set to JAVA_17
+[10:09:52] [main/ERROR] [mixin/]: Mixin config finsandtails.mixins.json does not specify "minVersion" property
+[10:09:52] [main/ERROR] [mixin/]: Mixin config ferdinandsflowers.mixins.json does not specify "minVersion" property
+[10:09:52] [main/ERROR] [mixin/]: Mixin config yacl.mixins.json does not specify "minVersion" property
+[10:09:52] [main/INFO] [cp.mo.mo.LaunchServiceHandler/MODLAUNCHER]: Launching target 'forgeclient' with arguments [--version, 1.20.1-forge-47.4.22, --gameDir, C:\Users\andre\Downloads\Games\September2024Mod\run\portal-production-client\game, --assetsDir, C:\Users\andre\.gradle\caches\fabric-loom\assets, --uuid, d45649dcc76d36e6af6e0b3bac6bfcc1, --username, AOEPortalQA, --assetIndex, 1.20.1-5, --accessToken, ????????, --clientId, 0, --xuid, 0, --userType, legacy, --versionType, release, --width, 1280, --height, 720]
+[10:09:52] [main/WARN] [mixin/]: Reference map 'untamedwilds.refmap.json' for mixins.untamedwilds.json could not be read. If this is a development environment you can ignore this message
+[10:09:52] [main/WARN] [mixin/]: Reference map 'finsandtails.refmap.json' for finsandtails.mixins.json could not be read. If this is a development environment you can ignore this message
+[10:09:52] [main/WARN] [mixin/]: Reference map 'netherdepthsupgrade.refmap.json' for netherdepthsupgrade.mixins.json could not be read. If this is a development environment you can ignore this message
+[10:09:52] [main/WARN] [mixin/]: Reference map 'wildernature.forge.mixins.refmap.json' for wildernature.forge.mixins.json could not be read. If this is a development environment you can ignore this message
+[10:09:53] [main/WARN] [mixin/]: Error loading class: sereneseasons/season/RandomUpdateHandler (java.lang.ClassNotFoundException: sereneseasons.season.RandomUpdateHandler)
+[10:09:53] [main/WARN] [mixin/]: @Mixin target sereneseasons.season.RandomUpdateHandler was not found snowrealmagic.mixins.json:sereneseasons.RandomUpdateHandlerMixin
+[10:09:53] [main/WARN] [mixin/]: Error loading class: net/mehvahdjukaar/moonlight/api/set/leaves/LeavesType (java.lang.ClassNotFoundException: net.mehvahdjukaar.moonlight.api.set.leaves.LeavesType)
+[10:09:53] [main/WARN] [mixin/]: Error loading class: net/mehvahdjukaar/stone_zone/api/set/stone/StoneType (java.lang.ClassNotFoundException: net.mehvahdjukaar.stone_zone.api.set.stone.StoneType)
+[10:09:53] [main/WARN] [mixin/]: Error loading class: net/mehvahdjukaar/moonlight/api/set/wood/WoodType (java.lang.ClassNotFoundException: net.mehvahdjukaar.moonlight.api.set.wood.WoodType)
+[10:09:53] [main/WARN] [mixin/]: Error loading class: jeresources/api/util/BiomeHelper (java.lang.ClassNotFoundException: jeresources.api.util.BiomeHelper)
+[10:09:53] [main/WARN] [mixin/]: Error loading class: yalter/mousetweaks/Main (java.lang.ClassNotFoundException: yalter.mousetweaks.Main)
+[10:09:53] [main/WARN] [mixin/]: Error loading class: noobanidus/mods/lootr/config/ConfigManager (java.lang.ClassNotFoundException: noobanidus.mods.lootr.config.ConfigManager)
+[10:09:53] [main/WARN] [mixin/]: @Mixin target noobanidus.mods.lootr.config.ConfigManager was not found quark_integrations.mixins.json:lootr.ConfigManagerMixin
+[10:09:53] [main/WARN] [mixin/]: Error loading class: org/jetbrains/annotations/ApiStatus$Internal (java.lang.ClassNotFoundException: org.jetbrains.annotations.ApiStatus$Internal)
+[10:09:53] [main/INFO] [MixinExtras|Service/]: Initializing MixinExtras via com.llamalad7.mixinextras.service.MixinExtrasServiceImpl(version=0.5.5).
+[10:09:55] [pool-4-thread-1/WARN] [mixin/]: @Final field f_207902_:Ljava/util/List; in diversity.mixins.json:general.enchantTableAcceptFurtherBookshelf.EnchantingTableBlockMixin should be final
+[10:09:57] [Datafixer Bootstrap/INFO] [mojang/DataFixerBuilder]: 188 Datafixer optimizations took 59 milliseconds
+[10:09:57] [pool-4-thread-1/WARN] [mixin/]: Method overwrite conflict for m_7350_ in aoemod.mixins.json:add_ai.BreedableDolphins, previously written by com.evandev.tiny_takeover_backport.mixin.DolphinMixin. Skipping method.
+[10:09:58] [pool-4-thread-1/WARN] [mixin/]: Mixin alexscaves.mixins.json:SwampHutPieceMixin has multiple constructors, (Lnet/minecraft/world/level/levelgen/structure/pieces/StructurePieceType;IIIIIILnet/minecraft/core/Direction;)V was selected
+
+[10:09:58] [Render thread/WARN] [minecraft/VanillaPackResourcesBuilder]: Assets URL 'union:/C:/Users/andre/Downloads/Games/September2024Mod/run/portal-production-client/libraries/net/minecraft/client/1.20.1-20230612.114412/client-1.20.1-20230612.114412-srg.jar%23298!/assets/.mcassetsroot' uses unexpected schema
+[10:09:58] [Render thread/WARN] [minecraft/VanillaPackResourcesBuilder]: Assets URL 'union:/C:/Users/andre/Downloads/Games/September2024Mod/run/portal-production-client/libraries/net/minecraft/client/1.20.1-20230612.114412/client-1.20.1-20230612.114412-srg.jar%23298!/data/.mcassetsroot' uses unexpected schema
+[10:09:58] [Render thread/INFO] [mojang/YggdrasilAuthenticationService]: Environment: authHost='https://authserver.mojang.com', accountsHost='https://api.mojang.com', sessionHost='https://sessionserver.mojang.com', servicesHost='https://api.minecraftservices.com', name='PROD'
+[10:09:58] [Render thread/INFO] [minecraft/Minecraft]: Setting user: AOEPortalQA
+[10:09:58] [Render thread/INFO] [minecraft/Minecraft]: Backend library: LWJGL version 3.3.1 build 7
+[10:09:58] [modloading-worker-0/INFO] [ne.fa.fa.im.cl.in.Indigo/]: [Indigo] Registering Indigo renderer!
+[10:09:59] [modloading-worker-0/INFO] [floral/]: Registering Mod Itemsfloral
+[10:09:59] [modloading-worker-0/INFO] [co.sc.ne.mo.FarmersDelightCompat/]: Setting up compat for Farmers Delight
+[10:09:59] [modloading-worker-0/INFO] [floral/]: Registering ModBlocks for floral
+[10:09:59] [modloading-worker-0/INFO] [floral/]: Registering Item Groups for floral
+[10:09:59] [modloading-worker-0/INFO] [sn.ki.Kiwi/INIT]: Processing 6 KiwiModule annotations
+[10:09:59] [modloading-worker-0/INFO] [ne.mi.co.ForgeMod/FORGEMOD]: Forge mod loading, version 47.4.22, for MC 1.20.1 with MCP 20230612.114412
+[10:09:59] [modloading-worker-0/INFO] [ne.mi.co.MinecraftForge/FORGE]: MinecraftForge v47.4.22 Initialized
+[10:09:59] [modloading-worker-0/INFO] [floral/]: Registering enchantments forfloral
+[10:09:59] [modloading-worker-0/INFO] [Faewulf's Lib/]: [Faewulf's Lib] Loading
+[10:09:59] [modloading-worker-0/INFO] [Faewulf's Lib/]: [Faewulf's Lib] Initializing...
+[10:09:59] [modloading-worker-0/INFO] [Faewulf's Lib/]: [Faewulf's Lib] Hello from Faewulf with <3
+[10:09:59] [modloading-worker-0/INFO] [Faewulf's Lib/]: [Faewulf's Lib] Init done
+[10:09:59] [modloading-worker-0/INFO] [Diversity/]: [Diversity] Loading
+[10:09:59] [modloading-worker-0/INFO] [Diversity/]: [Diversity] Register commands...
+[10:09:59] [modloading-worker-0/INFO] [Diversity/]: [Diversity] Init done
+[10:09:59] [modloading-worker-0/INFO] [ne.po.bi.BiomesWeveGone/]: Registering Oh The Biomes We've Gone items
+[10:10:00] [modloading-worker-0/INFO] [ne.po.bi.BiomesWeveGone/]: Registering Oh The Biomes We've Gone Blocks
+[10:10:00] [modloading-worker-0/INFO] [YetAnotherConfigLib/]: Deserializing YACLConfig from 'C:\Users\andre\Downloads\Games\September2024Mod\run\portal-production-client\game\config\yacl.json5'
+[10:10:00] [modloading-worker-0/INFO] [ne.po.bi.BiomesWeveGone/]: Registering Oh The Biomes We've Gone Wood
+[10:10:00] [modloading-worker-0/INFO] [ne.po.bi.BiomesWeveGone/]: Registering Oh The Biomes We've Gone Block Entities
+[10:10:00] [modloading-worker-0/INFO] [ne.po.bi.BiomesWeveGone/]: Registering Oh The Biomes We've Gone Entities
+[10:10:00] [modloading-worker-0/INFO] [ne.po.bi.BiomesWeveGone/]: Registering Oh The Biomes We've Gone Creative Tabs
+[10:10:00] [modloading-worker-0/INFO] [ne.po.bi.BiomesWeveGone/]: Registering Oh The Biomes We've Gone Sounds
+[10:10:00] [modloading-worker-0/INFO] [ne.po.bi.BiomesWeveGone/]: Registering Oh The Biomes We've Gone Block Predicate
+[10:10:00] [modloading-worker-0/INFO] [ne.po.bi.BiomesWeveGone/]: Registering Oh The Biomes We've Gone State Providers
+[10:10:00] [modloading-worker-0/INFO] [ne.po.bi.BiomesWeveGone/]: Registering Oh The Biomes We've Gone Tree Decorators
+[10:10:00] [modloading-worker-0/INFO] [de.ar.ne.fo.NetworkManagerImpl/]: Registering S2C receiver with id architectury:sync_ids
+[10:10:00] [modloading-worker-0/INFO] [de.ar.ne.fo.NetworkManagerImpl/]: Registering C2S receiver with id architectury:sync_ids
+[10:10:00] [modloading-worker-0/INFO] [ne.po.bi.BiomesWeveGone/]: Registering Oh The Biomes We've Gone Custom Features
+[10:10:00] [modloading-worker-0/INFO] [ne.po.bi.BiomesWeveGone/]: Registering Oh The Biomes We've Gone Structure Pieces
+[10:10:00] [modloading-worker-0/INFO] [ne.po.bi.BiomesWeveGone/]: Registering Oh The Biomes We've Gone Custom Structure Types
+[10:10:00] [modloading-worker-0/INFO] [ne.po.bi.BiomesWeveGone/]: Registering Oh The Biomes We've Gone Configured Features
+[10:10:00] [modloading-worker-0/INFO] [ne.po.bi.BiomesWeveGone/]: Creating and Registering Overworld Vegetation Configured Features
+[10:10:00] [modloading-worker-0/INFO] [de.ar.ne.fo.NetworkManagerImpl/]: Registering C2S receiver with id wildernature:screen_action
+[10:10:00] [modloading-worker-0/INFO] [quark/]: Initializing TerraBlender underground biome compat
+[10:10:00] [modloading-worker-0/INFO] [ne.po.bi.BiomesWeveGone/]: Registering Oh The Biomes We've Gone Tree Configured Features
+[10:10:00] [modloading-worker-0/INFO] [ne.po.bi.BiomesWeveGone/]: Creating and Registering Vanilla Configured Features
+[10:10:00] [modloading-worker-0/INFO] [ne.po.bi.BiomesWeveGone/]: Registering Oh The Biomes You'll Go Overworld Configured Features
+[10:10:00] [modloading-worker-0/INFO] [ne.po.bi.BiomesWeveGone/]: Registering Oh The Biomes We've Gone Placed Features
+[10:10:00] [modloading-worker-0/INFO] [zeta/]: Doing super early config setup for zeta
+[10:10:00] [modloading-worker-0/INFO] [ne.po.bi.BiomesWeveGone/]: Creating and Registering Overworld Tree Placed Features
+[10:10:00] [modloading-worker-0/INFO] [ne.po.bi.BiomesWeveGone/]: Creating and Registering Overworld Vegetation Placed Features
+[10:10:00] [modloading-worker-0/INFO] [ne.po.bi.BiomesWeveGone/]: Creating and Registering Vanilla Placed Features
+[10:10:00] [modloading-worker-0/INFO] [ne.po.bi.BiomesWeveGone/]: Registering Oh The Biomes We've Gone Custom Surface Rules
+[10:10:00] [modloading-worker-0/INFO] [ne.po.bi.BiomesWeveGone/]: Registering Oh The Biomes We've Gone Template Pools
+[10:10:00] [modloading-worker-0/INFO] [ne.po.bi.BiomesWeveGone/]: Registering Oh The Biome's We've Gone Village Template Pools
+[10:10:00] [modloading-worker-0/INFO] [ne.po.bi.BiomesWeveGone/]: Registering Oh The Biomes We've Gone Poi Types
+[10:10:00] [modloading-worker-0/INFO] [ne.po.bi.BiomesWeveGone/]: Registering Oh The Biomes We've Gone Villager Professions
+[10:10:00] [modloading-worker-0/INFO] [ne.po.bi.BiomesWeveGone/]: Registering Oh The Biomes We've Gone Custom Structure Processors
+[10:10:00] [modloading-worker-0/INFO] [ne.po.bi.BiomesWeveGone/]: Registering Oh The Biomes We've Gone villager types
+[10:10:00] [modloading-worker-0/INFO] [ne.po.bi.BiomesWeveGone/]: Registering Oh The Biomes We've Gone Schedules
+[10:10:00] [modloading-worker-0/INFO] [ne.po.bi.BiomesWeveGone/]: Registering Oh The Biomes We've Gone Memory Module Types
+[10:10:00] [modloading-worker-0/INFO] [ne.po.bi.BiomesWeveGone/]: Registering Oh The Biomes We've Gone Sensor Types
+[10:10:00] [modloading-worker-0/INFO] [th.ko.te.KotlinForForge/]: Kotlin For Forge Enabled!
+[10:10:00] [modloading-worker-0/INFO] [Hybrid API/]: Hello from Common init on Forge! we are currently in a production environment!
+[10:10:00] [modloading-worker-0/INFO] [Hybrid API/]: Hybrid API loaded.
+[10:10:01] [modloading-worker-0/INFO] [Hybrid Aquatic/]: Hybrid Aquatic loaded.
+[10:10:01] [modloading-worker-0/INFO] [quark-zeta/]: Discovered 164 modules to load.
+[10:10:01] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Abacus...
+[10:10:01] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Adjustable Chat...
+[10:10:01] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Ambient Discs...
+[10:10:01] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Ancient Tomes...
+[10:10:01] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Ancient Wood...
+[10:10:01] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Armed Armor Stands...
+[10:10:01] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Auto Walk Keybind...
+[10:10:01] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Automatic Recipe Unlock...
+[10:10:01] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Automatic Tool Restock...
+[10:10:01] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Azalea Wood...
+[10:10:01] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Back Button Keybind...
+[10:10:01] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Backpack...
+[10:10:01] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Beacon Redirection...
+[10:10:01] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Better Elytra Rocket...
+[10:10:01] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Big Stone Clusters...
+[10:10:01] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Blossom Trees...
+[10:10:01] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Bottled Cloud...
+[10:10:01] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Buckets Show Inhabitants...
+[10:10:01] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Camera...
+[10:10:01] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Campfires Boost Elytra...
+[10:10:01] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Celebratory Lamps...
+[10:10:01] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Chains Connect Blocks...
+[10:10:01] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Chest Searching...
+[10:10:01] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Chorus Vegetation...
+[10:10:01] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Chute...
+[10:10:01] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Climate Control Remover...
+[10:10:01] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Color Runes...
+[10:10:01] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Compasses Work Everywhere...
+[10:10:01] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Compressed Blocks...
+[10:10:01] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Coral On Cactus...
+[10:10:01] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Corundum...
+[10:10:01] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Crabs...
+[10:10:01] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Crafter...
+[10:10:01] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Crate...
+[10:10:01] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Diamond Repair...
+[10:10:01] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Dispensers Place Blocks...
+[10:10:01] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Double Door Opening...
+[10:10:01] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Dragon Scales...
+[10:10:01] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Duskbound Blocks...
+[10:10:01] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Dyeable Item Frames...
+[10:10:01] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Easy Transfering...
+[10:10:01] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Elytra Indicator...
+[10:10:01] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Emotes...
+[10:10:01] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Enchantment Predicates...
+[10:10:01] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Enchantments Begone...
+[10:10:01] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Ender Watcher...
+[10:10:01] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Endermosh Music Disc...
+[10:10:01] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Enhanced Ladders...
+[10:10:01] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Expanded Item Interactions...
+[10:10:01] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Fairy Rings...
+[10:10:01] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Fallen Logs...
+[10:10:01] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Feeding Trough...
+[10:10:01] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Forgotten...
+[10:10:01] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Foxhound...
+[10:10:01] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Framed Glass...
+[10:10:01] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Game Nerfs...
+[10:10:01] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Glass Item Frame...
+[10:10:01] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Glass Shard...
+[10:10:01] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Glimmering Weald...
+[10:10:01] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Gold Bars...
+[10:10:01] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Gold Tools Have Fortune...
+[10:10:01] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Grab Chickens...
+[10:10:01] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Grate...
+[10:10:01] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Gravisand...
+[10:10:01] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Greener Grass...
+[10:10:01] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Hedges...
+[10:10:01] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Hoe Harvesting...
+[10:10:01] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Hollow Logs...
+[10:10:01] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Horses Swim...
+[10:10:01] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Hotbar Changer...
+[10:10:01] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Improved Sponges...
+[10:10:01] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Improved Tooltips...
+[10:10:01] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Industrial Palette...
+[10:10:01] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Inventory Sorting...
+[10:10:01] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Iron Rod...
+[10:10:01] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Item Sharing...
+[10:10:01] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Japanese Palette...
+[10:10:01] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Leaf Carpet...
+[10:10:01] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Lock Rotation...
+[10:10:01] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Long Range Pick Block...
+[10:10:01] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Magma Keeps Concrete Powder...
+[10:10:01] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Magnets...
+[10:10:01] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Map Washing...
+[10:10:01] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Matrix Enchanting...
+[10:10:01] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Metal Buttons...
+[10:10:01] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Microcrafting Helper...
+[10:10:01] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Midori...
+[10:10:01] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Monster Box...
+[10:10:01] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module More Banner Layers...
+[10:10:01] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module More Brick Types...
+[10:10:01] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module More Mud Blocks...
+[10:10:01] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module More Note Block Sounds...
+[10:10:01] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module More Potted Plants...
+[10:10:01] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module More Villagers...
+[10:10:01] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Narrator Readout...
+[10:10:01] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Nether Brick Fence Gate...
+[10:10:01] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Nether Obsidian Spikes...
+[10:10:01] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module New Stone Types...
+[10:10:01] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module No Durability On Cosmetics...
+[10:10:01] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module No More Lava Pockets...
+[10:10:01] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Obsidian Plate...
+[10:10:01] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Overlay Shader...
+[10:10:01] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Parrot Eggs...
+[10:10:01] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Pat The Dogs...
+[10:10:01] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Pathfinder Maps...
+[10:10:01] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Permafrost...
+[10:10:01] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Petals On Water...
+[10:10:01] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Pickarang...
+[10:10:01] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Pig Litters...
+[10:10:01] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Pipes...
+[10:10:01] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Pistons Move Tile Entities...
+[10:10:01] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Poison Potato Usage...
+[10:10:01] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Quick Armor Swapping...
+[10:10:01] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Rainbow Lamps...
+[10:10:01] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Raw Metal Bricks...
+[10:10:01] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Reacharound Placing...
+[10:10:01] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Redstone Randomizer...
+[10:10:01] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Renewable Spore Blossoms...
+[10:10:01] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Replace Scaffolding...
+[10:10:01] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Rope...
+[10:10:01] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Safer Creatures...
+[10:10:01] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Seed Pouch...
+[10:10:01] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Shear Vines...
+[10:10:01] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Shiba...
+[10:10:01] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Shingles...
+[10:10:01] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Shulker Packing...
+[10:10:01] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Simple Harvest...
+[10:10:01] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Skull Pikes...
+[10:10:01] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Slabs To Blocks...
+[10:10:01] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Slime In A Bucket...
+[10:10:01] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Slimes To Magma Cubes...
+[10:10:01] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Snow Golem Player Heads...
+[10:10:01] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Soul Candles...
+[10:10:01] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Soul Sandstone...
+[10:10:01] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Spawner Replacer...
+[10:10:01] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Spiral Spires...
+[10:10:01] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Stonelings...
+[10:10:01] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Stools...
+[10:10:01] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Sturdy Stone...
+[10:10:01] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Thatch...
+[10:10:01] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Tiny Potato...
+[10:10:01] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Torch Arrow...
+[10:10:01] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Toretoise...
+[10:10:01] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Totem Of Holding...
+[10:10:01] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Trowel...
+[10:10:01] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Usage Ticker...
+[10:10:01] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Uses For Curses...
+[10:10:01] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Utility Recipes...
+[10:10:01] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Variant Animal Textures...
+[10:10:01] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Variant Bookshelves...
+[10:10:01] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Variant Chests...
+[10:10:01] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Variant Furnaces...
+[10:10:01] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Variant Ladders...
+[10:10:01] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Variant Selector...
+[10:10:01] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Vertical Planks...
+[10:10:01] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Vertical Slabs...
+[10:10:01] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Vexes Die With Their Masters...
+[10:10:01] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Villager Rerolling Rework...
+[10:10:01] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Villagers Follow Emeralds...
+[10:10:01] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Wooden Posts...
+[10:10:01] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Wool Shuts Up Minecarts...
+[10:10:01] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Wraith...
+[10:10:01] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Zombie Villagers On Normal...
+[10:10:01] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module More Stone Variants...
+[10:10:01] [modloading-worker-0/INFO] [quark-zeta/]: Constructed 164 modules.
+[10:10:01] [modloading-worker-0/INFO] [quark-zeta/]: Doing super early config setup for quark
+[10:10:01] [Render thread/INFO] [sn.ki.Kiwi/INIT]: Module [snowrealmagic:core] initialized
+[10:10:01] [Render thread/INFO] [sn.ki.Kiwi/INIT]: 		block: 7, block_entity_type: 2, entity_type: 1, loot_pool_entry_type: 1
+[10:10:01] [Render thread/INFO] [sn.ki.Kiwi/INIT]: Module [kiwi:block_templates] initialized
+[10:10:01] [Render thread/INFO] [sn.ki.Kiwi/INIT]: Module [kiwi:block_components] initialized
+[10:10:01] [Render thread/INFO] [sn.ki.Kiwi/INIT]: Module [kiwi:data] initialized
+[10:10:01] [Render thread/INFO] [sn.ki.Kiwi/INIT]: 		recipe_serializer: 3
+[10:10:01] [Render thread/INFO] [sn.ki.Kiwi/INIT]: Module [kiwi:item_templates] initialized
+[10:10:03] [Render thread/INFO] [de.ar.ne.fo.NetworkManagerImpl/]: Registering S2C receiver with id wildernature:screen_update
+[10:10:03] [Render thread/INFO] [or.be.wo.to.ut.Logger/]: [bclib] Added Config betterend.entities to auto sync (file hash)
+[10:10:03] [Render thread/INFO] [or.be.wo.to.ut.Logger/]: [bclib] Added Config betterend.blocks to auto sync (file hash)
+[10:10:03] [Render thread/INFO] [or.be.wo.to.ut.Logger/]: [bclib] Added Config betterend.items to auto sync (file hash)
+[10:10:03] [Render thread/INFO] [or.be.wo.to.ut.Logger/]: [bclib] Added Config betterend.biomes to auto sync (file hash)
+[10:10:03] [Render thread/INFO] [or.be.wo.to.ut.Logger/]: [bclib] Added Config betterend.structures to auto sync (file hash)
+[10:10:03] [Render thread/INFO] [or.be.wo.to.ut.Logger/]: [bclib] Added Config betterend.features to auto sync (file hash)
+[10:10:03] [Render thread/INFO] [or.be.wo.to.ut.Logger/]: [bclib] Added Config betterend.recipes to auto sync (file hash)
+[10:10:03] [Render thread/INFO] [or.be.wo.to.ut.Logger/]: [bclib] Added Config betterend.enchantments to auto sync (file hash)
+[10:10:03] [Render thread/INFO] [de.ar.ne.fo.NetworkManagerImpl/]: Registering S2C receiver with id wildernature:screen_update
+[10:10:05] [Render thread/INFO] [de.ar.ne.fo.NetworkManagerImpl/]: Registering S2C receiver with id wildernature:screen_update
+[10:10:08] [Render thread/INFO] [de.ar.ne.fo.NetworkManagerImpl/]: Registering S2C receiver with id wildernature:screen_update
+[10:10:08] [Render thread/INFO] [de.ar.ne.fo.NetworkManagerImpl/]: Registering S2C receiver with id wildernature:screen_update
+[10:10:08] [Render thread/INFO] [de.ar.ne.fo.NetworkManagerImpl/]: Registering S2C receiver with id wildernature:screen_update
+[10:10:09] [Render thread/INFO] [de.ar.ne.fo.NetworkManagerImpl/]: Registering S2C receiver with id wildernature:screen_update
+[10:10:09] [Render thread/INFO] [de.ar.ne.fo.NetworkManagerImpl/]: Registering S2C receiver with id wildernature:screen_update
+[10:10:09] [Render thread/INFO] [de.ar.ne.fo.NetworkManagerImpl/]: Registering S2C receiver with id wildernature:screen_update
+[10:10:09] [Render thread/INFO] [de.ar.ne.fo.NetworkManagerImpl/]: Registering S2C receiver with id wildernature:screen_update
+[10:10:09] [Render thread/INFO] [de.ar.ne.fo.NetworkManagerImpl/]: Registering S2C receiver with id wildernature:screen_update
+[10:10:09] [Render thread/INFO] [de.ar.ne.fo.NetworkManagerImpl/]: Registering S2C receiver with id wildernature:screen_update
+[10:10:09] [Render thread/INFO] [de.ar.ne.fo.NetworkManagerImpl/]: Registering S2C receiver with id wildernature:screen_update
+[10:10:09] [Render thread/INFO] [de.ar.ne.fo.NetworkManagerImpl/]: Registering S2C receiver with id wildernature:screen_update
+[10:10:09] [Render thread/INFO] [de.ar.ne.fo.NetworkManagerImpl/]: Registering S2C receiver with id wildernature:screen_update
+[10:10:09] [Render thread/INFO] [de.ar.ne.fo.NetworkManagerImpl/]: Registering S2C receiver with id wildernature:screen_update
+[10:10:09] [Render thread/INFO] [de.ar.ne.fo.NetworkManagerImpl/]: Registering S2C receiver with id wildernature:screen_update
+[10:10:09] [Render thread/INFO] [de.ar.ne.fo.NetworkManagerImpl/]: Registering S2C receiver with id wildernature:screen_update
+[10:10:09] [Render thread/INFO] [de.ar.ne.fo.NetworkManagerImpl/]: Registering S2C receiver with id wildernature:screen_update
+[10:10:09] [Render thread/INFO] [de.ar.ne.fo.NetworkManagerImpl/]: Registering S2C receiver with id wildernature:screen_update
+[10:10:09] [Render thread/INFO] [de.ar.ne.fo.NetworkManagerImpl/]: Registering S2C receiver with id wildernature:screen_update
+[10:10:09] [Render thread/INFO] [de.ar.ne.fo.NetworkManagerImpl/]: Registering S2C receiver with id wildernature:screen_update
+[10:10:09] [Render thread/INFO] [de.ar.ne.fo.NetworkManagerImpl/]: Registering S2C receiver with id wildernature:screen_update
+[10:10:09] [Render thread/INFO] [de.ar.ne.fo.NetworkManagerImpl/]: Registering S2C receiver with id wildernature:screen_update
+[10:10:09] [Render thread/INFO] [de.ar.ne.fo.NetworkManagerImpl/]: Registering S2C receiver with id wildernature:screen_update
+[10:10:09] [Render thread/INFO] [de.ar.ne.fo.NetworkManagerImpl/]: Registering S2C receiver with id wildernature:screen_update
+[10:10:09] [Render thread/INFO] [de.ar.ne.fo.NetworkManagerImpl/]: Registering S2C receiver with id wildernature:screen_update
+[10:10:09] [Render thread/INFO] [de.ar.ne.fo.NetworkManagerImpl/]: Registering S2C receiver with id wildernature:screen_update
+[10:10:09] [Render thread/INFO] [de.ar.ne.fo.NetworkManagerImpl/]: Registering S2C receiver with id wildernature:screen_update
+[10:10:09] [Render thread/INFO] [de.ar.ne.fo.NetworkManagerImpl/]: Registering S2C receiver with id wildernature:screen_update
+[10:10:09] [Render thread/INFO] [de.ar.ne.fo.NetworkManagerImpl/]: Registering S2C receiver with id wildernature:screen_update
+[10:10:09] [Render thread/INFO] [de.ar.ne.fo.NetworkManagerImpl/]: Registering S2C receiver with id wildernature:screen_update
+[10:10:09] [Render thread/INFO] [de.ar.ne.fo.NetworkManagerImpl/]: Registering S2C receiver with id wildernature:screen_update
+[10:10:09] [Render thread/INFO] [de.ar.ne.fo.NetworkManagerImpl/]: Registering S2C receiver with id wildernature:screen_update
+[10:10:09] [Render thread/INFO] [de.ar.ne.fo.NetworkManagerImpl/]: Registering S2C receiver with id wildernature:screen_update
+[10:10:09] [Render thread/INFO] [de.ar.ne.fo.NetworkManagerImpl/]: Registering S2C receiver with id wildernature:screen_update
+[10:10:09] [Render thread/INFO] [de.ar.ne.fo.NetworkManagerImpl/]: Registering S2C receiver with id wildernature:screen_update
+[10:10:09] [Render thread/INFO] [de.ar.ne.fo.NetworkManagerImpl/]: Registering S2C receiver with id wildernature:screen_update
+[10:10:09] [Render thread/INFO] [de.ar.ne.fo.NetworkManagerImpl/]: Registering S2C receiver with id wildernature:screen_update
+[10:10:09] [Render thread/INFO] [de.ar.ne.fo.NetworkManagerImpl/]: Registering S2C receiver with id wildernature:screen_update
+[10:10:09] [Render thread/INFO] [de.ar.ne.fo.NetworkManagerImpl/]: Registering S2C receiver with id wildernature:screen_update
+[10:10:09] [Render thread/INFO] [de.ar.ne.fo.NetworkManagerImpl/]: Registering S2C receiver with id wildernature:screen_update
+[10:10:09] [Render thread/INFO] [de.ar.ne.fo.NetworkManagerImpl/]: Registering S2C receiver with id wildernature:screen_update
+[10:10:09] [Render thread/INFO] [de.ar.ne.fo.NetworkManagerImpl/]: Registering S2C receiver with id wildernature:screen_update
+[10:10:09] [Render thread/INFO] [de.ar.ne.fo.NetworkManagerImpl/]: Registering S2C receiver with id wildernature:screen_update
+[10:10:09] [Render thread/INFO] [de.ar.ne.fo.NetworkManagerImpl/]: Registering S2C receiver with id wildernature:screen_update
+[10:10:09] [Render thread/INFO] [de.ar.ne.fo.NetworkManagerImpl/]: Registering S2C receiver with id wildernature:screen_update
+[10:10:09] [Render thread/INFO] [de.ar.ne.fo.NetworkManagerImpl/]: Registering S2C receiver with id wildernature:screen_update
+[10:10:09] [Render thread/INFO] [de.ar.ne.fo.NetworkManagerImpl/]: Registering S2C receiver with id wildernature:screen_update
+[10:10:09] [Render thread/INFO] [de.ar.ne.fo.NetworkManagerImpl/]: Registering S2C receiver with id wildernature:screen_update
+[10:10:09] [Render thread/INFO] [de.ar.ne.fo.NetworkManagerImpl/]: Registering S2C receiver with id wildernature:screen_update
+[10:10:09] [Render thread/INFO] [de.ar.ne.fo.NetworkManagerImpl/]: Registering S2C receiver with id wildernature:screen_update
+[10:10:09] [Render thread/INFO] [de.ar.ne.fo.NetworkManagerImpl/]: Registering S2C receiver with id wildernature:screen_update
+[10:10:10] [Render thread/INFO] [de.ar.ne.fo.NetworkManagerImpl/]: Registering S2C receiver with id wildernature:screen_update
+[10:10:10] [Render thread/INFO] [de.ar.ne.fo.NetworkManagerImpl/]: Registering S2C receiver with id wildernature:screen_update
+[10:10:10] [Render thread/INFO] [de.ar.ne.fo.NetworkManagerImpl/]: Registering S2C receiver with id wildernature:screen_update
+[10:10:10] [Render thread/INFO] [de.ar.ne.fo.NetworkManagerImpl/]: Registering S2C receiver with id wildernature:screen_update
+[10:10:10] [Render thread/INFO] [de.ar.ne.fo.NetworkManagerImpl/]: Registering S2C receiver with id wildernature:screen_update
+[10:10:10] [Render thread/INFO] [de.ar.ne.fo.NetworkManagerImpl/]: Registering S2C receiver with id wildernature:screen_update
+[10:10:10] [Render thread/INFO] [de.ar.ne.fo.NetworkManagerImpl/]: Registering S2C receiver with id wildernature:screen_update
+[10:10:10] [Render thread/INFO] [de.ar.ne.fo.NetworkManagerImpl/]: Registering S2C receiver with id wildernature:screen_update
+[10:10:10] [Render thread/INFO] [de.ar.ne.fo.NetworkManagerImpl/]: Registering S2C receiver with id wildernature:screen_update
+[10:10:10] [Render thread/INFO] [de.ar.ne.fo.NetworkManagerImpl/]: Registering S2C receiver with id wildernature:screen_update
+[10:10:10] [Render thread/INFO] [de.ar.ne.fo.NetworkManagerImpl/]: Registering S2C receiver with id wildernature:screen_update
+[10:10:10] [Render thread/INFO] [de.ar.ne.fo.NetworkManagerImpl/]: Registering S2C receiver with id wildernature:screen_update
+[10:10:10] [Render thread/INFO] [de.ar.ne.fo.NetworkManagerImpl/]: Registering S2C receiver with id wildernature:screen_update
+[10:10:10] [Render thread/INFO] [de.ar.ne.fo.NetworkManagerImpl/]: Registering S2C receiver with id wildernature:screen_update
+[10:10:10] [Render thread/INFO] [de.ar.ne.fo.NetworkManagerImpl/]: Registering S2C receiver with id wildernature:screen_update
+[10:10:10] [Render thread/INFO] [de.ar.ne.fo.NetworkManagerImpl/]: Registering S2C receiver with id wildernature:screen_update
+[10:10:10] [Render thread/INFO] [de.ar.ne.fo.NetworkManagerImpl/]: Registering S2C receiver with id wildernature:screen_update
+[10:10:10] [Render thread/INFO] [de.ar.ne.fo.NetworkManagerImpl/]: Registering S2C receiver with id wildernature:screen_update
+[10:10:10] [Render thread/INFO] [de.ar.ne.fo.NetworkManagerImpl/]: Registering S2C receiver with id wildernature:screen_update
+[10:10:10] [Render thread/INFO] [de.ar.ne.fo.NetworkManagerImpl/]: Registering S2C receiver with id wildernature:screen_update
+[10:10:10] [Render thread/INFO] [de.ar.ne.fo.NetworkManagerImpl/]: Registering S2C receiver with id wildernature:screen_update
+[10:10:10] [Render thread/INFO] [de.ar.ne.fo.NetworkManagerImpl/]: Registering S2C receiver with id wildernature:screen_update
+[10:10:10] [Render thread/INFO] [de.ar.ne.fo.NetworkManagerImpl/]: Registering S2C receiver with id wildernature:screen_update
+[10:10:10] [Render thread/INFO] [de.ar.ne.fo.NetworkManagerImpl/]: Registering S2C receiver with id wildernature:screen_update
+[10:10:10] [Render thread/INFO] [de.ar.ne.fo.NetworkManagerImpl/]: Registering S2C receiver with id wildernature:screen_update
+[10:10:10] [Render thread/INFO] [de.ar.ne.fo.NetworkManagerImpl/]: Registering S2C receiver with id wildernature:screen_update
+[10:10:10] [Render thread/INFO] [de.ar.ne.fo.NetworkManagerImpl/]: Registering S2C receiver with id wildernature:screen_update
+[10:10:10] [Render thread/INFO] [de.ar.ne.fo.NetworkManagerImpl/]: Registering S2C receiver with id wildernature:screen_update
+[10:10:10] [Render thread/INFO] [de.ar.ne.fo.NetworkManagerImpl/]: Registering S2C receiver with id wildernature:screen_update
+[10:10:10] [Render thread/INFO] [de.ar.ne.fo.NetworkManagerImpl/]: Registering S2C receiver with id wildernature:screen_update
+[10:10:10] [Render thread/INFO] [de.ar.ne.fo.NetworkManagerImpl/]: Registering S2C receiver with id wildernature:screen_update
+[10:10:10] [Render thread/INFO] [de.ar.ne.fo.NetworkManagerImpl/]: Registering S2C receiver with id wildernature:screen_update
+[10:10:10] [Render thread/INFO] [de.ar.ne.fo.NetworkManagerImpl/]: Registering S2C receiver with id wildernature:screen_update
+[10:10:10] [Render thread/INFO] [de.ar.ne.fo.NetworkManagerImpl/]: Registering S2C receiver with id wildernature:screen_update
+[10:10:10] [Render thread/INFO] [de.ar.ne.fo.NetworkManagerImpl/]: Registering S2C receiver with id wildernature:screen_update
+[10:10:10] [Render thread/INFO] [de.ar.ne.fo.NetworkManagerImpl/]: Registering S2C receiver with id wildernature:screen_update
+[10:10:10] [Render thread/INFO] [de.ar.ne.fo.NetworkManagerImpl/]: Registering S2C receiver with id wildernature:screen_update
+[10:10:10] [Render thread/INFO] [de.ar.ne.fo.NetworkManagerImpl/]: Registering S2C receiver with id wildernature:screen_update
+[10:10:10] [Render thread/INFO] [de.ar.ne.fo.NetworkManagerImpl/]: Registering S2C receiver with id wildernature:screen_update
+[10:10:10] [Render thread/WARN] [minecraft/SynchedEntityData]: defineId called for: class com.github.alexmodguy.alexscaves.server.entity.living.TremorzillaEntity from class com.github.alexmodguy.alexscaves.server.entity.living.LicowitchEntity
+[10:10:10] [Render thread/WARN] [minecraft/SynchedEntityData]: defineId called for: class net.mcreator.borninchaosv.entity.BabySpiderEntity from class net.mcreator.borninchaosv.entity.MotherSpiderEntity
+[10:10:10] [Render thread/WARN] [minecraft/SynchedEntityData]: defineId called for: class net.mcreator.biodiverse.entity.LionEntity from class net.mcreator.biodiverse.entity.FennecFoxEntity
+[10:10:10] [Render thread/INFO] [co.gi.al.al.AlexsMobs/]: loaded in block colorizer
+[10:10:10] [Render thread/INFO] [co.gi.al.al.AlexsCaves/]: loaded in block colorizer
+[10:10:10] [Render thread/INFO] [co.gi.al.al.AlexsMobs/]: loaded in item colorizer
+[10:10:10] [Render thread/WARN] [or.be.wo.to.ut.Logger/]: [bclib] ItemColors.register filtered AIR item(s): [net.minecraft.world.level.block.FlowerPotBlock blockId=twilightforest:potted_fiddlehead itemId=minecraft:air]
+[10:10:10] [Render thread/ERROR] [or.be.wo.to.ut.Logger/]: [bclib] ItemColors.register filtered AIR item(s) stacktrace
+java.lang.RuntimeException: AIR ItemLike
+	at net.minecraft.client.color.item.ItemColors.localvar$zma000$bclib_filterAirItemLikes(ItemColors.java:1044) ~[client-1.20.1-20230612.114412-srg.jar%23298!/:?] {re:mixin,re:classloading,pl:mixin:APP:kiwi.mixins.json:forge.ItemColorsAccess,pl:mixin:APP:bclib.mixins.client.json:ItemColorsMixin,pl:mixin:APP:zeta_forge.mixins.json:client.AccessorItemColors,pl:mixin:A}
+	at net.minecraft.client.color.item.ItemColors.m_92689_(ItemColors.java) ~[client-1.20.1-20230612.114412-srg.jar%23298!/:?] {re:mixin,re:classloading,pl:mixin:APP:kiwi.mixins.json:forge.ItemColorsAccess,pl:mixin:APP:bclib.mixins.client.json:ItemColorsMixin,pl:mixin:APP:zeta_forge.mixins.json:client.AccessorItemColors,pl:mixin:A}
+	at net.minecraftforge.client.event.RegisterColorHandlersEvent$Item.register(RegisterColorHandlersEvent.java:130) ~[forge-1.20.1-47.4.22-universal.jar%23303!/:?] {re:classloading,pl:eventbus:A}
+	at twilightforest.client.ColorHandler.registerItemColors(ColorHandler.java:389) ~[twilightforest-4.3.2508.jar%23285!/:4.3.2508] {re:classloading}
+	at twilightforest.client.__ColorHandler_registerItemColors_Item.invoke(.dynamic) ~[twilightforest-4.3.2508.jar%23285!/:4.3.2508] {re:classloading,pl:eventbus:B}
+	at net.minecraftforge.eventbus.ASMEventHandler.invoke(ASMEventHandler.java:55) ~[eventbus-6.2.33.jar%23137!/:?] {}
+	at net.minecraftforge.eventbus.EventBus.post(EventBus.java:312) ~[eventbus-6.2.33.jar%23137!/:?] {}
+	at net.minecraftforge.eventbus.EventBus.post(EventBus.java:298) ~[eventbus-6.2.33.jar%23137!/:?] {}
+	at net.minecraftforge.fml.javafmlmod.FMLModContainer.acceptEvent(FMLModContainer.java:121) ~[javafmllanguage-1.20.1-47.4.22.jar%23300!/:?] {}
+	at net.minecraftforge.fml.ModLoader.lambda$postEvent$29(ModLoader.java:326) ~[fmlcore-1.20.1-47.4.22.jar%23299!/:?] {}
+	at java.lang.Iterable.forEach(Iterable.java:75) ~[?:?] {re:mixin}
+	at net.minecraftforge.fml.ModList.forEachModInOrder(ModList.java:227) ~[fmlcore-1.20.1-47.4.22.jar%23299!/:?] {}
+	at net.minecraftforge.fml.ModLoader.postEvent(ModLoader.java:326) ~[fmlcore-1.20.1-47.4.22.jar%23299!/:?] {}
+	at net.minecraftforge.client.ForgeHooksClient.onItemColorsInit(ForgeHooksClient.java:322) ~[forge-1.20.1-47.4.22-universal.jar%23303!/:?] {re:mixin,re:classloading,pl:mixin:A}
+	at net.minecraft.client.color.item.ItemColors.m_92683_(ItemColors.java:92) ~[client-1.20.1-20230612.114412-srg.jar%23298!/:?] {re:mixin,re:classloading,pl:mixin:APP:kiwi.mixins.json:forge.ItemColorsAccess,pl:mixin:APP:bclib.mixins.client.json:ItemColorsMixin,pl:mixin:APP:zeta_forge.mixins.json:client.AccessorItemColors,pl:mixin:A}
+	at net.minecraft.client.Minecraft.<init>(Minecraft.java:486) ~[client-1.20.1-20230612.114412-srg.jar%23298!/:?] {re:mixin,pl:accesstransformer:B,re:classloading,pl:accesstransformer:B,pl:mixin:A}
+	at net.minecraft.client.main.Main.main(Main.java:182) ~[1.20.1-forge-47.4.22.jar:?] {re:classloading}
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:?] {}
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[?:?] {}
+	at jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:?] {}
+	at java.lang.reflect.Method.invoke(Method.java:568) ~[?:?] {}
+	at net.minecraftforge.fml.loading.targets.CommonLaunchHandler.runTarget(CommonLaunchHandler.java:111) ~[fmlloader-1.20.1-47.4.22.jar:?] {}
+	at net.minecraftforge.fml.loading.targets.CommonLaunchHandler.clientService(CommonLaunchHandler.java:99) ~[fmlloader-1.20.1-47.4.22.jar:?] {}
+	at net.minecraftforge.fml.loading.targets.CommonClientLaunchHandler.lambda$makeService$0(CommonClientLaunchHandler.java:25) ~[fmlloader-1.20.1-47.4.22.jar:?] {}
+	at cpw.mods.modlauncher.LaunchServiceHandlerDecorator.launch(LaunchServiceHandlerDecorator.java:30) ~[modlauncher-10.0.9.jar:?] {}
+	at cpw.mods.modlauncher.LaunchServiceHandler.launch(LaunchServiceHandler.java:53) ~[modlauncher-10.0.9.jar:?] {}
+	at cpw.mods.modlauncher.LaunchServiceHandler.launch(LaunchServiceHandler.java:71) ~[modlauncher-10.0.9.jar:?] {}
+	at cpw.mods.modlauncher.Launcher.run(Launcher.java:108) ~[modlauncher-10.0.9.jar:?] {}
+	at cpw.mods.modlauncher.Launcher.main(Launcher.java:78) ~[modlauncher-10.0.9.jar:?] {}
+	at cpw.mods.modlauncher.BootstrapLaunchConsumer.accept(BootstrapLaunchConsumer.java:26) ~[modlauncher-10.0.9.jar:?] {}
+	at cpw.mods.modlauncher.BootstrapLaunchConsumer.accept(BootstrapLaunchConsumer.java:23) ~[modlauncher-10.0.9.jar:?] {}
+	at cpw.mods.bootstraplauncher.BootstrapLauncher.main(BootstrapLauncher.java:141) ~[bootstraplauncher-1.1.2.jar:?] {}
+[10:10:10] [Render thread/INFO] [co.gi.al.al.AlexsCaves/]: loaded in item colorizer
+[10:10:11] [Render thread/INFO] [quark/]: Registering model layer quark:crab#main
+[10:10:11] [Render thread/INFO] [quark/]: Registering model layer quark:shiba#main
+[10:10:11] [Render thread/INFO] [quark/]: Registering model layer quark:quark_boat_chest#main
+[10:10:11] [Render thread/INFO] [quark/]: Registering model layer quark:wraith#main
+[10:10:11] [Render thread/INFO] [quark/]: Registering model layer quark:forgotten_hat#main
+[10:10:11] [Render thread/INFO] [quark/]: Registering model layer quark:stoneling#main
+[10:10:11] [Render thread/INFO] [quark/]: Registering model layer quark:toretoise#main
+[10:10:11] [Render thread/INFO] [quark/]: Registering model layer quark:quark_boat#main
+[10:10:11] [Render thread/INFO] [quark/]: Registering model layer quark:foxhound#main
+[10:10:11] [Render thread/INFO] [quark/]: Registering model layer quark:backpack#main
+[10:10:11] [Render thread/INFO] [minecraft/ReloadableResourceManager]: Reloading ResourceManager: vanilla, mod_resources, aoemod_portal_colors
+[10:10:11] [Render thread/INFO] [co.te.bl.co.Blueprint/]: Successfully loaded 3 assets remolders!
+[10:10:11] [Worker-Main-10/WARN] [minecraft/SoundManager]: File naturalist:sounds/mob/giraffe/idle.ogg does not exist, cannot add it to event naturalist:entity.giraffe.ambient
+[10:10:11] [Worker-Main-10/WARN] [minecraft/SoundManager]: File environmental:sounds/mob/zebra/hit4.ogg does not exist, cannot add it to event environmental:entity.zebra.hurt
+[10:10:11] [Worker-Main-10/WARN] [minecraft/SoundManager]: File environmental:sounds/mob/zebra/hit4.ogg does not exist, cannot add it to event environmental:entity.zorse.hurt
+[10:10:11] [Worker-Main-10/WARN] [minecraft/SoundManager]: File environmental:sounds/mob/zebra/hit4.ogg does not exist, cannot add it to event environmental:entity.zonkey.hurt
+[10:10:11] [Worker-Main-7/INFO] [minecraft/UnihexProvider]: Found unifont_all_no_pua-15.0.06.hex, loading
+[10:10:11] [Thread-3/INFO] [zeta/]: About to refresh zeta's config, looking for better thread than 'Thread-3'...
+[10:10:11] [Thread-3/INFO] [quark-zeta/]: About to refresh quark's config, looking for better thread than 'Thread-3'...
+[10:10:11] [Thread-3/INFO] [quark-zeta/]: About to refresh quark's config, looking for better thread than 'Thread-3'...
+[10:10:11] [Thread-3/INFO] [quark-zeta/]: About to refresh quark's config, looking for better thread than 'Thread-3'...
+[10:10:11] [Worker-Main-10/WARN] [minecraft/SoundManager]: File alexscaves:sounds/block/purple_soda/purple_soda_swim_3.ogg does not exist, cannot add it to event alexscaves:purple_soda_swim
+[10:10:11] [Worker-Main-10/WARN] [minecraft/SoundManager]: File alexscaves:sounds/block/purple_soda/purple_soda_swim_4.ogg does not exist, cannot add it to event alexscaves:purple_soda_swim
+[10:10:11] [Worker-Main-10/WARN] [minecraft/SoundManager]: File alexscaves:sounds/mob/luxtructosaurus/luxtructosaurus_snort_0.ogg does not exist, cannot add it to event alexscaves:luxtructosaurus_snort
+[10:10:11] [Worker-Main-10/WARN] [minecraft/SoundManager]: File alexscaves:sounds/mob/luxtructosaurus/luxtructosaurus_snort_1.ogg does not exist, cannot add it to event alexscaves:luxtructosaurus_snort
+[10:10:11] [Worker-Main-10/WARN] [minecraft/SoundManager]: File alexscaves:sounds/mob/luxtructosaurus/luxtructosaurus_snort_2.ogg does not exist, cannot add it to event alexscaves:luxtructosaurus_snort
+[10:10:11] [Worker-Main-10/WARN] [minecraft/SoundManager]: File alexscaves:sounds/mob/luxtructosaurus/luxtructosaurus_breathe_0.ogg does not exist, cannot add it to event alexscaves:luxtructosaurus_breathe
+[10:10:11] [Worker-Main-10/WARN] [minecraft/SoundManager]: File alexscaves:sounds/mob/luxtructosaurus/luxtructosaurus_breathe_1.ogg does not exist, cannot add it to event alexscaves:luxtructosaurus_breathe
+[10:10:11] [Worker-Main-10/WARN] [minecraft/SoundManager]: File alexscaves:sounds/mob/luxtructosaurus/luxtructosaurus_breathe_2.ogg does not exist, cannot add it to event alexscaves:luxtructosaurus_breathe
+[10:10:11] [Worker-Main-10/WARN] [minecraft/SoundManager]: File biodiverse:sounds/lion_1.ogg does not exist, cannot add it to event biodiverse:jaguar.ambient
+[10:10:11] [Worker-Main-10/WARN] [minecraft/SoundManager]: File biodiverse:sounds/lion_2.ogg does not exist, cannot add it to event biodiverse:jaguar.ambient
+[10:10:11] [Worker-Main-10/WARN] [minecraft/SoundManager]: File biodiverse:sounds/lion_4.ogg does not exist, cannot add it to event biodiverse:jaguar.ambient
+[10:10:11] [Worker-Main-10/WARN] [minecraft/SoundManager]: File biodiverse:sounds/lion_5.ogg does not exist, cannot add it to event biodiverse:jaguar.ambient
+[10:10:11] [Worker-Main-10/WARN] [minecraft/SoundManager]: File biodiverse:sounds/lionroar_2.ogg does not exist, cannot add it to event biodiverse:jaguar.hurt
+[10:10:11] [Worker-Main-10/WARN] [minecraft/SoundManager]: File biodiverse:sounds/bear_attack.ogg does not exist, cannot add it to event biodiverse:hippo.hurt
+[10:10:11] [Worker-Main-10/WARN] [minecraft/SoundManager]: File biodiverse:sounds/reindeer_4.ogg does not exist, cannot add it to event biodiverse:reindeer.ambient
+[10:10:11] [Worker-Main-10/WARN] [minecraft/SoundManager]: File biodiverse:sounds/lion_ambient1.ogg does not exist, cannot add it to event biodiverse:entity.lion.ambient
+[10:10:11] [Worker-Main-13/INFO] [un.UntamedWilds/]: Registering Packets!
+[10:10:11] [Worker-Main-8/INFO] [ne.pa.le.LegumeDelight/]: Legume Delight loaded
+[10:10:11] [Worker-Main-13/INFO] [or.be.wo.to.ut.Logger/]: [bclib] Added Config bclib.generator to auto sync (file hash)
+[10:10:11] [Worker-Main-13/INFO] [or.be.wo.to.ut.Logger/]: [bclib] Added Config bclib.main to auto sync (content diff)
+[10:10:11] [Worker-Main-13/INFO] [or.be.wo.to.ut.Logger/]: [bclib] Added Config bclib.biomes to auto sync (file hash)
+[10:10:11] [Worker-Main-8/INFO] [CorgiLib/]: Initializing network...
+[10:10:11] [Worker-Main-8/INFO] [CorgiLib/]: Initialized network!
+[10:10:11] [Worker-Main-3/INFO] [co.co.hu.HugeStructureBlocksMod/]: Huge Structure Blocks is now making your structure blocks even bigger!
+[10:10:11] [Worker-Main-3/INFO] [co.co.hu.HugeStructureBlocksMod/]: New structure size = 512
+[10:10:12] [Forge Version Check/INFO] [ne.mi.fm.VersionChecker/]: [forge] Starting version check at https://files.minecraftforge.net/net/minecraftforge/forge/promotions_slim.json
+[10:10:12] [Render thread/ERROR] [minecraft/Util]: Invalid path in pack: diversity:textures/gui/D.png, ignoring
+[10:10:12] [Worker-Main-8/WARN] [minecraft/SpriteContents]: Invalid frame index on sprite born_in_chaos_v1:dimanim frame 1: 1
+[10:10:12] [Worker-Main-8/WARN] [minecraft/SpriteContents]: Invalid frame index on sprite born_in_chaos_v1:dimanim frame 2: 2
+[10:10:12] [Worker-Main-8/WARN] [minecraft/SpriteContents]: Invalid frame index on sprite born_in_chaos_v1:dimanim frame 3: 3
+[10:10:12] [Worker-Main-8/WARN] [minecraft/SpriteContents]: Invalid frame index on sprite born_in_chaos_v1:dimanim frame 4: 4
+[10:10:12] [Worker-Main-8/WARN] [minecraft/SpriteContents]: Invalid frame index on sprite born_in_chaos_v1:dimanim frame 5: 5
+[10:10:12] [Worker-Main-8/WARN] [minecraft/SpriteContents]: Invalid frame index on sprite born_in_chaos_v1:dimanim frame 6: 6
+[10:10:12] [Worker-Main-3/INFO] [Hybrid Aquatic/]: Loading Hybrid Aquatic config file
+[10:10:12] [Render thread/INFO] [zeta/]: zeta's config is 'BEFORE_INIT', ignoring config refresh. Current thread: Render thread
+[10:10:12] [Render thread/INFO] [quark-zeta/]: quark's config is 'BEFORE_INIT', ignoring config refresh. Current thread: Render thread
+[10:10:12] [Render thread/INFO] [quark-zeta/]: quark's config is 'BEFORE_INIT', ignoring config refresh. Current thread: Render thread
+[10:10:12] [Render thread/INFO] [quark-zeta/]: quark's config is 'BEFORE_INIT', ignoring config refresh. Current thread: Render thread
+[10:10:12] [Forge Version Check/INFO] [ne.mi.fm.VersionChecker/]: [forge] Found status: OUTDATED Current: 47.4.22 Target: 47.4.28
+[10:10:12] [Forge Version Check/INFO] [ne.mi.fm.VersionChecker/]: [twilightforest] Starting version check at https://gh.tamaized.com/TeamTwilight/twilightforest/update.json
+[10:10:12] [Forge Version Check/INFO] [ne.mi.fm.VersionChecker/]: [twilightforest] Found status: AHEAD Current: 4.3.2508 Target: null
+[10:10:12] [Forge Version Check/INFO] [ne.mi.fm.VersionChecker/]: [collectorsreap] Starting version check at https://raw.githubusercontent.com/brnbrd/CollectorsReap/1.20.1/update.json
+[10:10:12] [Forge Version Check/INFO] [ne.mi.fm.VersionChecker/]: [collectorsreap] Found status: UP_TO_DATE Current: 1.5.5 Target: null
+[10:10:13] [Worker-Main-2/INFO] [co.sk.wo.ex.pl.PlatformManager/]: Got request to register class com.sk89q.worldedit.forge.ForgePlatform with WorldEdit [com.sk89q.worldedit.extension.platform.PlatformManager@1492252]
+[10:10:13] [Worker-Main-2/INFO] [co.sk.wo.fo.ForgeWorldEdit/]: WorldEdit for Forge (version 7.2.15+6463-5ca4dff) is loaded
+[10:10:13] [Render thread/INFO] [terrablender/]: Registered region minecraft:overworld to index 0 for type OVERWORLD
+[10:10:13] [Render thread/INFO] [terrablender/]: Registered region minecraft:nether to index 0 for type NETHER
+[10:10:13] [Render thread/INFO] [terrablender/]: Registered region biomesoplenty:overworld_primary to index 1 for type OVERWORLD
+[10:10:13] [Render thread/INFO] [terrablender/]: Registered region biomesoplenty:overworld_secondary to index 2 for type OVERWORLD
+[10:10:13] [Render thread/INFO] [terrablender/]: Registered region biomesoplenty:overworld_rare to index 3 for type OVERWORLD
+[10:10:13] [Render thread/INFO] [terrablender/]: Registered region biomesoplenty:nether_common to index 1 for type NETHER
+[10:10:13] [Render thread/INFO] [terrablender/]: Registered region biomesoplenty:nether_rare to index 2 for type NETHER
+[10:10:13] [Worker-Main-4/WARN] [minecraft/SpriteLoader]: Texture aquatica:block/sawhead_anemone_particle with size 10x10 limits mip level from 4 to 1
+[10:10:13] [Render thread/INFO] [ne.po.bi.BiomesWeveGone/]: Creating and Registering BWG Biome Modifiers for Vanilla Biomes
+[10:10:13] [Render thread/INFO] [ne.po.bi.BiomesWeveGone/]: Will add Flower Patch, Clover Patch, White Anemone, Pink Anemone, Orange Daisy, Horseweed and rose to 
+[10:10:13] [Render thread/INFO] [ne.po.bi.BiomesWeveGone/]: Will add Green/Cyan/Magenta/Purple/Yellow Tulips, Rose, Orange Daisy, Flower and Clover Patches to 
+[10:10:13] [Render thread/INFO] [ne.po.bi.BiomesWeveGone/]: Will add Flower Patch, Clover Patch, Blue Rose Bush and Blue Berry Bushes to 
+[10:10:13] [Render thread/INFO] [ne.po.bi.BiomesWeveGone/]: Will add Palm Trees to 
+[10:10:13] [Render thread/INFO] [ne.po.bi.BiomesWeveGone/]: Will add Flower Patch, Clover Patch, White Anemone, Pink Anemone, Orange Daisy, Horseweed and rose to 
+[10:10:13] [Render thread/INFO] [ne.po.bi.BiomesWeveGone/]: Creating and Registering BWG Biome Modifiers for Vanilla Biomes
+[10:10:13] [Render thread/INFO] [ne.po.bi.BiomesWeveGone/]: Will add Flower Patch, Clover Patch, White Anemone, Pink Anemone, Orange Daisy, Horseweed and rose to 
+[10:10:13] [Render thread/INFO] [ne.po.bi.BiomesWeveGone/]: Will add Flower Patch, Clover Patch, White Anemone, Pink Anemone, Orange Daisy, Horseweed and rose to 
+[10:10:13] [Render thread/INFO] [ne.po.bi.BiomesWeveGone/]: Will add Palm Trees to 
+[10:10:13] [Render thread/INFO] [ne.po.bi.BiomesWeveGone/]: Will add Green/Cyan/Magenta/Purple/Yellow Tulips, Rose, Orange Daisy, Flower and Clover Patches to 
+[10:10:13] [Render thread/INFO] [ne.po.bi.BiomesWeveGone/]: Will add Green/Cyan/Magenta/Purple/Yellow Tulips, Rose, Orange Daisy, Flower and Clover Patches to 
+[10:10:13] [Render thread/INFO] [ne.po.bi.BiomesWeveGone/]: Will add Flower Patch, Clover Patch, Blue Rose Bush and Blue Berry Bushes to 
+[10:10:13] [Render thread/INFO] [ne.po.bi.BiomesWeveGone/]: Will add Flower Patch, Clover Patch, Blue Rose Bush and Blue Berry Bushes to 
+[10:10:13] [Render thread/INFO] [ne.po.bi.BiomesWeveGone/]: Will add Palm Trees to 
+[10:10:13] [Render thread/INFO] [ne.po.bi.BiomesWeveGone/]: Will add Flower Patch, Clover Patch, White Anemone, Pink Anemone, Orange Daisy, Horseweed and rose to 
+[10:10:13] [Render thread/INFO] [ne.po.bi.BiomesWeveGone/]: Will add Flower Patch, Clover Patch, White Anemone, Pink Anemone, Orange Daisy, Horseweed and rose to 
+[10:10:13] [Render thread/INFO] [terrablender/]: Registered region biomeswevegone:region_0 to index 4 for type OVERWORLD
+[10:10:13] [Render thread/INFO] [terrablender/]: Registered region biomeswevegone:region_1 to index 5 for type OVERWORLD
+[10:10:13] [Render thread/INFO] [terrablender/]: Registered region biomeswevegone:region_2 to index 6 for type OVERWORLD
+[10:10:13] [Render thread/INFO] [zeta/]: Common setup: Performing initial refresh of zeta's config on thread 'Render thread'
+[10:10:13] [Render thread/INFO] [zeta/]: 'zeta' is enabling Zeta's piston structure resolver.
+[10:10:13] [Render thread/INFO] [zeta/]: zeta's config is now ready to accept filewatcher changes
+[10:10:13] [Render thread/INFO] [terrablender/]: Registered region quark:biome_provider to index 7 for type OVERWORLD
+[10:10:13] [Render thread/INFO] [quark-zeta/]: Common setup: Performing initial refresh of quark's config on thread 'Render thread'
+[10:10:13] [Render thread/INFO] [quark-zeta/]: quark's config is now ready to accept filewatcher changes
+[10:10:14] [Worker-Main-21/INFO] [Hybrid API/]: Initializing client...
+[10:10:14] [Worker-Main-20/INFO] [Hybrid Aquatic/]: Initializing client...
+[10:10:15] [Render thread/WARN] [co.gi.al.ic.IceAndFire/]: Could not load /assets/iceandfire/models/tabula/firedragon/firedragon_swimming.tbl: in is null
+[10:10:15] [Render thread/WARN] [co.gi.al.ic.IceAndFire/]: Could not load /assets/iceandfire/models/tabula/firedragon/firedragon_swim5.tbl: in is null
+[10:10:18] [Worker-Main-2/WARN] [minecraft/ModelBakery]: Exception loading blockstate definition: 'hybrid_aquatic:blockstates/message_in_a_bottle.json' missing model for variant: 'hybrid_aquatic:message_in_a_bottle#waterlogged=true'
+[10:10:18] [Worker-Main-2/WARN] [minecraft/ModelBakery]: Exception loading blockstate definition: 'hybrid_aquatic:blockstates/message_in_a_bottle.json' missing model for variant: 'hybrid_aquatic:message_in_a_bottle#waterlogged=false'
+[10:10:18] [Worker-Main-2/WARN] [minecraft/ModelBakery]: Unable to load model: 'hybrid_aquatic:geo/buoy.geo.json' referenced from: hybrid_aquatic:buoy#facing=north,waterlogged=true: java.io.FileNotFoundException: hybrid_aquatic:models/geo/buoy.geo.json.json
+[10:10:18] [Worker-Main-2/WARN] [minecraft/ModelBakery]: Unable to load model: 'hybrid_aquatic:geo/bell_buoy.geo.json' referenced from: hybrid_aquatic:bell_buoy#facing=north,waterlogged=true: java.io.FileNotFoundException: hybrid_aquatic:models/geo/bell_buoy.geo.json.json
+[10:10:25] [Worker-Main-2/INFO] [co.gi.al.al.AlexsCaves/]: Loaded emissive block models in 287 ms
+[10:10:25] [Render thread/INFO] [mc.mo.wa.pl.PluginLoader/]: [WTHIT] Initializing common plugin biomeswevegone:plugin at net.potionstudios.biomeswevegone.compat.wthit.BWGWTHITPlugin
+[10:10:25] [Render thread/INFO] [mc.mo.wa.pl.PluginLoader/]: [WTHIT] Initializing client plugin biomeswevegone:plugin at net.potionstudios.biomeswevegone.compat.wthit.BWGWTHITPlugin
+[10:10:25] [Render thread/INFO] [mc.mo.wa.pl.PluginLoader/]: [WTHIT] Initializing common plugin waila:core at mcp.mobius.waila.plugin.core.CoreCommonPlugin
+[10:10:25] [Render thread/INFO] [mc.mo.wa.pl.PluginLoader/]: [WTHIT] Initializing client plugin waila:core at mcp.mobius.waila.plugin.core.CoreClientPlugin
+[10:10:25] [Render thread/INFO] [mc.mo.wa.pl.PluginLoader/]: [WTHIT] Initializing common plugin waila:vanilla at mcp.mobius.waila.plugin.vanilla.VanillaCommonPlugin
+[10:10:25] [Render thread/INFO] [mc.mo.wa.pl.PluginLoader/]: [WTHIT] Initializing client plugin waila:vanilla at mcp.mobius.waila.plugin.vanilla.VanillaClientPlugin
+[10:10:25] [Render thread/INFO] [mc.mo.wa.pl.PluginLoader/]: [WTHIT] Initializing common plugin waila:harvest at mcp.mobius.waila.plugin.harvest.HarvestCommonPlugin
+[10:10:25] [Render thread/INFO] [mc.mo.wa.pl.PluginLoader/]: [WTHIT] Initializing client plugin waila:harvest at mcp.mobius.waila.plugin.harvest.HarvestClientPlugin
+[10:10:25] [Render thread/INFO] [mc.mo.wa.pl.PluginLoader/]: [WTHIT] Initializing common plugin waila:forge at mcp.mobius.waila.plugin.forge.ForgeCommonPlugin
+[10:10:25] [Render thread/INFO] [mc.mo.wa.pl.PluginLoader/]: [WTHIT] Initializing client plugin waila:forge at mcp.mobius.waila.plugin.forge.ForgeClientPlugin
+[10:10:25] [Render thread/INFO] [mc.mo.wa.pl.PluginLoader/]: [WTHIT] Initializing common plugin waila:extra at mcp.mobius.waila.plugin.extra.ExtraPlugin
+[10:10:25] [Render thread/INFO] [mc.mo.wa.pl.PluginLoader/]: [WTHIT] Initializing client plugin waila:extra at mcp.mobius.waila.plugin.extra.ExtraPlugin
+[10:10:25] [Render thread/INFO] [mc.mo.wa.co.PluginConfig/]: [WTHIT] Plugin config reloaded
+[10:10:25] [Render thread/INFO] [citadel/]: adding citadel surface rules via terrablender...
+[10:10:25] [Render thread/INFO] [citadel/]: Added 0 vanilla biome surface rule types via terrablender
+[10:10:25] [Render thread/INFO] [citadel/]: Added 1 modded biome surface rule types via terrablender
+[10:10:31] [Render thread/WARN] [minecraft/SoundEngine]: Missing sound for event: minecraft:item.goat_horn.play
+[10:10:31] [Render thread/WARN] [minecraft/SoundEngine]: Missing sound for event: minecraft:entity.goat.screaming.horn_break
+[10:10:31] [Render thread/WARN] [minecraft/SoundEngine]: Missing sound for event: naturalist:tortoise_hurt
+[10:10:31] [Render thread/WARN] [minecraft/SoundEngine]: Missing sound for event: naturalist:tortoise_death
+[10:10:31] [Render thread/WARN] [minecraft/SoundEngine]: Missing sound for event: naturalist:rubber_ducky_death
+[10:10:31] [Render thread/WARN] [minecraft/SoundEngine]: Missing sound for event: hybrid_aquatic:entity.sirenian.eat
+[10:10:31] [Render thread/INFO] [mojang/Library]: OpenAL initialized on device OpenAL Soft on Speakers (2- Jabra SPEAK 410 USB)
+[10:10:31] [Render thread/INFO] [minecraft/SoundEngine]: Sound engine started
+[10:10:31] [Render thread/INFO] [co.te.bl.co.Blueprint/]: Endimation Loader has loaded 5 endimations
+[10:10:31] [Render thread/INFO] [minecraft/TextureAtlas]: Created: 512x256x0 environmental:textures/atlas/slabfish.png-atlas
+[10:10:31] [Render thread/INFO] [minecraft/TextureAtlas]: Created: 128x128x0 upgrade_aquatic:textures/atlas/glow_squid.png-atlas
+[10:10:31] [Render thread/INFO] [minecraft/TextureAtlas]: Created: 128x128x0 upgrade_aquatic:textures/atlas/glow_squid.png-atlas
+[10:10:31] [Render thread/INFO] [minecraft/TextureAtlas]: Created: 4096x2048x4 minecraft:textures/atlas/blocks.png-atlas
+[10:10:31] [Render thread/INFO] [minecraft/TextureAtlas]: Created: 1024x512x4 minecraft:textures/atlas/signs.png-atlas
+[10:10:31] [Render thread/INFO] [minecraft/TextureAtlas]: Created: 1024x512x4 minecraft:textures/atlas/shield_patterns.png-atlas
+[10:10:31] [Render thread/INFO] [minecraft/TextureAtlas]: Created: 1024x512x4 minecraft:textures/atlas/banner_patterns.png-atlas
+[10:10:31] [Render thread/INFO] [minecraft/TextureAtlas]: Created: 2048x1024x4 minecraft:textures/atlas/armor_trims.png-atlas
+[10:10:31] [Render thread/INFO] [minecraft/TextureAtlas]: Created: 128x64x4 minecraft:textures/atlas/decorated_pot.png-atlas
+[10:10:31] [Render thread/INFO] [minecraft/TextureAtlas]: Created: 2048x1024x4 minecraft:textures/atlas/chest.png-atlas
+[10:10:31] [Render thread/INFO] [minecraft/TextureAtlas]: Created: 512x256x4 minecraft:textures/atlas/shulker_boxes.png-atlas
+[10:10:31] [Render thread/INFO] [minecraft/TextureAtlas]: Created: 512x256x4 minecraft:textures/atlas/beds.png-atlas
+AOE_PORTAL_QA model diagnostics {"missingBlockModels":[],"menuScreenCheckFailed":false,"missingMenuScreens":[],"entityRendererCheckFailed":false}
+AOE_PORTAL_QA wrote startup-animations
+AOE_PORTAL_QA wrote startup-dragon-eyes
+[10:10:32] [Render thread/WARN] [minecraft/ShaderInstance]: Shader rendertype_entity_translucent_emissive could not find sampler named Sampler2 in the specified shader program.
+[10:10:32] [Render thread/WARN] [minecraft/ShaderInstance]: Shader alexscaves:rendertype_red_ghost could not find sampler named Sampler2 in the specified shader program.
+[10:10:32] [Render thread/INFO] [co.gi.al.al.AlexsCaves/]: registered internal shaders
+[10:10:32] [Render thread/WARN] [minecraft/EffectInstance]: Shader bumpy could not find uniform named OutSize in the specified shader program.
+[10:10:32] [Render thread/INFO] [minecraft/TextureAtlas]: Created: 2048x1024x0 minecraft:textures/atlas/particles.png-atlas
+[10:10:32] [Render thread/INFO] [minecraft/TextureAtlas]: Created: 512x256x0 minecraft:textures/atlas/paintings.png-atlas
+[10:10:32] [Render thread/INFO] [minecraft/TextureAtlas]: Created: 512x256x0 minecraft:textures/atlas/mob_effects.png-atlas
+[10:10:32] [Render thread/INFO] [co.te.bl.co.Blueprint/]: Blueprint Splash Manager has loaded 0 splashes
+[10:10:32] [Render thread/INFO] [minecraft/TextureAtlas]: Created: 256x128x0 twilightforest:textures/atlas/magic_paintings.png-atlas
+[10:10:32] [Render thread/INFO] [co.bl.va.co.VanillaBackport/]: Loaded 2 custom leaf color(s)
+[10:10:32] [Render thread/WARN] [minecraft/EffectInstance]: Shader aquatica:godray could not find uniform named iResolution in the specified shader program.
+[10:10:32] [Render thread/WARN] [minecraft/EffectInstance]: Shader aquatica:aurora could not find sampler named ImageSampler in the specified shader program.
+[10:10:32] [Render thread/WARN] [minecraft/EffectInstance]: Shader aquatica:aurora could not find uniform named iResolution in the specified shader program.
+[10:10:32] [Render thread/INFO] [minecraft/TextureAtlas]: Created: 128x128x0 upgrade_aquatic:textures/atlas/glow_squid.png-atlas
+[10:10:32] [Render thread/INFO] [sn.ki.Kiwi/]: Canceling Microsoft telemetry
+AOE_PORTAL_QA request snapshot final-87af-startup
+AOE_PORTAL_QA wrote final-87af-startup
+[10:10:32] [Worker-Main-13/ERROR] [CorgiLib/]: GET request failed. Response Code: 301
+[10:10:32] [Realms Notification Availability checker #1/INFO] [mojang/RealmsClient]: Could not authorize you against Realms server: java.lang.RuntimeException: Failed to parse into SignedJWT: 0
+AOE_PORTAL_QA request texture production-texture
+AOE_PORTAL_QA wrote production-texture
+AOE_PORTAL_QA request animations production-animations
+AOE_PORTAL_QA wrote production-animations
+AOE_PORTAL_QA request eyes production-eyes
+AOE_PORTAL_QA wrote production-eyes
+AOE_PORTAL_QA request brewing production-brewing
+AOE_PORTAL_QA wrote production-brewing
+AOE_PORTAL_QA request recipebooks production-recipebooks
+AOE_PORTAL_QA wrote production-recipebooks
+AOE_PORTAL_QA request sounds production-sounds
+AOE_PORTAL_QA wrote production-sounds
+AOE_PORTAL_QA request capture production-capture
+AOE_PORTAL_QA Saved screenshot as aoe-portal-qa-production-capture.png
+AOE_PORTAL_QA request connect 127.0.0.1:25579
+[10:11:35] [Render thread/INFO] [minecraft/ConnectScreen]: Connecting to 127.0.0.1, 25579
+AOE_PORTAL_QA request snapshot 1792505495-joined-1
+AOE_PORTAL_QA wrote 1792505495-joined-1
+AOE_PORTAL_QA request snapshot 1792505495-joined-2
+AOE_PORTAL_QA wrote 1792505495-joined-2
+AOE_PORTAL_QA request snapshot 1792505495-joined-3
+AOE_PORTAL_QA wrote 1792505495-joined-3
+AOE_PORTAL_QA request snapshot 1792505495-joined-4
+AOE_PORTAL_QA wrote 1792505495-joined-4
+AOE_PORTAL_QA request snapshot 1792505495-joined-5
+AOE_PORTAL_QA wrote 1792505495-joined-5
+[10:11:41] [Netty Client IO #0/INFO] [ne.mi.ne.NetworkHooks/]: Connected to a modded server.
+[10:11:41] [Netty Client IO #0/INFO] [sn.ki.Kiwi/]: Canceling Microsoft telemetry
+[10:11:42] [Render thread/INFO] [al.he.HearthAndHarvest/]: Loaded 27 fluid bottle mappings and 20 vintage styles
+[10:11:46] [Render thread/INFO] [co.bl.va.co.VanillaBackport/]: Loaded 3 custom dry foliage color rule(s)
+[10:11:46] [Render thread/INFO] [mc.mo.wa.ne.Packets/]: [WTHIT] Received config from the server: {"minecraft:attribute.horse_jump_height":true,"minecraft:bee.hive_occupants":true,"harvest:enabled":true,"minecraft:level.composter":true,"minecraft:effect.beacon":true,"minecraft:entity.armor":true,"minecraft:plant.tree_growable":true,"minecraft:attribute.horse_speed":true,"wailax:progress.enabled_entity":true,"minecraft:redstone.lever":true,"minecraft:jukebox.record":true,"minecraft:entity.absorption":true,"minecraft:book.bookshelf":true,"minecraft:effect.mob":true,"wailax:energy.enabled_entity":true,"wailax:fluid.enabled_block":true,"minecraft:plant.crop_growable":true,"minecraft:attribute.health":true,"minecraft:horse.jump_height":true,"minecraft:crop_growable":true,"wailax:item.nbt":true,"minecraft:attribute.beacon_effects":true,"minecraft:entity.health":true,"minecraft:plant.crop_progress":true,"minecraft:pet.owner":true,"minecraft:bee.hive_honey_level":true,"wailax:fluid.enabled_entity":true,"minecraft:timer.grow":true,"minecraft:bee.hive_pos":true,"minecraft:entity.item_entity":true,"minecraft:attribute.mob_effects":true,"minecraft:override.invisible_entity":true,"minecraft:spawner_type":true,"wailax:progress.enabled_block":true,"minecraft:tree_growable":true,"minecraft:note_block.type":true,"minecraft:override.infested":true,"wailax:item.enabled_entity":true,"minecraft:item_entity":true,"minecraft:breaking_progress.enabled":true,"minecraft:timer.breed":true,"minecraft:attribute.panda_genes":true,"minecraft:redstone.comparator":true,"wailax:item.enabled_block":true,"minecraft:spawner.type":true,"minecraft:override.trapped_chest":true,"minecraft:effect.hidden_mob":false,"minecraft:horse.speed":true,"minecraft:attribute.armor":true,"wailax:progress.time":true,"wailax:energy.enabled_block":true,"minecraft:attribute.absorption":true,"minecraft:book.lectern":true,"minecraft:redstone.level":true,"minecraft:level.honey":true,"minecraft:crop_progress":true,"minecraft:redstone.repeater":true,"minecraft:attribute.hidden_mob_effects":false,"minecraft:panda.genes":true,"minecraft:override.powder_snow":true}
+[10:11:46] [Render thread/INFO] [minecraft/AdvancementList]: Loaded 137 advancements
+[10:11:46] [Render thread/ERROR] [or.be.wo.to.ut.Logger/]: [worlds_together] Tried to read from global registry!
+[10:11:46] [Render thread/ERROR] [or.be.wo.to.ut.Logger/]: [worlds_together] Tried to read from global registry!
+[10:11:46] [Render thread/ERROR] [or.be.wo.to.ut.Logger/]: [worlds_together] Tried to read from global registry!
+[10:11:46] [Render thread/ERROR] [or.be.wo.to.ut.Logger/]: [worlds_together] Tried to read from global registry!
+[10:11:46] [Render thread/ERROR] [or.be.wo.to.ut.Logger/]: [worlds_together] Tried to read from global registry!
+[10:11:46] [Render thread/ERROR] [or.be.wo.to.ut.Logger/]: [worlds_together] Tried to read from global registry!
+[10:11:46] [Render thread/ERROR] [or.be.wo.to.ut.Logger/]: [worlds_together] Tried to read from global registry!
+[10:11:46] [Render thread/ERROR] [or.be.wo.to.ut.Logger/]: [worlds_together] Tried to read from global registry!
+[10:11:46] [Render thread/ERROR] [or.be.wo.to.ut.Logger/]: [worlds_together] Tried to read from global registry!
+[10:11:46] [Render thread/ERROR] [or.be.wo.to.ut.Logger/]: [worlds_together] Tried to read from global registry!
+[10:11:47] [Render thread/INFO] [or.be.wo.to.ut.Logger/]: [bclib] Sending hello to server.
+AOE_PORTAL_QA request snapshot 1792505495-joined-6
+AOE_PORTAL_QA wrote 1792505495-joined-6
+[10:11:47] [Render thread/INFO] [or.be.wo.to.ut.Logger/]: [bclib] Received Hello from Server. (client=20.0.13, server=20.0.13)
+[10:11:47] [Render thread/INFO] [or.be.wo.to.ut.Logger/]: [bclib] 	- bclib (client=20.0.13, server=20.0.13, size=2.1 MiB)
+[10:11:47] [Render thread/INFO] [or.be.wo.to.ut.Logger/]: [bclib] Files offered by Server:
+[10:11:47] [Render thread/INFO] [or.be.wo.to.ut.Logger/]: [bclib] 	- bclib.CONFIG_betterend.entities: 
+[10:11:47] [Render thread/INFO] [or.be.wo.to.ut.Logger/]: [bclib] 	- bclib.CONFIG_betterend.blocks: 
+[10:11:47] [Render thread/INFO] [or.be.wo.to.ut.Logger/]: [bclib] 	- bclib.CONFIG_betterend.items: 
+[10:11:47] [Render thread/INFO] [or.be.wo.to.ut.Logger/]: [bclib] 	- bclib.CONFIG_betterend.biomes: 
+[10:11:47] [Render thread/INFO] [or.be.wo.to.ut.Logger/]: [bclib] 	- bclib.CONFIG_betterend.structures: 
+[10:11:47] [Render thread/INFO] [or.be.wo.to.ut.Logger/]: [bclib] 	- bclib.CONFIG_betterend.features: 
+[10:11:47] [Render thread/INFO] [or.be.wo.to.ut.Logger/]: [bclib] 	- bclib.CONFIG_betterend.enchantments: 
+[10:11:47] [Render thread/INFO] [or.be.wo.to.ut.Logger/]: [bclib] 	- bclib.CONFIG_bclib.generator: 
+[10:11:47] [Render thread/INFO] [or.be.wo.to.ut.Logger/]: [bclib] 	- bclib.CONFIG_bclib.main: 
+[10:11:47] [Render thread/INFO] [or.be.wo.to.ut.Logger/]: [bclib] 	- bclib.CONFIG_bclib.biomes: 
+[10:11:47] [Render thread/INFO] [or.be.wo.to.ut.Logger/]: [bclib] Folders offered by Server:
+[10:11:47] [Render thread/INFO] [or.be.wo.to.ut.Logger/]: [bclib] 	- BCLIB-SYNC (C:\Users\andre\Downloads\Games\September2024Mod\run\portal-production-client\game\bclib-sync, allowRemove=true)
+[10:12:19] [Render thread/INFO] [minecraft/ChatComponent]: [System] [CHAT] [Server: Reloading!]
+[10:12:23] [Render thread/INFO] [al.he.HearthAndHarvest/]: Loaded 27 fluid bottle mappings and 20 vintage styles
+[10:12:28] [Render thread/INFO] [minecraft/AdvancementList]: Loaded 137 advancements
+AOE_PORTAL_QA request command execute in minecraft:overworld run tp @s 1.5 200 -3.0 0 0
+[10:12:53] [Render thread/INFO] [minecraft/ChatComponent]: [System] [CHAT] Teleported AOEPortalQA to 1.500000, 200.000000, -3.000000
+AOE_PORTAL_QA request snapshot 1792505573-position-overworld-1
+AOE_PORTAL_QA wrote 1792505573-position-overworld-1
+AOE_PORTAL_QA request snapshot 1792505573-forbidden-before-2
+AOE_PORTAL_QA wrote 1792505573-forbidden-before-2
+AOE_PORTAL_QA request interact 0 201 0
+AOE_PORTAL_QA actual interaction result PASS
+AOE_PORTAL_QA request snapshot 1792505573-picker-overworld-3
+AOE_PORTAL_QA wrote 1792505573-picker-overworld-3
+AOE_PORTAL_QA request capture picker-overworld
+AOE_PORTAL_QA Saved screenshot as aoe-portal-qa-picker-overworld.png
+AOE_PORTAL_QA request forge overworld
+AOE_PORTAL_QA forged forbidden destination overworld with actual server-issued token
+AOE_PORTAL_QA request snapshot 1792505573-forbidden-after-4
+AOE_PORTAL_QA wrote 1792505573-forbidden-after-4
+AOE_PORTAL_QA request snapshot 1792505573-forbidden-before-5
+AOE_PORTAL_QA wrote 1792505573-forbidden-before-5
+AOE_PORTAL_QA request interact 0 201 0
+AOE_PORTAL_QA actual interaction result PASS
+AOE_PORTAL_QA request snapshot 1792505573-picker-overworld-6
+AOE_PORTAL_QA wrote 1792505573-picker-overworld-6
+AOE_PORTAL_QA request forge nether
+AOE_PORTAL_QA forged forbidden destination nether with actual server-issued token
+AOE_PORTAL_QA request snapshot 1792505573-forbidden-after-7
+AOE_PORTAL_QA wrote 1792505573-forbidden-after-7
+AOE_PORTAL_QA request command execute in aoemod:tropical_dimension run tp @s 1.5 200 -3.0 0 0
+AOE_PORTAL_QA request snapshot 1792505573-position-tropical-8
+AOE_PORTAL_QA wrote 1792505573-position-tropical-8
+[10:13:00] [Render thread/INFO] [minecraft/ChatComponent]: [System] [CHAT] Teleported AOEPortalQA to 1.500000, 200.000000, -3.000000
+AOE_PORTAL_QA request snapshot 1792505573-position-tropical-9
+AOE_PORTAL_QA wrote 1792505573-position-tropical-9
+AOE_PORTAL_QA request snapshot 1792505573-forbidden-before-10
+AOE_PORTAL_QA wrote 1792505573-forbidden-before-10
+AOE_PORTAL_QA request interact 0 201 0
+AOE_PORTAL_QA actual interaction result PASS
+AOE_PORTAL_QA request snapshot 1792505573-picker-tropical-11
+AOE_PORTAL_QA wrote 1792505573-picker-tropical-11
+AOE_PORTAL_QA request capture picker-tropical
+AOE_PORTAL_QA Saved screenshot as aoe-portal-qa-picker-tropical.png
+AOE_PORTAL_QA request forge tropical
+AOE_PORTAL_QA forged forbidden destination tropical with actual server-issued token
+AOE_PORTAL_QA request snapshot 1792505573-forbidden-after-12
+AOE_PORTAL_QA wrote 1792505573-forbidden-after-12
+AOE_PORTAL_QA request snapshot 1792505573-forbidden-before-13
+AOE_PORTAL_QA wrote 1792505573-forbidden-before-13
+AOE_PORTAL_QA request interact 0 201 0
+AOE_PORTAL_QA actual interaction result PASS
+AOE_PORTAL_QA request snapshot 1792505573-picker-tropical-14
+AOE_PORTAL_QA wrote 1792505573-picker-tropical-14
+AOE_PORTAL_QA request forge nether
+AOE_PORTAL_QA forged forbidden destination nether with actual server-issued token
+AOE_PORTAL_QA request snapshot 1792505573-forbidden-after-15
+AOE_PORTAL_QA wrote 1792505573-forbidden-after-15
+AOE_PORTAL_QA request command execute in aoemod:savanna_dimension run tp @s 1.5 200 -3.0 0 0
+AOE_PORTAL_QA request snapshot 1792505573-position-savanna-16
+AOE_PORTAL_QA wrote 1792505573-position-savanna-16
+[10:13:06] [Render thread/INFO] [minecraft/ChatComponent]: [System] [CHAT] Teleported AOEPortalQA to 1.500000, 200.000000, -3.000000
+AOE_PORTAL_QA request snapshot 1792505573-position-savanna-17
+AOE_PORTAL_QA wrote 1792505573-position-savanna-17
+AOE_PORTAL_QA request snapshot 1792505573-forbidden-before-18
+AOE_PORTAL_QA wrote 1792505573-forbidden-before-18
+AOE_PORTAL_QA request interact 0 201 0
+AOE_PORTAL_QA actual interaction result PASS
+AOE_PORTAL_QA request snapshot 1792505573-picker-savanna-19
+AOE_PORTAL_QA wrote 1792505573-picker-savanna-19
+AOE_PORTAL_QA request capture picker-savanna
+AOE_PORTAL_QA Saved screenshot as aoe-portal-qa-picker-savanna.png
+AOE_PORTAL_QA request forge savanna
+AOE_PORTAL_QA forged forbidden destination savanna with actual server-issued token
+AOE_PORTAL_QA request snapshot 1792505573-forbidden-after-20
+AOE_PORTAL_QA wrote 1792505573-forbidden-after-20
+AOE_PORTAL_QA request snapshot 1792505573-forbidden-before-21
+AOE_PORTAL_QA wrote 1792505573-forbidden-before-21
+AOE_PORTAL_QA request interact 0 201 0
+AOE_PORTAL_QA actual interaction result PASS
+AOE_PORTAL_QA request snapshot 1792505573-picker-savanna-22
+AOE_PORTAL_QA wrote 1792505573-picker-savanna-22
+AOE_PORTAL_QA request forge nether
+AOE_PORTAL_QA forged forbidden destination nether with actual server-issued token
+AOE_PORTAL_QA request snapshot 1792505573-forbidden-after-23
+AOE_PORTAL_QA wrote 1792505573-forbidden-after-23
+AOE_PORTAL_QA request command execute in aoemod:plains_dimension run tp @s 1.5 200 -3.0 0 0
+[10:13:12] [Render thread/INFO] [minecraft/ChatComponent]: [System] [CHAT] Teleported AOEPortalQA to 1.500000, 200.000000, -3.000000
+AOE_PORTAL_QA request snapshot 1792505573-position-plains-24
+AOE_PORTAL_QA wrote 1792505573-position-plains-24
+AOE_PORTAL_QA request snapshot 1792505573-forbidden-before-25
+AOE_PORTAL_QA wrote 1792505573-forbidden-before-25
+AOE_PORTAL_QA request interact 0 201 0
+AOE_PORTAL_QA actual interaction result PASS
+AOE_PORTAL_QA request snapshot 1792505573-picker-plains-26
+AOE_PORTAL_QA wrote 1792505573-picker-plains-26
+AOE_PORTAL_QA request capture picker-plains
+AOE_PORTAL_QA Saved screenshot as aoe-portal-qa-picker-plains.png
+AOE_PORTAL_QA request forge plains
+AOE_PORTAL_QA forged forbidden destination plains with actual server-issued token
+AOE_PORTAL_QA request snapshot 1792505573-forbidden-after-27
+AOE_PORTAL_QA wrote 1792505573-forbidden-after-27
+AOE_PORTAL_QA request snapshot 1792505573-forbidden-before-28
+AOE_PORTAL_QA wrote 1792505573-forbidden-before-28
+AOE_PORTAL_QA request interact 0 201 0
+AOE_PORTAL_QA actual interaction result PASS
+AOE_PORTAL_QA request snapshot 1792505573-picker-plains-29
+AOE_PORTAL_QA wrote 1792505573-picker-plains-29
+AOE_PORTAL_QA request forge nether
+AOE_PORTAL_QA forged forbidden destination nether with actual server-issued token
+AOE_PORTAL_QA request snapshot 1792505573-forbidden-after-30
+AOE_PORTAL_QA wrote 1792505573-forbidden-after-30
+AOE_PORTAL_QA request command execute in aoemod:snowy_dimension run tp @s 1.5 200 -3.0 0 0
+[10:13:18] [Render thread/INFO] [minecraft/ChatComponent]: [System] [CHAT] Teleported AOEPortalQA to 1.500000, 200.000000, -3.000000
+AOE_PORTAL_QA request snapshot 1792505573-position-snowy-31
+AOE_PORTAL_QA wrote 1792505573-position-snowy-31
+AOE_PORTAL_QA request snapshot 1792505573-forbidden-before-32
+AOE_PORTAL_QA wrote 1792505573-forbidden-before-32
+AOE_PORTAL_QA request interact 0 201 0
+AOE_PORTAL_QA actual interaction result PASS
+AOE_PORTAL_QA request snapshot 1792505573-picker-snowy-33
+AOE_PORTAL_QA wrote 1792505573-picker-snowy-33
+AOE_PORTAL_QA request capture picker-snowy
+AOE_PORTAL_QA Saved screenshot as aoe-portal-qa-picker-snowy.png
+AOE_PORTAL_QA request forge snowy
+AOE_PORTAL_QA forged forbidden destination snowy with actual server-issued token
+AOE_PORTAL_QA request snapshot 1792505573-forbidden-after-34
+AOE_PORTAL_QA wrote 1792505573-forbidden-after-34
+AOE_PORTAL_QA request snapshot 1792505573-forbidden-before-35
+AOE_PORTAL_QA wrote 1792505573-forbidden-before-35
+AOE_PORTAL_QA request interact 0 201 0
+AOE_PORTAL_QA actual interaction result PASS
+AOE_PORTAL_QA request snapshot 1792505573-picker-snowy-36
+AOE_PORTAL_QA wrote 1792505573-picker-snowy-36
+AOE_PORTAL_QA request forge nether
+AOE_PORTAL_QA forged forbidden destination nether with actual server-issued token
+AOE_PORTAL_QA request snapshot 1792505573-forbidden-after-37
+AOE_PORTAL_QA wrote 1792505573-forbidden-after-37
+AOE_PORTAL_QA request command execute in aoemod:desert_dimension run tp @s 1.5 200 -3.0 0 0
+[10:13:23] [Render thread/INFO] [minecraft/ChatComponent]: [System] [CHAT] Teleported AOEPortalQA to 1.500000, 200.000000, -3.000000
+AOE_PORTAL_QA request snapshot 1792505573-position-desert-38
+AOE_PORTAL_QA wrote 1792505573-position-desert-38
+AOE_PORTAL_QA request snapshot 1792505573-forbidden-before-39
+AOE_PORTAL_QA wrote 1792505573-forbidden-before-39
+AOE_PORTAL_QA request interact 0 201 0
+AOE_PORTAL_QA actual interaction result PASS
+AOE_PORTAL_QA request snapshot 1792505573-picker-desert-40
+AOE_PORTAL_QA wrote 1792505573-picker-desert-40
+AOE_PORTAL_QA request capture picker-desert
+AOE_PORTAL_QA Saved screenshot as aoe-portal-qa-picker-desert.png
+AOE_PORTAL_QA request forge desert
+AOE_PORTAL_QA forged forbidden destination desert with actual server-issued token
+AOE_PORTAL_QA request snapshot 1792505573-forbidden-after-41
+AOE_PORTAL_QA wrote 1792505573-forbidden-after-41
+AOE_PORTAL_QA request command execute in aoemod:nether_dimension run tp @s 1.5 100 -3.0 0 0
+[10:13:27] [Render thread/INFO] [minecraft/ChatComponent]: [System] [CHAT] Teleported AOEPortalQA to 1.500000, 100.000000, -3.000000
+AOE_PORTAL_QA request snapshot 1792505573-position-nether-42
+AOE_PORTAL_QA wrote 1792505573-position-nether-42
+AOE_PORTAL_QA request snapshot 1792505573-forbidden-before-43
+AOE_PORTAL_QA wrote 1792505573-forbidden-before-43
+AOE_PORTAL_QA request interact 0 101 0
+AOE_PORTAL_QA actual interaction result PASS
+AOE_PORTAL_QA request snapshot 1792505573-picker-nether-44
+AOE_PORTAL_QA wrote 1792505573-picker-nether-44
+AOE_PORTAL_QA request capture picker-nether
+AOE_PORTAL_QA Saved screenshot as aoe-portal-qa-picker-nether.png
+AOE_PORTAL_QA request forge overworld
+AOE_PORTAL_QA forged forbidden destination overworld with actual server-issued token
+AOE_PORTAL_QA request snapshot 1792505573-forbidden-after-45
+AOE_PORTAL_QA wrote 1792505573-forbidden-after-45
+AOE_PORTAL_QA request snapshot 1792505573-forbidden-before-46
+AOE_PORTAL_QA wrote 1792505573-forbidden-before-46
+AOE_PORTAL_QA request interact 0 101 0
+AOE_PORTAL_QA actual interaction result PASS
+AOE_PORTAL_QA request snapshot 1792505573-picker-nether-47
+AOE_PORTAL_QA wrote 1792505573-picker-nether-47
+AOE_PORTAL_QA request forge tropical
+AOE_PORTAL_QA forged forbidden destination tropical with actual server-issued token
+AOE_PORTAL_QA request snapshot 1792505573-forbidden-after-48
+AOE_PORTAL_QA wrote 1792505573-forbidden-after-48
+AOE_PORTAL_QA request snapshot 1792505573-forbidden-before-49
+AOE_PORTAL_QA wrote 1792505573-forbidden-before-49
+AOE_PORTAL_QA request interact 0 101 0
+AOE_PORTAL_QA actual interaction result PASS
+AOE_PORTAL_QA request snapshot 1792505573-picker-nether-50
+AOE_PORTAL_QA wrote 1792505573-picker-nether-50
+AOE_PORTAL_QA request forge savanna
+AOE_PORTAL_QA forged forbidden destination savanna with actual server-issued token
+AOE_PORTAL_QA request snapshot 1792505573-forbidden-after-51
+AOE_PORTAL_QA wrote 1792505573-forbidden-after-51
+AOE_PORTAL_QA request snapshot 1792505573-forbidden-before-52
+AOE_PORTAL_QA wrote 1792505573-forbidden-before-52
+AOE_PORTAL_QA request interact 0 101 0
+AOE_PORTAL_QA actual interaction result PASS
+AOE_PORTAL_QA request snapshot 1792505573-picker-nether-53
+AOE_PORTAL_QA wrote 1792505573-picker-nether-53
+AOE_PORTAL_QA request forge plains
+AOE_PORTAL_QA forged forbidden destination plains with actual server-issued token
+AOE_PORTAL_QA request snapshot 1792505573-forbidden-after-54
+AOE_PORTAL_QA wrote 1792505573-forbidden-after-54
+AOE_PORTAL_QA request snapshot 1792505573-forbidden-before-55
+AOE_PORTAL_QA wrote 1792505573-forbidden-before-55
+AOE_PORTAL_QA request interact 0 101 0
+AOE_PORTAL_QA actual interaction result PASS
+AOE_PORTAL_QA request snapshot 1792505573-picker-nether-56
+AOE_PORTAL_QA wrote 1792505573-picker-nether-56
+AOE_PORTAL_QA request forge snowy
+AOE_PORTAL_QA forged forbidden destination snowy with actual server-issued token
+AOE_PORTAL_QA request snapshot 1792505573-forbidden-after-57
+AOE_PORTAL_QA wrote 1792505573-forbidden-after-57
+AOE_PORTAL_QA request snapshot 1792505573-forbidden-before-58
+AOE_PORTAL_QA wrote 1792505573-forbidden-before-58
+AOE_PORTAL_QA request interact 0 101 0
+AOE_PORTAL_QA actual interaction result PASS
+AOE_PORTAL_QA request snapshot 1792505573-picker-nether-59
+AOE_PORTAL_QA wrote 1792505573-picker-nether-59
+AOE_PORTAL_QA request forge nether
+AOE_PORTAL_QA forged forbidden destination nether with actual server-issued token
+AOE_PORTAL_QA request snapshot 1792505573-forbidden-after-60
+AOE_PORTAL_QA wrote 1792505573-forbidden-after-60
+AOE_PORTAL_QA request command execute in minecraft:overworld run tp @s 1.5 200 -3.0 0 0
+[10:13:49] [Render thread/INFO] [minecraft/ChatComponent]: [System] [CHAT] Teleported AOEPortalQA to 1.500000, 200.000000, -3.000000
+AOE_PORTAL_QA request snapshot 1792505629-position-overworld-1
+AOE_PORTAL_QA wrote 1792505629-position-overworld-1
+AOE_PORTAL_QA request interact 0 201 0
+AOE_PORTAL_QA actual interaction result PASS
+AOE_PORTAL_QA request snapshot 1792505629-picker-overworld-2
+AOE_PORTAL_QA wrote 1792505629-picker-overworld-2
+AOE_PORTAL_QA request capture picker-overworld
+AOE_PORTAL_QA Saved screenshot as aoe-portal-qa-picker-overworld.png
+AOE_PORTAL_QA request choose tropical
+AOE_PORTAL_QA chose tropical clicked=true
+AOE_PORTAL_QA request snapshot 1792505629-activate-overworld-tropical-3
+AOE_PORTAL_QA wrote 1792505629-activate-overworld-tropical-3
+AOE_PORTAL_QA request capture route-00-overworld-tropical
+AOE_PORTAL_QA Saved screenshot as aoe-portal-qa-route-00-overworld-tropical.png
+AOE_PORTAL_QA request capture animation-second-frame
+AOE_PORTAL_QA Saved screenshot as aoe-portal-qa-animation-second-frame.png
+AOE_PORTAL_QA request command tp @s 1.5 200 0.5 0 0
+[10:13:58] [Render thread/INFO] [minecraft/ChatComponent]: [System] [CHAT] Teleported AOEPortalQA to 1.500000, 200.000000, 0.500000
+AOE_PORTAL_QA request snapshot 1792505629-arrival-overworld-tropical-4
+AOE_PORTAL_QA wrote 1792505629-arrival-overworld-tropical-4
+AOE_PORTAL_QA request command execute in aoemod:tropical_dimension run tp @s 1.5 200 -3.0 0 0
+[10:13:59] [Render thread/INFO] [minecraft/ChatComponent]: [System] [CHAT] Teleported AOEPortalQA to 1.500000, 200.000000, -3.000000
+AOE_PORTAL_QA request snapshot 1792505629-position-tropical-5
+AOE_PORTAL_QA wrote 1792505629-position-tropical-5
+AOE_PORTAL_QA request command execute in minecraft:overworld run tp @s 1.5 200 -3.0 0 0
+[10:13:59] [Render thread/INFO] [minecraft/ChatComponent]: [System] [CHAT] Teleported AOEPortalQA to 1.500000, 200.000000, -3.000000
+AOE_PORTAL_QA request snapshot 1792505629-position-overworld-6
+AOE_PORTAL_QA wrote 1792505629-position-overworld-6
+AOE_PORTAL_QA request interact 0 201 0
+AOE_PORTAL_QA actual interaction result PASS
+AOE_PORTAL_QA request snapshot 1792505629-picker-overworld-7
+AOE_PORTAL_QA wrote 1792505629-picker-overworld-7
+AOE_PORTAL_QA request choose savanna
+AOE_PORTAL_QA chose savanna clicked=true
+AOE_PORTAL_QA request snapshot 1792505629-activate-overworld-savanna-8
+AOE_PORTAL_QA wrote 1792505629-activate-overworld-savanna-8
+AOE_PORTAL_QA request capture route-01-overworld-savanna
+AOE_PORTAL_QA Saved screenshot as aoe-portal-qa-route-01-overworld-savanna.png
+AOE_PORTAL_QA request command tp @s 1.5 200 0.5 0 0
+[10:14:07] [Render thread/INFO] [minecraft/ChatComponent]: [System] [CHAT] Teleported AOEPortalQA to 1.500000, 200.000000, 0.500000
+AOE_PORTAL_QA request snapshot 1792505629-arrival-overworld-savanna-9
+AOE_PORTAL_QA wrote 1792505629-arrival-overworld-savanna-9
+AOE_PORTAL_QA request command execute in aoemod:savanna_dimension run tp @s 1.5 200 -3.0 0 0
+[10:14:07] [Render thread/INFO] [minecraft/ChatComponent]: [System] [CHAT] Teleported AOEPortalQA to 1.500000, 200.000000, -3.000000
+AOE_PORTAL_QA request snapshot 1792505629-position-savanna-10
+AOE_PORTAL_QA wrote 1792505629-position-savanna-10
+AOE_PORTAL_QA request command execute in minecraft:overworld run tp @s 1.5 200 -3.0 0 0
+[10:14:08] [Render thread/INFO] [minecraft/ChatComponent]: [System] [CHAT] Teleported AOEPortalQA to 1.500000, 200.000000, -3.000000
+AOE_PORTAL_QA request snapshot 1792505629-position-overworld-11
+AOE_PORTAL_QA wrote 1792505629-position-overworld-11
+AOE_PORTAL_QA request interact 0 201 0
+AOE_PORTAL_QA actual interaction result PASS
+AOE_PORTAL_QA request snapshot 1792505629-picker-overworld-12
+AOE_PORTAL_QA wrote 1792505629-picker-overworld-12
+AOE_PORTAL_QA request choose plains
+AOE_PORTAL_QA chose plains clicked=true
+AOE_PORTAL_QA request snapshot 1792505629-activate-overworld-plains-13
+AOE_PORTAL_QA wrote 1792505629-activate-overworld-plains-13
+AOE_PORTAL_QA request capture route-02-overworld-plains
+AOE_PORTAL_QA Saved screenshot as aoe-portal-qa-route-02-overworld-plains.png
+AOE_PORTAL_QA request command tp @s 1.5 200 0.5 0 0
+[10:14:15] [Render thread/INFO] [minecraft/ChatComponent]: [System] [CHAT] Teleported AOEPortalQA to 1.500000, 200.000000, 0.500000
+AOE_PORTAL_QA request snapshot 1792505629-arrival-overworld-plains-14
+AOE_PORTAL_QA wrote 1792505629-arrival-overworld-plains-14
+AOE_PORTAL_QA request command execute in aoemod:plains_dimension run tp @s 1.5 200 -3.0 0 0
+[10:14:16] [Render thread/INFO] [minecraft/ChatComponent]: [System] [CHAT] Teleported AOEPortalQA to 1.500000, 200.000000, -3.000000
+AOE_PORTAL_QA request snapshot 1792505629-position-plains-15
+AOE_PORTAL_QA wrote 1792505629-position-plains-15
+AOE_PORTAL_QA request command execute in minecraft:overworld run tp @s 1.5 200 -3.0 0 0
+[10:14:17] [Render thread/INFO] [minecraft/ChatComponent]: [System] [CHAT] Teleported AOEPortalQA to 1.500000, 200.000000, -3.000000
+AOE_PORTAL_QA request snapshot 1792505629-position-overworld-16
+AOE_PORTAL_QA wrote 1792505629-position-overworld-16
+AOE_PORTAL_QA request interact 0 201 0
+AOE_PORTAL_QA actual interaction result PASS
+AOE_PORTAL_QA request snapshot 1792505629-picker-overworld-17
+AOE_PORTAL_QA wrote 1792505629-picker-overworld-17
+AOE_PORTAL_QA request choose snowy
+AOE_PORTAL_QA chose snowy clicked=true
+AOE_PORTAL_QA request snapshot 1792505629-activate-overworld-snowy-18
+AOE_PORTAL_QA wrote 1792505629-activate-overworld-snowy-18
+AOE_PORTAL_QA request capture route-03-overworld-snowy
+AOE_PORTAL_QA Saved screenshot as aoe-portal-qa-route-03-overworld-snowy.png
+AOE_PORTAL_QA request command tp @s 1.5 200 0.5 0 0
+[10:14:24] [Render thread/INFO] [minecraft/ChatComponent]: [System] [CHAT] Teleported AOEPortalQA to 1.500000, 200.000000, 0.500000
+AOE_PORTAL_QA request snapshot 1792505629-arrival-overworld-snowy-19
+AOE_PORTAL_QA wrote 1792505629-arrival-overworld-snowy-19
+AOE_PORTAL_QA request command execute in aoemod:snowy_dimension run tp @s 1.5 200 -3.0 0 0
+[10:14:25] [Render thread/INFO] [minecraft/ChatComponent]: [System] [CHAT] Teleported AOEPortalQA to 1.500000, 200.000000, -3.000000
+AOE_PORTAL_QA request snapshot 1792505629-position-snowy-20
+AOE_PORTAL_QA wrote 1792505629-position-snowy-20
+AOE_PORTAL_QA request command execute in minecraft:overworld run tp @s 1.5 200 -3.0 0 0
+[10:14:26] [Render thread/INFO] [minecraft/ChatComponent]: [System] [CHAT] Teleported AOEPortalQA to 1.500000, 200.000000, -3.000000
+AOE_PORTAL_QA request snapshot 1792505629-position-overworld-21
+AOE_PORTAL_QA wrote 1792505629-position-overworld-21
+AOE_PORTAL_QA request interact 0 201 0
+AOE_PORTAL_QA actual interaction result PASS
+AOE_PORTAL_QA request snapshot 1792505629-picker-overworld-22
+AOE_PORTAL_QA wrote 1792505629-picker-overworld-22
+AOE_PORTAL_QA request choose desert
+AOE_PORTAL_QA chose desert clicked=true
+AOE_PORTAL_QA request snapshot 1792505629-activate-overworld-desert-23
+AOE_PORTAL_QA wrote 1792505629-activate-overworld-desert-23
+AOE_PORTAL_QA request capture route-04-overworld-desert
+AOE_PORTAL_QA Saved screenshot as aoe-portal-qa-route-04-overworld-desert.png
+AOE_PORTAL_QA request command tp @s 1.5 200 0.5 0 0
+[10:14:33] [Render thread/INFO] [minecraft/ChatComponent]: [System] [CHAT] Teleported AOEPortalQA to 1.500000, 200.000000, 0.500000
+AOE_PORTAL_QA request snapshot 1792505629-arrival-overworld-desert-24
+AOE_PORTAL_QA wrote 1792505629-arrival-overworld-desert-24
+AOE_PORTAL_QA request command execute in aoemod:desert_dimension run tp @s 1.5 200 -3.0 0 0
+[10:14:34] [Render thread/INFO] [minecraft/ChatComponent]: [System] [CHAT] Teleported AOEPortalQA to 1.500000, 200.000000, -3.000000
+AOE_PORTAL_QA request snapshot 1792505629-position-desert-25
+AOE_PORTAL_QA wrote 1792505629-position-desert-25
+AOE_PORTAL_QA request command execute in aoemod:tropical_dimension run tp @s 1.5 200 -3.0 0 0
+[10:14:34] [Render thread/INFO] [minecraft/ChatComponent]: [System] [CHAT] Teleported AOEPortalQA to 1.500000, 200.000000, -3.000000
+AOE_PORTAL_QA request snapshot 1792505629-position-tropical-26
+AOE_PORTAL_QA wrote 1792505629-position-tropical-26
+AOE_PORTAL_QA request interact 0 201 0
+AOE_PORTAL_QA actual interaction result PASS
+AOE_PORTAL_QA request snapshot 1792505629-picker-tropical-27
+AOE_PORTAL_QA wrote 1792505629-picker-tropical-27
+AOE_PORTAL_QA request capture picker-tropical
+AOE_PORTAL_QA Saved screenshot as aoe-portal-qa-picker-tropical.png
+AOE_PORTAL_QA request choose overworld
+AOE_PORTAL_QA chose overworld clicked=true
+AOE_PORTAL_QA request snapshot 1792505629-activate-tropical-overworld-28
+AOE_PORTAL_QA wrote 1792505629-activate-tropical-overworld-28
+AOE_PORTAL_QA request capture route-05-tropical-overworld
+AOE_PORTAL_QA Saved screenshot as aoe-portal-qa-route-05-tropical-overworld.png
+AOE_PORTAL_QA request command tp @s 1.5 200 0.5 0 0
+[10:14:43] [Render thread/INFO] [minecraft/ChatComponent]: [System] [CHAT] Teleported AOEPortalQA to 1.500000, 200.000000, 0.500000
+AOE_PORTAL_QA request snapshot 1792505629-arrival-tropical-overworld-29
+AOE_PORTAL_QA wrote 1792505629-arrival-tropical-overworld-29
+AOE_PORTAL_QA request command execute in minecraft:overworld run tp @s 1.5 200 -3.0 0 0
+[10:14:43] [Render thread/INFO] [minecraft/ChatComponent]: [System] [CHAT] Teleported AOEPortalQA to 1.500000, 200.000000, -3.000000
+AOE_PORTAL_QA request snapshot 1792505629-position-overworld-30
+AOE_PORTAL_QA wrote 1792505629-position-overworld-30
+AOE_PORTAL_QA request command execute in aoemod:tropical_dimension run tp @s 1.5 200 -3.0 0 0
+[10:14:44] [Render thread/INFO] [minecraft/ChatComponent]: [System] [CHAT] Teleported AOEPortalQA to 1.500000, 200.000000, -3.000000
+AOE_PORTAL_QA request snapshot 1792505629-position-tropical-31
+AOE_PORTAL_QA wrote 1792505629-position-tropical-31
+AOE_PORTAL_QA request interact 0 201 0
+AOE_PORTAL_QA actual interaction result PASS
+AOE_PORTAL_QA request snapshot 1792505629-picker-tropical-32
+AOE_PORTAL_QA wrote 1792505629-picker-tropical-32
+AOE_PORTAL_QA request choose savanna
+AOE_PORTAL_QA chose savanna clicked=true
+AOE_PORTAL_QA request snapshot 1792505629-activate-tropical-savanna-33
+AOE_PORTAL_QA wrote 1792505629-activate-tropical-savanna-33
+AOE_PORTAL_QA request capture route-06-tropical-savanna
+AOE_PORTAL_QA Saved screenshot as aoe-portal-qa-route-06-tropical-savanna.png
+AOE_PORTAL_QA request command tp @s 1.5 200 0.5 0 0
+[10:14:51] [Render thread/INFO] [minecraft/ChatComponent]: [System] [CHAT] Teleported AOEPortalQA to 1.500000, 200.000000, 0.500000
+AOE_PORTAL_QA request snapshot 1792505629-arrival-tropical-savanna-34
+AOE_PORTAL_QA wrote 1792505629-arrival-tropical-savanna-34
+AOE_PORTAL_QA request command execute in aoemod:savanna_dimension run tp @s 1.5 200 -3.0 0 0
+[10:14:52] [Render thread/INFO] [minecraft/ChatComponent]: [System] [CHAT] Teleported AOEPortalQA to 1.500000, 200.000000, -3.000000
+AOE_PORTAL_QA request snapshot 1792505629-position-savanna-35
+AOE_PORTAL_QA wrote 1792505629-position-savanna-35
+AOE_PORTAL_QA request command execute in aoemod:tropical_dimension run tp @s 1.5 200 -3.0 0 0
+[10:14:52] [Render thread/INFO] [minecraft/ChatComponent]: [System] [CHAT] Teleported AOEPortalQA to 1.500000, 200.000000, -3.000000
+AOE_PORTAL_QA request snapshot 1792505629-position-tropical-36
+AOE_PORTAL_QA wrote 1792505629-position-tropical-36
+AOE_PORTAL_QA request interact 0 201 0
+AOE_PORTAL_QA actual interaction result PASS
+AOE_PORTAL_QA request snapshot 1792505629-picker-tropical-37
+AOE_PORTAL_QA wrote 1792505629-picker-tropical-37
+AOE_PORTAL_QA request choose plains
+AOE_PORTAL_QA chose plains clicked=true
+AOE_PORTAL_QA request snapshot 1792505629-activate-tropical-plains-38
+AOE_PORTAL_QA wrote 1792505629-activate-tropical-plains-38
+AOE_PORTAL_QA request capture route-07-tropical-plains
+AOE_PORTAL_QA Saved screenshot as aoe-portal-qa-route-07-tropical-plains.png
+AOE_PORTAL_QA request command tp @s 1.5 200 0.5 0 0
+[10:15:00] [Render thread/INFO] [minecraft/ChatComponent]: [System] [CHAT] Teleported AOEPortalQA to 1.500000, 200.000000, 0.500000
+AOE_PORTAL_QA request snapshot 1792505629-arrival-tropical-plains-39
+AOE_PORTAL_QA wrote 1792505629-arrival-tropical-plains-39
+AOE_PORTAL_QA request command execute in aoemod:plains_dimension run tp @s 1.5 200 -3.0 0 0
+[10:15:00] [Render thread/INFO] [minecraft/ChatComponent]: [System] [CHAT] Teleported AOEPortalQA to 1.500000, 200.000000, -3.000000
+AOE_PORTAL_QA request snapshot 1792505629-position-plains-40
+AOE_PORTAL_QA wrote 1792505629-position-plains-40
+AOE_PORTAL_QA request command execute in aoemod:tropical_dimension run tp @s 1.5 200 -3.0 0 0
+[10:15:01] [Render thread/INFO] [minecraft/ChatComponent]: [System] [CHAT] Teleported AOEPortalQA to 1.500000, 200.000000, -3.000000
+AOE_PORTAL_QA request snapshot 1792505629-position-tropical-41
+AOE_PORTAL_QA wrote 1792505629-position-tropical-41
+AOE_PORTAL_QA request interact 0 201 0
+AOE_PORTAL_QA actual interaction result PASS
+AOE_PORTAL_QA request snapshot 1792505629-picker-tropical-42
+AOE_PORTAL_QA wrote 1792505629-picker-tropical-42
+AOE_PORTAL_QA request choose snowy
+AOE_PORTAL_QA chose snowy clicked=true
+AOE_PORTAL_QA request snapshot 1792505629-activate-tropical-snowy-43
+AOE_PORTAL_QA wrote 1792505629-activate-tropical-snowy-43
+AOE_PORTAL_QA request capture route-08-tropical-snowy
+AOE_PORTAL_QA Saved screenshot as aoe-portal-qa-route-08-tropical-snowy.png
+AOE_PORTAL_QA request command tp @s 1.5 200 0.5 0 0
+[10:15:08] [Render thread/INFO] [minecraft/ChatComponent]: [System] [CHAT] Teleported AOEPortalQA to 1.500000, 200.000000, 0.500000
+AOE_PORTAL_QA request snapshot 1792505629-arrival-tropical-snowy-44
+AOE_PORTAL_QA wrote 1792505629-arrival-tropical-snowy-44
+AOE_PORTAL_QA request command execute in aoemod:snowy_dimension run tp @s 1.5 200 -3.0 0 0
+[10:15:09] [Render thread/INFO] [minecraft/ChatComponent]: [System] [CHAT] Teleported AOEPortalQA to 1.500000, 200.000000, -3.000000
+AOE_PORTAL_QA request snapshot 1792505629-position-snowy-45
+AOE_PORTAL_QA wrote 1792505629-position-snowy-45
+AOE_PORTAL_QA request command execute in aoemod:tropical_dimension run tp @s 1.5 200 -3.0 0 0
+[10:15:09] [Render thread/INFO] [minecraft/ChatComponent]: [System] [CHAT] Teleported AOEPortalQA to 1.500000, 200.000000, -3.000000
+AOE_PORTAL_QA request snapshot 1792505629-position-tropical-46
+AOE_PORTAL_QA wrote 1792505629-position-tropical-46
+AOE_PORTAL_QA request interact 0 201 0
+AOE_PORTAL_QA actual interaction result PASS
+AOE_PORTAL_QA request snapshot 1792505629-picker-tropical-47
+AOE_PORTAL_QA wrote 1792505629-picker-tropical-47
+AOE_PORTAL_QA request choose desert
+AOE_PORTAL_QA chose desert clicked=true
+AOE_PORTAL_QA request snapshot 1792505629-activate-tropical-desert-48
+AOE_PORTAL_QA wrote 1792505629-activate-tropical-desert-48
+AOE_PORTAL_QA request capture route-09-tropical-desert
+AOE_PORTAL_QA Saved screenshot as aoe-portal-qa-route-09-tropical-desert.png
+AOE_PORTAL_QA request command tp @s 1.5 200 0.5 0 0
+[10:15:16] [Render thread/INFO] [minecraft/ChatComponent]: [System] [CHAT] Teleported AOEPortalQA to 1.500000, 200.000000, 0.500000
+AOE_PORTAL_QA request snapshot 1792505629-arrival-tropical-desert-49
+AOE_PORTAL_QA wrote 1792505629-arrival-tropical-desert-49
+AOE_PORTAL_QA request command execute in aoemod:desert_dimension run tp @s 1.5 200 -3.0 0 0
+[10:15:17] [Render thread/INFO] [minecraft/ChatComponent]: [System] [CHAT] Teleported AOEPortalQA to 1.500000, 200.000000, -3.000000
+AOE_PORTAL_QA request snapshot 1792505629-position-desert-50
+AOE_PORTAL_QA wrote 1792505629-position-desert-50
+AOE_PORTAL_QA request command execute in aoemod:savanna_dimension run tp @s 1.5 200 -3.0 0 0
+[10:15:17] [Render thread/INFO] [minecraft/ChatComponent]: [System] [CHAT] Teleported AOEPortalQA to 1.500000, 200.000000, -3.000000
+AOE_PORTAL_QA request snapshot 1792505629-position-savanna-51
+AOE_PORTAL_QA wrote 1792505629-position-savanna-51
+AOE_PORTAL_QA request interact 0 201 0
+AOE_PORTAL_QA actual interaction result PASS
+AOE_PORTAL_QA request snapshot 1792505629-picker-savanna-52
+AOE_PORTAL_QA wrote 1792505629-picker-savanna-52
+AOE_PORTAL_QA request capture picker-savanna
+AOE_PORTAL_QA Saved screenshot as aoe-portal-qa-picker-savanna.png
+AOE_PORTAL_QA request choose overworld
+AOE_PORTAL_QA chose overworld clicked=true
+AOE_PORTAL_QA request snapshot 1792505629-activate-savanna-overworld-53
+AOE_PORTAL_QA wrote 1792505629-activate-savanna-overworld-53
+AOE_PORTAL_QA request capture route-10-savanna-overworld
+AOE_PORTAL_QA Saved screenshot as aoe-portal-qa-route-10-savanna-overworld.png
+AOE_PORTAL_QA request command tp @s 1.5 200 0.5 0 0
+[10:15:26] [Render thread/INFO] [minecraft/ChatComponent]: [System] [CHAT] Teleported AOEPortalQA to 1.500000, 200.000000, 0.500000
+AOE_PORTAL_QA request snapshot 1792505629-arrival-savanna-overworld-54
+AOE_PORTAL_QA wrote 1792505629-arrival-savanna-overworld-54
+AOE_PORTAL_QA request command execute in minecraft:overworld run tp @s 1.5 200 -3.0 0 0
+[10:15:26] [Render thread/INFO] [minecraft/ChatComponent]: [System] [CHAT] Teleported AOEPortalQA to 1.500000, 200.000000, -3.000000
+AOE_PORTAL_QA request snapshot 1792505629-position-overworld-55
+AOE_PORTAL_QA wrote 1792505629-position-overworld-55
+AOE_PORTAL_QA request command execute in aoemod:savanna_dimension run tp @s 1.5 200 -3.0 0 0
+[10:15:27] [Render thread/INFO] [minecraft/ChatComponent]: [System] [CHAT] Teleported AOEPortalQA to 1.500000, 200.000000, -3.000000
+AOE_PORTAL_QA request snapshot 1792505629-position-savanna-56
+AOE_PORTAL_QA wrote 1792505629-position-savanna-56
+AOE_PORTAL_QA request interact 0 201 0
+AOE_PORTAL_QA actual interaction result PASS
+AOE_PORTAL_QA request snapshot 1792505629-picker-savanna-57
+AOE_PORTAL_QA wrote 1792505629-picker-savanna-57
+AOE_PORTAL_QA request choose tropical
+AOE_PORTAL_QA chose tropical clicked=true
+AOE_PORTAL_QA request snapshot 1792505629-activate-savanna-tropical-58
+AOE_PORTAL_QA wrote 1792505629-activate-savanna-tropical-58
+AOE_PORTAL_QA request capture route-11-savanna-tropical
+AOE_PORTAL_QA Saved screenshot as aoe-portal-qa-route-11-savanna-tropical.png
+AOE_PORTAL_QA request command tp @s 1.5 200 0.5 0 0
+[10:15:34] [Render thread/INFO] [minecraft/ChatComponent]: [System] [CHAT] Teleported AOEPortalQA to 1.500000, 200.000000, 0.500000
+AOE_PORTAL_QA request snapshot 1792505629-arrival-savanna-tropical-59
+AOE_PORTAL_QA wrote 1792505629-arrival-savanna-tropical-59
+AOE_PORTAL_QA request command execute in aoemod:tropical_dimension run tp @s 1.5 200 -3.0 0 0
+[10:15:35] [Render thread/INFO] [minecraft/ChatComponent]: [System] [CHAT] Teleported AOEPortalQA to 1.500000, 200.000000, -3.000000
+AOE_PORTAL_QA request snapshot 1792505629-position-tropical-60
+AOE_PORTAL_QA wrote 1792505629-position-tropical-60
+AOE_PORTAL_QA request command execute in aoemod:savanna_dimension run tp @s 1.5 200 -3.0 0 0
+[10:15:36] [Render thread/INFO] [minecraft/ChatComponent]: [System] [CHAT] Teleported AOEPortalQA to 1.500000, 200.000000, -3.000000
+AOE_PORTAL_QA request snapshot 1792505629-position-savanna-61
+AOE_PORTAL_QA wrote 1792505629-position-savanna-61
+AOE_PORTAL_QA request interact 0 201 0
+AOE_PORTAL_QA actual interaction result PASS
+AOE_PORTAL_QA request snapshot 1792505629-picker-savanna-62
+AOE_PORTAL_QA wrote 1792505629-picker-savanna-62
+AOE_PORTAL_QA request choose plains
+AOE_PORTAL_QA chose plains clicked=true
+AOE_PORTAL_QA request snapshot 1792505629-activate-savanna-plains-63
+AOE_PORTAL_QA wrote 1792505629-activate-savanna-plains-63
+AOE_PORTAL_QA request capture route-12-savanna-plains
+AOE_PORTAL_QA Saved screenshot as aoe-portal-qa-route-12-savanna-plains.png
+AOE_PORTAL_QA request command tp @s 1.5 200 0.5 0 0
+[10:15:43] [Render thread/INFO] [minecraft/ChatComponent]: [System] [CHAT] Teleported AOEPortalQA to 1.500000, 200.000000, 0.500000
+AOE_PORTAL_QA request snapshot 1792505629-arrival-savanna-plains-64
+AOE_PORTAL_QA wrote 1792505629-arrival-savanna-plains-64
+AOE_PORTAL_QA request command execute in aoemod:plains_dimension run tp @s 1.5 200 -3.0 0 0
+[10:15:44] [Render thread/INFO] [minecraft/ChatComponent]: [System] [CHAT] Teleported AOEPortalQA to 1.500000, 200.000000, -3.000000
+AOE_PORTAL_QA request snapshot 1792505629-position-plains-65
+AOE_PORTAL_QA wrote 1792505629-position-plains-65
+AOE_PORTAL_QA request command execute in aoemod:savanna_dimension run tp @s 1.5 200 -3.0 0 0
+[10:15:44] [Render thread/INFO] [minecraft/ChatComponent]: [System] [CHAT] Teleported AOEPortalQA to 1.500000, 200.000000, -3.000000
+AOE_PORTAL_QA request snapshot 1792505629-position-savanna-66
+AOE_PORTAL_QA wrote 1792505629-position-savanna-66
+AOE_PORTAL_QA request interact 0 201 0
+AOE_PORTAL_QA actual interaction result PASS
+AOE_PORTAL_QA request snapshot 1792505629-picker-savanna-67
+AOE_PORTAL_QA wrote 1792505629-picker-savanna-67
+AOE_PORTAL_QA request choose snowy
+AOE_PORTAL_QA chose snowy clicked=true
+AOE_PORTAL_QA request snapshot 1792505629-activate-savanna-snowy-68
+AOE_PORTAL_QA wrote 1792505629-activate-savanna-snowy-68
+AOE_PORTAL_QA request capture route-13-savanna-snowy
+AOE_PORTAL_QA Saved screenshot as aoe-portal-qa-route-13-savanna-snowy.png
+AOE_PORTAL_QA request command tp @s 1.5 200 0.5 0 0
+[10:15:51] [Render thread/INFO] [minecraft/ChatComponent]: [System] [CHAT] Teleported AOEPortalQA to 1.500000, 200.000000, 0.500000
+AOE_PORTAL_QA request snapshot 1792505629-arrival-savanna-snowy-69
+AOE_PORTAL_QA wrote 1792505629-arrival-savanna-snowy-69
+AOE_PORTAL_QA request command execute in aoemod:snowy_dimension run tp @s 1.5 200 -3.0 0 0
+[10:15:52] [Render thread/INFO] [minecraft/ChatComponent]: [System] [CHAT] Teleported AOEPortalQA to 1.500000, 200.000000, -3.000000
+AOE_PORTAL_QA request snapshot 1792505629-position-snowy-70
+AOE_PORTAL_QA wrote 1792505629-position-snowy-70
+AOE_PORTAL_QA request command execute in aoemod:savanna_dimension run tp @s 1.5 200 -3.0 0 0
+[10:15:52] [Render thread/INFO] [minecraft/ChatComponent]: [System] [CHAT] Teleported AOEPortalQA to 1.500000, 200.000000, -3.000000
+AOE_PORTAL_QA request snapshot 1792505629-position-savanna-71
+AOE_PORTAL_QA wrote 1792505629-position-savanna-71
+AOE_PORTAL_QA request interact 0 201 0
+AOE_PORTAL_QA actual interaction result PASS
+AOE_PORTAL_QA request snapshot 1792505629-picker-savanna-72
+AOE_PORTAL_QA wrote 1792505629-picker-savanna-72
+AOE_PORTAL_QA request choose desert
+AOE_PORTAL_QA chose desert clicked=true
+AOE_PORTAL_QA request snapshot 1792505629-activate-savanna-desert-73
+AOE_PORTAL_QA wrote 1792505629-activate-savanna-desert-73
+AOE_PORTAL_QA request capture route-14-savanna-desert
+AOE_PORTAL_QA Saved screenshot as aoe-portal-qa-route-14-savanna-desert.png
+AOE_PORTAL_QA request command tp @s 1.5 200 0.5 0 0
+[10:16:00] [Render thread/INFO] [minecraft/ChatComponent]: [System] [CHAT] Teleported AOEPortalQA to 1.500000, 200.000000, 0.500000
+AOE_PORTAL_QA request snapshot 1792505629-arrival-savanna-desert-74
+AOE_PORTAL_QA wrote 1792505629-arrival-savanna-desert-74
+AOE_PORTAL_QA request command execute in aoemod:desert_dimension run tp @s 1.5 200 -3.0 0 0
+[10:16:00] [Render thread/INFO] [minecraft/ChatComponent]: [System] [CHAT] Teleported AOEPortalQA to 1.500000, 200.000000, -3.000000
+AOE_PORTAL_QA request snapshot 1792505629-position-desert-75
+AOE_PORTAL_QA wrote 1792505629-position-desert-75
+AOE_PORTAL_QA request command execute in aoemod:plains_dimension run tp @s 1.5 200 -3.0 0 0
+[10:16:01] [Render thread/INFO] [minecraft/ChatComponent]: [System] [CHAT] Teleported AOEPortalQA to 1.500000, 200.000000, -3.000000
+AOE_PORTAL_QA request snapshot 1792505629-position-plains-76
+AOE_PORTAL_QA wrote 1792505629-position-plains-76
+AOE_PORTAL_QA request interact 0 201 0
+AOE_PORTAL_QA actual interaction result PASS
+AOE_PORTAL_QA request snapshot 1792505629-picker-plains-77
+AOE_PORTAL_QA wrote 1792505629-picker-plains-77
+AOE_PORTAL_QA request capture picker-plains
+AOE_PORTAL_QA Saved screenshot as aoe-portal-qa-picker-plains.png
+AOE_PORTAL_QA request choose overworld
+AOE_PORTAL_QA chose overworld clicked=true
+AOE_PORTAL_QA request snapshot 1792505629-activate-plains-overworld-78
+AOE_PORTAL_QA wrote 1792505629-activate-plains-overworld-78
+AOE_PORTAL_QA request capture route-15-plains-overworld
+AOE_PORTAL_QA Saved screenshot as aoe-portal-qa-route-15-plains-overworld.png
+AOE_PORTAL_QA request command tp @s 1.5 200 0.5 0 0
+[10:16:09] [Render thread/INFO] [minecraft/ChatComponent]: [System] [CHAT] Teleported AOEPortalQA to 1.500000, 200.000000, 0.500000
+AOE_PORTAL_QA request snapshot 1792505629-arrival-plains-overworld-79
+AOE_PORTAL_QA wrote 1792505629-arrival-plains-overworld-79
+AOE_PORTAL_QA request command execute in minecraft:overworld run tp @s 1.5 200 -3.0 0 0
+[10:16:10] [Render thread/INFO] [minecraft/ChatComponent]: [System] [CHAT] Teleported AOEPortalQA to 1.500000, 200.000000, -3.000000
+AOE_PORTAL_QA request snapshot 1792505629-position-overworld-80
+AOE_PORTAL_QA wrote 1792505629-position-overworld-80
+AOE_PORTAL_QA request command execute in aoemod:plains_dimension run tp @s 1.5 200 -3.0 0 0
+[10:16:11] [Render thread/INFO] [minecraft/ChatComponent]: [System] [CHAT] Teleported AOEPortalQA to 1.500000, 200.000000, -3.000000
+AOE_PORTAL_QA request snapshot 1792505629-position-plains-81
+AOE_PORTAL_QA wrote 1792505629-position-plains-81
+AOE_PORTAL_QA request interact 0 201 0
+AOE_PORTAL_QA actual interaction result PASS
+AOE_PORTAL_QA request snapshot 1792505629-picker-plains-82
+AOE_PORTAL_QA wrote 1792505629-picker-plains-82
+AOE_PORTAL_QA request choose tropical
+AOE_PORTAL_QA chose tropical clicked=true
+AOE_PORTAL_QA request snapshot 1792505629-activate-plains-tropical-83
+AOE_PORTAL_QA wrote 1792505629-activate-plains-tropical-83
+AOE_PORTAL_QA request capture route-16-plains-tropical
+AOE_PORTAL_QA Saved screenshot as aoe-portal-qa-route-16-plains-tropical.png
+AOE_PORTAL_QA request command tp @s 1.5 200 0.5 0 0
+[10:16:18] [Render thread/INFO] [minecraft/ChatComponent]: [System] [CHAT] Teleported AOEPortalQA to 1.500000, 200.000000, 0.500000
+AOE_PORTAL_QA request snapshot 1792505629-arrival-plains-tropical-84
+AOE_PORTAL_QA wrote 1792505629-arrival-plains-tropical-84
+AOE_PORTAL_QA request command execute in aoemod:tropical_dimension run tp @s 1.5 200 -3.0 0 0
+[10:16:19] [Render thread/INFO] [minecraft/ChatComponent]: [System] [CHAT] Teleported AOEPortalQA to 1.500000, 200.000000, -3.000000
+AOE_PORTAL_QA request snapshot 1792505629-position-tropical-85
+AOE_PORTAL_QA wrote 1792505629-position-tropical-85
+AOE_PORTAL_QA request command execute in aoemod:plains_dimension run tp @s 1.5 200 -3.0 0 0
+[10:16:19] [Render thread/INFO] [minecraft/ChatComponent]: [System] [CHAT] Teleported AOEPortalQA to 1.500000, 200.000000, -3.000000
+AOE_PORTAL_QA request snapshot 1792505629-position-plains-86
+AOE_PORTAL_QA wrote 1792505629-position-plains-86
+AOE_PORTAL_QA request interact 0 201 0
+AOE_PORTAL_QA actual interaction result PASS
+AOE_PORTAL_QA request snapshot 1792505629-picker-plains-87
+AOE_PORTAL_QA wrote 1792505629-picker-plains-87
+AOE_PORTAL_QA request choose savanna
+AOE_PORTAL_QA chose savanna clicked=true
+AOE_PORTAL_QA request snapshot 1792505629-activate-plains-savanna-88
+AOE_PORTAL_QA wrote 1792505629-activate-plains-savanna-88
+AOE_PORTAL_QA request capture route-17-plains-savanna
+AOE_PORTAL_QA Saved screenshot as aoe-portal-qa-route-17-plains-savanna.png
+AOE_PORTAL_QA request command tp @s 1.5 200 0.5 0 0
+[10:16:26] [Render thread/INFO] [minecraft/ChatComponent]: [System] [CHAT] Teleported AOEPortalQA to 1.500000, 200.000000, 0.500000
+AOE_PORTAL_QA request snapshot 1792505629-arrival-plains-savanna-89
+AOE_PORTAL_QA wrote 1792505629-arrival-plains-savanna-89
+AOE_PORTAL_QA request command execute in aoemod:savanna_dimension run tp @s 1.5 200 -3.0 0 0
+[10:16:27] [Render thread/INFO] [minecraft/ChatComponent]: [System] [CHAT] Teleported AOEPortalQA to 1.500000, 200.000000, -3.000000
+AOE_PORTAL_QA request snapshot 1792505629-position-savanna-90
+AOE_PORTAL_QA wrote 1792505629-position-savanna-90
+AOE_PORTAL_QA request command execute in aoemod:plains_dimension run tp @s 1.5 200 -3.0 0 0
+[10:16:28] [Render thread/INFO] [minecraft/ChatComponent]: [System] [CHAT] Teleported AOEPortalQA to 1.500000, 200.000000, -3.000000
+AOE_PORTAL_QA request snapshot 1792505629-position-plains-91
+AOE_PORTAL_QA wrote 1792505629-position-plains-91
+AOE_PORTAL_QA request interact 0 201 0
+AOE_PORTAL_QA actual interaction result PASS
+AOE_PORTAL_QA request snapshot 1792505629-picker-plains-92
+AOE_PORTAL_QA wrote 1792505629-picker-plains-92
+AOE_PORTAL_QA request choose snowy
+AOE_PORTAL_QA chose snowy clicked=true
+AOE_PORTAL_QA request snapshot 1792505629-activate-plains-snowy-93
+AOE_PORTAL_QA wrote 1792505629-activate-plains-snowy-93
+AOE_PORTAL_QA request capture route-18-plains-snowy
+AOE_PORTAL_QA Saved screenshot as aoe-portal-qa-route-18-plains-snowy.png
+AOE_PORTAL_QA request command tp @s 1.5 200 0.5 0 0
+[10:16:35] [Render thread/INFO] [minecraft/ChatComponent]: [System] [CHAT] Teleported AOEPortalQA to 1.500000, 200.000000, 0.500000
+AOE_PORTAL_QA request snapshot 1792505629-arrival-plains-snowy-94
+AOE_PORTAL_QA wrote 1792505629-arrival-plains-snowy-94
+AOE_PORTAL_QA request command execute in aoemod:snowy_dimension run tp @s 1.5 200 -3.0 0 0
+[10:16:35] [Render thread/INFO] [minecraft/ChatComponent]: [System] [CHAT] Teleported AOEPortalQA to 1.500000, 200.000000, -3.000000
+AOE_PORTAL_QA request snapshot 1792505629-position-snowy-95
+AOE_PORTAL_QA wrote 1792505629-position-snowy-95
+AOE_PORTAL_QA request command execute in aoemod:plains_dimension run tp @s 1.5 200 -3.0 0 0
+[10:16:36] [Render thread/INFO] [minecraft/ChatComponent]: [System] [CHAT] Teleported AOEPortalQA to 1.500000, 200.000000, -3.000000
+AOE_PORTAL_QA request snapshot 1792505629-position-plains-96
+AOE_PORTAL_QA wrote 1792505629-position-plains-96
+AOE_PORTAL_QA request interact 0 201 0
+AOE_PORTAL_QA actual interaction result PASS
+AOE_PORTAL_QA request snapshot 1792505629-picker-plains-97
+AOE_PORTAL_QA wrote 1792505629-picker-plains-97
+AOE_PORTAL_QA request choose desert
+AOE_PORTAL_QA chose desert clicked=true
+AOE_PORTAL_QA request snapshot 1792505629-activate-plains-desert-98
+AOE_PORTAL_QA wrote 1792505629-activate-plains-desert-98
+AOE_PORTAL_QA request capture route-19-plains-desert
+AOE_PORTAL_QA Saved screenshot as aoe-portal-qa-route-19-plains-desert.png
+AOE_PORTAL_QA request command tp @s 1.5 200 0.5 0 0
+[10:16:43] [Render thread/INFO] [minecraft/ChatComponent]: [System] [CHAT] Teleported AOEPortalQA to 1.500000, 200.000000, 0.500000
+AOE_PORTAL_QA request snapshot 1792505629-arrival-plains-desert-99
+AOE_PORTAL_QA wrote 1792505629-arrival-plains-desert-99
+AOE_PORTAL_QA request command execute in aoemod:desert_dimension run tp @s 1.5 200 -3.0 0 0
+[10:16:44] [Render thread/INFO] [minecraft/ChatComponent]: [System] [CHAT] Teleported AOEPortalQA to 1.500000, 200.000000, -3.000000
+AOE_PORTAL_QA request snapshot 1792505629-position-desert-100
+AOE_PORTAL_QA wrote 1792505629-position-desert-100
+AOE_PORTAL_QA request command execute in aoemod:snowy_dimension run tp @s 1.5 200 -3.0 0 0
+[10:16:44] [Render thread/INFO] [minecraft/ChatComponent]: [System] [CHAT] Teleported AOEPortalQA to 1.500000, 200.000000, -3.000000
+AOE_PORTAL_QA request snapshot 1792505629-position-snowy-101
+AOE_PORTAL_QA wrote 1792505629-position-snowy-101
+AOE_PORTAL_QA request interact 0 201 0
+AOE_PORTAL_QA actual interaction result PASS
+AOE_PORTAL_QA request snapshot 1792505629-picker-snowy-102
+AOE_PORTAL_QA wrote 1792505629-picker-snowy-102
+AOE_PORTAL_QA request capture picker-snowy
+AOE_PORTAL_QA Saved screenshot as aoe-portal-qa-picker-snowy.png
+AOE_PORTAL_QA request choose overworld
+AOE_PORTAL_QA chose overworld clicked=true
+AOE_PORTAL_QA request snapshot 1792505629-activate-snowy-overworld-103
+AOE_PORTAL_QA wrote 1792505629-activate-snowy-overworld-103
+AOE_PORTAL_QA request capture route-20-snowy-overworld
+AOE_PORTAL_QA Saved screenshot as aoe-portal-qa-route-20-snowy-overworld.png
+AOE_PORTAL_QA request command tp @s 1.5 200 0.5 0 0
+[10:16:53] [Render thread/INFO] [minecraft/ChatComponent]: [System] [CHAT] Teleported AOEPortalQA to 1.500000, 200.000000, 0.500000
+AOE_PORTAL_QA request snapshot 1792505629-arrival-snowy-overworld-104
+AOE_PORTAL_QA wrote 1792505629-arrival-snowy-overworld-104
+AOE_PORTAL_QA request command execute in minecraft:overworld run tp @s 1.5 200 -3.0 0 0
+[10:16:54] [Render thread/INFO] [minecraft/ChatComponent]: [System] [CHAT] Teleported AOEPortalQA to 1.500000, 200.000000, -3.000000
+AOE_PORTAL_QA request snapshot 1792505629-position-overworld-105
+AOE_PORTAL_QA wrote 1792505629-position-overworld-105
+AOE_PORTAL_QA request command execute in aoemod:snowy_dimension run tp @s 1.5 200 -3.0 0 0
+[10:16:54] [Render thread/INFO] [minecraft/ChatComponent]: [System] [CHAT] Teleported AOEPortalQA to 1.500000, 200.000000, -3.000000
+AOE_PORTAL_QA request snapshot 1792505629-position-snowy-106
+AOE_PORTAL_QA wrote 1792505629-position-snowy-106
+AOE_PORTAL_QA request interact 0 201 0
+AOE_PORTAL_QA actual interaction result PASS
+AOE_PORTAL_QA request snapshot 1792505629-picker-snowy-107
+AOE_PORTAL_QA wrote 1792505629-picker-snowy-107
+AOE_PORTAL_QA request choose tropical
+AOE_PORTAL_QA chose tropical clicked=true
+AOE_PORTAL_QA request snapshot 1792505629-activate-snowy-tropical-108
+AOE_PORTAL_QA wrote 1792505629-activate-snowy-tropical-108
+AOE_PORTAL_QA request capture route-21-snowy-tropical
+AOE_PORTAL_QA Saved screenshot as aoe-portal-qa-route-21-snowy-tropical.png
+AOE_PORTAL_QA request command tp @s 1.5 200 0.5 0 0
+[10:17:01] [Render thread/INFO] [minecraft/ChatComponent]: [System] [CHAT] Teleported AOEPortalQA to 1.500000, 200.000000, 0.500000
+AOE_PORTAL_QA request snapshot 1792505629-arrival-snowy-tropical-109
+AOE_PORTAL_QA wrote 1792505629-arrival-snowy-tropical-109
+AOE_PORTAL_QA request command execute in aoemod:tropical_dimension run tp @s 1.5 200 -3.0 0 0
+[10:17:02] [Render thread/INFO] [minecraft/ChatComponent]: [System] [CHAT] Teleported AOEPortalQA to 1.500000, 200.000000, -3.000000
+AOE_PORTAL_QA request snapshot 1792505629-position-tropical-110
+AOE_PORTAL_QA wrote 1792505629-position-tropical-110
+AOE_PORTAL_QA request command execute in aoemod:snowy_dimension run tp @s 1.5 200 -3.0 0 0
+[10:17:03] [Render thread/INFO] [minecraft/ChatComponent]: [System] [CHAT] Teleported AOEPortalQA to 1.500000, 200.000000, -3.000000
+AOE_PORTAL_QA request snapshot 1792505629-position-snowy-111
+AOE_PORTAL_QA wrote 1792505629-position-snowy-111
+AOE_PORTAL_QA request interact 0 201 0
+AOE_PORTAL_QA actual interaction result PASS
+AOE_PORTAL_QA request snapshot 1792505629-picker-snowy-112
+AOE_PORTAL_QA wrote 1792505629-picker-snowy-112
+AOE_PORTAL_QA request choose savanna
+AOE_PORTAL_QA chose savanna clicked=true
+AOE_PORTAL_QA request snapshot 1792505629-activate-snowy-savanna-113
+AOE_PORTAL_QA wrote 1792505629-activate-snowy-savanna-113
+AOE_PORTAL_QA request capture route-22-snowy-savanna
+AOE_PORTAL_QA Saved screenshot as aoe-portal-qa-route-22-snowy-savanna.png
+AOE_PORTAL_QA request command tp @s 1.5 200 0.5 0 0
+[10:17:10] [Render thread/INFO] [minecraft/ChatComponent]: [System] [CHAT] Teleported AOEPortalQA to 1.500000, 200.000000, 0.500000
+AOE_PORTAL_QA request snapshot 1792505629-arrival-snowy-savanna-114
+AOE_PORTAL_QA wrote 1792505629-arrival-snowy-savanna-114
+AOE_PORTAL_QA request command execute in aoemod:savanna_dimension run tp @s 1.5 200 -3.0 0 0
+[10:17:11] [Render thread/INFO] [minecraft/ChatComponent]: [System] [CHAT] Teleported AOEPortalQA to 1.500000, 200.000000, -3.000000
+AOE_PORTAL_QA request snapshot 1792505629-position-savanna-115
+AOE_PORTAL_QA wrote 1792505629-position-savanna-115
+AOE_PORTAL_QA request command execute in aoemod:snowy_dimension run tp @s 1.5 200 -3.0 0 0
+[10:17:11] [Render thread/INFO] [minecraft/ChatComponent]: [System] [CHAT] Teleported AOEPortalQA to 1.500000, 200.000000, -3.000000
+AOE_PORTAL_QA request snapshot 1792505629-position-snowy-116
+AOE_PORTAL_QA wrote 1792505629-position-snowy-116
+AOE_PORTAL_QA request interact 0 201 0
+AOE_PORTAL_QA actual interaction result PASS
+AOE_PORTAL_QA request snapshot 1792505629-picker-snowy-117
+AOE_PORTAL_QA wrote 1792505629-picker-snowy-117
+AOE_PORTAL_QA request choose plains
+AOE_PORTAL_QA chose plains clicked=true
+AOE_PORTAL_QA request snapshot 1792505629-activate-snowy-plains-118
+AOE_PORTAL_QA wrote 1792505629-activate-snowy-plains-118
+AOE_PORTAL_QA request capture route-23-snowy-plains
+AOE_PORTAL_QA Saved screenshot as aoe-portal-qa-route-23-snowy-plains.png
+AOE_PORTAL_QA request command tp @s 1.5 200 0.5 0 0
+[10:17:19] [Render thread/INFO] [minecraft/ChatComponent]: [System] [CHAT] Teleported AOEPortalQA to 1.500000, 200.000000, 0.500000
+AOE_PORTAL_QA request snapshot 1792505629-arrival-snowy-plains-119
+AOE_PORTAL_QA wrote 1792505629-arrival-snowy-plains-119
+AOE_PORTAL_QA request command execute in aoemod:plains_dimension run tp @s 1.5 200 -3.0 0 0
+[10:17:19] [Render thread/INFO] [minecraft/ChatComponent]: [System] [CHAT] Teleported AOEPortalQA to 1.500000, 200.000000, -3.000000
+AOE_PORTAL_QA request snapshot 1792505629-position-plains-120
+AOE_PORTAL_QA wrote 1792505629-position-plains-120
+AOE_PORTAL_QA request command execute in aoemod:snowy_dimension run tp @s 1.5 200 -3.0 0 0
+[10:17:20] [Render thread/INFO] [minecraft/ChatComponent]: [System] [CHAT] Teleported AOEPortalQA to 1.500000, 200.000000, -3.000000
+AOE_PORTAL_QA request snapshot 1792505629-position-snowy-121
+AOE_PORTAL_QA wrote 1792505629-position-snowy-121
+AOE_PORTAL_QA request interact 0 201 0
+AOE_PORTAL_QA actual interaction result PASS
+AOE_PORTAL_QA request snapshot 1792505629-picker-snowy-122
+AOE_PORTAL_QA wrote 1792505629-picker-snowy-122
+AOE_PORTAL_QA request choose desert
+AOE_PORTAL_QA chose desert clicked=true
+AOE_PORTAL_QA request snapshot 1792505629-activate-snowy-desert-123
+AOE_PORTAL_QA wrote 1792505629-activate-snowy-desert-123
+AOE_PORTAL_QA request capture route-24-snowy-desert
+AOE_PORTAL_QA Saved screenshot as aoe-portal-qa-route-24-snowy-desert.png
+AOE_PORTAL_QA request command tp @s 1.5 200 0.5 0 0
+[10:17:27] [Render thread/INFO] [minecraft/ChatComponent]: [System] [CHAT] Teleported AOEPortalQA to 1.500000, 200.000000, 0.500000
+AOE_PORTAL_QA request snapshot 1792505629-arrival-snowy-desert-124
+AOE_PORTAL_QA wrote 1792505629-arrival-snowy-desert-124
+AOE_PORTAL_QA request command execute in aoemod:desert_dimension run tp @s 1.5 200 -3.0 0 0
+[10:17:28] [Render thread/INFO] [minecraft/ChatComponent]: [System] [CHAT] Teleported AOEPortalQA to 1.500000, 200.000000, -3.000000
+AOE_PORTAL_QA request snapshot 1792505629-position-desert-125
+AOE_PORTAL_QA wrote 1792505629-position-desert-125
+AOE_PORTAL_QA request command execute in aoemod:desert_dimension run tp @s 1.5 200 -3.0 0 0
+[10:17:29] [Render thread/INFO] [minecraft/ChatComponent]: [System] [CHAT] Teleported AOEPortalQA to 1.500000, 200.000000, -3.000000
+AOE_PORTAL_QA request snapshot 1792505629-position-desert-126
+AOE_PORTAL_QA wrote 1792505629-position-desert-126
+AOE_PORTAL_QA request interact 0 201 0
+AOE_PORTAL_QA actual interaction result PASS
+AOE_PORTAL_QA request snapshot 1792505629-picker-desert-127
+AOE_PORTAL_QA wrote 1792505629-picker-desert-127
+AOE_PORTAL_QA request capture picker-desert
+AOE_PORTAL_QA Saved screenshot as aoe-portal-qa-picker-desert.png
+AOE_PORTAL_QA request choose overworld
+AOE_PORTAL_QA chose overworld clicked=true
+AOE_PORTAL_QA request snapshot 1792505629-activate-desert-overworld-128
+AOE_PORTAL_QA wrote 1792505629-activate-desert-overworld-128
+AOE_PORTAL_QA request capture route-25-desert-overworld
+AOE_PORTAL_QA Saved screenshot as aoe-portal-qa-route-25-desert-overworld.png
+AOE_PORTAL_QA request command tp @s 1.5 200 0.5 0 0
+[10:17:37] [Render thread/INFO] [minecraft/ChatComponent]: [System] [CHAT] Teleported AOEPortalQA to 1.500000, 200.000000, 0.500000
+AOE_PORTAL_QA request snapshot 1792505629-arrival-desert-overworld-129
+AOE_PORTAL_QA wrote 1792505629-arrival-desert-overworld-129
+AOE_PORTAL_QA request command execute in minecraft:overworld run tp @s 1.5 200 -3.0 0 0
+[10:17:38] [Render thread/INFO] [minecraft/ChatComponent]: [System] [CHAT] Teleported AOEPortalQA to 1.500000, 200.000000, -3.000000
+AOE_PORTAL_QA request snapshot 1792505629-position-overworld-130
+AOE_PORTAL_QA wrote 1792505629-position-overworld-130
+AOE_PORTAL_QA request command execute in aoemod:desert_dimension run tp @s 1.5 200 -3.0 0 0
+[10:17:38] [Render thread/INFO] [minecraft/ChatComponent]: [System] [CHAT] Teleported AOEPortalQA to 1.500000, 200.000000, -3.000000
+AOE_PORTAL_QA request snapshot 1792505629-position-desert-131
+AOE_PORTAL_QA wrote 1792505629-position-desert-131
+AOE_PORTAL_QA request interact 0 201 0
+AOE_PORTAL_QA actual interaction result PASS
+AOE_PORTAL_QA request snapshot 1792505629-picker-desert-132
+AOE_PORTAL_QA wrote 1792505629-picker-desert-132
+AOE_PORTAL_QA request choose tropical
+AOE_PORTAL_QA chose tropical clicked=true
+AOE_PORTAL_QA request snapshot 1792505629-activate-desert-tropical-133
+AOE_PORTAL_QA wrote 1792505629-activate-desert-tropical-133
+AOE_PORTAL_QA request capture route-26-desert-tropical
+AOE_PORTAL_QA Saved screenshot as aoe-portal-qa-route-26-desert-tropical.png
+AOE_PORTAL_QA request command tp @s 1.5 200 0.5 0 0
+[10:17:46] [Render thread/INFO] [minecraft/ChatComponent]: [System] [CHAT] Teleported AOEPortalQA to 1.500000, 200.000000, 0.500000
+AOE_PORTAL_QA request snapshot 1792505629-arrival-desert-tropical-134
+AOE_PORTAL_QA wrote 1792505629-arrival-desert-tropical-134
+AOE_PORTAL_QA request command execute in aoemod:tropical_dimension run tp @s 1.5 200 -3.0 0 0
+[10:17:46] [Render thread/INFO] [minecraft/ChatComponent]: [System] [CHAT] Teleported AOEPortalQA to 1.500000, 200.000000, -3.000000
+AOE_PORTAL_QA request snapshot 1792505629-position-tropical-135
+AOE_PORTAL_QA wrote 1792505629-position-tropical-135
+AOE_PORTAL_QA request command execute in aoemod:desert_dimension run tp @s 1.5 200 -3.0 0 0
+[10:17:47] [Render thread/INFO] [minecraft/ChatComponent]: [System] [CHAT] Teleported AOEPortalQA to 1.500000, 200.000000, -3.000000
+AOE_PORTAL_QA request snapshot 1792505629-position-desert-136
+AOE_PORTAL_QA wrote 1792505629-position-desert-136
+AOE_PORTAL_QA request interact 0 201 0
+AOE_PORTAL_QA actual interaction result PASS
+AOE_PORTAL_QA request snapshot 1792505629-picker-desert-137
+AOE_PORTAL_QA wrote 1792505629-picker-desert-137
+AOE_PORTAL_QA request choose savanna
+AOE_PORTAL_QA chose savanna clicked=true
+AOE_PORTAL_QA request snapshot 1792505629-activate-desert-savanna-138
+AOE_PORTAL_QA wrote 1792505629-activate-desert-savanna-138
+AOE_PORTAL_QA request capture route-27-desert-savanna
+AOE_PORTAL_QA Saved screenshot as aoe-portal-qa-route-27-desert-savanna.png
+AOE_PORTAL_QA request command tp @s 1.5 200 0.5 0 0
+[10:17:54] [Render thread/INFO] [minecraft/ChatComponent]: [System] [CHAT] Teleported AOEPortalQA to 1.500000, 200.000000, 0.500000
+AOE_PORTAL_QA request snapshot 1792505629-arrival-desert-savanna-139
+AOE_PORTAL_QA wrote 1792505629-arrival-desert-savanna-139
+AOE_PORTAL_QA request command execute in aoemod:savanna_dimension run tp @s 1.5 200 -3.0 0 0
+[10:17:55] [Render thread/INFO] [minecraft/ChatComponent]: [System] [CHAT] Teleported AOEPortalQA to 1.500000, 200.000000, -3.000000
+AOE_PORTAL_QA request snapshot 1792505629-position-savanna-140
+AOE_PORTAL_QA wrote 1792505629-position-savanna-140
+AOE_PORTAL_QA request command execute in aoemod:desert_dimension run tp @s 1.5 200 -3.0 0 0
+[10:17:55] [Render thread/INFO] [minecraft/ChatComponent]: [System] [CHAT] Teleported AOEPortalQA to 1.500000, 200.000000, -3.000000
+AOE_PORTAL_QA request snapshot 1792505629-position-desert-141
+AOE_PORTAL_QA wrote 1792505629-position-desert-141
+AOE_PORTAL_QA request interact 0 201 0
+AOE_PORTAL_QA actual interaction result PASS
+AOE_PORTAL_QA request snapshot 1792505629-picker-desert-142
+AOE_PORTAL_QA wrote 1792505629-picker-desert-142
+AOE_PORTAL_QA request choose plains
+AOE_PORTAL_QA chose plains clicked=true
+AOE_PORTAL_QA request snapshot 1792505629-activate-desert-plains-143
+AOE_PORTAL_QA wrote 1792505629-activate-desert-plains-143
+AOE_PORTAL_QA request capture route-28-desert-plains
+AOE_PORTAL_QA Saved screenshot as aoe-portal-qa-route-28-desert-plains.png
+AOE_PORTAL_QA request command tp @s 1.5 200 0.5 0 0
+[10:18:03] [Render thread/INFO] [minecraft/ChatComponent]: [System] [CHAT] Teleported AOEPortalQA to 1.500000, 200.000000, 0.500000
+AOE_PORTAL_QA request snapshot 1792505629-arrival-desert-plains-144
+AOE_PORTAL_QA wrote 1792505629-arrival-desert-plains-144
+AOE_PORTAL_QA request command execute in aoemod:plains_dimension run tp @s 1.5 200 -3.0 0 0
+[10:18:03] [Render thread/INFO] [minecraft/ChatComponent]: [System] [CHAT] Teleported AOEPortalQA to 1.500000, 200.000000, -3.000000
+AOE_PORTAL_QA request snapshot 1792505629-position-plains-145
+AOE_PORTAL_QA wrote 1792505629-position-plains-145
+AOE_PORTAL_QA request command execute in aoemod:desert_dimension run tp @s 1.5 200 -3.0 0 0
+[10:18:04] [Render thread/INFO] [minecraft/ChatComponent]: [System] [CHAT] Teleported AOEPortalQA to 1.500000, 200.000000, -3.000000
+AOE_PORTAL_QA request snapshot 1792505629-position-desert-146
+AOE_PORTAL_QA wrote 1792505629-position-desert-146
+AOE_PORTAL_QA request interact 0 201 0
+AOE_PORTAL_QA actual interaction result PASS
+AOE_PORTAL_QA request snapshot 1792505629-picker-desert-147
+AOE_PORTAL_QA wrote 1792505629-picker-desert-147
+AOE_PORTAL_QA request choose snowy
+AOE_PORTAL_QA chose snowy clicked=true
+AOE_PORTAL_QA request snapshot 1792505629-activate-desert-snowy-148
+AOE_PORTAL_QA wrote 1792505629-activate-desert-snowy-148
+AOE_PORTAL_QA request capture route-29-desert-snowy
+AOE_PORTAL_QA Saved screenshot as aoe-portal-qa-route-29-desert-snowy.png
+AOE_PORTAL_QA request command tp @s 1.5 200 0.5 0 0
+[10:18:11] [Render thread/INFO] [minecraft/ChatComponent]: [System] [CHAT] Teleported AOEPortalQA to 1.500000, 200.000000, 0.500000
+AOE_PORTAL_QA request snapshot 1792505629-arrival-desert-snowy-149
+AOE_PORTAL_QA wrote 1792505629-arrival-desert-snowy-149
+AOE_PORTAL_QA request command execute in aoemod:snowy_dimension run tp @s 1.5 200 -3.0 0 0
+[10:18:12] [Render thread/INFO] [minecraft/ChatComponent]: [System] [CHAT] Teleported AOEPortalQA to 1.500000, 200.000000, -3.000000
+AOE_PORTAL_QA request snapshot 1792505629-position-snowy-150
+AOE_PORTAL_QA wrote 1792505629-position-snowy-150
+AOE_PORTAL_QA request command execute in aoemod:desert_dimension run tp @s 1.5 200 -3.0 0 0
+[10:18:12] [Render thread/INFO] [minecraft/ChatComponent]: [System] [CHAT] Teleported AOEPortalQA to 1.500000, 200.000000, -3.000000
+AOE_PORTAL_QA request snapshot 1792505629-position-desert-151
+AOE_PORTAL_QA wrote 1792505629-position-desert-151
+AOE_PORTAL_QA request interact 0 201 0
+AOE_PORTAL_QA actual interaction result PASS
+AOE_PORTAL_QA request snapshot 1792505629-picker-desert-152
+AOE_PORTAL_QA wrote 1792505629-picker-desert-152
+AOE_PORTAL_QA request choose nether
+AOE_PORTAL_QA chose nether clicked=true
+AOE_PORTAL_QA request snapshot 1792505629-activate-desert-nether-153
+AOE_PORTAL_QA wrote 1792505629-activate-desert-nether-153
+AOE_PORTAL_QA request capture route-30-desert-nether
+AOE_PORTAL_QA Saved screenshot as aoe-portal-qa-route-30-desert-nether.png
+AOE_PORTAL_QA request command tp @s 1.5 200 0.5 0 0
+[10:18:19] [Render thread/INFO] [minecraft/ChatComponent]: [System] [CHAT] Teleported AOEPortalQA to 1.500000, 200.000000, 0.500000
+AOE_PORTAL_QA request snapshot 1792505629-arrival-desert-nether-154
+AOE_PORTAL_QA wrote 1792505629-arrival-desert-nether-154
+AOE_PORTAL_QA request command execute in aoemod:nether_dimension run tp @s 1.5 100 -3.0 0 0
+[10:18:20] [Render thread/INFO] [minecraft/ChatComponent]: [System] [CHAT] Teleported AOEPortalQA to 1.500000, 100.000000, -3.000000
+AOE_PORTAL_QA request snapshot 1792505629-position-nether-155
+AOE_PORTAL_QA wrote 1792505629-position-nether-155
+AOE_PORTAL_QA request command execute in aoemod:nether_dimension run tp @s 1.5 100 -3.0 0 0
+[10:18:20] [Render thread/INFO] [minecraft/ChatComponent]: [System] [CHAT] Teleported AOEPortalQA to 1.500000, 100.000000, -3.000000
+AOE_PORTAL_QA request snapshot 1792505629-position-nether-156
+AOE_PORTAL_QA wrote 1792505629-position-nether-156
+AOE_PORTAL_QA request interact 0 101 0
+AOE_PORTAL_QA actual interaction result PASS
+AOE_PORTAL_QA request snapshot 1792505629-picker-nether-157
+AOE_PORTAL_QA wrote 1792505629-picker-nether-157
+AOE_PORTAL_QA request capture picker-nether
+AOE_PORTAL_QA Saved screenshot as aoe-portal-qa-picker-nether.png
+AOE_PORTAL_QA request choose desert
+AOE_PORTAL_QA chose desert clicked=true
+AOE_PORTAL_QA request snapshot 1792505629-activate-nether-desert-158
+AOE_PORTAL_QA wrote 1792505629-activate-nether-desert-158
+AOE_PORTAL_QA request capture route-31-nether-desert
+AOE_PORTAL_QA Saved screenshot as aoe-portal-qa-route-31-nether-desert.png
+AOE_PORTAL_QA request command tp @s 1.5 100 0.5 0 0
+[10:18:29] [Render thread/INFO] [minecraft/ChatComponent]: [System] [CHAT] Teleported AOEPortalQA to 1.500000, 100.000000, 0.500000
+AOE_PORTAL_QA request snapshot 1792505629-arrival-nether-desert-159
+AOE_PORTAL_QA wrote 1792505629-arrival-nether-desert-159
+AOE_PORTAL_QA request command execute in aoemod:desert_dimension run tp @s 1.5 200 -3.0 0 0
+[10:18:29] [Render thread/INFO] [minecraft/ChatComponent]: [System] [CHAT] Teleported AOEPortalQA to 1.500000, 200.000000, -3.000000
+AOE_PORTAL_QA request snapshot 1792505629-position-desert-160
+AOE_PORTAL_QA wrote 1792505629-position-desert-160
+AOE_PORTAL_QA request command execute in minecraft:overworld run tp @s 1.5 200 -3.0 0 0
+[10:18:41] [Render thread/INFO] [minecraft/ChatComponent]: [System] [CHAT] Teleported AOEPortalQA to 1.500000, 200.000000, -3.000000
+AOE_PORTAL_QA request snapshot 1792505921-position-overworld-1
+AOE_PORTAL_QA wrote 1792505921-position-overworld-1
+AOE_PORTAL_QA request command fill 7 200 -5 13 207 5 minecraft:air
+[10:18:42] [Render thread/INFO] [minecraft/ChatComponent]: [System] [CHAT] No blocks were filled
+AOE_PORTAL_QA request command fill 7 199 -5 13 199 5 minecraft:birch_planks
+[10:18:42] [Render thread/INFO] [minecraft/ChatComponent]: [System] [CHAT] Successfully filled 77 block(s)
+AOE_PORTAL_QA request command fill 10 200 0 10 203 0 minecraft:crimson_planks
+[10:18:43] [Render thread/INFO] [minecraft/ChatComponent]: [System] [CHAT] Successfully filled 4 block(s)
+AOE_PORTAL_QA request command fill 10 200 3 10 203 3 minecraft:oak_planks
+[10:18:43] [Render thread/INFO] [minecraft/ChatComponent]: [System] [CHAT] Successfully filled 4 block(s)
+AOE_PORTAL_QA request command fill 10 203 0 10 203 3 minecraft:warped_planks
+[10:18:44] [Render thread/INFO] [minecraft/ChatComponent]: [System] [CHAT] Successfully filled 4 block(s)
+AOE_PORTAL_QA request command tp @s 10.5 200 -3.0 0 0
+[10:18:44] [Render thread/INFO] [minecraft/ChatComponent]: [System] [CHAT] Teleported AOEPortalQA to 10.500000, 200.000000, -3.000000
+AOE_PORTAL_QA request snapshot 1792505921-mixed-camera-2
+AOE_PORTAL_QA wrote 1792505921-mixed-camera-2
+AOE_PORTAL_QA request interact 10 201 0
+AOE_PORTAL_QA actual interaction result PASS
+AOE_PORTAL_QA request snapshot 1792505921-mixed-picker-3
+AOE_PORTAL_QA wrote 1792505921-mixed-picker-3
+AOE_PORTAL_QA request capture mixed-rotated-picker
+AOE_PORTAL_QA Saved screenshot as aoe-portal-qa-mixed-rotated-picker.png
+AOE_PORTAL_QA request choose tropical
+AOE_PORTAL_QA chose tropical clicked=true
+AOE_PORTAL_QA request snapshot 1792505921-mixed-activated-4
+AOE_PORTAL_QA wrote 1792505921-mixed-activated-4
+AOE_PORTAL_QA request capture mixed-rotated-portal
+AOE_PORTAL_QA Saved screenshot as aoe-portal-qa-mixed-rotated-portal.png
+AOE_PORTAL_QA request command tp @s 10.5 200 1.5
+[10:18:53] [Render thread/INFO] [minecraft/ChatComponent]: [System] [CHAT] Teleported AOEPortalQA to 10.500000, 200.000000, 1.500000
+AOE_PORTAL_QA request snapshot 1792505921-mixed-arrival-5
+AOE_PORTAL_QA wrote 1792505921-mixed-arrival-5
+AOE_PORTAL_QA request command execute in aoemod:tropical_dimension run tp @s 1.5 200 -3.0 0 0
+[10:18:54] [Render thread/INFO] [minecraft/ChatComponent]: [System] [CHAT] Teleported AOEPortalQA to 1.500000, 200.000000, -3.000000
+AOE_PORTAL_QA request snapshot 1792505921-position-tropical-6
+AOE_PORTAL_QA wrote 1792505921-position-tropical-6
+AOE_PORTAL_QA request command execute in aoemod:desert_dimension run tp @s 1.5 200 -3.0 0 0
+[10:19:13] [Render thread/INFO] [minecraft/ChatComponent]: [System] [CHAT] Teleported AOEPortalQA to 1.500000, 200.000000, -3.000000
+AOE_PORTAL_QA request snapshot 1792505953-position-desert-1
+AOE_PORTAL_QA wrote 1792505953-position-desert-1
+AOE_PORTAL_QA request interact 0 201 0
+AOE_PORTAL_QA actual interaction result PASS
+AOE_PORTAL_QA request snapshot 1792505953-picker-desert-2
+AOE_PORTAL_QA wrote 1792505953-picker-desert-2
+AOE_PORTAL_QA request capture picker-desert
+AOE_PORTAL_QA Saved screenshot as aoe-portal-qa-picker-desert.png
+AOE_PORTAL_QA request choose nether
+AOE_PORTAL_QA chose nether clicked=true
+AOE_PORTAL_QA request snapshot 1792505953-activate-desert-nether-3
+AOE_PORTAL_QA wrote 1792505953-activate-desert-nether-3
+AOE_PORTAL_QA request command gamemode survival @s
+[10:19:21] [Render thread/INFO] [minecraft/ChatComponent]: [System] [CHAT] Set own game mode to Survival Mode
+AOE_PORTAL_QA request snapshot 1792505953-survival-abilities-4
+AOE_PORTAL_QA wrote 1792505953-survival-abilities-4
+AOE_PORTAL_QA request travel 1.5 200 0.5 survival-desert-nether
+[10:19:22] [Render thread/INFO] [minecraft/ChatComponent]: [System] [CHAT] Teleported AOEPortalQA to 1.500000, 200.000000, 0.500000
+AOE_PORTAL_QA request snapshot 1792505953-survival-arrival-5
+AOE_PORTAL_QA wrote 1792505953-survival-arrival-5
+AOE_PORTAL_QA request snapshot 1792505953-survival-arrival-6
+AOE_PORTAL_QA wrote 1792505953-survival-arrival-6
+AOE_PORTAL_QA request snapshot 1792505953-survival-arrival-7
+AOE_PORTAL_QA wrote 1792505953-survival-arrival-7
+AOE_PORTAL_QA request snapshot 1792505953-survival-arrival-8
+AOE_PORTAL_QA wrote 1792505953-survival-arrival-8
+AOE_PORTAL_QA request snapshot 1792505953-survival-arrival-9
+AOE_PORTAL_QA wrote 1792505953-survival-arrival-9
+AOE_PORTAL_QA request snapshot 1792505953-survival-arrival-10
+AOE_PORTAL_QA wrote 1792505953-survival-arrival-10
+AOE_PORTAL_QA request snapshot 1792505953-survival-arrival-11
+AOE_PORTAL_QA wrote 1792505953-survival-arrival-11
+AOE_PORTAL_QA request snapshot 1792505953-survival-arrival-12
+AOE_PORTAL_QA wrote 1792505953-survival-arrival-12
+AOE_PORTAL_QA wrote travel-survival-desert-nether
+AOE_PORTAL_QA request snapshot 1792505953-survival-arrival-13
+AOE_PORTAL_QA wrote 1792505953-survival-arrival-13
+AOE_PORTAL_QA request snapshot 1792505953-survival-still-arrived-14
+AOE_PORTAL_QA wrote 1792505953-survival-still-arrived-14
+AOE_PORTAL_QA request command tp @s 1.5 73.0 -0.5
+[10:19:33] [Render thread/INFO] [minecraft/ChatComponent]: [System] [CHAT] Teleported AOEPortalQA to 1.500000, 73.000000, -0.500000
+AOE_PORTAL_QA request travel 1.5 73.0 0.5 survival-return
+[10:19:39] [Render thread/INFO] [minecraft/ChatComponent]: [System] [CHAT] Teleported AOEPortalQA to 1.500000, 73.000000, 0.500000
+AOE_PORTAL_QA request snapshot 1792505953-survival-return-15
+AOE_PORTAL_QA wrote 1792505953-survival-return-15
+AOE_PORTAL_QA request snapshot 1792505953-survival-return-16
+AOE_PORTAL_QA wrote 1792505953-survival-return-16
+AOE_PORTAL_QA request snapshot 1792505953-survival-return-17
+AOE_PORTAL_QA wrote 1792505953-survival-return-17
+AOE_PORTAL_QA request snapshot 1792505953-survival-return-18
+AOE_PORTAL_QA wrote 1792505953-survival-return-18
+AOE_PORTAL_QA request snapshot 1792505953-survival-return-19
+AOE_PORTAL_QA wrote 1792505953-survival-return-19
+AOE_PORTAL_QA request snapshot 1792505953-survival-return-20
+AOE_PORTAL_QA wrote 1792505953-survival-return-20
+AOE_PORTAL_QA request snapshot 1792505953-survival-return-21
+AOE_PORTAL_QA wrote 1792505953-survival-return-21
+AOE_PORTAL_QA request snapshot 1792505953-survival-return-22
+AOE_PORTAL_QA wrote 1792505953-survival-return-22
+AOE_PORTAL_QA wrote travel-survival-return
+AOE_PORTAL_QA request snapshot 1792505953-survival-return-23
+AOE_PORTAL_QA wrote 1792505953-survival-return-23
+AOE_PORTAL_QA request command gamemode creative @s
+[10:19:43] [Render thread/INFO] [minecraft/ChatComponent]: [System] [CHAT] Set own game mode to Creative Mode
+AOE_PORTAL_QA request command execute in aoemod:desert_dimension run tp @s 1.5 200 -3.0 0 0
+[10:19:44] [Render thread/INFO] [minecraft/ChatComponent]: [System] [CHAT] Teleported AOEPortalQA to 1.500000, 200.000000, -3.000000
+AOE_PORTAL_QA request snapshot 1792505953-position-desert-24
+AOE_PORTAL_QA wrote 1792505953-position-desert-24
+AOE_PORTAL_QA request snapshot 1792506023-explicit-1
+AOE_PORTAL_QA wrote 1792506023-explicit-1
+AOE_PORTAL_QA request command execute in minecraft:overworld run tp @s 1.5 200 -3.0 0 0
+[10:20:24] [Render thread/INFO] [minecraft/ChatComponent]: [System] [CHAT] Teleported AOEPortalQA to 1.500000, 200.000000, -3.000000
+AOE_PORTAL_QA request snapshot 1792506023-position-overworld-2
+AOE_PORTAL_QA wrote 1792506023-position-overworld-2
+AOE_PORTAL_QA request command fill 6 199 -5 6 199 5 minecraft:birch_planks
+[10:20:24] [Render thread/INFO] [minecraft/ChatComponent]: [System] [CHAT] Successfully filled 11 block(s)
+AOE_PORTAL_QA request command tp @s 6.5 200 2.0 -90 0
+[10:20:25] [Render thread/INFO] [minecraft/ChatComponent]: [System] [CHAT] Teleported AOEPortalQA to 6.500000, 200.000000, 2.000000
+AOE_PORTAL_QA request snapshot 1792506023-mixed-front-camera-3
+AOE_PORTAL_QA wrote 1792506023-mixed-front-camera-3
+AOE_PORTAL_QA request capture mixed-rotated-portal
+AOE_PORTAL_QA Saved screenshot as aoe-portal-qa-mixed-rotated-portal.png
+AOE_PORTAL_QA request command execute in aoemod:desert_dimension run tp @s 1.5 200 -3.0 0 0
+[10:20:27] [Render thread/INFO] [minecraft/ChatComponent]: [System] [CHAT] Teleported AOEPortalQA to 1.500000, 200.000000, -3.000000
+AOE_PORTAL_QA request snapshot 1792506023-position-desert-4
+AOE_PORTAL_QA wrote 1792506023-position-desert-4
+AOE_PORTAL_QA request reload final-resource-reload
+[10:20:38] [Render thread/INFO] [minecraft/ReloadableResourceManager]: Reloading ResourceManager: vanilla, mod_resources, aoemod_portal_colors
+[10:20:38] [Render thread/INFO] [co.te.bl.co.Blueprint/]: Successfully loaded 3 assets remolders!
+[10:20:38] [Worker-Main-2/INFO] [minecraft/UnihexProvider]: Found unifont_all_no_pua-15.0.06.hex, loading
+[10:20:38] [Worker-Main-25/WARN] [minecraft/SoundManager]: File naturalist:sounds/mob/giraffe/idle.ogg does not exist, cannot add it to event naturalist:entity.giraffe.ambient
+[10:20:38] [Worker-Main-25/WARN] [minecraft/SoundManager]: File environmental:sounds/mob/zebra/hit4.ogg does not exist, cannot add it to event environmental:entity.zebra.hurt
+[10:20:38] [Worker-Main-25/WARN] [minecraft/SoundManager]: File environmental:sounds/mob/zebra/hit4.ogg does not exist, cannot add it to event environmental:entity.zorse.hurt
+[10:20:38] [Worker-Main-25/WARN] [minecraft/SoundManager]: File environmental:sounds/mob/zebra/hit4.ogg does not exist, cannot add it to event environmental:entity.zonkey.hurt
+[10:20:38] [Worker-Main-25/WARN] [minecraft/SoundManager]: File alexscaves:sounds/block/purple_soda/purple_soda_swim_3.ogg does not exist, cannot add it to event alexscaves:purple_soda_swim
+[10:20:38] [Worker-Main-25/WARN] [minecraft/SoundManager]: File alexscaves:sounds/block/purple_soda/purple_soda_swim_4.ogg does not exist, cannot add it to event alexscaves:purple_soda_swim
+[10:20:38] [Worker-Main-25/WARN] [minecraft/SoundManager]: File alexscaves:sounds/mob/luxtructosaurus/luxtructosaurus_snort_0.ogg does not exist, cannot add it to event alexscaves:luxtructosaurus_snort
+[10:20:38] [Worker-Main-25/WARN] [minecraft/SoundManager]: File alexscaves:sounds/mob/luxtructosaurus/luxtructosaurus_snort_1.ogg does not exist, cannot add it to event alexscaves:luxtructosaurus_snort
+[10:20:38] [Worker-Main-25/WARN] [minecraft/SoundManager]: File alexscaves:sounds/mob/luxtructosaurus/luxtructosaurus_snort_2.ogg does not exist, cannot add it to event alexscaves:luxtructosaurus_snort
+[10:20:38] [Worker-Main-25/WARN] [minecraft/SoundManager]: File alexscaves:sounds/mob/luxtructosaurus/luxtructosaurus_breathe_0.ogg does not exist, cannot add it to event alexscaves:luxtructosaurus_breathe
+[10:20:38] [Worker-Main-25/WARN] [minecraft/SoundManager]: File alexscaves:sounds/mob/luxtructosaurus/luxtructosaurus_breathe_1.ogg does not exist, cannot add it to event alexscaves:luxtructosaurus_breathe
+[10:20:38] [Worker-Main-25/WARN] [minecraft/SoundManager]: File alexscaves:sounds/mob/luxtructosaurus/luxtructosaurus_breathe_2.ogg does not exist, cannot add it to event alexscaves:luxtructosaurus_breathe
+[10:20:38] [Worker-Main-25/WARN] [minecraft/SoundManager]: File biodiverse:sounds/lion_1.ogg does not exist, cannot add it to event biodiverse:jaguar.ambient
+[10:20:38] [Worker-Main-25/WARN] [minecraft/SoundManager]: File biodiverse:sounds/lion_2.ogg does not exist, cannot add it to event biodiverse:jaguar.ambient
+[10:20:38] [Worker-Main-25/WARN] [minecraft/SoundManager]: File biodiverse:sounds/lion_4.ogg does not exist, cannot add it to event biodiverse:jaguar.ambient
+[10:20:38] [Worker-Main-25/WARN] [minecraft/SoundManager]: File biodiverse:sounds/lion_5.ogg does not exist, cannot add it to event biodiverse:jaguar.ambient
+[10:20:38] [Worker-Main-25/WARN] [minecraft/SoundManager]: File biodiverse:sounds/lionroar_2.ogg does not exist, cannot add it to event biodiverse:jaguar.hurt
+[10:20:38] [Worker-Main-25/WARN] [minecraft/SoundManager]: File biodiverse:sounds/bear_attack.ogg does not exist, cannot add it to event biodiverse:hippo.hurt
+[10:20:38] [Worker-Main-25/WARN] [minecraft/SoundManager]: File biodiverse:sounds/reindeer_4.ogg does not exist, cannot add it to event biodiverse:reindeer.ambient
+[10:20:38] [Worker-Main-25/WARN] [minecraft/SoundManager]: File biodiverse:sounds/lion_ambient1.ogg does not exist, cannot add it to event biodiverse:entity.lion.ambient
+[10:20:38] [Worker-Main-16/WARN] [minecraft/SpriteContents]: Invalid frame index on sprite born_in_chaos_v1:dimanim frame 1: 1
+[10:20:38] [Worker-Main-16/WARN] [minecraft/SpriteContents]: Invalid frame index on sprite born_in_chaos_v1:dimanim frame 2: 2
+[10:20:38] [Worker-Main-16/WARN] [minecraft/SpriteContents]: Invalid frame index on sprite born_in_chaos_v1:dimanim frame 3: 3
+[10:20:38] [Worker-Main-16/WARN] [minecraft/SpriteContents]: Invalid frame index on sprite born_in_chaos_v1:dimanim frame 4: 4
+[10:20:38] [Worker-Main-16/WARN] [minecraft/SpriteContents]: Invalid frame index on sprite born_in_chaos_v1:dimanim frame 5: 5
+[10:20:38] [Worker-Main-16/WARN] [minecraft/SpriteContents]: Invalid frame index on sprite born_in_chaos_v1:dimanim frame 6: 6
+[10:20:38] [Render thread/ERROR] [minecraft/Util]: Invalid path in pack: diversity:textures/gui/D.png, ignoring
+[10:20:38] [Worker-Main-6/WARN] [minecraft/SpriteLoader]: Texture aquatica:block/sawhead_anemone_particle with size 10x10 limits mip level from 4 to 1
+[10:20:43] [Worker-Main-25/WARN] [minecraft/ModelBakery]: Exception loading blockstate definition: 'hybrid_aquatic:blockstates/message_in_a_bottle.json' missing model for variant: 'hybrid_aquatic:message_in_a_bottle#waterlogged=true'
+[10:20:43] [Worker-Main-25/WARN] [minecraft/ModelBakery]: Exception loading blockstate definition: 'hybrid_aquatic:blockstates/message_in_a_bottle.json' missing model for variant: 'hybrid_aquatic:message_in_a_bottle#waterlogged=false'
+[10:20:43] [Worker-Main-25/WARN] [minecraft/ModelBakery]: Unable to load model: 'hybrid_aquatic:geo/buoy.geo.json' referenced from: hybrid_aquatic:buoy#facing=north,waterlogged=true: java.io.FileNotFoundException: hybrid_aquatic:models/geo/buoy.geo.json.json
+[10:20:43] [Worker-Main-25/WARN] [minecraft/ModelBakery]: Unable to load model: 'hybrid_aquatic:geo/bell_buoy.geo.json' referenced from: hybrid_aquatic:bell_buoy#facing=north,waterlogged=true: java.io.FileNotFoundException: hybrid_aquatic:models/geo/bell_buoy.geo.json.json
+[10:20:51] [Worker-Main-25/INFO] [co.gi.al.al.AlexsCaves/]: Loaded emissive block models in 912 ms
+[10:20:51] [Render thread/WARN] [minecraft/SoundEngine]: Missing sound for event: minecraft:item.goat_horn.play
+[10:20:51] [Render thread/WARN] [minecraft/SoundEngine]: Missing sound for event: minecraft:entity.goat.screaming.horn_break
+[10:20:51] [Render thread/WARN] [minecraft/SoundEngine]: Missing sound for event: naturalist:tortoise_hurt
+[10:20:51] [Render thread/WARN] [minecraft/SoundEngine]: Missing sound for event: naturalist:tortoise_death
+[10:20:51] [Render thread/WARN] [minecraft/SoundEngine]: Missing sound for event: naturalist:rubber_ducky_death
+[10:20:51] [Render thread/WARN] [minecraft/SoundEngine]: Missing sound for event: hybrid_aquatic:entity.sirenian.eat
+[10:20:51] [Render thread/INFO] [mojang/Library]: OpenAL initialized on device OpenAL Soft on Speakers (2- Jabra SPEAK 410 USB)
+[10:20:51] [Render thread/INFO] [minecraft/SoundEngine]: Sound engine started
+[10:20:51] [Render thread/INFO] [co.te.bl.co.Blueprint/]: Endimation Loader has loaded 5 endimations
+[10:20:51] [Render thread/INFO] [minecraft/TextureAtlas]: Created: 512x256x0 environmental:textures/atlas/slabfish.png-atlas
+[10:20:51] [Render thread/INFO] [minecraft/TextureAtlas]: Created: 128x128x0 upgrade_aquatic:textures/atlas/glow_squid.png-atlas
+[10:20:51] [Render thread/INFO] [minecraft/TextureAtlas]: Created: 128x128x0 upgrade_aquatic:textures/atlas/glow_squid.png-atlas
+[10:20:51] [Render thread/INFO] [minecraft/TextureAtlas]: Created: 4096x2048x4 minecraft:textures/atlas/blocks.png-atlas
+[10:20:51] [Render thread/INFO] [minecraft/TextureAtlas]: Created: 1024x512x4 minecraft:textures/atlas/signs.png-atlas
+[10:20:51] [Render thread/INFO] [minecraft/TextureAtlas]: Created: 1024x512x4 minecraft:textures/atlas/shield_patterns.png-atlas
+[10:20:51] [Render thread/INFO] [minecraft/TextureAtlas]: Created: 1024x512x4 minecraft:textures/atlas/banner_patterns.png-atlas
+[10:20:51] [Render thread/INFO] [minecraft/TextureAtlas]: Created: 2048x1024x4 minecraft:textures/atlas/armor_trims.png-atlas
+[10:20:51] [Render thread/INFO] [minecraft/TextureAtlas]: Created: 128x64x4 minecraft:textures/atlas/decorated_pot.png-atlas
+[10:20:51] [Render thread/INFO] [minecraft/TextureAtlas]: Created: 2048x1024x4 minecraft:textures/atlas/chest.png-atlas
+[10:20:51] [Render thread/INFO] [minecraft/TextureAtlas]: Created: 512x256x4 minecraft:textures/atlas/shulker_boxes.png-atlas
+[10:20:51] [Render thread/INFO] [minecraft/TextureAtlas]: Created: 512x256x4 minecraft:textures/atlas/beds.png-atlas
+AOE_PORTAL_QA model diagnostics {"missingBlockModels":[],"menuScreenCheckFailed":false,"missingMenuScreens":[],"entityRendererCheckFailed":false}
+AOE_PORTAL_QA wrote startup-animations
+AOE_PORTAL_QA wrote startup-dragon-eyes
+[10:20:52] [Render thread/WARN] [minecraft/ShaderInstance]: Shader rendertype_entity_translucent_emissive could not find sampler named Sampler2 in the specified shader program.
+[10:20:52] [Render thread/WARN] [minecraft/ShaderInstance]: Shader alexscaves:rendertype_red_ghost could not find sampler named Sampler2 in the specified shader program.
+[10:20:52] [Render thread/INFO] [co.gi.al.al.AlexsCaves/]: registered internal shaders
+[10:20:52] [Render thread/WARN] [minecraft/EffectInstance]: Shader bumpy could not find uniform named OutSize in the specified shader program.
+[10:20:52] [Render thread/INFO] [minecraft/TextureAtlas]: Created: 2048x1024x0 minecraft:textures/atlas/particles.png-atlas
+[10:20:52] [Render thread/INFO] [minecraft/TextureAtlas]: Created: 512x256x0 minecraft:textures/atlas/paintings.png-atlas
+[10:20:52] [Render thread/INFO] [minecraft/TextureAtlas]: Created: 512x256x0 minecraft:textures/atlas/mob_effects.png-atlas
+[10:20:52] [Render thread/INFO] [co.te.bl.co.Blueprint/]: Blueprint Splash Manager has loaded 0 splashes
+[10:20:52] [Render thread/INFO] [minecraft/TextureAtlas]: Created: 256x128x0 twilightforest:textures/atlas/magic_paintings.png-atlas
+[10:20:52] [Render thread/INFO] [co.bl.va.co.VanillaBackport/]: Loaded 2 custom leaf color(s)
+[10:20:52] [Render thread/WARN] [minecraft/EffectInstance]: Shader aquatica:godray could not find uniform named iResolution in the specified shader program.
+[10:20:52] [Render thread/WARN] [minecraft/EffectInstance]: Shader aquatica:aurora could not find sampler named ImageSampler in the specified shader program.
+[10:20:52] [Render thread/WARN] [minecraft/EffectInstance]: Shader aquatica:aurora could not find uniform named iResolution in the specified shader program.
+[10:20:52] [Render thread/INFO] [minecraft/TextureAtlas]: Created: 128x128x0 upgrade_aquatic:textures/atlas/glow_squid.png-atlas
+AOE_PORTAL_QA resource reload completed
+AOE_PORTAL_QA Saved screenshot as aoe-portal-qa-final-resource-reload.png
+AOE_PORTAL_QA request texture post-reload-texture
+AOE_PORTAL_QA wrote post-reload-texture
+AOE_PORTAL_QA request animations post-reload-animations
+AOE_PORTAL_QA wrote post-reload-animations
+AOE_PORTAL_QA request eyes post-reload-eyes
+AOE_PORTAL_QA wrote post-reload-eyes
+AOE_PORTAL_QA request brewing post-reload-brewing
+AOE_PORTAL_QA wrote post-reload-brewing
+AOE_PORTAL_QA request recipebooks post-reload-recipebooks
+AOE_PORTAL_QA wrote post-reload-recipebooks
+AOE_PORTAL_QA request sounds post-reload-sounds
+AOE_PORTAL_QA wrote post-reload-sounds
+AOE_PORTAL_QA request capture post-reload-capture
+AOE_PORTAL_QA request snapshot 1792506037-post-resource-reload-1
+AOE_PORTAL_QA wrote 1792506037-post-resource-reload-1
+AOE_PORTAL_QA Saved screenshot as aoe-portal-qa-post-reload-capture.png
+AOE_PORTAL_QA request snapshot 1792506076-explicit-1
+AOE_PORTAL_QA wrote 1792506076-explicit-1
+AOE_PORTAL_QA request disconnect clean-server-restart
+AOE_PORTAL_QA request snapshot 1792506076-disconnected-for-restart-2
+AOE_PORTAL_QA wrote 1792506076-disconnected-for-restart-2
+AOE_PORTAL_QA Saved screenshot as aoe-portal-qa-clean-server-restart.png
+AOE_PORTAL_QA request connect 127.0.0.1:25579
+[10:23:07] [Render thread/INFO] [minecraft/ConnectScreen]: Connecting to 127.0.0.1, 25579
+AOE_PORTAL_QA request snapshot 1792506187-joined-1
+AOE_PORTAL_QA wrote 1792506187-joined-1
+AOE_PORTAL_QA request snapshot 1792506187-joined-2
+AOE_PORTAL_QA wrote 1792506187-joined-2
+AOE_PORTAL_QA request snapshot 1792506187-joined-3
+AOE_PORTAL_QA wrote 1792506187-joined-3
+AOE_PORTAL_QA request snapshot 1792506187-joined-4
+AOE_PORTAL_QA wrote 1792506187-joined-4
+[10:23:13] [Netty Client IO #1/INFO] [ne.mi.ne.NetworkHooks/]: Connected to a modded server.
+[10:23:13] [Netty Client IO #1/INFO] [sn.ki.Kiwi/]: Canceling Microsoft telemetry
+[10:23:13] [Render thread/INFO] [al.he.HearthAndHarvest/]: Loaded 27 fluid bottle mappings and 20 vintage styles
+[10:23:13] [Render thread/INFO] [or.be.wo.to.ut.Logger/]: [bclib] Sending hello to server.
+[10:23:18] [Render thread/INFO] [co.bl.va.co.VanillaBackport/]: Loaded 3 custom dry foliage color rule(s)
+[10:23:18] [Render thread/INFO] [mc.mo.wa.ne.Packets/]: [WTHIT] Received config from the server: {"minecraft:bee.hive_occupants":true,"minecraft:attribute.horse_jump_height":true,"harvest:enabled":true,"minecraft:level.composter":true,"minecraft:entity.armor":true,"minecraft:effect.beacon":true,"minecraft:plant.tree_growable":true,"minecraft:attribute.horse_speed":true,"wailax:progress.enabled_entity":true,"minecraft:redstone.lever":true,"minecraft:entity.absorption":true,"minecraft:jukebox.record":true,"minecraft:effect.mob":true,"minecraft:book.bookshelf":true,"wailax:energy.enabled_entity":true,"wailax:fluid.enabled_block":true,"minecraft:plant.crop_growable":true,"minecraft:attribute.health":true,"minecraft:horse.jump_height":true,"minecraft:crop_growable":true,"wailax:item.nbt":true,"minecraft:entity.health":true,"minecraft:attribute.beacon_effects":true,"minecraft:plant.crop_progress":true,"minecraft:pet.owner":true,"minecraft:bee.hive_honey_level":true,"wailax:fluid.enabled_entity":true,"minecraft:timer.grow":true,"minecraft:bee.hive_pos":true,"minecraft:entity.item_entity":true,"minecraft:attribute.mob_effects":true,"minecraft:override.invisible_entity":true,"minecraft:spawner_type":true,"wailax:progress.enabled_block":true,"minecraft:note_block.type":true,"minecraft:tree_growable":true,"minecraft:override.infested":true,"wailax:item.enabled_entity":true,"minecraft:breaking_progress.enabled":true,"minecraft:item_entity":true,"minecraft:timer.breed":true,"minecraft:redstone.comparator":true,"minecraft:attribute.panda_genes":true,"wailax:item.enabled_block":true,"minecraft:spawner.type":true,"minecraft:override.trapped_chest":true,"minecraft:effect.hidden_mob":false,"minecraft:horse.speed":true,"minecraft:attribute.armor":true,"wailax:progress.time":true,"wailax:energy.enabled_block":true,"minecraft:attribute.absorption":true,"minecraft:book.lectern":true,"minecraft:redstone.level":true,"minecraft:level.honey":true,"minecraft:crop_progress":true,"minecraft:attribute.hidden_mob_effects":false,"minecraft:redstone.repeater":true,"minecraft:panda.genes":true,"minecraft:override.powder_snow":true}
+[10:23:18] [Render thread/INFO] [minecraft/AdvancementList]: Loaded 137 advancements
+[10:23:18] [Render thread/INFO] [or.be.wo.to.ut.Logger/]: [bclib] Received Hello from Server. (client=20.0.13, server=20.0.13)
+[10:23:18] [Render thread/INFO] [or.be.wo.to.ut.Logger/]: [bclib] 	- bclib (client=20.0.13, server=20.0.13, size=2.1 MiB)
+[10:23:18] [Render thread/INFO] [or.be.wo.to.ut.Logger/]: [bclib] Files offered by Server:
+[10:23:18] [Render thread/INFO] [or.be.wo.to.ut.Logger/]: [bclib] 	- bclib.CONFIG_betterend.entities: 
+[10:23:18] [Render thread/INFO] [or.be.wo.to.ut.Logger/]: [bclib] 	- bclib.CONFIG_betterend.blocks: 
+[10:23:18] [Render thread/INFO] [or.be.wo.to.ut.Logger/]: [bclib] 	- bclib.CONFIG_betterend.items: 
+[10:23:18] [Render thread/INFO] [or.be.wo.to.ut.Logger/]: [bclib] 	- bclib.CONFIG_betterend.biomes: 
+[10:23:18] [Render thread/INFO] [or.be.wo.to.ut.Logger/]: [bclib] 	- bclib.CONFIG_betterend.structures: 
+[10:23:18] [Render thread/INFO] [or.be.wo.to.ut.Logger/]: [bclib] 	- bclib.CONFIG_betterend.features: 
+[10:23:18] [Render thread/INFO] [or.be.wo.to.ut.Logger/]: [bclib] 	- bclib.CONFIG_betterend.enchantments: 
+[10:23:18] [Render thread/INFO] [or.be.wo.to.ut.Logger/]: [bclib] 	- bclib.CONFIG_bclib.generator: 
+[10:23:18] [Render thread/INFO] [or.be.wo.to.ut.Logger/]: [bclib] 	- bclib.CONFIG_bclib.main: 
+[10:23:18] [Render thread/INFO] [or.be.wo.to.ut.Logger/]: [bclib] 	- bclib.CONFIG_bclib.biomes: 
+[10:23:18] [Render thread/INFO] [or.be.wo.to.ut.Logger/]: [bclib] Folders offered by Server:
+[10:23:18] [Render thread/INFO] [or.be.wo.to.ut.Logger/]: [bclib] 	- BCLIB-SYNC (C:\Users\andre\Downloads\Games\September2024Mod\run\portal-production-client\game\bclib-sync, allowRemove=true)
+AOE_PORTAL_QA request snapshot 1792506187-joined-5
+AOE_PORTAL_QA wrote 1792506187-joined-5
+AOE_PORTAL_QA request command execute in aoemod:desert_dimension run tp @s 1.5 200 -3.0 0 0
+[10:23:34] [Render thread/INFO] [minecraft/ChatComponent]: [System] [CHAT] Teleported AOEPortalQA to 1.500000, 200.000000, -3.000000
+AOE_PORTAL_QA request snapshot 1792506213-position-desert-1
+AOE_PORTAL_QA wrote 1792506213-position-desert-1
+AOE_PORTAL_QA request command tp @s 1.5 200 0.5
+[10:23:40] [Render thread/INFO] [minecraft/ChatComponent]: [System] [CHAT] Teleported AOEPortalQA to 1.500000, 200.000000, 0.500000
+AOE_PORTAL_QA request snapshot 1792506213-persisted-outbound-2
+AOE_PORTAL_QA wrote 1792506213-persisted-outbound-2
+AOE_PORTAL_QA request command tp @s 1.5 73.0 -0.5
+[10:23:40] [Render thread/INFO] [minecraft/ChatComponent]: [System] [CHAT] Teleported AOEPortalQA to 1.500000, 73.000000, -0.500000
+AOE_PORTAL_QA request command tp @s 1.5 73.0 0.5
+[10:23:46] [Render thread/INFO] [minecraft/ChatComponent]: [System] [CHAT] Teleported AOEPortalQA to 1.500000, 73.000000, 0.500000
+AOE_PORTAL_QA request snapshot 1792506213-persisted-return-3
+AOE_PORTAL_QA wrote 1792506213-persisted-return-3
+AOE_PORTAL_QA request command execute in aoemod:desert_dimension run tp @s 1.5 200 -3.0 0 0
+[10:23:47] [Render thread/INFO] [minecraft/ChatComponent]: [System] [CHAT] Teleported AOEPortalQA to 1.500000, 200.000000, -3.000000
+AOE_PORTAL_QA request snapshot 1792506213-position-desert-4
+AOE_PORTAL_QA wrote 1792506213-position-desert-4
+AOE_PORTAL_QA request snapshot 1792506244-explicit-1
+AOE_PORTAL_QA wrote 1792506244-explicit-1
+AOE_PORTAL_QA request capture final-after-restart
+AOE_PORTAL_QA Saved screenshot as aoe-portal-qa-final-after-restart.png
+AOE_PORTAL_QA request quit final-qa-complete
+[10:24:05] [Render thread/INFO] [minecraft/Minecraft]: Stopping!

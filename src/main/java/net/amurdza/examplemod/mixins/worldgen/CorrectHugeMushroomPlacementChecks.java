@@ -1,5 +1,8 @@
 package net.amurdza.examplemod.mixins.worldgen;
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
+import net.minecraft.server.level.ServerLevel;
+import net.amurdza.examplemod.block.BlockHelper;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.level.LevelAccessor;
@@ -83,7 +86,10 @@ public abstract class CorrectHugeMushroomPlacementChecks {
         }
 
         BlockState ground = level.getBlockState(pos.below());
-        if (!isValidHugeMushroomGround(ground)) {
+        if (!isValidHugeMushroomGround(ground)
+                && !(level instanceof ServerLevel serverLevel
+                && BlockHelper.canGrowGiantMushroom(serverLevel, pos)
+                && ground.isFaceSturdy(level, pos.below(), Direction.UP))) {
             cir.setReturnValue(false);
             return;
         }
@@ -108,6 +114,17 @@ public abstract class CorrectHugeMushroomPlacementChecks {
         }
 
         cir.setReturnValue(true);
+    }
+
+    @Redirect(method = "isValidPosition", at = @At(value = "INVOKE",
+            target = "Lnet/minecraft/world/level/block/state/BlockState;is(Lnet/minecraft/tags/TagKey;)Z",
+            ordinal = 0))
+    private boolean aoemod$allowBonemealOnAnySolidGround(BlockState state, TagKey<Block> tag,
+            LevelAccessor level, BlockPos pos, int height, BlockPos.MutableBlockPos cursor,
+            HugeMushroomFeatureConfiguration config) {
+        return state.is(tag) || level instanceof ServerLevel serverLevel
+                && BlockHelper.canGrowGiantMushroom(serverLevel, pos)
+                && state.isFaceSturdy(level, pos.below(), Direction.UP);
     }
 
     private boolean isValidHugeMushroomGround(BlockState state) {

@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:campfire_cooking",
+  "category": "food",
+  "ingredient": { "item": "aoemod:raw_swordfish" },
+  "result": "aoemod:cooked_swordfish",
+  "experience": 0.35,
+  "cookingtime": 600
+}

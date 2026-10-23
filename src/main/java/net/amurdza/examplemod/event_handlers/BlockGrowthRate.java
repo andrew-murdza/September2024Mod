@@ -59,10 +59,10 @@ public class BlockGrowthRate {
         float mult = BlockConfig.blockGrowthChance(level, pos, state);
 
         /*
-         * Untracked blocks keep vanilla/modded behavior. Tracked blocks with
-         * no matching biome value are denied below.
+         * Untracked blocks keep vanilla/modded behavior. Tracked blocks without
+         * a setting in this dimension also keep their ordinary behavior.
          */
-        if (!BlockConfig.hasGrowthConfig(block)) {
+        if (mult < 0.0F) {
             return;
         }
 

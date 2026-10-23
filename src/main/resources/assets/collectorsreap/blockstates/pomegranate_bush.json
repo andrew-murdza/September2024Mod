@@ -1,0 +1,76 @@
+{
+  "multipart": [
+    {
+      "when": {
+        "age": "0",
+        "half": "lower"
+      },
+      "apply": {
+        "model": "collectorsreap:block/pomegranate_bush_stage0"
+      }
+    },
+    {
+      "when": {
+        "age": "1",
+        "half": "lower"
+      },
+      "apply": {
+        "model": "collectorsreap:block/pomegranate_bush_stage1"
+      }
+    },
+    {
+      "when": {
+        "age": "2",
+        "half": "lower"
+      },
+      "apply": {
+        "model": "collectorsreap:block/pomegranate_bush_lower_stage2"
+      }
+    },
+    {
+      "when": {
+        "age": "2",
+        "half": "upper"
+      },
+      "apply": {
+        "model": "collectorsreap:block/pomegranate_bush_upper_stage2"
+      }
+    },
+    {
+      "when": {
+        "age": "3",
+        "half": "lower"
+      },
+      "apply": {
+        "model": "collectorsreap:block/pomegranate_bush_lower_stage3"
+      }
+    },
+    {
+      "when": {
+        "age": "3",
+        "half": "upper"
+      },
+      "apply": {
+        "model": "collectorsreap:block/pomegranate_bush_upper_stage3"
+      }
+    },
+    {
+      "when": {
+        "age": "4",
+        "half": "lower"
+      },
+      "apply": {
+        "model": "collectorsreap:block/pomegranate_bush_lower_stage4"
+      }
+    },
+    {
+      "when": {
+        "age": "4",
+        "half": "upper"
+      },
+      "apply": {
+        "model": "collectorsreap:block/pomegranate_bush_upper_stage4"
+      }
+    }
+  ]
+}

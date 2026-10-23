@@ -119,8 +119,8 @@ public abstract class CaveVineHeadBehavior extends GrowingPlantHeadBlock impleme
     public void randomTick(@NotNull BlockState state, @NotNull ServerLevel level, BlockPos pos, RandomSource random) {
             if (!state.getValue(BERRIES) && state.getValue(BlockStateProperties.ENABLED)&&net.minecraftforge.common.ForgeHooks.onCropsGrowPre(
                     level,
-                    pos.relative(this.growthDirection),
-                    level.getBlockState(pos.relative(this.growthDirection)),
+                    pos,
+                    state,
                     random.nextDouble() < AOE_CHANCE_OF_BERRIES_ON_GROWTH
             )) {
                 BlockState newState = state.setValue(BERRIES, true);
@@ -129,8 +129,8 @@ public abstract class CaveVineHeadBehavior extends GrowingPlantHeadBlock impleme
                 net.minecraftforge.common.ForgeHooks.onCropsGrowPost(level, pos, state);
             } else if (state.getValue(AGE) < 25 && net.minecraftforge.common.ForgeHooks.onCropsGrowPre(
                     level,
-                    pos.relative(this.growthDirection),
-                    level.getBlockState(pos.relative(this.growthDirection)),
+                    pos,
+                    state,
                     random.nextDouble() < 0.1D
             )) {
                 BlockPos growPos = pos.relative(this.growthDirection);

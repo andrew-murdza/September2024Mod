@@ -97,7 +97,7 @@ public class IllagerLordEntity extends Vindicator implements GeoEntity {
     }
 
     private void equipIronLoadout() {
-        this.setItemSlot(EquipmentSlot.MAINHAND, new ItemStack(Items.IRON_AXE));
+        this.setItemSlot(EquipmentSlot.MAINHAND, new ItemStack(ModItems.BOSS_AXE.get()));
         if (!this.isShieldBroken()) {
             this.setItemSlot(EquipmentSlot.OFFHAND, new ItemStack(ModItems.BOSS_SHIELD.get()));
         }

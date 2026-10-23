@@ -1,8 +1,9 @@
 {
   "replace": false,
   "values": [
+    "aoemod:plum",
     {
-      "id": "fruitsdelight:mangosteen",
+      "id": "environmental:plum",
       "required": false
     }
   ]

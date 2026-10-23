@@ -4,26 +4,29 @@ import net.amurdza.examplemod.AOEMod;
 import net.amurdza.examplemod.registry.ModBlocks;
 import net.amurdza.examplemod.config.BoneMealConfig;
 import net.amurdza.examplemod.util.Helper;
+import net.amurdza.examplemod.util.GameplayDimensions;
+import net.amurdza.examplemod.block.BlockHelper;
 import net.amurdza.examplemod.util.ModTags;
 import net.amurdza.examplemod.registry.ModConfiguredFeatures;
-import net.amurdza.examplemod.worldgen.MushroomCaveRegion;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.Holder;
 import net.minecraft.core.registries.Registries;
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.ResourceKey;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.tags.FluidTags;
-import net.minecraft.tags.TagKey;
 import net.minecraft.util.Mth;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockState;
@@ -45,6 +48,7 @@ import java.util.function.Function;
 
 @Mod.EventBusSubscriber(modid = AOEMod.MOD_ID, bus=Mod.EventBusSubscriber.Bus.FORGE)
 public class BoneMeal {
+    private static final ResourceLocation RED_SHRUB = new ResourceLocation("minecraft", "red_shrub");
 
     @SubscribeEvent
     public static void onRightClickBlock(PlayerInteractEvent.RightClickBlock event) {
@@ -57,13 +61,9 @@ public class BoneMeal {
         BlockPos pos = event.getPos();
         BlockState state = level.getBlockState(pos);
 
-        Holder<Biome> biome = biomeAboveClickedBlock(level, pos);
-
-        // Giant mushrooms are exclusive to the lower mushroom-themed cave floor.
+        // In AOE dimensions, giant mushrooms need tropical or mushroom-cave habitat.
         if (state.is(Blocks.RED_MUSHROOM)||state.is(Blocks.BROWN_MUSHROOM)) {
-            BlockPos floorPos = pos.below();
-            if (!level.getBlockState(floorPos).is(Blocks.MYCELIUM)
-                    || !MushroomCaveRegion.containsFloor(floorPos)) {
+            if (!BlockHelper.canGrowGiantMushroom(level, pos)) {
                 event.setCanceled(true);
                 event.setCancellationResult(InteractionResult.FAIL);
                 return;
@@ -73,8 +73,6 @@ public class BoneMeal {
         // If vanilla would not even consider this a bonemeal target and it's not one of your custom targets,
         // let vanilla handle it (we don't cancel).
         if (!isEligibleBonemealTarget(level, pos, state)) return;
-
-
 
         // We will handle everything ourselves, but we still want the ONE sound + ONE particle burst.
         // Cancel vanilla bonemeal behavior so we don't double-trigger or consume twice.
@@ -90,8 +88,8 @@ public class BoneMeal {
         // Play the bone meal sound + particles ONCE.
         playBonemealEffectsOnce(level, pos, event);
 
-        // Compute number of "attempts" this click produces, based on biome multiplier.
-        float mult = getBiomeMultiplier(level, pos);
+        // Compute the number of attempts using the dimension's multiplier.
+        float mult = getDimensionMultiplier(level, pos);
 
         int attempts = computeAttempts(mult, level.random);
         if (attempts <= 0) {
@@ -135,31 +133,21 @@ public class BoneMeal {
     }
 
     // ----------------------------
-    // Biome multiplier lookup
+    // Dimension multiplier lookup
     // ----------------------------
 
     /**
-     * Gets the configured multiplier by checking which biome tags match above the clicked block.
-     * If multiple tags match, this returns the MAX value among matches (usually what you want for "best match wins").
-     * If none match, returns 1.0f.
+     * Dimensions without an override retain one ordinary bone-meal attempt.
      */
-    private static float getBiomeMultiplier(ServerLevel level, BlockPos pos) {
-        Holder<Biome> biomeHolder = biomeAboveClickedBlock(level, pos);
-        Block block=level.getBlockState(pos).getBlock();
-        boolean mushroom=block instanceof MushroomBlock
-                || block == Blocks.MYCELIUM || block== GlimmeringWealdModule.glow_shroom;
-        float best = -1f;
-        for (var entry : BoneMealConfig.BIOME_TAG_TO_BONEMEAL_MULTIPLIERS.entrySet()) {
-            TagKey<Biome> tag = entry.getKey();
-            float v = mushroom ? entry.getValue().mushroom():entry.getValue().plant();
-            if (biomeHolder.is(tag)) {
-                if (v > best) best = v;
-            }
-        }
-        return best;
+    private static float getDimensionMultiplier(ServerLevel level, BlockPos pos) {
+        Block block = level.getBlockState(pos).getBlock();
+        boolean mushroom = block instanceof MushroomBlock || block == Blocks.MYCELIUM
+                || block == GlimmeringWealdModule.glow_shroom;
+        var multipliers = BoneMealConfig.DIMENSION_TO_BONEMEAL_MULTIPLIERS.get(level.dimension());
+        return multipliers == null ? 1.0F : mushroom ? multipliers.mushroom() : multipliers.plant();
     }
 
-    private static Holder<Biome> biomeAboveClickedBlock(Level level, BlockPos clickedPos) {
+    private static Holder<Biome> biomeAboveClickedBlock(LevelReader level, BlockPos clickedPos) {
         return level.getBiome(clickedPos.above());
     }
 
@@ -198,8 +186,12 @@ public class BoneMeal {
     private static boolean isEligibleBonemealTarget(ServerLevel level, BlockPos pos, BlockState state) {
         Block block = state.getBlock();
 
+        // The backport's native shrub fertilizer action is disabled; use AOE's crimson-root spread instead.
+        if (isCrimsonRootLike(block)) return true;
+
         if (state.is(Blocks.MYCELIUM)) {
-            return MushroomCaveRegion.containsFloor(pos);
+            return !GameplayDimensions.isCustom(level)
+                    || GameplayDimensions.biomeIs(level, pos.above(), "mushroom_caves");
         }
 
         if(block instanceof BonemealableBlock block1){
@@ -240,13 +232,17 @@ public class BoneMeal {
     }
 
     private static boolean isFlowerLike(Block block){
-        return block instanceof FlowerBlock || block instanceof DoublePlantBlock
+        return block instanceof FlowerBlock || block instanceof DoublePlantBlock || isCrimsonRootLike(block)
                 || Helper.isBlock(
                 block,
                 ModBlocks.DESERT_TALL_GRASS.get(),
-                Blocks.CRIMSON_ROOTS, Blocks.WARPED_ROOTS, Blocks.NETHER_SPROUTS, Blocks.DEAD_BUSH,
+                Blocks.WARPED_ROOTS, Blocks.NETHER_SPROUTS, Blocks.DEAD_BUSH,
                 Blocks.SCULK_SENSOR, Blocks.SCULK_CATALYST, Blocks.SCULK_SHRIEKER, Blocks.WET_SPONGE
         );
+    }
+
+    private static boolean isCrimsonRootLike(Block block) {
+        return block == Blocks.CRIMSON_ROOTS || RED_SHRUB.equals(BuiltInRegistries.BLOCK.getKey(block));
     }
 
     // ----------------------------
@@ -431,8 +427,6 @@ public class BoneMeal {
         }
     }
 
-
-
     private static boolean createDripLeaf(Level level, BlockPos pos) {
         Direction direction = Helper.select(level,Helper.HORIZONTAL_DIRECTIONS);
         BlockState dripLeaf = Blocks.SMALL_DRIPLEAF.defaultBlockState().setValue(BlockStateProperties.HORIZONTAL_FACING, direction);
@@ -520,8 +514,17 @@ public class BoneMeal {
             boolean lava
     ) {}
 
-    private static boolean isBiomeSurfaceBonemealTarget(ServerLevel level, BlockPos pos, BlockState state) {
+    private static boolean isBiomeSurfaceBonemealTarget(LevelReader level, BlockPos pos, BlockState state) {
         Holder<Biome> biome = biomeAboveClickedBlock(level, pos);
+
+        if (GameplayDimensions.biomeIs(level, pos.above(), "mushroom_caves")) {
+            return state.is(Blocks.MYCELIUM);
+        }
+
+        // Deep dark also belongs to desert_biomes; its sculk floor takes precedence.
+        if (biome.is(ModTags.Biomes.deepDarkBiomes)) {
+            return state.is(Blocks.SCULK);
+        }
 
         if (biome.is(ModTags.Biomes.tropicalBiomes)) {
             return state.is(Blocks.MOSS_BLOCK);
@@ -537,12 +540,7 @@ public class BoneMeal {
         }
 
         if (biome.is(ModTags.Biomes.mountainBiomes)) {
-            return state.is(Blocks.GRASS_BLOCK)
-                    || state.is(Blocks.MYCELIUM) && MushroomCaveRegion.containsFloor(pos);
-        }
-
-        if(biome.is(ModTags.Biomes.deepDarkBiomes)){
-            return state.is(Blocks.SCULK);
+            return state.is(Blocks.GRASS_BLOCK);
         }
 
         if (biome.is(ModTags.Biomes.crimsonForestBiomes)) {
@@ -654,6 +652,10 @@ public class BoneMeal {
         BlockState ground = level.getBlockState(groundPos);
         Holder<Biome> biome = biomeAboveClickedBlock(level, groundPos);
 
+        if (GameplayDimensions.biomeIs(level, groundPos.above(), "mushroom_caves")) {
+            return ground.is(Blocks.MYCELIUM);
+        }
+
         if (biome.is(ModTags.Biomes.tropicalBiomes)) {
             return ground.is(Blocks.MOSS_BLOCK);
         }
@@ -664,8 +666,7 @@ public class BoneMeal {
         }
 
         if (biome.is(ModTags.Biomes.mountainBiomes)) {
-            return ground.is(Blocks.GRASS_BLOCK)
-                    || ground.is(Blocks.MYCELIUM) && MushroomCaveRegion.containsFloor(groundPos);
+            return ground.is(Blocks.GRASS_BLOCK);
         }
 
         if (biome.is(ModTags.Biomes.deepDarkBiomes)) {
@@ -697,29 +698,33 @@ public class BoneMeal {
             BiomeBonemealFeatures features
     ) {
         if (level.getBlockState(groundPos).is(Blocks.MYCELIUM)
-                && MushroomCaveRegion.containsFloor(groundPos)) {
+                && GameplayDimensions.biomeIs(level, groundPos.above(), "mushroom_caves")) {
             return ModConfiguredFeatures.MUSHROOM_CAVES_FLOOR;
         }
 
         return features.floor();
     }
 
-    private static boolean hasMushroomCaveFloorBelow(Level level, BlockPos pos) {
-        for (int distance = 0; distance <= 16; distance++) {
-            BlockPos candidate = pos.below(distance);
-            BlockState state = level.getBlockState(candidate);
-            if (state.is(Blocks.MYCELIUM)) {
-                return MushroomCaveRegion.containsFloor(candidate);
-            }
-            if (distance > 0 && state.isCollisionShapeFullBlock(level, candidate)) {
-                return false;
-            }
-        }
-        return false;
-    }
-
-    private static BiomeBonemealFeatures biomeBonemealFeaturesAt(Level level, BlockPos pos) {
+    private static BiomeBonemealFeatures biomeBonemealFeaturesAt(LevelReader level, BlockPos pos) {
         Holder<Biome> biome = level.getBiome(pos);
+
+        if (GameplayDimensions.biomeIs(level, pos, "mushroom_caves")) {
+            return new BiomeBonemealFeatures(
+                    ModConfiguredFeatures.MUSHROOM_CAVES_FLOOR,
+                    ModConfiguredFeatures.MUSHROOM_CAVES_SEAFLOOR,
+                    ModConfiguredFeatures.MUSHROOM_CAVES_SEAFLOOR_SHALLOW,
+                    false);
+        }
+
+        if (GameplayDimensions.biomeIs(level, pos, "deep_dark")) {
+            ResourceKey<ConfiguredFeature<?, ?>> floor = ResourceKey.create(
+                    Registries.CONFIGURED_FEATURE, AOEMod.makeID("deep_dark/floor/grass"));
+            ResourceKey<ConfiguredFeature<?, ?>> full = ResourceKey.create(
+                    Registries.CONFIGURED_FEATURE, AOEMod.makeID("deep_dark/water/water_plants_full"));
+            ResourceKey<ConfiguredFeature<?, ?>> shallow = ResourceKey.create(
+                    Registries.CONFIGURED_FEATURE, AOEMod.makeID("deep_dark/water/water_plants_shallow_full"));
+            return new BiomeBonemealFeatures(floor, full, shallow, false);
+        }
 
         if (biome.is(ModTags.Biomes.tropicalBiomes)) {
             return new BiomeBonemealFeatures(
@@ -749,14 +754,6 @@ public class BoneMeal {
         }
 
         if (biome.is(ModTags.Biomes.mountainBiomes)) {
-            if (hasMushroomCaveFloorBelow(level, pos)) {
-                return new BiomeBonemealFeatures(
-                        ModConfiguredFeatures.MUSHROOM_CAVES_FLOOR,
-                        ModConfiguredFeatures.MUSHROOM_CAVES_SEAFLOOR,
-                        ModConfiguredFeatures.MUSHROOM_CAVES_SEAFLOOR_SHALLOW,
-                        false
-                );
-            }
             return new BiomeBonemealFeatures(
                     ModConfiguredFeatures.MOUNTAINS_FLOOR,
                     ModConfiguredFeatures.MOUNTAINS_SEAFLOOR,

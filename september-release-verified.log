@@ -1,0 +1,1301 @@
+To honour the JVM settings for this build a single-use Daemon process will be forked. See https://docs.gradle.org/8.1.1/userguide/gradle_daemon.html#sec:disabling_the_daemon.
+Daemon will be stopped at the end of the build 
+
+> Configure project :
+MixinGradle did not locate the diffplug APT plugin, skipping eclipse task configuration
+Java: 17.0.9, JVM: 17.0.9+9 (Eclipse Adoptium), Arch: amd64
+
+> Task :downloadMcpConfig
+> Task :extractSrg UP-TO-DATE
+> Task :createMcpToSrg UP-TO-DATE
+
+> Task :compileJava
+Note: SpongePowered MIXIN Annotation Processor Version=0.8.5 (MixinGradle Version=0.7.38)
+Note: Supported obfuscation types: ObfuscationServiceMCP supports [notch] ObfuscationServiceFG3 supports [searge]
+Note: Loading searge mappings from C:\Users\andre\Downloads\Games\September2024Mod\build\createMcpToSrg\output.tsrg
+C:\Users\andre\Downloads\Games\September2024Mod\src\main\java\net\amurdza\examplemod\mixins\othermods\snowrealmagic\SnowEntityDatafixerFallback.java:22: warning: Unable to locate method mapping for @At(INVOKE.<target>) 'Lcom/mojang/datafixers/schemas/Schema;getChoiceType(Lcom/mojang/datafixers/DSL$TypeReference;Ljava/lang/String;)Lcom/mojang/datafixers/types/Type;'
+    @Redirect(
+    ^
+Note: Writing refmap to C:\Users\andre\Downloads\Games\September2024Mod\build\tmp\compileJava\compileJava-refmap.json
+Note: Writing refmap to C:\Users\andre\Downloads\Games\September2024Mod\build\tmp\compileJava\compileJava-refmap.json
+Note: Writing searge composite mappings to C:\Users\andre\Downloads\Games\September2024Mod\build\tmp\compileJava\compileJava-mappings.tsrg
+Note: Writing refmap to C:\Users\andre\Downloads\Games\September2024Mod\build\tmp\compileJava\compileJava-refmap.json
+Note: Writing refmap to C:\Users\andre\Downloads\Games\September2024Mod\build\tmp\compileJava\compileJava-refmap.json
+Note: Writing searge composite mappings to C:\Users\andre\Downloads\Games\September2024Mod\build\tmp\compileJava\compileJava-mappings.tsrg
+C:\Users\andre\Downloads\Games\September2024Mod\src\main\java\net\amurdza\examplemod\AOEMod.java:57: warning: [removal] get() in FMLJavaModLoadingContext has been deprecated and marked for removal
+        IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
+                                                        ^
+C:\Users\andre\Downloads\Games\September2024Mod\src\main\java\net\amurdza\examplemod\AOEMod.java:104: warning: [removal] ResourceLocation(String,String) in ResourceLocation has been deprecated and marked for removal
+            setNotFlammable(fire, ForgeRegistries.BLOCKS.getValue(new ResourceLocation("nourished_nether", "soul_weeds")));
+                                                                  ^
+C:\Users\andre\Downloads\Games\September2024Mod\src\main\java\net\amurdza\examplemod\AOEMod.java:120: warning: [removal] ResourceLocation(String,String) in ResourceLocation has been deprecated and marked for removal
+            makeLeafLikeForMobSpawning(ForgeRegistries.BLOCKS.getValue(new ResourceLocation("quark", "glow_shroom_block")));
+                                                                       ^
+C:\Users\andre\Downloads\Games\September2024Mod\src\main\java\net\amurdza\examplemod\AOEMod.java:327: warning: [removal] setRenderLayer(Block,RenderType) in ItemBlockRenderTypes has been deprecated and marked for removal
+                ItemBlockRenderTypes.setRenderLayer(ModBlocks.PALE_MOSS_CARPET.get(), RenderType.cutout());
+                                    ^
+C:\Users\andre\Downloads\Games\September2024Mod\src\main\java\net\amurdza\examplemod\AOEMod.java:328: warning: [removal] setRenderLayer(Block,RenderType) in ItemBlockRenderTypes has been deprecated and marked for removal
+                ItemBlockRenderTypes.setRenderLayer(ModBlocks.PALE_HANGING_MOSS.get(), RenderType.cutout());
+                                    ^
+C:\Users\andre\Downloads\Games\September2024Mod\src\main\java\net\amurdza\examplemod\AOEMod.java:329: warning: [removal] setRenderLayer(Block,RenderType) in ItemBlockRenderTypes has been deprecated and marked for removal
+                ItemBlockRenderTypes.setRenderLayer(ModBlocks.OPEN_EYEBLOSSOM.get(), RenderType.cutout());
+                                    ^
+C:\Users\andre\Downloads\Games\September2024Mod\src\main\java\net\amurdza\examplemod\AOEMod.java:330: warning: [removal] setRenderLayer(Block,RenderType) in ItemBlockRenderTypes has been deprecated and marked for removal
+                ItemBlockRenderTypes.setRenderLayer(ModBlocks.CLOSED_EYEBLOSSOM.get(), RenderType.cutout());
+                                    ^
+C:\Users\andre\Downloads\Games\September2024Mod\src\main\java\net\amurdza\examplemod\AOEMod.java:331: warning: [removal] setRenderLayer(Block,RenderType) in ItemBlockRenderTypes has been deprecated and marked for removal
+                ItemBlockRenderTypes.setRenderLayer(ModBlocks.JUNGLE_SWEET_BERRY_BUSH.get(), RenderType.cutout());
+                                    ^
+C:\Users\andre\Downloads\Games\September2024Mod\src\main\java\net\amurdza\examplemod\AOEMod.java:332: warning: [removal] setRenderLayer(Block,RenderType) in ItemBlockRenderTypes has been deprecated and marked for removal
+                ItemBlockRenderTypes.setRenderLayer(ModBlocks.BLUE_BERRY_BUSH.get(), RenderType.cutout());
+                                    ^
+C:\Users\andre\Downloads\Games\September2024Mod\src\main\java\net\amurdza\examplemod\AOEMod.java:333: warning: [removal] setRenderLayer(Block,RenderType) in ItemBlockRenderTypes has been deprecated and marked for removal
+                ItemBlockRenderTypes.setRenderLayer(ModBlocks.PALE_OAK_DOOR.get(), RenderType.cutout());
+                                    ^
+C:\Users\andre\Downloads\Games\September2024Mod\src\main\java\net\amurdza\examplemod\AOEMod.java:334: warning: [removal] setRenderLayer(Block,RenderType) in ItemBlockRenderTypes has been deprecated and marked for removal
+                ItemBlockRenderTypes.setRenderLayer(ModBlocks.PALE_OAK_TRAPDOOR.get(), RenderType.cutout());
+                                    ^
+C:\Users\andre\Downloads\Games\September2024Mod\src\main\java\net\amurdza\examplemod\AOEMod.java:335: warning: [removal] setRenderLayer(Block,RenderType) in ItemBlockRenderTypes has been deprecated and marked for removal
+                ItemBlockRenderTypes.setRenderLayer(ModBlocks.PALE_OAK_LEAVES.get(), RenderType.cutoutMipped());
+                                    ^
+C:\Users\andre\Downloads\Games\September2024Mod\src\main\java\net\amurdza\examplemod\AOEMod.java:336: warning: [removal] setRenderLayer(Block,RenderType) in ItemBlockRenderTypes has been deprecated and marked for removal
+                ItemBlockRenderTypes.setRenderLayer(ModBlocks.PALE_OAK_SAPLING.get(), RenderType.cutout());
+                                    ^
+C:\Users\andre\Downloads\Games\September2024Mod\src\main\java\net\amurdza\examplemod\AOEMod.java:337: warning: [removal] setRenderLayer(Block,RenderType) in ItemBlockRenderTypes has been deprecated and marked for removal
+                ItemBlockRenderTypes.setRenderLayer(ModBlocks.AZALEA_SAPLING.get(), RenderType.cutout());
+                                    ^
+C:\Users\andre\Downloads\Games\September2024Mod\src\main\java\net\amurdza\examplemod\AOEMod.java:338: warning: [removal] setRenderLayer(Block,RenderType) in ItemBlockRenderTypes has been deprecated and marked for removal
+                ItemBlockRenderTypes.setRenderLayer(ModBlocks.COPPER_CHAIN.get(), RenderType.cutout());
+                                    ^
+C:\Users\andre\Downloads\Games\September2024Mod\src\main\java\net\amurdza\examplemod\AOEMod.java:350: warning: [removal] ResourceLocation(String,String) in ResourceLocation has been deprecated and marked for removal
+        return new ResourceLocation(AOEMod.MOD_ID,path);
+               ^
+C:\Users\andre\Downloads\Games\September2024Mod\src\main\java\net\amurdza\examplemod\block\BlueBerryBushBlock.java:23: warning: [removal] ResourceLocation(String,String) in ResourceLocation has been deprecated and marked for removal
+    private static final ResourceLocation FRUITS_DELIGHT_BLUEBERRY = new ResourceLocation("fruitsdelight", "blueberry");
+                                                                     ^
+C:\Users\andre\Downloads\Games\September2024Mod\src\main\java\net\amurdza\examplemod\client\PortalClient.java:37: warning: [removal] setRenderLayer(Block,RenderType) in ItemBlockRenderTypes has been deprecated and marked for removal
+                ItemBlockRenderTypes.setRenderLayer(block, RenderType.translucent());
+                                    ^
+C:\Users\andre\Downloads\Games\September2024Mod\src\main\java\net\amurdza\examplemod\client\PortalTexturePack.java:29: warning: [removal] ResourceLocation(String,String) in ResourceLocation has been deprecated and marked for removal
+    private static final ResourceLocation VANILLA_TEXTURE = new ResourceLocation("minecraft", "textures/block/nether_portal.png");
+                                                            ^
+C:\Users\andre\Downloads\Games\September2024Mod\src\main\java\net\amurdza\examplemod\client\PortalTexturePack.java:30: warning: [removal] ResourceLocation(String,String) in ResourceLocation has been deprecated and marked for removal
+    private static final ResourceLocation VANILLA_ANIMATION = new ResourceLocation("minecraft", "textures/block/nether_portal.png.mcmeta");
+                                                              ^
+C:\Users\andre\Downloads\Games\September2024Mod\src\main\java\net\amurdza\examplemod\config\BlockConfig.java:318: warning: [removal] ResourceLocation(String,String) in ResourceLocation has been deprecated and marked for removal
+        Item item = ForgeRegistries.ITEMS.getValue(new ResourceLocation(namespace, path));
+                                                   ^
+C:\Users\andre\Downloads\Games\September2024Mod\src\main\java\net\amurdza\examplemod\config\BlockConfig.java:323: warning: [removal] ResourceLocation(String,String) in ResourceLocation has been deprecated and marked for removal
+        Block block = ForgeRegistries.BLOCKS.getValue(new ResourceLocation(namespace, path));
+                                                      ^
+C:\Users\andre\Downloads\Games\September2024Mod\src\main\java\net\amurdza\examplemod\entity\ai\DolphinBreedingAccess.java:15: warning: [removal] ResourceLocation(String,String) in ResourceLocation has been deprecated and marked for removal
+            new ResourceLocation("aoemod", "fish")
+            ^
+C:\Users\andre\Downloads\Games\September2024Mod\src\main\java\net\amurdza\examplemod\entity\model\ArchlichModel.java:11: warning: [removal] ResourceLocation(String,String) in ResourceLocation has been deprecated and marked for removal
+    private static final ResourceLocation MODEL = new ResourceLocation("aoemod", "geo/archlich.geo.json");
+                                                  ^
+C:\Users\andre\Downloads\Games\September2024Mod\src\main\java\net\amurdza\examplemod\entity\model\ArchlichModel.java:12: warning: [removal] ResourceLocation(String,String) in ResourceLocation has been deprecated and marked for removal
+    private static final ResourceLocation TEXTURE = new ResourceLocation("aoemod", "textures/entity/archlich.png");
+                                                    ^
+C:\Users\andre\Downloads\Games\September2024Mod\src\main\java\net\amurdza\examplemod\entity\model\ArchlichModel.java:13: warning: [removal] ResourceLocation(String,String) in ResourceLocation has been deprecated and marked for removal
+    private static final ResourceLocation ANIMATION = new ResourceLocation(
+                                                      ^
+C:\Users\andre\Downloads\Games\September2024Mod\src\main\java\net\amurdza\examplemod\entity\model\IllagerLordModel.java:11: warning: [removal] ResourceLocation(String,String) in ResourceLocation has been deprecated and marked for removal
+    private static final ResourceLocation MODEL = new ResourceLocation("aoemod", "geo/illager_king.geo.json");
+                                                  ^
+C:\Users\andre\Downloads\Games\September2024Mod\src\main\java\net\amurdza\examplemod\entity\model\IllagerLordModel.java:12: warning: [removal] ResourceLocation(String,String) in ResourceLocation has been deprecated and marked for removal
+    private static final ResourceLocation TEXTURE = new ResourceLocation("aoemod", "textures/entity/illager_lord.png");
+                                                    ^
+C:\Users\andre\Downloads\Games\September2024Mod\src\main\java\net\amurdza\examplemod\entity\model\IllagerLordModel.java:13: warning: [removal] ResourceLocation(String,String) in ResourceLocation has been deprecated and marked for removal
+    private static final ResourceLocation ANIMATION = new ResourceLocation(
+                                                      ^
+C:\Users\andre\Downloads\Games\September2024Mod\src\main\java\net\amurdza\examplemod\entity\sea_serpent\SeaSerpentEntity.java:675: warning: [removal] ResourceLocation(String,String) in ResourceLocation has been deprecated and marked for removal
+        return new ResourceLocation(entityId.getNamespace(), "entities/" + entityId.getPath());
+               ^
+C:\Users\andre\Downloads\Games\September2024Mod\src\main\java\net\amurdza\examplemod\entity\model\SpiderQueenModel.java:12: warning: [removal] ResourceLocation(String,String) in ResourceLocation has been deprecated and marked for removal
+    private static final ResourceLocation MODEL = new ResourceLocation("aoemod", "geo/spider_queen.geo.json");
+                                                  ^
+C:\Users\andre\Downloads\Games\September2024Mod\src\main\java\net\amurdza\examplemod\entity\model\SpiderQueenModel.java:13: warning: [removal] ResourceLocation(String,String) in ResourceLocation has been deprecated and marked for removal
+    private static final ResourceLocation TEXTURE = new ResourceLocation("aoemod", "textures/entity/spider_queen.png");
+                                                    ^
+C:\Users\andre\Downloads\Games\September2024Mod\src\main\java\net\amurdza\examplemod\entity\model\SpiderQueenModel.java:14: warning: [removal] ResourceLocation(String,String) in ResourceLocation has been deprecated and marked for removal
+    private static final ResourceLocation ANIMATION = new ResourceLocation(
+                                                      ^
+C:\Users\andre\Downloads\Games\September2024Mod\src\main\java\net\amurdza\examplemod\entity\render\CubozoaEntityRenderer.java:71: warning: [removal] ResourceLocation(String,String) in ResourceLocation has been deprecated and marked for removal
+        TEXTURE[0] = new ResourceLocation(AOEMod.MOD_ID, "textures/entity/cubozoa/cubozoa.png");
+                     ^
+C:\Users\andre\Downloads\Games\September2024Mod\src\main\java\net\amurdza\examplemod\entity\render\CubozoaEntityRenderer.java:72: warning: [removal] ResourceLocation(String,String) in ResourceLocation has been deprecated and marked for removal
+        TEXTURE[1] = new ResourceLocation(AOEMod.MOD_ID, "textures/entity/cubozoa/cubozoa_sulphur.png");
+                     ^
+C:\Users\andre\Downloads\Games\September2024Mod\src\main\java\net\amurdza\examplemod\entity\render\CubozoaEntityRenderer.java:74: warning: [removal] ResourceLocation(String,String) in ResourceLocation has been deprecated and marked for removal
+        GLOW[0] = RenderType.eyes(new ResourceLocation(AOEMod.MOD_ID, "textures/entity/cubozoa/cubozoa_glow.png"));
+                                  ^
+C:\Users\andre\Downloads\Games\September2024Mod\src\main\java\net\amurdza\examplemod\entity\render\CubozoaEntityRenderer.java:75: warning: [removal] ResourceLocation(String,String) in ResourceLocation has been deprecated and marked for removal
+        GLOW[1] = RenderType.eyes(new ResourceLocation(AOEMod.MOD_ID, "textures/entity/cubozoa/cubozoa_sulphur_glow.png"));
+                                  ^
+C:\Users\andre\Downloads\Games\September2024Mod\src\main\java\net\amurdza\examplemod\entity\render\future\SkeletonHorsemanRenderer.java:12: warning: [removal] ResourceLocation(String,String) in ResourceLocation has been deprecated and marked for removal
+    private static final ResourceLocation TEXTURE = new ResourceLocation(
+                                                    ^
+C:\Users\andre\Downloads\Games\September2024Mod\src\main\java\net\amurdza\examplemod\entity\render\future\ZombieHorsemanRenderer.java:12: warning: [removal] ResourceLocation(String,String) in ResourceLocation has been deprecated and marked for removal
+    private static final ResourceLocation TEXTURE = new ResourceLocation(
+                                                    ^
+C:\Users\andre\Downloads\Games\September2024Mod\src\main\java\net\amurdza\examplemod\entity\render\SeaSerpentEntityRenderer.java:16: warning: [removal] ResourceLocation(String,String) in ResourceLocation has been deprecated and marked for removal
+            new ResourceLocation(AOEMod.MOD_ID, "textures/entity/sea_serpent.png");
+            ^
+C:\Users\andre\Downloads\Games\September2024Mod\src\main\java\net\amurdza\examplemod\event_handlers\BerryDrops.java:50: warning: [removal] ResourceLocation(String,String) in ResourceLocation has been deprecated and marked for removal
+                    ResourceLocation FRUITS_DELIGHT_BLUEBERRY = new ResourceLocation("fruitsdelight", "blueberry");
+                                                                ^
+C:\Users\andre\Downloads\Games\September2024Mod\src\main\java\net\amurdza\examplemod\event_handlers\BoneMeal.java:51: warning: [removal] ResourceLocation(String,String) in ResourceLocation has been deprecated and marked for removal
+    private static final ResourceLocation RED_SHRUB = new ResourceLocation("minecraft", "red_shrub");
+                                                      ^
+C:\Users\andre\Downloads\Games\September2024Mod\src\main\java\net\amurdza\examplemod\event_handlers\CustomBlockDrops.java:36: warning: [removal] ResourceLocation(String,String) in ResourceLocation has been deprecated and marked for removal
+    private static final ResourceLocation SOUL_WEEDS = new ResourceLocation("nourished_nether", "soul_weeds");
+                                                       ^
+C:\Users\andre\Downloads\Games\September2024Mod\src\main\java\net\amurdza\examplemod\event_handlers\ItemsPlaceModBlocks.java:28: warning: [removal] ResourceLocation(String,String) in ResourceLocation has been deprecated and marked for removal
+    private static final ResourceLocation FRUITS_DELIGHT_BLUEBERRY = new ResourceLocation("fruitsdelight", "blueberry");
+                                                                     ^
+C:\Users\andre\Downloads\Games\September2024Mod\src\main\java\net\amurdza\examplemod\event_handlers\MobTierBalancing.java:60: warning: [removal] ResourceLocation(String,String) in ResourceLocation has been deprecated and marked for removal
+    private static final ResourceLocation ALEX_CENTIPEDE_HEAD = new ResourceLocation("alexsmobs", "centipede_head");
+                                                                ^
+C:\Users\andre\Downloads\Games\September2024Mod\src\main\java\net\amurdza\examplemod\event_handlers\MobTierBalancing.java:61: warning: [removal] ResourceLocation(String,String) in ResourceLocation has been deprecated and marked for removal
+    private static final ResourceLocation QUARK_WRAITH = new ResourceLocation("quark", "wraith");
+                                                         ^
+C:\Users\andre\Downloads\Games\September2024Mod\src\main\java\net\amurdza\examplemod\event_handlers\MobTierBalancing.java:62: warning: [removal] ResourceLocation(String,String) in ResourceLocation has been deprecated and marked for removal
+    private static final ResourceLocation BACKPORTED_PARCHED = new ResourceLocation("minecraft", "parched");
+                                                               ^
+C:\Users\andre\Downloads\Games\September2024Mod\src\main\java\net\amurdza\examplemod\event_handlers\MobTierBalancing.java:63: warning: [removal] ResourceLocation(String,String) in ResourceLocation has been deprecated and marked for removal
+    private static final ResourceLocation BACKPORTED_CAMEL_HUSK = new ResourceLocation("minecraft", "camel_husk");
+                                                                  ^
+C:\Users\andre\Downloads\Games\September2024Mod\src\main\java\net\amurdza\examplemod\future\FutureContentPolicy.java:68: warning: [removal] ResourceLocation(String,String) in ResourceLocation has been deprecated and marked for removal
+            return new ResourceLocation("minecraft", REPLACED_MOB_EGGS.get(id.getPath()));
+                   ^
+C:\Users\andre\Downloads\Games\September2024Mod\src\main\java\net\amurdza\examplemod\future\FutureContentPolicy.java:71: warning: [removal] ResourceLocation(String,String) in ResourceLocation has been deprecated and marked for removal
+            return new ResourceLocation(AOEMod.MOD_ID, id.getPath());
+                   ^
+C:\Users\andre\Downloads\Games\September2024Mod\src\main\java\net\amurdza\examplemod\future\FutureContentPolicy.java:75: warning: [removal] ResourceLocation(String,String) in ResourceLocation has been deprecated and marked for removal
+            return new ResourceLocation("minecraft", id.getPath());
+                   ^
+C:\Users\andre\Downloads\Games\September2024Mod\src\main\java\net\amurdza\examplemod\future\FutureMobCompatibility.java:39: warning: [removal] ResourceLocation(String,String) in ResourceLocation has been deprecated and marked for removal
+        return BuiltInRegistries.ENTITY_TYPE.getKey(entity.getType()).equals(new ResourceLocation("minecraft", "armadillo"));
+                                                                             ^
+C:\Users\andre\Downloads\Games\September2024Mod\src\main\java\net\amurdza\examplemod\future\FutureTrades.java:21: warning: [removal] ResourceLocation(String,String) in ResourceLocation has been deprecated and marked for removal
+            var item = BuiltInRegistries.ITEM.get(new ResourceLocation("minecraft", name));
+                                                  ^
+C:\Users\andre\Downloads\Games\September2024Mod\src\main\java\net\amurdza\examplemod\util\BiomePlacementRestrictions.java:112: warning: [removal] ResourceLocation(String,String) in ResourceLocation has been deprecated and marked for removal
+            if (state.is(BlockTags.create(new ResourceLocation("aoemod", "biome_restrictions/" + group.getKey())))) mask |= group.getValue();
+                                          ^
+C:\Users\andre\Downloads\Games\September2024Mod\src\main\java\net\amurdza\examplemod\util\BiomePlacementRestrictions.java:115: warning: [removal] ResourceLocation(String,String) in ResourceLocation has been deprecated and marked for removal
+        if (!state.is(BlockTags.create(new ResourceLocation("aoemod", "biome_restrictions/not_rainforest_exceptions")))) {
+                                       ^
+C:\Users\andre\Downloads\Games\September2024Mod\src\main\java\net\amurdza\examplemod\util\BiomePlacementRestrictions.java:117: warning: [removal] ResourceLocation(String,String) in ResourceLocation has been deprecated and marked for removal
+            if (state.is(BlockTags.create(new ResourceLocation("aoemod", "biome_restrictions/not_rainforest")))) unrestricted &= ~TROPICAL;
+                                          ^
+C:\Users\andre\Downloads\Games\September2024Mod\src\main\java\net\amurdza\examplemod\gametest\DocumentedPlacementTests.java:121: warning: [removal] ResourceLocation(String) in ResourceLocation has been deprecated and marked for removal
+        ResourceLocation key = new ResourceLocation(id);
+                               ^
+C:\Users\andre\Downloads\Games\September2024Mod\src\main\java\net\amurdza\examplemod\gametest\FutureBackportTests.java:53: warning: [removal] ResourceLocation(String,String) in ResourceLocation has been deprecated and marked for removal
+        ItemStack legacy = new ItemStack(BuiltInRegistries.ITEM.get(new ResourceLocation("aoemod", "iron_spear")));
+                                                                    ^
+C:\Users\andre\Downloads\Games\September2024Mod\src\main\java\net\amurdza\examplemod\gametest\FutureBackportTests.java:58: warning: [removal] ResourceLocation(String,String) in ResourceLocation has been deprecated and marked for removal
+        var netherite = (SpearItem) BuiltInRegistries.ITEM.get(new ResourceLocation("minecraft", "netherite_spear"));
+                                                               ^
+C:\Users\andre\Downloads\Games\September2024Mod\src\main\java\net\amurdza\examplemod\gametest\FutureBackportTests.java:61: warning: [removal] ResourceLocation(String,String) in ResourceLocation has been deprecated and marked for removal
+        helper.assertTrue(!FutureContentPolicy.isExcludedItem(new ResourceLocation("aoemod", "bone_spear")), "Bone spear must stay available");
+                                                              ^
+C:\Users\andre\Downloads\Games\September2024Mod\src\main\java\net\amurdza\examplemod\gametest\FutureBackportTests.java:67: warning: [removal] ResourceLocation(String,String) in ResourceLocation has been deprecated and marked for removal
+        var shrub = BuiltInRegistries.BLOCK.get(new ResourceLocation("minecraft", "red_shrub"));
+                                                ^
+C:\Users\andre\Downloads\Games\September2024Mod\src\main\java\net\amurdza\examplemod\gametest\FutureBackportTests.java:92: warning: [removal] ResourceLocation(String,String) in ResourceLocation has been deprecated and marked for removal
+        helper.assertTrue(FutureContentPolicy.isExcludedItem(new ResourceLocation("minecraft", "happy_ghast_spawn_egg")), "Happy ghasts must be hidden from normal acquisition");
+                                                             ^
+C:\Users\andre\Downloads\Games\September2024Mod\src\main\java\net\amurdza\examplemod\gametest\FutureBackportTests.java:93: warning: [removal] ResourceLocation(String,String) in ResourceLocation has been deprecated and marked for removal
+        helper.assertTrue(helper.getLevel().getRecipeManager().byKey(new ResourceLocation("minecraft", "bundle")).isPresent(), "The requested bundle recipe must survive filtering");
+                                                                     ^
+C:\Users\andre\Downloads\Games\September2024Mod\src\main\java\net\amurdza\examplemod\gametest\FutureContentGameTests.java:58: warning: [removal] ResourceLocation(String,String) in ResourceLocation has been deprecated and marked for removal
+            ResourceLocation id = new ResourceLocation("minecraft", path);
+                                  ^
+C:\Users\andre\Downloads\Games\September2024Mod\src\main\java\net\amurdza\examplemod\gametest\FutureContentGameTests.java:72: warning: [removal] ResourceLocation(String) in ResourceLocation has been deprecated and marked for removal
+            helper.assertTrue(BuiltInRegistries.ENTITY_TYPE.containsKey(new ResourceLocation(id)),
+                                                                        ^
+C:\Users\andre\Downloads\Games\September2024Mod\src\main\java\net\amurdza\examplemod\gametest\FutureContentGameTests.java:104: warning: [removal] ResourceLocation(String,String) in ResourceLocation has been deprecated and marked for removal
+        var shrub = BuiltInRegistries.BLOCK.get(new ResourceLocation("minecraft", "red_shrub"));
+                                                ^
+C:\Users\andre\Downloads\Games\September2024Mod\src\main\java\net\amurdza\examplemod\gametest\FutureContentGameTests.java:137: warning: [removal] ResourceLocation(String,String) in ResourceLocation has been deprecated and marked for removal
+        var golemType = BuiltInRegistries.ENTITY_TYPE.get(new ResourceLocation("minecraft", "copper_golem"));
+                                                          ^
+C:\Users\andre\Downloads\Games\September2024Mod\src\main\java\net\amurdza\examplemod\gametest\FutureContentGameTests.java:152: warning: [removal] ResourceLocation(String,String) in ResourceLocation has been deprecated and marked for removal
+                            BuiltInRegistries.BLOCK.get(new ResourceLocation("minecraft", "copper_chest"))),
+                                                        ^
+C:\Users\andre\Downloads\Games\September2024Mod\src\main\java\net\amurdza\examplemod\gametest\FutureContentGameTests.java:167: warning: [removal] ResourceLocation(String,String) in ResourceLocation has been deprecated and marked for removal
+        ResourceLocation id = new ResourceLocation("minecraft", "zombie_nautilus");
+                              ^
+C:\Users\andre\Downloads\Games\September2024Mod\src\main\java\net\amurdza\examplemod\gametest\FutureContentGameTests.java:246: warning: [removal] ResourceLocation(String,String) in ResourceLocation has been deprecated and marked for removal
+        Entity entity = BuiltInRegistries.ENTITY_TYPE.get(new ResourceLocation("minecraft", "armadillo"))
+                                                          ^
+C:\Users\andre\Downloads\Games\September2024Mod\src\main\java\net\amurdza\examplemod\gametest\FutureContentGameTests.java:347: warning: [removal] ResourceLocation(String) in ResourceLocation has been deprecated and marked for removal
+        ResourceLocation id = new ResourceLocation(name);
+                              ^
+C:\Users\andre\Downloads\Games\September2024Mod\src\main\java\net\amurdza\examplemod\gametest\GameplayBugRegressionTests.java:220: warning: [removal] ResourceLocation(String,String) in ResourceLocation has been deprecated and marked for removal
+        var recipe = helper.getLevel().getRecipeManager().byKey(new ResourceLocation("aoemod", "tools/bone_shears"));
+                                                                ^
+C:\Users\andre\Downloads\Games\September2024Mod\src\main\java\net\amurdza\examplemod\gametest\GameplayBugRegressionTests.java:225: warning: [removal] ResourceLocation(String,String) in ResourceLocation has been deprecated and marked for removal
+        helper.assertTrue(helper.getLevel().getRecipeManager().byKey(new ResourceLocation("aoemod", "food/glow_berry_soup")).isEmpty(),
+                                                                     ^
+C:\Users\andre\Downloads\Games\September2024Mod\src\main\java\net\amurdza\examplemod\gametest\PackCompatibilityTests.java:86: warning: [removal] ResourceLocation(String) in ResourceLocation has been deprecated and marked for removal
+        return new ResourceLocation(value);
+               ^
+C:\Users\andre\Downloads\Games\September2024Mod\src\main\java\net\amurdza\examplemod\gametest\PlantGameplayTests.java:224: warning: [removal] ResourceLocation(String,String) in ResourceLocation has been deprecated and marked for removal
+            ResourceLocation id = new ResourceLocation("quark", path);
+                                  ^
+C:\Users\andre\Downloads\Games\September2024Mod\src\main\java\net\amurdza\examplemod\gametest\SoulBeetGameplayTests.java:169: warning: [removal] ResourceLocation(String,String) in ResourceLocation has been deprecated and marked for removal
+        Block weeds = ForgeRegistries.BLOCKS.getValue(new ResourceLocation("nourished_nether", "soul_weeds"));
+                                                      ^
+C:\Users\andre\Downloads\Games\September2024Mod\src\main\java\net\amurdza\examplemod\item\MaterialShieldItem.java:16: warning: [removal] ResourceLocation(String) in ResourceLocation has been deprecated and marked for removal
+    private static final ResourceLocation BLOCKING = new ResourceLocation("blocking");
+                                                     ^
+C:\Users\andre\Downloads\Games\September2024Mod\src\main\java\net\amurdza\examplemod\item\ModToolTiers.java:45: warning: [removal] ResourceLocation(String,String) in ResourceLocation has been deprecated and marked for removal
+                new ResourceLocation(AOEMod.MOD_ID, "bone"),
+                ^
+C:\Users\andre\Downloads\Games\September2024Mod\src\main\java\net\amurdza\examplemod\item\ModToolTiers.java:51: warning: [removal] ResourceLocation(String,String) in ResourceLocation has been deprecated and marked for removal
+                new ResourceLocation(AOEMod.MOD_ID, "copper"),
+                ^
+C:\Users\andre\Downloads\Games\September2024Mod\src\main\java\net\amurdza\examplemod\item\ModToolTiers.java:56: warning: [removal] ResourceLocation(String,String) in ResourceLocation has been deprecated and marked for removal
+                new ResourceLocation(AOEMod.MOD_ID, "rebalanced_netherite"),
+                ^
+C:\Users\andre\Downloads\Games\September2024Mod\src\main\java\net\amurdza\examplemod\mixins\item\NetheriteHorseArmorBalance.java:17: warning: [removal] ResourceLocation(String,String) in ResourceLocation has been deprecated and marked for removal
+        if (!new ResourceLocation("minecraft", "netherite_horse_armor").equals(ForgeRegistries.ITEMS.getKey(item))) return;
+             ^
+C:\Users\andre\Downloads\Games\September2024Mod\src\main\java\net\amurdza\examplemod\mixins\item\NetheriteHorseArmorBalance.java:18: warning: [removal] ResourceLocation(String,String) in ResourceLocation has been deprecated and marked for removal
+        var copper = ForgeRegistries.ITEMS.getValue(new ResourceLocation("minecraft", "copper_horse_armor"));
+                                                    ^
+C:\Users\andre\Downloads\Games\September2024Mod\src\main\java\net\amurdza\examplemod\mixins\no_fire_in_tropical\NoBaseFirePlacementInTropical.java:19: warning: [removal] ResourceLocation(String,String) in ResourceLocation has been deprecated and marked for removal
+    private static final ResourceLocation SOUL_WEEDS = new ResourceLocation("nourished_nether", "soul_weeds");
+                                                       ^
+C:\Users\andre\Downloads\Games\September2024Mod\src\main\java\net\amurdza\examplemod\mixins\no_fire_in_tropical\NoFireSpreadInTropical.java:20: warning: [removal] ResourceLocation(String,String) in ResourceLocation has been deprecated and marked for removal
+    private static final ResourceLocation SOUL_WEEDS = new ResourceLocation("nourished_nether", "soul_weeds");
+                                                       ^
+C:\Users\andre\Downloads\Games\September2024Mod\src\main\java\net\amurdza\examplemod\mixins\othermods\backport\RedShrubBonemeal.java:23: warning: [removal] ResourceLocation(String,String) in ResourceLocation has been deprecated and marked for removal
+        if (BuiltInRegistries.BLOCK.getKey(state.getBlock()).equals(new ResourceLocation("minecraft", "red_shrub"))) {
+                                                                    ^
+C:\Users\andre\Downloads\Games\September2024Mod\src\main\java\net\amurdza\examplemod\mixins\othermods\backport\RedShrubBonemeal.java:32: warning: [removal] ResourceLocation(String,String) in ResourceLocation has been deprecated and marked for removal
+        if (BuiltInRegistries.BLOCK.getKey(state.getBlock()).equals(new ResourceLocation("minecraft", "red_shrub"))) {
+                                                                    ^
+C:\Users\andre\Downloads\Games\September2024Mod\src\main\java\net\amurdza\examplemod\mixins\othermods\backport\RedShrubSurvival.java:20: warning: [removal] ResourceLocation(String,String) in ResourceLocation has been deprecated and marked for removal
+        if (BuiltInRegistries.BLOCK.getKey(state.getBlock()).equals(new ResourceLocation("minecraft", "red_shrub"))) {
+                                                                    ^
+C:\Users\andre\Downloads\Games\September2024Mod\src\main\java\net\amurdza\examplemod\mixins\othermods\quark\ChainsConnectCopperChains.java:26: warning: [removal] ResourceLocation(String,String) in ResourceLocation has been deprecated and marked for removal
+    private static final ResourceLocation AOEMOD_COPPER_CHAIN = new ResourceLocation(AOEMod.MOD_ID, "copper_chain");
+                                                                ^
+C:\Users\andre\Downloads\Games\September2024Mod\src\main\java\net\amurdza\examplemod\mixins\othermods\wooden_bucket\WoodenBucketMixin.java:21: warning: [removal] ResourceLocation(String,String) in ResourceLocation has been deprecated and marked for removal
+            new ResourceLocation("woodenbucket", "wooden_bucket");
+            ^
+C:\Users\andre\Downloads\Games\September2024Mod\src\main\java\net\amurdza\examplemod\registry\ModConfiguredFeatures.java:15: warning: [removal] ResourceLocation(String,String) in ResourceLocation has been deprecated and marked for removal
+                new ResourceLocation(AOEMod.MOD_ID, path)
+                ^
+C:\Users\andre\Downloads\Games\September2024Mod\src\main\java\net\amurdza\examplemod\registry\ModDimensionEffects.java:22: warning: [removal] ResourceLocation(String,String) in ResourceLocation has been deprecated and marked for removal
+    public static final ResourceLocation OVERWORLD_REGIONS = new ResourceLocation(AOEMod.MOD_ID, "overworld_regions");
+                                                             ^
+C:\Users\andre\Downloads\Games\September2024Mod\src\main\java\net\amurdza\examplemod\registry\ModDimensionEffects.java:23: warning: [removal] ResourceLocation(String,String) in ResourceLocation has been deprecated and marked for removal
+    public static final ResourceLocation NETHER_REGIONS = new ResourceLocation(AOEMod.MOD_ID, "nether_regions");
+                                                          ^
+C:\Users\andre\Downloads\Games\September2024Mod\src\main\java\net\amurdza\examplemod\registry\ModEntities.java:385: warning: [removal] ResourceLocation(String,String) in ResourceLocation has been deprecated and marked for removal
+                        .build(new ResourceLocation(AOEMod.MOD_ID, name).toString())
+                               ^
+C:\Users\andre\Downloads\Games\September2024Mod\src\main\java\net\amurdza\examplemod\registry\SurfaceRuleRegistry.java:17: warning: [removal] ResourceLocation(String,String) in ResourceLocation has been deprecated and marked for removal
+                    new ResourceLocation(AOEMod.MOD_ID, "noise_threshold_3d"),
+                    ^
+C:\Users\andre\Downloads\Games\September2024Mod\src\main\java\net\amurdza\examplemod\util\DocumentedPlacementRules.java:22: warning: [removal] ResourceLocation(String,String) in ResourceLocation has been deprecated and marked for removal
+            if (block.defaultBlockState().is(BlockTags.create(new ResourceLocation("aoemod",
+                                                              ^
+C:\Users\andre\Downloads\Games\September2024Mod\src\main\java\net\amurdza\examplemod\util\GameplayDimensions.java:48: warning: [removal] ResourceLocation(String,String) in ResourceLocation has been deprecated and marked for removal
+                new ResourceLocation(AOEMod.MOD_ID, path)));
+                ^
+C:\Users\andre\Downloads\Games\September2024Mod\src\main\java\net\amurdza\examplemod\util\GameplayDimensions.java:52: warning: [removal] ResourceLocation(String,String) in ResourceLocation has been deprecated and marked for removal
+        return ResourceKey.create(Registries.DIMENSION, new ResourceLocation(AOEMod.MOD_ID, path));
+                                                        ^
+C:\Users\andre\Downloads\Games\September2024Mod\src\main\java\net\amurdza\examplemod\util\ModTags.java:22: warning: [removal] ResourceLocation(String,String) in ResourceLocation has been deprecated and marked for removal
+            return BlockTags.create(new ResourceLocation(AOEMod.MOD_ID, name));
+                                    ^
+C:\Users\andre\Downloads\Games\September2024Mod\src\main\java\net\amurdza\examplemod\util\ModTags.java:36: warning: [removal] ResourceLocation(String,String) in ResourceLocation has been deprecated and marked for removal
+            return ItemTags.create(new ResourceLocation(AOEMod.MOD_ID,name));
+                                   ^
+Note: Some input files use or override a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+Note: Some input files additionally use or override a deprecated API that is marked for removal.
+Note: Some input files use unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+100 warnings
+
+> Task :addMixinsToJar
+> Task :processResources UP-TO-DATE
+> Task :classes
+> Task :jar
+> Task :configureReobfTaskForReobfJar
+> Task :reobfJar
+> Task :configureReobfTaskForReobfJarJar
+> Task :addMixinsToJarJar
+> Task :jarJar
+> Task :reobfJarJar
+> Task :assemble
+> Task :compileTestJava NO-SOURCE
+> Task :processTestResources NO-SOURCE
+> Task :testClasses UP-TO-DATE
+> Task :test NO-SOURCE
+> Task :check UP-TO-DATE
+> Task :build
+> Task :createSrgToMcp UP-TO-DATE
+> Task :downloadMCMeta UP-TO-DATE
+> Task :downloadAssets UP-TO-DATE
+> Task :extractNatives UP-TO-DATE
+> Task :makeSrcDirs
+> Task :prepareRuns
+> Task :prepareRunGameTestServer
+> Task :prepareRunGameTestServerCompile
+
+> Task :runGameTestServer
+2026-10-20 09:24:10,790 main WARN Advanced terminal features are not available in this environment
+[09:24:10] [main/INFO] [cp.mo.mo.Launcher/MODLAUNCHER]: ModLauncher running: args [--launchTarget, forgegametestserveruserdev, --gameDir, ., --fml.forgeVersion, 47.4.22, --fml.mcVersion, 1.20.1, --fml.forgeGroup, net.minecraftforge, --fml.mcpVersion, 20230612.114412, --mixin.config, aoemod.mixins.json]
+[09:24:10] [main/INFO] [cp.mo.mo.Launcher/MODLAUNCHER]: ModLauncher 10.0.9+10.0.9+main.dcd20f30 starting: java version 17.0.9 by Eclipse Adoptium; OS Windows 11 arch amd64 version 10.0
+[09:24:10] [main/INFO] [ne.mi.fm.lo.ImmediateWindowHandler/]: ImmediateWindowProvider not loading because launch target is forgegametestserveruserdev
+[09:24:11] [main/INFO] [mixin/]: SpongePowered MIXIN Subsystem Version=0.8.5 Source=union:/C:/Users/andre/.gradle/caches/modules-2/files-2.1/org.spongepowered/mixin/0.8.5/9d1c0c3a304ae6697ecd477218fa61b850bf57fc/mixin-0.8.5.jar%23128!/ Service=ModLauncher Env=SERVER
+[09:24:11] [main/WARN] [ne.mi.fm.lo.mo.ModFileParser/LOADING]: Mod file C:\Users\andre\.gradle\caches\modules-2\files-2.1\net.minecraftforge\javafmllanguage\1.20.1-47.4.22\c3fe3323c9f8651aff7b34a665730c312b9e203f\javafmllanguage-1.20.1-47.4.22.jar is missing mods.toml file
+[09:24:11] [main/WARN] [ne.mi.fm.lo.mo.ModFileParser/LOADING]: Mod file C:\Users\andre\.gradle\caches\modules-2\files-2.1\net.minecraftforge\lowcodelanguage\1.20.1-47.4.22\c719255918fe74052292279a1242a26fbe92452a\lowcodelanguage-1.20.1-47.4.22.jar is missing mods.toml file
+[09:24:11] [main/WARN] [ne.mi.fm.lo.mo.ModFileParser/LOADING]: Mod file C:\Users\andre\.gradle\caches\modules-2\files-2.1\net.minecraftforge\mclanguage\1.20.1-47.4.22\78b273bf6a3b42e430cd60ca1636656ae5993d6c\mclanguage-1.20.1-47.4.22.jar is missing mods.toml file
+[09:24:11] [main/WARN] [ne.mi.fm.lo.mo.ModFileParser/LOADING]: Mod file C:\Users\andre\.gradle\caches\modules-2\files-2.1\net.minecraftforge\fmlcore\1.20.1-47.4.22\1367fc72fd188372dd79e824c611e248dcd000e\fmlcore-1.20.1-47.4.22.jar is missing mods.toml file
+[09:24:12] [main/INFO] [ne.mi.fm.lo.mo.JarInJarDependencyLocator/]: Found 25 dependencies adding them to mods collection
+[09:24:16] [main/INFO] [mixin/]: Compatibility level set to JAVA_17
+[09:24:16] [main/ERROR] [mixin/]: Mixin config finsandtails.mixins.json does not specify "minVersion" property
+[09:24:16] [main/ERROR] [mixin/]: Mixin config ferdinandsflowers.mixins.json does not specify "minVersion" property
+[09:24:17] [main/ERROR] [mixin/]: Mixin config yacl.mixins.json does not specify "minVersion" property
+[09:24:17] [main/INFO] [cp.mo.mo.LaunchServiceHandler/MODLAUNCHER]: Launching target 'forgegametestserveruserdev' with arguments [--gameDir, .]
+[09:24:17] [main/WARN] [mixin/]: Reference map 'aoemod.mixins.refmap.json' for aoemod.mixins.json could not be read. If this is a development environment you can ignore this message
+[09:24:17] [main/INFO] [mixin/]: Remapping refMap kiwi.refmap.json using C:\Users\andre\Downloads\Games\September2024Mod\build\createSrgToMcp\output.srg
+[09:24:17] [main/INFO] [mixin/]: Remapping refMap hapi.refmap.json using C:\Users\andre\Downloads\Games\September2024Mod\build\createSrgToMcp\output.srg
+[09:24:17] [main/INFO] [mixin/]: Remapping refMap fabric-renderer-api-v1-refmap.json using C:\Users\andre\Downloads\Games\September2024Mod\build\createSrgToMcp\output.srg
+[09:24:17] [main/INFO] [mixin/]: Remapping refMap fabric-renderer-api-v1-refmap.json using C:\Users\andre\Downloads\Games\September2024Mod\build\createSrgToMcp\output.srg
+[09:24:17] [main/INFO] [mixin/]: Remapping refMap geckolib.refmap.json using C:\Users\andre\Downloads\Games\September2024Mod\build\createSrgToMcp\output.srg
+[09:24:17] [main/INFO] [mixin/]: Remapping refMap lithostitched.refmap.json using C:\Users\andre\Downloads\Games\September2024Mod\build\createSrgToMcp\output.srg
+[09:24:17] [main/INFO] [mixin/]: Remapping refMap lithostitched.refmap.json using C:\Users\andre\Downloads\Games\September2024Mod\build\createSrgToMcp\output.srg
+[09:24:17] [main/INFO] [mixin/]: Remapping refMap naturalist-common-common-refmap.json using C:\Users\andre\Downloads\Games\September2024Mod\build\createSrgToMcp\output.srg
+[09:24:17] [main/INFO] [mixin/]: Remapping refMap mixin.refmap.json using C:\Users\andre\Downloads\Games\September2024Mod\build\createSrgToMcp\output.srg
+[09:24:17] [main/INFO] [mixin/]: Remapping refMap fabric-renderer-indigo-refmap.json using C:\Users\andre\Downloads\Games\September2024Mod\build\createSrgToMcp\output.srg
+[09:24:17] [main/INFO] [mixin/]: Remapping refMap l2harvester60x.refmap.json using C:\Users\andre\Downloads\Games\September2024Mod\build\createSrgToMcp\output.srg
+[09:24:17] [main/INFO] [mixin/]: Remapping refMap citadel.refmap.json using C:\Users\andre\Downloads\Games\September2024Mod\build\createSrgToMcp\output.srg
+[09:24:17] [main/INFO] [mixin/]: Remapping refMap angling-forge-1.20.1-refmap.json using C:\Users\andre\Downloads\Games\September2024Mod\build\createSrgToMcp\output.srg
+[09:24:17] [main/WARN] [mixin/]: Reference map 'untamedwilds.refmap.json' for mixins.untamedwilds.json could not be read. If this is a development environment you can ignore this message
+[09:24:17] [main/INFO] [mixin/]: Remapping refMap badpackets.refmap.json using C:\Users\andre\Downloads\Games\September2024Mod\build\createSrgToMcp\output.srg
+[09:24:17] [main/WARN] [mixin/]: Reference map 'finsandtails.refmap.json' for finsandtails.mixins.json could not be read. If this is a development environment you can ignore this message
+[09:24:17] [main/INFO] [mixin/]: Remapping refMap midnightlib-common-refmap.json using C:\Users\andre\Downloads\Games\September2024Mod\build\createSrgToMcp\output.srg
+[09:24:17] [main/INFO] [mixin/]: Remapping refMap iceandfire.refmap.json using C:\Users\andre\Downloads\Games\September2024Mod\build\createSrgToMcp\output.srg
+[09:24:17] [main/INFO] [mixin/]: Remapping refMap floral_flair.refmap.json using C:\Users\andre\Downloads\Games\September2024Mod\build\createSrgToMcp\output.srg
+[09:24:17] [main/WARN] [mixin/]: Reference map 'netherdepthsupgrade.refmap.json' for netherdepthsupgrade.mixins.json could not be read. If this is a development environment you can ignore this message
+[09:24:17] [main/INFO] [mixin/]: Remapping refMap snowrealmagic.refmap.json using C:\Users\andre\Downloads\Games\September2024Mod\build\createSrgToMcp\output.srg
+[09:24:17] [main/INFO] [mixin/]: Remapping refMap blueprint.refmap.json using C:\Users\andre\Downloads\Games\September2024Mod\build\createSrgToMcp\output.srg
+[09:24:17] [main/INFO] [mixin/]: Remapping refMap environmental.refmap.json using C:\Users\andre\Downloads\Games\September2024Mod\build\createSrgToMcp\output.srg
+[09:24:17] [main/INFO] [mixin/]: Remapping refMap tiny_takeover_backport.refmap.json using C:\Users\andre\Downloads\Games\September2024Mod\build\createSrgToMcp\output.srg
+[09:24:17] [main/INFO] [mixin/]: Remapping refMap bclib.refmap.json using C:\Users\andre\Downloads\Games\September2024Mod\build\createSrgToMcp\output.srg
+[09:24:17] [main/INFO] [mixin/]: Remapping refMap bclib.refmap.json using C:\Users\andre\Downloads\Games\September2024Mod\build\createSrgToMcp\output.srg
+[09:24:17] [main/INFO] [mixin/]: Remapping refMap bclib.refmap.json using C:\Users\andre\Downloads\Games\September2024Mod\build\createSrgToMcp\output.srg
+[09:24:17] [main/INFO] [mixin/]: Remapping refMap bclib.refmap.json using C:\Users\andre\Downloads\Games\September2024Mod\build\createSrgToMcp\output.srg
+[09:24:17] [main/INFO] [mixin/]: Remapping refMap bclib.refmap.json using C:\Users\andre\Downloads\Games\September2024Mod\build\createSrgToMcp\output.srg
+[09:24:17] [main/INFO] [mixin/]: Remapping refMap mixin.refmap.json using C:\Users\andre\Downloads\Games\September2024Mod\build\createSrgToMcp\output.srg
+[09:24:17] [main/INFO] [mixin/]: Remapping refMap farmersdelight.refmap.json using C:\Users\andre\Downloads\Games\September2024Mod\build\createSrgToMcp\output.srg
+[09:24:17] [main/INFO] [mixin/]: Remapping refMap upgrade_aquatic.refmap.json using C:\Users\andre\Downloads\Games\September2024Mod\build\createSrgToMcp\output.srg
+[09:24:17] [main/INFO] [mixin/]: Remapping refMap vintagedelight.refmap.json using C:\Users\andre\Downloads\Games\September2024Mod\build\createSrgToMcp\output.srg
+[09:24:17] [main/INFO] [mixin/]: Remapping refMap alexscaves.refmap.json using C:\Users\andre\Downloads\Games\September2024Mod\build\createSrgToMcp\output.srg
+[09:24:17] [main/INFO] [mixin/]: Remapping refMap terrablender.refmap.json using C:\Users\andre\Downloads\Games\September2024Mod\build\createSrgToMcp\output.srg
+[09:24:17] [main/INFO] [mixin/]: Remapping refMap terrablender.refmap.json using C:\Users\andre\Downloads\Games\September2024Mod\build\createSrgToMcp\output.srg
+[09:24:17] [main/INFO] [mixin/]: Remapping refMap faewulf_lib.refmap.json using C:\Users\andre\Downloads\Games\September2024Mod\build\createSrgToMcp\output.srg
+[09:24:17] [main/INFO] [mixin/]: Remapping refMap faewulf_lib.refmap.json using C:\Users\andre\Downloads\Games\September2024Mod\build\createSrgToMcp\output.srg
+[09:24:17] [main/INFO] [mixin/]: Remapping refMap mixin.refmap.json using C:\Users\andre\Downloads\Games\September2024Mod\build\createSrgToMcp\output.srg
+[09:24:17] [main/INFO] [mixin/]: Remapping refMap hearthandharvest.refmap.json using C:\Users\andre\Downloads\Games\September2024Mod\build\createSrgToMcp\output.srg
+[09:24:17] [main/INFO] [mixin/]: Remapping refMap Platform-forge-1.20.1-forge-refmap.json using C:\Users\andre\Downloads\Games\September2024Mod\build\createSrgToMcp\output.srg
+[09:24:17] [main/INFO] [mixin/]: Remapping refMap Platform-common-1.20.1-common-refmap.json using C:\Users\andre\Downloads\Games\September2024Mod\build\createSrgToMcp\output.srg
+[09:24:17] [main/INFO] [mixin/]: Remapping refMap VanillaBackport-common-1.20.1-common-refmap.json using C:\Users\andre\Downloads\Games\September2024Mod\build\createSrgToMcp\output.srg
+[09:24:17] [main/INFO] [mixin/]: Remapping refMap VanillaBackport-forge-1.20.1-forge-refmap.json using C:\Users\andre\Downloads\Games\September2024Mod\build\createSrgToMcp\output.srg
+[09:24:17] [main/INFO] [mixin/]: Remapping refMap mixin.refmap.json using C:\Users\andre\Downloads\Games\September2024Mod\build\createSrgToMcp\output.srg
+[09:24:17] [main/INFO] [mixin/]: Remapping refMap mixin.refmap.json using C:\Users\andre\Downloads\Games\September2024Mod\build\createSrgToMcp\output.srg
+[09:24:17] [main/INFO] [mixin/]: Remapping refMap diversity.refmap.json using C:\Users\andre\Downloads\Games\September2024Mod\build\createSrgToMcp\output.srg
+[09:24:17] [main/INFO] [mixin/]: Remapping refMap mixin.refmap.json using C:\Users\andre\Downloads\Games\September2024Mod\build\createSrgToMcp\output.srg
+[09:24:17] [main/INFO] [mixin/]: Remapping refMap ambientadditions.refmap.json using C:\Users\andre\Downloads\Games\September2024Mod\build\createSrgToMcp\output.srg
+[09:24:17] [main/INFO] [mixin/]: Remapping refMap bountiful_critters.refmap.json using C:\Users\andre\Downloads\Games\September2024Mod\build\createSrgToMcp\output.srg
+[09:24:17] [main/INFO] [mixin/]: Remapping refMap wthit.refmap.json using C:\Users\andre\Downloads\Games\September2024Mod\build\createSrgToMcp\output.srg
+[09:24:17] [main/INFO] [mixin/]: Remapping refMap curios.refmap.json using C:\Users\andre\Downloads\Games\September2024Mod\build\createSrgToMcp\output.srg
+[09:24:17] [main/INFO] [mixin/]: Remapping refMap mixin.refmap.json using C:\Users\andre\Downloads\Games\September2024Mod\build\createSrgToMcp\output.srg
+[09:24:17] [main/INFO] [mixin/]: Remapping refMap mixin.refmap.json using C:\Users\andre\Downloads\Games\September2024Mod\build\createSrgToMcp\output.srg
+[09:24:17] [main/INFO] [mixin/]: Remapping refMap mixins.bucketlib.refmap.json using C:\Users\andre\Downloads\Games\September2024Mod\build\createSrgToMcp\output.srg
+[09:24:17] [main/INFO] [mixin/]: Remapping refMap zeta.mixins.refmap.json using C:\Users\andre\Downloads\Games\September2024Mod\build\createSrgToMcp\output.srg
+[09:24:17] [main/INFO] [mixin/]: Remapping refMap zeta.mixins.refmap.json using C:\Users\andre\Downloads\Games\September2024Mod\build\createSrgToMcp\output.srg
+[09:24:17] [main/INFO] [mixin/]: Remapping refMap quark.mixins.refmap.json using C:\Users\andre\Downloads\Games\September2024Mod\build\createSrgToMcp\output.srg
+[09:24:17] [main/INFO] [mixin/]: Remapping refMap quark.mixins.refmap.json using C:\Users\andre\Downloads\Games\September2024Mod\build\createSrgToMcp\output.srg
+[09:24:17] [main/INFO] [mixin/]: Remapping refMap aquatica.refmap.json using C:\Users\andre\Downloads\Games\September2024Mod\build\createSrgToMcp\output.srg
+[09:24:17] [main/INFO] [mixin/]: Remapping refMap architectury-forge-refmap.json using C:\Users\andre\Downloads\Games\September2024Mod\build\createSrgToMcp\output.srg
+[09:24:17] [main/INFO] [mixin/]: Remapping refMap architectury-common-refmap.json using C:\Users\andre\Downloads\Games\September2024Mod\build\createSrgToMcp\output.srg
+[09:24:17] [main/WARN] [mixin/]: Reference map 'wildernature.forge.mixins.refmap.json' for wildernature.forge.mixins.json could not be read. If this is a development environment you can ignore this message
+[09:24:17] [main/INFO] [mixin/]: Remapping refMap yet_another_config_lib_v3.refmap.json using C:\Users\andre\Downloads\Games\September2024Mod\build\createSrgToMcp\output.srg
+[09:24:17] [main/INFO] [mixin/]: Remapping refMap mixin.refmap.json using C:\Users\andre\Downloads\Games\September2024Mod\build\createSrgToMcp\output.srg
+[09:24:17] [main/INFO] [mixin/]: Remapping refMap l2library.refmap.json using C:\Users\andre\Downloads\Games\September2024Mod\build\createSrgToMcp\output.srg
+[09:24:17] [main/INFO] [mixin/]: Remapping refMap hybrid_aquatic.refmap.json using C:\Users\andre\Downloads\Games\September2024Mod\build\createSrgToMcp\output.srg
+[09:24:17] [main/INFO] [mixin/]: Remapping refMap l2harvester05x.refmap.json using C:\Users\andre\Downloads\Games\September2024Mod\build\createSrgToMcp\output.srg
+[09:24:17] [main/INFO] [mixin/]: Remapping refMap betterend.refmap.json using C:\Users\andre\Downloads\Games\September2024Mod\build\createSrgToMcp\output.srg
+[09:24:17] [main/INFO] [mixin/]: Remapping refMap betterend.refmap.json using C:\Users\andre\Downloads\Games\September2024Mod\build\createSrgToMcp\output.srg
+[09:24:17] [main/INFO] [mixin/]: Remapping refMap fruitsdelight.refmap.json using C:\Users\andre\Downloads\Games\September2024Mod\build\createSrgToMcp\output.srg
+[09:24:17] [main/INFO] [mixin/]: Remapping refMap mixin.refmap.json using C:\Users\andre\Downloads\Games\September2024Mod\build\createSrgToMcp\output.srg
+[09:24:17] [main/WARN] [mixin/]: Error loading class: sereneseasons/season/RandomUpdateHandler (java.lang.ClassNotFoundException: sereneseasons.season.RandomUpdateHandler)
+[09:24:17] [main/WARN] [mixin/]: @Mixin target sereneseasons.season.RandomUpdateHandler was not found snowrealmagic.mixins.json:sereneseasons.RandomUpdateHandlerMixin
+[09:24:18] [main/WARN] [mixin/]: Error loading class: net/mehvahdjukaar/moonlight/api/set/leaves/LeavesType (java.lang.ClassNotFoundException: net.mehvahdjukaar.moonlight.api.set.leaves.LeavesType)
+[09:24:18] [main/WARN] [mixin/]: Error loading class: net/mehvahdjukaar/stone_zone/api/set/stone/StoneType (java.lang.ClassNotFoundException: net.mehvahdjukaar.stone_zone.api.set.stone.StoneType)
+[09:24:18] [main/WARN] [mixin/]: Error loading class: net/mehvahdjukaar/moonlight/api/set/wood/WoodType (java.lang.ClassNotFoundException: net.mehvahdjukaar.moonlight.api.set.wood.WoodType)
+[09:24:18] [main/WARN] [mixin/]: Error loading class: jeresources/api/util/BiomeHelper (java.lang.ClassNotFoundException: jeresources.api.util.BiomeHelper)
+[09:24:18] [main/WARN] [mixin/]: Error loading class: yalter/mousetweaks/Main (java.lang.ClassNotFoundException: yalter.mousetweaks.Main)
+[09:24:18] [main/WARN] [mixin/]: Error loading class: noobanidus/mods/lootr/config/ConfigManager (java.lang.ClassNotFoundException: noobanidus.mods.lootr.config.ConfigManager)
+[09:24:18] [main/WARN] [mixin/]: @Mixin target noobanidus.mods.lootr.config.ConfigManager was not found quark_integrations.mixins.json:lootr.ConfigManagerMixin
+[09:24:18] [main/INFO] [MixinExtras|Service/]: Initializing MixinExtras via com.llamalad7.mixinextras.service.MixinExtrasServiceImpl(version=0.5.5).
+[09:24:21] [main/WARN] [mixin/]: @Final field BOOKSHELF_OFFSETS:Ljava/util/List; in diversity.mixins.json:general.enchantTableAcceptFurtherBookshelf.EnchantingTableBlockMixin should be final
+[09:24:23] [main/WARN] [mixin/]: Method overwrite conflict for onSyncedDataUpdated in tiny_takeover_backport.mixins.json:DolphinMixin, previously written by net.amurdza.examplemod.mixins.add_ai.BreedableDolphins. Skipping method.
+[09:24:24] [main/WARN] [mixin/]: Mixin alexscaves.mixins.json:SwampHutPieceMixin has multiple constructors, (Lnet/minecraft/world/level/levelgen/structure/pieces/StructurePieceType;IIIIIILnet/minecraft/core/Direction;)V was selected
+
+[09:24:25] [modloading-worker-0/INFO] [floral/]: Registering Mod Itemsfloral
+[09:24:25] [modloading-worker-0/INFO] [co.sc.ne.mo.FarmersDelightCompat/]: Setting up compat for Farmers Delight
+[09:24:25] [modloading-worker-0/INFO] [ne.mi.co.ForgeMod/FORGEMOD]: Forge mod loading, version 47.4.22, for MC 1.20.1 with MCP 20230612.114412
+[09:24:25] [modloading-worker-0/INFO] [ne.mi.co.MinecraftForge/FORGE]: MinecraftForge v47.4.22 Initialized
+[09:24:25] [modloading-worker-0/INFO] [floral/]: Registering ModBlocks for floral
+[09:24:25] [modloading-worker-0/INFO] [floral/]: Registering Item Groups for floral
+[09:24:25] [modloading-worker-0/INFO] [sn.ki.Kiwi/INIT]: Processing 6 KiwiModule annotations
+[09:24:25] [modloading-worker-0/INFO] [floral/]: Registering enchantments forfloral
+[09:24:25] [modloading-worker-0/INFO] [Faewulf's Lib/]: [Faewulf's Lib] Loading
+[09:24:25] [modloading-worker-0/INFO] [Faewulf's Lib/]: [Faewulf's Lib] Initializing...
+[09:24:25] [modloading-worker-0/INFO] [Faewulf's Lib/]: [Faewulf's Lib] Hello from Faewulf with <3
+[09:24:25] [modloading-worker-0/INFO] [Faewulf's Lib/]: [Faewulf's Lib] Init done
+[09:24:25] [modloading-worker-0/INFO] [Diversity/]: [Diversity] Loading
+[09:24:25] [modloading-worker-0/INFO] [Diversity/]: [Diversity] Register commands...
+[09:24:25] [modloading-worker-0/INFO] [Diversity/]: [Diversity] Init done
+[09:24:25] [modloading-worker-0/INFO] [ne.po.bi.BiomesWeveGone/]: Registering Oh The Biomes We've Gone items
+[09:24:26] [modloading-worker-0/INFO] [ne.po.bi.BiomesWeveGone/]: Registering Oh The Biomes We've Gone Blocks
+[09:24:26] [modloading-worker-0/INFO] [de.ar.ne.fo.NetworkManagerImpl/]: Registering C2S receiver with id architectury:sync_ids
+[09:24:26] [modloading-worker-0/INFO] [YetAnotherConfigLib/]: Deserializing YACLConfig from 'C:\Users\andre\Downloads\Games\September2024Mod\run\september-qa\config\yacl.json5'
+[09:24:26] [modloading-worker-0/INFO] [ne.po.bi.BiomesWeveGone/]: Registering Oh The Biomes We've Gone Wood
+[09:24:26] [modloading-worker-0/INFO] [ne.po.bi.BiomesWeveGone/]: Registering Oh The Biomes We've Gone Block Entities
+[09:24:26] [modloading-worker-0/INFO] [ne.po.bi.BiomesWeveGone/]: Registering Oh The Biomes We've Gone Entities
+[09:24:26] [modloading-worker-0/INFO] [ne.po.bi.BiomesWeveGone/]: Registering Oh The Biomes We've Gone Creative Tabs
+[09:24:26] [modloading-worker-0/INFO] [ne.po.bi.BiomesWeveGone/]: Registering Oh The Biomes We've Gone Sounds
+[09:24:26] [modloading-worker-0/INFO] [ne.po.bi.BiomesWeveGone/]: Registering Oh The Biomes We've Gone Block Predicate
+[09:24:26] [modloading-worker-0/INFO] [ne.po.bi.BiomesWeveGone/]: Registering Oh The Biomes We've Gone State Providers
+[09:24:26] [modloading-worker-0/INFO] [ne.po.bi.BiomesWeveGone/]: Registering Oh The Biomes We've Gone Tree Decorators
+[09:24:26] [modloading-worker-0/INFO] [ne.po.bi.BiomesWeveGone/]: Registering Oh The Biomes We've Gone Custom Features
+[09:24:26] [modloading-worker-0/INFO] [ne.po.bi.BiomesWeveGone/]: Registering Oh The Biomes We've Gone Structure Pieces
+[09:24:26] [modloading-worker-0/INFO] [ne.po.bi.BiomesWeveGone/]: Registering Oh The Biomes We've Gone Custom Structure Types
+[09:24:26] [modloading-worker-0/INFO] [ne.po.bi.BiomesWeveGone/]: Registering Oh The Biomes We've Gone Configured Features
+[09:24:26] [modloading-worker-0/INFO] [ne.po.bi.BiomesWeveGone/]: Creating and Registering Overworld Vegetation Configured Features
+[09:24:26] [modloading-worker-0/INFO] [quark/]: Initializing TerraBlender underground biome compat
+[09:24:26] [modloading-worker-0/INFO] [de.ar.ne.fo.NetworkManagerImpl/]: Registering C2S receiver with id wildernature:screen_action
+[09:24:26] [modloading-worker-0/INFO] [zeta/]: Doing super early config setup for zeta
+[09:24:26] [modloading-worker-0/INFO] [ne.po.bi.BiomesWeveGone/]: Registering Oh The Biomes We've Gone Tree Configured Features
+[09:24:26] [modloading-worker-0/INFO] [ne.po.bi.BiomesWeveGone/]: Creating and Registering Vanilla Configured Features
+[09:24:26] [modloading-worker-0/INFO] [ne.po.bi.BiomesWeveGone/]: Registering Oh The Biomes You'll Go Overworld Configured Features
+[09:24:26] [modloading-worker-0/INFO] [ne.po.bi.BiomesWeveGone/]: Registering Oh The Biomes We've Gone Placed Features
+[09:24:26] [modloading-worker-0/INFO] [ne.po.bi.BiomesWeveGone/]: Creating and Registering Overworld Tree Placed Features
+[09:24:26] [modloading-worker-0/INFO] [ne.po.bi.BiomesWeveGone/]: Creating and Registering Overworld Vegetation Placed Features
+[09:24:26] [modloading-worker-0/INFO] [ne.po.bi.BiomesWeveGone/]: Creating and Registering Vanilla Placed Features
+[09:24:26] [modloading-worker-0/INFO] [ne.po.bi.BiomesWeveGone/]: Registering Oh The Biomes We've Gone Custom Surface Rules
+[09:24:26] [modloading-worker-0/INFO] [ne.po.bi.BiomesWeveGone/]: Registering Oh The Biomes We've Gone Template Pools
+[09:24:26] [modloading-worker-0/INFO] [ne.po.bi.BiomesWeveGone/]: Registering Oh The Biome's We've Gone Village Template Pools
+[09:24:26] [modloading-worker-0/INFO] [ne.po.bi.BiomesWeveGone/]: Registering Oh The Biomes We've Gone Poi Types
+[09:24:26] [modloading-worker-0/INFO] [ne.po.bi.BiomesWeveGone/]: Registering Oh The Biomes We've Gone Villager Professions
+[09:24:26] [modloading-worker-0/INFO] [ne.po.bi.BiomesWeveGone/]: Registering Oh The Biomes We've Gone Custom Structure Processors
+[09:24:26] [modloading-worker-0/INFO] [ne.po.bi.BiomesWeveGone/]: Registering Oh The Biomes We've Gone villager types
+[09:24:26] [modloading-worker-0/INFO] [ne.po.bi.BiomesWeveGone/]: Registering Oh The Biomes We've Gone Schedules
+[09:24:26] [modloading-worker-0/INFO] [ne.po.bi.BiomesWeveGone/]: Registering Oh The Biomes We've Gone Memory Module Types
+[09:24:26] [modloading-worker-0/INFO] [ne.po.bi.BiomesWeveGone/]: Registering Oh The Biomes We've Gone Sensor Types
+[09:24:26] [modloading-worker-0/INFO] [quark-zeta/]: Discovered 164 modules to load.
+[09:24:26] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Abacus...
+[09:24:26] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Adjustable Chat...
+[09:24:26] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Ambient Discs...
+[09:24:26] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Ancient Tomes...
+[09:24:26] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Ancient Wood...
+[09:24:26] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Armed Armor Stands...
+[09:24:26] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Auto Walk Keybind...
+[09:24:26] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Automatic Recipe Unlock...
+[09:24:26] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Automatic Tool Restock...
+[09:24:26] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Azalea Wood...
+[09:24:26] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Back Button Keybind...
+[09:24:26] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Backpack...
+[09:24:26] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Beacon Redirection...
+[09:24:26] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Better Elytra Rocket...
+[09:24:26] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Big Stone Clusters...
+[09:24:26] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Blossom Trees...
+[09:24:26] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Bottled Cloud...
+[09:24:26] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Buckets Show Inhabitants...
+[09:24:26] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Camera...
+[09:24:26] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Campfires Boost Elytra...
+[09:24:26] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Celebratory Lamps...
+[09:24:26] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Chains Connect Blocks...
+[09:24:26] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Chest Searching...
+[09:24:26] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Chorus Vegetation...
+[09:24:26] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Chute...
+[09:24:26] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Climate Control Remover...
+[09:24:26] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Color Runes...
+[09:24:26] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Compasses Work Everywhere...
+[09:24:26] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Compressed Blocks...
+[09:24:26] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Coral On Cactus...
+[09:24:26] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Corundum...
+[09:24:26] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Crabs...
+[09:24:26] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Crafter...
+[09:24:26] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Crate...
+[09:24:26] [modloading-worker-0/INFO] [th.ko.te.KotlinForForge/]: Kotlin For Forge Enabled!
+[09:24:26] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Diamond Repair...
+[09:24:26] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Dispensers Place Blocks...
+[09:24:26] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Double Door Opening...
+[09:24:26] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Dragon Scales...
+[09:24:26] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Duskbound Blocks...
+[09:24:26] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Dyeable Item Frames...
+[09:24:26] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Easy Transfering...
+[09:24:26] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Elytra Indicator...
+[09:24:26] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Emotes...
+[09:24:26] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Enchantment Predicates...
+[09:24:26] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Enchantments Begone...
+[09:24:26] [modloading-worker-0/INFO] [Hybrid API/]: Hello from Common init on Forge! we are currently in a development environment!
+[09:24:26] [modloading-worker-0/INFO] [Hybrid API/]: Hybrid API loaded.
+[09:24:26] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Ender Watcher...
+[09:24:26] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Endermosh Music Disc...
+[09:24:26] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Enhanced Ladders...
+[09:24:26] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Expanded Item Interactions...
+[09:24:26] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Fairy Rings...
+[09:24:26] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Fallen Logs...
+[09:24:26] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Feeding Trough...
+[09:24:26] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Forgotten...
+[09:24:26] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Foxhound...
+[09:24:26] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Framed Glass...
+[09:24:26] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Game Nerfs...
+[09:24:26] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Glass Item Frame...
+[09:24:26] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Glass Shard...
+[09:24:26] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Glimmering Weald...
+[09:24:26] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Gold Bars...
+[09:24:26] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Gold Tools Have Fortune...
+[09:24:26] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Grab Chickens...
+[09:24:26] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Grate...
+[09:24:26] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Gravisand...
+[09:24:26] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Greener Grass...
+[09:24:26] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Hedges...
+[09:24:26] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Hoe Harvesting...
+[09:24:26] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Hollow Logs...
+[09:24:26] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Horses Swim...
+[09:24:26] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Hotbar Changer...
+[09:24:26] [modloading-worker-0/INFO] [Hybrid Aquatic/]: Hybrid Aquatic loaded.
+[09:24:26] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Improved Sponges...
+[09:24:26] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Improved Tooltips...
+[09:24:26] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Industrial Palette...
+[09:24:26] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Inventory Sorting...
+[09:24:26] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Iron Rod...
+[09:24:26] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Item Sharing...
+[09:24:26] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Japanese Palette...
+[09:24:26] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Leaf Carpet...
+[09:24:26] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Lock Rotation...
+[09:24:26] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Long Range Pick Block...
+[09:24:26] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Magma Keeps Concrete Powder...
+[09:24:26] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Magnets...
+[09:24:26] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Map Washing...
+[09:24:26] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Matrix Enchanting...
+[09:24:26] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Metal Buttons...
+[09:24:26] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Microcrafting Helper...
+[09:24:26] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Midori...
+[09:24:26] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Monster Box...
+[09:24:26] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module More Banner Layers...
+[09:24:26] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module More Brick Types...
+[09:24:26] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module More Mud Blocks...
+[09:24:26] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module More Note Block Sounds...
+[09:24:26] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module More Potted Plants...
+[09:24:26] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module More Villagers...
+[09:24:26] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Narrator Readout...
+[09:24:26] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Nether Brick Fence Gate...
+[09:24:26] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Nether Obsidian Spikes...
+[09:24:26] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module New Stone Types...
+[09:24:26] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module No Durability On Cosmetics...
+[09:24:26] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module No More Lava Pockets...
+[09:24:26] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Obsidian Plate...
+[09:24:26] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Overlay Shader...
+[09:24:26] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Parrot Eggs...
+[09:24:26] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Pat The Dogs...
+[09:24:26] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Pathfinder Maps...
+[09:24:26] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Permafrost...
+[09:24:26] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Petals On Water...
+[09:24:26] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Pickarang...
+[09:24:26] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Pig Litters...
+[09:24:26] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Pipes...
+[09:24:26] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Pistons Move Tile Entities...
+[09:24:26] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Poison Potato Usage...
+[09:24:26] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Quick Armor Swapping...
+[09:24:26] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Rainbow Lamps...
+[09:24:26] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Raw Metal Bricks...
+[09:24:26] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Reacharound Placing...
+[09:24:26] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Redstone Randomizer...
+[09:24:26] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Renewable Spore Blossoms...
+[09:24:26] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Replace Scaffolding...
+[09:24:26] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Rope...
+[09:24:26] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Safer Creatures...
+[09:24:26] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Seed Pouch...
+[09:24:26] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Shear Vines...
+[09:24:27] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Shiba...
+[09:24:27] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Shingles...
+[09:24:27] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Shulker Packing...
+[09:24:27] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Simple Harvest...
+[09:24:27] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Skull Pikes...
+[09:24:27] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Slabs To Blocks...
+[09:24:27] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Slime In A Bucket...
+[09:24:27] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Slimes To Magma Cubes...
+[09:24:27] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Snow Golem Player Heads...
+[09:24:27] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Soul Candles...
+[09:24:27] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Soul Sandstone...
+[09:24:27] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Spawner Replacer...
+[09:24:27] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Spiral Spires...
+[09:24:27] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Stonelings...
+[09:24:27] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Stools...
+[09:24:27] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Sturdy Stone...
+[09:24:27] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Thatch...
+[09:24:27] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Tiny Potato...
+[09:24:27] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Torch Arrow...
+[09:24:27] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Toretoise...
+[09:24:27] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Totem Of Holding...
+[09:24:27] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Trowel...
+[09:24:27] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Usage Ticker...
+[09:24:27] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Uses For Curses...
+[09:24:27] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Utility Recipes...
+[09:24:27] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Variant Animal Textures...
+[09:24:27] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Variant Bookshelves...
+[09:24:27] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Variant Chests...
+[09:24:27] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Variant Furnaces...
+[09:24:27] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Variant Ladders...
+[09:24:27] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Variant Selector...
+[09:24:27] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Vertical Planks...
+[09:24:27] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Vertical Slabs...
+[09:24:27] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Vexes Die With Their Masters...
+[09:24:27] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Villager Rerolling Rework...
+[09:24:27] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Villagers Follow Emeralds...
+[09:24:27] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Wooden Posts...
+[09:24:27] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Wool Shuts Up Minecarts...
+[09:24:27] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Wraith...
+[09:24:27] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module Zombie Villagers On Normal...
+[09:24:27] [modloading-worker-0/INFO] [quark-zeta/]: Constructing module More Stone Variants...
+[09:24:27] [modloading-worker-0/INFO] [quark-zeta/]: Constructed 164 modules.
+[09:24:27] [modloading-worker-0/INFO] [quark-zeta/]: Doing super early config setup for quark
+[09:24:27] [modloading-worker-0/WARN] [quark/]: Skipping dev-env mixin audit check. Pass -Dquark.auditMixins=true to enable
+[09:24:27] [main/INFO] [sn.ki.Kiwi/INIT]: Module [snowrealmagic:core] initialized
+[09:24:27] [main/INFO] [sn.ki.Kiwi/INIT]: 		block: 7, block_entity_type: 2, entity_type: 1, loot_pool_entry_type: 1
+[09:24:27] [main/INFO] [sn.ki.Kiwi/INIT]: Module [kiwi:block_templates] initialized
+[09:24:27] [main/INFO] [sn.ki.Kiwi/INIT]: Module [kiwi:data] initialized
+[09:24:27] [main/INFO] [sn.ki.Kiwi/INIT]: 		recipe_serializer: 3
+[09:24:27] [main/INFO] [sn.ki.Kiwi/INIT]: Module [kiwi:block_components] initialized
+[09:24:27] [main/INFO] [sn.ki.Kiwi/INIT]: Module [kiwi:item_templates] initialized
+[09:24:28] [main/INFO] [or.be.wo.to.ut.Logger/]: [bclib] Added Config betterend.entities to auto sync (file hash)
+[09:24:28] [main/INFO] [or.be.wo.to.ut.Logger/]: [bclib] Added Config betterend.blocks to auto sync (file hash)
+[09:24:28] [main/INFO] [or.be.wo.to.ut.Logger/]: [bclib] Added Config betterend.items to auto sync (file hash)
+[09:24:28] [main/INFO] [or.be.wo.to.ut.Logger/]: [bclib] Added Config betterend.biomes to auto sync (file hash)
+[09:24:28] [main/INFO] [or.be.wo.to.ut.Logger/]: [bclib] Added Config betterend.structures to auto sync (file hash)
+[09:24:28] [main/INFO] [or.be.wo.to.ut.Logger/]: [bclib] Added Config betterend.features to auto sync (file hash)
+[09:24:28] [main/INFO] [or.be.wo.to.ut.Logger/]: [bclib] Added Config betterend.recipes to auto sync (file hash)
+[09:24:28] [main/INFO] [or.be.wo.to.ut.Logger/]: [bclib] Added Config betterend.enchantments to auto sync (file hash)
+[09:24:35] [main/WARN] [minecraft/SynchedEntityData]: defineId called for: class com.github.alexmodguy.alexscaves.server.entity.living.TremorzillaEntity from class com.github.alexmodguy.alexscaves.server.entity.living.LicowitchEntity
+[09:24:35] [main/WARN] [minecraft/SynchedEntityData]: defineId called for: class net.mcreator.borninchaosv.entity.BabySpiderEntity from class net.mcreator.borninchaosv.entity.MotherSpiderEntity
+[09:24:35] [main/WARN] [minecraft/SynchedEntityData]: defineId called for: class net.mcreator.biodiverse.entity.LionEntity from class net.mcreator.biodiverse.entity.FennecFoxEntity
+[09:24:35] [modloading-worker-0/INFO] [ne.pa.le.LegumeDelight/]: Legume Delight loaded
+[09:24:35] [Thread-1/INFO] [quark-zeta/]: About to refresh quark's config, looking for better thread than 'Thread-1'...
+[09:24:35] [Thread-1/WARN] [quark-zeta/]: Using thread 'Thread-1' instead of the server thread
+[09:24:35] [Thread-1/INFO] [quark-zeta/]: quark's config is 'BEFORE_INIT', ignoring config refresh. Current thread: Thread-1
+[09:24:35] [modloading-worker-0/INFO] [un.UntamedWilds/]: Registering Packets!
+[09:24:35] [modloading-worker-0/INFO] [co.co.hu.HugeStructureBlocksMod/]: Huge Structure Blocks is now making your structure blocks even bigger!
+[09:24:35] [modloading-worker-0/INFO] [co.co.hu.HugeStructureBlocksMod/]: New structure size = 512
+[09:24:35] [modloading-worker-0/INFO] [CorgiLib/]: Initializing network...
+[09:24:35] [modloading-worker-0/INFO] [CorgiLib/]: Initialized network!
+[09:24:35] [modloading-worker-0/INFO] [or.be.wo.to.ut.Logger/]: [bclib] Added Config bclib.generator to auto sync (file hash)
+[09:24:35] [modloading-worker-0/INFO] [or.be.wo.to.ut.Logger/]: [bclib] Added Config bclib.main to auto sync (content diff)
+[09:24:35] [modloading-worker-0/INFO] [or.be.wo.to.ut.Logger/]: [bclib] Added Config bclib.biomes to auto sync (file hash)
+[09:24:35] [modloading-worker-0/INFO] [Hybrid Aquatic/]: Loading Hybrid Aquatic config file
+[09:24:35] [Forge Version Check/INFO] [ne.mi.fm.VersionChecker/]: [forge] Starting version check at https://files.minecraftforge.net/net/minecraftforge/forge/promotions_slim.json
+[09:24:35] [Forge Version Check/INFO] [ne.mi.fm.VersionChecker/]: [forge] Found status: OUTDATED Current: 47.4.22 Target: 47.4.28
+[09:24:35] [Forge Version Check/INFO] [ne.mi.fm.VersionChecker/]: [twilightforest] Starting version check at https://gh.tamaized.com/TeamTwilight/twilightforest/update.json
+[09:24:35] [modloading-worker-0/INFO] [co.sk.wo.ex.pl.PlatformManager/]: Got request to register class com.sk89q.worldedit.forge.ForgePlatform with WorldEdit [com.sk89q.worldedit.extension.platform.PlatformManager@5fc730fb]
+[09:24:35] [modloading-worker-0/INFO] [co.sk.wo.fo.ForgeWorldEdit/]: WorldEdit for Forge (version 7.2.15+6463-5ca4dff) is loaded
+[09:24:35] [main/INFO] [terrablender/]: Registered region minecraft:overworld to index 0 for type OVERWORLD
+[09:24:35] [main/INFO] [terrablender/]: Registered region minecraft:nether to index 0 for type NETHER
+[09:24:35] [main/INFO] [terrablender/]: Registered region biomesoplenty:overworld_primary to index 1 for type OVERWORLD
+[09:24:35] [main/INFO] [terrablender/]: Registered region biomesoplenty:overworld_secondary to index 2 for type OVERWORLD
+[09:24:35] [main/INFO] [terrablender/]: Registered region biomesoplenty:overworld_rare to index 3 for type OVERWORLD
+[09:24:35] [main/INFO] [terrablender/]: Registered region biomesoplenty:nether_common to index 1 for type NETHER
+[09:24:35] [main/INFO] [terrablender/]: Registered region biomesoplenty:nether_rare to index 2 for type NETHER
+[09:24:35] [main/INFO] [ne.po.bi.BiomesWeveGone/]: Creating and Registering BWG Biome Modifiers for Vanilla Biomes
+[09:24:35] [main/INFO] [ne.po.bi.BiomesWeveGone/]: Will add Green/Cyan/Magenta/Purple/Yellow Tulips, Rose, Orange Daisy, Flower and Clover Patches to 
+[09:24:35] [main/INFO] [ne.po.bi.BiomesWeveGone/]: Will add Flower Patch, Clover Patch, White Anemone, Pink Anemone, Orange Daisy, Horseweed and rose to 
+[09:24:35] [main/INFO] [ne.po.bi.BiomesWeveGone/]: Will add Flower Patch, Clover Patch, Blue Rose Bush and Blue Berry Bushes to 
+[09:24:35] [main/INFO] [ne.po.bi.BiomesWeveGone/]: Will add Palm Trees to 
+[09:24:35] [main/INFO] [ne.po.bi.BiomesWeveGone/]: Will add Flower Patch, Clover Patch, White Anemone, Pink Anemone, Orange Daisy, Horseweed and rose to 
+[09:24:35] [main/INFO] [ne.po.bi.BiomesWeveGone/]: Creating and Registering BWG Biome Modifiers for Vanilla Biomes
+[09:24:35] [main/INFO] [ne.po.bi.BiomesWeveGone/]: Will add Green/Cyan/Magenta/Purple/Yellow Tulips, Rose, Orange Daisy, Flower and Clover Patches to 
+[09:24:35] [main/INFO] [ne.po.bi.BiomesWeveGone/]: Will add Flower Patch, Clover Patch, White Anemone, Pink Anemone, Orange Daisy, Horseweed and rose to 
+[09:24:35] [main/INFO] [ne.po.bi.BiomesWeveGone/]: Will add Flower Patch, Clover Patch, Blue Rose Bush and Blue Berry Bushes to 
+[09:24:35] [main/INFO] [ne.po.bi.BiomesWeveGone/]: Will add Flower Patch, Clover Patch, Blue Rose Bush and Blue Berry Bushes to 
+[09:24:35] [main/INFO] [ne.po.bi.BiomesWeveGone/]: Will add Green/Cyan/Magenta/Purple/Yellow Tulips, Rose, Orange Daisy, Flower and Clover Patches to 
+[09:24:35] [main/INFO] [ne.po.bi.BiomesWeveGone/]: Will add Flower Patch, Clover Patch, White Anemone, Pink Anemone, Orange Daisy, Horseweed and rose to 
+[09:24:35] [main/INFO] [ne.po.bi.BiomesWeveGone/]: Will add Palm Trees to 
+[09:24:35] [main/INFO] [ne.po.bi.BiomesWeveGone/]: Will add Flower Patch, Clover Patch, White Anemone, Pink Anemone, Orange Daisy, Horseweed and rose to 
+[09:24:35] [main/INFO] [ne.po.bi.BiomesWeveGone/]: Will add Flower Patch, Clover Patch, White Anemone, Pink Anemone, Orange Daisy, Horseweed and rose to 
+[09:24:35] [main/INFO] [ne.po.bi.BiomesWeveGone/]: Will add Palm Trees to 
+[09:24:35] [main/INFO] [terrablender/]: Registered region biomeswevegone:region_0 to index 4 for type OVERWORLD
+[09:24:35] [main/INFO] [terrablender/]: Registered region biomeswevegone:region_1 to index 5 for type OVERWORLD
+[09:24:35] [main/INFO] [terrablender/]: Registered region biomeswevegone:region_2 to index 6 for type OVERWORLD
+[09:24:35] [main/INFO] [terrablender/]: Registered region quark:biome_provider to index 7 for type OVERWORLD
+[09:24:35] [main/INFO] [quark-zeta/]: Common setup: Performing initial refresh of quark's config on thread 'main'
+[09:24:35] [main/INFO] [quark-zeta/]: Waiting for server start before accepting filewatcher changes to quark's config
+[09:24:35] [main/INFO] [zeta/]: Common setup: Performing initial refresh of zeta's config on thread 'main'
+[09:24:35] [main/INFO] [zeta/]: 'zeta' is enabling Zeta's piston structure resolver.
+[09:24:35] [main/INFO] [zeta/]: Waiting for server start before accepting filewatcher changes to zeta's config
+[09:24:35] [modloading-worker-0/INFO] [Hybrid API/]: Server starting...
+[09:24:35] [modloading-worker-0/INFO] [Hybrid Aquatic/]: Server starting...
+[09:24:36] [Forge Version Check/INFO] [ne.mi.fm.VersionChecker/]: [twilightforest] Found status: AHEAD Current: 4.3.2508 Target: null
+[09:24:36] [Forge Version Check/INFO] [ne.mi.fm.VersionChecker/]: [collectorsreap] Starting version check at https://raw.githubusercontent.com/brnbrd/CollectorsReap/1.20.1/update.json
+[09:24:36] [Forge Version Check/INFO] [ne.mi.fm.VersionChecker/]: [collectorsreap] Found status: UP_TO_DATE Current: 1.5.5 Target: null
+[09:24:36] [main/INFO] [mc.mo.wa.pl.PluginLoader/]: [WTHIT] Initializing common plugin biomeswevegone:plugin at net.potionstudios.biomeswevegone.compat.wthit.BWGWTHITPlugin
+[09:24:36] [main/INFO] [mc.mo.wa.pl.PluginLoader/]: [WTHIT] Initializing common plugin waila:core at mcp.mobius.waila.plugin.core.CoreCommonPlugin
+[09:24:36] [main/INFO] [mc.mo.wa.pl.PluginLoader/]: [WTHIT] Initializing common plugin waila:vanilla at mcp.mobius.waila.plugin.vanilla.VanillaCommonPlugin
+[09:24:36] [main/INFO] [mc.mo.wa.pl.PluginLoader/]: [WTHIT] Initializing common plugin waila:harvest at mcp.mobius.waila.plugin.harvest.HarvestCommonPlugin
+[09:24:36] [main/INFO] [mc.mo.wa.pl.PluginLoader/]: [WTHIT] Initializing common plugin waila:forge at mcp.mobius.waila.plugin.forge.ForgeCommonPlugin
+[09:24:36] [main/INFO] [mc.mo.wa.pl.PluginLoader/]: [WTHIT] Initializing common plugin waila:extra at mcp.mobius.waila.plugin.extra.ExtraPlugin
+[09:24:36] [main/INFO] [mc.mo.wa.co.PluginConfig/]: [WTHIT] Plugin config reloaded
+[09:24:36] [main/INFO] [citadel/]: adding citadel surface rules via terrablender...
+[09:24:36] [main/INFO] [citadel/]: Added 0 vanilla biome surface rule types via terrablender
+[09:24:36] [main/INFO] [citadel/]: Added 1 modded biome surface rule types via terrablender
+[09:24:41] [main/INFO] [mojang/YggdrasilAuthenticationService]: Environment: authHost='https://authserver.mojang.com', accountsHost='https://api.mojang.com', sessionHost='https://sessionserver.mojang.com', servicesHost='https://api.minecraftservices.com', name='PROD'
+[09:24:41] [main/INFO] [ne.mi.re.GameData/REGISTRIES]: Injecting existing registry data into this CLIENT instance
+[09:24:46] [main/INFO] [or.be.wo.to.ut.Logger/]: [DataFixerAPI] Applying Patch{bclib:3.0.11:12582923}
+[09:24:46] [main/INFO] [or.be.wo.to.ut.Logger/]: [bclib] Running Pre Patchers on .\world\.
+[09:24:46] [main/WARN] [or.be.wo.to.ut.Logger/]: [bclib] Applying Fixes on Level
+[09:24:46] [main/INFO] [or.be.wo.to.ut.Logger/]: [bclib] Patcher Stage... message.bclib.datafixer.progress.reading%
+[09:24:46] [main/INFO] [or.be.wo.to.ut.Logger/]: [bclib] Patcher Stage... message.bclib.datafixer.progress.players%
+[09:24:46] [main/INFO] [or.be.wo.to.ut.Logger/]: [bclib] Patcher Stage... message.bclib.datafixer.progress.level%
+[09:24:46] [main/INFO] [or.be.wo.to.ut.Logger/]: [DataFixerAPI] Inspecting level.dat in .\world\.
+[09:24:46] [main/INFO] [or.be.wo.to.ut.Logger/]: [bclib] Patcher Stage... message.bclib.datafixer.progress.worlddata%
+[09:24:46] [main/INFO] [or.be.wo.to.ut.Logger/]: [bclib] Patcher Stage... message.bclib.datafixer.progress.regions%
+[09:24:46] [main/INFO] [or.be.wo.to.ut.Logger/]: [DataFixerAPI] Inspecting .\world\.\dimensions\aoemod\snowy_dimension\poi\r.0.0.mca
+[09:24:46] [ForkJoinPool.commonPool-worker-1/INFO] [or.be.wo.to.ut.Logger/]: [DataFixerAPI] Inspecting .\world\.\dimensions\aoemod\plains_dimension\entities\r.-1.-1.mca
+[09:24:46] [ForkJoinPool.commonPool-worker-2/INFO] [or.be.wo.to.ut.Logger/]: [DataFixerAPI] Inspecting .\world\.\dimensions\aoemod\desert_dimension\region\r.0.0.mca
+[09:24:46] [ForkJoinPool.commonPool-worker-3/INFO] [or.be.wo.to.ut.Logger/]: [DataFixerAPI] Inspecting .\world\.\poi\r.0.-1.mca
+[09:24:46] [ForkJoinPool.commonPool-worker-4/INFO] [or.be.wo.to.ut.Logger/]: [DataFixerAPI] Inspecting .\world\.\dimensions\aoemod\plains_dimension\poi\r.0.0.mca
+[09:24:46] [ForkJoinPool.commonPool-worker-9/INFO] [or.be.wo.to.ut.Logger/]: [DataFixerAPI] Inspecting .\world\.\dimensions\aoemod\nether_dimension\region\r.0.0.mca
+[09:24:46] [ForkJoinPool.commonPool-worker-5/INFO] [or.be.wo.to.ut.Logger/]: [DataFixerAPI] Inspecting .\world\.\dimensions\aoemod\nether_dimension\region\r.-1.0.mca
+[09:24:46] [ForkJoinPool.commonPool-worker-8/INFO] [or.be.wo.to.ut.Logger/]: [DataFixerAPI] Inspecting .\world\.\entities\r.-1.0.mca
+[09:24:46] [ForkJoinPool.commonPool-worker-19/INFO] [or.be.wo.to.ut.Logger/]: [DataFixerAPI] Inspecting .\world\.\poi\r.-1.-1.mca
+[09:24:46] [ForkJoinPool.commonPool-worker-14/INFO] [or.be.wo.to.ut.Logger/]: [DataFixerAPI] Inspecting .\world\.\dimensions\aoemod\tropical_dimension\region\r.0.-1.mca
+[09:24:46] [ForkJoinPool.commonPool-worker-22/INFO] [or.be.wo.to.ut.Logger/]: [DataFixerAPI] Inspecting .\world\.\dimensions\aoemod\snowy_dimension\region\r.0.0.mca
+[09:24:46] [ForkJoinPool.commonPool-worker-16/INFO] [or.be.wo.to.ut.Logger/]: [DataFixerAPI] Inspecting .\world\.\dimensions\aoemod\plains_dimension\poi\r.-1.-1.mca
+[09:24:46] [ForkJoinPool.commonPool-worker-12/INFO] [or.be.wo.to.ut.Logger/]: [DataFixerAPI] Inspecting .\world\.\dimensions\aoemod\nether_dimension\region\r.-1.-1.mca
+[09:24:46] [ForkJoinPool.commonPool-worker-6/INFO] [or.be.wo.to.ut.Logger/]: [DataFixerAPI] Inspecting .\world\.\dimensions\aoemod\plains_dimension\entities\r.0.-1.mca
+[09:24:46] [ForkJoinPool.commonPool-worker-18/INFO] [or.be.wo.to.ut.Logger/]: [DataFixerAPI] Inspecting .\world\.\entities\r.0.0.mca
+[09:24:46] [ForkJoinPool.commonPool-worker-15/INFO] [or.be.wo.to.ut.Logger/]: [DataFixerAPI] Inspecting .\world\.\dimensions\aoemod\snowy_dimension\poi\r.0.-1.mca
+[09:24:46] [ForkJoinPool.commonPool-worker-7/INFO] [or.be.wo.to.ut.Logger/]: [DataFixerAPI] Inspecting .\world\.\dimensions\aoemod\snowy_dimension\entities\r.0.0.mca
+[09:24:46] [ForkJoinPool.commonPool-worker-13/INFO] [or.be.wo.to.ut.Logger/]: [DataFixerAPI] Inspecting .\world\.\dimensions\aoemod\plains_dimension\region\r.0.0.mca
+[09:24:46] [ForkJoinPool.commonPool-worker-20/INFO] [or.be.wo.to.ut.Logger/]: [DataFixerAPI] Inspecting .\world\.\dimensions\aoemod\nether_dimension\region\r.0.-1.mca
+[09:24:46] [ForkJoinPool.commonPool-worker-10/INFO] [or.be.wo.to.ut.Logger/]: [DataFixerAPI] Inspecting .\world\.\region\r.0.-1.mca
+[09:24:46] [ForkJoinPool.commonPool-worker-21/INFO] [or.be.wo.to.ut.Logger/]: [DataFixerAPI] Inspecting .\world\.\dimensions\aoemod\desert_dimension\poi\r.0.0.mca
+[09:24:46] [ForkJoinPool.commonPool-worker-11/INFO] [or.be.wo.to.ut.Logger/]: [DataFixerAPI] Inspecting .\world\.\poi\r.-1.0.mca
+[09:24:46] [ForkJoinPool.commonPool-worker-17/INFO] [or.be.wo.to.ut.Logger/]: [DataFixerAPI] Inspecting .\world\.\dimensions\aoemod\plains_dimension\entities\r.-1.0.mca
+[09:24:46] [ForkJoinPool.commonPool-worker-23/INFO] [or.be.wo.to.ut.Logger/]: [DataFixerAPI] Inspecting .\world\.\dimensions\aoemod\desert_dimension\poi\r.-1.-1.mca
+[09:24:46] [ForkJoinPool.commonPool-worker-7/INFO] [or.be.wo.to.ut.Logger/]: [DataFixerAPI] Inspecting .\world\.\dimensions\aoemod\snowy_dimension\entities\r.0.-1.mca
+[09:24:46] [ForkJoinPool.commonPool-worker-14/INFO] [or.be.wo.to.ut.Logger/]: [DataFixerAPI] Inspecting .\world\.\dimensions\aoemod\tropical_dimension\region\r.0.0.mca
+[09:24:46] [ForkJoinPool.commonPool-worker-17/INFO] [or.be.wo.to.ut.Logger/]: [DataFixerAPI] Inspecting .\world\.\dimensions\aoemod\plains_dimension\entities\r.0.0.mca
+[09:24:46] [ForkJoinPool.commonPool-worker-6/INFO] [or.be.wo.to.ut.Logger/]: [DataFixerAPI] Inspecting .\world\.\dimensions\aoemod\snowy_dimension\poi\r.-1.0.mca
+[09:24:46] [ForkJoinPool.commonPool-worker-4/INFO] [or.be.wo.to.ut.Logger/]: [DataFixerAPI] Inspecting .\world\.\dimensions\aoemod\plains_dimension\poi\r.0.-1.mca
+[09:24:46] [ForkJoinPool.commonPool-worker-16/INFO] [or.be.wo.to.ut.Logger/]: [DataFixerAPI] Inspecting .\world\.\dimensions\aoemod\plains_dimension\poi\r.-1.0.mca
+[09:24:46] [ForkJoinPool.commonPool-worker-21/INFO] [or.be.wo.to.ut.Logger/]: [DataFixerAPI] Inspecting .\world\.\dimensions\aoemod\desert_dimension\poi\r.0.-1.mca
+[09:24:46] [ForkJoinPool.commonPool-worker-1/INFO] [or.be.wo.to.ut.Logger/]: [DataFixerAPI] Inspecting .\world\.\dimensions\aoemod\snowy_dimension\region\r.-1.-1.mca
+[09:24:46] [main/INFO] [or.be.wo.to.ut.Logger/]: [DataFixerAPI] Inspecting .\world\.\dimensions\aoemod\snowy_dimension\region\r.0.-1.mca
+[09:24:46] [ForkJoinPool.commonPool-worker-15/INFO] [or.be.wo.to.ut.Logger/]: [DataFixerAPI] Inspecting .\world\.\dimensions\aoemod\tropical_dimension\region\r.-1.0.mca
+[09:24:46] [ForkJoinPool.commonPool-worker-23/INFO] [or.be.wo.to.ut.Logger/]: [DataFixerAPI] Inspecting .\world\.\dimensions\aoemod\desert_dimension\poi\r.-1.0.mca
+[09:24:46] [ForkJoinPool.commonPool-worker-11/INFO] [or.be.wo.to.ut.Logger/]: [DataFixerAPI] Inspecting .\world\.\poi\r.0.0.mca
+[09:24:46] [ForkJoinPool.commonPool-worker-14/INFO] [or.be.wo.to.ut.Logger/]: [DataFixerAPI] Inspecting .\world\.\entities\r.-1.-1.mca
+[09:24:46] [ForkJoinPool.commonPool-worker-19/INFO] [or.be.wo.to.ut.Logger/]: [DataFixerAPI] Inspecting .\world\.\entities\r.0.-1.mca
+[09:24:46] [ForkJoinPool.commonPool-worker-3/INFO] [or.be.wo.to.ut.Logger/]: [DataFixerAPI] Inspecting .\world\.\dimensions\aoemod\snowy_dimension\region\r.-1.0.mca
+[09:24:46] [ForkJoinPool.commonPool-worker-6/INFO] [or.be.wo.to.ut.Logger/]: [DataFixerAPI] Inspecting .\world\.\dimensions\aoemod\snowy_dimension\poi\r.-1.-1.mca
+[09:24:46] [ForkJoinPool.commonPool-worker-7/INFO] [or.be.wo.to.ut.Logger/]: [DataFixerAPI] Inspecting .\world\.\dimensions\aoemod\nether_dimension\poi\r.0.-1.mca
+[09:24:46] [ForkJoinPool.commonPool-worker-17/INFO] [or.be.wo.to.ut.Logger/]: [DataFixerAPI] Inspecting .\world\.\region\r.-1.0.mca
+[09:24:46] [ForkJoinPool.commonPool-worker-4/INFO] [or.be.wo.to.ut.Logger/]: [DataFixerAPI] Inspecting .\world\.\dimensions\aoemod\plains_dimension\region\r.-1.0.mca
+[09:24:46] [ForkJoinPool.commonPool-worker-16/INFO] [or.be.wo.to.ut.Logger/]: [DataFixerAPI] Inspecting .\world\.\dimensions\aoemod\plains_dimension\region\r.-1.-1.mca
+[09:24:46] [ForkJoinPool.commonPool-worker-21/INFO] [or.be.wo.to.ut.Logger/]: [DataFixerAPI] Inspecting .\world\.\dimensions\aoemod\desert_dimension\region\r.-1.0.mca
+[09:24:46] [ForkJoinPool.commonPool-worker-23/INFO] [or.be.wo.to.ut.Logger/]: [DataFixerAPI] Inspecting .\world\.\dimensions\aoemod\desert_dimension\entities\r.0.0.mca
+[09:24:46] [ForkJoinPool.commonPool-worker-15/INFO] [or.be.wo.to.ut.Logger/]: [DataFixerAPI] Inspecting .\world\.\dimensions\aoemod\plains_dimension\region\r.0.-1.mca
+[09:24:46] [ForkJoinPool.commonPool-worker-7/INFO] [or.be.wo.to.ut.Logger/]: [DataFixerAPI] Inspecting .\world\.\dimensions\aoemod\nether_dimension\poi\r.0.0.mca
+[09:24:46] [ForkJoinPool.commonPool-worker-23/INFO] [or.be.wo.to.ut.Logger/]: [DataFixerAPI] Inspecting .\world\.\dimensions\aoemod\desert_dimension\region\r.-1.-1.mca
+[09:24:46] [ForkJoinPool.commonPool-worker-6/INFO] [or.be.wo.to.ut.Logger/]: [DataFixerAPI] Inspecting .\world\.\dimensions\aoemod\nether_dimension\poi\r.-1.0.mca
+[09:24:46] [ForkJoinPool.commonPool-worker-7/INFO] [or.be.wo.to.ut.Logger/]: [DataFixerAPI] Inspecting .\world\.\dimensions\aoemod\desert_dimension\region\r.0.-1.mca
+[09:24:46] [ForkJoinPool.commonPool-worker-6/INFO] [or.be.wo.to.ut.Logger/]: [DataFixerAPI] Inspecting .\world\.\dimensions\aoemod\nether_dimension\poi\r.-1.-1.mca
+[09:24:46] [ForkJoinPool.commonPool-worker-8/INFO] [or.be.wo.to.ut.Logger/]: [DataFixerAPI] Inspecting .\world\.\dimensions\aoemod\nether_dimension\entities\r.0.0.mca
+[09:24:46] [ForkJoinPool.commonPool-worker-19/INFO] [or.be.wo.to.ut.Logger/]: [DataFixerAPI] Inspecting .\world\.\region\r.0.0.mca
+[09:24:46] [ForkJoinPool.commonPool-worker-6/INFO] [or.be.wo.to.ut.Logger/]: [DataFixerAPI] Inspecting .\world\.\dimensions\aoemod\snowy_dimension\entities\r.-1.0.mca
+[09:24:46] [ForkJoinPool.commonPool-worker-8/INFO] [or.be.wo.to.ut.Logger/]: [DataFixerAPI] Inspecting .\world\.\dimensions\aoemod\tropical_dimension\region\r.-1.-1.mca
+[09:24:46] [ForkJoinPool.commonPool-worker-14/INFO] [or.be.wo.to.ut.Logger/]: [DataFixerAPI] Inspecting .\world\.\region\r.-1.-1.mca
+[09:24:46] [main/INFO] [or.be.wo.to.ut.Logger/]: [bclib] Patcher Stage... message.bclib.datafixer.progress.saving%
+[09:24:46] [main/INFO] [or.be.wo.to.ut.Logger/]: [DataFixerAPI] Updating Patch-Level for 'bclib' from 0.0.0 to 3.0.11
+[09:24:46] [main/WARN] [minecraft/VanillaPackResourcesBuilder]: Assets URL 'union:/C:/Users/andre/Downloads/Games/September2024Mod/build/fg_cache/net/minecraftforge/forge/1.20.1-47.4.22_mapped_parchment_2023.09.03-1.20.1/forge-1.20.1-47.4.22_mapped_parchment_2023.09.03-1.20.1.jar%23191!/assets/.mcassetsroot' uses unexpected schema
+[09:24:46] [main/WARN] [minecraft/VanillaPackResourcesBuilder]: Assets URL 'union:/C:/Users/andre/Downloads/Games/September2024Mod/build/fg_cache/net/minecraftforge/forge/1.20.1-47.4.22_mapped_parchment_2023.09.03-1.20.1/forge-1.20.1-47.4.22_mapped_parchment_2023.09.03-1.20.1.jar%23191!/data/.mcassetsroot' uses unexpected schema
+[09:24:46] [main/INFO] [co.te.bl.co.Blueprint/]: Successfully loaded 0 data remolders!
+[09:24:47] [main/INFO] [or.be.wo.to.ut.Logger/]: [bclib] Updating Pickers for BCLib - The End  BiomeSource (169e7b6a)
+[09:24:47] [main/INFO] [or.be.wo.to.ut.Logger/]: [bclib] [datagen] register BCLBiome minecraft:the_end
+[09:24:47] [main/INFO] [or.be.wo.to.ut.Logger/]: [bclib] [datagen] register BCLBiome minecraft:end_highlands
+[09:24:47] [main/INFO] [or.be.wo.to.ut.Logger/]: [bclib] [datagen] register BCLBiome minecraft:end_midlands
+[09:24:47] [main/INFO] [or.be.wo.to.ut.Logger/]: [bclib] [datagen] register BCLBiome minecraft:end_barrens
+[09:24:47] [main/INFO] [or.be.wo.to.ut.Logger/]: [bclib] [datagen] register BCLBiome minecraft:small_end_islands
+[09:24:47] [main/INFO] [or.be.wo.to.ut.Logger/]: [bclib] Unable to build Biome List yet
+[09:24:47] [main/INFO] [or.be.wo.to.ut.Logger/]: [bclib] [BiomeSourceCompat] Combined possible biomes for BCLib - The End  BiomeSource (169e7b6a): owned=0, external=0, combined=0
+[09:24:47] [main/INFO] [or.be.wo.to.ut.Logger/]: [bclib] No Void Biomes found. Disabling by using barrens
+[09:24:47] [main/INFO] [or.be.wo.to.ut.Logger/]: [bclib] No Barrens Biomes found. Disabling by using land Biomes
+[09:24:47] [main/WARN] [or.be.wo.to.ut.Logger/]: [bclib] No Center Island Biomes found. Forcing use of vanilla center.
+[09:24:47] [main/INFO] [or.be.wo.to.ut.Logger/]: [bclib] Make sure features are loaded from terrablender:org.betterx.bclib.api.v2.generator.BCLibEndBiomeSource
+[09:24:47] [main/INFO] [or.be.wo.to.ut.Logger/]: [bclib] [ChunkGeneratorCompat] Rebuilt featuresPerStep for org.betterx.bclib.api.v2.generator.BCLChunkGenerator@7094b0bf with 0 possible biomes: 
+[09:24:47] [main/INFO] [or.be.wo.to.ut.Logger/]: [bclib] Updating Pickers for BCLib - Nether BiomeSource (4bb1096)
+[09:24:47] [main/INFO] [or.be.wo.to.ut.Logger/]: [bclib] [datagen] register BCLBiome minecraft:nether_wastes
+[09:24:47] [main/INFO] [or.be.wo.to.ut.Logger/]: [bclib] [datagen] register BCLBiome minecraft:soul_sand_valley
+[09:24:47] [main/INFO] [or.be.wo.to.ut.Logger/]: [bclib] [datagen] register BCLBiome minecraft:crimson_forest
+[09:24:47] [main/INFO] [or.be.wo.to.ut.Logger/]: [bclib] [datagen] register BCLBiome minecraft:warped_forest
+[09:24:47] [main/INFO] [or.be.wo.to.ut.Logger/]: [bclib] [datagen] register BCLBiome minecraft:basalt_deltas
+[09:24:47] [main/INFO] [or.be.wo.to.ut.Logger/]: [bclib] Unable to build Biome List yet
+[09:24:47] [main/INFO] [or.be.wo.to.ut.Logger/]: [bclib] [BiomeSourceCompat] Combined possible biomes for BCLib - Nether BiomeSource (4bb1096): owned=0, external=0, combined=0
+[09:24:47] [main/INFO] [or.be.wo.to.ut.Logger/]: [bclib] Make sure features are loaded from terrablender:org.betterx.bclib.api.v2.generator.BCLibNetherBiomeSource
+[09:24:47] [main/INFO] [or.be.wo.to.ut.Logger/]: [bclib] [ChunkGeneratorCompat] Rebuilt featuresPerStep for org.betterx.bclib.api.v2.generator.BCLChunkGenerator@119318ed with 0 possible biomes: 
+[09:24:47] [main/INFO] [or.be.wo.to.ut.Logger/]: [bclib] Updating Pickers for BCLib - The End  BiomeSource (29425e59)
+[09:24:47] [main/INFO] [or.be.wo.to.ut.Logger/]: [bclib] Unable to build Biome List yet
+[09:24:47] [main/INFO] [or.be.wo.to.ut.Logger/]: [bclib] [BiomeSourceCompat] Combined possible biomes for BCLib - The End  BiomeSource (29425e59): owned=0, external=0, combined=0
+[09:24:47] [main/INFO] [or.be.wo.to.ut.Logger/]: [bclib] No Void Biomes found. Disabling by using barrens
+[09:24:47] [main/INFO] [or.be.wo.to.ut.Logger/]: [bclib] No Barrens Biomes found. Disabling by using land Biomes
+[09:24:47] [main/WARN] [or.be.wo.to.ut.Logger/]: [bclib] No Center Island Biomes found. Forcing use of vanilla center.
+[09:24:47] [main/INFO] [or.be.wo.to.ut.Logger/]: [bclib] Make sure features are loaded from terrablender:org.betterx.bclib.api.v2.generator.BCLibEndBiomeSource
+[09:24:47] [main/INFO] [or.be.wo.to.ut.Logger/]: [bclib] [ChunkGeneratorCompat] Rebuilt featuresPerStep for org.betterx.bclib.api.v2.generator.BCLChunkGenerator@3c0ae7c2 with 0 possible biomes: 
+[09:24:47] [main/INFO] [or.be.wo.to.ut.Logger/]: [bclib] Updating Pickers for BCLib - Nether BiomeSource (6997bc40)
+[09:24:47] [main/INFO] [or.be.wo.to.ut.Logger/]: [bclib] Unable to build Biome List yet
+[09:24:47] [main/INFO] [or.be.wo.to.ut.Logger/]: [bclib] [BiomeSourceCompat] Combined possible biomes for BCLib - Nether BiomeSource (6997bc40): owned=0, external=0, combined=0
+[09:24:47] [main/INFO] [or.be.wo.to.ut.Logger/]: [bclib] Make sure features are loaded from terrablender:org.betterx.bclib.api.v2.generator.BCLibNetherBiomeSource
+[09:24:47] [main/INFO] [or.be.wo.to.ut.Logger/]: [bclib] [ChunkGeneratorCompat] Rebuilt featuresPerStep for org.betterx.bclib.api.v2.generator.BCLChunkGenerator@5fa4f711 with 0 possible biomes: 
+[09:24:47] [main/INFO] [or.be.wo.to.ut.Logger/]: [bclib] Updating Pickers for BCLib - The End  BiomeSource (23e855d3)
+[09:24:47] [main/INFO] [or.be.wo.to.ut.Logger/]: [bclib] Unable to build Biome List yet
+[09:24:47] [main/INFO] [or.be.wo.to.ut.Logger/]: [bclib] [BiomeSourceCompat] Combined possible biomes for BCLib - The End  BiomeSource (23e855d3): owned=0, external=0, combined=0
+[09:24:47] [main/INFO] [or.be.wo.to.ut.Logger/]: [bclib] No Void Biomes found. Disabling by using barrens
+[09:24:47] [main/INFO] [or.be.wo.to.ut.Logger/]: [bclib] No Barrens Biomes found. Disabling by using land Biomes
+[09:24:47] [main/WARN] [or.be.wo.to.ut.Logger/]: [bclib] No Center Island Biomes found. Forcing use of vanilla center.
+[09:24:47] [main/INFO] [or.be.wo.to.ut.Logger/]: [bclib] Make sure features are loaded from terrablender:org.betterx.bclib.api.v2.generator.BCLibEndBiomeSource
+[09:24:47] [main/INFO] [or.be.wo.to.ut.Logger/]: [bclib] [ChunkGeneratorCompat] Rebuilt featuresPerStep for org.betterx.bclib.api.v2.generator.BCLChunkGenerator@798cb92a with 0 possible biomes: 
+[09:24:47] [main/INFO] [or.be.wo.to.ut.Logger/]: [bclib] Updating Pickers for BCLib - Nether BiomeSource (783e0e89)
+[09:24:47] [main/INFO] [or.be.wo.to.ut.Logger/]: [bclib] Unable to build Biome List yet
+[09:24:47] [main/INFO] [or.be.wo.to.ut.Logger/]: [bclib] [BiomeSourceCompat] Combined possible biomes for BCLib - Nether BiomeSource (783e0e89): owned=0, external=0, combined=0
+[09:24:47] [main/INFO] [or.be.wo.to.ut.Logger/]: [bclib] Make sure features are loaded from terrablender:org.betterx.bclib.api.v2.generator.BCLibNetherBiomeSource
+[09:24:47] [main/INFO] [or.be.wo.to.ut.Logger/]: [bclib] [ChunkGeneratorCompat] Rebuilt featuresPerStep for org.betterx.bclib.api.v2.generator.BCLChunkGenerator@7801c35d with 0 possible biomes: 
+[09:24:47] [main/INFO] [or.be.wo.to.ut.Logger/]: [bclib] Updating Pickers for BCLib - The End  BiomeSource (3ada49ac)
+[09:24:47] [main/INFO] [or.be.wo.to.ut.Logger/]: [bclib] Unable to build Biome List yet
+[09:24:47] [main/INFO] [or.be.wo.to.ut.Logger/]: [bclib] [BiomeSourceCompat] Combined possible biomes for BCLib - The End  BiomeSource (3ada49ac): owned=0, external=0, combined=0
+[09:24:47] [main/INFO] [or.be.wo.to.ut.Logger/]: [bclib] No Void Biomes found. Disabling by using barrens
+[09:24:47] [main/INFO] [or.be.wo.to.ut.Logger/]: [bclib] No Barrens Biomes found. Disabling by using land Biomes
+[09:24:47] [main/WARN] [or.be.wo.to.ut.Logger/]: [bclib] No Center Island Biomes found. Forcing use of vanilla center.
+[09:24:47] [main/INFO] [or.be.wo.to.ut.Logger/]: [bclib] Make sure features are loaded from terrablender:org.betterx.bclib.api.v2.generator.BCLibEndBiomeSource
+[09:24:47] [main/INFO] [or.be.wo.to.ut.Logger/]: [bclib] [ChunkGeneratorCompat] Rebuilt featuresPerStep for org.betterx.bclib.api.v2.generator.BCLChunkGenerator@20421ff8 with 0 possible biomes: 
+[09:24:47] [main/INFO] [or.be.wo.to.ut.Logger/]: [bclib] Updating Pickers for BCLib - Nether BiomeSource (498910ac)
+[09:24:47] [main/INFO] [or.be.wo.to.ut.Logger/]: [bclib] Unable to build Biome List yet
+[09:24:47] [main/INFO] [or.be.wo.to.ut.Logger/]: [bclib] [BiomeSourceCompat] Combined possible biomes for BCLib - Nether BiomeSource (498910ac): owned=0, external=0, combined=0
+[09:24:47] [main/INFO] [or.be.wo.to.ut.Logger/]: [bclib] Make sure features are loaded from terrablender:org.betterx.bclib.api.v2.generator.BCLibNetherBiomeSource
+[09:24:47] [main/INFO] [or.be.wo.to.ut.Logger/]: [bclib] [ChunkGeneratorCompat] Rebuilt featuresPerStep for org.betterx.bclib.api.v2.generator.BCLChunkGenerator@7e6cfc2d with 0 possible biomes: 
+[09:24:47] [main/INFO] [or.be.wo.to.ut.Logger/]: [bclib] Updating Pickers for BCLib - Nether BiomeSource (e3b71d3)
+[09:24:47] [main/INFO] [or.be.wo.to.ut.Logger/]: [bclib] Unable to build Biome List yet
+[09:24:47] [main/INFO] [or.be.wo.to.ut.Logger/]: [bclib] [BiomeSourceCompat] Combined possible biomes for BCLib - Nether BiomeSource (e3b71d3): owned=0, external=0, combined=0
+[09:24:47] [main/INFO] [or.be.wo.to.ut.Logger/]: [bclib] Make sure features are loaded from terrablender:org.betterx.bclib.api.v2.generator.BCLibNetherBiomeSource
+[09:24:47] [main/INFO] [or.be.wo.to.ut.Logger/]: [bclib] [ChunkGeneratorCompat] Rebuilt featuresPerStep for org.betterx.bclib.api.v2.generator.BCLChunkGenerator@32a43079 with 0 possible biomes: 
+[09:24:47] [main/INFO] [or.be.wo.to.ut.Logger/]: [bclib] Updating Pickers for BCLib - The End  BiomeSource (5de0df94)
+[09:24:47] [main/INFO] [or.be.wo.to.ut.Logger/]: [bclib] Unable to build Biome List yet
+[09:24:47] [main/INFO] [or.be.wo.to.ut.Logger/]: [bclib] [BiomeSourceCompat] Combined possible biomes for BCLib - The End  BiomeSource (5de0df94): owned=0, external=0, combined=0
+[09:24:47] [main/INFO] [or.be.wo.to.ut.Logger/]: [bclib] No Void Biomes found. Disabling by using barrens
+[09:24:47] [main/INFO] [or.be.wo.to.ut.Logger/]: [bclib] No Barrens Biomes found. Disabling by using land Biomes
+[09:24:47] [main/WARN] [or.be.wo.to.ut.Logger/]: [bclib] No Center Island Biomes found. Forcing use of vanilla center.
+[09:24:47] [main/INFO] [or.be.wo.to.ut.Logger/]: [bclib] Make sure features are loaded from terrablender:org.betterx.bclib.api.v2.generator.BCLibEndBiomeSource
+[09:24:47] [main/INFO] [or.be.wo.to.ut.Logger/]: [bclib] [ChunkGeneratorCompat] Rebuilt featuresPerStep for org.betterx.bclib.api.v2.generator.BCLChunkGenerator@4ed41ba9 with 0 possible biomes: 
+[09:24:47] [main/INFO] [or.be.wo.to.ut.Logger/]: [bclib] Did not manage biome betterend:neon_oasis
+[09:24:47] [main/INFO] [or.be.wo.to.ut.Logger/]: [bclib] Did not manage biome betterend:painted_mountains
+[09:24:47] [main/INFO] [or.be.wo.to.ut.Logger/]: [bclib] Did not manage biome betterend:empty_smaragdant_cave
+[09:24:47] [main/INFO] [or.be.wo.to.ut.Logger/]: [bclib] Did not manage biome betterend:lush_smaragdant_cave
+[09:24:47] [main/INFO] [or.be.wo.to.ut.Logger/]: [bclib] Did not manage biome betterend:jade_cave
+[09:24:47] [main/INFO] [or.be.wo.to.ut.Logger/]: [bclib] Did not manage biome betterend:megalake_grove
+[09:24:47] [main/INFO] [or.be.wo.to.ut.Logger/]: [bclib] Did not manage biome betterend:empty_aurora_cave
+[09:24:47] [main/INFO] [or.be.wo.to.ut.Logger/]: [bclib] Did not manage biome betterend:lush_aurora_cave
+[09:24:47] [main/INFO] [or.be.wo.to.ut.Logger/]: [bclib] Did not manage biome betterend:empty_end_cave
+[09:24:47] [main/INFO] [co.sk.wo.ex.pl.PlatformCommandManager/]: Registering commands with com.sk89q.worldedit.forge.ForgePlatform
+[09:24:48] [main/INFO] [co.gi.al.al.AlexsMobs/]: Adding datapack listener capsid_recipes
+[09:24:48] [Worker-Main-18/INFO] [Faewulf's Lib/]: [Faewulf's Lib] Reloaded diversity config file.
+[09:24:48] [Worker-Main-18/INFO] [Faewulf's Lib/]: [Faewulf's Lib] Reloaded faewulf_lib config file.
+[09:24:48] [Worker-Main-18/INFO] [Faewulf's Lib/]: [Faewulf's Lib] Total config reloaded: 2
+[09:24:49] [main/INFO] [co.te.bl.co.Blueprint/]: Loot Modification Manager has loaded 18 modifier groups
+[09:24:49] [main/WARN] [minecraft/LootDataManager]: Found loot table element validation problem in {loot_tables:floral_flair:blocks/potted_chocolate_cosmos}.pools[0].condition[0]: Parameters [<parameter minecraft:explosion_radius>] are not provided in this context
+[09:24:49] [main/WARN] [minecraft/LootDataManager]: Found loot table element validation problem in {loot_tables:floral_flair:blocks/foxnip}.pools[0].condition[0]: Parameters [<parameter minecraft:explosion_radius>] are not provided in this context
+[09:24:49] [main/WARN] [minecraft/LootDataManager]: Found loot table element validation problem in {loot_tables:floral_flair:blocks/potted_foxnip}.pools[0].condition[0]: Parameters [<parameter minecraft:explosion_radius>] are not provided in this context
+[09:24:49] [main/WARN] [minecraft/LootDataManager]: Found loot table element validation problem in {loot_tables:floral_flair:blocks/lunula}.pools[0].condition[0]: Parameters [<parameter minecraft:explosion_radius>] are not provided in this context
+[09:24:49] [main/WARN] [minecraft/LootDataManager]: Found loot table element validation problem in {loot_tables:floral_flair:blocks/stonette}.pools[0].condition[0]: Parameters [<parameter minecraft:explosion_radius>] are not provided in this context
+[09:24:49] [main/WARN] [minecraft/LootDataManager]: Found loot table element validation problem in {loot_tables:floral_flair:blocks/potted_morning_orchid}.pools[1].condition[0]: Parameters [<parameter minecraft:explosion_radius>] are not provided in this context
+[09:24:49] [main/WARN] [minecraft/LootDataManager]: Found loot table element validation problem in {loot_tables:floral_flair:blocks/morning_orchid}.pools[0].condition[0]: Parameters [<parameter minecraft:explosion_radius>] are not provided in this context
+[09:24:49] [main/WARN] [minecraft/LootDataManager]: Found loot table element validation problem in {loot_tables:floral_flair:blocks/potted_pink_cosmos}.pools[1].condition[0]: Parameters [<parameter minecraft:explosion_radius>] are not provided in this context
+[09:24:49] [main/WARN] [minecraft/LootDataManager]: Found loot table element validation problem in {loot_tables:floral_flair:blocks/potted_yellow_hyacinth}.pools[1].condition[0]: Parameters [<parameter minecraft:explosion_radius>] are not provided in this context
+[09:24:49] [main/WARN] [minecraft/LootDataManager]: Found loot table element validation problem in {loot_tables:floral_flair:blocks/twilight_orchid}.pools[0].condition[0]: Parameters [<parameter minecraft:explosion_radius>] are not provided in this context
+[09:24:49] [main/WARN] [minecraft/LootDataManager]: Found loot table element validation problem in {loot_tables:floral_flair:blocks/potted_blue_hyacinth}.pools[0].condition[0]: Parameters [<parameter minecraft:explosion_radius>] are not provided in this context
+[09:24:49] [main/WARN] [minecraft/LootDataManager]: Found loot table element validation problem in {loot_tables:floral_flair:blocks/fairy_blossom}.pools[0].entries[0].condition[0]: Parameters [<parameter minecraft:block_state>] are not provided in this context
+[09:24:49] [main/WARN] [minecraft/LootDataManager]: Found loot table element validation problem in {loot_tables:floral_flair:blocks/dawn_orchid}.pools[0].condition[0]: Parameters [<parameter minecraft:explosion_radius>] are not provided in this context
+[09:24:49] [main/WARN] [minecraft/LootDataManager]: Found loot table element validation problem in {loot_tables:floral_flair:blocks/potted_pink_hyacinth}.pools[0].condition[0]: Parameters [<parameter minecraft:explosion_radius>] are not provided in this context
+[09:24:49] [main/WARN] [minecraft/LootDataManager]: Found loot table element validation problem in {loot_tables:floral_flair:blocks/potted_pulse_petal}.pools[1].condition[0]: Parameters [<parameter minecraft:explosion_radius>] are not provided in this context
+[09:24:49] [main/WARN] [minecraft/LootDataManager]: Found loot table element validation problem in {loot_tables:floral_flair:blocks/potted_stonette}.pools[1].condition[0]: Parameters [<parameter minecraft:explosion_radius>] are not provided in this context
+[09:24:49] [main/WARN] [minecraft/LootDataManager]: Found loot table element validation problem in {loot_tables:floral_flair:blocks/potted_orange_cosmos}.pools[0].condition[0]: Parameters [<parameter minecraft:explosion_radius>] are not provided in this context
+[09:24:49] [main/WARN] [minecraft/LootDataManager]: Found loot table element validation problem in {loot_tables:floral_flair:blocks/blue_hyacinth}.pools[0].condition[0]: Parameters [<parameter minecraft:explosion_radius>] are not provided in this context
+[09:24:49] [main/WARN] [minecraft/LootDataManager]: Found loot table element validation problem in {loot_tables:floral_flair:blocks/potted_rose}.pools[1].condition[0]: Parameters [<parameter minecraft:explosion_radius>] are not provided in this context
+[09:24:49] [main/WARN] [minecraft/LootDataManager]: Found loot table element validation problem in {loot_tables:floral_flair:blocks/rose}.pools[0].condition[0]: Parameters [<parameter minecraft:explosion_radius>] are not provided in this context
+[09:24:49] [main/WARN] [minecraft/LootDataManager]: Found loot table element validation problem in {loot_tables:floral_flair:blocks/muscari}.pools[0].condition[0]: Parameters [<parameter minecraft:explosion_radius>] are not provided in this context
+[09:24:49] [main/WARN] [minecraft/LootDataManager]: Found loot table element validation problem in {loot_tables:floral_flair:blocks/potted_white_cosmos}.pools[0].condition[0]: Parameters [<parameter minecraft:explosion_radius>] are not provided in this context
+[09:24:49] [main/WARN] [minecraft/LootDataManager]: Found loot table element validation problem in {loot_tables:floral_flair:blocks/potted_scilla}.pools[1].condition[0]: Parameters [<parameter minecraft:explosion_radius>] are not provided in this context
+[09:24:49] [main/WARN] [minecraft/LootDataManager]: Found loot table element validation problem in {loot_tables:floral_flair:blocks/yellow_hyacinth}.pools[0].condition[0]: Parameters [<parameter minecraft:explosion_radius>] are not provided in this context
+[09:24:49] [main/WARN] [minecraft/LootDataManager]: Found loot table element validation problem in {loot_tables:floral_flair:blocks/potted_pink_hyacinth}.pools[1].condition[0]: Parameters [<parameter minecraft:explosion_radius>] are not provided in this context
+[09:24:49] [main/WARN] [minecraft/LootDataManager]: Found loot table element validation problem in {loot_tables:floral_flair:blocks/thorn_blossom}.pools[0].condition[0]: Parameters [<parameter minecraft:explosion_radius>] are not provided in this context
+[09:24:49] [main/WARN] [minecraft/LootDataManager]: Found loot table element validation problem in {loot_tables:floral_flair:blocks/potted_scilla}.pools[0].condition[0]: Parameters [<parameter minecraft:explosion_radius>] are not provided in this context
+[09:24:49] [main/WARN] [minecraft/LootDataManager]: Found loot table element validation problem in {loot_tables:floral_flair:blocks/pulse_petal}.pools[0].condition[0]: Parameters [<parameter minecraft:explosion_radius>] are not provided in this context
+[09:24:49] [main/WARN] [minecraft/LootDataManager]: Found loot table element validation problem in {loot_tables:floral_flair:blocks/potted_pulse_petal}.pools[0].condition[0]: Parameters [<parameter minecraft:explosion_radius>] are not provided in this context
+[09:24:49] [main/WARN] [minecraft/LootDataManager]: Found loot table element validation problem in {loot_tables:floral_flair:blocks/potted_pink_cosmos}.pools[0].condition[0]: Parameters [<parameter minecraft:explosion_radius>] are not provided in this context
+[09:24:49] [main/WARN] [minecraft/LootDataManager]: Found loot table element validation problem in {loot_tables:floral_flair:blocks/pink_cosmos}.pools[0].condition[0]: Parameters [<parameter minecraft:explosion_radius>] are not provided in this context
+[09:24:49] [main/WARN] [minecraft/LootDataManager]: Found loot table element validation problem in {loot_tables:floral_flair:blocks/potted_dawn_orchid}.pools[1].condition[0]: Parameters [<parameter minecraft:explosion_radius>] are not provided in this context
+[09:24:49] [main/WARN] [minecraft/LootDataManager]: Found loot table element validation problem in {loot_tables:floral_flair:blocks/sunset_orchid}.pools[0].condition[0]: Parameters [<parameter minecraft:explosion_radius>] are not provided in this context
+[09:24:49] [main/WARN] [minecraft/LootDataManager]: Found loot table element validation problem in {loot_tables:floral_flair:blocks/chocolate_cosmos}.pools[0].condition[0]: Parameters [<parameter minecraft:explosion_radius>] are not provided in this context
+[09:24:49] [main/WARN] [minecraft/LootDataManager]: Found loot table element validation problem in {loot_tables:floral_flair:blocks/potted_frosted_foxnip}.pools[0].condition[0]: Parameters [<parameter minecraft:explosion_radius>] are not provided in this context
+[09:24:49] [main/WARN] [minecraft/LootDataManager]: Found loot table element validation problem in {loot_tables:floral_flair:blocks/potted_muscari}.pools[1].condition[0]: Parameters [<parameter minecraft:explosion_radius>] are not provided in this context
+[09:24:49] [main/WARN] [minecraft/LootDataManager]: Found loot table element validation problem in {loot_tables:floral_flair:blocks/potted_gem_of_the_jungle}.pools[1].condition[0]: Parameters [<parameter minecraft:explosion_radius>] are not provided in this context
+[09:24:49] [main/WARN] [minecraft/LootDataManager]: Found loot table element validation problem in {loot_tables:floral_flair:blocks/potted_orange_cosmos}.pools[1].condition[0]: Parameters [<parameter minecraft:explosion_radius>] are not provided in this context
+[09:24:49] [main/WARN] [minecraft/LootDataManager]: Found loot table element validation problem in {loot_tables:floral_flair:blocks/potted_stonette}.pools[0].condition[0]: Parameters [<parameter minecraft:explosion_radius>] are not provided in this context
+[09:24:49] [main/WARN] [minecraft/LootDataManager]: Found loot table element validation problem in {loot_tables:floral_flair:blocks/potted_black_hyacinth}.pools[0].condition[0]: Parameters [<parameter minecraft:explosion_radius>] are not provided in this context
+[09:24:49] [main/WARN] [minecraft/LootDataManager]: Found loot table element validation problem in {loot_tables:floral_flair:blocks/purpureum}.pools[0].condition[0]: Parameters [<parameter minecraft:explosion_radius>] are not provided in this context
+[09:24:49] [main/WARN] [minecraft/LootDataManager]: Found loot table element validation problem in {loot_tables:floral_flair:blocks/potted_white_cosmos}.pools[1].condition[0]: Parameters [<parameter minecraft:explosion_radius>] are not provided in this context
+[09:24:49] [main/WARN] [minecraft/LootDataManager]: Found loot table element validation problem in {loot_tables:floral_flair:blocks/potted_sunset_orchid}.pools[1].condition[0]: Parameters [<parameter minecraft:explosion_radius>] are not provided in this context
+[09:24:49] [main/WARN] [minecraft/LootDataManager]: Found loot table element validation problem in {loot_tables:floral_flair:blocks/potted_twilight_orchid}.pools[1].condition[0]: Parameters [<parameter minecraft:explosion_radius>] are not provided in this context
+[09:24:49] [main/WARN] [minecraft/LootDataManager]: Found loot table element validation problem in {loot_tables:floral_flair:blocks/scilla}.pools[0].condition[0]: Parameters [<parameter minecraft:explosion_radius>] are not provided in this context
+[09:24:49] [main/WARN] [minecraft/LootDataManager]: Found loot table element validation problem in {loot_tables:floral_flair:blocks/thorn_blossom}.pools[0].entries[0].condition[0]: Parameters [<parameter minecraft:block_state>] are not provided in this context
+[09:24:49] [main/WARN] [minecraft/LootDataManager]: Found loot table element validation problem in {loot_tables:floral_flair:blocks/orange_cosmos}.pools[0].condition[0]: Parameters [<parameter minecraft:explosion_radius>] are not provided in this context
+[09:24:49] [main/WARN] [minecraft/LootDataManager]: Found loot table element validation problem in {loot_tables:floral_flair:blocks/potted_rose}.pools[0].condition[0]: Parameters [<parameter minecraft:explosion_radius>] are not provided in this context
+[09:24:49] [main/WARN] [minecraft/LootDataManager]: Found loot table element validation problem in {loot_tables:floral_flair:blocks/potted_dawn_orchid}.pools[0].condition[0]: Parameters [<parameter minecraft:explosion_radius>] are not provided in this context
+[09:24:49] [main/WARN] [minecraft/LootDataManager]: Found loot table element validation problem in {loot_tables:floral_flair:blocks/fairy_blossom}.pools[0].condition[0]: Parameters [<parameter minecraft:explosion_radius>] are not provided in this context
+[09:24:49] [main/WARN] [minecraft/LootDataManager]: Found loot table element validation problem in {loot_tables:floral_flair:blocks/potted_gem_of_the_jungle}.pools[0].condition[0]: Parameters [<parameter minecraft:explosion_radius>] are not provided in this context
+[09:24:49] [main/WARN] [minecraft/LootDataManager]: Found loot table element validation problem in {loot_tables:floral_flair:blocks/potted_foxnip}.pools[1].condition[0]: Parameters [<parameter minecraft:explosion_radius>] are not provided in this context
+[09:24:49] [main/WARN] [minecraft/LootDataManager]: Found loot table element validation problem in {loot_tables:floral_flair:blocks/frosted_foxnip}.pools[0].condition[0]: Parameters [<parameter minecraft:explosion_radius>] are not provided in this context
+[09:24:49] [main/WARN] [minecraft/LootDataManager]: Found loot table element validation problem in {loot_tables:floral_flair:blocks/pink_hyacinth}.pools[0].condition[0]: Parameters [<parameter minecraft:explosion_radius>] are not provided in this context
+[09:24:49] [main/WARN] [minecraft/LootDataManager]: Found loot table element validation problem in {loot_tables:floral_flair:blocks/potted_chocolate_cosmos}.pools[1].condition[0]: Parameters [<parameter minecraft:explosion_radius>] are not provided in this context
+[09:24:49] [main/WARN] [minecraft/LootDataManager]: Found loot table element validation problem in {loot_tables:floral_flair:blocks/potted_muscari}.pools[0].condition[0]: Parameters [<parameter minecraft:explosion_radius>] are not provided in this context
+[09:24:49] [main/WARN] [minecraft/LootDataManager]: Found loot table element validation problem in {loot_tables:floral_flair:blocks/potted_sunset_orchid}.pools[0].condition[0]: Parameters [<parameter minecraft:explosion_radius>] are not provided in this context
+[09:24:49] [main/WARN] [minecraft/LootDataManager]: Found loot table element validation problem in {loot_tables:floral_flair:blocks/black_hyacinth}.pools[0].condition[0]: Parameters [<parameter minecraft:explosion_radius>] are not provided in this context
+[09:24:49] [main/WARN] [minecraft/LootDataManager]: Found loot table element validation problem in {loot_tables:floral_flair:blocks/potted_frosted_foxnip}.pools[1].condition[0]: Parameters [<parameter minecraft:explosion_radius>] are not provided in this context
+[09:24:49] [main/WARN] [minecraft/LootDataManager]: Found loot table element validation problem in {loot_tables:floral_flair:blocks/potted_black_hyacinth}.pools[1].condition[0]: Parameters [<parameter minecraft:explosion_radius>] are not provided in this context
+[09:24:49] [main/WARN] [minecraft/LootDataManager]: Found loot table element validation problem in {loot_tables:floral_flair:blocks/potted_twilight_orchid}.pools[0].condition[0]: Parameters [<parameter minecraft:explosion_radius>] are not provided in this context
+[09:24:49] [main/WARN] [minecraft/LootDataManager]: Found loot table element validation problem in {loot_tables:floral_flair:blocks/purpureum}.pools[0].entries[0].condition[0]: Parameters [<parameter minecraft:block_state>] are not provided in this context
+[09:24:49] [main/WARN] [minecraft/LootDataManager]: Found loot table element validation problem in {loot_tables:floral_flair:blocks/potted_lunula}.pools[1].condition[0]: Parameters [<parameter minecraft:explosion_radius>] are not provided in this context
+[09:24:49] [main/WARN] [minecraft/LootDataManager]: Found loot table element validation problem in {loot_tables:floral_flair:blocks/potted_morning_orchid}.pools[0].condition[0]: Parameters [<parameter minecraft:explosion_radius>] are not provided in this context
+[09:24:49] [main/WARN] [minecraft/LootDataManager]: Found loot table element validation problem in {loot_tables:floral_flair:blocks/white_cosmos}.pools[0].condition[0]: Parameters [<parameter minecraft:explosion_radius>] are not provided in this context
+[09:24:49] [main/WARN] [minecraft/LootDataManager]: Found loot table element validation problem in {loot_tables:floral_flair:blocks/potted_blue_hyacinth}.pools[1].condition[0]: Parameters [<parameter minecraft:explosion_radius>] are not provided in this context
+[09:24:49] [main/WARN] [minecraft/LootDataManager]: Found loot table element validation problem in {loot_tables:floral_flair:blocks/gem_of_the_jungle}.pools[0].condition[0]: Parameters [<parameter minecraft:explosion_radius>] are not provided in this context
+[09:24:49] [main/WARN] [minecraft/LootDataManager]: Found loot table element validation problem in {loot_tables:floral_flair:blocks/potted_lunula}.pools[0].condition[0]: Parameters [<parameter minecraft:explosion_radius>] are not provided in this context
+[09:24:49] [main/WARN] [minecraft/LootDataManager]: Found loot table element validation problem in {loot_tables:pineapple_delight:blocks/pineapple_wild_crop}.pools[0].entries[0]: Unreachable entry!
+[09:24:49] [main/WARN] [minecraft/LootDataManager]: Found loot table element validation problem in {loot_tables:floral_flair:blocks/potted_yellow_hyacinth}.pools[0].condition[0]: Parameters [<parameter minecraft:explosion_radius>] are not provided in this context
+[09:24:49] [main/INFO] [or.be.wo.to.ut.Logger/]: [bclib] Disabling Recipe: bclib:test_star
+[09:24:49] [main/INFO] [minecraft/RecipeManager]: Loaded 7 recipes
+[09:24:49] [main/INFO] [ne.am.ex.AOEMod/]: Applied AOE recipe namespace and backport-content policy.
+[09:24:49] [main/INFO] [co.te.bl.co.Blueprint/]: Skipped modifier group named 'environmental:husbandry/tame_all_slabfish_atmospheric' as its conditions were not met
+[09:24:49] [main/INFO] [co.te.bl.co.Blueprint/]: Skipped modifier group named 'environmental:husbandry/tame_all_slabfish_autumnity' as its conditions were not met
+[09:24:49] [main/INFO] [co.te.bl.co.Blueprint/]: Skipped modifier group named 'environmental:husbandry/tame_all_slabfish_endergetic' as its conditions were not met
+[09:24:49] [main/INFO] [co.te.bl.co.Blueprint/]: Advancement Modification Manager has loaded 19 modifier groups
+[09:24:49] [main/INFO] [quark/]: [Automatic Recipe Unlock] Removed 6098 recipe advancements
+[09:24:49] [main/INFO] [minecraft/AdvancementList]: Loaded 794 advancements
+[09:24:49] [main/INFO] [twilightforest/]: Loaded 9 Stalactite configs!
+[09:24:49] [main/INFO] [co.te.bl.co.Blueprint/]: Chunk Generator Modification Manager has loaded 2 modifier groups
+[09:24:49] [main/INFO] [to.th.cu.Curios/]: Loaded 10 curio slots
+[09:24:49] [main/INFO] [to.th.cu.Curios/]: Loaded 1 curio entities
+[09:24:49] [main/INFO] [un.UntamedWilds/]: Beginning loading of data for data loader: spawn_tables
+[09:24:49] [main/INFO] [un.UntamedWilds/]: Data loader for spawn_tables loaded 8 jsons
+[09:24:49] [main/INFO] [al.he.HearthAndHarvest/]: Loaded 27 fluid bottle mappings and 20 vintage styles
+[09:24:49] [main/INFO] [un.UntamedWilds/]: Beginning loading of data for data loader: entities
+[09:24:49] [main/INFO] [un.UntamedWilds/]: Data loader for entities loaded 38 jsons
+[09:24:49] [main/INFO] [quark-zeta/]: Modified advancement minecraft:husbandry/wax_on with 2 patches
+[09:24:49] [main/INFO] [quark-zeta/]: Modified advancement minecraft:adventure/kill_a_mob with 3 patches
+[09:24:49] [main/INFO] [quark-zeta/]: Modified advancement minecraft:husbandry/bred_all_animals with 3 patches
+[09:24:49] [main/INFO] [quark-zeta/]: Modified advancement minecraft:adventure/kill_all_mobs with 3 patches
+[09:24:49] [main/INFO] [quark-zeta/]: Modified advancement minecraft:husbandry/balanced_diet with 2 patches
+[09:24:49] [main/INFO] [quark-zeta/]: Modified advancement minecraft:nether/all_effects with 1 patches
+[09:24:49] [main/INFO] [quark-zeta/]: Modified advancement minecraft:husbandry/wax_off with 2 patches
+[09:24:49] [main/INFO] [quark-zeta/]: Modified advancement minecraft:adventure/adventuring_time with 1 patches
+[09:24:49] [main/INFO] [quark-zeta/]: Modified advancement minecraft:nether/all_potions with 1 patches
+[09:24:49] [main/WARN] [minecraft/MappedRegistry]: Not all defined tags for registry ResourceKey[minecraft:root / minecraft:worldgen/biome] are present in data pack: forge:is_temperate/overworld
+[09:24:53] [main/INFO] [or.be.wo.to.ut.Logger/]: [bclib] Did not manage biome betterend:neon_oasis
+[09:24:53] [main/INFO] [or.be.wo.to.ut.Logger/]: [bclib] Did not manage biome betterend:painted_mountains
+[09:24:53] [main/INFO] [or.be.wo.to.ut.Logger/]: [bclib] Did not manage biome betterend:empty_smaragdant_cave
+[09:24:53] [main/INFO] [or.be.wo.to.ut.Logger/]: [bclib] Did not manage biome betterend:lush_smaragdant_cave
+[09:24:53] [main/INFO] [or.be.wo.to.ut.Logger/]: [bclib] Did not manage biome betterend:jade_cave
+[09:24:53] [main/INFO] [or.be.wo.to.ut.Logger/]: [bclib] Did not manage biome betterend:megalake_grove
+[09:24:53] [main/INFO] [or.be.wo.to.ut.Logger/]: [bclib] Did not manage biome betterend:empty_aurora_cave
+[09:24:53] [main/INFO] [or.be.wo.to.ut.Logger/]: [bclib] Did not manage biome betterend:lush_aurora_cave
+[09:24:53] [main/INFO] [or.be.wo.to.ut.Logger/]: [bclib] Did not manage biome betterend:empty_end_cave
+[09:24:53] [main/INFO] [or.be.wo.to.ut.Logger/]: [bclib] [BiomeRepairCompat] Created external vanilla Nether generator: generator=net.minecraft.world.level.levelgen.NoiseBasedChunkGenerator@2ee3ec10, biomeSource=net.minecraft.world.level.biome.MultiNoiseBiomeSource@6e1a69a7, settings=minecraft:nether
+[09:24:53] [main/INFO] [or.be.wo.to.ut.Logger/]: [bclib] [BiomeRepairCompat] Repair dimension minecraft:the_nether: referenceGenerator=org.betterx.bclib.api.v2.generator.BCLChunkGenerator@7e6cfc2d, referenceBiomeSource=org.betterx.bclib.api.v2.generator.BCLibNetherBiomeSource@498910ac, loadedGenerator=org.betterx.bclib.api.v2.generator.BCLChunkGenerator@32a43079, loadedBiomeSource=org.betterx.bclib.api.v2.generator.BCLibNetherBiomeSource@e3b71d3, externalGenerator=net.minecraft.world.level.levelgen.NoiseBasedChunkGenerator@2ee3ec10, externalBiomeSource=net.minecraft.world.level.biome.MultiNoiseBiomeSource@6e1a69a7
+[09:24:53] [main/INFO] [or.be.wo.to.ut.Logger/]: [bclib] [BiomeRepairCompat] Attaching external biome source for minecraft:the_nether: targetGenerator=org.betterx.bclib.api.v2.generator.BCLChunkGenerator@7e6cfc2d, targetBiomeSource=org.betterx.bclib.api.v2.generator.BCLibNetherBiomeSource@498910ac, externalGenerator=net.minecraft.world.level.levelgen.NoiseBasedChunkGenerator@2ee3ec10, externalBiomeSource=net.minecraft.world.level.biome.MultiNoiseBiomeSource@6e1a69a7
+[09:24:53] [main/INFO] [or.be.wo.to.ut.Logger/]: [bclib] [ChunkGeneratorCompat] Merging external biome source for minecraft:the_nether: targetGenerator=org.betterx.bclib.api.v2.generator.BCLChunkGenerator@7e6cfc2d, targetBiomeSource=org.betterx.bclib.api.v2.generator.BCLibNetherBiomeSource@498910ac, externalGenerator=net.minecraft.world.level.levelgen.NoiseBasedChunkGenerator@2ee3ec10, externalBiomeSource=net.minecraft.world.level.biome.MultiNoiseBiomeSource@6e1a69a7
+[09:24:53] [main/INFO] [or.be.wo.to.ut.Logger/]: [bclib] [BiomeSourceCompat] Assigned external biome source for BCLib - Nether BiomeSource (498910ac): source=net.minecraft.world.level.biome.MultiNoiseBiomeSource@6e1a69a7
+[09:24:53] [main/INFO] [or.be.wo.to.ut.Logger/]: [bclib] [BiomeSourceCompat] Skipping external preparation for BCLib - Nether BiomeSource (498910ac): source=net.minecraft.world.level.biome.MultiNoiseBiomeSource@6e1a69a7, registryAccess=false, dimensionType=null, dimension=null, generator=null, hasSeed=false, preparedSeed=-9223372036854775808, currentSeed=0
+[09:24:53] [main/INFO] [or.be.wo.to.ut.Logger/]: [bclib] [BiomeSourceCompat] Combined possible biomes for BCLib - Nether BiomeSource (498910ac): owned=0, external=5, combined=5, externalNamespaces=minecraft(5)
+[09:24:53] [main/INFO] [or.be.wo.to.ut.Logger/]: [bclib] [BiomeSourceCompat] Combined possible biomes for BCLib - Nether BiomeSource (498910ac): owned=0, external=5, combined=5, externalNamespaces=minecraft(5)
+[09:24:53] [main/INFO] [or.be.wo.to.ut.Logger/]: [bclib] [BiomeSourceCompat] Updated external context for BCLib - Nether BiomeSource (498910ac): dimension=minecraft:the_nether, dimensionType=minecraft:the_nether, generator=net.minecraft.world.level.levelgen.NoiseBasedChunkGenerator@2ee3ec10, generatorBiomeSource=net.minecraft.world.level.biome.MultiNoiseBiomeSource@6e1a69a7, seedReady=false
+[09:24:53] [main/INFO] [or.be.wo.to.ut.Logger/]: [bclib] [BiomeSourceCompat] Skipping external preparation for BCLib - Nether BiomeSource (498910ac): source=net.minecraft.world.level.biome.MultiNoiseBiomeSource@6e1a69a7, registryAccess=true, dimensionType=minecraft:the_nether, dimension=minecraft:the_nether, generator=net.minecraft.world.level.levelgen.NoiseBasedChunkGenerator@2ee3ec10, hasSeed=false, preparedSeed=-9223372036854775808, currentSeed=0
+[09:24:53] [main/INFO] [or.be.wo.to.ut.Logger/]: [bclib] [BiomeSourceCompat] Combined possible biomes for BCLib - Nether BiomeSource (498910ac): owned=0, external=5, combined=5, externalNamespaces=minecraft(5)
+[09:24:53] [main/INFO] [or.be.wo.to.ut.Logger/]: [bclib] [ChunkGeneratorCompat] Rebuilt featuresPerStep for org.betterx.bclib.api.v2.generator.BCLChunkGenerator@7e6cfc2d with 5 possible biomes: minecraft(5)
+[09:24:53] [main/INFO] [or.be.wo.to.ut.Logger/]: [bclib] [BiomeRepairCompat] Attaching external biome source for minecraft:the_nether: targetGenerator=org.betterx.bclib.api.v2.generator.BCLChunkGenerator@32a43079, targetBiomeSource=org.betterx.bclib.api.v2.generator.BCLibNetherBiomeSource@e3b71d3, externalGenerator=net.minecraft.world.level.levelgen.NoiseBasedChunkGenerator@2ee3ec10, externalBiomeSource=net.minecraft.world.level.biome.MultiNoiseBiomeSource@6e1a69a7
+[09:24:53] [main/INFO] [or.be.wo.to.ut.Logger/]: [bclib] [ChunkGeneratorCompat] Merging external biome source for minecraft:the_nether: targetGenerator=org.betterx.bclib.api.v2.generator.BCLChunkGenerator@32a43079, targetBiomeSource=org.betterx.bclib.api.v2.generator.BCLibNetherBiomeSource@e3b71d3, externalGenerator=net.minecraft.world.level.levelgen.NoiseBasedChunkGenerator@2ee3ec10, externalBiomeSource=net.minecraft.world.level.biome.MultiNoiseBiomeSource@6e1a69a7
+[09:24:53] [main/INFO] [or.be.wo.to.ut.Logger/]: [bclib] [BiomeSourceCompat] Assigned external biome source for BCLib - Nether BiomeSource (e3b71d3): source=net.minecraft.world.level.biome.MultiNoiseBiomeSource@6e1a69a7
+[09:24:53] [main/INFO] [or.be.wo.to.ut.Logger/]: [bclib] [BiomeSourceCompat] Skipping external preparation for BCLib - Nether BiomeSource (e3b71d3): source=net.minecraft.world.level.biome.MultiNoiseBiomeSource@6e1a69a7, registryAccess=false, dimensionType=null, dimension=null, generator=null, hasSeed=false, preparedSeed=-9223372036854775808, currentSeed=5891742670188560080
+[09:24:53] [main/INFO] [or.be.wo.to.ut.Logger/]: [bclib] [BiomeSourceCompat] Combined possible biomes for BCLib - Nether BiomeSource (e3b71d3): owned=0, external=5, combined=5, externalNamespaces=minecraft(5)
+[09:24:53] [main/INFO] [or.be.wo.to.ut.Logger/]: [bclib] [BiomeSourceCompat] Combined possible biomes for BCLib - Nether BiomeSource (e3b71d3): owned=0, external=5, combined=5, externalNamespaces=minecraft(5)
+[09:24:53] [main/INFO] [or.be.wo.to.ut.Logger/]: [bclib] [BiomeSourceCompat] Updated external context for BCLib - Nether BiomeSource (e3b71d3): dimension=minecraft:the_nether, dimensionType=minecraft:the_nether, generator=net.minecraft.world.level.levelgen.NoiseBasedChunkGenerator@2ee3ec10, generatorBiomeSource=net.minecraft.world.level.biome.MultiNoiseBiomeSource@6e1a69a7, seedReady=false
+[09:24:53] [main/INFO] [or.be.wo.to.ut.Logger/]: [bclib] [BiomeSourceCompat] Skipping external preparation for BCLib - Nether BiomeSource (e3b71d3): source=net.minecraft.world.level.biome.MultiNoiseBiomeSource@6e1a69a7, registryAccess=true, dimensionType=minecraft:the_nether, dimension=minecraft:the_nether, generator=net.minecraft.world.level.levelgen.NoiseBasedChunkGenerator@2ee3ec10, hasSeed=false, preparedSeed=-9223372036854775808, currentSeed=5891742670188560080
+[09:24:53] [main/INFO] [or.be.wo.to.ut.Logger/]: [bclib] [BiomeSourceCompat] Combined possible biomes for BCLib - Nether BiomeSource (e3b71d3): owned=0, external=5, combined=5, externalNamespaces=minecraft(5)
+[09:24:53] [main/INFO] [or.be.wo.to.ut.Logger/]: [bclib] [ChunkGeneratorCompat] Rebuilt featuresPerStep for org.betterx.bclib.api.v2.generator.BCLChunkGenerator@32a43079 with 5 possible biomes: minecraft(5)
+[09:24:53] [main/INFO] [or.be.wo.to.ut.Logger/]: [bclib] Updating Pickers for BCLib - Nether BiomeSource (e3b71d3)
+[09:24:53] [main/INFO] [or.be.wo.to.ut.Logger/]: [bclib] [BiomeSourceCompat] Combined possible biomes for BCLib - Nether BiomeSource (e3b71d3): owned=5, external=5, combined=5, externalNamespaces=minecraft(5)
+[09:24:53] [main/INFO] [or.be.wo.to.ut.Logger/]: [bclib] [BiomeRepairCompat] No external base generator for minecraft:the_end
+[09:24:53] [main/INFO] [or.be.wo.to.ut.Logger/]: [bclib] [BiomeRepairCompat] Repair dimension minecraft:the_end: referenceGenerator=org.betterx.bclib.api.v2.generator.BCLChunkGenerator@20421ff8, referenceBiomeSource=org.betterx.bclib.api.v2.generator.BCLibEndBiomeSource@3ada49ac, loadedGenerator=org.betterx.bclib.api.v2.generator.BCLChunkGenerator@4ed41ba9, loadedBiomeSource=org.betterx.bclib.api.v2.generator.BCLibEndBiomeSource@5de0df94, externalGenerator=null, externalBiomeSource=null
+[09:24:53] [main/INFO] [or.be.wo.to.ut.Logger/]: [bclib] [BiomeRepairCompat] Skipping attach for minecraft:the_end: targetGenerator=org.betterx.bclib.api.v2.generator.BCLChunkGenerator@20421ff8, externalGenerator=null
+[09:24:53] [main/INFO] [or.be.wo.to.ut.Logger/]: [bclib] [BiomeRepairCompat] Skipping attach for minecraft:the_end: targetGenerator=org.betterx.bclib.api.v2.generator.BCLChunkGenerator@4ed41ba9, externalGenerator=null
+[09:24:53] [main/INFO] [or.be.wo.to.ut.Logger/]: [bclib] Updating Pickers for BCLib - The End  BiomeSource (5de0df94)
+[09:24:53] [main/INFO] [or.be.wo.to.ut.Logger/]: [bclib] [BiomeSourceCompat] Combined possible biomes for BCLib - The End  BiomeSource (5de0df94): owned=26, external=0, combined=26
+[09:24:54] [main/INFO] [ne.mi.ga.ForgeGameTestHooks/]: Enabled Gametest Namespaces: [aoemod]
+[09:24:54] [Server thread/INFO] [zeta/]: Server starting, accepting filewatcher changes for zeta's config
+[09:24:54] [Server thread/INFO] [quark-zeta/]: Server starting, accepting filewatcher changes for quark's config
+[09:24:54] [Server thread/INFO] [terrablender/]: Initialized TerraBlender biomes for level stem minecraft:overworld
+[09:24:54] [Server thread/WARN] [minecraft/DensityFunctions$TwoArgumentSimpleFunction]: Creating a MAX function between two non-overlapping inputs: HolderHolder[function=Direct{Ap2[type=ADD, argument1=HolderHolder[function=Direct{Constant[value=-0.5]}], argument2=HolderHolder[function=Direct{Ap2[type=MUL, argument1=HolderHolder[function=Direct{Ap2[type=ADD, argument1=HolderHolder[function=Direct{Constant[value=0.5]}], argument2=HolderHolder[function=Direct{dev.hybridlabs.aquatic.world.gen.densityfunction.DensityFunctionWrappers$WrappedMarker@3d494f22}], minValue=0.5, maxValue=0.5]}], argument2=HolderHolder[function=Direct{Ap2[type=ADD, argument1=HolderHolder[function=Direct{Constant[value=1.0]}], argument2=HolderHolder[function=Direct{Spline[spline=Multipoint[coordinate=continents, locations=[F@2774f31f, values=[Constant[value=0.0], Constant[value=1.0], Constant[value=0.0]], derivatives=[F@a1349a5, minValue=0.0, maxValue=1.0]]}], minValue=1.0, maxValue=2.0]}], minValue=0.5, maxValue=1.0]}], minValue=0.0, maxValue=0.5]}] and HolderHolder[function=Direct{Spline[spline=Multipoint[coordinate=continents, locations=[F@3ca30330, values=[Constant[value=-1.0], Constant[value=-1.3], Constant[value=-1.3], Constant[value=-1.0]], derivatives=[F@31561a78, minValue=-1.3, maxValue=-1.0]]}]
+[09:24:54] [Server thread/INFO] [Hybrid Aquatic/]: Trenches follow the overworld offset
+[09:24:54] [Server thread/INFO] [or.be.wo.to.ut.Logger/]: [bclib] Updating Pickers for BCLib - The End  BiomeSource (5de0df94)
+[09:24:54] [Server thread/INFO] [or.be.wo.to.ut.Logger/]: [bclib] [BiomeSourceCompat] Combined possible biomes for BCLib - The End  BiomeSource (5de0df94): owned=26, external=0, combined=26
+[09:24:54] [Server thread/INFO] [or.be.wo.to.ut.Logger/]: [bclib] [ChunkGeneratorCompat] Keeping Blueprint modded biome source for minecraft:the_end: wrapper=com.teamabnormals.blueprint.common.world.modification.ModdedBiomeSource@431727aa, original=org.betterx.bclib.api.v2.generator.BCLibEndBiomeSource@5de0df94
+[09:24:54] [Server thread/INFO] [or.be.wo.to.ut.Logger/]: [bclib] [ChunkGeneratorCompat] Rebuilt featuresPerStep for org.betterx.bclib.api.v2.generator.BCLChunkGenerator@4ed41ba9 with 29 possible biomes: 29
+[09:24:54] [Server thread/INFO] [or.be.wo.to.ut.Logger/]: [bclib] 
+Apply Modifications for minecraft:overworld
+    ModdedBiomeSource (6a1553ef)
+        biomes     = 181
+        namespaces = minecraft(53), alexscaves(6), biomesoplenty(58), terrablender(1), biomeswevegone(53), quark(1), blueprint(1), environmental(8)
+[09:24:54] [Server thread/INFO] [or.be.wo.to.ut.Logger/]: [bclib] 
+Apply Modifications for minecraft:the_nether
+    BCLib - Nether BiomeSource (e3b71d3)
+        biomes     = 5
+        namespaces = minecraft(5)
+        seed       = 5891742670188560080
+        height     = 128
+        config     = BCLibNetherBiomeSourceConfig{mapVersion=hex, useVerticalBiomes=true, amplified=false, biomeSize=256, biomeSizeVertical=86}
+[09:24:54] [Server thread/INFO] [or.be.wo.to.ut.Logger/]: [bclib] 
+Apply Modifications for aquatica:eternal_deep
+    MultiNoiseBiomeSource (30812e48)
+        biomes     = 6
+        namespaces = aquatica(6)
+[09:24:54] [Server thread/INFO] [or.be.wo.to.ut.Logger/]: [bclib] 
+Apply Modifications for minecraft:the_end
+    ModdedBiomeSource (431727aa)
+        biomes     = 29
+        namespaces = betterend(21), minecraft(5), outer_end(3)
+[09:24:54] [Server thread/INFO] [or.be.wo.to.ut.Logger/]: [bclib] 
+Apply Modifications for aoemod:desert_dimension
+    MultiNoiseBiomeSource (2481bda)
+        biomes     = 3
+        namespaces = aoemod(3)
+[09:24:54] [Server thread/INFO] [or.be.wo.to.ut.Logger/]: [bclib] 
+Apply Modifications for aoemod:snowy_dimension
+    MultiNoiseBiomeSource (10c27909)
+        biomes     = 3
+        namespaces = aoemod(3)
+[09:24:54] [Server thread/INFO] [or.be.wo.to.ut.Logger/]: [bclib] 
+Apply Modifications for aoemod:plains_dimension
+    FixedBiomeSource (4ecc7443)
+        biomes     = 1
+        namespaces = aoemod(1)
+[09:24:54] [Server thread/INFO] [or.be.wo.to.ut.Logger/]: [bclib] 
+Apply Modifications for aoemod:tropical_dimension
+    MultiNoiseBiomeSource (7d542841)
+        biomes     = 5
+        namespaces = aoemod(5)
+[09:24:54] [Server thread/INFO] [or.be.wo.to.ut.Logger/]: [bclib] 
+Apply Modifications for twilightforest:twilight_forest
+    TFBiomeProvider (1d044d3d)
+        biomes     = 21
+        namespaces = twilightforest(21)
+[09:24:54] [Server thread/INFO] [or.be.wo.to.ut.Logger/]: [bclib] 
+Apply Modifications for aoemod:nether_dimension
+    MultiNoiseBiomeSource (62b702fc)
+        biomes     = 4
+        namespaces = aoemod(4)
+[09:24:54] [Server thread/INFO] [or.be.wo.to.ut.Logger/]: [bclib] 
+Apply Modifications for aoemod:savanna_dimension
+    FixedBiomeSource (6fc8ecfb)
+        biomes     = 1
+        namespaces = aoemod(1)
+[09:24:54] [Server thread/INFO] [or.be.wo.to.ut.Logger/]: [bclib] World Dimensions: 
+ - minecraft:overworld: 
+     net.minecraft.world.level.levelgen.NoiseBasedChunkGenerator@526d87eb 
+     ModdedBiomeSource (6a1553ef)
+         biomes     = 181
+         namespaces = minecraft(53), alexscaves(6), biomesoplenty(58), terrablender(1), biomeswevegone(53), quark(1), blueprint(1), environmental(8)
+ - minecraft:the_nether: 
+     BCLib - Chunk Generator (32a43079) 
+     BCLib - Nether BiomeSource (e3b71d3)
+         biomes     = 5
+         namespaces = minecraft(5)
+         seed       = 5891742670188560080
+         height     = 128
+         config     = BCLibNetherBiomeSourceConfig{mapVersion=hex, useVerticalBiomes=true, amplified=false, biomeSize=256, biomeSizeVertical=86}
+ - aquatica:eternal_deep: 
+     com.min01.aquatica.world.chunk.EternalDeepChunkGenerator@24306d9c 
+     MultiNoiseBiomeSource (30812e48)
+         biomes     = 6
+         namespaces = aquatica(6)
+ - minecraft:the_end: 
+     BCLib - Chunk Generator (4ed41ba9) 
+     ModdedBiomeSource (431727aa)
+         biomes     = 29
+         namespaces = betterend(21), minecraft(5), outer_end(3)
+ - aoemod:desert_dimension: 
+     net.minecraft.world.level.levelgen.NoiseBasedChunkGenerator@4a680e8 
+     MultiNoiseBiomeSource (2481bda)
+         biomes     = 3
+         namespaces = aoemod(3)
+ - aoemod:snowy_dimension: 
+     net.minecraft.world.level.levelgen.NoiseBasedChunkGenerator@c9838c1 
+     MultiNoiseBiomeSource (10c27909)
+         biomes     = 3
+         namespaces = aoemod(3)
+ - aoemod:plains_dimension: 
+     net.minecraft.world.level.levelgen.NoiseBasedChunkGenerator@7e5d1cb2 
+     FixedBiomeSource (4ecc7443)
+         biomes     = 1
+         namespaces = aoemod(1)
+ - aoemod:tropical_dimension: 
+     net.minecraft.world.level.levelgen.NoiseBasedChunkGenerator@3047491a 
+     MultiNoiseBiomeSource (7d542841)
+         biomes     = 5
+         namespaces = aoemod(5)
+ - twilightforest:twilight_forest: 
+     twilightforest.world.components.chunkgenerators.ChunkGeneratorTwilight@5de5c1d8 
+     TFBiomeProvider (1d044d3d)
+         biomes     = 21
+         namespaces = twilightforest(21)
+ - aoemod:nether_dimension: 
+     net.minecraft.world.level.levelgen.NoiseBasedChunkGenerator@3a90936b 
+     MultiNoiseBiomeSource (62b702fc)
+         biomes     = 4
+         namespaces = aoemod(4)
+ - aoemod:savanna_dimension: 
+     net.minecraft.world.level.levelgen.NoiseBasedChunkGenerator@1c501bdb 
+     FixedBiomeSource (6fc8ecfb)
+         biomes     = 1
+         namespaces = aoemod(1)
+[09:24:54] [Server thread/INFO] [or.be.wo.to.ut.Logger/]: [bclib] Merged 21 additional Surface Rules for 
+ModdedBiomeSource (431727aa)
+    biomes     = 29
+    namespaces = betterend(21), minecraft(5), outer_end(3) => 22
+[09:24:56] [Server thread/INFO] [or.be.wo.to.ut.Logger/]: [bclib] [BiomeSourceCompat] Preparing external biome source for BCLib - Nether BiomeSource (e3b71d3): source=net.minecraft.world.level.biome.MultiNoiseBiomeSource@6e1a69a7, generator=net.minecraft.world.level.levelgen.NoiseBasedChunkGenerator@2ee3ec10, generatorBiomeSource=net.minecraft.world.level.biome.MultiNoiseBiomeSource@6e1a69a7, dimension=minecraft:the_nether, seed=5891742670188560080
+[09:24:56] [Server thread/INFO] [or.be.wo.to.ut.Logger/]: [bclib] [BiomeSourceCompat] TerraBlender check for BCLib - Nether BiomeSource (e3b71d3): canApply=true, externalGenerator=net.minecraft.world.level.levelgen.NoiseBasedChunkGenerator@2ee3ec10, externalGeneratorBiomeSource=net.minecraft.world.level.biome.MultiNoiseBiomeSource@6e1a69a7
+[09:24:56] [Server thread/INFO] [or.be.wo.to.ut.Logger/]: [bclib] [BiomeSourceCompat] TerraBlender region type for BCLib - Nether BiomeSource (e3b71d3): dimension=minecraft:the_nether, regionType=NETHER
+[09:24:56] [Server thread/INFO] [or.be.wo.to.ut.Logger/]: [bclib] [BiomeSourceCompat] TerraBlender parameter list for BCLib - Nether BiomeSource (e3b71d3): parameterList=net.minecraft.world.level.biome.Climate$ParameterList@13bb88c5, isExtended=true
+[09:24:56] [Server thread/INFO] [or.be.wo.to.ut.Logger/]: [bclib] [BiomeSourceCompat] TerraBlender initialized parameter list for BCLib - Nether BiomeSource (e3b71d3) with seed 5891742670188560080
+[09:24:56] [Server thread/INFO] [or.be.wo.to.ut.Logger/]: [bclib] [BiomeSourceCompat] TerraBlender regions for BCLib - Nether BiomeSource (e3b71d3): regionType=NETHER, count=3
+[09:24:56] [Server thread/INFO] [or.be.wo.to.ut.Logger/]: [bclib] [BiomeSourceCompat] TerraBlender region result for BCLib - Nether BiomeSource (e3b71d3): region=minecraft:nether, weight=10, addedBiomes=0
+[09:24:56] [Server thread/INFO] [or.be.wo.to.ut.Logger/]: [bclib] [BiomeSourceCompat] TerraBlender region result for BCLib - Nether BiomeSource (e3b71d3): region=biomesoplenty:nether_common, weight=13, addedBiomes=4
+[09:24:56] [Server thread/INFO] [or.be.wo.to.ut.Logger/]: [bclib] [BiomeSourceCompat] TerraBlender region result for BCLib - Nether BiomeSource (e3b71d3): region=biomesoplenty:nether_rare, weight=2, addedBiomes=1
+[09:24:56] [Server thread/INFO] [or.be.wo.to.ut.Logger/]: [bclib] [BiomeSourceCompat] TerraBlender collected deferred biomes for BCLib - Nether BiomeSource (e3b71d3): count=5, biomes=biomesoplenty:crystalline_chasm, biomesoplenty:undergrowth, biomesoplenty:visceral_heap, biomesoplenty:erupting_inferno, biomesoplenty:withered_abyss
+[09:24:56] [Server thread/INFO] [or.be.wo.to.ut.Logger/]: [bclib] [BiomeSourceCompat] TerraBlender external biome source append check for BCLib - Nether BiomeSource (e3b71d3): source=net.minecraft.world.level.biome.MultiNoiseBiomeSource@6e1a69a7, isExtended=true
+[09:24:56] [Server thread/INFO] [or.be.wo.to.ut.Logger/]: [bclib] [BiomeSourceCompat] TerraBlender appended deferred biomes for BCLib - Nether BiomeSource (e3b71d3): afterAppend=minecraft(5), biomesoplenty(5)
+[09:24:56] [Server thread/INFO] [or.be.wo.to.ut.Logger/]: [bclib] [BiomeSourceCompat] Combined possible biomes for BCLib - Nether BiomeSource (e3b71d3): owned=5, external=10, combined=10, externalNamespaces=minecraft(5), biomesoplenty(5)
+[09:24:56] [Server thread/INFO] [or.be.wo.to.ut.Logger/]: [bclib] [ChunkGeneratorCompat] Rebuilt featuresPerStep for org.betterx.bclib.api.v2.generator.BCLChunkGenerator@32a43079 with 10 possible biomes: minecraft(5), biomesoplenty(5)
+[09:24:56] [Server thread/INFO] [or.be.wo.to.ut.Logger/]: [bclib] Prepared external biome source for BCLib - Nether BiomeSource (e3b71d3): minecraft(5), biomesoplenty(5) (minecraft:soul_sand_valley, minecraft:crimson_forest, biomesoplenty:erupting_inferno, minecraft:nether_wastes, minecraft:warped_forest, biomesoplenty:visceral_heap, minecraft:basalt_deltas, biomesoplenty:withered_abyss, biomesoplenty:undergrowth, biomesoplenty:crystalline_chasm)
+[09:24:56] [Server thread/INFO] [or.be.wo.to.ut.Logger/]: [bclib] [BiomeSourceCompat] Skipping external preparation for BCLib - The End  BiomeSource (5de0df94): source=null, registryAccess=false, dimensionType=null, dimension=null, generator=null, hasSeed=true, preparedSeed=-9223372036854775808, currentSeed=5891742670188560080
+[09:24:56] [Server thread/INFO] [minecraft/MinecraftServer]: Preparing start region for dimension minecraft:overworld
+[09:24:57] [Worker-Main-13/INFO] [minecraft/LoggerChunkProgressListener]: Preparing spawn area: 0%
+[09:24:57] [Worker-Main-13/INFO] [minecraft/LoggerChunkProgressListener]: Preparing spawn area: 0%
+[09:24:57] [Worker-Main-13/INFO] [minecraft/LoggerChunkProgressListener]: Preparing spawn area: 0%
+[09:24:57] [Worker-Main-13/INFO] [minecraft/LoggerChunkProgressListener]: Preparing spawn area: 0%
+[09:24:58] [Server thread/WARN] [un.UntamedWilds/]: There's no species provided for the EntityType
+[09:24:58] [Server thread/WARN] [un.UntamedWilds/]: There's no species provided for the EntityType
+[09:24:58] [Server thread/WARN] [un.UntamedWilds/]: There's no species provided for the EntityType
+[09:24:58] [Server thread/WARN] [un.UntamedWilds/]: There's no species provided for the EntityType
+[09:24:58] [Worker-Main-18/INFO] [minecraft/LoggerChunkProgressListener]: Preparing spawn area: 81%
+[09:24:58] [Server thread/WARN] [un.UntamedWilds/]: There's no species provided for the EntityType
+[09:24:58] [Server thread/WARN] [un.UntamedWilds/]: There's no species provided for the EntityType
+[09:24:58] [Server thread/INFO] [minecraft/LoggerChunkProgressListener]: Time elapsed: 2088 ms
+[09:24:58] [Server thread/INFO] [minecraft/GameTestServer]: Started game test server
+[09:24:58] [Server thread/INFO] [ne.mi.se.pe.PermissionAPI/]: Successfully initialized permission handler forge:default_handler
+[09:24:58] [Server thread/INFO] [al.he.HearthAndHarvest/]: Hearth and Harvest is starting
+[09:24:58] [Server thread/INFO] [mc.mo.wa.co.PluginConfig/]: [WTHIT] Plugin config reloaded
+[09:24:58] [Server thread/INFO] [co.gi.al.ic.IceAndFire/]: {iceandfire:fire_dragon_roost=true, iceandfire:fire_lily=true, iceandfire:spawn_dragon_skeleton_fire=true, iceandfire:lightning_dragon_roost=true, iceandfire:spawn_dragon_skeleton_lightning=true, iceandfire:ice_dragon_roost=true, iceandfire:ice_dragon_cave=true, iceandfire:lightning_dragon_cave=true, iceandfire:cyclops_cave=true, iceandfire:spawn_wandering_cyclops=true, iceandfire:spawn_sea_serpent=true, iceandfire:frost_lily=true, iceandfire:hydra_cave=true, iceandfire:lightning_lily=true, iceandfire:pixie_village=true, iceandfire:myrmex_hive_jungle=true, iceandfire:myrmex_hive_desert=true, iceandfire:silver_ore=true, iceandfire:siren_island=true, iceandfire:spawn_dragon_skeleton_ice=true, iceandfire:spawn_stymphalian_bird=true, iceandfire:fire_dragon_cave=true, iceandfire:sapphire_ore=true, iceandfire:spawn_hippocampus=true, iceandfire:spawn_death_worm=true}
+[09:24:58] [Server thread/INFO] [co.gi.al.ic.IceAndFire/]: {TROLL_S=true, HIPPOGRYPH=true, AMPHITHERE=true, COCKATRICE=true, TROLL_M=true, DREAD_LICH=true, TROLL_F=true}
+[09:25:07] [Server thread/INFO] [ne.am.ex.AOEMod/]: Wrote block availability and random-tick reports to C:\Users\andre\Downloads\Games\September2024Mod\run\september-qa\build\reports
+[09:25:08] [Server thread/INFO] [minecraft/GameTestBatchRunner]: Running test batch 'defaultBatch:1' (60 tests)...
+[09:25:08] [Server thread/INFO] [minecraft/GameTestServer]: 60 tests are now running!
+[09:25:19] [Server thread/WARN] [minecraft/MinecraftServer]: Can't keep up! Is the server overloaded? Running 12444ms or 248 ticks behind
+[09:25:20] [Server thread/INFO] [minecraft/GameTestServer]: [+++++++++++++_+++++++++++++++++++++++++++++++++++++++X++++++]
+[09:25:21] [Server thread/INFO] [minecraft/GameTestServer]: [+++++++++++++_+++++++++++++++++++++++++++++++++++++++X++++++]
+[09:25:22] [Server thread/INFO] [minecraft/GameTestServer]: [+++++++++++++_+++++++++++++++++++++++++++++++++++++++X++++++]
+[09:25:22] [Server thread/INFO] [minecraft/GameTestServer]: [+++++++++++++_+++++++++++++++++++++++++++++++++++++++X++++++]
+[09:25:23] [Server thread/INFO] [minecraft/GameTestServer]: [+++++++++++++_+++++++++++++++++++++++++++++++++++++++X++++++]
+[09:25:23] [Server thread/INFO] [minecraft/GameTestServer]: [+++++++++++++_+++++++++++++++++++++++++++++++++++++++X++++++]
+[09:25:23] [Server thread/INFO] [minecraft/GameTestServer]: [+++++++++++++_+++++++++++++++++++++++++++++++++++++++X++++++]
+[09:25:23] [Server thread/INFO] [minecraft/GameTestServer]: [+++++++++++++_+++++++++++++++++++++++++++++++++++++++X++++++]
+[09:25:24] [Server thread/INFO] [minecraft/GameTestServer]: [+++++++++++++_+++++++++++++++++++++++++++++++++++++++X++++++]
+[09:25:24] [Server thread/INFO] [minecraft/GameTestServer]: [+++++++++++++_+++++++++++++++++++++++++++++++++++++++X++++++]
+[09:25:24] [Server thread/INFO] [minecraft/GameTestServer]: [+++++++++++++++++++++++++++++++++++++++++++++++++++++X++++++]
+[09:25:24] [Server thread/INFO] [minecraft/GameTestServer]: ========= 60 GAME TESTS COMPLETE ======================
+[09:25:24] [Server thread/INFO] [minecraft/GameTestServer]: 1 required tests failed :(
+[09:25:24] [Server thread/INFO] [minecraft/GameTestServer]:    - singleazaleasaplinggrowsontropicalmoss
+[09:25:24] [Server thread/INFO] [minecraft/GameTestServer]: ====================================================
+[09:25:24] [Server thread/INFO] [minecraft/MinecraftServer]: Stopping server
+[09:25:24] [Server thread/INFO] [minecraft/MinecraftServer]: Saving players
+[09:25:24] [Server thread/INFO] [minecraft/MinecraftServer]: Saving worlds
+[09:25:24] [Server thread/INFO] [minecraft/MinecraftServer]: Saving chunks for level 'ServerLevel[world]'/minecraft:overworld
+[09:25:25] [Server thread/INFO] [minecraft/MinecraftServer]: Saving chunks for level 'ServerLevel[world]'/minecraft:the_nether
+[09:25:25] [Server thread/INFO] [minecraft/MinecraftServer]: Saving chunks for level 'ServerLevel[world]'/aquatica:eternal_deep
+[09:25:25] [Server thread/INFO] [minecraft/MinecraftServer]: Saving chunks for level 'ServerLevel[world]'/minecraft:the_end
+[09:25:25] [Server thread/INFO] [minecraft/MinecraftServer]: Saving chunks for level 'ServerLevel[world]'/aoemod:desert_dimension
+[09:25:25] [Server thread/INFO] [minecraft/MinecraftServer]: Saving chunks for level 'ServerLevel[world]'/aoemod:snowy_dimension
+[09:25:25] [Server thread/INFO] [minecraft/MinecraftServer]: Saving chunks for level 'ServerLevel[world]'/aoemod:plains_dimension
+[09:25:25] [Server thread/INFO] [minecraft/MinecraftServer]: Saving chunks for level 'ServerLevel[world]'/aoemod:tropical_dimension
+[09:25:25] [Server thread/INFO] [minecraft/MinecraftServer]: Saving chunks for level 'ServerLevel[world]'/twilightforest:twilight_forest
+[09:25:25] [Server thread/INFO] [minecraft/MinecraftServer]: Saving chunks for level 'ServerLevel[world]'/aoemod:nether_dimension
+[09:25:25] [Server thread/INFO] [minecraft/MinecraftServer]: Saving chunks for level 'ServerLevel[world]'/aoemod:savanna_dimension
+[09:25:25] [Server thread/INFO] [minecraft/MinecraftServer]: ThreadedAnvilChunkStorage (world): All chunks are saved
+[09:25:25] [Server thread/INFO] [minecraft/MinecraftServer]: ThreadedAnvilChunkStorage (DIM-1): All chunks are saved
+[09:25:25] [Server thread/INFO] [minecraft/MinecraftServer]: ThreadedAnvilChunkStorage (eternal_deep): All chunks are saved
+[09:25:25] [Server thread/INFO] [minecraft/MinecraftServer]: ThreadedAnvilChunkStorage (DIM1): All chunks are saved
+[09:25:25] [Server thread/INFO] [minecraft/MinecraftServer]: ThreadedAnvilChunkStorage (desert_dimension): All chunks are saved
+[09:25:25] [Server thread/INFO] [minecraft/MinecraftServer]: ThreadedAnvilChunkStorage (snowy_dimension): All chunks are saved
+[09:25:25] [Server thread/INFO] [minecraft/MinecraftServer]: ThreadedAnvilChunkStorage (plains_dimension): All chunks are saved
+[09:25:25] [Server thread/INFO] [minecraft/MinecraftServer]: ThreadedAnvilChunkStorage (tropical_dimension): All chunks are saved
+[09:25:25] [Server thread/INFO] [minecraft/MinecraftServer]: ThreadedAnvilChunkStorage (twilight_forest): All chunks are saved
+[09:25:25] [Server thread/INFO] [minecraft/MinecraftServer]: ThreadedAnvilChunkStorage (nether_dimension): All chunks are saved
+[09:25:25] [Server thread/INFO] [minecraft/MinecraftServer]: ThreadedAnvilChunkStorage (savanna_dimension): All chunks are saved
+[09:25:25] [Server thread/INFO] [minecraft/MinecraftServer]: ThreadedAnvilChunkStorage: All dimensions are saved
+[09:25:30] [Server thread/INFO] [minecraft/GameTestServer]: Game test server shutting down
+
+> Task :runGameTestServer FAILED
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':runGameTestServer'.
+> Process 'command 'C:\Program Files\Eclipse Adoptium\jdk-17.0.9.9-hotspot\bin\java.exe'' finished with non-zero exit value 1
+
+* Try:
+> Run with --stacktrace option to get the stack trace.
+> Run with --info or --debug option to get more log output.
+> Run with --scan to get full insights.
+
+
+* Get more help at https://help.gradle.org
+Deprecated Gradle features were used in this build, making it incompatible with Gradle 9.0.
+
+You can use '--warning-mode all' to show the individual deprecation warnings and determine if they come from your own scripts or plugins.
+
+See https://docs.gradle.org/8.1.1/userguide/command_line_interface.html#sec:command_line_warnings
+
+BUILD FAILED in 1m 45s
+19 actionable tasks: 12 executed, 7 up-to-date

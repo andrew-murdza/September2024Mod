@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:campfire_cooking",
+  "ingredient": {
+    "item": "aoemod:raw_spider_crab_leg"
+  },
+  "result": "aoemod:cooked_spider_crab_leg",
+  "experience": 0.35,
+  "cookingtime": 600
+}

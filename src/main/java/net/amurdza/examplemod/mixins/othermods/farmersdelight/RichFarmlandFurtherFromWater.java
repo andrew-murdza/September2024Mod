@@ -1,7 +1,6 @@
 package net.amurdza.examplemod.mixins.othermods.farmersdelight;
 
 import net.amurdza.examplemod.config.BlockBehaviorConfig;
-import net.amurdza.examplemod.util.Helper;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.level.LevelReader;
 import org.spongepowered.asm.mixin.Mixin;
@@ -11,14 +10,12 @@ import vectorwing.farmersdelight.common.block.RichSoilFarmlandBlock;
 
 @Mixin(RichSoilFarmlandBlock.class)
 public class RichFarmlandFurtherFromWater {
-    @ModifyConstant(method = "hasWater",constant = @Constant(intValue = 4),remap = false)
+    @ModifyConstant(method = "isNearWater",constant = @Constant(intValue = 4),remap = false, require = 1)
     private static int hi(int constant, LevelReader pLevel, BlockPos pPos){
-        Integer value = Helper.getBiomeValue(pLevel, pPos, BlockBehaviorConfig.BIOME_TO_FARMLAND_DISTANCE);
-        return value != null ? value : constant;
+        return BlockBehaviorConfig.RICH_FARMLAND_HYDRATION_DISTANCE;
     }
-    @ModifyConstant(method = "hasWater",constant = @Constant(intValue = -4),remap = false)
+    @ModifyConstant(method = "isNearWater",constant = @Constant(intValue = -4),remap = false, require = 1)
     private static int hi1(int constant, LevelReader pLevel, BlockPos pPos){
-        Integer value = Helper.getBiomeValue(pLevel, pPos, BlockBehaviorConfig.BIOME_TO_FARMLAND_DISTANCE);
-        return value != null ? -value : constant;
+        return -BlockBehaviorConfig.RICH_FARMLAND_HYDRATION_DISTANCE;
     }
 }

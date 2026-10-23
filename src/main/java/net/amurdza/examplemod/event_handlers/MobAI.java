@@ -7,6 +7,7 @@ import com.starfish_studios.naturalist.common.entity.Boar;
 import com.starfish_studios.naturalist.common.entity.Deer;
 import com.starfish_studios.naturalist.common.entity.core.ai.goal.AlertOthersPanicGoal;
 import net.amurdza.examplemod.AOEMod;
+import net.amurdza.examplemod.mixins.accessor.TargetGoalTypeAccessor;
 import net.amurdza.examplemod.entity.ai.PolarBearOwnerMeleeAttackGoal;
 import net.amurdza.examplemod.entity.ai.PolarBearOwnerTargetGoal;
 import net.amurdza.examplemod.entity.ai.PolarBearTamingAccess;
@@ -57,7 +58,6 @@ import net.minecraftforge.fml.common.Mod;
 import org.violetmoon.quark.content.mobs.ai.RaveGoal;
 import vectorwing.farmersdelight.common.registry.ModItems;
 
-import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -197,7 +197,8 @@ public class MobAI {
                         clearPolarBearAnger(polarBear);
                     }
                 }
-                else if(entity instanceof EntityBison){
+                // Species-specific removals also apply after the common animal rules above.
+                if(entity instanceof EntityBison){
                     removeAI(mob,
                             Class.forName("com.github.alexthe666.alexsmobs.entity.EntityBison$AIAttackNearPlayers"),
                             Class.forName("com.github.alexthe666.alexsmobs.entity.EntityBison$AIChargeFurthest"));
@@ -446,19 +447,8 @@ public class MobAI {
     }
 
     private static boolean removeTurtleAttack(Goal goal) {
-        Field getTargetType;
-        if(goal instanceof NearestAttackableTargetGoal){
-            try {
-                getTargetType=NearestAttackableTargetGoal.class.getDeclaredField("targetType");
-                getTargetType.setAccessible(true);
-                return getTargetType.get(goal)== Turtle.class;
-            } catch (NoSuchFieldException e) {
-                e.printStackTrace();
-            } catch (IllegalAccessException e) {
-                throw new RuntimeException(e);
-            }
-        }
-        return false;
+        return goal instanceof NearestAttackableTargetGoal<?>
+                && ((TargetGoalTypeAccessor) goal).aoemod$getTargetType() == Turtle.class;
     }
 
     private static void makeHostileToPlayers(PathfinderMob mob){

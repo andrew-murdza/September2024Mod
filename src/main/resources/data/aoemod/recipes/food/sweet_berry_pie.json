@@ -11,10 +11,16 @@
       "item": "minecraft:egg"
     },
     {
-      "item": "minecraft:melon"
+      "item": "minecraft:sweet_berries"
     }
   ],
   "result": {
     "item": "pies:sweet_berry_pie"
-  }
+  },
+  "conditions": [
+    {
+      "type": "forge:item_exists",
+      "item": "pies:sweet_berry_pie"
+    }
+  ]
 }

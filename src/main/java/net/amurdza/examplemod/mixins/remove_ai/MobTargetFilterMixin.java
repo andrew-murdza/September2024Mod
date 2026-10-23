@@ -1,5 +1,6 @@
 package net.amurdza.examplemod.mixins.remove_ai;
 
+import net.amurdza.examplemod.entity.ai.PolarBearTamingAccess;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.Mob;
@@ -64,6 +65,10 @@ public abstract class MobTargetFilterMixin {
         }
 
         if (entity instanceof PiglinBrute) {
+            return false;
+        }
+
+        if (entity instanceof PolarBearTamingAccess bear && bear.aoe$isTame()) {
             return false;
         }
 

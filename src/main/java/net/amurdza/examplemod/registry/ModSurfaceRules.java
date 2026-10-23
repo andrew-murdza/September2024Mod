@@ -19,6 +19,7 @@ public class ModSurfaceRules {
             DeferredRegister.create(Registries.MATERIAL_RULE, AOEMod.MOD_ID);
 
     static {
+        MATERIAL_RULES.register("dimension_surface", net.amurdza.examplemod.worldgen.surface_rule.DimensionSurfaceRule.CODEC::codec);
         MATERIAL_CONDITIONS.register("noise_threshold_3d", NoiseThreshold3DConditionSource.CODEC::codec);
         MATERIAL_RULES.register("bandlands", BandlandsSurfaceRuleSource.CODEC::codec);
     }

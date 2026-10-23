@@ -1,0 +1,17 @@
+{
+  "type": "aoemod:nether_dimension",
+  "generator": {
+    "type": "minecraft:noise",
+    "settings": "aoemod:nether_dimension",
+    "biome_source": {
+      "type": "aoemod:dimension_regions",
+      "dimension": "nether",
+      "biomes": [
+        "aoemod:basalt_deltas",
+        "aoemod:crimson_forest",
+        "aoemod:warped_forest",
+        "aoemod:soul_sand_valley"
+      ]
+    }
+  }
+}

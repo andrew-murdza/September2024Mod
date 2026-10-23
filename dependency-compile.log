@@ -1,0 +1,336 @@
+To honour the JVM settings for this build a single-use Daemon process will be forked. See https://docs.gradle.org/8.1.1/userguide/gradle_daemon.html#sec:disabling_the_daemon.
+Daemon will be stopped at the end of the build 
+
+> Configure project :
+MixinGradle did not locate the diffplug APT plugin, skipping eclipse task configuration
+Java: 17.0.9, JVM: 17.0.9+9 (Eclipse Adoptium), Arch: amd64
+
+> Task :downloadMcpConfig
+> Task :extractSrg UP-TO-DATE
+> Task :createMcpToSrg UP-TO-DATE
+
+> Task :compileJava
+Note: SpongePowered MIXIN Annotation Processor Version=0.8.5 (MixinGradle Version=0.7.38)
+Note: Supported obfuscation types: ObfuscationServiceMCP supports [notch] ObfuscationServiceFG3 supports [searge]
+Note: Loading searge mappings from C:\Users\andre\Downloads\Games\September2024Mod\build\createMcpToSrg\output.tsrg
+C:\Users\andre\Downloads\Games\September2024Mod\src\main\java\net\amurdza\examplemod\mixins\othermods\snowrealmagic\SnowEntityDatafixerFallback.java:22: warning: Unable to locate method mapping for @At(INVOKE.<target>) 'Lcom/mojang/datafixers/schemas/Schema;getChoiceType(Lcom/mojang/datafixers/DSL$TypeReference;Ljava/lang/String;)Lcom/mojang/datafixers/types/Type;'
+    @Redirect(
+    ^
+Note: Writing refmap to C:\Users\andre\Downloads\Games\September2024Mod\build\tmp\compileJava\compileJava-refmap.json
+Note: Writing refmap to C:\Users\andre\Downloads\Games\September2024Mod\build\tmp\compileJava\compileJava-refmap.json
+Note: Writing searge composite mappings to C:\Users\andre\Downloads\Games\September2024Mod\build\tmp\compileJava\compileJava-mappings.tsrg
+Note: Writing refmap to C:\Users\andre\Downloads\Games\September2024Mod\build\tmp\compileJava\compileJava-refmap.json
+Note: Writing refmap to C:\Users\andre\Downloads\Games\September2024Mod\build\tmp\compileJava\compileJava-refmap.json
+Note: Writing searge composite mappings to C:\Users\andre\Downloads\Games\September2024Mod\build\tmp\compileJava\compileJava-mappings.tsrg
+C:\Users\andre\Downloads\Games\September2024Mod\src\main\java\net\amurdza\examplemod\AOEMod.java:57: warning: [removal] get() in FMLJavaModLoadingContext has been deprecated and marked for removal
+        IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
+                                                        ^
+C:\Users\andre\Downloads\Games\September2024Mod\src\main\java\net\amurdza\examplemod\AOEMod.java:104: warning: [removal] ResourceLocation(String,String) in ResourceLocation has been deprecated and marked for removal
+            setNotFlammable(fire, ForgeRegistries.BLOCKS.getValue(new ResourceLocation("nourished_nether", "soul_weeds")));
+                                                                  ^
+C:\Users\andre\Downloads\Games\September2024Mod\src\main\java\net\amurdza\examplemod\AOEMod.java:120: warning: [removal] ResourceLocation(String,String) in ResourceLocation has been deprecated and marked for removal
+            makeLeafLikeForMobSpawning(ForgeRegistries.BLOCKS.getValue(new ResourceLocation("quark", "glow_shroom_block")));
+                                                                       ^
+C:\Users\andre\Downloads\Games\September2024Mod\src\main\java\net\amurdza\examplemod\AOEMod.java:327: warning: [removal] setRenderLayer(Block,RenderType) in ItemBlockRenderTypes has been deprecated and marked for removal
+                ItemBlockRenderTypes.setRenderLayer(ModBlocks.PALE_MOSS_CARPET.get(), RenderType.cutout());
+                                    ^
+C:\Users\andre\Downloads\Games\September2024Mod\src\main\java\net\amurdza\examplemod\AOEMod.java:328: warning: [removal] setRenderLayer(Block,RenderType) in ItemBlockRenderTypes has been deprecated and marked for removal
+                ItemBlockRenderTypes.setRenderLayer(ModBlocks.PALE_HANGING_MOSS.get(), RenderType.cutout());
+                                    ^
+C:\Users\andre\Downloads\Games\September2024Mod\src\main\java\net\amurdza\examplemod\AOEMod.java:329: warning: [removal] setRenderLayer(Block,RenderType) in ItemBlockRenderTypes has been deprecated and marked for removal
+                ItemBlockRenderTypes.setRenderLayer(ModBlocks.OPEN_EYEBLOSSOM.get(), RenderType.cutout());
+                                    ^
+C:\Users\andre\Downloads\Games\September2024Mod\src\main\java\net\amurdza\examplemod\AOEMod.java:330: warning: [removal] setRenderLayer(Block,RenderType) in ItemBlockRenderTypes has been deprecated and marked for removal
+                ItemBlockRenderTypes.setRenderLayer(ModBlocks.CLOSED_EYEBLOSSOM.get(), RenderType.cutout());
+                                    ^
+C:\Users\andre\Downloads\Games\September2024Mod\src\main\java\net\amurdza\examplemod\AOEMod.java:331: warning: [removal] setRenderLayer(Block,RenderType) in ItemBlockRenderTypes has been deprecated and marked for removal
+                ItemBlockRenderTypes.setRenderLayer(ModBlocks.JUNGLE_SWEET_BERRY_BUSH.get(), RenderType.cutout());
+                                    ^
+C:\Users\andre\Downloads\Games\September2024Mod\src\main\java\net\amurdza\examplemod\AOEMod.java:332: warning: [removal] setRenderLayer(Block,RenderType) in ItemBlockRenderTypes has been deprecated and marked for removal
+                ItemBlockRenderTypes.setRenderLayer(ModBlocks.BLUE_BERRY_BUSH.get(), RenderType.cutout());
+                                    ^
+C:\Users\andre\Downloads\Games\September2024Mod\src\main\java\net\amurdza\examplemod\AOEMod.java:333: warning: [removal] setRenderLayer(Block,RenderType) in ItemBlockRenderTypes has been deprecated and marked for removal
+                ItemBlockRenderTypes.setRenderLayer(ModBlocks.PALE_OAK_DOOR.get(), RenderType.cutout());
+                                    ^
+C:\Users\andre\Downloads\Games\September2024Mod\src\main\java\net\amurdza\examplemod\AOEMod.java:334: warning: [removal] setRenderLayer(Block,RenderType) in ItemBlockRenderTypes has been deprecated and marked for removal
+                ItemBlockRenderTypes.setRenderLayer(ModBlocks.PALE_OAK_TRAPDOOR.get(), RenderType.cutout());
+                                    ^
+C:\Users\andre\Downloads\Games\September2024Mod\src\main\java\net\amurdza\examplemod\AOEMod.java:335: warning: [removal] setRenderLayer(Block,RenderType) in ItemBlockRenderTypes has been deprecated and marked for removal
+                ItemBlockRenderTypes.setRenderLayer(ModBlocks.PALE_OAK_LEAVES.get(), RenderType.cutoutMipped());
+                                    ^
+C:\Users\andre\Downloads\Games\September2024Mod\src\main\java\net\amurdza\examplemod\AOEMod.java:336: warning: [removal] setRenderLayer(Block,RenderType) in ItemBlockRenderTypes has been deprecated and marked for removal
+                ItemBlockRenderTypes.setRenderLayer(ModBlocks.PALE_OAK_SAPLING.get(), RenderType.cutout());
+                                    ^
+C:\Users\andre\Downloads\Games\September2024Mod\src\main\java\net\amurdza\examplemod\AOEMod.java:337: warning: [removal] setRenderLayer(Block,RenderType) in ItemBlockRenderTypes has been deprecated and marked for removal
+                ItemBlockRenderTypes.setRenderLayer(ModBlocks.AZALEA_SAPLING.get(), RenderType.cutout());
+                                    ^
+C:\Users\andre\Downloads\Games\September2024Mod\src\main\java\net\amurdza\examplemod\AOEMod.java:338: warning: [removal] setRenderLayer(Block,RenderType) in ItemBlockRenderTypes has been deprecated and marked for removal
+                ItemBlockRenderTypes.setRenderLayer(ModBlocks.COPPER_CHAIN.get(), RenderType.cutout());
+                                    ^
+C:\Users\andre\Downloads\Games\September2024Mod\src\main\java\net\amurdza\examplemod\AOEMod.java:350: warning: [removal] ResourceLocation(String,String) in ResourceLocation has been deprecated and marked for removal
+        return new ResourceLocation(AOEMod.MOD_ID,path);
+               ^
+C:\Users\andre\Downloads\Games\September2024Mod\src\main\java\net\amurdza\examplemod\block\BlueBerryBushBlock.java:23: warning: [removal] ResourceLocation(String,String) in ResourceLocation has been deprecated and marked for removal
+    private static final ResourceLocation FRUITS_DELIGHT_BLUEBERRY = new ResourceLocation("fruitsdelight", "blueberry");
+                                                                     ^
+C:\Users\andre\Downloads\Games\September2024Mod\src\main\java\net\amurdza\examplemod\client\PortalClient.java:37: warning: [removal] setRenderLayer(Block,RenderType) in ItemBlockRenderTypes has been deprecated and marked for removal
+                ItemBlockRenderTypes.setRenderLayer(block, RenderType.translucent());
+                                    ^
+C:\Users\andre\Downloads\Games\September2024Mod\src\main\java\net\amurdza\examplemod\client\PortalTexturePack.java:29: warning: [removal] ResourceLocation(String,String) in ResourceLocation has been deprecated and marked for removal
+    private static final ResourceLocation VANILLA_TEXTURE = new ResourceLocation("minecraft", "textures/block/nether_portal.png");
+                                                            ^
+C:\Users\andre\Downloads\Games\September2024Mod\src\main\java\net\amurdza\examplemod\client\PortalTexturePack.java:30: warning: [removal] ResourceLocation(String,String) in ResourceLocation has been deprecated and marked for removal
+    private static final ResourceLocation VANILLA_ANIMATION = new ResourceLocation("minecraft", "textures/block/nether_portal.png.mcmeta");
+                                                              ^
+C:\Users\andre\Downloads\Games\September2024Mod\src\main\java\net\amurdza\examplemod\config\BlockConfig.java:318: warning: [removal] ResourceLocation(String,String) in ResourceLocation has been deprecated and marked for removal
+        Item item = ForgeRegistries.ITEMS.getValue(new ResourceLocation(namespace, path));
+                                                   ^
+C:\Users\andre\Downloads\Games\September2024Mod\src\main\java\net\amurdza\examplemod\config\BlockConfig.java:323: warning: [removal] ResourceLocation(String,String) in ResourceLocation has been deprecated and marked for removal
+        Block block = ForgeRegistries.BLOCKS.getValue(new ResourceLocation(namespace, path));
+                                                      ^
+C:\Users\andre\Downloads\Games\September2024Mod\src\main\java\net\amurdza\examplemod\entity\ai\DolphinBreedingAccess.java:15: warning: [removal] ResourceLocation(String,String) in ResourceLocation has been deprecated and marked for removal
+            new ResourceLocation("aoemod", "fish")
+            ^
+C:\Users\andre\Downloads\Games\September2024Mod\src\main\java\net\amurdza\examplemod\entity\model\ArchlichModel.java:11: warning: [removal] ResourceLocation(String,String) in ResourceLocation has been deprecated and marked for removal
+    private static final ResourceLocation MODEL = new ResourceLocation("aoemod", "geo/archlich.geo.json");
+                                                  ^
+C:\Users\andre\Downloads\Games\September2024Mod\src\main\java\net\amurdza\examplemod\entity\model\ArchlichModel.java:12: warning: [removal] ResourceLocation(String,String) in ResourceLocation has been deprecated and marked for removal
+    private static final ResourceLocation TEXTURE = new ResourceLocation("aoemod", "textures/entity/archlich.png");
+                                                    ^
+C:\Users\andre\Downloads\Games\September2024Mod\src\main\java\net\amurdza\examplemod\entity\model\ArchlichModel.java:13: warning: [removal] ResourceLocation(String,String) in ResourceLocation has been deprecated and marked for removal
+    private static final ResourceLocation ANIMATION = new ResourceLocation(
+                                                      ^
+C:\Users\andre\Downloads\Games\September2024Mod\src\main\java\net\amurdza\examplemod\entity\model\IllagerLordModel.java:11: warning: [removal] ResourceLocation(String,String) in ResourceLocation has been deprecated and marked for removal
+    private static final ResourceLocation MODEL = new ResourceLocation("aoemod", "geo/illager_king.geo.json");
+                                                  ^
+C:\Users\andre\Downloads\Games\September2024Mod\src\main\java\net\amurdza\examplemod\entity\model\IllagerLordModel.java:12: warning: [removal] ResourceLocation(String,String) in ResourceLocation has been deprecated and marked for removal
+    private static final ResourceLocation TEXTURE = new ResourceLocation("aoemod", "textures/entity/illager_lord.png");
+                                                    ^
+C:\Users\andre\Downloads\Games\September2024Mod\src\main\java\net\amurdza\examplemod\entity\model\IllagerLordModel.java:13: warning: [removal] ResourceLocation(String,String) in ResourceLocation has been deprecated and marked for removal
+    private static final ResourceLocation ANIMATION = new ResourceLocation(
+                                                      ^
+C:\Users\andre\Downloads\Games\September2024Mod\src\main\java\net\amurdza\examplemod\entity\sea_serpent\SeaSerpentEntity.java:675: warning: [removal] ResourceLocation(String,String) in ResourceLocation has been deprecated and marked for removal
+        return new ResourceLocation(entityId.getNamespace(), "entities/" + entityId.getPath());
+               ^
+C:\Users\andre\Downloads\Games\September2024Mod\src\main\java\net\amurdza\examplemod\entity\model\SpiderQueenModel.java:12: warning: [removal] ResourceLocation(String,String) in ResourceLocation has been deprecated and marked for removal
+    private static final ResourceLocation MODEL = new ResourceLocation("aoemod", "geo/spider_queen.geo.json");
+                                                  ^
+C:\Users\andre\Downloads\Games\September2024Mod\src\main\java\net\amurdza\examplemod\entity\model\SpiderQueenModel.java:13: warning: [removal] ResourceLocation(String,String) in ResourceLocation has been deprecated and marked for removal
+    private static final ResourceLocation TEXTURE = new ResourceLocation("aoemod", "textures/entity/spider_queen.png");
+                                                    ^
+C:\Users\andre\Downloads\Games\September2024Mod\src\main\java\net\amurdza\examplemod\entity\model\SpiderQueenModel.java:14: warning: [removal] ResourceLocation(String,String) in ResourceLocation has been deprecated and marked for removal
+    private static final ResourceLocation ANIMATION = new ResourceLocation(
+                                                      ^
+C:\Users\andre\Downloads\Games\September2024Mod\src\main\java\net\amurdza\examplemod\entity\render\CubozoaEntityRenderer.java:71: warning: [removal] ResourceLocation(String,String) in ResourceLocation has been deprecated and marked for removal
+        TEXTURE[0] = new ResourceLocation(AOEMod.MOD_ID, "textures/entity/cubozoa/cubozoa.png");
+                     ^
+C:\Users\andre\Downloads\Games\September2024Mod\src\main\java\net\amurdza\examplemod\entity\render\CubozoaEntityRenderer.java:72: warning: [removal] ResourceLocation(String,String) in ResourceLocation has been deprecated and marked for removal
+        TEXTURE[1] = new ResourceLocation(AOEMod.MOD_ID, "textures/entity/cubozoa/cubozoa_sulphur.png");
+                     ^
+C:\Users\andre\Downloads\Games\September2024Mod\src\main\java\net\amurdza\examplemod\entity\render\CubozoaEntityRenderer.java:74: warning: [removal] ResourceLocation(String,String) in ResourceLocation has been deprecated and marked for removal
+        GLOW[0] = RenderType.eyes(new ResourceLocation(AOEMod.MOD_ID, "textures/entity/cubozoa/cubozoa_glow.png"));
+                                  ^
+C:\Users\andre\Downloads\Games\September2024Mod\src\main\java\net\amurdza\examplemod\entity\render\CubozoaEntityRenderer.java:75: warning: [removal] ResourceLocation(String,String) in ResourceLocation has been deprecated and marked for removal
+        GLOW[1] = RenderType.eyes(new ResourceLocation(AOEMod.MOD_ID, "textures/entity/cubozoa/cubozoa_sulphur_glow.png"));
+                                  ^
+C:\Users\andre\Downloads\Games\September2024Mod\src\main\java\net\amurdza\examplemod\entity\render\future\SkeletonHorsemanRenderer.java:12: warning: [removal] ResourceLocation(String,String) in ResourceLocation has been deprecated and marked for removal
+    private static final ResourceLocation TEXTURE = new ResourceLocation(
+                                                    ^
+C:\Users\andre\Downloads\Games\September2024Mod\src\main\java\net\amurdza\examplemod\entity\render\future\ZombieHorsemanRenderer.java:12: warning: [removal] ResourceLocation(String,String) in ResourceLocation has been deprecated and marked for removal
+    private static final ResourceLocation TEXTURE = new ResourceLocation(
+                                                    ^
+C:\Users\andre\Downloads\Games\September2024Mod\src\main\java\net\amurdza\examplemod\entity\render\SeaSerpentEntityRenderer.java:16: warning: [removal] ResourceLocation(String,String) in ResourceLocation has been deprecated and marked for removal
+            new ResourceLocation(AOEMod.MOD_ID, "textures/entity/sea_serpent.png");
+            ^
+C:\Users\andre\Downloads\Games\September2024Mod\src\main\java\net\amurdza\examplemod\event_handlers\BerryDrops.java:50: warning: [removal] ResourceLocation(String,String) in ResourceLocation has been deprecated and marked for removal
+                    ResourceLocation FRUITS_DELIGHT_BLUEBERRY = new ResourceLocation("fruitsdelight", "blueberry");
+                                                                ^
+C:\Users\andre\Downloads\Games\September2024Mod\src\main\java\net\amurdza\examplemod\event_handlers\BoneMeal.java:51: warning: [removal] ResourceLocation(String,String) in ResourceLocation has been deprecated and marked for removal
+    private static final ResourceLocation RED_SHRUB = new ResourceLocation("minecraft", "red_shrub");
+                                                      ^
+C:\Users\andre\Downloads\Games\September2024Mod\src\main\java\net\amurdza\examplemod\event_handlers\CustomBlockDrops.java:36: warning: [removal] ResourceLocation(String,String) in ResourceLocation has been deprecated and marked for removal
+    private static final ResourceLocation SOUL_WEEDS = new ResourceLocation("nourished_nether", "soul_weeds");
+                                                       ^
+C:\Users\andre\Downloads\Games\September2024Mod\src\main\java\net\amurdza\examplemod\event_handlers\ItemsPlaceModBlocks.java:28: warning: [removal] ResourceLocation(String,String) in ResourceLocation has been deprecated and marked for removal
+    private static final ResourceLocation FRUITS_DELIGHT_BLUEBERRY = new ResourceLocation("fruitsdelight", "blueberry");
+                                                                     ^
+C:\Users\andre\Downloads\Games\September2024Mod\src\main\java\net\amurdza\examplemod\event_handlers\MobTierBalancing.java:60: warning: [removal] ResourceLocation(String,String) in ResourceLocation has been deprecated and marked for removal
+    private static final ResourceLocation ALEX_CENTIPEDE_HEAD = new ResourceLocation("alexsmobs", "centipede_head");
+                                                                ^
+C:\Users\andre\Downloads\Games\September2024Mod\src\main\java\net\amurdza\examplemod\event_handlers\MobTierBalancing.java:61: warning: [removal] ResourceLocation(String,String) in ResourceLocation has been deprecated and marked for removal
+    private static final ResourceLocation QUARK_WRAITH = new ResourceLocation("quark", "wraith");
+                                                         ^
+C:\Users\andre\Downloads\Games\September2024Mod\src\main\java\net\amurdza\examplemod\event_handlers\MobTierBalancing.java:62: warning: [removal] ResourceLocation(String,String) in ResourceLocation has been deprecated and marked for removal
+    private static final ResourceLocation BACKPORTED_PARCHED = new ResourceLocation("minecraft", "parched");
+                                                               ^
+C:\Users\andre\Downloads\Games\September2024Mod\src\main\java\net\amurdza\examplemod\event_handlers\MobTierBalancing.java:63: warning: [removal] ResourceLocation(String,String) in ResourceLocation has been deprecated and marked for removal
+    private static final ResourceLocation BACKPORTED_CAMEL_HUSK = new ResourceLocation("minecraft", "camel_husk");
+                                                                  ^
+C:\Users\andre\Downloads\Games\September2024Mod\src\main\java\net\amurdza\examplemod\future\FutureContentPolicy.java:68: warning: [removal] ResourceLocation(String,String) in ResourceLocation has been deprecated and marked for removal
+            return new ResourceLocation("minecraft", REPLACED_MOB_EGGS.get(id.getPath()));
+                   ^
+C:\Users\andre\Downloads\Games\September2024Mod\src\main\java\net\amurdza\examplemod\future\FutureContentPolicy.java:71: warning: [removal] ResourceLocation(String,String) in ResourceLocation has been deprecated and marked for removal
+            return new ResourceLocation(AOEMod.MOD_ID, id.getPath());
+                   ^
+C:\Users\andre\Downloads\Games\September2024Mod\src\main\java\net\amurdza\examplemod\future\FutureContentPolicy.java:75: warning: [removal] ResourceLocation(String,String) in ResourceLocation has been deprecated and marked for removal
+            return new ResourceLocation("minecraft", id.getPath());
+                   ^
+C:\Users\andre\Downloads\Games\September2024Mod\src\main\java\net\amurdza\examplemod\future\FutureMobCompatibility.java:39: warning: [removal] ResourceLocation(String,String) in ResourceLocation has been deprecated and marked for removal
+        return BuiltInRegistries.ENTITY_TYPE.getKey(entity.getType()).equals(new ResourceLocation("minecraft", "armadillo"));
+                                                                             ^
+C:\Users\andre\Downloads\Games\September2024Mod\src\main\java\net\amurdza\examplemod\future\FutureTrades.java:21: warning: [removal] ResourceLocation(String,String) in ResourceLocation has been deprecated and marked for removal
+            var item = BuiltInRegistries.ITEM.get(new ResourceLocation("minecraft", name));
+                                                  ^
+C:\Users\andre\Downloads\Games\September2024Mod\src\main\java\net\amurdza\examplemod\util\BiomePlacementRestrictions.java:109: warning: [removal] ResourceLocation(String,String) in ResourceLocation has been deprecated and marked for removal
+            if (state.is(BlockTags.create(new ResourceLocation("aoemod", "biome_restrictions/" + group.getKey())))) mask |= group.getValue();
+                                          ^
+C:\Users\andre\Downloads\Games\September2024Mod\src\main\java\net\amurdza\examplemod\util\BiomePlacementRestrictions.java:112: warning: [removal] ResourceLocation(String,String) in ResourceLocation has been deprecated and marked for removal
+        if (!state.is(BlockTags.create(new ResourceLocation("aoemod", "biome_restrictions/not_rainforest_exceptions")))) {
+                                       ^
+C:\Users\andre\Downloads\Games\September2024Mod\src\main\java\net\amurdza\examplemod\util\BiomePlacementRestrictions.java:114: warning: [removal] ResourceLocation(String,String) in ResourceLocation has been deprecated and marked for removal
+            if (state.is(BlockTags.create(new ResourceLocation("aoemod", "biome_restrictions/not_rainforest")))) unrestricted &= ~TROPICAL;
+                                          ^
+C:\Users\andre\Downloads\Games\September2024Mod\src\main\java\net\amurdza\examplemod\gametest\DocumentedPlacementTests.java:112: warning: [removal] ResourceLocation(String) in ResourceLocation has been deprecated and marked for removal
+        ResourceLocation key = new ResourceLocation(id);
+                               ^
+C:\Users\andre\Downloads\Games\September2024Mod\src\main\java\net\amurdza\examplemod\gametest\FutureBackportTests.java:53: warning: [removal] ResourceLocation(String,String) in ResourceLocation has been deprecated and marked for removal
+        ItemStack legacy = new ItemStack(BuiltInRegistries.ITEM.get(new ResourceLocation("aoemod", "iron_spear")));
+                                                                    ^
+C:\Users\andre\Downloads\Games\September2024Mod\src\main\java\net\amurdza\examplemod\gametest\FutureBackportTests.java:58: warning: [removal] ResourceLocation(String,String) in ResourceLocation has been deprecated and marked for removal
+        var netherite = (SpearItem) BuiltInRegistries.ITEM.get(new ResourceLocation("minecraft", "netherite_spear"));
+                                                               ^
+C:\Users\andre\Downloads\Games\September2024Mod\src\main\java\net\amurdza\examplemod\gametest\FutureBackportTests.java:61: warning: [removal] ResourceLocation(String,String) in ResourceLocation has been deprecated and marked for removal
+        helper.assertTrue(!FutureContentPolicy.isExcludedItem(new ResourceLocation("aoemod", "bone_spear")), "Bone spear must stay available");
+                                                              ^
+C:\Users\andre\Downloads\Games\September2024Mod\src\main\java\net\amurdza\examplemod\gametest\FutureBackportTests.java:67: warning: [removal] ResourceLocation(String,String) in ResourceLocation has been deprecated and marked for removal
+        var shrub = BuiltInRegistries.BLOCK.get(new ResourceLocation("minecraft", "red_shrub"));
+                                                ^
+C:\Users\andre\Downloads\Games\September2024Mod\src\main\java\net\amurdza\examplemod\gametest\FutureBackportTests.java:92: warning: [removal] ResourceLocation(String,String) in ResourceLocation has been deprecated and marked for removal
+        helper.assertTrue(FutureContentPolicy.isExcludedItem(new ResourceLocation("minecraft", "happy_ghast_spawn_egg")), "Happy ghasts must be hidden from normal acquisition");
+                                                             ^
+C:\Users\andre\Downloads\Games\September2024Mod\src\main\java\net\amurdza\examplemod\gametest\FutureBackportTests.java:93: warning: [removal] ResourceLocation(String,String) in ResourceLocation has been deprecated and marked for removal
+        helper.assertTrue(helper.getLevel().getRecipeManager().byKey(new ResourceLocation("minecraft", "bundle")).isPresent(), "The requested bundle recipe must survive filtering");
+                                                                     ^
+C:\Users\andre\Downloads\Games\September2024Mod\src\main\java\net\amurdza\examplemod\gametest\FutureContentGameTests.java:58: warning: [removal] ResourceLocation(String,String) in ResourceLocation has been deprecated and marked for removal
+            ResourceLocation id = new ResourceLocation("minecraft", path);
+                                  ^
+C:\Users\andre\Downloads\Games\September2024Mod\src\main\java\net\amurdza\examplemod\gametest\FutureContentGameTests.java:72: warning: [removal] ResourceLocation(String) in ResourceLocation has been deprecated and marked for removal
+            helper.assertTrue(BuiltInRegistries.ENTITY_TYPE.containsKey(new ResourceLocation(id)),
+                                                                        ^
+C:\Users\andre\Downloads\Games\September2024Mod\src\main\java\net\amurdza\examplemod\gametest\FutureContentGameTests.java:104: warning: [removal] ResourceLocation(String,String) in ResourceLocation has been deprecated and marked for removal
+        var shrub = BuiltInRegistries.BLOCK.get(new ResourceLocation("minecraft", "red_shrub"));
+                                                ^
+C:\Users\andre\Downloads\Games\September2024Mod\src\main\java\net\amurdza\examplemod\gametest\FutureContentGameTests.java:129: warning: [removal] ResourceLocation(String,String) in ResourceLocation has been deprecated and marked for removal
+        var golemType = BuiltInRegistries.ENTITY_TYPE.get(new ResourceLocation("minecraft", "copper_golem"));
+                                                          ^
+C:\Users\andre\Downloads\Games\September2024Mod\src\main\java\net\amurdza\examplemod\gametest\FutureContentGameTests.java:142: warning: [removal] ResourceLocation(String,String) in ResourceLocation has been deprecated and marked for removal
+                            BuiltInRegistries.BLOCK.get(new ResourceLocation("minecraft", "copper_chest"))),
+                                                        ^
+C:\Users\andre\Downloads\Games\September2024Mod\src\main\java\net\amurdza\examplemod\gametest\FutureContentGameTests.java:157: warning: [removal] ResourceLocation(String,String) in ResourceLocation has been deprecated and marked for removal
+        ResourceLocation id = new ResourceLocation("minecraft", "zombie_nautilus");
+                              ^
+C:\Users\andre\Downloads\Games\September2024Mod\src\main\java\net\amurdza\examplemod\gametest\FutureContentGameTests.java:236: warning: [removal] ResourceLocation(String,String) in ResourceLocation has been deprecated and marked for removal
+        Entity entity = BuiltInRegistries.ENTITY_TYPE.get(new ResourceLocation("minecraft", "armadillo"))
+                                                          ^
+C:\Users\andre\Downloads\Games\September2024Mod\src\main\java\net\amurdza\examplemod\gametest\FutureContentGameTests.java:337: warning: [removal] ResourceLocation(String) in ResourceLocation has been deprecated and marked for removal
+        ResourceLocation id = new ResourceLocation(name);
+                              ^
+C:\Users\andre\Downloads\Games\September2024Mod\src\main\java\net\amurdza\examplemod\gametest\GameplayBugRegressionTests.java:191: warning: [removal] ResourceLocation(String,String) in ResourceLocation has been deprecated and marked for removal
+        var recipe = helper.getLevel().getRecipeManager().byKey(new ResourceLocation("aoemod", "tools/bone_shears"));
+                                                                ^
+C:\Users\andre\Downloads\Games\September2024Mod\src\main\java\net\amurdza\examplemod\gametest\GameplayBugRegressionTests.java:196: warning: [removal] ResourceLocation(String,String) in ResourceLocation has been deprecated and marked for removal
+        helper.assertTrue(helper.getLevel().getRecipeManager().byKey(new ResourceLocation("aoemod", "food/glow_berry_soup")).isEmpty(),
+                                                                     ^
+C:\Users\andre\Downloads\Games\September2024Mod\src\main\java\net\amurdza\examplemod\gametest\PlantGameplayTests.java:224: warning: [removal] ResourceLocation(String,String) in ResourceLocation has been deprecated and marked for removal
+            ResourceLocation id = new ResourceLocation("quark", path);
+                                  ^
+C:\Users\andre\Downloads\Games\September2024Mod\src\main\java\net\amurdza\examplemod\gametest\SoulBeetGameplayTests.java:169: warning: [removal] ResourceLocation(String,String) in ResourceLocation has been deprecated and marked for removal
+        Block weeds = ForgeRegistries.BLOCKS.getValue(new ResourceLocation("nourished_nether", "soul_weeds"));
+                                                      ^
+C:\Users\andre\Downloads\Games\September2024Mod\src\main\java\net\amurdza\examplemod\item\MaterialShieldItem.java:16: warning: [removal] ResourceLocation(String) in ResourceLocation has been deprecated and marked for removal
+    private static final ResourceLocation BLOCKING = new ResourceLocation("blocking");
+                                                     ^
+C:\Users\andre\Downloads\Games\September2024Mod\src\main\java\net\amurdza\examplemod\item\ModToolTiers.java:45: warning: [removal] ResourceLocation(String,String) in ResourceLocation has been deprecated and marked for removal
+                new ResourceLocation(AOEMod.MOD_ID, "bone"),
+                ^
+C:\Users\andre\Downloads\Games\September2024Mod\src\main\java\net\amurdza\examplemod\item\ModToolTiers.java:51: warning: [removal] ResourceLocation(String,String) in ResourceLocation has been deprecated and marked for removal
+                new ResourceLocation(AOEMod.MOD_ID, "copper"),
+                ^
+C:\Users\andre\Downloads\Games\September2024Mod\src\main\java\net\amurdza\examplemod\item\ModToolTiers.java:56: warning: [removal] ResourceLocation(String,String) in ResourceLocation has been deprecated and marked for removal
+                new ResourceLocation(AOEMod.MOD_ID, "rebalanced_netherite"),
+                ^
+C:\Users\andre\Downloads\Games\September2024Mod\src\main\java\net\amurdza\examplemod\mixins\item\NetheriteHorseArmorBalance.java:17: warning: [removal] ResourceLocation(String,String) in ResourceLocation has been deprecated and marked for removal
+        if (!new ResourceLocation("minecraft", "netherite_horse_armor").equals(ForgeRegistries.ITEMS.getKey(item))) return;
+             ^
+C:\Users\andre\Downloads\Games\September2024Mod\src\main\java\net\amurdza\examplemod\mixins\item\NetheriteHorseArmorBalance.java:18: warning: [removal] ResourceLocation(String,String) in ResourceLocation has been deprecated and marked for removal
+        var copper = ForgeRegistries.ITEMS.getValue(new ResourceLocation("minecraft", "copper_horse_armor"));
+                                                    ^
+C:\Users\andre\Downloads\Games\September2024Mod\src\main\java\net\amurdza\examplemod\mixins\no_fire_in_tropical\NoBaseFirePlacementInTropical.java:19: warning: [removal] ResourceLocation(String,String) in ResourceLocation has been deprecated and marked for removal
+    private static final ResourceLocation SOUL_WEEDS = new ResourceLocation("nourished_nether", "soul_weeds");
+                                                       ^
+C:\Users\andre\Downloads\Games\September2024Mod\src\main\java\net\amurdza\examplemod\mixins\no_fire_in_tropical\NoFireSpreadInTropical.java:20: warning: [removal] ResourceLocation(String,String) in ResourceLocation has been deprecated and marked for removal
+    private static final ResourceLocation SOUL_WEEDS = new ResourceLocation("nourished_nether", "soul_weeds");
+                                                       ^
+C:\Users\andre\Downloads\Games\September2024Mod\src\main\java\net\amurdza\examplemod\mixins\othermods\backport\RedShrubBonemeal.java:23: warning: [removal] ResourceLocation(String,String) in ResourceLocation has been deprecated and marked for removal
+        if (BuiltInRegistries.BLOCK.getKey(state.getBlock()).equals(new ResourceLocation("minecraft", "red_shrub"))) {
+                                                                    ^
+C:\Users\andre\Downloads\Games\September2024Mod\src\main\java\net\amurdza\examplemod\mixins\othermods\backport\RedShrubBonemeal.java:32: warning: [removal] ResourceLocation(String,String) in ResourceLocation has been deprecated and marked for removal
+        if (BuiltInRegistries.BLOCK.getKey(state.getBlock()).equals(new ResourceLocation("minecraft", "red_shrub"))) {
+                                                                    ^
+C:\Users\andre\Downloads\Games\September2024Mod\src\main\java\net\amurdza\examplemod\mixins\othermods\backport\RedShrubSurvival.java:20: warning: [removal] ResourceLocation(String,String) in ResourceLocation has been deprecated and marked for removal
+        if (BuiltInRegistries.BLOCK.getKey(state.getBlock()).equals(new ResourceLocation("minecraft", "red_shrub"))) {
+                                                                    ^
+C:\Users\andre\Downloads\Games\September2024Mod\src\main\java\net\amurdza\examplemod\mixins\othermods\quark\ChainsConnectCopperChains.java:26: warning: [removal] ResourceLocation(String,String) in ResourceLocation has been deprecated and marked for removal
+    private static final ResourceLocation AOEMOD_COPPER_CHAIN = new ResourceLocation(AOEMod.MOD_ID, "copper_chain");
+                                                                ^
+C:\Users\andre\Downloads\Games\September2024Mod\src\main\java\net\amurdza\examplemod\mixins\othermods\wooden_bucket\WoodenBucketMixin.java:21: warning: [removal] ResourceLocation(String,String) in ResourceLocation has been deprecated and marked for removal
+            new ResourceLocation("woodenbucket", "wooden_bucket");
+            ^
+C:\Users\andre\Downloads\Games\September2024Mod\src\main\java\net\amurdza\examplemod\registry\ModConfiguredFeatures.java:15: warning: [removal] ResourceLocation(String,String) in ResourceLocation has been deprecated and marked for removal
+                new ResourceLocation(AOEMod.MOD_ID, path)
+                ^
+C:\Users\andre\Downloads\Games\September2024Mod\src\main\java\net\amurdza\examplemod\registry\ModDimensionEffects.java:22: warning: [removal] ResourceLocation(String,String) in ResourceLocation has been deprecated and marked for removal
+    public static final ResourceLocation OVERWORLD_REGIONS = new ResourceLocation(AOEMod.MOD_ID, "overworld_regions");
+                                                             ^
+C:\Users\andre\Downloads\Games\September2024Mod\src\main\java\net\amurdza\examplemod\registry\ModDimensionEffects.java:23: warning: [removal] ResourceLocation(String,String) in ResourceLocation has been deprecated and marked for removal
+    public static final ResourceLocation NETHER_REGIONS = new ResourceLocation(AOEMod.MOD_ID, "nether_regions");
+                                                          ^
+C:\Users\andre\Downloads\Games\September2024Mod\src\main\java\net\amurdza\examplemod\registry\ModEntities.java:385: warning: [removal] ResourceLocation(String,String) in ResourceLocation has been deprecated and marked for removal
+                        .build(new ResourceLocation(AOEMod.MOD_ID, name).toString())
+                               ^
+C:\Users\andre\Downloads\Games\September2024Mod\src\main\java\net\amurdza\examplemod\registry\SurfaceRuleRegistry.java:17: warning: [removal] ResourceLocation(String,String) in ResourceLocation has been deprecated and marked for removal
+                    new ResourceLocation(AOEMod.MOD_ID, "noise_threshold_3d"),
+                    ^
+C:\Users\andre\Downloads\Games\September2024Mod\src\main\java\net\amurdza\examplemod\util\DocumentedPlacementRules.java:22: warning: [removal] ResourceLocation(String,String) in ResourceLocation has been deprecated and marked for removal
+            if (block.defaultBlockState().is(BlockTags.create(new ResourceLocation("aoemod",
+                                                              ^
+C:\Users\andre\Downloads\Games\September2024Mod\src\main\java\net\amurdza\examplemod\util\GameplayDimensions.java:48: warning: [removal] ResourceLocation(String,String) in ResourceLocation has been deprecated and marked for removal
+                new ResourceLocation(AOEMod.MOD_ID, path)));
+                ^
+C:\Users\andre\Downloads\Games\September2024Mod\src\main\java\net\amurdza\examplemod\util\GameplayDimensions.java:52: warning: [removal] ResourceLocation(String,String) in ResourceLocation has been deprecated and marked for removal
+        return ResourceKey.create(Registries.DIMENSION, new ResourceLocation(AOEMod.MOD_ID, path));
+                                                        ^
+C:\Users\andre\Downloads\Games\September2024Mod\src\main\java\net\amurdza\examplemod\util\ModTags.java:22: warning: [removal] ResourceLocation(String,String) in ResourceLocation has been deprecated and marked for removal
+            return BlockTags.create(new ResourceLocation(AOEMod.MOD_ID, name));
+                                    ^
+C:\Users\andre\Downloads\Games\September2024Mod\src\main\java\net\amurdza\examplemod\util\ModTags.java:36: warning: [removal] ResourceLocation(String,String) in ResourceLocation has been deprecated and marked for removal
+            return ItemTags.create(new ResourceLocation(AOEMod.MOD_ID,name));
+                                   ^
+C:\Users\andre\Downloads\Games\September2024Mod\src\main\java\net\amurdza\examplemod\util\ModTags.java:57: warning: [removal] ResourceLocation(String,String) in ResourceLocation has been deprecated and marked for removal
+            return TagKey.create(Registries.BIOME,new ResourceLocation(AOEMod.MOD_ID,name));
+                                                  ^
+Note: Some input files use or override a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+Note: Some input files additionally use or override a deprecated API that is marked for removal.
+Note: Some input files use unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+100 warnings
+
+Deprecated Gradle features were used in this build, making it incompatible with Gradle 9.0.
+
+You can use '--warning-mode all' to show the individual deprecation warnings and determine if they come from your own scripts or plugins.
+
+See https://docs.gradle.org/8.1.1/userguide/command_line_interface.html#sec:command_line_warnings
+
+BUILD SUCCESSFUL in 42s
+4 actionable tasks: 2 executed, 2 up-to-date

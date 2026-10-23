@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smelting",
+  "ingredient": {
+    "item": "aoemod:raw_blue_spotted_stingray"
+  },
+  "result": "aoemod:cooked_blue_spotted_stingray",
+  "experience": 0.35,
+  "cookingtime": 200
+}

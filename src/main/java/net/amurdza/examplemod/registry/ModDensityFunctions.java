@@ -18,6 +18,7 @@ public final class ModDensityFunctions {
             DeferredRegister.create(Registries.DENSITY_FUNCTION_TYPE, AOEMod.MOD_ID);
 
     static {
+        DENSITY_FUNCTION_TYPES.register("dimension_terrain", net.amurdza.examplemod.worldgen.DimensionTerrain.CODEC::codec);
         DENSITY_FUNCTION_TYPES.register("continents", Continents.CODEC::codec);
         DENSITY_FUNCTION_TYPES.register("rivers", RadialRivers.CODEC::codec);
         DENSITY_FUNCTION_TYPES.register("offset", SteppedMountainOffset.CODEC::codec);

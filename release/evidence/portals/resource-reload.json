@@ -1,0 +1,10 @@
+{
+  "connected": true,
+  "dimension": "aoemod:desert_dimension",
+  "resourcePacks": [
+    "vanilla",
+    "mod_resources",
+    "aoemod_portal_colors"
+  ],
+  "allPassed": true
+}

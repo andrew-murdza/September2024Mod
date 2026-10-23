@@ -1,0 +1,37 @@
+{
+  "music.outer_end.azure": {
+    "category": "music",
+    "sounds": [
+      {
+        "name": "outer_end:music.outer_end.game",
+        "type": "event"
+      },
+      {
+        "name": "outer_end:music/outer_end/azure/dysonsphere",
+        "stream": true,
+        "weight": 3
+      },
+      {
+        "name": "outer_end:music/outer_end/azure/isolation",
+        "stream": true,
+        "weight": 3
+      }
+    ],
+    "replace": true
+  },
+  "music.outer_end.crystal_crag": {
+    "category": "music",
+    "sounds": [
+      {
+        "name": "outer_end:music.outer_end.game",
+        "type": "event"
+      },
+      {
+        "name": "outer_end:music/outer_end/crystal_crag/parel",
+        "stream": true,
+        "weight": 6
+      }
+    ],
+    "replace": true
+  }
+}

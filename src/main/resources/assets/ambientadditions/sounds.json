@@ -1,0 +1,26 @@
+{
+  "honeycreeper.ambient": {
+    "sounds": [
+      {
+        "type": "event",
+        "name": "ambientadditions:iiwi.ambient"
+      }
+    ]
+  },
+  "honeycreeper.hurt": {
+    "sounds": [
+      {
+        "type": "event",
+        "name": "ambientadditions:iiwi.hurt"
+      }
+    ]
+  },
+  "honeycreeper.death": {
+    "sounds": [
+      {
+        "type": "event",
+        "name": "ambientadditions:iiwi.death"
+      }
+    ]
+  }
+}

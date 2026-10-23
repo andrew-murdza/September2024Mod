@@ -34,19 +34,27 @@
     [],
     [],
     [],
-    [
-      "aoemod:nether_cave_chunk"
-    ],
+    [],
     [],
     [],
     [
-      "aoemod:nether_ores/ancient_debris",
-      "aoemod:nether_ores/nether_gold",
-      "aoemod:nether_ores/quartz"
+      "aoemod:dimension_ores/nether/crimson_forest_quartz",
+      "aoemod:dimension_ores/nether/crimson_forest_nether_gold",
+      "aoemod:dimension_ores/nether/crimson_forest_ancient_debris"
+    ],
+    [
+      "minecraft:patch_fire",
+      "minecraft:glowstone_extra",
+      "minecraft:glowstone"
     ],
     [],
-    [],
-    []
+    [
+      "minecraft:brown_mushroom_normal",
+      "minecraft:red_mushroom_normal",
+      "minecraft:weeping_vines",
+      "minecraft:crimson_fungi",
+      "minecraft:crimson_forest_vegetation"
+    ]
   ],
   "has_precipitation": false,
   "spawn_costs": {},

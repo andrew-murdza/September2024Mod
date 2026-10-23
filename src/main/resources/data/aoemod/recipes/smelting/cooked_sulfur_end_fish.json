@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smelting",
+  "ingredient": {
+    "item": "aoemod:sulfur_end_fish"
+  },
+  "result": "aoemod:cooked_sulfur_end_fish",
+  "experience": 0.35,
+  "cookingtime": 200
+}

@@ -1,0 +1,3816 @@
+{
+  "tropical": {
+    "documentId": "15fNiZFE4z0uDmWzB47P0lOE945R9EROQW5uU76qnLvY",
+    "title": "Jungle",
+    "revisionId": "AHj4eMTc1nisMbOgmf4We0q0iS4T1GjyQed6HKGIH32XFO87XD-6rUOPC2-PvDNGquOfizQMBTmKZiTQ6iZI2Md7-DqRo9na9lxd3iJ4Y6Q",
+    "tabId": null,
+    "paragraphs": [
+      {
+        "text": "Tropical Dimension",
+        "startIndex": 1,
+        "endIndex": 19,
+        "tabId": "t.0",
+        "namedStyleType": "TITLE",
+        "isListItem": false
+      },
+      {
+        "text": "Note: Anything from any of the tropical biomes can go to anywhere in the tropical dimension",
+        "startIndex": 20,
+        "endIndex": 111,
+        "tabId": "t.0",
+        "namedStyleType": "NORMAL_TEXT",
+        "isListItem": false
+      },
+      {
+        "text": "For mob spawning (only natural spawning, not spawn eggs, commands, etc.):",
+        "startIndex": 113,
+        "endIndex": 186,
+        "tabId": "t.0",
+        "namedStyleType": "NORMAL_TEXT",
+        "isListItem": false
+      },
+      {
+        "text": "Small fish require water in their spawn block and water in the blocks directly above and below it",
+        "startIndex": 187,
+        "endIndex": 284,
+        "tabId": "t.0",
+        "namedStyleType": "NORMAL_TEXT",
+        "isListItem": true
+      },
+      {
+        "text": "Large fish require water in their spawn block and water in the 2 blocks directly above and the 2 directly below it",
+        "startIndex": 285,
+        "endIndex": 399,
+        "tabId": "t.0",
+        "namedStyleType": "NORMAL_TEXT",
+        "isListItem": true
+      },
+      {
+        "text": "Bottom fish require water in their spawn block and water in the 2 blocks directly above and a solid block directly below it",
+        "startIndex": 400,
+        "endIndex": 523,
+        "tabId": "t.0",
+        "namedStyleType": "NORMAL_TEXT",
+        "isListItem": true
+      },
+      {
+        "text": "Livestock",
+        "startIndex": 524,
+        "endIndex": 533,
+        "tabId": "t.0",
+        "namedStyleType": "HEADING_1",
+        "isListItem": false
+      },
+      {
+        "text": "Cabybara (Biodiverse) (Mangrove Swamp) (drops raw beef)",
+        "startIndex": 534,
+        "endIndex": 589,
+        "tabId": "t.0",
+        "namedStyleType": "NORMAL_TEXT",
+        "isListItem": true
+      },
+      {
+        "text": "Rabbit (Cherry Grove)",
+        "startIndex": 590,
+        "endIndex": 611,
+        "tabId": "t.0",
+        "namedStyleType": "NORMAL_TEXT",
+        "isListItem": true
+      },
+      {
+        "text": "Cassowary (Biodiverse) (Rainforest) (Raw pheasant from Bountiful Critters)",
+        "startIndex": 612,
+        "endIndex": 686,
+        "tabId": "t.0",
+        "namedStyleType": "NORMAL_TEXT",
+        "isListItem": true
+      },
+      {
+        "text": "Arthropleura (Custom) (Rainforest) (Raw Pachyderm Meat from Untamed Wilds)",
+        "startIndex": 687,
+        "endIndex": 761,
+        "tabId": "t.0",
+        "namedStyleType": "NORMAL_TEXT",
+        "isListItem": true
+      },
+      {
+        "text": "Usable tamed mobs",
+        "startIndex": 762,
+        "endIndex": 779,
+        "tabId": "t.0",
+        "namedStyleType": "HEADING_1",
+        "isListItem": false
+      },
+      {
+        "text": "Gorilla (Alex’s Mobs) (Rainforest)",
+        "startIndex": 780,
+        "endIndex": 814,
+        "tabId": "t.0",
+        "namedStyleType": "NORMAL_TEXT",
+        "isListItem": true
+      },
+      {
+        "text": "Anaconda (Alex’s Mobs) (Mangrove Swamp)",
+        "startIndex": 815,
+        "endIndex": 854,
+        "tabId": "t.0",
+        "namedStyleType": "NORMAL_TEXT",
+        "isListItem": true
+      },
+      {
+        "text": "Elephant (Alex’s Mobs) (Rainforest)",
+        "startIndex": 855,
+        "endIndex": 890,
+        "tabId": "t.0",
+        "namedStyleType": "NORMAL_TEXT",
+        "isListItem": true
+      },
+      {
+        "text": "Nautilus (Coral Reef)",
+        "startIndex": 891,
+        "endIndex": 912,
+        "tabId": "t.0",
+        "namedStyleType": "NORMAL_TEXT",
+        "isListItem": true
+      },
+      {
+        "text": "Decorative land mobs",
+        "startIndex": 913,
+        "endIndex": 933,
+        "tabId": "t.0",
+        "namedStyleType": "HEADING_1",
+        "isListItem": false
+      },
+      {
+        "text": "Ocelot (Rainforest)",
+        "startIndex": 934,
+        "endIndex": 953,
+        "tabId": "t.0",
+        "namedStyleType": "NORMAL_TEXT",
+        "isListItem": true
+      },
+      {
+        "text": "Parrot (Rainforest)",
+        "startIndex": 954,
+        "endIndex": 973,
+        "tabId": "t.0",
+        "namedStyleType": "NORMAL_TEXT",
+        "isListItem": true
+      },
+      {
+        "text": "Fox (Cherry Grove)",
+        "startIndex": 974,
+        "endIndex": 992,
+        "tabId": "t.0",
+        "namedStyleType": "NORMAL_TEXT",
+        "isListItem": true
+      },
+      {
+        "text": "Panda (Cherry Grove)",
+        "startIndex": 993,
+        "endIndex": 1013,
+        "tabId": "t.0",
+        "namedStyleType": "NORMAL_TEXT",
+        "isListItem": true
+      },
+      {
+        "text": "Cat (Cherry Grove)",
+        "startIndex": 1014,
+        "endIndex": 1032,
+        "tabId": "t.0",
+        "namedStyleType": "NORMAL_TEXT",
+        "isListItem": true
+      },
+      {
+        "text": "Flamingo ([Let’s Do] Wildernature) (Mangrove Swamp)",
+        "startIndex": 1033,
+        "endIndex": 1084,
+        "tabId": "t.0",
+        "namedStyleType": "NORMAL_TEXT",
+        "isListItem": true
+      },
+      {
+        "text": "Frog (Mangrove Swamp)",
+        "startIndex": 1085,
+        "endIndex": 1106,
+        "tabId": "t.0",
+        "namedStyleType": "NORMAL_TEXT",
+        "isListItem": true
+      },
+      {
+        "text": "Edible water mobs",
+        "startIndex": 1107,
+        "endIndex": 1124,
+        "tabId": "t.0",
+        "namedStyleType": "HEADING_1",
+        "isListItem": false
+      },
+      {
+        "text": "Lionfish (Upgrade Aquatic) (Coral Reef) (small fish)",
+        "startIndex": 1125,
+        "endIndex": 1177,
+        "tabId": "t.0",
+        "namedStyleType": "NORMAL_TEXT",
+        "isListItem": true
+      },
+      {
+        "text": "Mahi-Mahi (Angling)  (Needs Cooked Food Item) (Coral Reef) (large fish)",
+        "startIndex": 1178,
+        "endIndex": 1249,
+        "tabId": "t.0",
+        "namedStyleType": "NORMAL_TEXT",
+        "isListItem": true
+      },
+      {
+        "text": "Lightfoot Crab (Hybrid Aquatic) (Coral Reef) (Coral Reef) (bottom fish)",
+        "startIndex": 1250,
+        "endIndex": 1321,
+        "tabId": "t.0",
+        "namedStyleType": "NORMAL_TEXT",
+        "isListItem": true
+      },
+      {
+        "text": "Octopus (Hybrid Aquatic) (Both Coral Reef and Mangrove Swamp)  (Needs Food Item) (large fish)",
+        "startIndex": 1322,
+        "endIndex": 1415,
+        "tabId": "t.0",
+        "namedStyleType": "NORMAL_TEXT",
+        "isListItem": true
+      },
+      {
+        "text": "Tropical fish (Cooked form is from Cooking Expanded) (Both Coral Reef and Mangrove Swamp) (small fish)",
+        "startIndex": 1416,
+        "endIndex": 1518,
+        "tabId": "t.0",
+        "namedStyleType": "NORMAL_TEXT",
+        "isListItem": true
+      },
+      {
+        "text": "Anomalocaris (Angling)  (Needs Food Item) (Both Coral Reef and Mangrove Swamp) (small fish)",
+        "startIndex": 1519,
+        "endIndex": 1610,
+        "tabId": "t.0",
+        "namedStyleType": "NORMAL_TEXT",
+        "isListItem": true
+      },
+      {
+        "text": "Pufferfish (Cooked Version is Custom) (Both Coral Reef and Mangrove Swamp) (small fish)",
+        "startIndex": 1611,
+        "endIndex": 1698,
+        "tabId": "t.0",
+        "namedStyleType": "NORMAL_TEXT",
+        "isListItem": true
+      },
+      {
+        "text": "Trout (Hybrid Aquatic)  (Needs Cooked Food Item) (Mangrove Swamp) (small fish)",
+        "startIndex": 1699,
+        "endIndex": 1777,
+        "tabId": "t.0",
+        "namedStyleType": "NORMAL_TEXT",
+        "isListItem": true
+      },
+      {
+        "text": "Rubber Belly Glider (Fins and Tails)  (Needs Food Item) (Mangrove Swamp) (large fish)",
+        "startIndex": 1778,
+        "endIndex": 1863,
+        "tabId": "t.0",
+        "namedStyleType": "NORMAL_TEXT",
+        "isListItem": true
+      },
+      {
+        "text": "Giant River Prawn (Collector’s Reap)  (Mangrove Swamp) (Needs Cooked Food Item, because I don’t like the color of the cooked item) (large fish)",
+        "startIndex": 1864,
+        "endIndex": 2007,
+        "tabId": "t.0",
+        "namedStyleType": "NORMAL_TEXT",
+        "isListItem": true
+      },
+      {
+        "text": "Decorative water mobs",
+        "startIndex": 2008,
+        "endIndex": 2029,
+        "tabId": "t.0",
+        "namedStyleType": "HEADING_1",
+        "isListItem": false
+      },
+      {
+        "text": "Turtle",
+        "startIndex": 2030,
+        "endIndex": 2036,
+        "tabId": "t.0",
+        "namedStyleType": "NORMAL_TEXT",
+        "isListItem": true
+      },
+      {
+        "text": "Axolotl",
+        "startIndex": 2037,
+        "endIndex": 2044,
+        "tabId": "t.0",
+        "namedStyleType": "NORMAL_TEXT",
+        "isListItem": true
+      },
+      {
+        "text": "Sea Snail (Angling)",
+        "startIndex": 2045,
+        "endIndex": 2064,
+        "tabId": "t.0",
+        "namedStyleType": "NORMAL_TEXT",
+        "isListItem": true
+      },
+      {
+        "text": "Umbrella Octopus (Hybrid Aquatic)",
+        "startIndex": 2065,
+        "endIndex": 2098,
+        "tabId": "t.0",
+        "namedStyleType": "NORMAL_TEXT",
+        "isListItem": true
+      },
+      {
+        "text": "Starfish (Angling)",
+        "startIndex": 2099,
+        "endIndex": 2117,
+        "tabId": "t.0",
+        "namedStyleType": "NORMAL_TEXT",
+        "isListItem": true
+      },
+      {
+        "text": "Trees",
+        "startIndex": 2118,
+        "endIndex": 2123,
+        "tabId": "t.0",
+        "namedStyleType": "HEADING_1",
+        "isListItem": false
+      },
+      {
+        "text": "Mangrove (Mangrove swamp)",
+        "startIndex": 2124,
+        "endIndex": 2149,
+        "tabId": "t.0",
+        "namedStyleType": "NORMAL_TEXT",
+        "isListItem": true
+      },
+      {
+        "text": "Giant Red Mushroom (Rainforest)",
+        "startIndex": 2150,
+        "endIndex": 2181,
+        "tabId": "t.0",
+        "namedStyleType": "NORMAL_TEXT",
+        "isListItem": true
+      },
+      {
+        "text": "Giant Brown Mushroom (Rainforest)",
+        "startIndex": 2182,
+        "endIndex": 2215,
+        "tabId": "t.0",
+        "namedStyleType": "NORMAL_TEXT",
+        "isListItem": true
+      },
+      {
+        "text": "Oak (always grows fancy) (Rainforest)",
+        "startIndex": 2216,
+        "endIndex": 2253,
+        "tabId": "t.0",
+        "namedStyleType": "NORMAL_TEXT",
+        "isListItem": true
+      },
+      {
+        "text": "Dark Oak (Rainforest)",
+        "startIndex": 2254,
+        "endIndex": 2275,
+        "tabId": "t.0",
+        "namedStyleType": "NORMAL_TEXT",
+        "isListItem": true
+      },
+      {
+        "text": "Azalea (Rainforest) (doesn’t grow rooted below it) (uses ecologics azalea logs)",
+        "startIndex": 2276,
+        "endIndex": 2355,
+        "tabId": "t.0",
+        "namedStyleType": "NORMAL_TEXT",
+        "isListItem": true
+      },
+      {
+        "text": "Cherry (Cherry Grove)",
+        "startIndex": 2356,
+        "endIndex": 2377,
+        "tabId": "t.0",
+        "namedStyleType": "NORMAL_TEXT",
+        "isListItem": true
+      },
+      {
+        "text": "Tree Fruits",
+        "startIndex": 2378,
+        "endIndex": 2389,
+        "tabId": "t.0",
+        "namedStyleType": "HEADING_1",
+        "isListItem": false
+      },
+      {
+        "text": "Apples (From Oak)",
+        "startIndex": 2390,
+        "endIndex": 2407,
+        "tabId": "t.0",
+        "namedStyleType": "NORMAL_TEXT",
+        "isListItem": true
+      },
+      {
+        "text": "Oranges (From Mangrove) (Fruits Delight)",
+        "startIndex": 2408,
+        "endIndex": 2448,
+        "tabId": "t.0",
+        "namedStyleType": "NORMAL_TEXT",
+        "isListItem": true
+      },
+      {
+        "text": "Bananas (From Jungle) (Alex’s Mobs)",
+        "startIndex": 2449,
+        "endIndex": 2484,
+        "tabId": "t.0",
+        "namedStyleType": "NORMAL_TEXT",
+        "isListItem": true
+      },
+      {
+        "text": "Plums (From Dark Oak) (Custom)",
+        "startIndex": 2485,
+        "endIndex": 2515,
+        "tabId": "t.0",
+        "namedStyleType": "NORMAL_TEXT",
+        "isListItem": true
+      },
+      {
+        "text": "Pears (From Azalea) (Fruits Delight)",
+        "startIndex": 2516,
+        "endIndex": 2552,
+        "tabId": "t.0",
+        "namedStyleType": "NORMAL_TEXT",
+        "isListItem": true
+      },
+      {
+        "text": "Cherries (From Cherry) (Hearth and Harvest)",
+        "startIndex": 2553,
+        "endIndex": 2596,
+        "tabId": "t.0",
+        "namedStyleType": "NORMAL_TEXT",
+        "isListItem": true
+      },
+      {
+        "text": "Crops",
+        "startIndex": 2597,
+        "endIndex": 2602,
+        "tabId": "t.0",
+        "namedStyleType": "HEADING_1",
+        "isListItem": false
+      },
+      {
+        "text": "Melons (Rainforest)",
+        "startIndex": 2603,
+        "endIndex": 2622,
+        "tabId": "t.0",
+        "namedStyleType": "NORMAL_TEXT",
+        "isListItem": true
+      },
+      {
+        "text": "Cocoa Beans (Rainforest)",
+        "startIndex": 2623,
+        "endIndex": 2647,
+        "tabId": "t.0",
+        "namedStyleType": "NORMAL_TEXT",
+        "isListItem": true
+      },
+      {
+        "text": "Glow berries (Rainforest)",
+        "startIndex": 2648,
+        "endIndex": 2673,
+        "tabId": "t.0",
+        "namedStyleType": "NORMAL_TEXT",
+        "isListItem": true
+      },
+      {
+        "text": "Pineapples (Pineapple Delight) (Rainforest)",
+        "startIndex": 2674,
+        "endIndex": 2717,
+        "tabId": "t.0",
+        "namedStyleType": "NORMAL_TEXT",
+        "isListItem": true
+      },
+      {
+        "text": "Tomatoes (Farmer’s Delight) (Rainforest)",
+        "startIndex": 2718,
+        "endIndex": 2758,
+        "tabId": "t.0",
+        "namedStyleType": "NORMAL_TEXT",
+        "isListItem": true
+      },
+      {
+        "text": "Corn (Hearth and Harvest recolored) (Rainforest)",
+        "startIndex": 2759,
+        "endIndex": 2807,
+        "tabId": "t.0",
+        "namedStyleType": "NORMAL_TEXT",
+        "isListItem": true
+      },
+      {
+        "text": "Red/Brown Mushrooms (Mangrove Swamp and Rainforest)",
+        "startIndex": 2808,
+        "endIndex": 2859,
+        "tabId": "t.0",
+        "namedStyleType": "NORMAL_TEXT",
+        "isListItem": true
+      },
+      {
+        "text": "Sugarcane (Mangrove Swamp)",
+        "startIndex": 2860,
+        "endIndex": 2886,
+        "tabId": "t.0",
+        "namedStyleType": "NORMAL_TEXT",
+        "isListItem": true
+      },
+      {
+        "text": "Mulberries (Upgrade Aquatic) (Mangrove Swamp)",
+        "startIndex": 2887,
+        "endIndex": 2932,
+        "tabId": "t.0",
+        "namedStyleType": "NORMAL_TEXT",
+        "isListItem": true
+      },
+      {
+        "text": "Rice (Farmer’s Delight) (Mangrove Swamp)",
+        "startIndex": 2933,
+        "endIndex": 2973,
+        "tabId": "t.0",
+        "namedStyleType": "NORMAL_TEXT",
+        "isListItem": true
+      },
+      {
+        "text": "Cotton (Mangrove Swamp)",
+        "startIndex": 2974,
+        "endIndex": 2997,
+        "tabId": "t.0",
+        "namedStyleType": "NORMAL_TEXT",
+        "isListItem": true
+      },
+      {
+        "text": "Cabbages (Farmer’s Delight) (Mangrove Swamp)",
+        "startIndex": 2998,
+        "endIndex": 3042,
+        "tabId": "t.0",
+        "namedStyleType": "NORMAL_TEXT",
+        "isListItem": true
+      },
+      {
+        "text": "Beans (Legume Delight) (Cherry Grove)",
+        "startIndex": 3043,
+        "endIndex": 3080,
+        "tabId": "t.0",
+        "namedStyleType": "NORMAL_TEXT",
+        "isListItem": true
+      },
+      {
+        "text": "Carrots (Cherry Grove)",
+        "startIndex": 3081,
+        "endIndex": 3103,
+        "tabId": "t.0",
+        "namedStyleType": "NORMAL_TEXT",
+        "isListItem": true
+      },
+      {
+        "text": "Surface Builder",
+        "startIndex": 3104,
+        "endIndex": 3119,
+        "tabId": "t.0",
+        "namedStyleType": "HEADING_1",
+        "isListItem": false
+      },
+      {
+        "text": "Final block is bedrock",
+        "startIndex": 3120,
+        "endIndex": 3142,
+        "tabId": "t.0",
+        "namedStyleType": "NORMAL_TEXT",
+        "isListItem": true
+      },
+      {
+        "text": "Land: 4 moss blocks, then mud",
+        "startIndex": 3143,
+        "endIndex": 3172,
+        "tabId": "t.0",
+        "namedStyleType": "NORMAL_TEXT",
+        "isListItem": true
+      },
+      {
+        "text": "Water: 3 moss blocks, then mud",
+        "startIndex": 3173,
+        "endIndex": 3203,
+        "tabId": "t.0",
+        "namedStyleType": "NORMAL_TEXT",
+        "isListItem": true
+      },
+      {
+        "text": "Plants",
+        "startIndex": 3204,
+        "endIndex": 3210,
+        "tabId": "t.0",
+        "namedStyleType": "HEADING_1",
+        "isListItem": false
+      },
+      {
+        "text": "Jungle",
+        "startIndex": 3211,
+        "endIndex": 3217,
+        "tabId": "t.0",
+        "namedStyleType": "HEADING_2",
+        "isListItem": false
+      },
+      {
+        "text": "Fern",
+        "startIndex": 3218,
+        "endIndex": 3222,
+        "tabId": "t.0",
+        "namedStyleType": "NORMAL_TEXT",
+        "isListItem": true
+      },
+      {
+        "text": "Grass",
+        "startIndex": 3223,
+        "endIndex": 3228,
+        "tabId": "t.0",
+        "namedStyleType": "NORMAL_TEXT",
+        "isListItem": true
+      },
+      {
+        "text": "Large Fern",
+        "startIndex": 3229,
+        "endIndex": 3239,
+        "tabId": "t.0",
+        "namedStyleType": "NORMAL_TEXT",
+        "isListItem": true
+      },
+      {
+        "text": "Rose Bush",
+        "startIndex": 3240,
+        "endIndex": 3249,
+        "tabId": "t.0",
+        "namedStyleType": "NORMAL_TEXT",
+        "isListItem": true
+      },
+      {
+        "text": "Azalea",
+        "startIndex": 3250,
+        "endIndex": 3256,
+        "tabId": "t.0",
+        "namedStyleType": "NORMAL_TEXT",
+        "isListItem": true
+      },
+      {
+        "text": "Flowering Azalea",
+        "startIndex": 3257,
+        "endIndex": 3273,
+        "tabId": "t.0",
+        "namedStyleType": "NORMAL_TEXT",
+        "isListItem": true
+      },
+      {
+        "text": "Glowing Torch Flower",
+        "startIndex": 3274,
+        "endIndex": 3294,
+        "tabId": "t.0",
+        "namedStyleType": "NORMAL_TEXT",
+        "isListItem": true
+      },
+      {
+        "text": "Spore Blossom",
+        "startIndex": 3295,
+        "endIndex": 3308,
+        "tabId": "t.0",
+        "namedStyleType": "NORMAL_TEXT",
+        "isListItem": true
+      },
+      {
+        "text": "Red Geranium (Ferdinand’s Flowers)",
+        "startIndex": 3309,
+        "endIndex": 3343,
+        "tabId": "t.0",
+        "namedStyleType": "NORMAL_TEXT",
+        "isListItem": true
+      },
+      {
+        "text": "Light Pink Geranium (Ferdinand’s Flowers)",
+        "startIndex": 3344,
+        "endIndex": 3385,
+        "tabId": "t.0",
+        "namedStyleType": "NORMAL_TEXT",
+        "isListItem": true
+      },
+      {
+        "text": "Orange Cosmos (Biomes O’ Plenty)",
+        "startIndex": 3386,
+        "endIndex": 3418,
+        "tabId": "t.0",
+        "namedStyleType": "NORMAL_TEXT",
+        "isListItem": true
+      },
+      {
+        "text": "Mangrove Swamp",
+        "startIndex": 3419,
+        "endIndex": 3433,
+        "tabId": "t.0",
+        "namedStyleType": "HEADING_2",
+        "isListItem": false
+      },
+      {
+        "text": "Fern",
+        "startIndex": 3434,
+        "endIndex": 3438,
+        "tabId": "t.0",
+        "namedStyleType": "NORMAL_TEXT",
+        "isListItem": true
+      },
+      {
+        "text": "Grass",
+        "startIndex": 3439,
+        "endIndex": 3444,
+        "tabId": "t.0",
+        "namedStyleType": "NORMAL_TEXT",
+        "isListItem": true
+      },
+      {
+        "text": "Glowing Cattail (Biomes We’ve Gone)?",
+        "startIndex": 3445,
+        "endIndex": 3481,
+        "tabId": "t.0",
+        "namedStyleType": "NORMAL_TEXT",
+        "isListItem": true
+      },
+      {
+        "text": "Big Dripleaf",
+        "startIndex": 3482,
+        "endIndex": 3494,
+        "tabId": "t.0",
+        "namedStyleType": "NORMAL_TEXT",
+        "isListItem": true
+      },
+      {
+        "text": "Small Dripleaf",
+        "startIndex": 3495,
+        "endIndex": 3509,
+        "tabId": "t.0",
+        "namedStyleType": "NORMAL_TEXT",
+        "isListItem": true
+      },
+      {
+        "text": "Blue Orchid",
+        "startIndex": 3510,
+        "endIndex": 3521,
+        "tabId": "t.0",
+        "namedStyleType": "NORMAL_TEXT",
+        "isListItem": true
+      },
+      {
+        "text": "Pitcher Pod",
+        "startIndex": 3522,
+        "endIndex": 3533,
+        "tabId": "t.0",
+        "namedStyleType": "NORMAL_TEXT",
+        "isListItem": true
+      },
+      {
+        "text": "(Tall) Pickelerweed (Upgrade Aquatic)",
+        "startIndex": 3534,
+        "endIndex": 3571,
+        "tabId": "t.0",
+        "namedStyleType": "NORMAL_TEXT",
+        "isListItem": true
+      },
+      {
+        "text": "Yellow Hyacinth (Floral Flair)",
+        "startIndex": 3572,
+        "endIndex": 3602,
+        "tabId": "t.0",
+        "namedStyleType": "NORMAL_TEXT",
+        "isListItem": true
+      },
+      {
+        "text": "Pink Hyacinth (Floral Flair)",
+        "startIndex": 3603,
+        "endIndex": 3631,
+        "tabId": "t.0",
+        "namedStyleType": "NORMAL_TEXT",
+        "isListItem": true
+      },
+      {
+        "text": "Blue Hyacinth (Floral Flair)",
+        "startIndex": 3632,
+        "endIndex": 3660,
+        "tabId": "t.0",
+        "namedStyleType": "NORMAL_TEXT",
+        "isListItem": true
+      },
+      {
+        "text": "Lunula (Floral Flair)",
+        "startIndex": 3661,
+        "endIndex": 3682,
+        "tabId": "t.0",
+        "namedStyleType": "NORMAL_TEXT",
+        "isListItem": true
+      },
+      {
+        "text": "Cherry Grove",
+        "startIndex": 3683,
+        "endIndex": 3695,
+        "tabId": "t.0",
+        "namedStyleType": "HEADING_2",
+        "isListItem": false
+      },
+      {
+        "text": "Grass",
+        "startIndex": 3696,
+        "endIndex": 3701,
+        "tabId": "t.0",
+        "namedStyleType": "NORMAL_TEXT",
+        "isListItem": true
+      },
+      {
+        "text": "Allium",
+        "startIndex": 3702,
+        "endIndex": 3708,
+        "tabId": "t.0",
+        "namedStyleType": "NORMAL_TEXT",
+        "isListItem": true
+      },
+      {
+        "text": "Peony",
+        "startIndex": 3709,
+        "endIndex": 3714,
+        "tabId": "t.0",
+        "namedStyleType": "NORMAL_TEXT",
+        "isListItem": true
+      },
+      {
+        "text": "Lilac",
+        "startIndex": 3715,
+        "endIndex": 3720,
+        "tabId": "t.0",
+        "namedStyleType": "NORMAL_TEXT",
+        "isListItem": true
+      },
+      {
+        "text": "Pink Petals",
+        "startIndex": 3721,
+        "endIndex": 3732,
+        "tabId": "t.0",
+        "namedStyleType": "NORMAL_TEXT",
+        "isListItem": true
+      },
+      {
+        "text": "Pink Daffodil (Biomes O’ Plenty)",
+        "startIndex": 3733,
+        "endIndex": 3765,
+        "tabId": "t.0",
+        "namedStyleType": "NORMAL_TEXT",
+        "isListItem": true
+      },
+      {
+        "text": "Japanese Orchid (Biomes we’ve gone)",
+        "startIndex": 3766,
+        "endIndex": 3801,
+        "tabId": "t.0",
+        "namedStyleType": "NORMAL_TEXT",
+        "isListItem": true
+      },
+      {
+        "text": "Water Plants",
+        "startIndex": 3802,
+        "endIndex": 3814,
+        "tabId": "t.0",
+        "namedStyleType": "HEADING_1",
+        "isListItem": false
+      },
+      {
+        "text": "Kelp",
+        "startIndex": 3815,
+        "endIndex": 3819,
+        "tabId": "t.0",
+        "namedStyleType": "NORMAL_TEXT",
+        "isListItem": true
+      },
+      {
+        "text": "(Tall) Seagrass",
+        "startIndex": 3820,
+        "endIndex": 3835,
+        "tabId": "t.0",
+        "namedStyleType": "NORMAL_TEXT",
+        "isListItem": true
+      },
+      {
+        "text": "Wet Sponge",
+        "startIndex": 3836,
+        "endIndex": 3846,
+        "tabId": "t.0",
+        "namedStyleType": "NORMAL_TEXT",
+        "isListItem": true
+      },
+      {
+        "text": "Vanilla corals, coral blocks, coral fans",
+        "startIndex": 3847,
+        "endIndex": 3887,
+        "tabId": "t.0",
+        "namedStyleType": "NORMAL_TEXT",
+        "isListItem": true
+      },
+      {
+        "text": "Sea pickles",
+        "startIndex": 3888,
+        "endIndex": 3899,
+        "tabId": "t.0",
+        "namedStyleType": "NORMAL_TEXT",
+        "isListItem": true
+      },
+      {
+        "text": "Upgrade Aquatic Star, Petal, Finger corals, coral blocks, coral fans",
+        "startIndex": 3900,
+        "endIndex": 3968,
+        "tabId": "t.0",
+        "namedStyleType": "NORMAL_TEXT",
+        "isListItem": true
+      }
+    ],
+    "document_url": "https://docs.google.com/document/d/15fNiZFE4z0uDmWzB47P0lOE945R9EROQW5uU76qnLvY"
+  },
+  "savanna": {
+    "documentId": "12IZNouXQUlu0wL1ndwp99NZiuVmSNE41qDzFCUZ2Y8U",
+    "title": "Savanna",
+    "revisionId": "AHj4eMTVQS7scuuHd-ts4sHniQNS8r6rlb3Om92nS9Bi80NVWt6UUgBNRoB8nPH4ezR2KK0Ejx8iHDzAl-QyJCKFQLdjG8NVXOIZ_nDB25g",
+    "tabId": null,
+    "paragraphs": [
+      {
+        "text": "Savanna Dimension",
+        "startIndex": 1,
+        "endIndex": 18,
+        "tabId": "t.0",
+        "namedStyleType": "TITLE",
+        "isListItem": false
+      },
+      {
+        "text": "For mob spawning (only natural spawning, not spawn eggs, commands, etc.):",
+        "startIndex": 19,
+        "endIndex": 92,
+        "tabId": "t.0",
+        "namedStyleType": "NORMAL_TEXT",
+        "isListItem": false
+      },
+      {
+        "text": "Small fish require water in their spawn block and water in the blocks directly above and below it",
+        "startIndex": 93,
+        "endIndex": 190,
+        "tabId": "t.0",
+        "namedStyleType": "NORMAL_TEXT",
+        "isListItem": true
+      },
+      {
+        "text": "Large fish require water in their spawn block and water in the 2 blocks directly above and the 2 directly below it",
+        "startIndex": 191,
+        "endIndex": 305,
+        "tabId": "t.0",
+        "namedStyleType": "NORMAL_TEXT",
+        "isListItem": true
+      },
+      {
+        "text": "Bottom fish require water in their spawn block and water in the 2 blocks directly above and a solid block directly below it",
+        "startIndex": 306,
+        "endIndex": 429,
+        "tabId": "t.0",
+        "namedStyleType": "NORMAL_TEXT",
+        "isListItem": true
+      },
+      {
+        "text": "Livestock",
+        "startIndex": 430,
+        "endIndex": 439,
+        "tabId": "t.0",
+        "namedStyleType": "HEADING_1",
+        "isListItem": false
+      },
+      {
+        "text": "Wildebeest (Biodiverse) (drops raw beef)",
+        "startIndex": 440,
+        "endIndex": 480,
+        "tabId": "t.0",
+        "namedStyleType": "NORMAL_TEXT",
+        "isListItem": true
+      },
+      {
+        "text": "Oryx: (Biodiverse) (drops Let’s Do] Wildernature Venison)",
+        "startIndex": 481,
+        "endIndex": 538,
+        "tabId": "t.0",
+        "namedStyleType": "NORMAL_TEXT",
+        "isListItem": true
+      },
+      {
+        "text": "Bison (Alex’s Mobs) (drops [Let’s Do] Wildernature Bison meat)",
+        "startIndex": 539,
+        "endIndex": 601,
+        "tabId": "t.0",
+        "namedStyleType": "NORMAL_TEXT",
+        "isListItem": true
+      },
+      {
+        "text": "Emu (Alex’s Mobs) (drops [Let’s Do] Wildernature Cassowary meat)",
+        "startIndex": 602,
+        "endIndex": 666,
+        "tabId": "t.0",
+        "namedStyleType": "NORMAL_TEXT",
+        "isListItem": true
+      },
+      {
+        "text": "Kangaroo (Alex’s Mobs)",
+        "startIndex": 667,
+        "endIndex": 689,
+        "tabId": "t.0",
+        "namedStyleType": "NORMAL_TEXT",
+        "isListItem": true
+      },
+      {
+        "text": "Boar (Twilight Forest) (Drops porkchops)",
+        "startIndex": 690,
+        "endIndex": 730,
+        "tabId": "t.0",
+        "namedStyleType": "NORMAL_TEXT",
+        "isListItem": true
+      },
+      {
+        "text": "Rabbit",
+        "startIndex": 731,
+        "endIndex": 737,
+        "tabId": "t.0",
+        "namedStyleType": "NORMAL_TEXT",
+        "isListItem": true
+      },
+      {
+        "text": "Brown Sheep",
+        "startIndex": 738,
+        "endIndex": 749,
+        "tabId": "t.0",
+        "namedStyleType": "NORMAL_TEXT",
+        "isListItem": true
+      },
+      {
+        "text": "Usable tamed mobs",
+        "startIndex": 750,
+        "endIndex": 767,
+        "tabId": "t.0",
+        "namedStyleType": "HEADING_1",
+        "isListItem": false
+      },
+      {
+        "text": "Horse",
+        "startIndex": 768,
+        "endIndex": 773,
+        "tabId": "t.0",
+        "namedStyleType": "NORMAL_TEXT",
+        "isListItem": true
+      },
+      {
+        "text": "Llama",
+        "startIndex": 774,
+        "endIndex": 779,
+        "tabId": "t.0",
+        "namedStyleType": "NORMAL_TEXT",
+        "isListItem": true
+      },
+      {
+        "text": "Edible water mobs",
+        "startIndex": 780,
+        "endIndex": 797,
+        "tabId": "t.0",
+        "namedStyleType": "HEADING_1",
+        "isListItem": false
+      },
+      {
+        "text": "Squid  (Needs Food Item) (large fish)",
+        "startIndex": 798,
+        "endIndex": 835,
+        "tabId": "t.0",
+        "namedStyleType": "NORMAL_TEXT",
+        "isListItem": true
+      },
+      {
+        "text": "Cod (small fish)",
+        "startIndex": 836,
+        "endIndex": 852,
+        "tabId": "t.0",
+        "namedStyleType": "NORMAL_TEXT",
+        "isListItem": true
+      },
+      {
+        "text": "Perch (Upgrade Aquatic) (small fish)",
+        "startIndex": 853,
+        "endIndex": 889,
+        "tabId": "t.0",
+        "namedStyleType": "NORMAL_TEXT",
+        "isListItem": true
+      },
+      {
+        "text": "Carp (Hybrid Aquatic)  (Needs Cooked Food Item) (small fish)",
+        "startIndex": 890,
+        "endIndex": 950,
+        "tabId": "t.0",
+        "namedStyleType": "NORMAL_TEXT",
+        "isListItem": true
+      },
+      {
+        "text": "Swamp Mucker (Fins and Tails)  (Needs Cooked Food Item) (small fish)",
+        "startIndex": 951,
+        "endIndex": 1019,
+        "tabId": "t.0",
+        "namedStyleType": "NORMAL_TEXT",
+        "isListItem": true
+      },
+      {
+        "text": "Lobster (Alex’s Mobs)  (bottom fish)",
+        "startIndex": 1020,
+        "endIndex": 1056,
+        "tabId": "t.0",
+        "namedStyleType": "NORMAL_TEXT",
+        "isListItem": true
+      },
+      {
+        "text": "Trees",
+        "startIndex": 1057,
+        "endIndex": 1062,
+        "tabId": "t.0",
+        "namedStyleType": "HEADING_1",
+        "isListItem": false
+      },
+      {
+        "text": "Acacia",
+        "startIndex": 1063,
+        "endIndex": 1069,
+        "tabId": "t.0",
+        "namedStyleType": "NORMAL_TEXT",
+        "isListItem": true
+      },
+      {
+        "text": "Tree Fruits",
+        "startIndex": 1070,
+        "endIndex": 1081,
+        "tabId": "t.0",
+        "namedStyleType": "HEADING_1",
+        "isListItem": false
+      },
+      {
+        "text": "None",
+        "startIndex": 1082,
+        "endIndex": 1086,
+        "tabId": "t.0",
+        "namedStyleType": "NORMAL_TEXT",
+        "isListItem": true
+      },
+      {
+        "text": "Crops and Mushrooms",
+        "startIndex": 1087,
+        "endIndex": 1106,
+        "tabId": "t.0",
+        "namedStyleType": "HEADING_1",
+        "isListItem": false
+      },
+      {
+        "text": "Red/Brown mushrooms",
+        "startIndex": 1107,
+        "endIndex": 1126,
+        "tabId": "t.0",
+        "namedStyleType": "NORMAL_TEXT",
+        "isListItem": true
+      },
+      {
+        "text": "Wheat",
+        "startIndex": 1127,
+        "endIndex": 1132,
+        "tabId": "t.0",
+        "namedStyleType": "NORMAL_TEXT",
+        "isListItem": true
+      },
+      {
+        "text": "Potatoes",
+        "startIndex": 1133,
+        "endIndex": 1141,
+        "tabId": "t.0",
+        "namedStyleType": "NORMAL_TEXT",
+        "isListItem": true
+      },
+      {
+        "text": "Carrots",
+        "startIndex": 1142,
+        "endIndex": 1149,
+        "tabId": "t.0",
+        "namedStyleType": "NORMAL_TEXT",
+        "isListItem": true
+      },
+      {
+        "text": "Beetroots",
+        "startIndex": 1150,
+        "endIndex": 1159,
+        "tabId": "t.0",
+        "namedStyleType": "NORMAL_TEXT",
+        "isListItem": true
+      },
+      {
+        "text": "Pumpkins",
+        "startIndex": 1160,
+        "endIndex": 1168,
+        "tabId": "t.0",
+        "namedStyleType": "NORMAL_TEXT",
+        "isListItem": true
+      },
+      {
+        "text": "Sugarcane",
+        "startIndex": 1169,
+        "endIndex": 1178,
+        "tabId": "t.0",
+        "namedStyleType": "NORMAL_TEXT",
+        "isListItem": true
+      },
+      {
+        "text": "Oats (Vintage Delight)",
+        "startIndex": 1179,
+        "endIndex": 1201,
+        "tabId": "t.0",
+        "namedStyleType": "NORMAL_TEXT",
+        "isListItem": true
+      },
+      {
+        "text": "Cabbages (Farmer’s Delight)",
+        "startIndex": 1202,
+        "endIndex": 1229,
+        "tabId": "t.0",
+        "namedStyleType": "NORMAL_TEXT",
+        "isListItem": true
+      },
+      {
+        "text": "Glow lichen",
+        "startIndex": 1230,
+        "endIndex": 1241,
+        "tabId": "t.0",
+        "namedStyleType": "NORMAL_TEXT",
+        "isListItem": true
+      },
+      {
+        "text": "Surface Builder",
+        "startIndex": 1242,
+        "endIndex": 1257,
+        "tabId": "t.0",
+        "namedStyleType": "HEADING_1",
+        "isListItem": false
+      },
+      {
+        "text": "Surface Land (not seafloor): 1 grass block, 2 rooted dirt, 2 dirt",
+        "startIndex": 1258,
+        "endIndex": 1323,
+        "tabId": "t.0",
+        "namedStyleType": "NORMAL_TEXT",
+        "isListItem": false
+      },
+      {
+        "text": "Final block: Bedrock",
+        "startIndex": 1324,
+        "endIndex": 1344,
+        "tabId": "t.0",
+        "namedStyleType": "NORMAL_TEXT",
+        "isListItem": false
+      },
+      {
+        "text": "Else: Mud",
+        "startIndex": 1345,
+        "endIndex": 1354,
+        "tabId": "t.0",
+        "namedStyleType": "NORMAL_TEXT",
+        "isListItem": false
+      },
+      {
+        "text": "Stone Blobs",
+        "startIndex": 1355,
+        "endIndex": 1366,
+        "tabId": "t.0",
+        "namedStyleType": "HEADING_1",
+        "isListItem": false
+      },
+      {
+        "text": "None",
+        "startIndex": 1367,
+        "endIndex": 1371,
+        "tabId": "t.0",
+        "namedStyleType": "NORMAL_TEXT",
+        "isListItem": true
+      },
+      {
+        "text": "Ores",
+        "startIndex": 1372,
+        "endIndex": 1376,
+        "tabId": "t.0",
+        "namedStyleType": "HEADING_1",
+        "isListItem": false
+      },
+      {
+        "text": "None",
+        "startIndex": 1377,
+        "endIndex": 1381,
+        "tabId": "t.0",
+        "namedStyleType": "NORMAL_TEXT",
+        "isListItem": true
+      },
+      {
+        "text": "Plants",
+        "startIndex": 1382,
+        "endIndex": 1388,
+        "tabId": "t.0",
+        "namedStyleType": "HEADING_1",
+        "isListItem": false
+      },
+      {
+        "text": "(Tall) grass",
+        "startIndex": 1389,
+        "endIndex": 1401,
+        "tabId": "t.0",
+        "namedStyleType": "NORMAL_TEXT",
+        "isListItem": true
+      },
+      {
+        "text": "Red Tulip",
+        "startIndex": 1402,
+        "endIndex": 1411,
+        "tabId": "t.0",
+        "namedStyleType": "NORMAL_TEXT",
+        "isListItem": true
+      },
+      {
+        "text": "Orange Tulip",
+        "startIndex": 1412,
+        "endIndex": 1424,
+        "tabId": "t.0",
+        "namedStyleType": "NORMAL_TEXT",
+        "isListItem": true
+      },
+      {
+        "text": "Pink Tulip",
+        "startIndex": 1425,
+        "endIndex": 1435,
+        "tabId": "t.0",
+        "namedStyleType": "NORMAL_TEXT",
+        "isListItem": true
+      },
+      {
+        "text": "White Tulip",
+        "startIndex": 1436,
+        "endIndex": 1447,
+        "tabId": "t.0",
+        "namedStyleType": "NORMAL_TEXT",
+        "isListItem": true
+      },
+      {
+        "text": "Blue Tulip (Floral)",
+        "startIndex": 1448,
+        "endIndex": 1467,
+        "tabId": "t.0",
+        "namedStyleType": "NORMAL_TEXT",
+        "isListItem": true
+      },
+      {
+        "text": "Yellow Tulip (Floral)",
+        "startIndex": 1468,
+        "endIndex": 1489,
+        "tabId": "t.0",
+        "namedStyleType": "NORMAL_TEXT",
+        "isListItem": true
+      },
+      {
+        "text": "Water Plants",
+        "startIndex": 1490,
+        "endIndex": 1502,
+        "tabId": "t.0",
+        "namedStyleType": "HEADING_1",
+        "isListItem": false
+      },
+      {
+        "text": "Sea Pickles",
+        "startIndex": 1503,
+        "endIndex": 1514,
+        "tabId": "t.0",
+        "namedStyleType": "NORMAL_TEXT",
+        "isListItem": true
+      },
+      {
+        "text": "(Tall) Seagrass",
+        "startIndex": 1515,
+        "endIndex": 1530,
+        "tabId": "t.0",
+        "namedStyleType": "NORMAL_TEXT",
+        "isListItem": true
+      },
+      {
+        "text": "Kelp",
+        "startIndex": 1531,
+        "endIndex": 1535,
+        "tabId": "t.0",
+        "namedStyleType": "NORMAL_TEXT",
+        "isListItem": true
+      },
+      {
+        "text": "Wet Sponge",
+        "startIndex": 1536,
+        "endIndex": 1546,
+        "tabId": "t.0",
+        "namedStyleType": "NORMAL_TEXT",
+        "isListItem": true
+      },
+      {
+        "text": "Precipitation, Fire, and Fluids",
+        "startIndex": 1547,
+        "endIndex": 1578,
+        "tabId": "t.0",
+        "namedStyleType": "HEADING_1",
+        "isListItem": false
+      },
+      {
+        "text": "Precipitation: Rain",
+        "startIndex": 1579,
+        "endIndex": 1598,
+        "tabId": "t.0",
+        "namedStyleType": "NORMAL_TEXT",
+        "isListItem": true
+      },
+      {
+        "text": "Fire is allowed",
+        "startIndex": 1599,
+        "endIndex": 1614,
+        "tabId": "t.0",
+        "namedStyleType": "NORMAL_TEXT",
+        "isListItem": true
+      },
+      {
+        "text": "Water is allowed",
+        "startIndex": 1615,
+        "endIndex": 1631,
+        "tabId": "t.0",
+        "namedStyleType": "NORMAL_TEXT",
+        "isListItem": true
+      },
+      {
+        "text": "Lava is not allowed",
+        "startIndex": 1632,
+        "endIndex": 1651,
+        "tabId": "t.0",
+        "namedStyleType": "NORMAL_TEXT",
+        "isListItem": true
+      }
+    ],
+    "document_url": "https://docs.google.com/document/d/12IZNouXQUlu0wL1ndwp99NZiuVmSNE41qDzFCUZ2Y8U"
+  },
+  "plains": {
+    "documentId": "1sQdSan5AkU126oNWD_XmmMvMuQYlcDxn50YLWJpLOoA",
+    "title": "Plains",
+    "revisionId": "AHj4eMRsl852FyB6d6sZs7zq0-KR5BwyF2-h1wbdc159pGBzVmQFMfSmzoJs39TxdZqsabRYZHmkhFW7_zJdxzZG5CapWoT6ChjtNI-SUns",
+    "tabId": null,
+    "paragraphs": [
+      {
+        "text": "Plains Dimension",
+        "startIndex": 1,
+        "endIndex": 17,
+        "tabId": "t.0",
+        "namedStyleType": "TITLE",
+        "isListItem": false
+      },
+      {
+        "text": "For mob spawning (only natural spawning, not spawn eggs, commands, etc.):",
+        "startIndex": 18,
+        "endIndex": 91,
+        "tabId": "t.0",
+        "namedStyleType": "NORMAL_TEXT",
+        "isListItem": false
+      },
+      {
+        "text": "Small fish require water in their spawn block and water in the blocks directly above and below it",
+        "startIndex": 92,
+        "endIndex": 189,
+        "tabId": "t.0",
+        "namedStyleType": "NORMAL_TEXT",
+        "isListItem": true
+      },
+      {
+        "text": "Large fish require water in their spawn block and water in the 2 blocks directly above and the 2 directly below it",
+        "startIndex": 190,
+        "endIndex": 304,
+        "tabId": "t.0",
+        "namedStyleType": "NORMAL_TEXT",
+        "isListItem": true
+      },
+      {
+        "text": "Bottom fish require water in their spawn block and water in the 2 blocks directly above and a solid block directly below it",
+        "startIndex": 305,
+        "endIndex": 428,
+        "tabId": "t.0",
+        "namedStyleType": "NORMAL_TEXT",
+        "isListItem": true
+      },
+      {
+        "text": "Livestock",
+        "startIndex": 429,
+        "endIndex": 438,
+        "tabId": "t.0",
+        "namedStyleType": "HEADING_1",
+        "isListItem": false
+      },
+      {
+        "text": "Cow",
+        "startIndex": 439,
+        "endIndex": 442,
+        "tabId": "t.0",
+        "namedStyleType": "NORMAL_TEXT",
+        "isListItem": true
+      },
+      {
+        "text": "Sheep",
+        "startIndex": 443,
+        "endIndex": 448,
+        "tabId": "t.0",
+        "namedStyleType": "NORMAL_TEXT",
+        "isListItem": true
+      },
+      {
+        "text": "Chicken",
+        "startIndex": 449,
+        "endIndex": 456,
+        "tabId": "t.0",
+        "namedStyleType": "NORMAL_TEXT",
+        "isListItem": true
+      },
+      {
+        "text": "Pig",
+        "startIndex": 457,
+        "endIndex": 460,
+        "tabId": "t.0",
+        "namedStyleType": "NORMAL_TEXT",
+        "isListItem": true
+      },
+      {
+        "text": "Rabbit",
+        "startIndex": 461,
+        "endIndex": 467,
+        "tabId": "t.0",
+        "namedStyleType": "NORMAL_TEXT",
+        "isListItem": true
+      },
+      {
+        "text": "Usable tamed mobs",
+        "startIndex": 468,
+        "endIndex": 485,
+        "tabId": "t.0",
+        "namedStyleType": "HEADING_1",
+        "isListItem": false
+      },
+      {
+        "text": "Horse",
+        "startIndex": 486,
+        "endIndex": 491,
+        "tabId": "t.0",
+        "namedStyleType": "NORMAL_TEXT",
+        "isListItem": true
+      },
+      {
+        "text": "Donkey",
+        "startIndex": 492,
+        "endIndex": 498,
+        "tabId": "t.0",
+        "namedStyleType": "NORMAL_TEXT",
+        "isListItem": true
+      },
+      {
+        "text": "Wolf",
+        "startIndex": 499,
+        "endIndex": 503,
+        "tabId": "t.0",
+        "namedStyleType": "NORMAL_TEXT",
+        "isListItem": true
+      },
+      {
+        "text": "Edible water mobs",
+        "startIndex": 504,
+        "endIndex": 521,
+        "tabId": "t.0",
+        "namedStyleType": "HEADING_1",
+        "isListItem": false
+      },
+      {
+        "text": "Squid  (Needs Food Item) (large fish)",
+        "startIndex": 522,
+        "endIndex": 559,
+        "tabId": "t.0",
+        "namedStyleType": "NORMAL_TEXT",
+        "isListItem": true
+      },
+      {
+        "text": "Cod (small fish)",
+        "startIndex": 560,
+        "endIndex": 576,
+        "tabId": "t.0",
+        "namedStyleType": "NORMAL_TEXT",
+        "isListItem": true
+      },
+      {
+        "text": "Perch (Upgrade Aquatic) (small fish)",
+        "startIndex": 577,
+        "endIndex": 613,
+        "tabId": "t.0",
+        "namedStyleType": "NORMAL_TEXT",
+        "isListItem": true
+      },
+      {
+        "text": "Carp (Hybrid Aquatic)  (Needs Cooked Food Item) (small fish)",
+        "startIndex": 614,
+        "endIndex": 674,
+        "tabId": "t.0",
+        "namedStyleType": "NORMAL_TEXT",
+        "isListItem": true
+      },
+      {
+        "text": "Swamp Mucker (Fins and Tails)  (Needs Cooked Food Item) (small fish)",
+        "startIndex": 675,
+        "endIndex": 743,
+        "tabId": "t.0",
+        "namedStyleType": "NORMAL_TEXT",
+        "isListItem": true
+      },
+      {
+        "text": "Lobster (Alex’s Mobs)  (bottom fish)",
+        "startIndex": 744,
+        "endIndex": 780,
+        "tabId": "t.0",
+        "namedStyleType": "NORMAL_TEXT",
+        "isListItem": true
+      },
+      {
+        "text": "Trees",
+        "startIndex": 781,
+        "endIndex": 786,
+        "tabId": "t.0",
+        "namedStyleType": "HEADING_1",
+        "isListItem": false
+      },
+      {
+        "text": "Oak",
+        "startIndex": 787,
+        "endIndex": 790,
+        "tabId": "t.0",
+        "namedStyleType": "NORMAL_TEXT",
+        "isListItem": true
+      },
+      {
+        "text": "Birch",
+        "startIndex": 791,
+        "endIndex": 796,
+        "tabId": "t.0",
+        "namedStyleType": "NORMAL_TEXT",
+        "isListItem": true
+      },
+      {
+        "text": "Tree Fruits",
+        "startIndex": 797,
+        "endIndex": 808,
+        "tabId": "t.0",
+        "namedStyleType": "HEADING_1",
+        "isListItem": false
+      },
+      {
+        "text": "Apples",
+        "startIndex": 809,
+        "endIndex": 815,
+        "tabId": "t.0",
+        "namedStyleType": "NORMAL_TEXT",
+        "isListItem": true
+      },
+      {
+        "text": "Crops and Mushrooms",
+        "startIndex": 816,
+        "endIndex": 835,
+        "tabId": "t.0",
+        "namedStyleType": "HEADING_1",
+        "isListItem": false
+      },
+      {
+        "text": "Wheat",
+        "startIndex": 836,
+        "endIndex": 841,
+        "tabId": "t.0",
+        "namedStyleType": "NORMAL_TEXT",
+        "isListItem": true
+      },
+      {
+        "text": "Potatoes",
+        "startIndex": 842,
+        "endIndex": 850,
+        "tabId": "t.0",
+        "namedStyleType": "NORMAL_TEXT",
+        "isListItem": true
+      },
+      {
+        "text": "Carrots",
+        "startIndex": 851,
+        "endIndex": 858,
+        "tabId": "t.0",
+        "namedStyleType": "NORMAL_TEXT",
+        "isListItem": true
+      },
+      {
+        "text": "Beetroots",
+        "startIndex": 859,
+        "endIndex": 868,
+        "tabId": "t.0",
+        "namedStyleType": "NORMAL_TEXT",
+        "isListItem": true
+      },
+      {
+        "text": "Pumpkins",
+        "startIndex": 869,
+        "endIndex": 877,
+        "tabId": "t.0",
+        "namedStyleType": "NORMAL_TEXT",
+        "isListItem": true
+      },
+      {
+        "text": "Red mushroom",
+        "startIndex": 878,
+        "endIndex": 890,
+        "tabId": "t.0",
+        "namedStyleType": "NORMAL_TEXT",
+        "isListItem": true
+      },
+      {
+        "text": "Brown Mushroom",
+        "startIndex": 891,
+        "endIndex": 905,
+        "tabId": "t.0",
+        "namedStyleType": "NORMAL_TEXT",
+        "isListItem": true
+      },
+      {
+        "text": "Sugarcane",
+        "startIndex": 906,
+        "endIndex": 915,
+        "tabId": "t.0",
+        "namedStyleType": "NORMAL_TEXT",
+        "isListItem": true
+      },
+      {
+        "text": "Cabbages (Farmer’s Delight)",
+        "startIndex": 916,
+        "endIndex": 943,
+        "tabId": "t.0",
+        "namedStyleType": "NORMAL_TEXT",
+        "isListItem": true
+      },
+      {
+        "text": "Glow lichen",
+        "startIndex": 944,
+        "endIndex": 955,
+        "tabId": "t.0",
+        "namedStyleType": "NORMAL_TEXT",
+        "isListItem": true
+      },
+      {
+        "text": "Surface Builder",
+        "startIndex": 956,
+        "endIndex": 971,
+        "tabId": "t.0",
+        "namedStyleType": "HEADING_1",
+        "isListItem": false
+      },
+      {
+        "text": "Surface Land (not seafloor): 1 grass block, 3 dirt",
+        "startIndex": 972,
+        "endIndex": 1022,
+        "tabId": "t.0",
+        "namedStyleType": "NORMAL_TEXT",
+        "isListItem": false
+      },
+      {
+        "text": "Water Surface (not caves): 3 clay",
+        "startIndex": 1023,
+        "endIndex": 1056,
+        "tabId": "t.0",
+        "namedStyleType": "NORMAL_TEXT",
+        "isListItem": false
+      },
+      {
+        "text": "Water shoreline: Patches of sand",
+        "startIndex": 1057,
+        "endIndex": 1089,
+        "tabId": "t.0",
+        "namedStyleType": "NORMAL_TEXT",
+        "isListItem": false
+      },
+      {
+        "text": "Final block: Bedrock",
+        "startIndex": 1090,
+        "endIndex": 1110,
+        "tabId": "t.0",
+        "namedStyleType": "NORMAL_TEXT",
+        "isListItem": false
+      },
+      {
+        "text": "Else: Stone",
+        "startIndex": 1111,
+        "endIndex": 1122,
+        "tabId": "t.0",
+        "namedStyleType": "NORMAL_TEXT",
+        "isListItem": false
+      },
+      {
+        "text": "Stone Blobs",
+        "startIndex": 1123,
+        "endIndex": 1134,
+        "tabId": "t.0",
+        "namedStyleType": "HEADING_1",
+        "isListItem": false
+      },
+      {
+        "text": "Andesite (on stone)",
+        "startIndex": 1135,
+        "endIndex": 1154,
+        "tabId": "t.0",
+        "namedStyleType": "NORMAL_TEXT",
+        "isListItem": true
+      },
+      {
+        "text": "Diorite (on stone)",
+        "startIndex": 1155,
+        "endIndex": 1173,
+        "tabId": "t.0",
+        "namedStyleType": "NORMAL_TEXT",
+        "isListItem": true
+      },
+      {
+        "text": "Granite (on stone)",
+        "startIndex": 1174,
+        "endIndex": 1192,
+        "tabId": "t.0",
+        "namedStyleType": "NORMAL_TEXT",
+        "isListItem": true
+      },
+      {
+        "text": "Gravel (on stone)",
+        "startIndex": 1193,
+        "endIndex": 1210,
+        "tabId": "t.0",
+        "namedStyleType": "NORMAL_TEXT",
+        "isListItem": true
+      },
+      {
+        "text": "Ores",
+        "startIndex": 1211,
+        "endIndex": 1215,
+        "tabId": "t.0",
+        "namedStyleType": "HEADING_1",
+        "isListItem": false
+      },
+      {
+        "text": "Only stone variants",
+        "startIndex": 1216,
+        "endIndex": 1235,
+        "tabId": "t.0",
+        "namedStyleType": "NORMAL_TEXT",
+        "isListItem": false
+      },
+      {
+        "text": "Coal",
+        "startIndex": 1236,
+        "endIndex": 1240,
+        "tabId": "t.0",
+        "namedStyleType": "NORMAL_TEXT",
+        "isListItem": true
+      },
+      {
+        "text": "Copper",
+        "startIndex": 1241,
+        "endIndex": 1247,
+        "tabId": "t.0",
+        "namedStyleType": "NORMAL_TEXT",
+        "isListItem": true
+      },
+      {
+        "text": "Iron",
+        "startIndex": 1248,
+        "endIndex": 1252,
+        "tabId": "t.0",
+        "namedStyleType": "NORMAL_TEXT",
+        "isListItem": true
+      },
+      {
+        "text": "Gold",
+        "startIndex": 1253,
+        "endIndex": 1257,
+        "tabId": "t.0",
+        "namedStyleType": "NORMAL_TEXT",
+        "isListItem": true
+      },
+      {
+        "text": "Plants",
+        "startIndex": 1258,
+        "endIndex": 1264,
+        "tabId": "t.0",
+        "namedStyleType": "HEADING_1",
+        "isListItem": false
+      },
+      {
+        "text": "(Tall) grass",
+        "startIndex": 1265,
+        "endIndex": 1277,
+        "tabId": "t.0",
+        "namedStyleType": "NORMAL_TEXT",
+        "isListItem": true
+      },
+      {
+        "text": "Sunflower",
+        "startIndex": 1278,
+        "endIndex": 1287,
+        "tabId": "t.0",
+        "namedStyleType": "NORMAL_TEXT",
+        "isListItem": true
+      },
+      {
+        "text": "Dandelion",
+        "startIndex": 1288,
+        "endIndex": 1297,
+        "tabId": "t.0",
+        "namedStyleType": "NORMAL_TEXT",
+        "isListItem": true
+      },
+      {
+        "text": "Poppy",
+        "startIndex": 1298,
+        "endIndex": 1303,
+        "tabId": "t.0",
+        "namedStyleType": "NORMAL_TEXT",
+        "isListItem": true
+      },
+      {
+        "text": "Cornflower",
+        "startIndex": 1304,
+        "endIndex": 1314,
+        "tabId": "t.0",
+        "namedStyleType": "NORMAL_TEXT",
+        "isListItem": true
+      },
+      {
+        "text": "Oxeye Daisy",
+        "startIndex": 1315,
+        "endIndex": 1326,
+        "tabId": "t.0",
+        "namedStyleType": "NORMAL_TEXT",
+        "isListItem": true
+      },
+      {
+        "text": "Lily of the Valley",
+        "startIndex": 1327,
+        "endIndex": 1345,
+        "tabId": "t.0",
+        "namedStyleType": "NORMAL_TEXT",
+        "isListItem": true
+      },
+      {
+        "text": "Water Plants",
+        "startIndex": 1346,
+        "endIndex": 1358,
+        "tabId": "t.0",
+        "namedStyleType": "HEADING_1",
+        "isListItem": false
+      },
+      {
+        "text": "(Tall) Seagrass",
+        "startIndex": 1359,
+        "endIndex": 1374,
+        "tabId": "t.0",
+        "namedStyleType": "NORMAL_TEXT",
+        "isListItem": true
+      },
+      {
+        "text": "Precipitation, Fire, and Fluids",
+        "startIndex": 1375,
+        "endIndex": 1406,
+        "tabId": "t.0",
+        "namedStyleType": "HEADING_1",
+        "isListItem": false
+      },
+      {
+        "text": "Precipitation: Rain",
+        "startIndex": 1407,
+        "endIndex": 1426,
+        "tabId": "t.0",
+        "namedStyleType": "NORMAL_TEXT",
+        "isListItem": true
+      },
+      {
+        "text": "Fire is allowed",
+        "startIndex": 1427,
+        "endIndex": 1442,
+        "tabId": "t.0",
+        "namedStyleType": "NORMAL_TEXT",
+        "isListItem": true
+      },
+      {
+        "text": "Water is allowed",
+        "startIndex": 1443,
+        "endIndex": 1459,
+        "tabId": "t.0",
+        "namedStyleType": "NORMAL_TEXT",
+        "isListItem": true
+      },
+      {
+        "text": "Lava is not allowed",
+        "startIndex": 1460,
+        "endIndex": 1479,
+        "tabId": "t.0",
+        "namedStyleType": "NORMAL_TEXT",
+        "isListItem": true
+      }
+    ],
+    "document_url": "https://docs.google.com/document/d/1sQdSan5AkU126oNWD_XmmMvMuQYlcDxn50YLWJpLOoA"
+  },
+  "snowy": {
+    "documentId": "19vvAZzYl60L_4_B0XzWkINxOO6nM5uR_0KJjIRaZRcc",
+    "title": "Snowy Taiga",
+    "revisionId": "AHj4eMQogg6wiuXz8YJf_LSCfXIIBHnLZx4D6dw9PCS3Bt63ayWuTGm3dAj-MZV3aa3dGIuR7lOdu-AqeWXFEgx8fjnkOwxD1_jLc2B82yc",
+    "tabId": null,
+    "paragraphs": [
+      {
+        "text": "Snowy Dimension",
+        "startIndex": 1,
+        "endIndex": 16,
+        "tabId": "t.0",
+        "namedStyleType": "TITLE",
+        "isListItem": false
+      },
+      {
+        "text": "Livestock",
+        "startIndex": 17,
+        "endIndex": 26,
+        "tabId": "t.0",
+        "namedStyleType": "HEADING_1",
+        "isListItem": false
+      },
+      {
+        "text": "Goat (Drops Mutton)",
+        "startIndex": 27,
+        "endIndex": 46,
+        "tabId": "t.0",
+        "namedStyleType": "NORMAL_TEXT",
+        "isListItem": true
+      },
+      {
+        "text": "Reindeer (Environmental) (Drops Biodiverse Venison)",
+        "startIndex": 47,
+        "endIndex": 98,
+        "tabId": "t.0",
+        "namedStyleType": "NORMAL_TEXT",
+        "isListItem": true
+      },
+      {
+        "text": "Rabbit",
+        "startIndex": 99,
+        "endIndex": 105,
+        "tabId": "t.0",
+        "namedStyleType": "NORMAL_TEXT",
+        "isListItem": true
+      },
+      {
+        "text": "Mooshroom",
+        "startIndex": 106,
+        "endIndex": 115,
+        "tabId": "t.0",
+        "namedStyleType": "NORMAL_TEXT",
+        "isListItem": true
+      },
+      {
+        "text": "Usable tamed mobs",
+        "startIndex": 116,
+        "endIndex": 133,
+        "tabId": "t.0",
+        "namedStyleType": "HEADING_1",
+        "isListItem": false
+      },
+      {
+        "text": "Polar Bear",
+        "startIndex": 134,
+        "endIndex": 144,
+        "tabId": "t.0",
+        "namedStyleType": "NORMAL_TEXT",
+        "isListItem": true
+      },
+      {
+        "text": "Yak (Cold cow from Spring to Life) (Needs chest render like donkey and llama)",
+        "startIndex": 145,
+        "endIndex": 222,
+        "tabId": "t.0",
+        "namedStyleType": "NORMAL_TEXT",
+        "isListItem": true
+      },
+      {
+        "text": "Fox",
+        "startIndex": 223,
+        "endIndex": 226,
+        "tabId": "t.0",
+        "namedStyleType": "NORMAL_TEXT",
+        "isListItem": true
+      },
+      {
+        "text": "Nautilus",
+        "startIndex": 227,
+        "endIndex": 235,
+        "tabId": "t.0",
+        "namedStyleType": "NORMAL_TEXT",
+        "isListItem": true
+      },
+      {
+        "text": "Edible water mobs",
+        "startIndex": 236,
+        "endIndex": 253,
+        "tabId": "t.0",
+        "namedStyleType": "HEADING_1",
+        "isListItem": false
+      },
+      {
+        "text": "Shallow Water",
+        "startIndex": 254,
+        "endIndex": 267,
+        "tabId": "t.0",
+        "namedStyleType": "HEADING_2",
+        "isListItem": false
+      },
+      {
+        "text": "Krill (Bountiful critters)",
+        "startIndex": 268,
+        "endIndex": 294,
+        "tabId": "t.0",
+        "namedStyleType": "NORMAL_TEXT",
+        "isListItem": true
+      },
+      {
+        "text": "Salmon",
+        "startIndex": 295,
+        "endIndex": 301,
+        "tabId": "t.0",
+        "namedStyleType": "NORMAL_TEXT",
+        "isListItem": true
+      },
+      {
+        "text": "Squid (Needs Food Item)",
+        "startIndex": 302,
+        "endIndex": 325,
+        "tabId": "t.0",
+        "namedStyleType": "NORMAL_TEXT",
+        "isListItem": true
+      },
+      {
+        "text": "Arrow Squid (Hybrid Aquatic) (Needs Food Item)",
+        "startIndex": 326,
+        "endIndex": 372,
+        "tabId": "t.0",
+        "namedStyleType": "NORMAL_TEXT",
+        "isListItem": true
+      },
+      {
+        "text": "Flying Fish (Alex’s mobs) (Needs Cooked Food Item and different texture food item)",
+        "startIndex": 373,
+        "endIndex": 455,
+        "tabId": "t.0",
+        "namedStyleType": "NORMAL_TEXT",
+        "isListItem": true
+      },
+      {
+        "text": "Needlefish (Hybrid Aquatic) (Needs Cooked Food Item)",
+        "startIndex": 456,
+        "endIndex": 508,
+        "tabId": "t.0",
+        "namedStyleType": "NORMAL_TEXT",
+        "isListItem": true
+      },
+      {
+        "text": "Tuna (Hybrid Aquatic) (Needs Cooked Food Item)",
+        "startIndex": 509,
+        "endIndex": 555,
+        "tabId": "t.0",
+        "namedStyleType": "NORMAL_TEXT",
+        "isListItem": true
+      },
+      {
+        "text": "Swordfish (Copy from Abyssal Depths) (Needs Food Item)",
+        "startIndex": 556,
+        "endIndex": 610,
+        "tabId": "t.0",
+        "namedStyleType": "NORMAL_TEXT",
+        "isListItem": true
+      },
+      {
+        "text": "Deep Water",
+        "startIndex": 611,
+        "endIndex": 621,
+        "tabId": "t.0",
+        "namedStyleType": "HEADING_2",
+        "isListItem": false
+      },
+      {
+        "text": "Glow Squid (Needs Food Item)",
+        "startIndex": 622,
+        "endIndex": 650,
+        "tabId": "t.0",
+        "namedStyleType": "NORMAL_TEXT",
+        "isListItem": true
+      },
+      {
+        "text": "Anglerfish (Angling) (Needs Food Item)",
+        "startIndex": 651,
+        "endIndex": 689,
+        "tabId": "t.0",
+        "namedStyleType": "NORMAL_TEXT",
+        "isListItem": true
+      },
+      {
+        "text": "Dragonfish (Hybrid aquatic) (Needs Cooked Food Item)",
+        "startIndex": 690,
+        "endIndex": 742,
+        "tabId": "t.0",
+        "namedStyleType": "NORMAL_TEXT",
+        "isListItem": true
+      },
+      {
+        "text": "Vampire Squid (Hybrid Aquatic) (Needs Food Item)",
+        "startIndex": 743,
+        "endIndex": 791,
+        "tabId": "t.0",
+        "namedStyleType": "NORMAL_TEXT",
+        "isListItem": true
+      },
+      {
+        "text": "Lanternfish (Alex’s Caves)",
+        "startIndex": 792,
+        "endIndex": 818,
+        "tabId": "t.0",
+        "namedStyleType": "NORMAL_TEXT",
+        "isListItem": true
+      },
+      {
+        "text": "Tripofish (Alex’s Caves)",
+        "startIndex": 819,
+        "endIndex": 843,
+        "tabId": "t.0",
+        "namedStyleType": "NORMAL_TEXT",
+        "isListItem": true
+      },
+      {
+        "text": "Spider crab (Hybrid Aquatic) (Needs Food Item: Spider Crab Leg)",
+        "startIndex": 844,
+        "endIndex": 907,
+        "tabId": "t.0",
+        "namedStyleType": "NORMAL_TEXT",
+        "isListItem": true
+      },
+      {
+        "text": "Endfish (Better End as Custom)",
+        "startIndex": 908,
+        "endIndex": 938,
+        "tabId": "t.0",
+        "namedStyleType": "NORMAL_TEXT",
+        "isListItem": true
+      },
+      {
+        "text": "Isopod (Aquatica) (Needs Food Item)",
+        "startIndex": 939,
+        "endIndex": 974,
+        "tabId": "t.0",
+        "namedStyleType": "NORMAL_TEXT",
+        "isListItem": true
+      },
+      {
+        "text": "Decorative water mobs",
+        "startIndex": 975,
+        "endIndex": 996,
+        "tabId": "t.0",
+        "namedStyleType": "HEADING_1",
+        "isListItem": false
+      },
+      {
+        "text": "Shallow Water",
+        "startIndex": 997,
+        "endIndex": 1010,
+        "tabId": "t.0",
+        "namedStyleType": "HEADING_2",
+        "isListItem": false
+      },
+      {
+        "text": "Dolphin",
+        "startIndex": 1011,
+        "endIndex": 1018,
+        "tabId": "t.0",
+        "namedStyleType": "NORMAL_TEXT",
+        "isListItem": true
+      },
+      {
+        "text": "Orca (Alex’s Mobs)",
+        "startIndex": 1019,
+        "endIndex": 1037,
+        "tabId": "t.0",
+        "namedStyleType": "NORMAL_TEXT",
+        "isListItem": true
+      },
+      {
+        "text": "Bull Shark (Hybrid Aquatic)",
+        "startIndex": 1038,
+        "endIndex": 1065,
+        "tabId": "t.0",
+        "namedStyleType": "NORMAL_TEXT",
+        "isListItem": true
+      },
+      {
+        "text": "Deep Water",
+        "startIndex": 1066,
+        "endIndex": 1076,
+        "tabId": "t.0",
+        "namedStyleType": "HEADING_2",
+        "isListItem": false
+      },
+      {
+        "text": "Gossamer Worm (Alex’s Caves)",
+        "startIndex": 1077,
+        "endIndex": 1105,
+        "tabId": "t.0",
+        "namedStyleType": "NORMAL_TEXT",
+        "isListItem": true
+      },
+      {
+        "text": "Giant Squid (Alex’s Mobs)",
+        "startIndex": 1106,
+        "endIndex": 1131,
+        "tabId": "t.0",
+        "namedStyleType": "NORMAL_TEXT",
+        "isListItem": true
+      },
+      {
+        "text": "Cubozoa (BetterEnd, non-sulfur variant)",
+        "startIndex": 1132,
+        "endIndex": 1171,
+        "tabId": "t.0",
+        "namedStyleType": "NORMAL_TEXT",
+        "isListItem": true
+      },
+      {
+        "text": "Water Plants",
+        "startIndex": 1172,
+        "endIndex": 1184,
+        "tabId": "t.0",
+        "namedStyleType": "HEADING_1",
+        "isListItem": false
+      },
+      {
+        "text": "Shallow Water Plants",
+        "startIndex": 1185,
+        "endIndex": 1205,
+        "tabId": "t.0",
+        "namedStyleType": "HEADING_2",
+        "isListItem": false
+      },
+      {
+        "text": "Kelp",
+        "startIndex": 1206,
+        "endIndex": 1210,
+        "tabId": "t.0",
+        "namedStyleType": "NORMAL_TEXT",
+        "isListItem": true
+      },
+      {
+        "text": "(Tall) Seagrass",
+        "startIndex": 1211,
+        "endIndex": 1226,
+        "tabId": "t.0",
+        "namedStyleType": "NORMAL_TEXT",
+        "isListItem": true
+      },
+      {
+        "text": "Sea Pickles (4 pickles when generated)",
+        "startIndex": 1227,
+        "endIndex": 1265,
+        "tabId": "t.0",
+        "namedStyleType": "NORMAL_TEXT",
+        "isListItem": true
+      },
+      {
+        "text": "Wet Sponge",
+        "startIndex": 1266,
+        "endIndex": 1276,
+        "tabId": "t.0",
+        "namedStyleType": "NORMAL_TEXT",
+        "isListItem": true
+      },
+      {
+        "text": "Deep Water Plants",
+        "startIndex": 1277,
+        "endIndex": 1294,
+        "tabId": "t.0",
+        "namedStyleType": "HEADING_2",
+        "isListItem": false
+      },
+      {
+        "text": "Ping Pong Sponge (Alex’s Caves)",
+        "startIndex": 1295,
+        "endIndex": 1326,
+        "tabId": "t.0",
+        "namedStyleType": "NORMAL_TEXT",
+        "isListItem": true
+      },
+      {
+        "text": "Light Blue Charnia (Better End)",
+        "startIndex": 1327,
+        "endIndex": 1358,
+        "tabId": "t.0",
+        "namedStyleType": "NORMAL_TEXT",
+        "isListItem": true
+      },
+      {
+        "text": "Cyan Charnia (Better End)",
+        "startIndex": 1359,
+        "endIndex": 1384,
+        "tabId": "t.0",
+        "namedStyleType": "NORMAL_TEXT",
+        "isListItem": true
+      },
+      {
+        "text": "Bone Worms (Alex’s Caves)",
+        "startIndex": 1385,
+        "endIndex": 1410,
+        "tabId": "t.0",
+        "namedStyleType": "NORMAL_TEXT",
+        "isListItem": true
+      },
+      {
+        "text": "Crops and Mushrooms",
+        "startIndex": 1411,
+        "endIndex": 1430,
+        "tabId": "t.0",
+        "namedStyleType": "HEADING_1",
+        "isListItem": false
+      },
+      {
+        "text": "Beetroots (mushoom caves only)",
+        "startIndex": 1431,
+        "endIndex": 1461,
+        "tabId": "t.0",
+        "namedStyleType": "NORMAL_TEXT",
+        "isListItem": true
+      },
+      {
+        "text": "Sweet Berry Bush",
+        "startIndex": 1462,
+        "endIndex": 1478,
+        "tabId": "t.0",
+        "namedStyleType": "NORMAL_TEXT",
+        "isListItem": true
+      },
+      {
+        "text": "Blue Berry Bush (custom)",
+        "startIndex": 1479,
+        "endIndex": 1503,
+        "tabId": "t.0",
+        "namedStyleType": "NORMAL_TEXT",
+        "isListItem": true
+      },
+      {
+        "text": "Red mushroom (mushoom caves only)",
+        "startIndex": 1504,
+        "endIndex": 1537,
+        "tabId": "t.0",
+        "namedStyleType": "NORMAL_TEXT",
+        "isListItem": true
+      },
+      {
+        "text": "Brown mushroom (mushoom caves only)",
+        "startIndex": 1538,
+        "endIndex": 1573,
+        "tabId": "t.0",
+        "namedStyleType": "NORMAL_TEXT",
+        "isListItem": true
+      },
+      {
+        "text": "Mushgloom (mushoom caves only) (Twilight Forest)",
+        "startIndex": 1574,
+        "endIndex": 1622,
+        "tabId": "t.0",
+        "namedStyleType": "NORMAL_TEXT",
+        "isListItem": true
+      },
+      {
+        "text": "Glowshroom (mushoom caves only) (Quark)",
+        "startIndex": 1623,
+        "endIndex": 1662,
+        "tabId": "t.0",
+        "namedStyleType": "NORMAL_TEXT",
+        "isListItem": true
+      },
+      {
+        "text": "Glow Lichen (mushoom caves only)",
+        "startIndex": 1663,
+        "endIndex": 1695,
+        "tabId": "t.0",
+        "namedStyleType": "NORMAL_TEXT",
+        "isListItem": true
+      },
+      {
+        "text": "Trees",
+        "startIndex": 1696,
+        "endIndex": 1701,
+        "tabId": "t.0",
+        "namedStyleType": "HEADING_1",
+        "isListItem": false
+      },
+      {
+        "text": "Giant Red mushroom (mushoom caves only)",
+        "startIndex": 1702,
+        "endIndex": 1741,
+        "tabId": "t.0",
+        "namedStyleType": "NORMAL_TEXT",
+        "isListItem": true
+      },
+      {
+        "text": "Giant Brown mushroom (mushoom caves only)",
+        "startIndex": 1742,
+        "endIndex": 1783,
+        "tabId": "t.0",
+        "namedStyleType": "NORMAL_TEXT",
+        "isListItem": true
+      },
+      {
+        "text": "Giant Mushgloom (twilight forest) (mushoom caves only)",
+        "startIndex": 1784,
+        "endIndex": 1838,
+        "tabId": "t.0",
+        "namedStyleType": "NORMAL_TEXT",
+        "isListItem": true
+      },
+      {
+        "text": "Giant Glowshroom (Quark) (mushoom caves only)",
+        "startIndex": 1839,
+        "endIndex": 1884,
+        "tabId": "t.0",
+        "namedStyleType": "NORMAL_TEXT",
+        "isListItem": true
+      },
+      {
+        "text": "Spruce (snowy forest only)",
+        "startIndex": 1885,
+        "endIndex": 1911,
+        "tabId": "t.0",
+        "namedStyleType": "NORMAL_TEXT",
+        "isListItem": true
+      },
+      {
+        "text": "Poplar (snowy forest only)",
+        "startIndex": 1912,
+        "endIndex": 1938,
+        "tabId": "t.0",
+        "namedStyleType": "NORMAL_TEXT",
+        "isListItem": true
+      },
+      {
+        "text": "Tree Fruits",
+        "startIndex": 1939,
+        "endIndex": 1950,
+        "tabId": "t.0",
+        "namedStyleType": "HEADING_1",
+        "isListItem": false
+      },
+      {
+        "text": "Red/Brown mushrooms (from giant mushrooms)",
+        "startIndex": 1951,
+        "endIndex": 1993,
+        "tabId": "t.0",
+        "namedStyleType": "NORMAL_TEXT",
+        "isListItem": true
+      },
+      {
+        "text": "Glowshrooms/Mushgloooms (from giant mushrooms) (Quark/Twilight Forest)",
+        "startIndex": 1994,
+        "endIndex": 2064,
+        "tabId": "t.0",
+        "namedStyleType": "NORMAL_TEXT",
+        "isListItem": true
+      },
+      {
+        "text": "Ores",
+        "startIndex": 2065,
+        "endIndex": 2069,
+        "tabId": "t.0",
+        "namedStyleType": "HEADING_1",
+        "isListItem": false
+      },
+      {
+        "text": "All have both deepslate and stone variants present",
+        "startIndex": 2070,
+        "endIndex": 2120,
+        "tabId": "t.0",
+        "namedStyleType": "NORMAL_TEXT",
+        "isListItem": false
+      },
+      {
+        "text": "Diamond",
+        "startIndex": 2121,
+        "endIndex": 2128,
+        "tabId": "t.0",
+        "namedStyleType": "NORMAL_TEXT",
+        "isListItem": true
+      },
+      {
+        "text": "Emerald",
+        "startIndex": 2129,
+        "endIndex": 2136,
+        "tabId": "t.0",
+        "namedStyleType": "NORMAL_TEXT",
+        "isListItem": true
+      },
+      {
+        "text": "Lapis",
+        "startIndex": 2137,
+        "endIndex": 2142,
+        "tabId": "t.0",
+        "namedStyleType": "NORMAL_TEXT",
+        "isListItem": true
+      },
+      {
+        "text": "Gold",
+        "startIndex": 2143,
+        "endIndex": 2147,
+        "tabId": "t.0",
+        "namedStyleType": "NORMAL_TEXT",
+        "isListItem": true
+      },
+      {
+        "text": "Coal",
+        "startIndex": 2148,
+        "endIndex": 2152,
+        "tabId": "t.0",
+        "namedStyleType": "NORMAL_TEXT",
+        "isListItem": true
+      },
+      {
+        "text": "Iron",
+        "startIndex": 2153,
+        "endIndex": 2157,
+        "tabId": "t.0",
+        "namedStyleType": "NORMAL_TEXT",
+        "isListItem": true
+      },
+      {
+        "text": "Copper",
+        "startIndex": 2158,
+        "endIndex": 2164,
+        "tabId": "t.0",
+        "namedStyleType": "NORMAL_TEXT",
+        "isListItem": true
+      },
+      {
+        "text": "Stone Blobs",
+        "startIndex": 2165,
+        "endIndex": 2176,
+        "tabId": "t.0",
+        "namedStyleType": "HEADING_1",
+        "isListItem": false
+      },
+      {
+        "text": "Polished Basalt (on deepslate)",
+        "startIndex": 2177,
+        "endIndex": 2207,
+        "tabId": "t.0",
+        "namedStyleType": "NORMAL_TEXT",
+        "isListItem": true
+      },
+      {
+        "text": "Tuff (on deepslate)",
+        "startIndex": 2208,
+        "endIndex": 2227,
+        "tabId": "t.0",
+        "namedStyleType": "NORMAL_TEXT",
+        "isListItem": true
+      },
+      {
+        "text": "Andesite (on stone)",
+        "startIndex": 2228,
+        "endIndex": 2247,
+        "tabId": "t.0",
+        "namedStyleType": "NORMAL_TEXT",
+        "isListItem": true
+      },
+      {
+        "text": "Diorite (on stone)",
+        "startIndex": 2248,
+        "endIndex": 2266,
+        "tabId": "t.0",
+        "namedStyleType": "NORMAL_TEXT",
+        "isListItem": true
+      },
+      {
+        "text": "Granite (on stone)",
+        "startIndex": 2267,
+        "endIndex": 2285,
+        "tabId": "t.0",
+        "namedStyleType": "NORMAL_TEXT",
+        "isListItem": true
+      },
+      {
+        "text": "Calcite (on stone)",
+        "startIndex": 2286,
+        "endIndex": 2304,
+        "tabId": "t.0",
+        "namedStyleType": "NORMAL_TEXT",
+        "isListItem": true
+      },
+      {
+        "text": "Surface Builder",
+        "startIndex": 2305,
+        "endIndex": 2320,
+        "tabId": "t.0",
+        "namedStyleType": "HEADING_1",
+        "isListItem": false
+      },
+      {
+        "text": "Water (including cave water): 2 mud, then 2 clay",
+        "startIndex": 2321,
+        "endIndex": 2369,
+        "tabId": "t.0",
+        "namedStyleType": "NORMAL_TEXT",
+        "isListItem": true
+      },
+      {
+        "text": "Land (mushroom caves, including in caves): 1 mycelium, 2 dirt",
+        "startIndex": 2370,
+        "endIndex": 2431,
+        "tabId": "t.0",
+        "namedStyleType": "NORMAL_TEXT",
+        "isListItem": true
+      },
+      {
+        "text": "Land (snowy forest): 1 grass block, 2 dirt",
+        "startIndex": 2432,
+        "endIndex": 2474,
+        "tabId": "t.0",
+        "namedStyleType": "NORMAL_TEXT",
+        "isListItem": true
+      },
+      {
+        "text": "Water shoreline in patches (blue ice, packed ice)",
+        "startIndex": 2475,
+        "endIndex": 2524,
+        "tabId": "t.0",
+        "namedStyleType": "NORMAL_TEXT",
+        "isListItem": true
+      },
+      {
+        "text": "y>=0: Stone; y<0:deepslate, final block: bedrock",
+        "startIndex": 2525,
+        "endIndex": 2573,
+        "tabId": "t.0",
+        "namedStyleType": "NORMAL_TEXT",
+        "isListItem": true
+      },
+      {
+        "text": "Precipitation, Fire, and Fluids",
+        "startIndex": 2574,
+        "endIndex": 2605,
+        "tabId": "t.0",
+        "namedStyleType": "HEADING_1",
+        "isListItem": false
+      },
+      {
+        "text": "Precipitation: Snow",
+        "startIndex": 2606,
+        "endIndex": 2625,
+        "tabId": "t.0",
+        "namedStyleType": "NORMAL_TEXT",
+        "isListItem": true
+      },
+      {
+        "text": "Fire is allowed",
+        "startIndex": 2626,
+        "endIndex": 2641,
+        "tabId": "t.0",
+        "namedStyleType": "NORMAL_TEXT",
+        "isListItem": true
+      },
+      {
+        "text": "Water is allowed",
+        "startIndex": 2642,
+        "endIndex": 2658,
+        "tabId": "t.0",
+        "namedStyleType": "NORMAL_TEXT",
+        "isListItem": true
+      },
+      {
+        "text": "Lava is allowed",
+        "startIndex": 2659,
+        "endIndex": 2674,
+        "tabId": "t.0",
+        "namedStyleType": "NORMAL_TEXT",
+        "isListItem": true
+      }
+    ],
+    "document_url": "https://docs.google.com/document/d/19vvAZzYl60L_4_B0XzWkINxOO6nM5uR_0KJjIRaZRcc"
+  },
+  "desert": {
+    "documentId": "1DbxIKqmAmXv7cfalvJgyR0NUp8ok9cqOtQ5PaQ4x05A",
+    "title": "Desert",
+    "revisionId": "AHj4eMSFESbMeC_olvS24pziu88ShSrFYHhDMMWiKjtSZU3_-Zu0VyLvK2a1GTkE3l0YNbw16fMpIY3HR0KuNF-EcMWMziA4JC4Ws-eKoqA",
+    "tabId": null,
+    "paragraphs": [
+      {
+        "text": "Desert Dimension",
+        "startIndex": 1,
+        "endIndex": 17,
+        "tabId": "t.0",
+        "namedStyleType": "TITLE",
+        "isListItem": false
+      },
+      {
+        "text": "The Desert dimension is paired with the overworld",
+        "startIndex": 18,
+        "endIndex": 67,
+        "tabId": "t.0",
+        "namedStyleType": "NORMAL_TEXT",
+        "isListItem": false
+      },
+      {
+        "text": "For mob spawning (only natural spawning, not spawn eggs, commands, etc.):",
+        "startIndex": 68,
+        "endIndex": 141,
+        "tabId": "t.0",
+        "namedStyleType": "NORMAL_TEXT",
+        "isListItem": false
+      },
+      {
+        "text": "Small fish require water in their spawn block and water in the blocks directly above and below it",
+        "startIndex": 142,
+        "endIndex": 239,
+        "tabId": "t.0",
+        "namedStyleType": "NORMAL_TEXT",
+        "isListItem": true
+      },
+      {
+        "text": "Large fish require water in their spawn block and water in the 2 blocks directly above and the 2 directly below it",
+        "startIndex": 240,
+        "endIndex": 354,
+        "tabId": "t.0",
+        "namedStyleType": "NORMAL_TEXT",
+        "isListItem": true
+      },
+      {
+        "text": "Bottom fish require water in their spawn block and water in the 2 blocks directly above and a solid block directly below it",
+        "startIndex": 355,
+        "endIndex": 478,
+        "tabId": "t.0",
+        "namedStyleType": "NORMAL_TEXT",
+        "isListItem": true
+      },
+      {
+        "text": "Livestock",
+        "startIndex": 479,
+        "endIndex": 488,
+        "tabId": "t.0",
+        "namedStyleType": "HEADING_1",
+        "isListItem": false
+      },
+      {
+        "text": "Rabbit",
+        "startIndex": 489,
+        "endIndex": 495,
+        "tabId": "t.0",
+        "namedStyleType": "NORMAL_TEXT",
+        "isListItem": true
+      },
+      {
+        "text": "Jerboa (Alex’s Mobs) (Drops Untamed Wilds raw turtle meat)",
+        "startIndex": 496,
+        "endIndex": 554,
+        "tabId": "t.0",
+        "namedStyleType": "NORMAL_TEXT",
+        "isListItem": true
+      },
+      {
+        "text": "Stalker (Outer End - Choose Correct Variant)",
+        "startIndex": 555,
+        "endIndex": 599,
+        "tabId": "t.0",
+        "namedStyleType": "NORMAL_TEXT",
+        "isListItem": true
+      },
+      {
+        "text": "Usable tamed mobs",
+        "startIndex": 600,
+        "endIndex": 617,
+        "tabId": "t.0",
+        "namedStyleType": "HEADING_1",
+        "isListItem": false
+      },
+      {
+        "text": "Camel",
+        "startIndex": 618,
+        "endIndex": 623,
+        "tabId": "t.0",
+        "namedStyleType": "NORMAL_TEXT",
+        "isListItem": true
+      },
+      {
+        "text": "Water mobs (all edible)",
+        "startIndex": 624,
+        "endIndex": 647,
+        "tabId": "t.0",
+        "namedStyleType": "HEADING_1",
+        "isListItem": false
+      },
+      {
+        "text": "Triops (Alex’s Mobs)  (Needs Food Item) (small fish)",
+        "startIndex": 648,
+        "endIndex": 700,
+        "tabId": "t.0",
+        "namedStyleType": "NORMAL_TEXT",
+        "isListItem": true
+      },
+      {
+        "text": "Golden River Ray (Fins and Tails) (small fish)",
+        "startIndex": 701,
+        "endIndex": 747,
+        "tabId": "t.0",
+        "namedStyleType": "NORMAL_TEXT",
+        "isListItem": true
+      },
+      {
+        "text": "Blue Spotted Stingray (Ambient Additions)  (Needs Food Item) (small fish)",
+        "startIndex": 748,
+        "endIndex": 821,
+        "tabId": "t.0",
+        "namedStyleType": "NORMAL_TEXT",
+        "isListItem": true
+      },
+      {
+        "text": "Sulfur-colored Endfish (Better End)  (Needs Food Item: Recolored Endfish) (small fish)",
+        "startIndex": 822,
+        "endIndex": 908,
+        "tabId": "t.0",
+        "namedStyleType": "NORMAL_TEXT",
+        "isListItem": true
+      },
+      {
+        "text": "Hound Shark (Hybrid Aquatic)  (Needs Food Item) (large fish)",
+        "startIndex": 909,
+        "endIndex": 969,
+        "tabId": "t.0",
+        "namedStyleType": "NORMAL_TEXT",
+        "isListItem": true
+      },
+      {
+        "text": "Shame Faced Crab (Ambient Additions)  (Needs Food Item) (bottom fish)",
+        "startIndex": 970,
+        "endIndex": 1039,
+        "tabId": "t.0",
+        "namedStyleType": "NORMAL_TEXT",
+        "isListItem": true
+      },
+      {
+        "text": "Water Plants",
+        "startIndex": 1040,
+        "endIndex": 1052,
+        "tabId": "t.0",
+        "namedStyleType": "HEADING_1",
+        "isListItem": false
+      },
+      {
+        "text": "Bull Kelp (Hybrid Aquatic)",
+        "startIndex": 1053,
+        "endIndex": 1079,
+        "tabId": "t.0",
+        "namedStyleType": "NORMAL_TEXT",
+        "isListItem": true
+      },
+      {
+        "text": "Plants",
+        "startIndex": 1080,
+        "endIndex": 1086,
+        "tabId": "t.0",
+        "namedStyleType": "HEADING_1",
+        "isListItem": false
+      },
+      {
+        "text": "Crops and Mushrooms",
+        "startIndex": 1087,
+        "endIndex": 1106,
+        "tabId": "t.0",
+        "namedStyleType": "HEADING_1",
+        "isListItem": false
+      },
+      {
+        "text": "Red/Brown Mushroom",
+        "startIndex": 1107,
+        "endIndex": 1125,
+        "tabId": "t.0",
+        "namedStyleType": "NORMAL_TEXT",
+        "isListItem": true
+      },
+      {
+        "text": "Peanuts (Vintage Delight)",
+        "startIndex": 1126,
+        "endIndex": 1151,
+        "tabId": "t.0",
+        "namedStyleType": "NORMAL_TEXT",
+        "isListItem": true
+      },
+      {
+        "text": "Dragon Fruit (Collector’s Reap)",
+        "startIndex": 1152,
+        "endIndex": 1183,
+        "tabId": "t.0",
+        "namedStyleType": "NORMAL_TEXT",
+        "isListItem": true
+      },
+      {
+        "text": "Prickly Pear (Ecologics)",
+        "startIndex": 1184,
+        "endIndex": 1208,
+        "tabId": "t.0",
+        "namedStyleType": "NORMAL_TEXT",
+        "isListItem": true
+      },
+      {
+        "text": "Glow Lichen",
+        "startIndex": 1209,
+        "endIndex": 1220,
+        "tabId": "t.0",
+        "namedStyleType": "NORMAL_TEXT",
+        "isListItem": true
+      },
+      {
+        "text": "Trees",
+        "startIndex": 1221,
+        "endIndex": 1226,
+        "tabId": "t.0",
+        "namedStyleType": "HEADING_1",
+        "isListItem": false
+      },
+      {
+        "text": "Chorus Plant (chorus flowers can grow into other biomes of that dimension, but new ones cannot be placed by the player outside of the deep dark dimension)",
+        "startIndex": 1227,
+        "endIndex": 1381,
+        "tabId": "t.0",
+        "namedStyleType": "NORMAL_TEXT",
+        "isListItem": true
+      },
+      {
+        "text": "Tree Fruits",
+        "startIndex": 1382,
+        "endIndex": 1393,
+        "tabId": "t.0",
+        "namedStyleType": "HEADING_1",
+        "isListItem": false
+      },
+      {
+        "text": "Chorus fruit",
+        "startIndex": 1394,
+        "endIndex": 1406,
+        "tabId": "t.0",
+        "namedStyleType": "NORMAL_TEXT",
+        "isListItem": true
+      },
+      {
+        "text": "Ores",
+        "startIndex": 1407,
+        "endIndex": 1411,
+        "tabId": "t.0",
+        "namedStyleType": "HEADING_1",
+        "isListItem": false
+      },
+      {
+        "text": "All have both deepslate and stone variants present",
+        "startIndex": 1412,
+        "endIndex": 1462,
+        "tabId": "t.0",
+        "namedStyleType": "NORMAL_TEXT",
+        "isListItem": false
+      },
+      {
+        "text": "Gold",
+        "startIndex": 1463,
+        "endIndex": 1467,
+        "tabId": "t.0",
+        "namedStyleType": "NORMAL_TEXT",
+        "isListItem": true
+      },
+      {
+        "text": "Coal",
+        "startIndex": 1468,
+        "endIndex": 1472,
+        "tabId": "t.0",
+        "namedStyleType": "NORMAL_TEXT",
+        "isListItem": true
+      },
+      {
+        "text": "Copper",
+        "startIndex": 1473,
+        "endIndex": 1479,
+        "tabId": "t.0",
+        "namedStyleType": "NORMAL_TEXT",
+        "isListItem": true
+      },
+      {
+        "text": "Redstone",
+        "startIndex": 1480,
+        "endIndex": 1488,
+        "tabId": "t.0",
+        "namedStyleType": "NORMAL_TEXT",
+        "isListItem": true
+      },
+      {
+        "text": "Stone Blobs",
+        "startIndex": 1489,
+        "endIndex": 1500,
+        "tabId": "t.0",
+        "namedStyleType": "HEADING_1",
+        "isListItem": false
+      },
+      {
+        "text": "Tuff (on deepslate)",
+        "startIndex": 1501,
+        "endIndex": 1520,
+        "tabId": "t.0",
+        "namedStyleType": "NORMAL_TEXT",
+        "isListItem": true
+      },
+      {
+        "text": "Andesite (on stone)",
+        "startIndex": 1521,
+        "endIndex": 1540,
+        "tabId": "t.0",
+        "namedStyleType": "NORMAL_TEXT",
+        "isListItem": true
+      },
+      {
+        "text": "Diorite (on stone)",
+        "startIndex": 1541,
+        "endIndex": 1559,
+        "tabId": "t.0",
+        "namedStyleType": "NORMAL_TEXT",
+        "isListItem": true
+      },
+      {
+        "text": "Granite (on stone)",
+        "startIndex": 1560,
+        "endIndex": 1578,
+        "tabId": "t.0",
+        "namedStyleType": "NORMAL_TEXT",
+        "isListItem": true
+      },
+      {
+        "text": "Terracotta (on stone)",
+        "startIndex": 1579,
+        "endIndex": 1600,
+        "tabId": "t.0",
+        "namedStyleType": "NORMAL_TEXT",
+        "isListItem": true
+      },
+      {
+        "text": "Cinnabar (on stone)",
+        "startIndex": 1601,
+        "endIndex": 1620,
+        "tabId": "t.0",
+        "namedStyleType": "NORMAL_TEXT",
+        "isListItem": true
+      },
+      {
+        "text": "Surface Builder",
+        "startIndex": 1621,
+        "endIndex": 1636,
+        "tabId": "t.0",
+        "namedStyleType": "HEADING_1",
+        "isListItem": false
+      },
+      {
+        "text": "Water (not including cave water): 2 sand, 1 sandstone",
+        "startIndex": 1637,
+        "endIndex": 1690,
+        "tabId": "t.0",
+        "namedStyleType": "NORMAL_TEXT",
+        "isListItem": true
+      },
+      {
+        "text": "Surface Land y>y1: Badlands",
+        "startIndex": 1691,
+        "endIndex": 1718,
+        "tabId": "t.0",
+        "namedStyleType": "NORMAL_TEXT",
+        "isListItem": true
+      },
+      {
+        "text": "Surface Land y_0<y<=y_1: 2 red sand, red sandstone",
+        "startIndex": 1719,
+        "endIndex": 1769,
+        "tabId": "t.0",
+        "namedStyleType": "NORMAL_TEXT",
+        "isListItem": true
+      },
+      {
+        "text": "Surface Land y<y_0: 2 sand, 1 sandstone",
+        "startIndex": 1770,
+        "endIndex": 1809,
+        "tabId": "t.0",
+        "namedStyleType": "NORMAL_TEXT",
+        "isListItem": true
+      },
+      {
+        "text": "y>=0 in desert: Stone; y<0 in desert:deepslate",
+        "startIndex": 1810,
+        "endIndex": 1856,
+        "tabId": "t.0",
+        "namedStyleType": "NORMAL_TEXT",
+        "isListItem": true
+      },
+      {
+        "text": "Bottom block: Bedrock",
+        "startIndex": 1857,
+        "endIndex": 1878,
+        "tabId": "t.0",
+        "namedStyleType": "NORMAL_TEXT",
+        "isListItem": true
+      },
+      {
+        "text": "Precipitation, Fire, and Fluids",
+        "startIndex": 1879,
+        "endIndex": 1910,
+        "tabId": "t.0",
+        "namedStyleType": "HEADING_1",
+        "isListItem": false
+      },
+      {
+        "text": "Precipitation: None",
+        "startIndex": 1911,
+        "endIndex": 1930,
+        "tabId": "t.0",
+        "namedStyleType": "NORMAL_TEXT",
+        "isListItem": true
+      },
+      {
+        "text": "Fire is allowed",
+        "startIndex": 1931,
+        "endIndex": 1946,
+        "tabId": "t.0",
+        "namedStyleType": "NORMAL_TEXT",
+        "isListItem": true
+      },
+      {
+        "text": "Water is allowed",
+        "startIndex": 1947,
+        "endIndex": 1963,
+        "tabId": "t.0",
+        "namedStyleType": "NORMAL_TEXT",
+        "isListItem": true
+      },
+      {
+        "text": "Lava is allowed",
+        "startIndex": 1964,
+        "endIndex": 1979,
+        "tabId": "t.0",
+        "namedStyleType": "NORMAL_TEXT",
+        "isListItem": true
+      }
+    ],
+    "document_url": "https://docs.google.com/document/d/1DbxIKqmAmXv7cfalvJgyR0NUp8ok9cqOtQ5PaQ4x05A"
+  },
+  "nether": {
+    "documentId": "1QMHsk6-aToT7Zha9k6WtLptjgXUU_o3QDoVsdTSm3QQ",
+    "title": "Nether",
+    "revisionId": "AHj4eMTfVwvKSwx2i5VMMW6PaBHvKPVxJpjCn3vfAv_RsTSl3HTpw5OC-5Pe1lS8gU7SQYcZQbfFJfwAF1HMESACvNtPv1-LiG6ENYQXen4",
+    "tabId": null,
+    "paragraphs": [
+      {
+        "text": "Nether",
+        "startIndex": 1,
+        "endIndex": 7,
+        "tabId": "t.0",
+        "namedStyleType": "TITLE",
+        "isListItem": false
+      },
+      {
+        "text": "For mob spawning (only natural spawning, not spawn eggs, commands, etc.):",
+        "startIndex": 8,
+        "endIndex": 81,
+        "tabId": "t.0",
+        "namedStyleType": "NORMAL_TEXT",
+        "isListItem": false
+      },
+      {
+        "text": "Small lava fish require lava in their spawn block and lava in the blocks directly above and below it",
+        "startIndex": 82,
+        "endIndex": 182,
+        "tabId": "t.0",
+        "namedStyleType": "NORMAL_TEXT",
+        "isListItem": true
+      },
+      {
+        "text": "Large lava fish require lava in their spawn block and lava in the 2 blocks directly above and the 2 directly below it",
+        "startIndex": 183,
+        "endIndex": 300,
+        "tabId": "t.0",
+        "namedStyleType": "NORMAL_TEXT",
+        "isListItem": true
+      },
+      {
+        "text": "Livestock",
+        "startIndex": 301,
+        "endIndex": 310,
+        "tabId": "t.0",
+        "namedStyleType": "HEADING_1",
+        "isListItem": false
+      },
+      {
+        "text": "Hoglin (zombifies in warped forest, can’t zombify in overworld-like aoemod dimensions because it can’t leave the nether dimension)",
+        "startIndex": 311,
+        "endIndex": 441,
+        "tabId": "t.0",
+        "namedStyleType": "NORMAL_TEXT",
+        "isListItem": true
+      },
+      {
+        "text": "Usable tamed mobs",
+        "startIndex": 442,
+        "endIndex": 459,
+        "tabId": "t.0",
+        "namedStyleType": "HEADING_1",
+        "isListItem": false
+      },
+      {
+        "text": "Leviathan (Alex’s Mobs)",
+        "startIndex": 460,
+        "endIndex": 483,
+        "tabId": "t.0",
+        "namedStyleType": "NORMAL_TEXT",
+        "isListItem": true
+      },
+      {
+        "text": "Strider",
+        "startIndex": 484,
+        "endIndex": 491,
+        "tabId": "t.0",
+        "namedStyleType": "NORMAL_TEXT",
+        "isListItem": true
+      },
+      {
+        "text": "Lava mobs (non-edible)",
+        "startIndex": 492,
+        "endIndex": 514,
+        "tabId": "t.0",
+        "namedStyleType": "HEADING_1",
+        "isListItem": false
+      },
+      {
+        "text": "Magmacube Fish (drops 2 magma cream) (small fish)",
+        "startIndex": 515,
+        "endIndex": 564,
+        "tabId": "t.0",
+        "namedStyleType": "NORMAL_TEXT",
+        "isListItem": true
+      },
+      {
+        "text": "Glowdine (small fish)",
+        "startIndex": 565,
+        "endIndex": 586,
+        "tabId": "t.0",
+        "namedStyleType": "NORMAL_TEXT",
+        "isListItem": true
+      },
+      {
+        "text": "Blazefish (small fish)",
+        "startIndex": 587,
+        "endIndex": 609,
+        "tabId": "t.0",
+        "namedStyleType": "NORMAL_TEXT",
+        "isListItem": true
+      },
+      {
+        "text": "Witherbone fish (small fish)",
+        "startIndex": 610,
+        "endIndex": 638,
+        "tabId": "t.0",
+        "namedStyleType": "NORMAL_TEXT",
+        "isListItem": true
+      },
+      {
+        "text": "Sulfur-colored Cubozoa  (large fish) (requires a separate new mob that uses the same model and texture as sulfur cubozoa, but extends the nether depths fish instead. Keep the sulfur variant of the cubozoa, which won’t spawn in any of the aoemod biomes without commands anyway. That way it doesn’t break the original mod. Rename it to lava jellyfish)",
+        "startIndex": 639,
+        "endIndex": 988,
+        "tabId": "t.0",
+        "namedStyleType": "NORMAL_TEXT",
+        "isListItem": true
+      },
+      {
+        "text": "Lava Plants",
+        "startIndex": 989,
+        "endIndex": 1000,
+        "tabId": "t.0",
+        "namedStyleType": "HEADING_1",
+        "isListItem": false
+      },
+      {
+        "text": "(Warped/Crimson) Kelp",
+        "startIndex": 1001,
+        "endIndex": 1022,
+        "tabId": "t.0",
+        "namedStyleType": "NORMAL_TEXT",
+        "isListItem": true
+      },
+      {
+        "text": "(Tall) (Warped/Crimson) Seagrass",
+        "startIndex": 1023,
+        "endIndex": 1055,
+        "tabId": "t.0",
+        "namedStyleType": "NORMAL_TEXT",
+        "isListItem": true
+      },
+      {
+        "text": "Crops and Mushrooms",
+        "startIndex": 1056,
+        "endIndex": 1075,
+        "tabId": "t.0",
+        "namedStyleType": "HEADING_1",
+        "isListItem": false
+      },
+      {
+        "text": "Warped Fungus (warped forest only)",
+        "startIndex": 1076,
+        "endIndex": 1110,
+        "tabId": "t.0",
+        "namedStyleType": "NORMAL_TEXT",
+        "isListItem": true
+      },
+      {
+        "text": "Crimson Fungus (crimson forest only)",
+        "startIndex": 1111,
+        "endIndex": 1147,
+        "tabId": "t.0",
+        "namedStyleType": "NORMAL_TEXT",
+        "isListItem": true
+      },
+      {
+        "text": "Soul beets (soul sand valley only)",
+        "startIndex": 1148,
+        "endIndex": 1182,
+        "tabId": "t.0",
+        "namedStyleType": "NORMAL_TEXT",
+        "isListItem": true
+      },
+      {
+        "text": "Soul berries (soul sand valley only)",
+        "startIndex": 1183,
+        "endIndex": 1219,
+        "tabId": "t.0",
+        "namedStyleType": "NORMAL_TEXT",
+        "isListItem": true
+      },
+      {
+        "text": "Netherwart (soul sand valley only)",
+        "startIndex": 1220,
+        "endIndex": 1254,
+        "tabId": "t.0",
+        "namedStyleType": "NORMAL_TEXT",
+        "isListItem": true
+      },
+      {
+        "text": "Trees",
+        "startIndex": 1255,
+        "endIndex": 1260,
+        "tabId": "t.0",
+        "namedStyleType": "HEADING_1",
+        "isListItem": false
+      },
+      {
+        "text": "Giant Crimson Fungus (not logs, but wood products can be placed anywhere in the nether but not desert). Logs, wood, nether wart blocks, and crimson fungus must be in the crimson forest. Growing outside of the crimson forest cancels the feature, choosing a lower height when possible instead",
+        "startIndex": 1261,
+        "endIndex": 1551,
+        "tabId": "t.0",
+        "namedStyleType": "NORMAL_TEXT",
+        "isListItem": true
+      },
+      {
+        "text": "Giant Warped Fungus (not logs, but wood products can be placed anywhere in the nether but not desert). Logs, wood, warped wart blocks, and warped fungus must be in the crimson forest. Growing outside of the crimson forest cancels the feature, choosing a lower height when possible instead",
+        "startIndex": 1552,
+        "endIndex": 1840,
+        "tabId": "t.0",
+        "namedStyleType": "NORMAL_TEXT",
+        "isListItem": true
+      },
+      {
+        "text": "Pale Oak (soul sand valley only; logs and wood products can be placed in both nether and desert, but leaves, saplings, and pale hanging moss cannot be placed outside of the soil sand valley. Growth of the tree from a sapling or feature fails if it would grow outside of the biome, choosing a lower height instead of possible",
+        "startIndex": 1841,
+        "endIndex": 2165,
+        "tabId": "t.0",
+        "namedStyleType": "NORMAL_TEXT",
+        "isListItem": true
+      },
+      {
+        "text": "Powder Cane (My Nether’s Delight) (cannot be placed out of or grow out of basalt deltas)",
+        "startIndex": 2166,
+        "endIndex": 2254,
+        "tabId": "t.0",
+        "namedStyleType": "NORMAL_TEXT",
+        "isListItem": true
+      },
+      {
+        "text": "Tree Fruits",
+        "startIndex": 2255,
+        "endIndex": 2266,
+        "tabId": "t.0",
+        "namedStyleType": "HEADING_1",
+        "isListItem": false
+      },
+      {
+        "text": "Warped/Crimson Fungus (from Giant Fungi)",
+        "startIndex": 2267,
+        "endIndex": 2307,
+        "tabId": "t.0",
+        "namedStyleType": "NORMAL_TEXT",
+        "isListItem": true
+      },
+      {
+        "text": "Ores",
+        "startIndex": 2308,
+        "endIndex": 2312,
+        "tabId": "t.0",
+        "namedStyleType": "HEADING_1",
+        "isListItem": false
+      },
+      {
+        "text": "Products made from quartz can be placed anywhere in desert or nether, but the quartz ores are restricted. The same is true for gold ores and gold products. The exception is ancient debris, which can be placed in anywhere in the nether (but not the desert) and generates in all of those biomes. The quantity of these 3 ores are 2-4 times more common in the basalt deltas, because the basalt deltas as no plants or trees (other than the powder cane which makes gunpowder) and all of fish drops non-edible items, so to balance it I want it to have a large mining advantage.",
+        "startIndex": 2313,
+        "endIndex": 2883,
+        "tabId": "t.0",
+        "namedStyleType": "NORMAL_TEXT",
+        "isListItem": false
+      },
+      {
+        "text": "Nether Gold Ore (only placeable when the block above is warped or crimson forest) (replaces netherrack)",
+        "startIndex": 2884,
+        "endIndex": 2987,
+        "tabId": "t.0",
+        "namedStyleType": "NORMAL_TEXT",
+        "isListItem": true
+      },
+      {
+        "text": "Soul soil Gold Ore (only placeable when the block above is soul sand valley) (replaces soul soil)",
+        "startIndex": 2988,
+        "endIndex": 3085,
+        "tabId": "t.0",
+        "namedStyleType": "NORMAL_TEXT",
+        "isListItem": true
+      },
+      {
+        "text": "Soul sand Gold Ore (only placeable when the block above is soul sand valley) (replaces soul sand)",
+        "startIndex": 3086,
+        "endIndex": 3183,
+        "tabId": "t.0",
+        "namedStyleType": "NORMAL_TEXT",
+        "isListItem": true
+      },
+      {
+        "text": "Blackstone Gold Ore (only placeable when the block above is basalt deltas) (replaces blackstone)",
+        "startIndex": 3184,
+        "endIndex": 3280,
+        "tabId": "t.0",
+        "namedStyleType": "NORMAL_TEXT",
+        "isListItem": true
+      },
+      {
+        "text": "Basalt Gold Ore (only placeable when the block above is basalt deltas) (replaces blackstone)",
+        "startIndex": 3281,
+        "endIndex": 3373,
+        "tabId": "t.0",
+        "namedStyleType": "NORMAL_TEXT",
+        "isListItem": true
+      },
+      {
+        "text": "Nether Quartz (only placeable when the block above is warped or crimson forest) (replaces netherrack)",
+        "startIndex": 3374,
+        "endIndex": 3475,
+        "tabId": "t.0",
+        "namedStyleType": "NORMAL_TEXT",
+        "isListItem": true
+      },
+      {
+        "text": "Basalt Nether Quartz (only placeable when the block above is basalt deltas) (replaces basalt)",
+        "startIndex": 3476,
+        "endIndex": 3569,
+        "tabId": "t.0",
+        "namedStyleType": "NORMAL_TEXT",
+        "isListItem": true
+      },
+      {
+        "text": "Blackstone Nether Quartz (only placeable when the block above is basalt deltas) (replaces blackstone)",
+        "startIndex": 3570,
+        "endIndex": 3671,
+        "tabId": "t.0",
+        "namedStyleType": "NORMAL_TEXT",
+        "isListItem": true
+      },
+      {
+        "text": "Soul soil soul Quartz (only placeable when the block above is soul sand valley) (replaces soul soil)",
+        "startIndex": 3672,
+        "endIndex": 3772,
+        "tabId": "t.0",
+        "namedStyleType": "NORMAL_TEXT",
+        "isListItem": true
+      },
+      {
+        "text": "Soul sand soul Quartz (only placeable when the block above is soul sand valley) (replaces soul sand)",
+        "startIndex": 3773,
+        "endIndex": 3873,
+        "tabId": "t.0",
+        "namedStyleType": "NORMAL_TEXT",
+        "isListItem": true
+      },
+      {
+        "text": "Ancient Debris (only placeable in the nether) (on basalt, blackstone, soul sand, soul soil, netherrack)",
+        "startIndex": 3874,
+        "endIndex": 3977,
+        "tabId": "t.0",
+        "namedStyleType": "NORMAL_TEXT",
+        "isListItem": true
+      },
+      {
+        "text": "Stone Blobs",
+        "startIndex": 3978,
+        "endIndex": 3989,
+        "tabId": "t.0",
+        "namedStyleType": "HEADING_1",
+        "isListItem": false
+      },
+      {
+        "text": "Can be placed anywhere in the desert or nether, but only generate in the basalt deltas biome",
+        "startIndex": 3990,
+        "endIndex": 4082,
+        "tabId": "t.0",
+        "namedStyleType": "NORMAL_TEXT",
+        "isListItem": false
+      },
+      {
+        "text": "Magma (on basalt, blackstone)",
+        "startIndex": 4083,
+        "endIndex": 4112,
+        "tabId": "t.0",
+        "namedStyleType": "NORMAL_TEXT",
+        "isListItem": true
+      },
+      {
+        "text": "Obsidian (on basalt, blackstone)",
+        "startIndex": 4113,
+        "endIndex": 4145,
+        "tabId": "t.0",
+        "namedStyleType": "NORMAL_TEXT",
+        "isListItem": true
+      },
+      {
+        "text": "Sulfur (on basalt, blackstone, only generates in blobs that border lava. The blob does not to need to be fully exposed to lava, but it must partially be exposed to lava)",
+        "startIndex": 4146,
+        "endIndex": 4315,
+        "tabId": "t.0",
+        "namedStyleType": "NORMAL_TEXT",
+        "isListItem": true
+      },
+      {
+        "text": "Can be placed anywhere in the desert or nether, but only generates as an ore in the nether biomes. In all nether biomes, it generates like it does in the nether. In the basalt deltas, glowstone also generates as a regular ore like coal (with 0% discard chance)",
+        "startIndex": 4316,
+        "endIndex": 4576,
+        "tabId": "t.0",
+        "namedStyleType": "NORMAL_TEXT",
+        "isListItem": false
+      },
+      {
+        "text": "Glowstone (on basalt, blackstone)",
+        "startIndex": 4577,
+        "endIndex": 4610,
+        "tabId": "t.0",
+        "namedStyleType": "NORMAL_TEXT",
+        "isListItem": true
+      },
+      {
+        "text": "Surface Builder",
+        "startIndex": 4611,
+        "endIndex": 4626,
+        "tabId": "t.0",
+        "namedStyleType": "HEADING_1",
+        "isListItem": false
+      },
+      {
+        "text": "Final block: bedrock",
+        "startIndex": 4627,
+        "endIndex": 4647,
+        "tabId": "t.0",
+        "namedStyleType": "NORMAL_TEXT",
+        "isListItem": true
+      },
+      {
+        "text": "Surface Land (block above is crimson forest, including caves): 1 crimson nylium",
+        "startIndex": 4648,
+        "endIndex": 4727,
+        "tabId": "t.0",
+        "namedStyleType": "NORMAL_TEXT",
+        "isListItem": true
+      },
+      {
+        "text": "Surface Land (block above is warped forest, including caves): 1 warped nylium",
+        "startIndex": 4728,
+        "endIndex": 4805,
+        "tabId": "t.0",
+        "namedStyleType": "NORMAL_TEXT",
+        "isListItem": true
+      },
+      {
+        "text": "Block above is Crimson or warped forest (and the block is not on the surface): Netherrack",
+        "startIndex": 4806,
+        "endIndex": 4895,
+        "tabId": "t.0",
+        "namedStyleType": "NORMAL_TEXT",
+        "isListItem": true
+      },
+      {
+        "text": "Block above is Soul Sand Valley: 3D noise of soul sand vs. soul soil",
+        "startIndex": 4896,
+        "endIndex": 4964,
+        "tabId": "t.0",
+        "namedStyleType": "NORMAL_TEXT",
+        "isListItem": true
+      },
+      {
+        "text": "Block above is Basalt Deltas: 3D noise of blackstone vs. basalt",
+        "startIndex": 4965,
+        "endIndex": 5028,
+        "tabId": "t.0",
+        "namedStyleType": "NORMAL_TEXT",
+        "isListItem": true
+      },
+      {
+        "text": "Bottom block: Bedrock",
+        "startIndex": 5029,
+        "endIndex": 5050,
+        "tabId": "t.0",
+        "namedStyleType": "NORMAL_TEXT",
+        "isListItem": true
+      },
+      {
+        "text": "Soul sand, soul soil, netherrack, warped nylium, and crimson nylium can only be placed where the biome above them matches the surface builder checks. Blackstone and Basalt can be placed anywhere in the desert or the nether",
+        "startIndex": 5051,
+        "endIndex": 5273,
+        "tabId": "t.0",
+        "namedStyleType": "NORMAL_TEXT",
+        "isListItem": true
+      },
+      {
+        "text": "Precipitation, Fire, and Fluids",
+        "startIndex": 5274,
+        "endIndex": 5305,
+        "tabId": "t.0",
+        "namedStyleType": "HEADING_1",
+        "isListItem": false
+      },
+      {
+        "text": "Precipitation: None",
+        "startIndex": 5306,
+        "endIndex": 5325,
+        "tabId": "t.0",
+        "namedStyleType": "NORMAL_TEXT",
+        "isListItem": true
+      },
+      {
+        "text": "Fire is allowed",
+        "startIndex": 5326,
+        "endIndex": 5341,
+        "tabId": "t.0",
+        "namedStyleType": "NORMAL_TEXT",
+        "isListItem": true
+      },
+      {
+        "text": "Water is not allowed",
+        "startIndex": 5342,
+        "endIndex": 5362,
+        "tabId": "t.0",
+        "namedStyleType": "NORMAL_TEXT",
+        "isListItem": true
+      },
+      {
+        "text": "Lava is allowed",
+        "startIndex": 5363,
+        "endIndex": 5378,
+        "tabId": "t.0",
+        "namedStyleType": "NORMAL_TEXT",
+        "isListItem": true
+      }
+    ],
+    "document_url": "https://docs.google.com/document/d/1QMHsk6-aToT7Zha9k6WtLptjgXUU_o3QDoVsdTSm3QQ"
+  }
+}

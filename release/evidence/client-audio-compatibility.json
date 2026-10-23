@@ -1,0 +1,269 @@
+{
+  "evaluated_against": "Original pinned jars plus final source overrides; all seven repaired events confirmed present with nonzero weight and actual samples by the installed client.",
+  "events": [
+    {
+      "event": "alexscaves:abyssal_chasm_ambience_mood",
+      "status": "resolved_to_original_audio",
+      "existing_samples": [
+        "alexscaves:ambient/abyssal_chasm/mood/mood_0",
+        "alexscaves:ambient/abyssal_chasm/mood/mood_1",
+        "alexscaves:ambient/abyssal_chasm/mood/mood_2",
+        "alexscaves:ambient/abyssal_chasm/mood/mood_3"
+      ]
+    },
+    {
+      "event": "alexscaves:luxtructosaurus_breathe",
+      "status": "resolved_to_original_audio",
+      "existing_samples": [
+        "alexscaves:mob/luxtructosaurus/luxtructosaurus_breath_0",
+        "alexscaves:mob/luxtructosaurus/luxtructosaurus_breath_1",
+        "alexscaves:mob/luxtructosaurus/luxtructosaurus_breath_2"
+      ]
+    },
+    {
+      "event": "alexscaves:luxtructosaurus_snort",
+      "status": "all_audio_missing",
+      "missing_samples": [
+        "alexscaves:mob/luxtructosaurus/luxtructosaurus_snort_0",
+        "alexscaves:mob/luxtructosaurus/luxtructosaurus_snort_1",
+        "alexscaves:mob/luxtructosaurus/luxtructosaurus_snort_2"
+      ]
+    },
+    {
+      "event": "alexscaves:purple_soda_swim",
+      "status": "partially_missing_audio",
+      "existing_samples": [
+        "alexscaves:block/purple_soda/purple_soda_swim_0",
+        "alexscaves:block/purple_soda/purple_soda_swim_1",
+        "alexscaves:block/purple_soda/purple_soda_swim_2"
+      ],
+      "missing_samples": [
+        "alexscaves:block/purple_soda/purple_soda_swim_3",
+        "alexscaves:block/purple_soda/purple_soda_swim_4"
+      ]
+    },
+    {
+      "event": "ambientadditions:honeycreeper.ambient",
+      "status": "resolved_to_original_audio",
+      "existing_samples": [
+        "ambientadditions:iiwi/ambient"
+      ]
+    },
+    {
+      "event": "ambientadditions:honeycreeper.death",
+      "status": "resolved_to_original_audio",
+      "existing_samples": [
+        "ambientadditions:iiwi/death"
+      ]
+    },
+    {
+      "event": "ambientadditions:honeycreeper.hurt",
+      "status": "resolved_to_original_audio",
+      "existing_samples": [
+        "ambientadditions:iiwi/hurt"
+      ]
+    },
+    {
+      "event": "biodiverse:entity.lion.ambient",
+      "status": "partially_missing_audio",
+      "missing_samples": [
+        "biodiverse:lion_ambient1"
+      ],
+      "existing_samples": [
+        "biodiverse:lion_ambient2",
+        "biodiverse:lion_ambient3",
+        "biodiverse:lion_ambient4",
+        "biodiverse:lion_ambient5",
+        "biodiverse:lion_ambient6",
+        "biodiverse:cat_purr1"
+      ]
+    },
+    {
+      "event": "biodiverse:hippo.hurt",
+      "status": "all_audio_missing",
+      "missing_samples": [
+        "biodiverse:bear_attack"
+      ]
+    },
+    {
+      "event": "biodiverse:jaguar.ambient",
+      "status": "all_audio_missing",
+      "missing_samples": [
+        "biodiverse:lion_1",
+        "biodiverse:lion_2",
+        "biodiverse:lion_4",
+        "biodiverse:lion_5"
+      ]
+    },
+    {
+      "event": "biodiverse:jaguar.hurt",
+      "status": "all_audio_missing",
+      "missing_samples": [
+        "biodiverse:lionroar_2"
+      ]
+    },
+    {
+      "event": "biodiverse:reindeer.ambient",
+      "status": "partially_missing_audio",
+      "existing_samples": [
+        "biodiverse:reindeer_1",
+        "biodiverse:reindeer_2"
+      ],
+      "missing_samples": [
+        "biodiverse:reindeer_4"
+      ]
+    },
+    {
+      "event": "environmental:entity.zebra.hurt",
+      "status": "partially_missing_audio",
+      "existing_samples": [
+        "environmental:mob/zebra/hit1",
+        "environmental:mob/zebra/hit2",
+        "environmental:mob/zebra/hit3"
+      ],
+      "missing_samples": [
+        "environmental:mob/zebra/hit4"
+      ]
+    },
+    {
+      "event": "environmental:entity.zonkey.hurt",
+      "status": "partially_missing_audio",
+      "existing_samples": [
+        "environmental:mob/zebra/hit1",
+        "environmental:mob/zebra/hit2",
+        "environmental:mob/zebra/hit3"
+      ],
+      "missing_samples": [
+        "environmental:mob/zebra/hit4"
+      ]
+    },
+    {
+      "event": "environmental:entity.zorse.hurt",
+      "status": "partially_missing_audio",
+      "existing_samples": [
+        "environmental:mob/zebra/hit1",
+        "environmental:mob/zebra/hit2",
+        "environmental:mob/zebra/hit3"
+      ],
+      "missing_samples": [
+        "environmental:mob/zebra/hit4"
+      ]
+    },
+    {
+      "event": "hybrid_aquatic:entity.sirenian.eat",
+      "status": "missing_definition",
+      "unregistered_definition": [
+        "hybrid_aquatic:entity.sirenian.eat"
+      ]
+    },
+    {
+      "event": "minecraft:entity.goat.screaming.horn_break",
+      "status": "missing_definition",
+      "unregistered_definition": [
+        "minecraft:entity.goat.screaming.horn_break"
+      ]
+    },
+    {
+      "event": "minecraft:item.goat_horn.play",
+      "status": "missing_definition",
+      "unregistered_definition": [
+        "minecraft:item.goat_horn.play"
+      ]
+    },
+    {
+      "event": "naturalist:entity.giraffe.ambient",
+      "status": "resolved_to_original_audio",
+      "existing_samples": [
+        "naturalist:mob/giraffe_idle"
+      ]
+    },
+    {
+      "event": "naturalist:rubber_ducky_death",
+      "status": "missing_definition",
+      "unregistered_definition": [
+        "naturalist:rubber_ducky_death"
+      ]
+    },
+    {
+      "event": "naturalist:tortoise_death",
+      "status": "missing_definition",
+      "unregistered_definition": [
+        "naturalist:tortoise_death"
+      ]
+    },
+    {
+      "event": "naturalist:tortoise_hurt",
+      "status": "missing_definition",
+      "unregistered_definition": [
+        "naturalist:tortoise_hurt"
+      ]
+    }
+  ],
+  "unused_registered_mod_events": {
+    "naturalist:tortoise_hurt": "Only NaturalistSoundEvents registry references the field; Tortoise uses vanilla hurt audio.",
+    "naturalist:tortoise_death": "Only NaturalistSoundEvents registry references the field.",
+    "naturalist:rubber_ducky_death": "Only NaturalistSoundEvents registry references the field.",
+    "hybrid_aquatic:entity.sirenian.eat": "Only HASoundEvents registry references the field; other occurrences are translations."
+  },
+  "verified_playback_aliases": {
+    "ambientadditions:honeycreeper.*": "Iiwi and Hoatzin ambient/hurt/death methods return these events; original iiwi.* definitions and files exist.",
+    "alexscaves:abyssal_chasm_ambience_mood": "Aliases packaged abyssal_chasm_mood, which contains four original mood recordings.",
+    "alexscaves:luxtructosaurus_breath": "Registered event aliases breathe; actual file names use breath_0/1/2, now corrected.",
+    "naturalist:entity.giraffe.ambient": "Exact existing recording is mob/giraffe_idle.ogg, not mob/giraffe/idle.ogg."
+  },
+  "nonfatal_diagnostics": {
+    "bclib_air_item_like": "Caught diagnostic: Twilight registers item colors for potted_fiddlehead, whose item is AIR; BCLib filters it before registration.",
+    "corgilib_http_301": "AnnouncementInfo.fetchAnnouncementJson requests the optional client announcement endpoint; non-200 logs and returns null. Not gameplay, server login or mod download.",
+    "iceandfire_fire_swim_preload": "firedragon_swimming.tbl and firedragon_swim5.tbl are absent; actual FireDragonTabulaModelAnimator uses WALK1..4 swim poses. IceDragon uses its present SWIM1..5. No substitution made."
+  },
+  "runtime_confirmation": {
+    "status": "passed",
+    "release_sha256": "87af11197d7fced0063f3571bae55d2ac80785c7c463169d7e8f8eb8c7ec1d35",
+    "observed_local_time": "2026-10-20 10:10:38",
+    "report": "run/portal-production-client/game/qa-production-sounds.json",
+    "verified_repaired_events": {
+      "naturalist:entity.giraffe.ambient": {
+        "eventPresent": true,
+        "weight": 1,
+        "resolvedSample": "naturalist:mob/giraffe_idle",
+        "sampleExists": true
+      },
+      "alexscaves:luxtructosaurus_breath": {
+        "eventPresent": true,
+        "weight": 3,
+        "resolvedSample": "alexscaves:mob/luxtructosaurus/luxtructosaurus_breath_0",
+        "sampleExists": true
+      },
+      "alexscaves:luxtructosaurus_breathe": {
+        "eventPresent": true,
+        "weight": 3,
+        "resolvedSample": "alexscaves:mob/luxtructosaurus/luxtructosaurus_breath_0",
+        "sampleExists": true
+      },
+      "alexscaves:abyssal_chasm_ambience_mood": {
+        "eventPresent": true,
+        "weight": 4,
+        "resolvedSample": "alexscaves:ambient/abyssal_chasm/mood/mood_3",
+        "sampleExists": true
+      },
+      "ambientadditions:honeycreeper.ambient": {
+        "eventPresent": true,
+        "weight": 1,
+        "resolvedSample": "ambientadditions:iiwi/ambient",
+        "sampleExists": true
+      },
+      "ambientadditions:honeycreeper.hurt": {
+        "eventPresent": true,
+        "weight": 1,
+        "resolvedSample": "ambientadditions:iiwi/hurt",
+        "sampleExists": true
+      },
+      "ambientadditions:honeycreeper.death": {
+        "eventPresent": true,
+        "weight": 1,
+        "resolvedSample": "ambientadditions:iiwi/death",
+        "sampleExists": true
+      }
+    }
+  }
+}

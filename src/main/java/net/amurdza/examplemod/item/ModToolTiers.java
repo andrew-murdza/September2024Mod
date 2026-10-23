@@ -34,6 +34,11 @@ public class ModToolTiers {
             () -> Ingredient.of(Items.COPPER_INGOT)
     );
 
+    public static final ForgeTier REBALANCED_NETHERITE = new ForgeTier(
+            1, Math.round((190 + 250) / 2.0F), (5.0F + 6.0F) / 2.0F,
+            (1.0F + 2.0F) / 2.0F, Math.round((13 + 14) / 2.0F),
+            BlockTags.NEEDS_STONE_TOOL, () -> Ingredient.of(Items.NETHERITE_INGOT));
+
     public static void register() {
         TierSortingRegistry.registerTier(
                 BONE,
@@ -47,5 +52,8 @@ public class ModToolTiers {
                 List.of(Tiers.STONE),
                 List.of(Tiers.IRON)
         );
+        TierSortingRegistry.registerTier(REBALANCED_NETHERITE,
+                new ResourceLocation(AOEMod.MOD_ID, "rebalanced_netherite"),
+                List.of(COPPER), List.of(Tiers.IRON));
     }
 }

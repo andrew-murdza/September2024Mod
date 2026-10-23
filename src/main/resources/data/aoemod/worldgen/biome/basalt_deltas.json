@@ -28,19 +28,32 @@
     [],
     [],
     [],
-    [
-      "aoemod:nether_cave_chunk"
-    ],
-    [],
     [],
     [
-      "aoemod:blobs/magma",
-      "aoemod:blobs/glowstone",
-      "aoemod:nether_ores/ancient_debris_extra",
-      "aoemod:nether_ores/nether_gold_extra",
-      "aoemod:nether_ores/quartz_extra"
+      "minecraft:delta",
+      "minecraft:small_basalt_columns",
+      "minecraft:large_basalt_columns"
     ],
-    []
+    [],
+    [
+      "aoemod:dimension_blobs/nether/magma_block",
+      "aoemod:dimension_blobs/nether/obsidian",
+      "aoemod:dimension_blobs/nether/glowstone",
+      "aoemod:dimension_blobs/nether/sulfur",
+      "aoemod:dimension_ores/nether/basalt_deltas_quartz",
+      "aoemod:dimension_ores/nether/basalt_deltas_nether_gold",
+      "aoemod:dimension_ores/nether/basalt_deltas_ancient_debris"
+    ],
+    [
+      "minecraft:basalt_blobs",
+      "minecraft:blackstone_blobs",
+      "minecraft:patch_fire",
+      "minecraft:patch_soul_fire",
+      "minecraft:glowstone_extra",
+      "minecraft:glowstone",
+      "minecraft:brown_mushroom_nether",
+      "minecraft:red_mushroom_nether"
+    ]
   ],
   "has_precipitation": false,
   "spawn_costs": {},

@@ -4,7 +4,7 @@ AOE Mod Behavior Overview
 Purpose of this file
 --------------------
 
-This file is an audit-oriented summary of what the mod currently appears to do based on the Java source, JSON data, assets, recipes, tags, worldgen files, and mixin configuration in the project. It is intentionally organized by gameplay area rather than by file so it is easier to check whether each behavior is wanted.
+This file contains the original audit-oriented source summary. Section 1 was updated for the October 2026 dimension migration; later sections preserve the earlier audit and may describe behavior subsequently changed. The source files and root IMPLEMENTED_CHANGES.md document the current implementation.
 
 This is not a player-facing guide. It is meant to help identify:
 
@@ -17,36 +17,28 @@ This is not a player-facing guide. It is meant to help identify:
 1. High-level world and dimension changes
 -----------------------------------------
 
-The mod replaces the vanilla Overworld dimension configuration through data/minecraft/dimension/overworld.json. The Overworld uses the custom dimension type aoemod:aoedim and the custom noise settings aoemod:aoedim.
+The vanilla Overworld override and the former aoemod:aoedim dimension type/noise settings were removed. Vanilla and other-mod dimensions keep their generator definitions. AOE now defines six independent dimensions, each with its own dimension type and noise settings:
 
-The custom dimension type aoemod:aoedim keeps many Overworld-like rules:
+- aoemod:tropical_dimension: coral_reef, mangrove_swamp, rainforest, cherry_grove, lush_caves.
+- aoemod:savanna_dimension: savanna.
+- aoemod:plains_dimension: plains.
+- aoemod:snowy_dimension: snowy_forest, mushroom_caves, dripstone_caves.
+- aoemod:desert_dimension: desert, mesa, deep_dark.
+- aoemod:nether_dimension: crimson_forest, warped_forest, soul_sand_valley, basalt_deltas.
 
-- Natural dimension.
-- Skylight enabled.
-- Beds work.
-- Raids work.
-- Minimum Y is -64.
-- Height and logical height are 384.
-- Ambient light is 0.1.
-- Monster spawning is allowed from light level 0 through 7.
-- Piglin-safe is set to true.
-- Respawn anchors do not work.
+Every biome listed above belongs to the aoemod namespace. The jungle and grove biome IDs became rainforest and snowy_forest. Climate-based biome selection replaces the old repeating-band lookup overrides. Legacy density-function and feature definitions remain registered for compatibility, but the six generators do not invoke the former giant band-aligned cave features.
 
-The custom noise settings aoemod:aoedim use custom density functions for continents, rivers, offsets, and terrain shaping. Aquifers are disabled, sea level is 64, the default block is stone, the default fluid is water, and ore veins are disabled.
+Tropical terrain uses moss, Savanna uses mud with grass/soil surfaces, Plains uses stone, Snowy uses stone/deepslate with mushroom-cave mycelium, and Desert uses its terracotta/sand surfaces with deep-dark sculk/deepslate. Nether cave terrain uses netherrack/nylium in the two forest biomes, soul sediments in soul sand valley, and basalt/blackstone in basalt deltas. The first four dimensions omit Minecraft's hardcoded deep-lava height range; lava remains available in Desert and Nether.
 
-The mod registers custom density functions:
+Dimension-based material availability applies only to these six AOE dimensions. It combines explicit material exceptions, plant-family restrictions and recipe reachability. Mycelium, nylium, soul sediments and netherrack additionally check the nearby biome specified by their placement rules. Runtime block placement and generated ore features use this policy. Vanilla and other-mod dimensions do not receive these placement restrictions.
 
-- aoemod:continents creates large repeating biome/continent bands.
-- aoemod:rivers creates repeating north-south cuts plus east-west cuts at the paired jungle and badlands midpoints.
-- aoemod:offset creates biome/region-specific vertical offsets, including terrain stepping around transition areas.
-
-The terrain is divided into custom bands/regions such as jungle, savanna, plains, mountains/grove, desert, deep dark, soul sand valley, warped forest, crimson forest, and basalt deltas. Several features and mob spawns depend on these biome bands.
+Dimension visual effects are registered under aoemod:overworld_regions and aoemod:nether_regions. Vanilla Overworld visual effects are no longer replaced with a height-dependent Nether layer.
 
 
 2. Biomes and biome spawn themes
 --------------------------------
 
-The mod defines custom biome JSONs for the AOE dimension/Overworld replacement. Their spawns are grouped into difficulty and theme bands.
+The following biome/spawn notes describe the pre-migration audit; consult the current biome JSONs for the six-dimension layout above.
 
 Jungle:
 

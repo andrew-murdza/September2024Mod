@@ -1,6 +1,7 @@
 package net.amurdza.examplemod.mixins.mob_behavior;
 
 import net.amurdza.examplemod.config.MobConfig;
+import net.amurdza.examplemod.future.FutureMobCompatibility;
 import net.amurdza.examplemod.util.AnimalFoodOverrides;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
@@ -39,7 +40,10 @@ public abstract class AnimalFeedingBlocked {
             return;
         }
 
-        if (MobConfig.mobTwinsChance(animal) <= 0.0F&&MobConfig.mobGrowthChance(animal) <= 0.0F) {
+        boolean blocked = animal.isBaby()
+                ? MobConfig.mobGrowthChance(animal) == 0.0F || FutureMobCompatibility.isAgeLocked(animal)
+                : MobConfig.mobTwinsChance(animal) == 0.0F;
+        if (blocked) {
             cir.setReturnValue(InteractionResult.FAIL);
         }
     }

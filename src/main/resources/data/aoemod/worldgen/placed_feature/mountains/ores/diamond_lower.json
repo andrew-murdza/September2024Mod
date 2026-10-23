@@ -1,5 +1,5 @@
 {
-  "feature": "aoemod:ores/iron_ore",
+  "feature": "aoemod:ores/diamond_ore",
   "placement": [
     {
       "type": "minecraft:count",

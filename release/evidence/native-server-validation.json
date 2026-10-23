@@ -1,0 +1,234 @@
+{
+  "schema_version": 1,
+  "overall_status": "passed",
+  "tested_release_sha256": "87af11197d7fced0063f3571bae55d2ac80785c7c463169d7e8f8eb8c7ec1d35",
+  "environment": {
+    "minecraft": "1.20.1",
+    "forge": "47.4.22",
+    "java": "17.0.9",
+    "server_profile": "run/september-production",
+    "address": "127.0.0.1:25579",
+    "staged_jars": 70
+  },
+  "checks": {
+    "dedicated_startup": {
+      "status": "passed",
+      "time": "2026-10-20 10:10:59.783",
+      "world_startup_seconds": 4.147,
+      "log": "run/september-production/production-final-resources-console.log",
+      "repaired_loot_context_warnings": 0,
+      "unreachable_pineapple_entry_warnings": 0,
+      "missing_temperate_tag_warnings": 0
+    },
+    "client_server_jar_match": {
+      "status": "passed",
+      "server_jars": 70,
+      "client_jars": 71,
+      "shared_jars": 70,
+      "differing_shared_hashes": [],
+      "server_only": [],
+      "client_only": [
+        "aoe-portal-qa-1.0.0.jar"
+      ],
+      "aoe_release_sha256": "87af11197d7fced0063f3571bae55d2ac80785c7c463169d7e8f8eb8c7ec1d35",
+      "report": "build/reports/native-client-server-pack-match.json"
+    },
+    "stable_multiplayer_login": {
+      "status": "passed",
+      "time": "2026-10-20 10:11:41.834",
+      "player": "AOEPortalQA",
+      "dimension": "minecraft:overworld",
+      "position": [
+        1.5,
+        200,
+        -3
+      ],
+      "decoder_failures": 0,
+      "evidence": [
+        "run/september-production/production-final-resources-console.log",
+        "run/portal-production-client/game/logs/latest.log"
+      ]
+    },
+    "mob_probes": {
+      "status": "passed",
+      "time": "2026-10-20 10:11:23.057",
+      "dimension": "minecraft:overworld",
+      "positions": [
+        [
+          128.5,
+          250,
+          128.5
+        ],
+        [
+          132.5,
+          250,
+          128.5
+        ],
+        [
+          136.5,
+          250,
+          128.5
+        ]
+      ],
+      "results": {
+        "llama_strength": 5,
+        "zombie_tags": [
+          "aoe.checkedMobTierStats",
+          "aoe.checkedCharacteristics"
+        ],
+        "skeleton_tags": [
+          "aoe.checkedMobTierStats",
+          "aoe.checkedCharacteristics"
+        ]
+      },
+      "reflection_exceptions": 0,
+      "cleanup": "All three uniquely tagged probes removed; temporary chunk force load removed."
+    },
+    "live_data_reload": {
+      "status": "passed",
+      "started": "2026-10-20 10:12:19.295",
+      "completed": "2026-10-20 10:12:20.022",
+      "client_still_online_at": "2026-10-20 10:12:36.991",
+      "online_players": [
+        "AOEPortalQA"
+      ],
+      "decoding_errors": 0,
+      "exception_lines": 0,
+      "loot_context_warnings": 0,
+      "unreachable_entry_warnings": 0,
+      "missing_temperate_tag_warnings": 0,
+      "log": "run/september-production/production-final-resources-console.log",
+      "detail": "Server accepted subsequent list; one client remained connected. Reload emitted one transient server tick-delay warning."
+    },
+    "portal_matrix": {
+      "status": "passed",
+      "directed_routes": 32,
+      "expected_directed_routes": 32,
+      "unique_pairs": 32,
+      "forbidden_selections": 17,
+      "all_expected_pairs_present": true,
+      "evidence": [
+        "run/portal-production-client/game/qa-route-matrix.json",
+        "run/portal-production-client/game/qa-forbidden-routes.json"
+      ],
+      "scope": "Actual connected-client travel through each allowed directed pair and rejection of every other source/destination combination; per-route source and return portal blocks/tints recorded.",
+      "additional_client_checks": {
+        "mixed_rotated_frame": "passed",
+        "survival_portal_charge_observed_ticks": 85,
+        "arrival_cooldown_and_return": "passed",
+        "client_resource_reload_and_assets": "passed",
+        "evidence_owner": "Verified complete final client aggregate with matching artifact SHA"
+      },
+      "client_aggregate": "run/portal-production-client/final-qa-report.json"
+    },
+    "clean_restart_and_persistent_return": {
+      "status": "passed",
+      "pre_restart_shutdown": {
+        "status": "passed",
+        "time": "2026-10-20 10:21:32.737",
+        "all_dimensions_saved": true,
+        "exit_code": 0,
+        "log": "run/september-production/production-final-before-persistence-restart.log"
+      },
+      "unchanged_release_sha256": "87af11197d7fced0063f3571bae55d2ac80785c7c463169d7e8f8eb8c7ec1d35",
+      "expected_saved_link": {
+        "source_dimension": "aoemod:desert_dimension",
+        "source_arrival": [
+          1.5,
+          200,
+          0.5
+        ],
+        "destination_dimension": "aoemod:nether_dimension",
+        "destination_arrival": [
+          1.5,
+          73,
+          0.5
+        ]
+      },
+      "restart_startup": {
+        "status": "passed",
+        "time": "2026-10-20 10:22:42.789",
+        "world_startup_seconds": 4.203,
+        "console_responsive_at": "2026-10-20 10:22:53.203",
+        "log": "run/september-production/production-final-persistence-console.log",
+        "repaired_data_warnings": 0
+      },
+      "native_return_completed": "2026-10-20 10:23:47",
+      "observed_saved_link": {
+        "sameNetherArrival": [
+          1.5,
+          73.0,
+          0.5
+        ],
+        "sameDesertReturn": [
+          1.5,
+          200.0,
+          0.5
+        ],
+        "passed": true
+      },
+      "evidence": "run/portal-production-client/game/qa-restart-persistence.json"
+    },
+    "final_clean_shutdown": {
+      "status": "passed",
+      "time": "2026-10-20 10:24:38.642",
+      "exit_code": 0,
+      "all_dimensions_saved": true,
+      "client_exited_cleanly": true,
+      "client_exit_code": 0,
+      "client_exit_utc": "2026-10-20T14:24:21.151588+00:00",
+      "log": "run/september-production/production-final-after-persistence-restart.log"
+    }
+  },
+  "logs": [
+    "run/september-production/production-final-resources-console.log",
+    "run/september-production/production-final-before-persistence-restart.log",
+    "run/september-production/production-final-persistence-console.log",
+    "run/september-production/production-final-after-persistence-restart.log",
+    "run/portal-production-client/client-launch.log",
+    "run/portal-production-client/game/logs/latest.log"
+  ],
+  "note": "All listed checks completed on the exact final packaged artifact. Historical earlier-candidate evidence is separate and is not used as proof of these final checks.",
+  "pre_fix_shutdown": {
+    "status": "passed",
+    "time": "2026-10-20 09:50:01",
+    "exit_code": 0,
+    "all_dimensions_saved": true,
+    "log": "run/september-production/production-before-recipebook-fix.log"
+  },
+  "previous_candidate_sha256": "6277050e0feb563c968f87b97f20f8f151807bc84f076c8557d90925df95d673",
+  "before_resource_repair_shutdown": {
+    "status": "passed",
+    "time": "2026-10-20 10:05:25.367",
+    "exit_code": 0,
+    "log": "run/september-production/production-before-reload-resource-repair.log",
+    "detail": "Historical candidate627705 stopped after19/32 routes to apply final scoped resource repairs; full native matrix will rerun on final rebuilt candidate.",
+    "all_dimensions_saved": true
+  },
+  "tested_release_bytes": 2630330,
+  "historical_report": "build/reports/native-server-validation-before-resource-repair.json",
+  "runtime_log_scans": [
+    {
+      "log": "run/september-production/production-final-before-persistence-restart.log",
+      "runtime_failure_matches": [],
+      "all_dimensions_saved": true
+    },
+    {
+      "log": "run/september-production/production-final-after-persistence-restart.log",
+      "runtime_failure_matches": [],
+      "all_dimensions_saved": true
+    }
+  ],
+  "remaining_diagnostics": [
+    "Three supplied upstream mixin configs omit optional minVersion (Fins and Tails, Ferdinand's Flowers, YACL); these log ERROR at bootstrap but do not abort loading.",
+    "Optional absent-mod mixin targets log caught ClassNotFound warnings during bootstrap.",
+    "Transient tick-delay and moved-too-quickly warnings occurred during reload and explicit operator fixture teleports; route arrival assertions still passed."
+  ],
+  "coverage_limits": [
+    "One local offline test player; external latency and concurrent-player stress were not exercised.",
+    "All 32 directed routes were traversed in creative mode; survival charge and return cooldown received an additional dedicated Desert/Nether roundtrip.",
+    "This is focused portal and repaired-asset compatibility QA, not exhaustive gameplay coverage for every dependency."
+  ],
+  "completed_at_utc": "2026-10-20T14:24:38.642+00:00",
+  "client_aggregate": "run/portal-production-client/final-qa-report.json"
+}

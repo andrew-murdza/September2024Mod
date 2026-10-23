@@ -2,6 +2,7 @@ package net.amurdza.examplemod.worldgen.feature.features;
 
 import com.mojang.serialization.Codec;
 import net.amurdza.examplemod.worldgen.feature.configs.RainforestTreeFeatureConfig;
+import net.amurdza.examplemod.worldgen.AtomicTreeGrowth;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.Vec3i;
@@ -49,6 +50,10 @@ public class RainforestTreeFeature extends Feature<RainforestTreeFeatureConfig> 
 
     @Override
     public boolean place(FeaturePlaceContext<RainforestTreeFeatureConfig> context) {
+        return AtomicTreeGrowth.place(context, this::placeTree);
+    }
+
+    private boolean placeTree(FeaturePlaceContext<RainforestTreeFeatureConfig> context) {
         WorldGenLevel level = context.level();
         RandomSource random = context.random();
         RainforestTreeFeatureConfig config = context.config();

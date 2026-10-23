@@ -37,6 +37,11 @@
     {
       "id": "alexsmobs:banana",
       "required": false
+    },
+    "aoemod:plum",
+    {
+      "id": "hearthandharvest:cherry",
+      "required": false
     }
   ]
 }

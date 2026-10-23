@@ -4,6 +4,7 @@ import com.mojang.logging.LogUtils;
 import net.amurdza.examplemod.config.BlockConfig;
 import net.amurdza.examplemod.config.MobConfig;
 import net.amurdza.examplemod.registry.ModBlocks;
+import net.amurdza.examplemod.registry.ModPortals;
 import net.amurdza.examplemod.registry.ModCreativeTabs;
 import net.amurdza.examplemod.registry.ModEnchantments;
 import net.amurdza.examplemod.registry.ModEntities;
@@ -60,6 +61,7 @@ public class AOEMod
         MinecraftForge.EVENT_BUS.register(this);
 
         ModDensityFunctions.register(modEventBus);
+        net.amurdza.examplemod.registry.ModBiomeSources.register(modEventBus);
 
         // Register the item to a creative tab
         modEventBus.addListener(this::addCreative);
@@ -71,6 +73,7 @@ public class AOEMod
 
         //custom blocks
         ModBlocks.register(modEventBus);
+        ModPortals.register(modEventBus);
         ModTreeDecorators.register(modEventBus);
 
 
@@ -94,6 +97,7 @@ public class AOEMod
         event.enqueueWork(() -> {
             BlockConfig.init();
             MobConfig.init();
+            net.amurdza.examplemod.compat.VillagerRealmsLootCompatibility.register();
 
             FireBlockAccessor fire = (FireBlockAccessor) Blocks.FIRE;
             setNotFlammable(fire, ModBlocks.PALE_MOSS_BLOCK.get());
@@ -157,6 +161,7 @@ public class AOEMod
         if (tab == CreativeModeTabs.NATURAL_BLOCKS) {
 
             event.accept(ModItems.SOUL_BERRIES.get());
+            event.accept(ModItems.SOUL_BEETROOT_SEEDS.get());
             event.accept(ModItems.CARROT_SEEDS.get());
             event.accept(ModItems.POTATO_SEEDS.get());
             event.accept(ModItems.ONION_SEEDS.get());
@@ -204,6 +209,8 @@ public class AOEMod
 // FOOD AND DRINKS
         if (tab == CreativeModeTabs.FOOD_AND_DRINKS) {
             event.accept(ModItems.SOUL_BERRIES.get());
+            event.accept(ModItems.SOUL_BEETROOT.get());
+            event.accept(ModItems.SOUL_BEETROOT_SOUP.get());
 
             // raw seafood
             event.accept(ModItems.END_FISH.get());
@@ -334,7 +341,7 @@ public class AOEMod
                 for (var spear : new net.minecraft.world.item.Item[]{
                         ModItems.WOODEN_SPEAR.get(), ModItems.STONE_SPEAR.get(), ModItems.COPPER_SPEAR.get(),
                         ModItems.IRON_SPEAR.get(), ModItems.GOLDEN_SPEAR.get(), ModItems.DIAMOND_SPEAR.get(),
-                        ModItems.NETHERITE_SPEAR.get()}) {
+                        ModItems.NETHERITE_SPEAR.get(), ModItems.BONE_SPEAR.get()}) {
                     ItemProperties.register(spear, AOEMod.makeID("in_hand"),
                             (stack, level, entity, seed) -> entity == null ? 0.0F : 1.0F);
                 }

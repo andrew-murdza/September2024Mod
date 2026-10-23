@@ -1,6 +1,8 @@
 package net.amurdza.examplemod.util;
 
 import com.google.common.collect.Multimap;
+import com.google.common.collect.ImmutableMultimap;
+import net.amurdza.examplemod.registry.ModItems;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.ai.attributes.Attribute;
 import net.minecraft.world.entity.ai.attributes.AttributeModifier;
@@ -20,6 +22,19 @@ public final class NetheriteIronStats {
 
     public static Item ironEquivalent(Item item) {
         return statEquivalent(item);
+    }
+
+    private static Item copperEquivalent(Item item) {
+        if (item == Items.NETHERITE_SWORD) return ModItems.COPPER_SWORD.get();
+        if (item == Items.NETHERITE_SHOVEL) return ModItems.COPPER_SHOVEL.get();
+        if (item == Items.NETHERITE_PICKAXE) return ModItems.COPPER_PICKAXE.get();
+        if (item == Items.NETHERITE_AXE) return ModItems.COPPER_AXE.get();
+        if (item == Items.NETHERITE_HOE) return ModItems.COPPER_HOE.get();
+        if (item == Items.NETHERITE_HELMET) return ModItems.COPPER_HELMET.get();
+        if (item == Items.NETHERITE_CHESTPLATE) return ModItems.COPPER_CHESTPLATE.get();
+        if (item == Items.NETHERITE_LEGGINGS) return ModItems.COPPER_LEGGINGS.get();
+        if (item == Items.NETHERITE_BOOTS) return ModItems.COPPER_BOOTS.get();
+        return null;
     }
 
     public static Item statEquivalent(Item item) {
@@ -50,7 +65,10 @@ public final class NetheriteIronStats {
         }
 
         Item equivalent = statEquivalent(stack.getItem());
-        return equivalent == null ? null : withoutEquivalentOverrides(() -> equivalent.getDefaultInstance().getMaxDamage());
+        Item copper = copperEquivalent(stack.getItem());
+        return equivalent == null ? null : withoutEquivalentOverrides(() -> copper == null
+                ? equivalent.getDefaultInstance().getMaxDamage()
+                : Math.round((equivalent.getDefaultInstance().getMaxDamage() + copper.getDefaultInstance().getMaxDamage()) / 2.0F));
     }
 
     public static Integer enchantmentValue(ItemStack stack) {
@@ -63,7 +81,10 @@ public final class NetheriteIronStats {
         }
 
         Item equivalent = statEquivalent(item);
-        return equivalent == null ? null : withoutEquivalentOverrides(() -> equivalent.getDefaultInstance().getEnchantmentValue());
+        Item copper = copperEquivalent(item);
+        return equivalent == null ? null : withoutEquivalentOverrides(() -> copper == null
+                ? equivalent.getDefaultInstance().getEnchantmentValue()
+                : Math.round((equivalent.getDefaultInstance().getEnchantmentValue() + copper.getDefaultInstance().getEnchantmentValue()) / 2.0F));
     }
 
     public static Float destroySpeed(ItemStack stack, BlockState state) {
@@ -72,7 +93,10 @@ public final class NetheriteIronStats {
         }
 
         Item equivalent = statEquivalent(stack.getItem());
-        return equivalent == null ? null : withoutEquivalentOverrides(() -> equivalent.getDefaultInstance().getDestroySpeed(state));
+        Item copper = copperEquivalent(stack.getItem());
+        return equivalent == null ? null : withoutEquivalentOverrides(() -> copper == null
+                ? equivalent.getDefaultInstance().getDestroySpeed(state)
+                : (equivalent.getDefaultInstance().getDestroySpeed(state) + copper.getDefaultInstance().getDestroySpeed(state)) / 2.0F);
     }
 
     public static Multimap<Attribute, AttributeModifier> defaultAttributes(Item item, EquipmentSlot slot) {
@@ -81,10 +105,26 @@ public final class NetheriteIronStats {
         }
 
         Item equivalent = statEquivalent(item);
-        return equivalent == null ? null : withoutEquivalentOverrides(() -> equivalent.getDefaultAttributeModifiers(slot));
+        Item copper = copperEquivalent(item);
+        if (equivalent == null) return null;
+        return withoutEquivalentOverrides(() -> {
+            Multimap<Attribute, AttributeModifier> iron = equivalent.getDefaultAttributeModifiers(slot);
+            if (copper == null) return iron;
+            Multimap<Attribute, AttributeModifier> lower = copper.getDefaultAttributeModifiers(slot);
+            ImmutableMultimap.Builder<Attribute, AttributeModifier> result = ImmutableMultimap.builder();
+            for (var entry : iron.entries()) {
+                AttributeModifier modifier = entry.getValue();
+                double copperAmount = lower.get(entry.getKey()).stream()
+                        .filter(other -> other.getOperation() == modifier.getOperation())
+                        .mapToDouble(AttributeModifier::getAmount).sum();
+                result.put(entry.getKey(), new AttributeModifier(modifier.getId(), modifier.getName(),
+                        (modifier.getAmount() + copperAmount) / 2.0D, modifier.getOperation()));
+            }
+            return result.build();
+        });
     }
 
-    private static boolean isBypassingEquivalentOverrides() {
+    public static boolean isBypassingEquivalentOverrides() {
         return Boolean.TRUE.equals(BYPASS_EQUIVALENT_OVERRIDES.get());
     }
 

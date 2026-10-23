@@ -1,6 +1,6 @@
 package net.amurdza.examplemod.mixins.no_fire_in_tropical;
 
-import net.amurdza.examplemod.util.ModTags;
+import net.amurdza.examplemod.util.GameplayDimensions;
 import net.minecraft.world.entity.LightningBolt;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
@@ -14,7 +14,7 @@ public abstract class NoLightningFireInTropical {
     private void aoemod$noLightningFireInTropical(int extraIgnitions, CallbackInfo ci) {
         LightningBolt self = (LightningBolt)(Object)this;
 
-        if (self.level().getBiome(self.blockPosition()).is(ModTags.Biomes.tropicalBiomes)) {
+        if (GameplayDimensions.is(self.level(), GameplayDimensions.TROPICAL)) {
             ci.cancel();
         }
     }

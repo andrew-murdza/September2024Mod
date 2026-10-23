@@ -1,0 +1,156 @@
+{
+  "carvers": {},
+  "downfall": 0.8,
+  "effects": {
+    "fog_color": 12638463,
+    "mood_sound": {
+      "block_search_extent": 8,
+      "offset": 2,
+      "sound": "minecraft:ambient.cave",
+      "tick_delay": 6000
+    },
+    "music": {
+      "max_delay": 24000,
+      "min_delay": 12000,
+      "replace_current_music": false,
+      "sound": "minecraft:music.overworld.grove"
+    },
+    "sky_color": 8495359,
+    "water_color": 4159204,
+    "water_fog_color": 329011
+  },
+  "features": [
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [
+      "aoemod:dimension_blobs/snowy/andesite",
+      "aoemod:dimension_blobs/snowy/diorite",
+      "aoemod:dimension_blobs/snowy/granite",
+      "aoemod:dimension_blobs/snowy/calcite",
+      "aoemod:dimension_blobs/snowy/polished_basalt",
+      "aoemod:dimension_blobs/snowy/tuff",
+      "aoemod:dimension_ores/snowy/coal",
+      "aoemod:dimension_ores/snowy/coal_upper",
+      "aoemod:dimension_ores/snowy/iron",
+      "aoemod:dimension_ores/snowy/iron_deep",
+      "aoemod:dimension_ores/snowy/copper",
+      "aoemod:dimension_ores/snowy/gold",
+      "aoemod:dimension_ores/snowy/gold_deep",
+      "aoemod:dimension_ores/snowy/diamond",
+      "aoemod:dimension_ores/snowy/diamond_deep",
+      "aoemod:dimension_ores/snowy/emerald",
+      "aoemod:dimension_ores/snowy/emerald_deep",
+      "aoemod:dimension_ores/snowy/lapis",
+      "aoemod:dimension_ores/snowy/lapis_upper",
+      "aoemod:dimension_ores/snowy/coal_mushroom_bonus"
+    ],
+    [],
+    [],
+    [
+      "aoemod:mushroom_caves/forest_floor",
+      "aoemod:mushroom_caves/seafloor"
+    ],
+    []
+  ],
+  "has_precipitation": false,
+  "spawn_costs": {},
+  "spawners": {
+    "ambient": [
+      {
+        "type": "minecraft:bat",
+        "maxCount": 8,
+        "minCount": 8,
+        "weight": 10
+      }
+    ],
+    "axolotls": [],
+    "creature": [
+      {
+        "type": "minecraft:mooshroom",
+        "maxCount": 8,
+        "minCount": 4,
+        "weight": 8
+      }
+    ],
+    "misc": [],
+    "monster": [
+      {
+        "type": "minecraft:stray",
+        "maxCount": 4,
+        "minCount": 4,
+        "weight": 100
+      },
+      {
+        "type": "minecraft:drowned",
+        "maxCount": 4,
+        "minCount": 4,
+        "weight": 100
+      },
+      {
+        "type": "aoemod:breeze",
+        "maxCount": 2,
+        "minCount": 1,
+        "weight": 100
+      }
+    ],
+    "underground_water_creature": [
+      {
+        "type": "minecraft:glow_squid",
+        "maxCount": 6,
+        "minCount": 4,
+        "weight": 10
+      }
+    ],
+    "water_ambient": [
+      {
+        "type": "minecraft:salmon",
+        "weight": 15,
+        "minCount": 8,
+        "maxCount": 8
+      },
+      {
+        "type": "minecraft:cod",
+        "weight": 10,
+        "minCount": 8,
+        "maxCount": 8
+      },
+      {
+        "type": "hybrid-aquatic:arrow_squid",
+        "weight": 10,
+        "minCount": 4,
+        "maxCount": 4
+      },
+      {
+        "type": "alexsmobs:lobster",
+        "weight": 10,
+        "minCount": 4,
+        "maxCount": 4
+      },
+      {
+        "type": "aoemod:end_fish",
+        "weight": 15,
+        "minCount": 8,
+        "maxCount": 8
+      }
+    ],
+    "water_creature": [
+      {
+        "type": "minecraft:dolphin",
+        "weight": 10,
+        "minCount": 4,
+        "maxCount": 6
+      },
+      {
+        "type": "minecraft:squid",
+        "weight": 10,
+        "minCount": 4,
+        "maxCount": 6
+      }
+    ]
+  },
+  "temperature": 0.5
+}

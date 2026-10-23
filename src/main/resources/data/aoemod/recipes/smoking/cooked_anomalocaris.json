@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smoking",
+  "ingredient": {
+    "item": "aoemod:raw_anomalocaris"
+  },
+  "result": "aoemod:cooked_anomalocaris",
+  "experience": 0.35,
+  "cookingtime": 100
+}

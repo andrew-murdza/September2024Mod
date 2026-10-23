@@ -1,0 +1,30 @@
+{
+  "dimensions": [
+    "overworld",
+    "tropical",
+    "savanna",
+    "plains",
+    "snowy",
+    "desert",
+    "nether"
+  ],
+  "planks": {
+    "overworld": "minecraft:oak_planks",
+    "tropical": "minecraft:oak_planks",
+    "savanna": "minecraft:acacia_planks",
+    "plains": "minecraft:oak_planks",
+    "snowy": "minecraft:spruce_planks",
+    "desert": "aoemod:pale_oak_planks",
+    "nether": "minecraft:crimson_planks"
+  },
+  "frameBottomLeft": [
+    1,
+    200,
+    0
+  ],
+  "netherBottomLeft": [
+    1,
+    100,
+    0
+  ]
+}

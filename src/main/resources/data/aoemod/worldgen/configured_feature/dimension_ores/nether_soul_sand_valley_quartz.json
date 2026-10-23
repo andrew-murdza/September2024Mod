@@ -1,0 +1,27 @@
+{
+  "type": "minecraft:ore",
+  "config": {
+    "size": 14,
+    "discard_chance_on_air_exposure": 0,
+    "targets": [
+      {
+        "target": {
+          "predicate_type": "minecraft:block_match",
+          "block": "minecraft:soul_sand"
+        },
+        "state": {
+          "Name": "aoemod:soul_sand_quartz_ore"
+        }
+      },
+      {
+        "target": {
+          "predicate_type": "minecraft:block_match",
+          "block": "minecraft:soul_soil"
+        },
+        "state": {
+          "Name": "aoemod:soul_soil_quartz_ore"
+        }
+      }
+    ]
+  }
+}

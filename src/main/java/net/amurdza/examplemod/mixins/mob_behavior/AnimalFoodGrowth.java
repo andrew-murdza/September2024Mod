@@ -1,6 +1,7 @@
 package net.amurdza.examplemod.mixins.mob_behavior;
 
 import net.amurdza.examplemod.config.MobConfig;
+import net.amurdza.examplemod.future.FutureMobCompatibility;
 import net.minecraft.util.Mth;
 import net.minecraft.world.entity.AgeableMob;
 import net.minecraft.world.entity.EntityType;
@@ -16,6 +17,7 @@ public abstract class AnimalFoodGrowth extends AgeableMob{
 
     @Override
     public void ageUp(int amount, boolean forced) {
+        if (FutureMobCompatibility.isAgeLocked(this)) return;
         int i = this.getAge();
         float multiplier = MobConfig.mobGrowthChance(this);
         i += amount * Mth.ceil(20*multiplier);

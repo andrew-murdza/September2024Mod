@@ -1,0 +1,6 @@
+{
+  "parent": "aoemod:item/generated",
+  "textures": {
+    "layer0": "aoemod:item/bone_bucket"
+  }
+}

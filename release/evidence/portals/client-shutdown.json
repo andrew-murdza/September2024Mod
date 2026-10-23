@@ -1,0 +1,10 @@
+{
+  "passed": true,
+  "exitCode": 0,
+  "observedAtUtc": "2026-10-20T14:24:21.151588+00:00",
+  "launchSession": 98849,
+  "shutdownRequest": "quit final-qa-complete",
+  "evidence": "functions.write_stdin(session_id=98849) returned Process exited with code 0 after explicit Minecraft.stop request",
+  "log": "run/portal-production-client/client-launch.log",
+  "sha256": "87af11197d7fced0063f3571bae55d2ac80785c7c463169d7e8f8eb8c7ec1d35"
+}

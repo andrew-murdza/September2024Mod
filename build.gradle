@@ -120,7 +120,7 @@ repositories {
     // If you have mod jar dependencies in ./libs, you can declare them as a repository like so.
     // See https://docs.gradle.org/current/userguide/declaring_repositories.html#sub:flat_dir_resolver
      flatDir {
-         dir 'libs'
+         dirs 'libs', 'libs/pack', 'libs/datagen'
      }
     maven {
         url "https://cursemaven.com"
@@ -136,7 +136,15 @@ repositories {
     }
 }
 
+// Third-party data providers link optional integrations; keep these out of gameplay packs.
+configurations {
+    datagenRuntime
+}
+
 dependencies {
+
+    datagenRuntime fg.deobf("local.datagen:gallery:1.20.1-1.0.2")
+    datagenRuntime fg.deobf("local.datagen:cuisinedelight:1.1.12-slim")
 
     compileOnly(annotationProcessor("io.github.llamalad7:mixinextras-common:0.5.0"))
     implementation(jarJar("io.github.llamalad7:mixinextras-forge:0.5.0")) {
@@ -151,6 +159,22 @@ dependencies {
     minecraft "net.minecraftforge:forge:${minecraft_version}-${forge_version}"
 
     annotationProcessor "org.spongepowered:mixin:${mixin_version}:processor"
+
+    // Exact user-supplied Forge pack. Flat-directory artifacts are remapped for development.
+    // Do not also put the raw jars in run/mods; that would load duplicate mod ids.
+    def packLock = new groovy.json.JsonSlurper().parse(file('dependency-lock.json'))
+    packLock.jars.each { entry ->
+        if (!file(entry.file).isFile()) {
+            throw new GradleException("Missing locked pack jar: ${entry.file} (original: ${entry.source_filename})")
+        }
+        implementation fg.deobf("local.pack:${entry.artifact}:${entry.version}")
+    }
+
+    // Reproducible private builds: scripts/bootstrap-future-backports.ps1.
+    implementation fg.deobf("local:Platform-forge-1.20.1:1.4.0.2640.1")
+    implementation fg.deobf("local:VanillaBackport-forge-1.20.1:1.2.0.2640.1")
+    implementation fg.deobf("local:tiny_takeover_backport-forge-1.20.1:1.6.3-aoe")
+    implementation fg.deobf("maven.modrinth:yacl:3.6.6+1.20.1-forge")
 
     // Example mod dependency with JEI - using fg.deobf() ensures the dependency is remapped to your development mappings
     // The JEI API is declared for compile time use, while the full JEI artifact is used at runtime
@@ -180,33 +204,20 @@ dependencies {
     implementation fg.deobf("curse.maven:wooden-shears-443192:6289965")
 
     //Plants
-    implementation fg.deobf("curse.maven:farmersdelight-398521:5051242")
-    implementation fg.deobf("maven.modrinth:fruits-delight:1.0.22")
 
     implementation fg.deobf("curse.maven:snow-real-magic-308663:5801189")
     implementation fg.deobf("curse.maven:kiwi-303657:5603816")
 
 //    Multiple
     implementation fg.deobf("curse.maven:nether-depths-upgrade-670011:5150560")
-    implementation fg.deobf("curse.maven:geckolib-388172:6920925")//NO TOML
 
-    implementation fg.deobf("curse.maven:quark-243121:5594847")
-    implementation fg.deobf("curse.maven:zetaforquark-968868:5597406")//NO TOML
 
-    implementation fg.deobf("curse.maven:alexsmobs-426558:5698791")
-    implementation fg.deobf("curse.maven:citadelforalexsmobs-331936:5633260")//NO TOML
 
-    implementation fg.deobf("curse.maven:ecologics-570463:7457108")
     implementation fg.deobf("curse.maven:better-carrots-548721:5306948")
-    implementation fg.deobf("curse.maven:netherific-479296:4718299")
 
     //Animals
-    implementation fg.deobf("curse.maven:naturalist-627986:4847009")
-    implementation fg.deobf("curse.maven:architectury-api-419699:4663010")
 
     implementation fg.deobf("curse.maven:lithostitched-936015:6742615")
-    implementation fg.deobf("curse.maven:kotlin-for-forge-351264:4578885")
-    implementation fg.deobf("curse.maven:hybrid-aquatic-834427:7204568")
     implementation fg.deobf("curse.maven:faewulfs-lib-1209568:6758845")
     implementation fg.deobf("curse.maven:diversity-1039632:7130442")
 
@@ -218,8 +229,6 @@ dependencies {
 
     //Behavior
     ////////////////////////////////////////////////////////////////
-    implementation fg.deobf("curse.maven:wthit-forge-455982:5681116")//NO TOML
-    implementation fg.deobf("curse.maven:badpackets-615134:4784395")//NO TOML
     runtimeOnly fg.deobf("curse.maven:worldedit-225608:4586218")
     runtimeOnly fg.deobf("curse.maven:snow-under-trees-353942:5801187")
     runtimeOnly fg.deobf("curse.maven:huge-structure-blocks-474114:4803547")
@@ -295,4 +304,10 @@ publishing {
 
 tasks.withType(JavaCompile).configureEach {
     options.encoding = 'UTF-8' // Use the UTF-8 charset for Java compilation
+}
+
+// Only runData sees these integrations. Normal client/server and publication stay unchanged.
+tasks.matching { it.name == 'runData' }.configureEach {
+    classpath configurations.datagenRuntime
+    runtimeClasspathArtifacts.from(configurations.datagenRuntime)
 }

@@ -1,6 +1,6 @@
 package net.amurdza.examplemod.mixins.lava_and_water;
 
-import net.amurdza.examplemod.util.ModTags;
+import net.amurdza.examplemod.util.GameplayDimensions;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.world.level.LevelAccessor;
@@ -21,7 +21,7 @@ public abstract class WaterSpreadIntoNetherBecomesObsidian {
     private void aoe$spreadToNetherFizzToObsidian(LevelAccessor level, BlockPos pos, BlockState state,
                                                   Direction dir, FluidState fluidState,
                                                   CallbackInfo ci) {
-        if (level.getBiome(pos).is(ModTags.Biomes.netherBiomes) && fluidState.is(Fluids.FLOWING_WATER)) {
+        if (GameplayDimensions.is(level, GameplayDimensions.NETHER) && fluidState.is(Fluids.FLOWING_WATER)) {
             level.setBlock(pos, Blocks.OBSIDIAN.defaultBlockState(), 3);
             level.levelEvent(1501, pos, 0);
             ci.cancel();

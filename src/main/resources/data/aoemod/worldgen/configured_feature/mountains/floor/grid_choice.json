@@ -1,8 +1,21 @@
 {
   "type": "aoemod:regional_grid_choice",
   "config": {
-    "features": [],
-    "default_feature": "aoemod:trees/spruce",
+    "features": [
+      {
+        "feature": "minecraft:orange_poplar",
+        "count": 12
+      },
+      {
+        "feature": "minecraft:red_poplar",
+        "count": 12
+      },
+      {
+        "feature": "minecraft:yellow_poplar",
+        "count": 12
+      }
+    ],
+    "default_feature": "minecraft:spruce",
     "placement": [],
     "offset_type": "center_square",
     "region_width": 12,

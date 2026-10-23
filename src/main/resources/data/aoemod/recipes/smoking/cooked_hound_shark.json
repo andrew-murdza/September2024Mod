@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smoking",
+  "ingredient": {
+    "item": "aoemod:raw_hound_shark"
+  },
+  "result": "aoemod:cooked_hound_shark",
+  "experience": 0.35,
+  "cookingtime": 100
+}

@@ -1,47 +1,33 @@
 package net.amurdza.examplemod.mixins.lava_and_water;
 
-import net.amurdza.examplemod.util.ModTags;
+import net.amurdza.examplemod.util.GameplayDimensions;
 import net.minecraft.core.BlockPos;
-import net.minecraft.tags.TagKey;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.BucketItem;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.Items;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.level.dimension.DimensionType;
 import net.minecraft.world.level.material.Fluid;
 import net.minecraft.world.level.material.Fluids;
 import net.minecraft.world.phys.BlockHitResult;
 import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
-import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
-import org.spongepowered.asm.mixin.injection.Redirect;
-
-import javax.annotation.Nullable;
-import java.util.Objects;
+import org.spongepowered.asm.mixin.injection.Inject;
+import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 @Mixin(BucketItem.class)
 public class FluidsNotPlaceableInWrongBiomes {
-    @Shadow
-    @Final
-    private Fluid content;
-
-    @Redirect(method = "emptyContents(Lnet/minecraft/world/entity/player/Player;Lnet/minecraft/world/level/Level;Lnet/minecraft/core/BlockPos;Lnet/minecraft/world/phys/BlockHitResult;Lnet/minecraft/world/item/ItemStack;)Z",at= @At(value = "INVOKE", target = "Lnet/minecraft/world/level/dimension/DimensionType;ultraWarm()Z"))
-    private boolean hi(DimensionType instance, @Nullable Player pPlayer, Level pLevel, BlockPos pPos, @Nullable BlockHitResult pResult, @Nullable ItemStack container){
-        return aoemod$shouldPrevent(pLevel,pPos,container);
-    }
-    @Redirect(method = "emptyContents(Lnet/minecraft/world/entity/player/Player;Lnet/minecraft/world/level/Level;Lnet/minecraft/core/BlockPos;Lnet/minecraft/world/phys/BlockHitResult;Lnet/minecraft/world/item/ItemStack;)Z",at= @At(value = "INVOKE", target = "Lnet/minecraft/world/level/material/Fluid;is(Lnet/minecraft/tags/TagKey;)Z"))
-    private boolean hi(Fluid instance, TagKey<Fluid> pTag, @Nullable Player pPlayer, Level pLevel, BlockPos pPos, @Nullable BlockHitResult pResult, @Nullable ItemStack container){
-        return aoemod$shouldPrevent(pLevel,pPos,container);
-    }
-    @Unique
-    private boolean aoemod$shouldPrevent(Level pLevel, BlockPos pPos, @Nullable ItemStack container){
-        if (pLevel.getBiome(pPos).is(ModTags.Biomes.tropicalBiomes) && content.isSame(Fluids.LAVA))
-            return true;
-        if (!pLevel.getBiome(pPos).is(ModTags.Biomes.netherBiomes)) return false;
-        assert container != null;
-        return content.isSame(Fluids.WATER);
+    @Inject(method = "emptyContents(Lnet/minecraft/world/entity/player/Player;Lnet/minecraft/world/level/Level;Lnet/minecraft/core/BlockPos;Lnet/minecraft/world/phys/BlockHitResult;Lnet/minecraft/world/item/ItemStack;)Z",
+            at = @At("HEAD"), cancellable = true, remap = false)
+    private void aoemod$dimensionFluids(Player player, Level level, BlockPos pos, BlockHitResult hit,
+                                        ItemStack container, CallbackInfoReturnable<Boolean> cir) {
+        if (!GameplayDimensions.isCustom(level)) return;
+        Fluid content = ((BucketItem) (Object) this).getFluid();
+        if ((content.isSame(Fluids.LAVA) && !GameplayDimensions.is(level, GameplayDimensions.DESERT)
+                && !GameplayDimensions.is(level, GameplayDimensions.NETHER) && !GameplayDimensions.is(level, GameplayDimensions.SNOWY))
+                || (content.isSame(Fluids.WATER) && GameplayDimensions.is(level, GameplayDimensions.NETHER))) {
+            cir.setReturnValue(false);
+        }
     }
 }
