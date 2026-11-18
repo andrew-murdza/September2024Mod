@@ -1,9 +1,0 @@
-{
-  "type": "minecraft:smoking",
-  "ingredient": {
-    "item": "hybrid_aquatic:dragonfish"
-  },
-  "result": "aoemod:cooked_dragonfish",
-  "experience": 0.35,
-  "cookingtime": 100
-}

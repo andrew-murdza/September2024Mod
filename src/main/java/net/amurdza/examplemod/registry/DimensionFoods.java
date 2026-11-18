@@ -25,16 +25,25 @@ public final class DimensionFoods {
 
     static {
         add("plum", Foods.APPLE);
-        for (String name : new String[]{"mahi_mahi", "anomalocaris", "octopus", "rubber_belly_glider",
-                "flying_fish", "arrow_squid", "vampire_squid", "anglerfish", "spider_crab_leg",
-                "isopod", "triops", "blue_spotted_stingray", "hound_shark", "shame_faced_crab"}) {
+        add("raw_arthropleura", RAW);
+        add("cooked_arthropleura", COOKED);
+        for (String name : new String[]{"anomalocaris", "octopus",
+                "arrow_squid", "vampire_squid",
+                "triops", "blue_spotted_stingray", "umbrella_octopus"}) {
             add("raw_" + name, RAW);
             add("cooked_" + name, COOKED);
         }
-        for (String name : new String[]{"trout", "carp", "swamp_mucker", "needlefish", "tuna",
-                "dragonfish", "giant_river_prawn"}) add("cooked_" + name, COOKED);
+        for (String name : new String[]{"swamp_mucker", "tuna", "flying_fish", "crab_meat"}) {
+            add("cooked_" + name, COOKED);
+        }
+        add("cooked_lost_tentacle", COOKED);
+        add("raw_squid", RAW);
+        add("raw_glow_squid", RAW);
+        // Legacy sulfur foods stay registered for saved stacks, but are excluded from catalogs and recipes.
         add("sulfur_end_fish", RAW);
         add("cooked_sulfur_end_fish", COOKED);
+        // Starfish is a current retained seafood with its own cooking recipes.
+        add("cooked_starfish", COOKED);
     }
 
     private DimensionFoods() { }
@@ -51,7 +60,7 @@ public final class DimensionFoods {
 
     @SubscribeEvent
     public static void creativeContents(BuildCreativeModeTabContentsEvent event) {
-        if (event.getTabKey().equals(CreativeModeTabs.FOOD_AND_DRINKS)) FOODS.keySet().forEach(name -> event.accept(get(name)));
+        // Source catalogs enumerate registered foods; vanilla categories stay vanilla.
     }
 
     public static Item get(String name) {

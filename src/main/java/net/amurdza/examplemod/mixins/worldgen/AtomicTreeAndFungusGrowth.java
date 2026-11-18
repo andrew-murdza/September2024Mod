@@ -15,6 +15,7 @@ public class AtomicTreeAndFungusGrowth {
     @WrapMethod(method = "place")
     private <C extends FeatureConfiguration> boolean aoemod$validateWholeGrowth(
             FeaturePlaceContext<C> context, Operation<Boolean> original) {
-        return AtomicTreeGrowth.place(context, staged -> original.call(staged));
+        return AtomicTreeGrowth.place(context, staged -> net.amurdza.examplemod.worldgen.TropicalTreeShapes
+                .withMushroomHeight(staged, () -> original.call(staged)));
     }
 }

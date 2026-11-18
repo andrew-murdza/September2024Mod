@@ -22,7 +22,7 @@
         {
           "weight": 1,
           "data": {
-            "Name": "aeomod:sunflower",
+            "Name": "minecraft:sunflower",
             "Properties": {
               "half": "lower"
             }
@@ -55,31 +55,13 @@
         {
           "weight": 1,
           "data": {
-            "Name": "minecraft:orange_tulip"
-          }
-        },
-        {
-          "weight": 1,
-          "data": {
             "Name": "minecraft:oxeye_daisy"
           }
         },
         {
           "weight": 1,
           "data": {
-            "Name": "minecraft:pink_tulip"
-          }
-        },
-        {
-          "weight": 1,
-          "data": {
-            "Name": "minecraft:red_tulip"
-          }
-        },
-        {
-          "weight": 1,
-          "data": {
-            "Name": "minecraft:white_tulip"
+            "Name": "minecraft:lily_of_the_valley"
           }
         }
       ]

@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smelting",
+  "ingredient": {
+    "item": "hybrid_aquatic:starfish"
+  },
+  "result": "aoemod:cooked_starfish",
+  "experience": 0.35,
+  "cookingtime": 200
+}

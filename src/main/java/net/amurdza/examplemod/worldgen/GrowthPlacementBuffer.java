@@ -49,21 +49,36 @@ public final class GrowthPlacementBuffer implements WorldGenLevel {
         this.fluidTicks = deferTicks(level.getFluidTicks());
     }
 
+    public WorldGenLevel sourceLevel() { return level; }
+
     public boolean isValid(BiPredicate<BlockPos, BlockState> allowed) {
         return writable && blocks.entrySet().stream()
                 .allMatch(entry -> allowed.test(entry.getKey(), entry.getValue().state()));
     }
 
+    /** A skipped intended block can invalidate a whole shape without entering its write set. */
+    public void reject() { writable = false; }
+
+    /** Snapshot for whole-tree decoration before the transaction is validated and committed. */
+    public List<BlockPos> placedBlocks(Predicate<BlockState> matches) {
+        return blocks.entrySet().stream().filter(entry -> matches.test(entry.getValue().state()))
+                .map(Map.Entry::getKey).toList();
+    }
+
     public boolean commit() {
+        if (!writable) return false;
         Map<BlockPos, BlockState> previous = new LinkedHashMap<>();
         Map<BlockPos, CompoundTag> previousEntities = new HashMap<>();
+        // Snapshot the whole transaction before a replacement can clear a dependent plant part.
+        for (BlockPos pos : blocks.keySet()) {
+            previous.put(pos, level.getBlockState(pos));
+            BlockEntity oldEntity = level.getBlockEntity(pos);
+            if (oldEntity != null) previousEntities.put(pos, oldEntity.saveWithFullMetadata());
+        }
         for (var entry : blocks.entrySet()) {
             BlockPos pos = entry.getKey();
             Placement placement = entry.getValue();
             BlockState old = level.getBlockState(pos);
-            previous.put(pos, old);
-            BlockEntity oldEntity = level.getBlockEntity(pos);
-            if (oldEntity != null) previousEntities.put(pos, oldEntity.saveWithFullMetadata());
             // Notify neighbors and clients only after every proposed block was accepted.
             int quietFlags = (placement.flags() | 16) & ~3;
             if (old != placement.state() && !level.setBlock(pos, placement.state(), quietFlags, placement.recursion())) {
@@ -75,7 +90,14 @@ public final class GrowthPlacementBuffer implements WorldGenLevel {
             BlockEntity placed = level.getBlockEntity(pos);
             if (placed != null && placed.getType() == entity.getType()) {
                 placed.load(entity.saveWithFullMetadata());
-                placed.setChanged();
+                if (level instanceof Level) {
+                    placed.setChanged();
+                } else if (!(level instanceof GrowthPlacementBuffer)) {
+                    // BeehiveBlockEntity.setChanged scans its ServerLevel for fire. During
+                    // decoration that can wait for the very chunk this worker is generating.
+                    // Persist the copied NBT without running live block-entity callbacks.
+                    level.getChunk(pos).setUnsaved(true);
+                }
             }
         });
         if (level instanceof Level world) {
@@ -109,8 +131,12 @@ public final class GrowthPlacementBuffer implements WorldGenLevel {
             return false;
         }
         BlockPos immutable = pos.immutable();
+        BlockState old = getBlockState(pos);
+        if (TropicalPlantIntegrity.protectsRoot(this, old, state)) return false;
         if (!getBlockState(pos).is(state.getBlock())) blockEntities.remove(immutable);
         blocks.put(immutable, new Placement(state, flags, recursion));
+        TropicalPlantIntegrity.afterReplacement(this, immutable, old, state);
+        CaveVinePlacement.trimForGeneratedObstacle(this, immutable, old, state);
         return true;
     }
 

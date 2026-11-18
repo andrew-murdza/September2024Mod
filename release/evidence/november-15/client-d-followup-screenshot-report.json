@@ -1,0 +1,69 @@
+{
+  "status": "passed",
+  "started": "2026-11-16T00:15:15.977439800Z",
+  "elapsedMillis": 41345,
+  "requestedViews": 4,
+  "completedViews": 4,
+  "views": [
+    {
+      "label": "camp_overhead",
+      "dimension": "aoemod:savanna_dimension",
+      "x": 14336.5,
+      "y": 187.0,
+      "z": 14416.5,
+      "yaw": 180.0,
+      "pitch": 55.0,
+      "settledClientTicks": 120,
+      "readyChunkRadius": 8,
+      "terrainReadiness": "surrounding chunks arrived and terrain build queue is idle",
+      "width": 1440,
+      "height": 1000,
+      "path": "C:\\Users\\andre\\Downloads\\Games\\September2024Mod\\build\\nov15-iteration\\visuals\\client-d\\screenshots\\camp_overhead.png"
+    },
+    {
+      "label": "camp_pens",
+      "dimension": "aoemod:savanna_dimension",
+      "x": 14439.5,
+      "y": 91.0,
+      "z": 14351.5,
+      "yaw": 90.0,
+      "pitch": 25.0,
+      "settledClientTicks": 120,
+      "readyChunkRadius": 8,
+      "terrainReadiness": "surrounding chunks arrived and terrain build queue is idle",
+      "width": 1440,
+      "height": 1000,
+      "path": "C:\\Users\\andre\\Downloads\\Games\\September2024Mod\\build\\nov15-iteration\\visuals\\client-d\\screenshots\\camp_pens.png"
+    },
+    {
+      "label": "camp_gate",
+      "dimension": "aoemod:savanna_dimension",
+      "x": 14336.5,
+      "y": 82.0,
+      "z": 14439.5,
+      "yaw": 180.0,
+      "pitch": 8.0,
+      "settledClientTicks": 120,
+      "readyChunkRadius": 8,
+      "terrainReadiness": "surrounding chunks arrived and terrain build queue is idle",
+      "width": 1440,
+      "height": 1000,
+      "path": "C:\\Users\\andre\\Downloads\\Games\\September2024Mod\\build\\nov15-iteration\\visuals\\client-d\\screenshots\\camp_gate.png"
+    },
+    {
+      "label": "camp-twelve-row-crops-and-submerged-cane",
+      "dimension": "aoemod:savanna_dimension",
+      "x": 14400.5,
+      "y": 87.0,
+      "z": 14362.5,
+      "yaw": 90.0,
+      "pitch": 40.0,
+      "settledClientTicks": 120,
+      "readyChunkRadius": 8,
+      "terrainReadiness": "surrounding chunks arrived and terrain build queue is idle",
+      "width": 1440,
+      "height": 1000,
+      "path": "C:\\Users\\andre\\Downloads\\Games\\September2024Mod\\build\\nov15-iteration\\visuals\\client-d\\screenshots\\camp-twelve-row-crops-and-submerged-cane.png"
+    }
+  ]
+}

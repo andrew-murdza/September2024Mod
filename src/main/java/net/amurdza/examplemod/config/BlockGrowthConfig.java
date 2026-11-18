@@ -65,10 +65,6 @@ public final class BlockGrowthConfig {
         addToMap(GameplayDimensions.TROPICAL, value, block);
     }
 
-    private static void addSoulBerries(Block block) {
-        addToMap(GameplayDimensions.NETHER, 0.1F, block);
-    }
-
     private static void registerSaplings() {
         addToMap(GameplayDimensions.SNOWY, 0.14F, Blocks.SPRUCE_SAPLING);
         addToMap(GameplayDimensions.SAVANNA, 0.22F, Blocks.ACACIA_SAPLING);
@@ -108,7 +104,6 @@ public final class BlockGrowthConfig {
         addToMap(GameplayDimensions.SNOWY, 0.2F, ModBlocks.JUNGLE_SWEET_BERRY_BUSH.get());
         addToMap(GameplayDimensions.TROPICAL, 0.6F, ModBlocks.BLUE_BERRY_BUSH.get());
         addToMap(GameplayDimensions.SNOWY, 0.2F, ModBlocks.BLUE_BERRY_BUSH.get());
-        addSoulBerries(ModBlocks.SOUL_BERRY_BUSH.get());
         addToMap(GameplayDimensions.TROPICAL, 0.6F, Blocks.COCOA);
         addToMap(GameplayDimensions.TROPICAL, 8.0F, Blocks.CACTUS);
         addToMap(GameplayDimensions.DESERT, 4.0F, Blocks.CACTUS);
@@ -137,7 +132,8 @@ public final class BlockGrowthConfig {
     }
 
     private static void registerModdedBlocks() {
-        addOverworldCrops(vectorwing.farmersdelight.common.registry.ModBlocks.ONION_CROP.get(), true);
+        addToMap(GameplayDimensions.DESERT, 0.1F, net.amurdza.examplemod.registry.RetainedDragonFruit.BUDDING.get());
+        addToMap(GameplayDimensions.DESERT, 0.1F, net.amurdza.examplemod.registry.RetainedDragonFruit.CROP.get());
         addOverworldCrops(vectorwing.farmersdelight.common.registry.ModBlocks.TOMATO_CROP.get(), true);
         addOverworldCrops(vectorwing.farmersdelight.common.registry.ModBlocks.CABBAGE_CROP.get(), true);
         addOverworldCrops(vectorwing.farmersdelight.common.registry.ModBlocks.RICE_CROP.get(), true);
@@ -149,7 +145,6 @@ public final class BlockGrowthConfig {
         addLavaKelp(NDUBlocks.CRIMSON_KELP.get());
         addLavaKelp(NDUBlocks.WARPED_KELP.get());
 
-        addToMap(GameplayDimensions.TROPICAL, 16.0F, samebutdifferent.ecologics.registry.ModBlocks.PRICKLY_PEAR.get());
         addToMap(GameplayDimensions.DESERT, 4.0F, samebutdifferent.ecologics.registry.ModBlocks.PRICKLY_PEAR.get());
     }
 }

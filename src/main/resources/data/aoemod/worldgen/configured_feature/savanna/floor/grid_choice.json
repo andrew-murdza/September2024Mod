@@ -15,56 +15,8 @@
         "count": 2
       },
       {
-        "feature": "aoemod:mushrooms/red_mushroom_patch_small",
-        "count": 2
-      },
-      {
-        "feature": "aoemod:mushrooms/brown_mushroom_patch_small",
-        "count": 2
-      },
-      {
-        "feature": "aoemod:flowers/azure_bluet_patch",
-        "count": 2
-      },
-      {
-        "feature": "aoemod:flowers/cornflower_patch",
-        "count": 2
-      },
-      {
-        "feature": "aoemod:flowers/dandelion_patch",
-        "count": 2
-      },
-      {
-        "feature": "aoemod:flowers/lily_of_the_valley_patch",
-        "count": 2
-      },
-      {
-        "feature": "aoemod:flowers/orange_tulip_patch",
-        "count": 2
-      },
-      {
-        "feature": "aoemod:flowers/oxeye_daisy_patch",
-        "count": 2
-      },
-      {
-        "feature": "aoemod:flowers/pink_tulip_patch",
-        "count": 2
-      },
-      {
-        "feature": "aoemod:flowers/poppy_patch",
-        "count": 2
-      },
-      {
-        "feature": "aoemod:flowers/red_tulip_patch",
-        "count": 2
-      },
-      {
-        "feature": "aoemod:flowers/sunflower_patch",
-        "count": 2
-      },
-      {
         "feature": "aoemod:nothing",
-        "count": 130
+        "count": 154
       }
     ],
     "pinned_features": [
@@ -91,7 +43,7 @@
     ],
     "default_feature": "aoemod:nothing",
     "placement": [],
-    "offset_type": "center",
+    "offset_type": "center_jitter_two",
     "region_width": 64,
     "region_depth": 64,
     "section_width": 12,

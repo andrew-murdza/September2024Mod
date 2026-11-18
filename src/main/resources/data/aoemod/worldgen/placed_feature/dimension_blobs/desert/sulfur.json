@@ -1,0 +1,39 @@
+{
+  "feature": "aoemod:dimension_blobs/desert/sulfur",
+  "placement": [
+    {
+      "type": "minecraft:count",
+      "count": {
+        "type": "minecraft:weighted_list",
+        "distribution": [
+          {
+            "data": 3,
+            "weight": 9892
+          },
+          {
+            "data": 4,
+            "weight": 108
+          }
+        ]
+      }
+    },
+    {
+      "type": "minecraft:in_square"
+    },
+    {
+      "type": "minecraft:height_range",
+      "height": {
+        "type": "minecraft:uniform",
+        "min_inclusive": {
+          "absolute": 0
+        },
+        "max_inclusive": {
+          "absolute": 160
+        }
+      }
+    },
+    {
+      "type": "minecraft:biome"
+    }
+  ]
+}

@@ -19,6 +19,13 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 public class NoFireSpreadInTropical {
     private static final ResourceLocation SOUL_WEEDS = new ResourceLocation("nourished_nether", "soul_weeds");
 
+    @Inject(method = "tryCatchFire", at = @At("HEAD"), cancellable = true, remap = false)
+    private void aoemod$protectAuthoredStructures(net.minecraft.world.level.Level level, BlockPos pos, int chance,
+            RandomSource random, int age, Direction face, CallbackInfo callback) {
+        if (level instanceof ServerLevel server && net.amurdza.examplemod.worldgen.structure.AuthoredRewardLocks.protectedBlock(server, pos))
+            callback.cancel();
+    }
+
     @Inject(method = "tick", at = @At("HEAD"), cancellable = true)
     private void aoemod$removeFireInTropicalBiomes(
             BlockState state,

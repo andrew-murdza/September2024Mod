@@ -32,6 +32,14 @@ public final class StructureSpawnedMobData {
         return mob.getPersistentData().getBoolean(STRUCTURE_SPAWNED);
     }
 
+    /** Claimed livestock must no longer be pulled back to its former pen. */
+    public static void release(Mob mob) {
+        CompoundTag data = mob.getPersistentData();
+        data.remove(STRUCTURE_SPAWNED);
+        data.remove(HOME_X); data.remove(HOME_Y); data.remove(HOME_Z);
+        if (mob instanceof PathfinderMob pathfinderMob) pathfinderMob.clearRestriction();
+    }
+
     public static BlockPos home(Mob mob) {
         CompoundTag data = mob.getPersistentData();
         return new BlockPos(data.getInt(HOME_X), data.getInt(HOME_Y), data.getInt(HOME_Z));

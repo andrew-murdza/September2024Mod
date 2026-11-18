@@ -18,7 +18,7 @@ public final class GenerateSoulPlantModels {
     private static final int SIZE = 16;
 
     public static void main(String[] args) throws IOException {
-        for (String plant : List.of("soul_berry_bush", "soul_beetroots")) {
+        for (String plant : List.of("soul_beetroots")) {
             for (int age = 0; age <= 3; age++) {
                 String name = plant + "_stage" + age;
                 BufferedImage image = ImageIO.read(ASSETS.resolve("textures/block/" + name + ".png").toFile());

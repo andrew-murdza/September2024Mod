@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:campfire_cooking",
+  "ingredient": {
+    "item": "biodiverse:raw_venison"
+  },
+  "result": "biodiverse:cooked_venison",
+  "experience": 0.35,
+  "cookingtime": 600
+}

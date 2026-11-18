@@ -1,0 +1,3916 @@
+{
+  "status": "passed",
+  "capturedAt": "2026-11-08T20:26:21.416037500Z",
+  "before": false,
+  "source": "Actual Minecraft world framebuffer: live server-spawned mobs, water or land habitat, ordinary world-rendered blocks",
+  "requested": 114,
+  "captures": [
+    {
+      "label": "angling_anglerfish_view_2",
+      "id": "angling:anglerfish",
+      "angle": 115.0,
+      "dimension": "minecraft:overworld",
+      "camera": [
+        11.292251674655834,
+        281.55990821654706,
+        4.153487807815591,
+        24.062479,
+        19.999842
+      ],
+      "renderCamera": [
+        11.391686811298172,
+        281.55958257650445,
+        4.210022102948026,
+        24.999987,
+        19.999842
+      ],
+      "visualRadius": 1.2,
+      "settledTicks": 50,
+      "entityPosition": [
+        9.823567708333334,
+        279.9988606770833,
+        7.442545572916667
+      ],
+      "entityAgeTicks": 139,
+      "inWater": true,
+      "onGround": false,
+      "entityUuid": "78398ffb-eae3-4e68-a4c5-39f35bfa0d86",
+      "serverEntityId": 596,
+      "clientEntityId": 596,
+      "width": 1440,
+      "height": 1000,
+      "path": "screenshots/after/angling_anglerfish_view_2.png"
+    },
+    {
+      "label": "angling_anglerfish_view_1",
+      "id": "angling:anglerfish",
+      "angle": 25.0,
+      "dimension": "minecraft:overworld",
+      "camera": [
+        5.998124386618495,
+        281.56121029988043,
+        11.61484768871864,
+        -155.0,
+        19.999842
+      ],
+      "renderCamera": [
+        6.006262407451828,
+        281.56129156087945,
+        11.550964225176974,
+        -155.0,
+        19.999842
+      ],
+      "visualRadius": 1.2,
+      "settledTicks": 50,
+      "entityPosition": [
+        7.520426432291667,
+        280.0001627604167,
+        8.350260416666666
+      ],
+      "entityAgeTicks": 190,
+      "inWater": true,
+      "onGround": false,
+      "entityUuid": "78398ffb-eae3-4e68-a4c5-39f35bfa0d86",
+      "serverEntityId": 596,
+      "clientEntityId": 596,
+      "width": 1440,
+      "height": 1000,
+      "path": "screenshots/after/angling_anglerfish_view_1.png"
+    },
+    {
+      "label": "angling_anglerfish_view_3_above",
+      "id": "angling:anglerfish",
+      "angle": 205.0,
+      "dimension": "minecraft:overworld",
+      "camera": [
+        7.472828691384883,
+        282.8969566971561,
+        11.168760021779779,
+        -129.68735,
+        45.000004
+      ],
+      "renderCamera": [
+        7.4358820768015494,
+        282.8899578800301,
+        11.215309500946445,
+        -129.68735,
+        45.000004
+      ],
+      "visualRadius": 1.2,
+      "settledTicks": 50,
+      "entityPosition": [
+        9.558675130208334,
+        279.9364420572917,
+        9.437825520833334
+      ],
+      "entityAgeTicks": 241,
+      "inWater": true,
+      "onGround": false,
+      "entityUuid": "78398ffb-eae3-4e68-a4c5-39f35bfa0d86",
+      "serverEntityId": 596,
+      "clientEntityId": 596,
+      "width": 1440,
+      "height": 1000,
+      "path": "screenshots/after/angling_anglerfish_view_3_above.png"
+    },
+    {
+      "label": "finsandtails_rubber_belly_glider_view_2",
+      "id": "finsandtails:rubber_belly_glider",
+      "angle": 115.0,
+      "dimension": "minecraft:overworld",
+      "camera": [
+        14.638096244586432,
+        282.13429710812187,
+        9.353507907576315,
+        -256.7187,
+        19.999786
+      ],
+      "renderCamera": [
+        14.695050121281536,
+        282.1329135253709,
+        9.31146889785076,
+        -258.59363,
+        19.999786
+      ],
+      "visualRadius": 1.6,
+      "settledTicks": 50,
+      "entityPosition": [
+        9.963785807291668,
+        280.24373372395837,
+        8.250162760416668
+      ],
+      "entityAgeTicks": 139,
+      "inWater": true,
+      "onGround": false,
+      "entityUuid": "9aef422e-bbcf-47a9-8bdd-b8d588148d00",
+      "serverEntityId": 616,
+      "clientEntityId": 616,
+      "width": 1440,
+      "height": 1000,
+      "path": "screenshots/after/finsandtails_rubber_belly_glider_view_2.png"
+    },
+    {
+      "label": "finsandtails_rubber_belly_glider_view_1",
+      "id": "finsandtails:rubber_belly_glider",
+      "angle": 25.0,
+      "dimension": "minecraft:overworld",
+      "camera": [
+        4.852988856989999,
+        282.1827183320802,
+        11.955601434103304,
+        -164.37498,
+        19.999786
+      ],
+      "renderCamera": [
+        4.797910873737182,
+        282.1818230305792,
+        11.841531970268079,
+        -163.43748,
+        19.999786
+      ],
+      "visualRadius": 1.6,
+      "settledTicks": 50,
+      "entityPosition": [
+        6.146565755208333,
+        280.2921549479167,
+        7.330322265625
+      ],
+      "entityAgeTicks": 190,
+      "inWater": true,
+      "onGround": false,
+      "entityUuid": "9aef422e-bbcf-47a9-8bdd-b8d588148d00",
+      "serverEntityId": 616,
+      "clientEntityId": 616,
+      "width": 1440,
+      "height": 1000,
+      "path": "screenshots/after/finsandtails_rubber_belly_glider_view_1.png"
+    },
+    {
+      "label": "finsandtails_rubber_belly_glider_view_3_above",
+      "id": "finsandtails:rubber_belly_glider",
+      "angle": 205.0,
+      "dimension": "minecraft:overworld",
+      "camera": [
+        6.083312727260823,
+        284.0964446482394,
+        13.34954388606352,
+        -132.96873,
+        44.99999
+      ],
+      "renderCamera": [
+        5.785716820873982,
+        284.09554934673844,
+        13.130231787318902,
+        -127.8125,
+        44.99999
+      ],
+      "visualRadius": 1.6,
+      "settledTicks": 50,
+      "entityPosition": [
+        8.727783203125,
+        280.33992513020837,
+        10.88623046875
+      ],
+      "entityAgeTicks": 241,
+      "inWater": true,
+      "onGround": false,
+      "entityUuid": "9aef422e-bbcf-47a9-8bdd-b8d588148d00",
+      "serverEntityId": 616,
+      "clientEntityId": 616,
+      "width": 1440,
+      "height": 1000,
+      "path": "screenshots/after/finsandtails_rubber_belly_glider_view_3_above.png"
+    },
+    {
+      "label": "hybrid_aquatic_arrow_squid_view_2",
+      "id": "hybrid_aquatic:arrow_squid",
+      "angle": 115.0,
+      "dimension": "minecraft:overworld",
+      "camera": [
+        15.828602590088646,
+        282.444333200022,
+        6.9847703190648955,
+        69.368774,
+        19.999807
+      ],
+      "renderCamera": [
+        15.84132001462099,
+        282.4443330808127,
+        7.023985959033067,
+        69.368774,
+        19.999807
+      ],
+      "visualRadius": 2.1,
+      "settledTicks": 70,
+      "entityPosition": [
+        9.929243442814684,
+        280.0,
+        9.205872686186341
+      ],
+      "entityAgeTicks": 159,
+      "inWater": true,
+      "onGround": false,
+      "entityUuid": "382897ee-de25-4db4-b920-765d50cea531",
+      "serverEntityId": 618,
+      "clientEntityId": 618,
+      "width": 1440,
+      "height": 1000,
+      "path": "screenshots/after/hybrid_aquatic_arrow_squid_view_2.png"
+    },
+    {
+      "label": "hybrid_aquatic_arrow_squid_view_1",
+      "id": "hybrid_aquatic:arrow_squid",
+      "angle": 25.0,
+      "dimension": "minecraft:overworld",
+      "camera": [
+        6.609003132533321,
+        282.444333200022,
+        14.75755381177565,
+        -170.56169,
+        19.999807
+      ],
+      "renderCamera": [
+        6.1023860707113124,
+        282.4443330808127,
+        14.620200293820453,
+        -165.68642,
+        19.999807
+      ],
+      "visualRadius": 2.1,
+      "settledTicks": 60,
+      "entityPosition": [
+        7.642706176169386,
+        280.0,
+        8.539258861281988
+      ],
+      "entityAgeTicks": 220,
+      "inWater": true,
+      "onGround": false,
+      "entityUuid": "382897ee-de25-4db4-b920-765d50cea531",
+      "serverEntityId": 618,
+      "clientEntityId": 618,
+      "width": 1440,
+      "height": 1000,
+      "path": "screenshots/after/hybrid_aquatic_arrow_squid_view_1.png"
+    },
+    {
+      "label": "hybrid_aquatic_arrow_squid_view_3_above",
+      "id": "hybrid_aquatic:arrow_squid",
+      "angle": 205.0,
+      "dimension": "minecraft:overworld",
+      "camera": [
+        9.508561173756522,
+        284.89340062572313,
+        13.3845812030344,
+        -185.33237,
+        44.99999
+      ],
+      "renderCamera": [
+        8.904456585155705,
+        284.89340050651384,
+        13.446447518537454,
+        -177.99846,
+        44.99999
+      ],
+      "visualRadius": 2.1,
+      "settledTicks": 80,
+      "entityPosition": [
+        9.067746178304184,
+        280.0,
+        8.661707969572658
+      ],
+      "entityAgeTicks": 301,
+      "inWater": true,
+      "onGround": false,
+      "entityUuid": "382897ee-de25-4db4-b920-765d50cea531",
+      "serverEntityId": 618,
+      "clientEntityId": 618,
+      "width": 1440,
+      "height": 1000,
+      "path": "screenshots/after/hybrid_aquatic_arrow_squid_view_3_above.png"
+    },
+    {
+      "label": "hybrid_aquatic_starfish_medium_view_3_above",
+      "id": "hybrid_aquatic:starfish",
+      "angle": 205.0,
+      "dimension": "minecraft:overworld",
+      "camera": [
+        7.750681829045677,
+        275.20120954928655,
+        8.513670981938729,
+        -90.0,
+        69.99998
+      ],
+      "renderCamera": [
+        7.749378406120437,
+        275.20120943007726,
+        8.512449832283092,
+        -90.0,
+        69.99998
+      ],
+      "visualRadius": 0.7,
+      "settledTicks": 50,
+      "entityPosition": [
+        8.51545956039952,
+        273.0,
+        8.513670981938729
+      ],
+      "entityAgeTicks": 139,
+      "inWater": true,
+      "onGround": true,
+      "entityUuid": "b78b22e0-5840-479f-81f2-4d745f699f84",
+      "serverEntityId": 620,
+      "clientEntityId": 620,
+      "width": 1440,
+      "height": 1000,
+      "path": "screenshots/after/hybrid_aquatic_starfish_medium_view_3_above.png"
+    },
+    {
+      "label": "hybrid_aquatic_starfish_medium_view_1",
+      "id": "hybrid_aquatic:starfish",
+      "angle": 25.0,
+      "dimension": "minecraft:overworld",
+      "camera": [
+        10.679035929510048,
+        273.86477773284395,
+        8.576153715171221,
+        89.99999,
+        20.000015
+      ],
+      "renderCamera": [
+        10.677787987554364,
+        273.86477761363466,
+        8.574923932131831,
+        89.99999,
+        20.000015
+      ],
+      "visualRadius": 0.7,
+      "settledTicks": 50,
+      "entityPosition": [
+        8.57782638171363,
+        273.0,
+        8.576153715171221
+      ],
+      "entityAgeTicks": 190,
+      "inWater": true,
+      "onGround": true,
+      "entityUuid": "b78b22e0-5840-479f-81f2-4d745f699f84",
+      "serverEntityId": 620,
+      "clientEntityId": 620,
+      "width": 1440,
+      "height": 1000,
+      "path": "screenshots/after/hybrid_aquatic_starfish_medium_view_1.png"
+    },
+    {
+      "label": "hybrid_aquatic_starfish_medium_view_2",
+      "id": "hybrid_aquatic:starfish",
+      "angle": 115.0,
+      "dimension": "minecraft:overworld",
+      "camera": [
+        8.625244140625,
+        273.86477773284395,
+        10.724744704046419,
+        -180.0,
+        20.000015
+      ],
+      "renderCamera": [
+        8.625244140625,
+        273.86477761363466,
+        10.724744704046419,
+        -180.0,
+        20.000015
+      ],
+      "visualRadius": 0.7,
+      "settledTicks": 50,
+      "entityPosition": [
+        8.625244140625,
+        273.0,
+        8.62353515625
+      ],
+      "entityAgeTicks": 241,
+      "inWater": true,
+      "onGround": true,
+      "entityUuid": "b78b22e0-5840-479f-81f2-4d745f699f84",
+      "serverEntityId": 620,
+      "clientEntityId": 620,
+      "width": 1440,
+      "height": 1000,
+      "path": "screenshots/after/hybrid_aquatic_starfish_medium_view_2.png"
+    },
+    {
+      "label": "hybrid_aquatic_lightfoot_crab_view_2",
+      "id": "hybrid_aquatic:lightfoot_crab",
+      "angle": 115.0,
+      "dimension": "minecraft:overworld",
+      "camera": [
+        13.396880908077963,
+        275.5837588091956,
+        10.783453068509758,
+        -245.00005,
+        20.000048
+      ],
+      "renderCamera": [
+        13.396880908077963,
+        275.5837586899863,
+        10.783453068509758,
+        -245.00005,
+        20.000048
+      ],
+      "visualRadius": 1.8,
+      "settledTicks": 50,
+      "entityPosition": [
+        8.5,
+        273.0,
+        8.5
+      ],
+      "entityAgeTicks": 139,
+      "inWater": true,
+      "onGround": true,
+      "entityUuid": "6aa1171b-3262-44a0-bdd7-e2b2405cf86e",
+      "serverEntityId": 622,
+      "clientEntityId": 622,
+      "width": 1440,
+      "height": 1000,
+      "path": "screenshots/after/hybrid_aquatic_lightfoot_crab_view_2.png"
+    },
+    {
+      "label": "hybrid_aquatic_lightfoot_crab_view_1",
+      "id": "hybrid_aquatic:lightfoot_crab",
+      "angle": 25.0,
+      "dimension": "minecraft:overworld",
+      "camera": [
+        10.783453068509758,
+        275.5837588091956,
+        3.6031190919220375,
+        24.999943,
+        20.000048
+      ],
+      "renderCamera": [
+        10.783453068509758,
+        275.5837586899863,
+        3.6031190919220375,
+        24.999943,
+        20.000048
+      ],
+      "visualRadius": 1.8,
+      "settledTicks": 50,
+      "entityPosition": [
+        8.5,
+        273.0,
+        8.5
+      ],
+      "entityAgeTicks": 190,
+      "inWater": true,
+      "onGround": true,
+      "entityUuid": "6aa1171b-3262-44a0-bdd7-e2b2405cf86e",
+      "serverEntityId": 622,
+      "clientEntityId": 622,
+      "width": 1440,
+      "height": 1000,
+      "path": "screenshots/after/hybrid_aquatic_lightfoot_crab_view_1.png"
+    },
+    {
+      "label": "hybrid_aquatic_lightfoot_crab_view_3_above",
+      "id": "hybrid_aquatic:lightfoot_crab",
+      "angle": 205.0,
+      "dimension": "minecraft:overworld",
+      "camera": [
+        6.781730521716689,
+        277.68295945979656,
+        12.184840787478908,
+        -155.00005,
+        44.999996
+      ],
+      "renderCamera": [
+        6.781730521716689,
+        277.6829593405873,
+        12.184840787478908,
+        -155.00005,
+        44.999996
+      ],
+      "visualRadius": 1.8,
+      "settledTicks": 50,
+      "entityPosition": [
+        8.5,
+        273.0,
+        8.5
+      ],
+      "entityAgeTicks": 241,
+      "inWater": true,
+      "onGround": true,
+      "entityUuid": "6aa1171b-3262-44a0-bdd7-e2b2405cf86e",
+      "serverEntityId": 622,
+      "clientEntityId": 622,
+      "width": 1440,
+      "height": 1000,
+      "path": "screenshots/after/hybrid_aquatic_lightfoot_crab_view_3_above.png"
+    },
+    {
+      "label": "orcz_bigorcboss_view_1",
+      "id": "orcz:bigorcboss",
+      "angle": 25.0,
+      "dimension": "minecraft:overworld",
+      "camera": [
+        59.925179602764636,
+        277.19985701147715,
+        1.1546786378830562,
+        24.999939,
+        20.0
+      ],
+      "renderCamera": [
+        59.925179602764636,
+        277.19985689226786,
+        1.1546786378830562,
+        24.999939,
+        20.0
+      ],
+      "visualRadius": 2.7,
+      "settledTicks": 50,
+      "entityPosition": [
+        56.5,
+        273.05,
+        8.5
+      ],
+      "entityAgeTicks": 139,
+      "inWater": false,
+      "onGround": false,
+      "entityUuid": "e0ed13a6-617d-440f-a7f7-730cfb5fe5e7",
+      "serverEntityId": 640,
+      "clientEntityId": 640,
+      "width": 1440,
+      "height": 1000,
+      "path": "screenshots/after/orcz_bigorcboss_view_1.png"
+    },
+    {
+      "label": "orcz_bigorcboss_view_2",
+      "id": "orcz:bigorcboss",
+      "angle": 115.0,
+      "dimension": "minecraft:overworld",
+      "camera": [
+        63.84532136211694,
+        277.19985701147715,
+        11.925179602764636,
+        -245.00005,
+        20.0
+      ],
+      "renderCamera": [
+        63.84532136211694,
+        277.19985689226786,
+        11.925179602764636,
+        -245.00005,
+        20.0
+      ],
+      "visualRadius": 2.7,
+      "settledTicks": 50,
+      "entityPosition": [
+        56.5,
+        273.05,
+        8.5
+      ],
+      "entityAgeTicks": 190,
+      "inWater": false,
+      "onGround": false,
+      "entityUuid": "e0ed13a6-617d-440f-a7f7-730cfb5fe5e7",
+      "serverEntityId": 640,
+      "clientEntityId": 640,
+      "width": 1440,
+      "height": 1000,
+      "path": "screenshots/after/orcz_bigorcboss_view_2.png"
+    },
+    {
+      "label": "orcz_bigorcboss_view_3_above",
+      "id": "orcz:bigorcboss",
+      "angle": 205.0,
+      "dimension": "minecraft:overworld",
+      "camera": [
+        53.92259578257504,
+        280.3486579873786,
+        14.027261181218362,
+        -155.00006,
+        44.999996
+      ],
+      "renderCamera": [
+        53.92259578257504,
+        280.3486578681693,
+        14.027261181218362,
+        -155.00006,
+        44.999996
+      ],
+      "visualRadius": 2.7,
+      "settledTicks": 50,
+      "entityPosition": [
+        56.5,
+        273.05,
+        8.5
+      ],
+      "entityAgeTicks": 241,
+      "inWater": false,
+      "onGround": false,
+      "entityUuid": "e0ed13a6-617d-440f-a7f7-730cfb5fe5e7",
+      "serverEntityId": 640,
+      "clientEntityId": 640,
+      "width": 1440,
+      "height": 1000,
+      "path": "screenshots/after/orcz_bigorcboss_view_3_above.png"
+    },
+    {
+      "label": "aoemod_arthropleura_view_2",
+      "id": "aoemod:arthropleura",
+      "angle": 115.0,
+      "dimension": "minecraft:overworld",
+      "camera": [
+        63.30122348344162,
+        276.0563490465099,
+        11.671462595152441,
+        -245.0,
+        19.999775
+      ],
+      "renderCamera": [
+        63.30122348344162,
+        276.05634892730063,
+        11.671462595152441,
+        -245.0,
+        19.999775
+      ],
+      "visualRadius": 2.5,
+      "settledTicks": 50,
+      "entityPosition": [
+        56.5,
+        273.05,
+        8.5
+      ],
+      "entityAgeTicks": 139,
+      "inWater": false,
+      "onGround": false,
+      "entityUuid": "6a9c8549-cc63-4d9c-8571-5353dd819e0b",
+      "serverEntityId": 642,
+      "clientEntityId": 642,
+      "width": 1440,
+      "height": 1000,
+      "path": "screenshots/after/aoemod_arthropleura_view_2.png"
+    },
+    {
+      "label": "aoemod_arthropleura_view_1",
+      "id": "aoemod:arthropleura",
+      "angle": 25.0,
+      "dimension": "minecraft:overworld",
+      "camera": [
+        59.67146259515244,
+        276.0563490465099,
+        1.698776516558386,
+        24.999983,
+        19.999775
+      ],
+      "renderCamera": [
+        59.67146259515244,
+        276.05634892730063,
+        1.698776516558386,
+        24.999983,
+        19.999775
+      ],
+      "visualRadius": 2.5,
+      "settledTicks": 50,
+      "entityPosition": [
+        56.5,
+        273.05,
+        8.5
+      ],
+      "entityAgeTicks": 190,
+      "inWater": false,
+      "onGround": false,
+      "entityUuid": "6a9c8549-cc63-4d9c-8571-5353dd819e0b",
+      "serverEntityId": 642,
+      "clientEntityId": 642,
+      "width": 1440,
+      "height": 1000,
+      "path": "screenshots/after/aoemod_arthropleura_view_1.png"
+    },
+    {
+      "label": "aoemod_arthropleura_view_3_above",
+      "id": "aoemod:arthropleura",
+      "angle": 205.0,
+      "dimension": "minecraft:overworld",
+      "camera": [
+        54.113514613495404,
+        278.97190550567797,
+        13.617834427054039,
+        -155.00002,
+        45.000008
+      ],
+      "renderCamera": [
+        54.113514613495404,
+        278.9719053864687,
+        13.617834427054039,
+        -155.00002,
+        45.000008
+      ],
+      "visualRadius": 2.5,
+      "settledTicks": 50,
+      "entityPosition": [
+        56.5,
+        273.05,
+        8.5
+      ],
+      "entityAgeTicks": 241,
+      "inWater": false,
+      "onGround": false,
+      "entityUuid": "6a9c8549-cc63-4d9c-8571-5353dd819e0b",
+      "serverEntityId": 642,
+      "clientEntityId": 642,
+      "width": 1440,
+      "height": 1000,
+      "path": "screenshots/after/aoemod_arthropleura_view_3_above.png"
+    },
+    {
+      "label": "blue_berries_front",
+      "id": "aoemod:blue_berry_bush",
+      "angle": 30.0,
+      "dimension": "minecraft:overworld",
+      "camera": [
+        103.18680812979541,
+        274.6693413798581,
+        10.774515039280736,
+        -150.0,
+        23.999985
+      ],
+      "renderCamera": [
+        103.18680812979541,
+        274.6693412606488,
+        10.774515039280736,
+        -150.0,
+        23.999985
+      ],
+      "visualRadius": 0.9,
+      "settledTicks": 50,
+      "width": 1440,
+      "height": 1000,
+      "path": "screenshots/after/blue_berries_front.png"
+    },
+    {
+      "label": "blue_berries_side",
+      "id": "aoemod:blue_berry_bush",
+      "angle": 120.0,
+      "dimension": "minecraft:overworld",
+      "camera": [
+        102.22548496071926,
+        274.6693413798581,
+        7.186808129795415,
+        -60.0,
+        23.999985
+      ],
+      "renderCamera": [
+        102.22548496071926,
+        274.6693412606488,
+        7.186808129795415,
+        -60.0,
+        23.999985
+      ],
+      "visualRadius": 0.9,
+      "settledTicks": 50,
+      "width": 1440,
+      "height": 1000,
+      "path": "screenshots/after/blue_berries_side.png"
+    },
+    {
+      "label": "snowy_blue_berries_side",
+      "id": "aoemod:blue_berry_bush",
+      "angle": 120.0,
+      "dimension": "minecraft:overworld",
+      "camera": [
+        102.22548496071926,
+        274.6693413798581,
+        7.186808129795415,
+        -60.0,
+        23.999985
+      ],
+      "renderCamera": [
+        102.22548496071926,
+        274.6693412606488,
+        7.186808129795415,
+        -60.0,
+        23.999985
+      ],
+      "visualRadius": 0.9,
+      "settledTicks": 50,
+      "width": 1440,
+      "height": 1000,
+      "path": "screenshots/after/snowy_blue_berries_side.png"
+    },
+    {
+      "label": "snowy_blue_berries_front",
+      "id": "aoemod:blue_berry_bush",
+      "angle": 30.0,
+      "dimension": "minecraft:overworld",
+      "camera": [
+        103.18680812979541,
+        274.6693413798581,
+        10.774515039280736,
+        -150.0,
+        23.999985
+      ],
+      "renderCamera": [
+        103.18680812979541,
+        274.6693412606488,
+        10.774515039280736,
+        -150.0,
+        23.999985
+      ],
+      "visualRadius": 0.9,
+      "settledTicks": 50,
+      "width": 1440,
+      "height": 1000,
+      "path": "screenshots/after/snowy_blue_berries_front.png"
+    },
+    {
+      "label": "wooden_tropical_portal_front",
+      "id": "aoemod:tropical_portal",
+      "angle": 30.0,
+      "dimension": "minecraft:overworld",
+      "camera": [
+        99.47678355818421,
+        278.5277314195112,
+        16.33444069085587,
+        -150.0,
+        23.999954
+      ],
+      "renderCamera": [
+        99.47678355818421,
+        278.5277313003019,
+        16.33444069085587,
+        -150.0,
+        23.999954
+      ],
+      "visualRadius": 3.1,
+      "settledTicks": 50,
+      "width": 1440,
+      "height": 1000,
+      "path": "screenshots/after/wooden_tropical_portal_front.png"
+    },
+    {
+      "label": "wooden_tropical_portal_side",
+      "id": "aoemod:tropical_portal",
+      "angle": 120.0,
+      "dimension": "minecraft:overworld",
+      "camera": [
+        96.16555930914413,
+        278.5277314195112,
+        3.9767835581842084,
+        -60.0,
+        23.999954
+      ],
+      "renderCamera": [
+        96.16555930914413,
+        278.5277313003019,
+        3.9767835581842084,
+        -60.0,
+        23.999954
+      ],
+      "visualRadius": 3.1,
+      "settledTicks": 50,
+      "width": 1440,
+      "height": 1000,
+      "path": "screenshots/after/wooden_tropical_portal_side.png"
+    },
+    {
+      "label": "corn_stage_5_side",
+      "id": "hearthandharvest:corn_stalk",
+      "angle": 120.0,
+      "dimension": "minecraft:overworld",
+      "camera": [
+        100.07733186806523,
+        276.77371934972405,
+        5.946571363491085,
+        -60.0,
+        23.999985
+      ],
+      "renderCamera": [
+        100.07733186806523,
+        276.77371923051476,
+        5.946571363491085,
+        -60.0,
+        23.999985
+      ],
+      "visualRadius": 1.75,
+      "settledTicks": 50,
+      "width": 1440,
+      "height": 1000,
+      "path": "screenshots/after/corn_stage_5_side.png"
+    },
+    {
+      "label": "corn_stage_5_front",
+      "id": "hearthandharvest:corn_stalk",
+      "angle": 30.0,
+      "dimension": "minecraft:overworld",
+      "camera": [
+        101.94657136349109,
+        276.77371934972405,
+        12.922668131934765,
+        -150.0,
+        23.999985
+      ],
+      "renderCamera": [
+        101.94657136349109,
+        276.77371923051476,
+        12.922668131934765,
+        -150.0,
+        23.999985
+      ],
+      "visualRadius": 1.75,
+      "settledTicks": 50,
+      "width": 1440,
+      "height": 1000,
+      "path": "screenshots/after/corn_stage_5_front.png"
+    },
+    {
+      "label": "aoemod_illager_lord_view_1",
+      "id": "aoemod:illager_lord",
+      "angle": 25.0,
+      "dimension": "minecraft:overworld",
+      "camera": [
+        59.67146259515244,
+        276.90634904054946,
+        1.698776516558386,
+        24.999983,
+        19.999775
+      ],
+      "renderCamera": [
+        59.67146259515244,
+        276.90634892134017,
+        1.698776516558386,
+        24.999983,
+        19.999775
+      ],
+      "visualRadius": 2.5,
+      "settledTicks": 50,
+      "entityPosition": [
+        56.5,
+        273.05,
+        8.5
+      ],
+      "entityAgeTicks": 139,
+      "inWater": false,
+      "onGround": false,
+      "entityUuid": "7c2eb8a8-dc1e-41be-a368-73bf8c88e348",
+      "serverEntityId": 659,
+      "clientEntityId": 659,
+      "width": 1440,
+      "height": 1000,
+      "path": "screenshots/after/aoemod_illager_lord_view_1.png"
+    },
+    {
+      "label": "aoemod_illager_lord_view_2",
+      "id": "aoemod:illager_lord",
+      "angle": 115.0,
+      "dimension": "minecraft:overworld",
+      "camera": [
+        63.30122348344162,
+        276.90634904054946,
+        11.671462595152441,
+        -245.0,
+        19.999775
+      ],
+      "renderCamera": [
+        63.30122348344162,
+        276.90634892134017,
+        11.671462595152441,
+        -245.0,
+        19.999775
+      ],
+      "visualRadius": 2.5,
+      "settledTicks": 50,
+      "entityPosition": [
+        56.5,
+        273.05,
+        8.5
+      ],
+      "entityAgeTicks": 190,
+      "inWater": false,
+      "onGround": false,
+      "entityUuid": "7c2eb8a8-dc1e-41be-a368-73bf8c88e348",
+      "serverEntityId": 659,
+      "clientEntityId": 659,
+      "width": 1440,
+      "height": 1000,
+      "path": "screenshots/after/aoemod_illager_lord_view_2.png"
+    },
+    {
+      "label": "aoemod_illager_lord_view_3_above",
+      "id": "aoemod:illager_lord",
+      "angle": 205.0,
+      "dimension": "minecraft:overworld",
+      "camera": [
+        54.113514613495404,
+        279.8219054997175,
+        13.617834427054039,
+        -155.00002,
+        45.000008
+      ],
+      "renderCamera": [
+        54.113514613495404,
+        279.8219053805082,
+        13.617834427054039,
+        -155.00002,
+        45.000008
+      ],
+      "visualRadius": 2.5,
+      "settledTicks": 50,
+      "entityPosition": [
+        56.5,
+        273.05,
+        8.5
+      ],
+      "entityAgeTicks": 241,
+      "inWater": false,
+      "onGround": false,
+      "entityUuid": "7c2eb8a8-dc1e-41be-a368-73bf8c88e348",
+      "serverEntityId": 659,
+      "clientEntityId": 659,
+      "width": 1440,
+      "height": 1000,
+      "path": "screenshots/after/aoemod_illager_lord_view_3_above.png"
+    },
+    {
+      "label": "tropical_azalea_leaves_front",
+      "id": "minecraft:azalea_leaves",
+      "angle": 30.0,
+      "dimension": "aoemod:tropical_dimension",
+      "camera": [
+        103.18680812979541,
+        210.66934137985808,
+        10.774515039280736,
+        -150.0,
+        23.999985
+      ],
+      "renderCamera": [
+        103.18680812979541,
+        210.6693412606488,
+        10.774515039280736,
+        -150.0,
+        23.999985
+      ],
+      "visualRadius": 0.9,
+      "settledTicks": 50,
+      "width": 1440,
+      "height": 1000,
+      "path": "screenshots/after/tropical_azalea_leaves_front.png"
+    },
+    {
+      "label": "tropical_azalea_leaves_side",
+      "id": "minecraft:azalea_leaves",
+      "angle": 120.0,
+      "dimension": "aoemod:tropical_dimension",
+      "camera": [
+        102.22548496071926,
+        210.66934137985808,
+        7.186808129795415,
+        -60.0,
+        23.999985
+      ],
+      "renderCamera": [
+        102.22548496071926,
+        210.6693412606488,
+        7.186808129795415,
+        -60.0,
+        23.999985
+      ],
+      "visualRadius": 0.9,
+      "settledTicks": 50,
+      "width": 1440,
+      "height": 1000,
+      "path": "screenshots/after/tropical_azalea_leaves_side.png"
+    },
+    {
+      "label": "angling_mahi_mahi_view_1",
+      "id": "angling:mahi_mahi",
+      "angle": 25.0,
+      "dimension": "minecraft:overworld",
+      "camera": [
+        6.319803655022977,
+        281.02163820633183,
+        9.581165443345382,
+        -100.62499,
+        19.999851
+      ],
+      "renderCamera": [
+        6.368498406189491,
+        281.01610423295585,
+        9.52906374596749,
+        -100.15624,
+        19.999851
+      ],
+      "visualRadius": 1.5,
+      "settledTicks": 50,
+      "entityPosition": [
+        10.745198567708334,
+        278.9828287760417,
+        8.7509765625
+      ],
+      "entityAgeTicks": 139,
+      "inWater": true,
+      "onGround": false,
+      "entityUuid": "0a2022f1-11b8-46fc-ab1c-d93c33bda4b9",
+      "serverEntityId": 676,
+      "clientEntityId": 676,
+      "width": 1440,
+      "height": 1000,
+      "path": "screenshots/after/angling_mahi_mahi_view_1.png"
+    },
+    {
+      "label": "angling_mahi_mahi_view_2",
+      "id": "angling:mahi_mahi",
+      "angle": 115.0,
+      "dimension": "minecraft:overworld",
+      "camera": [
+        6.842290851578516,
+        282.35961021154014,
+        14.014879907518113,
+        -136.25,
+        19.999851
+      ],
+      "renderCamera": [
+        5.581674884253847,
+        282.35179759233085,
+        11.951843888772824,
+        -105.78127,
+        19.999851
+      ],
+      "visualRadius": 1.5,
+      "settledTicks": 50,
+      "entityPosition": [
+        9.955891927083334,
+        280.32080078125,
+        10.762369791666666
+      ],
+      "entityAgeTicks": 190,
+      "inWater": true,
+      "onGround": false,
+      "entityUuid": "0a2022f1-11b8-46fc-ab1c-d93c33bda4b9",
+      "serverEntityId": 676,
+      "clientEntityId": 676,
+      "width": 1440,
+      "height": 1000,
+      "path": "screenshots/after/angling_mahi_mahi_view_2.png"
+    },
+    {
+      "label": "angling_mahi_mahi_view_3_above",
+      "id": "angling:mahi_mahi",
+      "angle": 205.0,
+      "dimension": "minecraft:overworld",
+      "camera": [
+        11.585948870490615,
+        283.80018757662424,
+        12.453826868924661,
+        -192.49988,
+        44.999992
+      ],
+      "renderCamera": [
+        11.651723133385449,
+        283.8084068584567,
+        12.495568269043495,
+        -192.96861,
+        45.000004
+      ],
+      "visualRadius": 1.5,
+      "settledTicks": 50,
+      "entityPosition": [
+        10.852620442708334,
+        280.0120442708333,
+        9.14599609375
+      ],
+      "entityAgeTicks": 241,
+      "inWater": true,
+      "onGround": false,
+      "entityUuid": "0a2022f1-11b8-46fc-ab1c-d93c33bda4b9",
+      "serverEntityId": 676,
+      "clientEntityId": 676,
+      "width": 1440,
+      "height": 1000,
+      "path": "screenshots/after/angling_mahi_mahi_view_3_above.png"
+    },
+    {
+      "label": "angling_anomalocaris_view_1",
+      "id": "angling:anomalocaris",
+      "angle": 25.0,
+      "dimension": "minecraft:overworld",
+      "camera": [
+        6.374921558797494,
+        281.4844036652159,
+        7.247943320713544,
+        -103.906265,
+        19.999842
+      ],
+      "renderCamera": [
+        6.394364489827083,
+        281.4940064105899,
+        7.122378524143127,
+        -101.56249,
+        19.999842
+      ],
+      "visualRadius": 1.2,
+      "settledTicks": 50,
+      "entityPosition": [
+        9.871419270833334,
+        280.0233561197917,
+        6.382242838541667
+      ],
+      "entityAgeTicks": 139,
+      "inWater": true,
+      "onGround": false,
+      "entityUuid": "d00809d0-e241-47d9-a562-6720be12e2bd",
+      "serverEntityId": 679,
+      "clientEntityId": 679,
+      "width": 1440,
+      "height": 1000,
+      "path": "screenshots/after/angling_anomalocaris_view_1.png"
+    },
+    {
+      "label": "angling_anomalocaris_view_2",
+      "id": "angling:anomalocaris",
+      "angle": 115.0,
+      "dimension": "minecraft:overworld",
+      "camera": [
+        4.753079128844076,
+        281.4528281443825,
+        7.451568799301905,
+        -72.96875,
+        19.999842
+      ],
+      "renderCamera": [
+        4.74366791683019,
+        281.4507935199649,
+        7.413618702177887,
+        -73.4375,
+        19.999842
+      ],
+      "visualRadius": 1.2,
+      "settledTicks": 50,
+      "entityPosition": [
+        8.197184244791666,
+        279.9917805989583,
+        8.506591796875
+      ],
+      "entityAgeTicks": 190,
+      "inWater": true,
+      "onGround": false,
+      "entityUuid": "d00809d0-e241-47d9-a562-6720be12e2bd",
+      "serverEntityId": 679,
+      "clientEntityId": 679,
+      "width": 1440,
+      "height": 1000,
+      "path": "screenshots/after/angling_anomalocaris_view_2.png"
+    },
+    {
+      "label": "angling_anomalocaris_view_3_above",
+      "id": "angling:anomalocaris",
+      "angle": 205.0,
+      "dimension": "minecraft:overworld",
+      "camera": [
+        9.455258691201571,
+        282.86116568749156,
+        11.469319702536644,
+        -168.12492,
+        45.000004
+      ],
+      "renderCamera": [
+        9.42910091945902,
+        282.8612469484906,
+        11.51821598066606,
+        -167.65619,
+        45.000004
+      ],
+      "visualRadius": 1.2,
+      "settledTicks": 50,
+      "entityPosition": [
+        10.013020833333334,
+        280.0006510416667,
+        8.816813151041666
+      ],
+      "entityAgeTicks": 241,
+      "inWater": true,
+      "onGround": false,
+      "entityUuid": "d00809d0-e241-47d9-a562-6720be12e2bd",
+      "serverEntityId": 679,
+      "clientEntityId": 679,
+      "width": 1440,
+      "height": 1000,
+      "path": "screenshots/after/angling_anomalocaris_view_3_above.png"
+    },
+    {
+      "label": "alexsmobs_flying_fish_view_1",
+      "id": "alexsmobs:flying_fish",
+      "angle": 25.0,
+      "dimension": "minecraft:overworld",
+      "camera": [
+        11.397632399045202,
+        293.71219117705175,
+        17.077241467157158,
+        -178.90622,
+        19.999786
+      ],
+      "renderCamera": [
+        11.357282886120819,
+        293.4035852515153,
+        16.917464991462715,
+        -178.90622,
+        19.999786
+      ],
+      "visualRadius": 0.8,
+      "settledTicks": 50,
+      "entityPosition": [
+        11.443470896026234,
+        292.63815948109567,
+        14.67629665798611
+      ],
+      "entityAgeTicks": 139,
+      "inWater": true,
+      "onGround": false,
+      "entityUuid": "b10f8d5b-1314-4507-839f-d1f561474061",
+      "serverEntityId": 681,
+      "clientEntityId": 681,
+      "width": 1440,
+      "height": 1000,
+      "path": "screenshots/after/alexsmobs_flying_fish_view_1.png"
+    },
+    {
+      "label": "alexsmobs_flying_fish_view_2",
+      "id": "alexsmobs:flying_fish",
+      "angle": 115.0,
+      "dimension": "minecraft:overworld",
+      "camera": [
+        13.47354414194096,
+        289.4116781803311,
+        15.50121669202942,
+        88.28116,
+        19.999786
+      ],
+      "renderCamera": [
+        13.48891681437938,
+        289.58436686320516,
+        15.721701127189364,
+        -268.90622,
+        19.999786
+      ],
+      "visualRadius": 0.8,
+      "settledTicks": 50,
+      "entityPosition": [
+        11.0732421875,
+        288.337646484375,
+        15.5732421875
+      ],
+      "entityAgeTicks": 201,
+      "inWater": true,
+      "onGround": false,
+      "entityUuid": "b10f8d5b-1314-4507-839f-d1f561474061",
+      "serverEntityId": 681,
+      "clientEntityId": 681,
+      "width": 1440,
+      "height": 1000,
+      "path": "screenshots/after/alexsmobs_flying_fish_view_2.png"
+    },
+    {
+      "label": "alexsmobs_flying_fish_view_3_above",
+      "id": "alexsmobs:flying_fish",
+      "angle": 205.0,
+      "dimension": "minecraft:overworld",
+      "camera": [
+        11.168347605831158,
+        283.6649687472648,
+        11.396324671733737,
+        -160.625,
+        44.99999
+      ],
+      "renderCamera": [
+        11.137331645876646,
+        283.74992956555553,
+        11.523117794374311,
+        -160.15625,
+        44.99999
+      ],
+      "visualRadius": 0.8,
+      "settledTicks": 50,
+      "entityPosition": [
+        11.767822265625,
+        281.657958984375,
+        9.691650390625
+      ],
+      "entityAgeTicks": 252,
+      "inWater": true,
+      "onGround": false,
+      "entityUuid": "b10f8d5b-1314-4507-839f-d1f561474061",
+      "serverEntityId": 681,
+      "clientEntityId": 681,
+      "width": 1440,
+      "height": 1000,
+      "path": "screenshots/after/alexsmobs_flying_fish_view_3_above.png"
+    },
+    {
+      "label": "alexsmobs_triops_view_1",
+      "id": "alexsmobs:triops",
+      "angle": 25.0,
+      "dimension": "minecraft:overworld",
+      "camera": [
+        9.490563149941565,
+        275.8847926776262,
+        10.44987089078354,
+        -113.749954,
+        20.000046
+      ],
+      "renderCamera": [
+        9.551901985094078,
+        275.8834904750836,
+        10.389748139524412,
+        -114.21874,
+        20.000046
+      ],
+      "visualRadius": 0.65,
+      "settledTicks": 50,
+      "entityPosition": [
+        11.276448567708334,
+        275.0496419270833,
+        9.6640625
+      ],
+      "entityAgeTicks": 139,
+      "inWater": true,
+      "onGround": false,
+      "entityUuid": "99307501-30bb-4170-9ff5-6c6c75fcacb0",
+      "serverEntityId": 683,
+      "clientEntityId": 683,
+      "width": 1440,
+      "height": 1000,
+      "path": "screenshots/after/alexsmobs_triops_view_1.png"
+    },
+    {
+      "label": "alexsmobs_triops_view_2",
+      "id": "alexsmobs:triops",
+      "angle": 115.0,
+      "dimension": "minecraft:overworld",
+      "camera": [
+        10.148985047475076,
+        275.8356390317929,
+        8.969260880908028,
+        72.81235,
+        20.000046
+      ],
+      "renderCamera": [
+        10.213112651641742,
+        275.8356389125836,
+        9.039166479866362,
+        72.81235,
+        20.000046
+      ],
+      "visualRadius": 0.65,
+      "settledTicks": 50,
+      "entityPosition": [
+        8.284993489583334,
+        275.00048828125,
+        9.545817057291666
+      ],
+      "entityAgeTicks": 190,
+      "inWater": true,
+      "onGround": false,
+      "entityUuid": "99307501-30bb-4170-9ff5-6c6c75fcacb0",
+      "serverEntityId": 683,
+      "clientEntityId": 683,
+      "width": 1440,
+      "height": 1000,
+      "path": "screenshots/after/alexsmobs_triops_view_2.png"
+    },
+    {
+      "label": "alexsmobs_triops_view_3_above",
+      "id": "alexsmobs:triops",
+      "angle": 205.0,
+      "dimension": "minecraft:overworld",
+      "camera": [
+        5.402298895748569,
+        276.59319542992654,
+        7.292656968665236,
+        -199.9999,
+        44.999996
+      ],
+      "renderCamera": [
+        5.470902411373569,
+        276.59319531071725,
+        7.362562567623569,
+        -199.9999,
+        44.999996
+      ],
+      "visualRadius": 0.65,
+      "settledTicks": 50,
+      "entityPosition": [
+        4.900146484375,
+        275.0,
+        5.913004557291667
+      ],
+      "entityAgeTicks": 241,
+      "inWater": true,
+      "onGround": false,
+      "entityUuid": "99307501-30bb-4170-9ff5-6c6c75fcacb0",
+      "serverEntityId": 683,
+      "clientEntityId": 683,
+      "width": 1440,
+      "height": 1000,
+      "path": "screenshots/after/alexsmobs_triops_view_3_above.png"
+    },
+    {
+      "label": "ambientadditions_blue_spotted_stingray_view_1",
+      "id": "ambientadditions:blue_spotted_stingray",
+      "angle": 25.0,
+      "dimension": "minecraft:overworld",
+      "camera": [
+        11.699144636903338,
+        282.2986238789448,
+        6.464684460737265,
+        55.937515,
+        19.999851
+      ],
+      "renderCamera": [
+        11.660244897320005,
+        282.2949616503605,
+        6.513268445112265,
+        55.937515,
+        19.999851
+      ],
+      "visualRadius": 1.5,
+      "settledTicks": 50,
+      "entityPosition": [
+        7.969075520833333,
+        280.559814453125,
+        8.986572265625
+      ],
+      "entityAgeTicks": 139,
+      "inWater": true,
+      "onGround": false,
+      "entityUuid": "90572ee6-9c5e-489e-8e25-e1e5556e02a4",
+      "serverEntityId": 685,
+      "clientEntityId": 685,
+      "width": 1440,
+      "height": 1000,
+      "path": "screenshots/after/ambientadditions_blue_spotted_stingray_view_1.png"
+    },
+    {
+      "label": "ambientadditions_blue_spotted_stingray_view_2",
+      "id": "ambientadditions:blue_spotted_stingray",
+      "angle": 115.0,
+      "dimension": "minecraft:overworld",
+      "camera": [
+        6.104722428642242,
+        282.0583895039448,
+        2.6289305888364582,
+        -15.312526,
+        19.999851
+      ],
+      "renderCamera": [
+        6.22688050440619,
+        282.0757233691105,
+        2.5951642575565534,
+        -14.375029,
+        19.999851
+      ],
+      "visualRadius": 1.5,
+      "settledTicks": 50,
+      "entityPosition": [
+        7.293782552083333,
+        280.319580078125,
+        6.9716796875
+      ],
+      "entityAgeTicks": 190,
+      "inWater": true,
+      "onGround": false,
+      "entityUuid": "90572ee6-9c5e-489e-8e25-e1e5556e02a4",
+      "serverEntityId": 685,
+      "clientEntityId": 685,
+      "width": 1440,
+      "height": 1000,
+      "path": "screenshots/after/ambientadditions_blue_spotted_stingray_view_2.png"
+    },
+    {
+      "label": "ambientadditions_blue_spotted_stingray_view_3_above",
+      "id": "ambientadditions:blue_spotted_stingray",
+      "angle": 205.0,
+      "dimension": "minecraft:overworld",
+      "camera": [
+        5.03571524584977,
+        283.9330489002789,
+        6.183184146045896,
+        -26.093561,
+        44.999992
+      ],
+      "renderCamera": [
+        5.564626414915478,
+        283.92954943211134,
+        5.915835362635031,
+        -15.781366,
+        45.000004
+      ],
+      "visualRadius": 1.5,
+      "settledTicks": 50,
+      "entityPosition": [
+        6.525960286458333,
+        280.4449055989583,
+        9.225992838541666
+      ],
+      "entityAgeTicks": 241,
+      "inWater": true,
+      "onGround": false,
+      "entityUuid": "90572ee6-9c5e-489e-8e25-e1e5556e02a4",
+      "serverEntityId": 685,
+      "clientEntityId": 685,
+      "width": 1440,
+      "height": 1000,
+      "path": "screenshots/after/ambientadditions_blue_spotted_stingray_view_3_above.png"
+    },
+    {
+      "label": "hybrid_aquatic_flower_crab_view_1",
+      "id": "hybrid_aquatic:flower_crab",
+      "angle": 25.0,
+      "dimension": "minecraft:overworld",
+      "camera": [
+        10.783453068509758,
+        275.5730166216956,
+        3.6031190919220375,
+        24.999943,
+        20.000048
+      ],
+      "renderCamera": [
+        10.783453068509758,
+        275.5730165024863,
+        3.6031190919220375,
+        24.999943,
+        20.000048
+      ],
+      "visualRadius": 1.8,
+      "settledTicks": 50,
+      "entityPosition": [
+        8.5,
+        273.0,
+        8.5
+      ],
+      "entityAgeTicks": 139,
+      "inWater": true,
+      "onGround": true,
+      "entityUuid": "62bbfd06-11c3-436e-90af-7b61d16bc1bf",
+      "serverEntityId": 687,
+      "clientEntityId": 687,
+      "width": 1440,
+      "height": 1000,
+      "path": "screenshots/after/hybrid_aquatic_flower_crab_view_1.png"
+    },
+    {
+      "label": "hybrid_aquatic_flower_crab_view_2",
+      "id": "hybrid_aquatic:flower_crab",
+      "angle": 115.0,
+      "dimension": "minecraft:overworld",
+      "camera": [
+        13.396880908077963,
+        275.5730166216956,
+        10.783453068509758,
+        -245.00005,
+        20.000048
+      ],
+      "renderCamera": [
+        13.396880908077963,
+        275.5730165024863,
+        10.783453068509758,
+        -245.00005,
+        20.000048
+      ],
+      "visualRadius": 1.8,
+      "settledTicks": 50,
+      "entityPosition": [
+        8.5,
+        273.0,
+        8.5
+      ],
+      "entityAgeTicks": 190,
+      "inWater": true,
+      "onGround": true,
+      "entityUuid": "62bbfd06-11c3-436e-90af-7b61d16bc1bf",
+      "serverEntityId": 687,
+      "clientEntityId": 687,
+      "width": 1440,
+      "height": 1000,
+      "path": "screenshots/after/hybrid_aquatic_flower_crab_view_2.png"
+    },
+    {
+      "label": "hybrid_aquatic_flower_crab_view_3_above",
+      "id": "hybrid_aquatic:flower_crab",
+      "angle": 205.0,
+      "dimension": "minecraft:overworld",
+      "camera": [
+        6.781730521716689,
+        277.67221727229656,
+        12.184840787478908,
+        -155.00005,
+        44.999996
+      ],
+      "renderCamera": [
+        6.781730521716689,
+        277.6722171530873,
+        12.184840787478908,
+        -155.00005,
+        44.999996
+      ],
+      "visualRadius": 1.8,
+      "settledTicks": 50,
+      "entityPosition": [
+        8.5,
+        273.0,
+        8.5
+      ],
+      "entityAgeTicks": 241,
+      "inWater": true,
+      "onGround": true,
+      "entityUuid": "62bbfd06-11c3-436e-90af-7b61d16bc1bf",
+      "serverEntityId": 687,
+      "clientEntityId": 687,
+      "width": 1440,
+      "height": 1000,
+      "path": "screenshots/after/hybrid_aquatic_flower_crab_view_3_above.png"
+    },
+    {
+      "label": "hybrid_aquatic_fiddler_crab_view_1",
+      "id": "hybrid_aquatic:fiddler_crab",
+      "angle": 25.0,
+      "dimension": "minecraft:overworld",
+      "camera": [
+        9.324580274739635,
+        273.86015075650334,
+        6.73168189430518,
+        24.999914,
+        20.000046
+      ],
+      "renderCamera": [
+        9.324580274739635,
+        273.86015063729405,
+        6.73168189430518,
+        24.999914,
+        20.000046
+      ],
+      "visualRadius": 0.65,
+      "settledTicks": 50,
+      "entityPosition": [
+        8.5,
+        273.0,
+        8.5
+      ],
+      "entityAgeTicks": 139,
+      "inWater": true,
+      "onGround": true,
+      "entityUuid": "2df81f1d-444e-41ea-89ed-aed51167300f",
+      "serverEntityId": 689,
+      "clientEntityId": 689,
+      "width": 1440,
+      "height": 1000,
+      "path": "screenshots/after/hybrid_aquatic_fiddler_crab_view_1.png"
+    },
+    {
+      "label": "hybrid_aquatic_fiddler_crab_view_2",
+      "id": "hybrid_aquatic:fiddler_crab",
+      "angle": 115.0,
+      "dimension": "minecraft:overworld",
+      "camera": [
+        10.26831810569482,
+        273.86015075650334,
+        9.324580274739635,
+        -245.00008,
+        20.000046
+      ],
+      "renderCamera": [
+        10.26831810569482,
+        273.86015063729405,
+        9.324580274739635,
+        -245.00008,
+        20.000046
+      ],
+      "visualRadius": 0.65,
+      "settledTicks": 50,
+      "entityPosition": [
+        8.5,
+        273.0,
+        8.5
+      ],
+      "entityAgeTicks": 190,
+      "inWater": true,
+      "onGround": true,
+      "entityUuid": "2df81f1d-444e-41ea-89ed-aed51167300f",
+      "serverEntityId": 689,
+      "clientEntityId": 689,
+      "width": 1440,
+      "height": 1000,
+      "path": "screenshots/after/hybrid_aquatic_fiddler_crab_view_2.png"
+    },
+    {
+      "label": "hybrid_aquatic_fiddler_crab_view_3_above",
+      "id": "hybrid_aquatic:fiddler_crab",
+      "angle": 205.0,
+      "dimension": "minecraft:overworld",
+      "camera": [
+        7.879513799508804,
+        274.618195435887,
+        9.83063695103405,
+        -155.00003,
+        44.999996
+      ],
+      "renderCamera": [
+        7.879513799508804,
+        274.6181953166777,
+        9.83063695103405,
+        -155.00003,
+        44.999996
+      ],
+      "visualRadius": 0.65,
+      "settledTicks": 50,
+      "entityPosition": [
+        8.5,
+        273.0,
+        8.5
+      ],
+      "entityAgeTicks": 241,
+      "inWater": true,
+      "onGround": true,
+      "entityUuid": "2df81f1d-444e-41ea-89ed-aed51167300f",
+      "serverEntityId": 689,
+      "clientEntityId": 689,
+      "width": 1440,
+      "height": 1000,
+      "path": "screenshots/after/hybrid_aquatic_fiddler_crab_view_3_above.png"
+    },
+    {
+      "label": "hybrid_aquatic_octopus_view_1",
+      "id": "hybrid_aquatic:octopus",
+      "angle": 25.0,
+      "dimension": "minecraft:overworld",
+      "camera": [
+        5.213639823255107,
+        282.04806339787257,
+        11.737016288000838,
+        -151.73569,
+        19.999786
+      ],
+      "renderCamera": [
+        5.2185981960960515,
+        282.0480632786633,
+        11.691992265984133,
+        -151.73569,
+        19.999786
+      ],
+      "visualRadius": 1.6,
+      "settledTicks": 50,
+      "entityPosition": [
+        7.487944089431888,
+        280.0,
+        7.506875784091588
+      ],
+      "entityAgeTicks": 139,
+      "inWater": true,
+      "onGround": false,
+      "entityUuid": "1f2c828a-7029-4a76-8509-30e2de6f5112",
+      "serverEntityId": 691,
+      "clientEntityId": 691,
+      "width": 1440,
+      "height": 1000,
+      "path": "screenshots/after/hybrid_aquatic_octopus_view_1.png"
+    },
+    {
+      "label": "hybrid_aquatic_octopus_view_2",
+      "id": "hybrid_aquatic:octopus",
+      "angle": 115.0,
+      "dimension": "minecraft:overworld",
+      "camera": [
+        11.953328959244207,
+        282.04806339787257,
+        12.28091633546524,
+        -220.95775,
+        19.999786
+      ],
+      "renderCamera": [
+        11.92656242072008,
+        282.0480632786633,
+        12.308426802701051,
+        -220.95775,
+        19.999786
+      ],
+      "visualRadius": 1.6,
+      "settledTicks": 50,
+      "entityPosition": [
+        8.805109501076746,
+        280.0,
+        8.653897887596619
+      ],
+      "entityAgeTicks": 190,
+      "inWater": true,
+      "onGround": false,
+      "entityUuid": "1f2c828a-7029-4a76-8509-30e2de6f5112",
+      "serverEntityId": 691,
+      "clientEntityId": 691,
+      "width": 1440,
+      "height": 1000,
+      "path": "screenshots/after/hybrid_aquatic_octopus_view_2.png"
+    },
+    {
+      "label": "hybrid_aquatic_octopus_view_3_above",
+      "id": "hybrid_aquatic:octopus",
+      "angle": 205.0,
+      "dimension": "minecraft:overworld",
+      "camera": [
+        11.958834969782398,
+        283.9140195317401,
+        6.966434642982087,
+        -269.1074,
+        44.99999
+      ],
+      "renderCamera": [
+        11.999015685502833,
+        283.9140194125308,
+        6.976921692766415,
+        -269.1074,
+        44.99999
+      ],
+      "visualRadius": 1.6,
+      "settledTicks": 50,
+      "entityPosition": [
+        8.345254009565874,
+        280.0,
+        6.910134255818655
+      ],
+      "entityAgeTicks": 241,
+      "inWater": true,
+      "onGround": false,
+      "entityUuid": "1f2c828a-7029-4a76-8509-30e2de6f5112",
+      "serverEntityId": 691,
+      "clientEntityId": 691,
+      "width": 1440,
+      "height": 1000,
+      "path": "screenshots/after/hybrid_aquatic_octopus_view_3_above.png"
+    },
+    {
+      "label": "hybrid_aquatic_umbrella_octopus_view_1",
+      "id": "hybrid_aquatic:umbrella_octopus",
+      "angle": 25.0,
+      "dimension": "minecraft:overworld",
+      "camera": [
+        5.79389787647391,
+        282.0043538169175,
+        8.349833135977331,
+        -106.99622,
+        20.000048
+      ],
+      "renderCamera": [
+        5.8316271403185596,
+        282.00390145074306,
+        8.332177076644376,
+        -106.99622,
+        20.000048
+      ],
+      "visualRadius": 0.9,
+      "settledTicks": 50,
+      "entityPosition": [
+        8.377460480814301,
+        280.7710681623197,
+        7.560146865709089
+      ],
+      "entityAgeTicks": 139,
+      "inWater": true,
+      "onGround": false,
+      "entityUuid": "0ac65d8d-0cfa-40df-8b6b-8f650dcc894d",
+      "serverEntityId": 693,
+      "clientEntityId": 693,
+      "width": 1440,
+      "height": 1000,
+      "path": "screenshots/after/hybrid_aquatic_umbrella_octopus_view_1.png"
+    },
+    {
+      "label": "hybrid_aquatic_umbrella_octopus_view_2",
+      "id": "hybrid_aquatic:umbrella_octopus",
+      "angle": 115.0,
+      "dimension": "minecraft:overworld",
+      "camera": [
+        8.456937464777441,
+        282.0019906291778,
+        11.697638294292911,
+        -178.71892,
+        20.000048
+      ],
+      "renderCamera": [
+        8.417142321074873,
+        282.00157737225845,
+        11.692721573028468,
+        -178.71892,
+        20.000048
+      ],
+      "visualRadius": 0.9,
+      "settledTicks": 50,
+      "entityPosition": [
+        8.517333540719864,
+        280.76870497458,
+        8.996758354346111
+      ],
+      "entityAgeTicks": 190,
+      "inWater": true,
+      "onGround": false,
+      "entityUuid": "0ac65d8d-0cfa-40df-8b6b-8f650dcc894d",
+      "serverEntityId": 693,
+      "clientEntityId": 693,
+      "width": 1440,
+      "height": 1000,
+      "path": "screenshots/after/hybrid_aquatic_umbrella_octopus_view_2.png"
+    },
+    {
+      "label": "hybrid_aquatic_umbrella_octopus_view_3_above",
+      "id": "hybrid_aquatic:umbrella_octopus",
+      "angle": 205.0,
+      "dimension": "minecraft:overworld",
+      "camera": [
+        10.176063674292623,
+        283.04426536891657,
+        9.654151547513482,
+        -199.25803,
+        45.0
+      ],
+      "renderCamera": [
+        10.047712562732345,
+        283.0454383426539,
+        9.73322796994174,
+        -195.3716,
+        45.0
+      ],
+      "visualRadius": 0.9,
+      "settledTicks": 50,
+      "entityPosition": [
+        9.505567763295193,
+        280.76137938901826,
+        7.735021369385179
+      ],
+      "entityAgeTicks": 241,
+      "inWater": true,
+      "onGround": false,
+      "entityUuid": "0ac65d8d-0cfa-40df-8b6b-8f650dcc894d",
+      "serverEntityId": 693,
+      "clientEntityId": 693,
+      "width": 1440,
+      "height": 1000,
+      "path": "screenshots/after/hybrid_aquatic_umbrella_octopus_view_3_above.png"
+    },
+    {
+      "label": "hybrid_aquatic_carp_view_1",
+      "id": "hybrid_aquatic:carp",
+      "angle": 25.0,
+      "dimension": "minecraft:overworld",
+      "camera": [
+        5.652133591049207,
+        281.12403169297585,
+        7.188225471180489,
+        -96.964226,
+        19.999786
+      ],
+      "renderCamera": [
+        5.699225075880745,
+        281.12403157376656,
+        6.974123793548225,
+        -91.85253,
+        19.999786
+      ],
+      "visualRadius": 0.8,
+      "settledTicks": 50,
+      "entityPosition": [
+        8.035798615499518,
+        280.0,
+        6.897058516147507
+      ],
+      "entityAgeTicks": 139,
+      "inWater": true,
+      "onGround": false,
+      "entityUuid": "54e05dd4-c06f-463c-b772-7196df52e3c9",
+      "serverEntityId": 695,
+      "clientEntityId": 695,
+      "width": 1440,
+      "height": 1000,
+      "path": "screenshots/after/hybrid_aquatic_carp_view_1.png"
+    },
+    {
+      "label": "hybrid_aquatic_carp_view_2",
+      "id": "hybrid_aquatic:carp",
+      "angle": 115.0,
+      "dimension": "minecraft:overworld",
+      "camera": [
+        5.2465493601532085,
+        281.12403169297585,
+        10.379731165187204,
+        -113.177826,
+        19.999786
+      ],
+      "renderCamera": [
+        5.153590597827506,
+        281.12403157376656,
+        10.196570726910409,
+        -109.84479,
+        19.999786
+      ],
+      "visualRadius": 0.8,
+      "settledTicks": 50,
+      "entityPosition": [
+        7.454111813597536,
+        280.0,
+        9.434582944729831
+      ],
+      "entityAgeTicks": 190,
+      "inWater": true,
+      "onGround": false,
+      "entityUuid": "54e05dd4-c06f-463c-b772-7196df52e3c9",
+      "serverEntityId": 695,
+      "clientEntityId": 695,
+      "width": 1440,
+      "height": 1000,
+      "path": "screenshots/after/hybrid_aquatic_carp_view_2.png"
+    },
+    {
+      "label": "hybrid_aquatic_carp_view_3_above",
+      "id": "hybrid_aquatic:carp",
+      "angle": 205.0,
+      "dimension": "minecraft:overworld",
+      "camera": [
+        9.190987442461552,
+        282.0570097599096,
+        10.247294558457593,
+        -161.12756,
+        44.99999
+      ],
+      "renderCamera": [
+        9.18529803495148,
+        282.0570096407003,
+        10.312150906932013,
+        -161.12756,
+        44.99999
+      ],
+      "visualRadius": 0.8,
+      "settledTicks": 50,
+      "entityPosition": [
+        9.775486419354854,
+        280.0,
+        8.53742754069884
+      ],
+      "entityAgeTicks": 241,
+      "inWater": true,
+      "onGround": false,
+      "entityUuid": "54e05dd4-c06f-463c-b772-7196df52e3c9",
+      "serverEntityId": 695,
+      "clientEntityId": 695,
+      "width": 1440,
+      "height": 1000,
+      "path": "screenshots/after/hybrid_aquatic_carp_view_3_above.png"
+    },
+    {
+      "label": "finsandtails_swamp_mucker_view_1",
+      "id": "finsandtails:swamp_mucker",
+      "angle": 25.0,
+      "dimension": "minecraft:overworld",
+      "camera": [
+        8.21578569646283,
+        280.98884289238265,
+        5.605018734572192,
+        -35.937424,
+        19.999786
+      ],
+      "renderCamera": [
+        8.777111901794134,
+        280.9842854815067,
+        5.343376161258494,
+        -21.406134,
+        19.999786
+      ],
+      "visualRadius": 0.8,
+      "settledTicks": 50,
+      "entityPosition": [
+        9.625162760416666,
+        280.0148111979167,
+        7.54931640625
+      ],
+      "entityAgeTicks": 139,
+      "inWater": true,
+      "onGround": false,
+      "entityUuid": "3d271709-361f-417d-aefa-79e4faf8c010",
+      "serverEntityId": 697,
+      "clientEntityId": 697,
+      "width": 1440,
+      "height": 1000,
+      "path": "screenshots/after/finsandtails_swamp_mucker_view_1.png"
+    },
+    {
+      "label": "finsandtails_swamp_mucker_view_2",
+      "id": "finsandtails:swamp_mucker",
+      "angle": 115.0,
+      "dimension": "minecraft:overworld",
+      "camera": [
+        5.789324078526819,
+        280.9338298715493,
+        7.3635269215754136,
+        -74.843735,
+        19.999786
+      ],
+      "renderCamera": [
+        5.788591656651819,
+        280.9325276690067,
+        7.319418848658747,
+        -74.843735,
+        19.999786
+      ],
+      "visualRadius": 0.8,
+      "settledTicks": 50,
+      "entityPosition": [
+        8.107177734375,
+        279.9597981770833,
+        7.991373697916667
+      ],
+      "entityAgeTicks": 190,
+      "inWater": true,
+      "onGround": false,
+      "entityUuid": "3d271709-361f-417d-aefa-79e4faf8c010",
+      "serverEntityId": 697,
+      "clientEntityId": 697,
+      "width": 1440,
+      "height": 1000,
+      "path": "screenshots/after/finsandtails_swamp_mucker_view_2.png"
+    },
+    {
+      "label": "finsandtails_swamp_mucker_view_3_above",
+      "id": "finsandtails:swamp_mucker",
+      "angle": 205.0,
+      "dimension": "minecraft:overworld",
+      "camera": [
+        8.13186632456791,
+        281.9424101520247,
+        10.276659963865093,
+        -132.96873,
+        44.99999
+      ],
+      "renderCamera": [
+        8.096687734748953,
+        281.9511990953154,
+        10.295016848860847,
+        -132.5,
+        44.99999
+      ],
+      "visualRadius": 0.8,
+      "settledTicks": 50,
+      "entityPosition": [
+        9.4541015625,
+        280.035400390625,
+        9.045003255208334
+      ],
+      "entityAgeTicks": 241,
+      "inWater": true,
+      "onGround": false,
+      "entityUuid": "3d271709-361f-417d-aefa-79e4faf8c010",
+      "serverEntityId": 697,
+      "clientEntityId": 697,
+      "width": 1440,
+      "height": 1000,
+      "path": "screenshots/after/finsandtails_swamp_mucker_view_3_above.png"
+    },
+    {
+      "label": "hybrid_aquatic_vampire_squid_view_1",
+      "id": "hybrid_aquatic:vampire_squid",
+      "angle": 25.0,
+      "dimension": "minecraft:overworld",
+      "camera": [
+        11.23480600132765,
+        281.511047542444,
+        6.467436497572942,
+        24.587276,
+        19.999842
+      ],
+      "renderCamera": [
+        11.23479399889776,
+        281.5110474232347,
+        6.513205405869529,
+        24.587276,
+        19.999842
+      ],
+      "visualRadius": 1.2,
+      "settledTicks": 50,
+      "entityPosition": [
+        9.73605997951522,
+        280.0,
+        9.742905004093176
+      ],
+      "entityAgeTicks": 139,
+      "inWater": true,
+      "onGround": false,
+      "entityUuid": "155733d2-b357-4b39-a079-9d2e8880f9fb",
+      "serverEntityId": 699,
+      "clientEntityId": 699,
+      "width": 1440,
+      "height": 1000,
+      "path": "screenshots/after/hybrid_aquatic_vampire_squid_view_1.png"
+    },
+    {
+      "label": "hybrid_aquatic_vampire_squid_view_2",
+      "id": "hybrid_aquatic:vampire_squid",
+      "angle": 115.0,
+      "dimension": "minecraft:overworld",
+      "camera": [
+        7.249134870484286,
+        281.511047542444,
+        5.269681093576748,
+        -16.33466,
+        19.999842
+      ],
+      "renderCamera": [
+        7.2883199096710465,
+        281.5110474232347,
+        5.255784987712252,
+        -16.33466,
+        19.999842
+      ],
+      "visualRadius": 1.2,
+      "settledTicks": 50,
+      "entityPosition": [
+        8.26220796899852,
+        280.0,
+        8.726358178896007
+      ],
+      "entityAgeTicks": 190,
+      "inWater": true,
+      "onGround": false,
+      "entityUuid": "155733d2-b357-4b39-a079-9d2e8880f9fb",
+      "serverEntityId": 699,
+      "clientEntityId": 699,
+      "width": 1440,
+      "height": 1000,
+      "path": "screenshots/after/hybrid_aquatic_vampire_squid_view_2.png"
+    },
+    {
+      "label": "hybrid_aquatic_vampire_squid_view_3_above",
+      "id": "hybrid_aquatic:vampire_squid",
+      "angle": 205.0,
+      "dimension": "minecraft:overworld",
+      "camera": [
+        5.51470514121016,
+        282.91051464284465,
+        10.01287561575587,
+        -86.989204,
+        45.000004
+      ],
+      "renderCamera": [
+        5.533270026617982,
+        282.91051452363536,
+        9.560052274109825,
+        -77.59303,
+        45.000004
+      ],
+      "visualRadius": 1.2,
+      "settledTicks": 50,
+      "entityPosition": [
+        8.22147809189113,
+        280.0,
+        10.155247685983936
+      ],
+      "entityAgeTicks": 241,
+      "inWater": true,
+      "onGround": false,
+      "entityUuid": "155733d2-b357-4b39-a079-9d2e8880f9fb",
+      "serverEntityId": 699,
+      "clientEntityId": 699,
+      "width": 1440,
+      "height": 1000,
+      "path": "screenshots/after/hybrid_aquatic_vampire_squid_view_3_above.png"
+    },
+    {
+      "label": "hybrid_aquatic_tuna_view_1",
+      "id": "hybrid_aquatic:tuna",
+      "angle": 25.0,
+      "dimension": "minecraft:overworld",
+      "camera": [
+        13.926116951204953,
+        282.3351549963197,
+        4.534325267448356,
+        46.57461,
+        19.999807
+      ],
+      "renderCamera": [
+        14.037223836857848,
+        282.33364195309474,
+        4.779662262237834,
+        48.924534,
+        19.999807
+      ],
+      "visualRadius": 2.1,
+      "settledTicks": 50,
+      "entityPosition": [
+        9.347978224491872,
+        279.69082180821863,
+        8.867497301043075
+      ],
+      "entityAgeTicks": 139,
+      "inWater": true,
+      "onGround": false,
+      "entityUuid": "f0980931-693d-4c48-a6e7-620cfc586fcf",
+      "serverEntityId": 701,
+      "clientEntityId": 701,
+      "width": 1440,
+      "height": 1000,
+      "path": "screenshots/after/hybrid_aquatic_tuna_view_1.png"
+    },
+    {
+      "label": "hybrid_aquatic_tuna_view_2",
+      "id": "hybrid_aquatic:tuna",
+      "angle": 115.0,
+      "dimension": "minecraft:overworld",
+      "camera": [
+        5.561016365511437,
+        282.3985257527534,
+        0.6743408080724294,
+        -34.02653,
+        19.999807
+      ],
+      "renderCamera": [
+        5.8895853897756325,
+        282.39744808774526,
+        0.47636346090427484,
+        -31.195965,
+        19.999807
+      ],
+      "visualRadius": 2.1,
+      "settledTicks": 50,
+      "entityPosition": [
+        9.088390389174764,
+        279.7541925646523,
+        5.898646175386122
+      ],
+      "entityAgeTicks": 190,
+      "inWater": true,
+      "onGround": false,
+      "entityUuid": "f0980931-693d-4c48-a6e7-620cfc586fcf",
+      "serverEntityId": 701,
+      "clientEntityId": 701,
+      "width": 1440,
+      "height": 1000,
+      "path": "screenshots/after/hybrid_aquatic_tuna_view_2.png"
+    },
+    {
+      "label": "hybrid_aquatic_tuna_view_3_above",
+      "id": "hybrid_aquatic:tuna",
+      "angle": 205.0,
+      "dimension": "minecraft:overworld",
+      "camera": [
+        6.454677015940424,
+        284.88682083428944,
+        5.123622932353851,
+        -16.121075,
+        44.99999
+      ],
+      "renderCamera": [
+        6.408066368009743,
+        284.88619195813624,
+        5.047856742132152,
+        -16.121075,
+        44.99999
+      ],
+      "visualRadius": 2.1,
+      "settledTicks": 50,
+      "entityPosition": [
+        7.771768938513639,
+        279.79342022048723,
+        9.6804988695566
+      ],
+      "entityAgeTicks": 241,
+      "inWater": true,
+      "onGround": false,
+      "entityUuid": "f0980931-693d-4c48-a6e7-620cfc586fcf",
+      "serverEntityId": 701,
+      "clientEntityId": 701,
+      "width": 1440,
+      "height": 1000,
+      "path": "screenshots/after/hybrid_aquatic_tuna_view_3_above.png"
+    },
+    {
+      "label": "hybrid_aquatic_spider_crab_view_1",
+      "id": "hybrid_aquatic:spider_crab",
+      "angle": 25.0,
+      "dimension": "minecraft:overworld",
+      "camera": [
+        10.529736060897562,
+        274.99806338595164,
+        4.147216970597367,
+        24.999939,
+        19.999786
+      ],
+      "renderCamera": [
+        10.529736060897562,
+        274.99806326674235,
+        4.147216970597367,
+        24.999939,
+        19.999786
+      ],
+      "visualRadius": 1.6,
+      "settledTicks": 50,
+      "entityPosition": [
+        8.5,
+        273.0,
+        8.5
+      ],
+      "entityAgeTicks": 139,
+      "inWater": true,
+      "onGround": true,
+      "entityUuid": "75770f49-055a-41e2-a37c-fc13b5532194",
+      "serverEntityId": 703,
+      "clientEntityId": 703,
+      "width": 1440,
+      "height": 1000,
+      "path": "screenshots/after/hybrid_aquatic_spider_crab_view_1.png"
+    },
+    {
+      "label": "hybrid_aquatic_spider_crab_view_2",
+      "id": "hybrid_aquatic:spider_crab",
+      "angle": 115.0,
+      "dimension": "minecraft:overworld",
+      "camera": [
+        12.852783029402634,
+        274.99806338595164,
+        10.529736060897562,
+        -245.00005,
+        19.999786
+      ],
+      "renderCamera": [
+        12.852783029402634,
+        274.99806326674235,
+        10.529736060897562,
+        -245.00005,
+        19.999786
+      ],
+      "visualRadius": 1.6,
+      "settledTicks": 50,
+      "entityPosition": [
+        8.5,
+        273.0,
+        8.5
+      ],
+      "entityAgeTicks": 190,
+      "inWater": true,
+      "onGround": true,
+      "entityUuid": "75770f49-055a-41e2-a37c-fc13b5532194",
+      "serverEntityId": 703,
+      "clientEntityId": 703,
+      "width": 1440,
+      "height": 1000,
+      "path": "screenshots/after/hybrid_aquatic_spider_crab_view_2.png"
+    },
+    {
+      "label": "hybrid_aquatic_spider_crab_view_3_above",
+      "id": "hybrid_aquatic:spider_crab",
+      "angle": 205.0,
+      "dimension": "minecraft:overworld",
+      "camera": [
+        6.972649352637057,
+        276.8640195198192,
+        11.775414033314584,
+        -155.0,
+        44.99999
+      ],
+      "renderCamera": [
+        6.972649352637057,
+        276.8640194006099,
+        11.775414033314584,
+        -155.0,
+        44.99999
+      ],
+      "visualRadius": 1.6,
+      "settledTicks": 50,
+      "entityPosition": [
+        8.5,
+        273.0,
+        8.5
+      ],
+      "entityAgeTicks": 241,
+      "inWater": true,
+      "onGround": true,
+      "entityUuid": "75770f49-055a-41e2-a37c-fc13b5532194",
+      "serverEntityId": 703,
+      "clientEntityId": 703,
+      "width": 1440,
+      "height": 1000,
+      "path": "screenshots/after/hybrid_aquatic_spider_crab_view_3_above.png"
+    },
+    {
+      "label": "aoemod_spider_queen_view_1",
+      "id": "aoemod:spider_queen",
+      "angle": 25.0,
+      "dimension": "minecraft:overworld",
+      "camera": [
+        60.17889661037683,
+        276.84336488703735,
+        0.6105807592077293,
+        24.999994,
+        20.000063
+      ],
+      "renderCamera": [
+        60.17889661037683,
+        276.84336476782806,
+        0.6105807592077293,
+        24.999994,
+        20.000063
+      ],
+      "visualRadius": 2.9,
+      "settledTicks": 50,
+      "entityPosition": [
+        56.5,
+        273.05,
+        8.5
+      ],
+      "entityAgeTicks": 139,
+      "inWater": false,
+      "onGround": false,
+      "entityUuid": "8829d10d-7eb6-431d-99dc-7e35009d9813",
+      "serverEntityId": 705,
+      "clientEntityId": 705,
+      "width": 1440,
+      "height": 1000,
+      "path": "screenshots/after/aoemod_spider_queen_view_1.png"
+    },
+    {
+      "label": "aoemod_spider_queen_view_2",
+      "id": "aoemod:spider_queen",
+      "angle": 115.0,
+      "dimension": "minecraft:overworld",
+      "camera": [
+        64.38941924079226,
+        276.84336488703735,
+        12.178896610376832,
+        -244.99998,
+        20.000063
+      ],
+      "renderCamera": [
+        64.38941924079226,
+        276.84336476782806,
+        12.178896610376832,
+        -244.99998,
+        20.000063
+      ],
+      "visualRadius": 2.9,
+      "settledTicks": 50,
+      "entityPosition": [
+        56.5,
+        273.05,
+        8.5
+      ],
+      "entityAgeTicks": 190,
+      "inWater": false,
+      "onGround": false,
+      "entityUuid": "8829d10d-7eb6-431d-99dc-7e35009d9813",
+      "serverEntityId": 705,
+      "clientEntityId": 705,
+      "width": 1440,
+      "height": 1000,
+      "path": "screenshots/after/aoemod_spider_queen_view_2.png"
+    },
+    {
+      "label": "aoemod_spider_queen_view_3_above",
+      "id": "aoemod:spider_queen",
+      "angle": 205.0,
+      "dimension": "minecraft:overworld",
+      "camera": [
+        53.73167695165467,
+        280.22541037967227,
+        14.436687935382684,
+        -155.00008,
+        44.999992
+      ],
+      "renderCamera": [
+        53.73167695165467,
+        280.225410260463,
+        14.436687935382684,
+        -155.00008,
+        44.999992
+      ],
+      "visualRadius": 2.9,
+      "settledTicks": 50,
+      "entityPosition": [
+        56.5,
+        273.05,
+        8.5
+      ],
+      "entityAgeTicks": 241,
+      "inWater": false,
+      "onGround": false,
+      "entityUuid": "8829d10d-7eb6-431d-99dc-7e35009d9813",
+      "serverEntityId": 705,
+      "clientEntityId": 705,
+      "width": 1440,
+      "height": 1000,
+      "path": "screenshots/after/aoemod_spider_queen_view_3_above.png"
+    },
+    {
+      "label": "orcz_orcsavagemace_view_1",
+      "id": "orcz:orcsavagemace",
+      "angle": 25.0,
+      "dimension": "minecraft:overworld",
+      "camera": [
+        59.03717007612195,
+        276.1350792085977,
+        3.0590212132467087,
+        24.999939,
+        19.999767
+      ],
+      "renderCamera": [
+        59.03717007612195,
+        276.1350790893884,
+        3.0590212132467087,
+        24.999939,
+        19.999767
+      ],
+      "visualRadius": 2.0,
+      "settledTicks": 50,
+      "entityPosition": [
+        56.5,
+        273.05,
+        8.5
+      ],
+      "entityAgeTicks": 139,
+      "inWater": false,
+      "onGround": false,
+      "entityUuid": "07c6aac2-3861-4f7b-9f31-38a84c0e9b14",
+      "serverEntityId": 707,
+      "clientEntityId": 707,
+      "width": 1440,
+      "height": 1000,
+      "path": "screenshots/after/orcz_orcsavagemace_view_1.png"
+    },
+    {
+      "label": "orcz_orcsavagemace_view_2",
+      "id": "orcz:orcsavagemace",
+      "angle": 115.0,
+      "dimension": "minecraft:overworld",
+      "camera": [
+        61.94097878675329,
+        276.1350792085977,
+        11.037170076121953,
+        -245.00005,
+        19.999767
+      ],
+      "renderCamera": [
+        61.94097878675329,
+        276.1350790893884,
+        11.037170076121953,
+        -245.00005,
+        19.999767
+      ],
+      "visualRadius": 2.0,
+      "settledTicks": 50,
+      "entityPosition": [
+        56.5,
+        273.05,
+        8.5
+      ],
+      "entityAgeTicks": 190,
+      "inWater": false,
+      "onGround": false,
+      "entityUuid": "07c6aac2-3861-4f7b-9f31-38a84c0e9b14",
+      "serverEntityId": 707,
+      "clientEntityId": 707,
+      "width": 1440,
+      "height": 1000,
+      "path": "screenshots/after/orcz_orcsavagemace_view_2.png"
+    },
+    {
+      "label": "orcz_orcsavagemace_view_3_above",
+      "id": "orcz:orcsavagemace",
+      "angle": 205.0,
+      "dimension": "minecraft:overworld",
+      "camera": [
+        54.59081169079632,
+        278.46752437593216,
+        12.594267541643232,
+        -155.00002,
+        45.000008
+      ],
+      "renderCamera": [
+        54.59081169079632,
+        278.46752425672287,
+        12.594267541643232,
+        -155.00002,
+        45.000008
+      ],
+      "visualRadius": 2.0,
+      "settledTicks": 50,
+      "entityPosition": [
+        56.5,
+        273.05,
+        8.5
+      ],
+      "entityAgeTicks": 241,
+      "inWater": false,
+      "onGround": false,
+      "entityUuid": "07c6aac2-3861-4f7b-9f31-38a84c0e9b14",
+      "serverEntityId": 707,
+      "clientEntityId": 707,
+      "width": 1440,
+      "height": 1000,
+      "path": "screenshots/after/orcz_orcsavagemace_view_3_above.png"
+    },
+    {
+      "label": "orcz_orcshield_view_1",
+      "id": "orcz:orcshield",
+      "angle": 25.0,
+      "dimension": "minecraft:overworld",
+      "camera": [
+        59.03717007612195,
+        276.1850792205186,
+        3.0590212132467087,
+        24.999939,
+        19.999767
+      ],
+      "renderCamera": [
+        59.03717007612195,
+        276.1850791013093,
+        3.0590212132467087,
+        24.999939,
+        19.999767
+      ],
+      "visualRadius": 2.0,
+      "settledTicks": 50,
+      "entityPosition": [
+        56.5,
+        273.05,
+        8.5
+      ],
+      "entityAgeTicks": 139,
+      "inWater": false,
+      "onGround": false,
+      "entityUuid": "9a0934ec-8d41-43c3-a752-26e0ca293b08",
+      "serverEntityId": 709,
+      "clientEntityId": 709,
+      "width": 1440,
+      "height": 1000,
+      "path": "screenshots/after/orcz_orcshield_view_1.png"
+    },
+    {
+      "label": "orcz_orcshield_view_2",
+      "id": "orcz:orcshield",
+      "angle": 115.0,
+      "dimension": "minecraft:overworld",
+      "camera": [
+        61.94097878675329,
+        276.1850792205186,
+        11.037170076121953,
+        -245.00005,
+        19.999767
+      ],
+      "renderCamera": [
+        61.94097878675329,
+        276.1850791013093,
+        11.037170076121953,
+        -245.00005,
+        19.999767
+      ],
+      "visualRadius": 2.0,
+      "settledTicks": 50,
+      "entityPosition": [
+        56.5,
+        273.05,
+        8.5
+      ],
+      "entityAgeTicks": 190,
+      "inWater": false,
+      "onGround": false,
+      "entityUuid": "9a0934ec-8d41-43c3-a752-26e0ca293b08",
+      "serverEntityId": 709,
+      "clientEntityId": 709,
+      "width": 1440,
+      "height": 1000,
+      "path": "screenshots/after/orcz_orcshield_view_2.png"
+    },
+    {
+      "label": "orcz_orcshield_view_3_above",
+      "id": "orcz:orcshield",
+      "angle": 205.0,
+      "dimension": "minecraft:overworld",
+      "camera": [
+        54.59081169079632,
+        278.5175243878531,
+        12.594267541643232,
+        -155.00002,
+        45.000008
+      ],
+      "renderCamera": [
+        54.59081169079632,
+        278.5175242686438,
+        12.594267541643232,
+        -155.00002,
+        45.000008
+      ],
+      "visualRadius": 2.0,
+      "settledTicks": 50,
+      "entityPosition": [
+        56.5,
+        273.05,
+        8.5
+      ],
+      "entityAgeTicks": 241,
+      "inWater": false,
+      "onGround": false,
+      "entityUuid": "9a0934ec-8d41-43c3-a752-26e0ca293b08",
+      "serverEntityId": 709,
+      "clientEntityId": 709,
+      "width": 1440,
+      "height": 1000,
+      "path": "screenshots/after/orcz_orcshield_view_3_above.png"
+    },
+    {
+      "label": "outer_end_stalker_view_1",
+      "id": "outer_end:stalker",
+      "angle": 25.0,
+      "dimension": "minecraft:overworld",
+      "camera": [
+        59.54460409134634,
+        276.62209506700657,
+        1.9708254558960503,
+        24.999987,
+        19.999842
+      ],
+      "renderCamera": [
+        59.54460409134634,
+        276.6220949477973,
+        1.9708254558960503,
+        24.999987,
+        19.999842
+      ],
+      "visualRadius": 2.4,
+      "settledTicks": 50,
+      "entityPosition": [
+        56.5,
+        273.05,
+        8.5
+      ],
+      "entityAgeTicks": 139,
+      "inWater": false,
+      "onGround": false,
+      "entityUuid": "25c6e2f7-e25c-4a71-842c-38d632cacf6c",
+      "serverEntityId": 711,
+      "clientEntityId": 711,
+      "width": 1440,
+      "height": 1000,
+      "path": "screenshots/after/outer_end_stalker_view_1.png"
+    },
+    {
+      "label": "outer_end_stalker_view_2",
+      "id": "outer_end:stalker",
+      "angle": 115.0,
+      "dimension": "minecraft:overworld",
+      "camera": [
+        63.02917454410395,
+        276.62209506700657,
+        11.544604091346343,
+        -245.0,
+        19.999842
+      ],
+      "renderCamera": [
+        63.02917454410395,
+        276.6220949477973,
+        11.544604091346343,
+        -245.0,
+        19.999842
+      ],
+      "visualRadius": 2.4,
+      "settledTicks": 50,
+      "entityPosition": [
+        56.5,
+        273.05,
+        8.5
+      ],
+      "entityAgeTicks": 190,
+      "inWater": false,
+      "onGround": false,
+      "entityUuid": "25c6e2f7-e25c-4a71-842c-38d632cacf6c",
+      "serverEntityId": 711,
+      "clientEntityId": 711,
+      "width": 1440,
+      "height": 1000,
+      "path": "screenshots/after/outer_end_stalker_view_2.png"
+    },
+    {
+      "label": "outer_end_stalker_view_3_above",
+      "id": "outer_end:stalker",
+      "angle": 205.0,
+      "dimension": "minecraft:overworld",
+      "camera": [
+        54.20897402895559,
+        279.42102926780785,
+        13.413121049971878,
+        -155.00005,
+        44.99999
+      ],
+      "renderCamera": [
+        54.20897402895559,
+        279.42102914859856,
+        13.413121049971878,
+        -155.00005,
+        44.99999
+      ],
+      "visualRadius": 2.4,
+      "settledTicks": 50,
+      "entityPosition": [
+        56.5,
+        273.05,
+        8.5
+      ],
+      "entityAgeTicks": 241,
+      "inWater": false,
+      "onGround": false,
+      "entityUuid": "25c6e2f7-e25c-4a71-842c-38d632cacf6c",
+      "serverEntityId": 711,
+      "clientEntityId": 711,
+      "width": 1440,
+      "height": 1000,
+      "path": "screenshots/after/outer_end_stalker_view_3_above.png"
+    },
+    {
+      "label": "hybrid_aquatic_starfish_small_view_1",
+      "id": "hybrid_aquatic:starfish",
+      "angle": 25.0,
+      "dimension": "minecraft:overworld",
+      "camera": [
+        9.388009526642684,
+        273.86477773284395,
+        6.595657424636348,
+        24.999983,
+        20.000015
+      ],
+      "renderCamera": [
+        9.388009526642684,
+        273.86477761363466,
+        6.595657424636348,
+        24.999983,
+        20.000015
+      ],
+      "visualRadius": 0.7,
+      "settledTicks": 50,
+      "entityPosition": [
+        8.5,
+        273.0,
+        8.5
+      ],
+      "entityAgeTicks": 139,
+      "inWater": true,
+      "onGround": true,
+      "entityUuid": "44475546-53fe-416c-8c7b-f3b8d1f23039",
+      "serverEntityId": 713,
+      "clientEntityId": 713,
+      "width": 1440,
+      "height": 1000,
+      "path": "screenshots/after/hybrid_aquatic_starfish_small_view_1.png"
+    },
+    {
+      "label": "hybrid_aquatic_starfish_small_view_2",
+      "id": "hybrid_aquatic:starfish",
+      "angle": 115.0,
+      "dimension": "minecraft:overworld",
+      "camera": [
+        10.404342575363652,
+        273.86477773284395,
+        9.388009526642684,
+        -245.0,
+        20.000015
+      ],
+      "renderCamera": [
+        10.404342575363652,
+        273.86477761363466,
+        9.388009526642684,
+        -245.0,
+        20.000015
+      ],
+      "visualRadius": 0.7,
+      "settledTicks": 50,
+      "entityPosition": [
+        8.5,
+        273.0,
+        8.5
+      ],
+      "entityAgeTicks": 190,
+      "inWater": true,
+      "onGround": true,
+      "entityUuid": "44475546-53fe-416c-8c7b-f3b8d1f23039",
+      "serverEntityId": 713,
+      "clientEntityId": 713,
+      "width": 1440,
+      "height": 1000,
+      "path": "screenshots/after/hybrid_aquatic_starfish_small_view_2.png"
+    },
+    {
+      "label": "hybrid_aquatic_starfish_small_view_3_above",
+      "id": "hybrid_aquatic:starfish",
+      "angle": 205.0,
+      "dimension": "minecraft:overworld",
+      "camera": [
+        9.223846148382671,
+        275.20120954928655,
+        8.702020566630473,
+        -255.93756,
+        69.99998
+      ],
+      "renderCamera": [
+        9.225093978243782,
+        275.20120943007726,
+        8.700718520508026,
+        -255.93756,
+        69.99998
+      ],
+      "visualRadius": 0.7,
+      "settledTicks": 50,
+      "entityPosition": [
+        8.481987847222221,
+        273.0,
+        8.516194735880106
+      ],
+      "entityAgeTicks": 241,
+      "inWater": true,
+      "onGround": true,
+      "entityUuid": "44475546-53fe-416c-8c7b-f3b8d1f23039",
+      "serverEntityId": 713,
+      "clientEntityId": 713,
+      "width": 1440,
+      "height": 1000,
+      "path": "screenshots/after/hybrid_aquatic_starfish_small_view_3_above.png"
+    },
+    {
+      "label": "hybrid_aquatic_starfish_crown_of_thorns_view_1",
+      "id": "hybrid_aquatic:starfish",
+      "angle": 25.0,
+      "dimension": "minecraft:overworld",
+      "camera": [
+        9.388009526642684,
+        273.86477773284395,
+        6.595657424636348,
+        24.999983,
+        20.000015
+      ],
+      "renderCamera": [
+        9.388009526642684,
+        273.86477761363466,
+        6.595657424636348,
+        24.999983,
+        20.000015
+      ],
+      "visualRadius": 0.7,
+      "settledTicks": 50,
+      "entityPosition": [
+        8.5,
+        273.0,
+        8.5
+      ],
+      "entityAgeTicks": 139,
+      "inWater": true,
+      "onGround": true,
+      "entityUuid": "b5d8dccf-c1f9-4738-aee0-48860a1eefe0",
+      "serverEntityId": 715,
+      "clientEntityId": 715,
+      "width": 1440,
+      "height": 1000,
+      "path": "screenshots/after/hybrid_aquatic_starfish_crown_of_thorns_view_1.png"
+    },
+    {
+      "label": "hybrid_aquatic_starfish_crown_of_thorns_view_2",
+      "id": "hybrid_aquatic:starfish",
+      "angle": 115.0,
+      "dimension": "minecraft:overworld",
+      "camera": [
+        10.404342575363652,
+        273.86477773284395,
+        9.388009526642684,
+        -245.0,
+        20.000015
+      ],
+      "renderCamera": [
+        10.404342575363652,
+        273.86477761363466,
+        9.388009526642684,
+        -245.0,
+        20.000015
+      ],
+      "visualRadius": 0.7,
+      "settledTicks": 50,
+      "entityPosition": [
+        8.5,
+        273.0,
+        8.5
+      ],
+      "entityAgeTicks": 190,
+      "inWater": true,
+      "onGround": true,
+      "entityUuid": "b5d8dccf-c1f9-4738-aee0-48860a1eefe0",
+      "serverEntityId": 715,
+      "clientEntityId": 715,
+      "width": 1440,
+      "height": 1000,
+      "path": "screenshots/after/hybrid_aquatic_starfish_crown_of_thorns_view_2.png"
+    },
+    {
+      "label": "hybrid_aquatic_starfish_crown_of_thorns_view_3_above",
+      "id": "hybrid_aquatic:starfish",
+      "angle": 205.0,
+      "dimension": "minecraft:overworld",
+      "camera": [
+        8.176790964557243,
+        275.20120954928655,
+        9.193124013278211,
+        -155.00006,
+        69.99998
+      ],
+      "renderCamera": [
+        8.176790964557243,
+        275.20120943007726,
+        9.193124013278211,
+        -155.00006,
+        69.99998
+      ],
+      "visualRadius": 0.7,
+      "settledTicks": 50,
+      "entityPosition": [
+        8.5,
+        273.0,
+        8.5
+      ],
+      "entityAgeTicks": 241,
+      "inWater": true,
+      "onGround": true,
+      "entityUuid": "b5d8dccf-c1f9-4738-aee0-48860a1eefe0",
+      "serverEntityId": 715,
+      "clientEntityId": 715,
+      "width": 1440,
+      "height": 1000,
+      "path": "screenshots/after/hybrid_aquatic_starfish_crown_of_thorns_view_3_above.png"
+    },
+    {
+      "label": "blue_berries_stage_2_front",
+      "id": "aoemod:blue_berry_bush",
+      "angle": 30.0,
+      "dimension": "minecraft:overworld",
+      "camera": [
+        103.18680812979541,
+        274.6693413798581,
+        10.774515039280736,
+        -150.0,
+        23.999985
+      ],
+      "renderCamera": [
+        103.18680812979541,
+        274.6693412606488,
+        10.774515039280736,
+        -150.0,
+        23.999985
+      ],
+      "visualRadius": 0.9,
+      "settledTicks": 50,
+      "width": 1440,
+      "height": 1000,
+      "path": "screenshots/after/blue_berries_stage_2_front.png"
+    },
+    {
+      "label": "blue_berries_stage_2_side",
+      "id": "aoemod:blue_berry_bush",
+      "angle": 120.0,
+      "dimension": "minecraft:overworld",
+      "camera": [
+        102.22548496071926,
+        274.6693413798581,
+        7.186808129795415,
+        -60.0,
+        23.999985
+      ],
+      "renderCamera": [
+        102.22548496071926,
+        274.6693412606488,
+        7.186808129795415,
+        -60.0,
+        23.999985
+      ],
+      "visualRadius": 0.9,
+      "settledTicks": 50,
+      "width": 1440,
+      "height": 1000,
+      "path": "screenshots/after/blue_berries_stage_2_side.png"
+    },
+    {
+      "label": "snowy_blue_berries_stage_2_front",
+      "id": "aoemod:blue_berry_bush",
+      "angle": 30.0,
+      "dimension": "minecraft:overworld",
+      "camera": [
+        103.18680812979541,
+        274.6693413798581,
+        10.774515039280736,
+        -150.0,
+        23.999985
+      ],
+      "renderCamera": [
+        103.18680812979541,
+        274.6693412606488,
+        10.774515039280736,
+        -150.0,
+        23.999985
+      ],
+      "visualRadius": 0.9,
+      "settledTicks": 50,
+      "width": 1440,
+      "height": 1000,
+      "path": "screenshots/after/snowy_blue_berries_stage_2_front.png"
+    },
+    {
+      "label": "snowy_blue_berries_stage_2_side",
+      "id": "aoemod:blue_berry_bush",
+      "angle": 120.0,
+      "dimension": "minecraft:overworld",
+      "camera": [
+        102.22548496071926,
+        274.6693413798581,
+        7.186808129795415,
+        -60.0,
+        23.999985
+      ],
+      "renderCamera": [
+        102.22548496071926,
+        274.6693412606488,
+        7.186808129795415,
+        -60.0,
+        23.999985
+      ],
+      "visualRadius": 0.9,
+      "settledTicks": 50,
+      "width": 1440,
+      "height": 1000,
+      "path": "screenshots/after/snowy_blue_berries_stage_2_side.png"
+    },
+    {
+      "label": "soul_soil_quartz_ore_front",
+      "id": "aoemod:soul_soil_quartz_ore",
+      "angle": 30.0,
+      "dimension": "minecraft:overworld",
+      "camera": [
+        103.18680812979541,
+        274.6693413798581,
+        10.774515039280736,
+        -150.0,
+        23.999985
+      ],
+      "renderCamera": [
+        103.18680812979541,
+        274.6693412606488,
+        10.774515039280736,
+        -150.0,
+        23.999985
+      ],
+      "visualRadius": 0.9,
+      "settledTicks": 50,
+      "width": 1440,
+      "height": 1000,
+      "path": "screenshots/after/soul_soil_quartz_ore_front.png"
+    },
+    {
+      "label": "soul_soil_quartz_ore_side",
+      "id": "aoemod:soul_soil_quartz_ore",
+      "angle": 120.0,
+      "dimension": "minecraft:overworld",
+      "camera": [
+        102.22548496071926,
+        274.6693413798581,
+        7.186808129795415,
+        -60.0,
+        23.999985
+      ],
+      "renderCamera": [
+        102.22548496071926,
+        274.6693412606488,
+        7.186808129795415,
+        -60.0,
+        23.999985
+      ],
+      "visualRadius": 0.9,
+      "settledTicks": 50,
+      "width": 1440,
+      "height": 1000,
+      "path": "screenshots/after/soul_soil_quartz_ore_side.png"
+    },
+    {
+      "label": "tropical_flowering_azalea_leaves_front",
+      "id": "minecraft:flowering_azalea_leaves",
+      "angle": 30.0,
+      "dimension": "aoemod:tropical_dimension",
+      "camera": [
+        103.18680812979541,
+        210.66934137985808,
+        10.774515039280736,
+        -150.0,
+        23.999985
+      ],
+      "renderCamera": [
+        103.18680812979541,
+        210.6693412606488,
+        10.774515039280736,
+        -150.0,
+        23.999985
+      ],
+      "visualRadius": 0.9,
+      "settledTicks": 50,
+      "width": 1440,
+      "height": 1000,
+      "path": "screenshots/after/tropical_flowering_azalea_leaves_front.png"
+    },
+    {
+      "label": "tropical_flowering_azalea_leaves_side",
+      "id": "minecraft:flowering_azalea_leaves",
+      "angle": 120.0,
+      "dimension": "aoemod:tropical_dimension",
+      "camera": [
+        102.22548496071926,
+        210.66934137985808,
+        7.186808129795415,
+        -60.0,
+        23.999985
+      ],
+      "renderCamera": [
+        102.22548496071926,
+        210.6693412606488,
+        7.186808129795415,
+        -60.0,
+        23.999985
+      ],
+      "visualRadius": 0.9,
+      "settledTicks": 50,
+      "width": 1440,
+      "height": 1000,
+      "path": "screenshots/after/tropical_flowering_azalea_leaves_side.png"
+    },
+    {
+      "label": "wooden_overworld_portal_front",
+      "id": "aoemod:overworld_portal",
+      "angle": 30.0,
+      "dimension": "aoemod:plains_dimension",
+      "camera": [
+        99.47678355818421,
+        278.5277314195112,
+        16.33444069085587,
+        -150.0,
+        23.999954
+      ],
+      "renderCamera": [
+        99.47678355818421,
+        278.5277313003019,
+        16.33444069085587,
+        -150.0,
+        23.999954
+      ],
+      "visualRadius": 3.1,
+      "settledTicks": 50,
+      "width": 1440,
+      "height": 1000,
+      "path": "screenshots/after/wooden_overworld_portal_front.png"
+    },
+    {
+      "label": "wooden_overworld_portal_side",
+      "id": "aoemod:overworld_portal",
+      "angle": 120.0,
+      "dimension": "aoemod:plains_dimension",
+      "camera": [
+        96.16555930914413,
+        278.5277314195112,
+        3.9767835581842084,
+        -60.0,
+        23.999954
+      ],
+      "renderCamera": [
+        96.16555930914413,
+        278.5277313003019,
+        3.9767835581842084,
+        -60.0,
+        23.999954
+      ],
+      "visualRadius": 3.1,
+      "settledTicks": 50,
+      "width": 1440,
+      "height": 1000,
+      "path": "screenshots/after/wooden_overworld_portal_side.png"
+    },
+    {
+      "label": "wooden_savanna_portal_front",
+      "id": "aoemod:savanna_portal",
+      "angle": 30.0,
+      "dimension": "minecraft:overworld",
+      "camera": [
+        99.47678355818421,
+        278.5277314195112,
+        16.33444069085587,
+        -150.0,
+        23.999954
+      ],
+      "renderCamera": [
+        99.47678355818421,
+        278.5277313003019,
+        16.33444069085587,
+        -150.0,
+        23.999954
+      ],
+      "visualRadius": 3.1,
+      "settledTicks": 50,
+      "width": 1440,
+      "height": 1000,
+      "path": "screenshots/after/wooden_savanna_portal_front.png"
+    },
+    {
+      "label": "wooden_savanna_portal_side",
+      "id": "aoemod:savanna_portal",
+      "angle": 120.0,
+      "dimension": "minecraft:overworld",
+      "camera": [
+        96.16555930914413,
+        278.5277314195112,
+        3.9767835581842084,
+        -60.0,
+        23.999954
+      ],
+      "renderCamera": [
+        96.16555930914413,
+        278.5277313003019,
+        3.9767835581842084,
+        -60.0,
+        23.999954
+      ],
+      "visualRadius": 3.1,
+      "settledTicks": 50,
+      "width": 1440,
+      "height": 1000,
+      "path": "screenshots/after/wooden_savanna_portal_side.png"
+    },
+    {
+      "label": "wooden_plains_portal_front",
+      "id": "aoemod:plains_portal",
+      "angle": 30.0,
+      "dimension": "minecraft:overworld",
+      "camera": [
+        99.47678355818421,
+        278.5277314195112,
+        16.33444069085587,
+        -150.0,
+        23.999954
+      ],
+      "renderCamera": [
+        99.47678355818421,
+        278.5277313003019,
+        16.33444069085587,
+        -150.0,
+        23.999954
+      ],
+      "visualRadius": 3.1,
+      "settledTicks": 50,
+      "width": 1440,
+      "height": 1000,
+      "path": "screenshots/after/wooden_plains_portal_front.png"
+    },
+    {
+      "label": "wooden_plains_portal_side",
+      "id": "aoemod:plains_portal",
+      "angle": 120.0,
+      "dimension": "minecraft:overworld",
+      "camera": [
+        96.16555930914413,
+        278.5277314195112,
+        3.9767835581842084,
+        -60.0,
+        23.999954
+      ],
+      "renderCamera": [
+        96.16555930914413,
+        278.5277313003019,
+        3.9767835581842084,
+        -60.0,
+        23.999954
+      ],
+      "visualRadius": 3.1,
+      "settledTicks": 50,
+      "width": 1440,
+      "height": 1000,
+      "path": "screenshots/after/wooden_plains_portal_side.png"
+    },
+    {
+      "label": "wooden_snowy_portal_front",
+      "id": "aoemod:snowy_portal",
+      "angle": 30.0,
+      "dimension": "minecraft:overworld",
+      "camera": [
+        99.47678355818421,
+        278.5277314195112,
+        16.33444069085587,
+        -150.0,
+        23.999954
+      ],
+      "renderCamera": [
+        99.47678355818421,
+        278.5277313003019,
+        16.33444069085587,
+        -150.0,
+        23.999954
+      ],
+      "visualRadius": 3.1,
+      "settledTicks": 50,
+      "width": 1440,
+      "height": 1000,
+      "path": "screenshots/after/wooden_snowy_portal_front.png"
+    },
+    {
+      "label": "wooden_snowy_portal_side",
+      "id": "aoemod:snowy_portal",
+      "angle": 120.0,
+      "dimension": "minecraft:overworld",
+      "camera": [
+        96.16555930914413,
+        278.5277314195112,
+        3.9767835581842084,
+        -60.0,
+        23.999954
+      ],
+      "renderCamera": [
+        96.16555930914413,
+        278.5277313003019,
+        3.9767835581842084,
+        -60.0,
+        23.999954
+      ],
+      "visualRadius": 3.1,
+      "settledTicks": 50,
+      "width": 1440,
+      "height": 1000,
+      "path": "screenshots/after/wooden_snowy_portal_side.png"
+    },
+    {
+      "label": "wooden_desert_portal_front",
+      "id": "aoemod:desert_portal",
+      "angle": 30.0,
+      "dimension": "minecraft:overworld",
+      "camera": [
+        99.47678355818421,
+        278.5277314195112,
+        16.33444069085587,
+        -150.0,
+        23.999954
+      ],
+      "renderCamera": [
+        99.47678355818421,
+        278.5277313003019,
+        16.33444069085587,
+        -150.0,
+        23.999954
+      ],
+      "visualRadius": 3.1,
+      "settledTicks": 50,
+      "width": 1440,
+      "height": 1000,
+      "path": "screenshots/after/wooden_desert_portal_front.png"
+    },
+    {
+      "label": "wooden_desert_portal_side",
+      "id": "aoemod:desert_portal",
+      "angle": 120.0,
+      "dimension": "minecraft:overworld",
+      "camera": [
+        96.16555930914413,
+        278.5277314195112,
+        3.9767835581842084,
+        -60.0,
+        23.999954
+      ],
+      "renderCamera": [
+        96.16555930914413,
+        278.5277313003019,
+        3.9767835581842084,
+        -60.0,
+        23.999954
+      ],
+      "visualRadius": 3.1,
+      "settledTicks": 50,
+      "width": 1440,
+      "height": 1000,
+      "path": "screenshots/after/wooden_desert_portal_side.png"
+    },
+    {
+      "label": "wooden_nether_portal_front",
+      "id": "aoemod:nether_portal",
+      "angle": 30.0,
+      "dimension": "aoemod:desert_dimension",
+      "camera": [
+        99.47678355818421,
+        278.5277314195112,
+        16.33444069085587,
+        -150.0,
+        23.999954
+      ],
+      "renderCamera": [
+        99.47678355818421,
+        278.5277313003019,
+        16.33444069085587,
+        -150.0,
+        23.999954
+      ],
+      "visualRadius": 3.1,
+      "settledTicks": 50,
+      "width": 1440,
+      "height": 1000,
+      "path": "screenshots/after/wooden_nether_portal_front.png"
+    },
+    {
+      "label": "wooden_nether_portal_side",
+      "id": "aoemod:nether_portal",
+      "angle": 120.0,
+      "dimension": "aoemod:desert_dimension",
+      "camera": [
+        96.16555930914413,
+        278.5277314195112,
+        3.9767835581842084,
+        -60.0,
+        23.999954
+      ],
+      "renderCamera": [
+        96.16555930914413,
+        278.5277313003019,
+        3.9767835581842084,
+        -60.0,
+        23.999954
+      ],
+      "visualRadius": 3.1,
+      "settledTicks": 50,
+      "width": 1440,
+      "height": 1000,
+      "path": "screenshots/after/wooden_nether_portal_side.png"
+    }
+  ],
+  "batchProvenance": [
+    {
+      "report": "build/texture-gallery/client-after-world4/capture-report.json",
+      "status": "failed",
+      "capturedAt": "2026-11-08T20:15:46.636586100Z",
+      "completedViews": [
+        "angling_anglerfish_side",
+        "angling_anglerfish_front",
+        "angling_anglerfish_rear",
+        "finsandtails_rubber_belly_glider_side",
+        "finsandtails_rubber_belly_glider_front",
+        "finsandtails_rubber_belly_glider_rear",
+        "hybrid_aquatic_arrow_squid_side",
+        "hybrid_aquatic_arrow_squid_front",
+        "hybrid_aquatic_arrow_squid_rear",
+        "hybrid_aquatic_starfish_medium_rear",
+        "hybrid_aquatic_starfish_medium_front",
+        "hybrid_aquatic_starfish_medium_side",
+        "hybrid_aquatic_lightfoot_crab_side",
+        "hybrid_aquatic_lightfoot_crab_front",
+        "hybrid_aquatic_lightfoot_crab_rear",
+        "orcz_bigorcboss_front",
+        "orcz_bigorcboss_side",
+        "orcz_bigorcboss_rear",
+        "aoemod_arthropleura_side",
+        "aoemod_arthropleura_front",
+        "aoemod_arthropleura_rear",
+        "blue_berries_front",
+        "blue_berries_side",
+        "snowy_blue_berries_side",
+        "snowy_blue_berries_front",
+        "wooden_tropical_portal_front",
+        "wooden_tropical_portal_side",
+        "corn_stage_5_side",
+        "corn_stage_5_front",
+        "aoemod_illager_lord_front",
+        "aoemod_illager_lord_side",
+        "aoemod_illager_lord_rear",
+        "tropical_azalea_leaves_front",
+        "tropical_azalea_leaves_side",
+        "angling_mahi_mahi_front",
+        "angling_mahi_mahi_side",
+        "angling_mahi_mahi_rear",
+        "angling_anomalocaris_front",
+        "angling_anomalocaris_side",
+        "angling_anomalocaris_rear",
+        "alexsmobs_flying_fish_front",
+        "alexsmobs_flying_fish_side",
+        "alexsmobs_flying_fish_rear",
+        "alexsmobs_triops_front",
+        "alexsmobs_triops_side",
+        "alexsmobs_triops_rear",
+        "ambientadditions_blue_spotted_stingray_front",
+        "ambientadditions_blue_spotted_stingray_side",
+        "ambientadditions_blue_spotted_stingray_rear",
+        "hybrid_aquatic_flower_crab_front",
+        "hybrid_aquatic_flower_crab_side",
+        "hybrid_aquatic_flower_crab_rear",
+        "hybrid_aquatic_fiddler_crab_front",
+        "hybrid_aquatic_fiddler_crab_side",
+        "hybrid_aquatic_fiddler_crab_rear",
+        "hybrid_aquatic_octopus_front",
+        "hybrid_aquatic_octopus_side",
+        "hybrid_aquatic_octopus_rear",
+        "hybrid_aquatic_umbrella_octopus_front",
+        "hybrid_aquatic_umbrella_octopus_side",
+        "hybrid_aquatic_umbrella_octopus_rear",
+        "hybrid_aquatic_carp_front",
+        "hybrid_aquatic_carp_side",
+        "hybrid_aquatic_carp_rear",
+        "finsandtails_swamp_mucker_front",
+        "finsandtails_swamp_mucker_side",
+        "finsandtails_swamp_mucker_rear",
+        "hybrid_aquatic_vampire_squid_front",
+        "hybrid_aquatic_vampire_squid_side",
+        "hybrid_aquatic_vampire_squid_rear",
+        "hybrid_aquatic_tuna_front",
+        "hybrid_aquatic_tuna_side",
+        "hybrid_aquatic_tuna_rear",
+        "hybrid_aquatic_spider_crab_front",
+        "hybrid_aquatic_spider_crab_side",
+        "hybrid_aquatic_spider_crab_rear",
+        "aoemod_spider_queen_front",
+        "aoemod_spider_queen_side",
+        "aoemod_spider_queen_rear",
+        "orcz_orcsavagemace_front",
+        "orcz_orcsavagemace_side",
+        "orcz_orcsavagemace_rear",
+        "orcz_orcshield_front",
+        "orcz_orcshield_side",
+        "orcz_orcshield_rear",
+        "outer_end_stalker_front",
+        "outer_end_stalker_side",
+        "outer_end_stalker_rear",
+        "hybrid_aquatic_starfish_small_front",
+        "hybrid_aquatic_starfish_small_side",
+        "hybrid_aquatic_starfish_small_rear",
+        "hybrid_aquatic_starfish_crown_of_thorns_front",
+        "hybrid_aquatic_starfish_crown_of_thorns_side",
+        "hybrid_aquatic_starfish_crown_of_thorns_rear",
+        "blue_berries_stage_2_front",
+        "blue_berries_stage_2_side",
+        "snowy_blue_berries_stage_2_front",
+        "snowy_blue_berries_stage_2_side",
+        "soul_soil_quartz_ore_front",
+        "soul_soil_quartz_ore_side",
+        "tropical_flowering_azalea_leaves_front",
+        "tropical_flowering_azalea_leaves_side",
+        "wooden_overworld_portal_front",
+        "wooden_overworld_portal_side",
+        "wooden_savanna_portal_front",
+        "wooden_savanna_portal_side",
+        "wooden_plains_portal_front",
+        "wooden_plains_portal_side",
+        "wooden_snowy_portal_front",
+        "wooden_snowy_portal_side",
+        "wooden_desert_portal_front",
+        "wooden_desert_portal_side"
+      ],
+      "failure": "java.lang.IllegalStateException: Preparing real world gallery view \"wooden_nether_portal_front\": java.lang.IllegalStateException: World portal frame did not activate: aoemod:nether_portal"
+    },
+    {
+      "report": "build/texture-gallery/client-after-netherfix2/capture-report.json",
+      "status": "passed",
+      "capturedAt": "2026-11-08T20:26:21.416037500Z",
+      "completedViews": [
+        "wooden_nether_portal_front",
+        "wooden_nether_portal_side"
+      ],
+      "failure": null
+    }
+  ],
+  "completionNote": "Completed native frames from sequential isolated runs; failed preparation produced no included frame. Image bytes are unchanged."
+}

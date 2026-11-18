@@ -1,31 +1,4 @@
 {
-  "type": "aoemod:layered_all_surface",
-  "config": {
-    "features": [
-      {
-        "feature": {
-          "feature": "aoemod:nothing",
-          "placement": []
-        },
-        "guaranteed_features": [
-          {
-            "feature": "aoemod:mushroom_caves/floor/mushroom_patch_tree_regional_grid_choice",
-            "placement": []
-          }
-        ],
-        "target": "air",
-        "all_layers": true,
-        "skip_height": 55,
-        "max_y": 319,
-        "min_y": -64,
-        "predicate": {
-          "type": "minecraft:matching_blocks",
-          "blocks": [
-            "minecraft:mycelium"
-          ]
-        },
-        "biomes": "aoemod:mountain_biomes"
-      }
-    ]
-  }
+  "type": "aoemod:mushroom_cave_vegetation",
+  "config": {}
 }

@@ -1,0 +1,11 @@
+{
+  "entry": "4837, 80, 4800",
+  "layoutSeed": 0,
+  "walkingCells": 28716,
+  "roomsByFloor": {
+    "79": 57,
+    "87": 60,
+    "95": 61
+  },
+  "inaccessible": []
+}

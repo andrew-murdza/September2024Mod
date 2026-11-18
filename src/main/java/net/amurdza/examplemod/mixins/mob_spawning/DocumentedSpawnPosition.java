@@ -1,6 +1,8 @@
 package net.amurdza.examplemod.mixins.mob_spawning;
 
 import net.amurdza.examplemod.worldgen.DocumentedFauna;
+import net.amurdza.examplemod.worldgen.DocumentedMonsters;
+import net.amurdza.examplemod.util.GameplayDimensions;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.SpawnPlacements;
@@ -20,5 +22,9 @@ public final class DocumentedSpawnPosition {
         var species = DocumentedFauna.find(level, pos, type);
         if (species != null) result.setReturnValue(level.getWorldBorder().isWithinBounds(pos)
                 && DocumentedFauna.hasSpace(level, pos, species));
+        else if (type == EntityType.DROWNED && GameplayDimensions.isCustom(level)
+                && DocumentedMonsters.allows(level, pos, type)) {
+            result.setReturnValue(level.getWorldBorder().isWithinBounds(pos) && DocumentedMonsters.hasSpace(level, pos));
+        }
     }
 }

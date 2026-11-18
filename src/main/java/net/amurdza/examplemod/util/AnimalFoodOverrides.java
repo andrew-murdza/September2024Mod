@@ -3,10 +3,6 @@ package net.amurdza.examplemod.util;
 import com.github.alexthe666.alexsmobs.entity.EntityBananaSlug;
 import com.github.alexthe666.alexsmobs.entity.EntityGorilla;
 import com.github.alexthe666.alexsmobs.entity.EntityMoose;
-import com.github.alexthe666.alexsmobs.entity.EntityWarpedToad;
-import com.starfish_studios.naturalist.common.entity.Boar;
-import com.starfish_studios.naturalist.common.entity.Deer;
-import com.starfish_studios.naturalist.core.registry.NaturalistEntityTypes;
 import dev.xkmc.fruitsdelight.init.food.FruitType;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.animal.Chicken;
@@ -27,6 +23,8 @@ import samebutdifferent.ecologics.entity.Squirrel;
 import samebutdifferent.ecologics.registry.ModEntityTypes;
 
 public final class AnimalFoodOverrides {
+    public static final net.minecraft.tags.TagKey<Item> RABBIT_LEGUMES = net.minecraft.tags.TagKey.create(
+            net.minecraft.core.registries.Registries.ITEM, new net.minecraft.resources.ResourceLocation("aoemod:rabbit_legumes"));
     private AnimalFoodOverrides() {
     }
 
@@ -43,7 +41,7 @@ public final class AnimalFoodOverrides {
     }
 
     public static boolean isBoar(Entity entity) {
-        return entity.getType() == NaturalistEntityTypes.BOAR.get();
+        return entity.getType() == twilightforest.init.TFEntities.BOAR.get();
     }
 
     public static boolean isSquirrel(Entity entity) {
@@ -60,7 +58,7 @@ public final class AnimalFoodOverrides {
         }
 
         if (entity instanceof Rabbit) {
-            return isHerbivoreFood(stack);
+            return isHerbivoreFood(stack) || stack.is(RABBIT_LEGUMES);
         }
 
         if (entity instanceof Fox) {
@@ -81,7 +79,7 @@ public final class AnimalFoodOverrides {
     public static boolean hasConfiguredFoodOverride(Entity entity) {
         return entity instanceof EntityGorilla
                 || entity instanceof Camel
-                || entity instanceof EntityWarpedToad
+                || entity instanceof net.minecraft.world.entity.monster.Strider
                 || entity instanceof Frog
                 || entity instanceof Turtle
                 || entity instanceof Axolotl
@@ -98,7 +96,7 @@ public final class AnimalFoodOverrides {
             return stack.is(samebutdifferent.ecologics.registry.ModItems.PRICKLY_PEAR.get());
         }
 
-        if (entity instanceof EntityWarpedToad) {
+        if (entity instanceof net.minecraft.world.entity.monster.Strider) {
             return stack.is(Items.WARPED_FUNGUS);
         }
 
@@ -122,8 +120,7 @@ public final class AnimalFoodOverrides {
                 || entity instanceof EntityMoose
                 || entity instanceof Pig
                 || entity instanceof Rabbit
-                || entity instanceof Deer
-                || entity instanceof Boar;
+                || isBoar(entity);
     }
 
     private static boolean isClearedHerbivoreFoodTarget(Entity entity) {
@@ -136,7 +133,6 @@ public final class AnimalFoodOverrides {
                 || stack.is(Items.POTATO)
                 || stack.is(Items.CARROT)
                 || stack.is(Items.BEETROOT)
-                || stack.is(vectorwing.farmersdelight.common.registry.ModItems.ONION.get())
                 || isBlueberry(stack)
                 || stack.is(ModTags.Items.fruits);
     }

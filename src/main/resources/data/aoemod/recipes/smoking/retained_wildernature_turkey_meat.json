@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smoking",
+  "ingredient": {
+    "item": "wildernature:turkey_meat"
+  },
+  "result": "wildernature:cooked_turkey_meat",
+  "experience": 0.35,
+  "cookingtime": 100
+}

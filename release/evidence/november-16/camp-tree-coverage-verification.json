@@ -1,0 +1,2131 @@
+{
+  "passed": true,
+  "source_world": "C:\\Users\\andre\\Downloads\\Games\\September2024Mod\\build\\nov16-iteration\\test-server\\world\\dimensions\\aoemod\\savanna_dimension",
+  "source_world_read_only": true,
+  "active_client_copy_accessed": false,
+  "center": {
+    "x": 128232,
+    "floor_y": 77,
+    "z": 122312
+  },
+  "core_radius": 98,
+  "method": "Read saved MCA block palettes directly. Exclude the version-eight tree reservation mask, then find contiguous unreserved grass/dirt squares wholly within each owner chunk and inspect rooted acacia logs at floor+1. Count native tree blocks only in unreserved columns.",
+  "core_chunks": 169,
+  "chunks_with_five_by_five_lawn": 48,
+  "chunks_with_nine_by_nine_lawn": 48,
+  "rooted_tree_chunks": 48,
+  "rooted_trees": 48,
+  "matches_runtime_export": true,
+  "missed_eligible_lawn_chunks": [],
+  "missing_saved_chunks": [],
+  "minimum_logs_per_tree_chunk": 6,
+  "minimum_leaves_per_tree_chunk": 56,
+  "findings": [
+    "Every one of the 48 chunks with at least a 5x5 unreserved lawn also has at least a 9x9 lawn and exactly one rooted acacia in the saved world.",
+    "No obvious large eligible core lawn chunk was missed. The remaining core chunks contain protected authored areas or lawn strips too narrow for the production five-by-five prefilter.",
+    "Saved block inspection independently matches all 48 runtime-exported chunk/root counts."
+  ],
+  "limits": [
+    "This inspects one completed native camp at the supplied coordinates, not every possible seed or terrain profile.",
+    "The minimum-square audit is a conservative planting-space check, not a proof of every stochastic acacia shape. Runtime whole-tree tests separately cover complete crowns, reserved columns and repeated placement."
+  ],
+  "chunks": [
+    {
+      "chunk": [
+        8008,
+        7638
+      ],
+      "unreserved_columns": 13,
+      "grass_or_tree_soil_columns": 13,
+      "largest_grass_square": 1,
+      "roots": []
+    },
+    {
+      "chunk": [
+        8008,
+        7639
+      ],
+      "unreserved_columns": 12,
+      "grass_or_tree_soil_columns": 12,
+      "largest_grass_square": 1,
+      "roots": []
+    },
+    {
+      "chunk": [
+        8008,
+        7640
+      ],
+      "unreserved_columns": 12,
+      "grass_or_tree_soil_columns": 12,
+      "largest_grass_square": 1,
+      "roots": []
+    },
+    {
+      "chunk": [
+        8008,
+        7641
+      ],
+      "unreserved_columns": 12,
+      "grass_or_tree_soil_columns": 12,
+      "largest_grass_square": 1,
+      "roots": []
+    },
+    {
+      "chunk": [
+        8008,
+        7642
+      ],
+      "unreserved_columns": 12,
+      "grass_or_tree_soil_columns": 12,
+      "largest_grass_square": 1,
+      "roots": []
+    },
+    {
+      "chunk": [
+        8008,
+        7643
+      ],
+      "unreserved_columns": 12,
+      "grass_or_tree_soil_columns": 12,
+      "largest_grass_square": 1,
+      "roots": []
+    },
+    {
+      "chunk": [
+        8008,
+        7644
+      ],
+      "unreserved_columns": 8,
+      "grass_or_tree_soil_columns": 8,
+      "largest_grass_square": 1,
+      "roots": []
+    },
+    {
+      "chunk": [
+        8008,
+        7645
+      ],
+      "unreserved_columns": 12,
+      "grass_or_tree_soil_columns": 12,
+      "largest_grass_square": 1,
+      "roots": []
+    },
+    {
+      "chunk": [
+        8008,
+        7646
+      ],
+      "unreserved_columns": 12,
+      "grass_or_tree_soil_columns": 12,
+      "largest_grass_square": 1,
+      "roots": []
+    },
+    {
+      "chunk": [
+        8008,
+        7647
+      ],
+      "unreserved_columns": 12,
+      "grass_or_tree_soil_columns": 12,
+      "largest_grass_square": 1,
+      "roots": []
+    },
+    {
+      "chunk": [
+        8008,
+        7648
+      ],
+      "unreserved_columns": 12,
+      "grass_or_tree_soil_columns": 12,
+      "largest_grass_square": 1,
+      "roots": []
+    },
+    {
+      "chunk": [
+        8008,
+        7649
+      ],
+      "unreserved_columns": 12,
+      "grass_or_tree_soil_columns": 12,
+      "largest_grass_square": 1,
+      "roots": []
+    },
+    {
+      "chunk": [
+        8008,
+        7650
+      ],
+      "unreserved_columns": 19,
+      "grass_or_tree_soil_columns": 19,
+      "largest_grass_square": 1,
+      "roots": []
+    },
+    {
+      "chunk": [
+        8009,
+        7638
+      ],
+      "unreserved_columns": 12,
+      "grass_or_tree_soil_columns": 12,
+      "largest_grass_square": 1,
+      "roots": []
+    },
+    {
+      "chunk": [
+        8009,
+        7639
+      ],
+      "unreserved_columns": 256,
+      "grass_or_tree_soil_columns": 256,
+      "largest_grass_square": 16,
+      "roots": [
+        [
+          128149,
+          78,
+          122231
+        ]
+      ],
+      "tree_blocks": {
+        "logs": 11,
+        "leaves": 56
+      }
+    },
+    {
+      "chunk": [
+        8009,
+        7640
+      ],
+      "unreserved_columns": 256,
+      "grass_or_tree_soil_columns": 256,
+      "largest_grass_square": 16,
+      "roots": [
+        [
+          128151,
+          78,
+          122249
+        ]
+      ],
+      "tree_blocks": {
+        "logs": 14,
+        "leaves": 83
+      }
+    },
+    {
+      "chunk": [
+        8009,
+        7641
+      ],
+      "unreserved_columns": 256,
+      "grass_or_tree_soil_columns": 256,
+      "largest_grass_square": 16,
+      "roots": [
+        [
+          128148,
+          78,
+          122259
+        ]
+      ],
+      "tree_blocks": {
+        "logs": 11,
+        "leaves": 56
+      }
+    },
+    {
+      "chunk": [
+        8009,
+        7642
+      ],
+      "unreserved_columns": 160,
+      "grass_or_tree_soil_columns": 160,
+      "largest_grass_square": 10,
+      "roots": [
+        [
+          128151,
+          78,
+          122277
+        ]
+      ],
+      "tree_blocks": {
+        "logs": 6,
+        "leaves": 57
+      }
+    },
+    {
+      "chunk": [
+        8009,
+        7643
+      ],
+      "unreserved_columns": 0,
+      "largest_grass_square": 0,
+      "roots": []
+    },
+    {
+      "chunk": [
+        8009,
+        7644
+      ],
+      "unreserved_columns": 0,
+      "largest_grass_square": 0,
+      "roots": []
+    },
+    {
+      "chunk": [
+        8009,
+        7645
+      ],
+      "unreserved_columns": 0,
+      "largest_grass_square": 0,
+      "roots": []
+    },
+    {
+      "chunk": [
+        8009,
+        7646
+      ],
+      "unreserved_columns": 160,
+      "grass_or_tree_soil_columns": 160,
+      "largest_grass_square": 10,
+      "roots": [
+        [
+          128150,
+          78,
+          122345
+        ]
+      ],
+      "tree_blocks": {
+        "logs": 12,
+        "leaves": 57
+      }
+    },
+    {
+      "chunk": [
+        8009,
+        7647
+      ],
+      "unreserved_columns": 256,
+      "grass_or_tree_soil_columns": 256,
+      "largest_grass_square": 16,
+      "roots": [
+        [
+          128151,
+          78,
+          122357
+        ]
+      ],
+      "tree_blocks": {
+        "logs": 11,
+        "leaves": 56
+      }
+    },
+    {
+      "chunk": [
+        8009,
+        7648
+      ],
+      "unreserved_columns": 256,
+      "grass_or_tree_soil_columns": 256,
+      "largest_grass_square": 16,
+      "roots": [
+        [
+          128151,
+          78,
+          122376
+        ]
+      ],
+      "tree_blocks": {
+        "logs": 8,
+        "leaves": 75
+      }
+    },
+    {
+      "chunk": [
+        8009,
+        7649
+      ],
+      "unreserved_columns": 256,
+      "grass_or_tree_soil_columns": 256,
+      "largest_grass_square": 16,
+      "roots": [
+        [
+          128151,
+          78,
+          122392
+        ]
+      ],
+      "tree_blocks": {
+        "logs": 10,
+        "leaves": 74
+      }
+    },
+    {
+      "chunk": [
+        8009,
+        7650
+      ],
+      "unreserved_columns": 24,
+      "grass_or_tree_soil_columns": 24,
+      "largest_grass_square": 1,
+      "roots": []
+    },
+    {
+      "chunk": [
+        8010,
+        7638
+      ],
+      "unreserved_columns": 12,
+      "grass_or_tree_soil_columns": 12,
+      "largest_grass_square": 1,
+      "roots": []
+    },
+    {
+      "chunk": [
+        8010,
+        7639
+      ],
+      "unreserved_columns": 256,
+      "grass_or_tree_soil_columns": 256,
+      "largest_grass_square": 16,
+      "roots": [
+        [
+          128167,
+          78,
+          122233
+        ]
+      ],
+      "tree_blocks": {
+        "logs": 7,
+        "leaves": 57
+      }
+    },
+    {
+      "chunk": [
+        8010,
+        7640
+      ],
+      "unreserved_columns": 220,
+      "grass_or_tree_soil_columns": 220,
+      "largest_grass_square": 10,
+      "roots": [
+        [
+          128163,
+          78,
+          122247
+        ]
+      ],
+      "tree_blocks": {
+        "logs": 10,
+        "leaves": 57
+      }
+    },
+    {
+      "chunk": [
+        8010,
+        7641
+      ],
+      "unreserved_columns": 160,
+      "grass_or_tree_soil_columns": 160,
+      "largest_grass_square": 10,
+      "roots": [
+        [
+          128164,
+          78,
+          122263
+        ]
+      ],
+      "tree_blocks": {
+        "logs": 12,
+        "leaves": 83
+      }
+    },
+    {
+      "chunk": [
+        8010,
+        7642
+      ],
+      "unreserved_columns": 100,
+      "grass_or_tree_soil_columns": 100,
+      "largest_grass_square": 10,
+      "roots": [
+        [
+          128164,
+          78,
+          122278
+        ]
+      ],
+      "tree_blocks": {
+        "logs": 11,
+        "leaves": 56
+      }
+    },
+    {
+      "chunk": [
+        8010,
+        7643
+      ],
+      "unreserved_columns": 0,
+      "largest_grass_square": 0,
+      "roots": []
+    },
+    {
+      "chunk": [
+        8010,
+        7644
+      ],
+      "unreserved_columns": 0,
+      "largest_grass_square": 0,
+      "roots": []
+    },
+    {
+      "chunk": [
+        8010,
+        7645
+      ],
+      "unreserved_columns": 0,
+      "largest_grass_square": 0,
+      "roots": []
+    },
+    {
+      "chunk": [
+        8010,
+        7646
+      ],
+      "unreserved_columns": 100,
+      "grass_or_tree_soil_columns": 100,
+      "largest_grass_square": 10,
+      "roots": [
+        [
+          128164,
+          78,
+          122345
+        ]
+      ],
+      "tree_blocks": {
+        "logs": 10,
+        "leaves": 57
+      }
+    },
+    {
+      "chunk": [
+        8010,
+        7647
+      ],
+      "unreserved_columns": 160,
+      "grass_or_tree_soil_columns": 160,
+      "largest_grass_square": 10,
+      "roots": [
+        [
+          128166,
+          78,
+          122358
+        ]
+      ],
+      "tree_blocks": {
+        "logs": 11,
+        "leaves": 56
+      }
+    },
+    {
+      "chunk": [
+        8010,
+        7648
+      ],
+      "unreserved_columns": 220,
+      "grass_or_tree_soil_columns": 220,
+      "largest_grass_square": 10,
+      "roots": [
+        [
+          128168,
+          78,
+          122377
+        ]
+      ],
+      "tree_blocks": {
+        "logs": 11,
+        "leaves": 83
+      }
+    },
+    {
+      "chunk": [
+        8010,
+        7649
+      ],
+      "unreserved_columns": 256,
+      "grass_or_tree_soil_columns": 256,
+      "largest_grass_square": 16,
+      "roots": [
+        [
+          128163,
+          78,
+          122395
+        ]
+      ],
+      "tree_blocks": {
+        "logs": 14,
+        "leaves": 79
+      }
+    },
+    {
+      "chunk": [
+        8010,
+        7650
+      ],
+      "unreserved_columns": 24,
+      "grass_or_tree_soil_columns": 24,
+      "largest_grass_square": 1,
+      "roots": []
+    },
+    {
+      "chunk": [
+        8011,
+        7638
+      ],
+      "unreserved_columns": 12,
+      "grass_or_tree_soil_columns": 12,
+      "largest_grass_square": 1,
+      "roots": []
+    },
+    {
+      "chunk": [
+        8011,
+        7639
+      ],
+      "unreserved_columns": 256,
+      "grass_or_tree_soil_columns": 256,
+      "largest_grass_square": 16,
+      "roots": [
+        [
+          128185,
+          78,
+          122232
+        ]
+      ],
+      "tree_blocks": {
+        "logs": 12,
+        "leaves": 78
+      }
+    },
+    {
+      "chunk": [
+        8011,
+        7640
+      ],
+      "unreserved_columns": 160,
+      "grass_or_tree_soil_columns": 160,
+      "largest_grass_square": 10,
+      "roots": [
+        [
+          128179,
+          78,
+          122244
+        ]
+      ],
+      "tree_blocks": {
+        "logs": 12,
+        "leaves": 78
+      }
+    },
+    {
+      "chunk": [
+        8011,
+        7641
+      ],
+      "unreserved_columns": 0,
+      "largest_grass_square": 0,
+      "roots": []
+    },
+    {
+      "chunk": [
+        8011,
+        7642
+      ],
+      "unreserved_columns": 0,
+      "largest_grass_square": 0,
+      "roots": []
+    },
+    {
+      "chunk": [
+        8011,
+        7643
+      ],
+      "unreserved_columns": 0,
+      "largest_grass_square": 0,
+      "roots": []
+    },
+    {
+      "chunk": [
+        8011,
+        7644
+      ],
+      "unreserved_columns": 0,
+      "largest_grass_square": 0,
+      "roots": []
+    },
+    {
+      "chunk": [
+        8011,
+        7645
+      ],
+      "unreserved_columns": 0,
+      "largest_grass_square": 0,
+      "roots": []
+    },
+    {
+      "chunk": [
+        8011,
+        7646
+      ],
+      "unreserved_columns": 0,
+      "largest_grass_square": 0,
+      "roots": []
+    },
+    {
+      "chunk": [
+        8011,
+        7647
+      ],
+      "unreserved_columns": 0,
+      "largest_grass_square": 0,
+      "roots": []
+    },
+    {
+      "chunk": [
+        8011,
+        7648
+      ],
+      "unreserved_columns": 160,
+      "grass_or_tree_soil_columns": 160,
+      "largest_grass_square": 10,
+      "roots": [
+        [
+          128184,
+          78,
+          122379
+        ]
+      ],
+      "tree_blocks": {
+        "logs": 12,
+        "leaves": 77
+      }
+    },
+    {
+      "chunk": [
+        8011,
+        7649
+      ],
+      "unreserved_columns": 256,
+      "grass_or_tree_soil_columns": 256,
+      "largest_grass_square": 16,
+      "roots": [
+        [
+          128178,
+          78,
+          122394
+        ]
+      ],
+      "tree_blocks": {
+        "logs": 10,
+        "leaves": 57
+      }
+    },
+    {
+      "chunk": [
+        8011,
+        7650
+      ],
+      "unreserved_columns": 24,
+      "grass_or_tree_soil_columns": 24,
+      "largest_grass_square": 1,
+      "roots": []
+    },
+    {
+      "chunk": [
+        8012,
+        7638
+      ],
+      "unreserved_columns": 12,
+      "grass_or_tree_soil_columns": 12,
+      "largest_grass_square": 1,
+      "roots": []
+    },
+    {
+      "chunk": [
+        8012,
+        7639
+      ],
+      "unreserved_columns": 160,
+      "grass_or_tree_soil_columns": 160,
+      "largest_grass_square": 10,
+      "roots": [
+        [
+          128197,
+          78,
+          122227
+        ]
+      ],
+      "tree_blocks": {
+        "logs": 12,
+        "leaves": 83
+      }
+    },
+    {
+      "chunk": [
+        8012,
+        7640
+      ],
+      "unreserved_columns": 100,
+      "grass_or_tree_soil_columns": 100,
+      "largest_grass_square": 10,
+      "roots": [
+        [
+          128199,
+          78,
+          122244
+        ]
+      ],
+      "tree_blocks": {
+        "logs": 10,
+        "leaves": 57
+      }
+    },
+    {
+      "chunk": [
+        8012,
+        7641
+      ],
+      "unreserved_columns": 0,
+      "largest_grass_square": 0,
+      "roots": []
+    },
+    {
+      "chunk": [
+        8012,
+        7642
+      ],
+      "unreserved_columns": 0,
+      "largest_grass_square": 0,
+      "roots": []
+    },
+    {
+      "chunk": [
+        8012,
+        7643
+      ],
+      "unreserved_columns": 0,
+      "largest_grass_square": 0,
+      "roots": []
+    },
+    {
+      "chunk": [
+        8012,
+        7644
+      ],
+      "unreserved_columns": 0,
+      "largest_grass_square": 0,
+      "roots": []
+    },
+    {
+      "chunk": [
+        8012,
+        7645
+      ],
+      "unreserved_columns": 0,
+      "largest_grass_square": 0,
+      "roots": []
+    },
+    {
+      "chunk": [
+        8012,
+        7646
+      ],
+      "unreserved_columns": 0,
+      "largest_grass_square": 0,
+      "roots": []
+    },
+    {
+      "chunk": [
+        8012,
+        7647
+      ],
+      "unreserved_columns": 0,
+      "largest_grass_square": 0,
+      "roots": []
+    },
+    {
+      "chunk": [
+        8012,
+        7648
+      ],
+      "unreserved_columns": 100,
+      "grass_or_tree_soil_columns": 100,
+      "largest_grass_square": 10,
+      "roots": [
+        [
+          128199,
+          78,
+          122378
+        ]
+      ],
+      "tree_blocks": {
+        "logs": 12,
+        "leaves": 84
+      }
+    },
+    {
+      "chunk": [
+        8012,
+        7649
+      ],
+      "unreserved_columns": 160,
+      "grass_or_tree_soil_columns": 160,
+      "largest_grass_square": 10,
+      "roots": [
+        [
+          128196,
+          78,
+          122388
+        ]
+      ],
+      "tree_blocks": {
+        "logs": 16,
+        "leaves": 84
+      }
+    },
+    {
+      "chunk": [
+        8012,
+        7650
+      ],
+      "unreserved_columns": 24,
+      "grass_or_tree_soil_columns": 24,
+      "largest_grass_square": 1,
+      "roots": []
+    },
+    {
+      "chunk": [
+        8013,
+        7638
+      ],
+      "unreserved_columns": 12,
+      "grass_or_tree_soil_columns": 12,
+      "largest_grass_square": 1,
+      "roots": []
+    },
+    {
+      "chunk": [
+        8013,
+        7639
+      ],
+      "unreserved_columns": 0,
+      "largest_grass_square": 0,
+      "roots": []
+    },
+    {
+      "chunk": [
+        8013,
+        7640
+      ],
+      "unreserved_columns": 0,
+      "largest_grass_square": 0,
+      "roots": []
+    },
+    {
+      "chunk": [
+        8013,
+        7641
+      ],
+      "unreserved_columns": 0,
+      "largest_grass_square": 0,
+      "roots": []
+    },
+    {
+      "chunk": [
+        8013,
+        7642
+      ],
+      "unreserved_columns": 0,
+      "largest_grass_square": 0,
+      "roots": []
+    },
+    {
+      "chunk": [
+        8013,
+        7643
+      ],
+      "unreserved_columns": 0,
+      "largest_grass_square": 0,
+      "roots": []
+    },
+    {
+      "chunk": [
+        8013,
+        7644
+      ],
+      "unreserved_columns": 0,
+      "largest_grass_square": 0,
+      "roots": []
+    },
+    {
+      "chunk": [
+        8013,
+        7645
+      ],
+      "unreserved_columns": 0,
+      "largest_grass_square": 0,
+      "roots": []
+    },
+    {
+      "chunk": [
+        8013,
+        7646
+      ],
+      "unreserved_columns": 0,
+      "largest_grass_square": 0,
+      "roots": []
+    },
+    {
+      "chunk": [
+        8013,
+        7647
+      ],
+      "unreserved_columns": 0,
+      "largest_grass_square": 0,
+      "roots": []
+    },
+    {
+      "chunk": [
+        8013,
+        7648
+      ],
+      "unreserved_columns": 0,
+      "largest_grass_square": 0,
+      "roots": []
+    },
+    {
+      "chunk": [
+        8013,
+        7649
+      ],
+      "unreserved_columns": 0,
+      "largest_grass_square": 0,
+      "roots": []
+    },
+    {
+      "chunk": [
+        8013,
+        7650
+      ],
+      "unreserved_columns": 24,
+      "grass_or_tree_soil_columns": 24,
+      "largest_grass_square": 1,
+      "roots": []
+    },
+    {
+      "chunk": [
+        8014,
+        7638
+      ],
+      "unreserved_columns": 8,
+      "grass_or_tree_soil_columns": 8,
+      "largest_grass_square": 1,
+      "roots": []
+    },
+    {
+      "chunk": [
+        8014,
+        7639
+      ],
+      "unreserved_columns": 0,
+      "largest_grass_square": 0,
+      "roots": []
+    },
+    {
+      "chunk": [
+        8014,
+        7640
+      ],
+      "unreserved_columns": 0,
+      "largest_grass_square": 0,
+      "roots": []
+    },
+    {
+      "chunk": [
+        8014,
+        7641
+      ],
+      "unreserved_columns": 0,
+      "largest_grass_square": 0,
+      "roots": []
+    },
+    {
+      "chunk": [
+        8014,
+        7642
+      ],
+      "unreserved_columns": 0,
+      "largest_grass_square": 0,
+      "roots": []
+    },
+    {
+      "chunk": [
+        8014,
+        7643
+      ],
+      "unreserved_columns": 0,
+      "largest_grass_square": 0,
+      "roots": []
+    },
+    {
+      "chunk": [
+        8014,
+        7644
+      ],
+      "unreserved_columns": 0,
+      "largest_grass_square": 0,
+      "roots": []
+    },
+    {
+      "chunk": [
+        8014,
+        7645
+      ],
+      "unreserved_columns": 0,
+      "largest_grass_square": 0,
+      "roots": []
+    },
+    {
+      "chunk": [
+        8014,
+        7646
+      ],
+      "unreserved_columns": 0,
+      "largest_grass_square": 0,
+      "roots": []
+    },
+    {
+      "chunk": [
+        8014,
+        7647
+      ],
+      "unreserved_columns": 0,
+      "largest_grass_square": 0,
+      "roots": []
+    },
+    {
+      "chunk": [
+        8014,
+        7648
+      ],
+      "unreserved_columns": 0,
+      "largest_grass_square": 0,
+      "roots": []
+    },
+    {
+      "chunk": [
+        8014,
+        7649
+      ],
+      "unreserved_columns": 0,
+      "largest_grass_square": 0,
+      "roots": []
+    },
+    {
+      "chunk": [
+        8014,
+        7650
+      ],
+      "unreserved_columns": 14,
+      "grass_or_tree_soil_columns": 14,
+      "largest_grass_square": 1,
+      "roots": []
+    },
+    {
+      "chunk": [
+        8015,
+        7638
+      ],
+      "unreserved_columns": 12,
+      "grass_or_tree_soil_columns": 12,
+      "largest_grass_square": 1,
+      "roots": []
+    },
+    {
+      "chunk": [
+        8015,
+        7639
+      ],
+      "unreserved_columns": 0,
+      "largest_grass_square": 0,
+      "roots": []
+    },
+    {
+      "chunk": [
+        8015,
+        7640
+      ],
+      "unreserved_columns": 0,
+      "largest_grass_square": 0,
+      "roots": []
+    },
+    {
+      "chunk": [
+        8015,
+        7641
+      ],
+      "unreserved_columns": 0,
+      "largest_grass_square": 0,
+      "roots": []
+    },
+    {
+      "chunk": [
+        8015,
+        7642
+      ],
+      "unreserved_columns": 0,
+      "largest_grass_square": 0,
+      "roots": []
+    },
+    {
+      "chunk": [
+        8015,
+        7643
+      ],
+      "unreserved_columns": 0,
+      "largest_grass_square": 0,
+      "roots": []
+    },
+    {
+      "chunk": [
+        8015,
+        7644
+      ],
+      "unreserved_columns": 0,
+      "largest_grass_square": 0,
+      "roots": []
+    },
+    {
+      "chunk": [
+        8015,
+        7645
+      ],
+      "unreserved_columns": 0,
+      "largest_grass_square": 0,
+      "roots": []
+    },
+    {
+      "chunk": [
+        8015,
+        7646
+      ],
+      "unreserved_columns": 0,
+      "largest_grass_square": 0,
+      "roots": []
+    },
+    {
+      "chunk": [
+        8015,
+        7647
+      ],
+      "unreserved_columns": 0,
+      "largest_grass_square": 0,
+      "roots": []
+    },
+    {
+      "chunk": [
+        8015,
+        7648
+      ],
+      "unreserved_columns": 0,
+      "largest_grass_square": 0,
+      "roots": []
+    },
+    {
+      "chunk": [
+        8015,
+        7649
+      ],
+      "unreserved_columns": 0,
+      "largest_grass_square": 0,
+      "roots": []
+    },
+    {
+      "chunk": [
+        8015,
+        7650
+      ],
+      "unreserved_columns": 24,
+      "grass_or_tree_soil_columns": 24,
+      "largest_grass_square": 1,
+      "roots": []
+    },
+    {
+      "chunk": [
+        8016,
+        7638
+      ],
+      "unreserved_columns": 12,
+      "grass_or_tree_soil_columns": 12,
+      "largest_grass_square": 1,
+      "roots": []
+    },
+    {
+      "chunk": [
+        8016,
+        7639
+      ],
+      "unreserved_columns": 160,
+      "grass_or_tree_soil_columns": 160,
+      "largest_grass_square": 10,
+      "roots": [
+        [
+          128265,
+          78,
+          122234
+        ]
+      ],
+      "tree_blocks": {
+        "logs": 15,
+        "leaves": 74
+      }
+    },
+    {
+      "chunk": [
+        8016,
+        7640
+      ],
+      "unreserved_columns": 100,
+      "grass_or_tree_soil_columns": 100,
+      "largest_grass_square": 10,
+      "roots": [
+        [
+          128266,
+          78,
+          122246
+        ]
+      ],
+      "tree_blocks": {
+        "logs": 15,
+        "leaves": 79
+      }
+    },
+    {
+      "chunk": [
+        8016,
+        7641
+      ],
+      "unreserved_columns": 0,
+      "largest_grass_square": 0,
+      "roots": []
+    },
+    {
+      "chunk": [
+        8016,
+        7642
+      ],
+      "unreserved_columns": 0,
+      "largest_grass_square": 0,
+      "roots": []
+    },
+    {
+      "chunk": [
+        8016,
+        7643
+      ],
+      "unreserved_columns": 0,
+      "largest_grass_square": 0,
+      "roots": []
+    },
+    {
+      "chunk": [
+        8016,
+        7644
+      ],
+      "unreserved_columns": 0,
+      "largest_grass_square": 0,
+      "roots": []
+    },
+    {
+      "chunk": [
+        8016,
+        7645
+      ],
+      "unreserved_columns": 0,
+      "largest_grass_square": 0,
+      "roots": []
+    },
+    {
+      "chunk": [
+        8016,
+        7646
+      ],
+      "unreserved_columns": 0,
+      "largest_grass_square": 0,
+      "roots": []
+    },
+    {
+      "chunk": [
+        8016,
+        7647
+      ],
+      "unreserved_columns": 0,
+      "largest_grass_square": 0,
+      "roots": []
+    },
+    {
+      "chunk": [
+        8016,
+        7648
+      ],
+      "unreserved_columns": 100,
+      "grass_or_tree_soil_columns": 100,
+      "largest_grass_square": 10,
+      "roots": [
+        [
+          128269,
+          78,
+          122377
+        ]
+      ],
+      "tree_blocks": {
+        "logs": 11,
+        "leaves": 57
+      }
+    },
+    {
+      "chunk": [
+        8016,
+        7649
+      ],
+      "unreserved_columns": 160,
+      "grass_or_tree_soil_columns": 160,
+      "largest_grass_square": 10,
+      "roots": [
+        [
+          128265,
+          78,
+          122396
+        ]
+      ],
+      "tree_blocks": {
+        "logs": 11,
+        "leaves": 75
+      }
+    },
+    {
+      "chunk": [
+        8016,
+        7650
+      ],
+      "unreserved_columns": 24,
+      "grass_or_tree_soil_columns": 24,
+      "largest_grass_square": 1,
+      "roots": []
+    },
+    {
+      "chunk": [
+        8017,
+        7638
+      ],
+      "unreserved_columns": 12,
+      "grass_or_tree_soil_columns": 12,
+      "largest_grass_square": 1,
+      "roots": []
+    },
+    {
+      "chunk": [
+        8017,
+        7639
+      ],
+      "unreserved_columns": 256,
+      "grass_or_tree_soil_columns": 256,
+      "largest_grass_square": 16,
+      "roots": [
+        [
+          128275,
+          78,
+          122230
+        ]
+      ],
+      "tree_blocks": {
+        "logs": 14,
+        "leaves": 82
+      }
+    },
+    {
+      "chunk": [
+        8017,
+        7640
+      ],
+      "unreserved_columns": 160,
+      "grass_or_tree_soil_columns": 160,
+      "largest_grass_square": 10,
+      "roots": [
+        [
+          128282,
+          78,
+          122244
+        ]
+      ],
+      "tree_blocks": {
+        "logs": 10,
+        "leaves": 56
+      }
+    },
+    {
+      "chunk": [
+        8017,
+        7641
+      ],
+      "unreserved_columns": 0,
+      "largest_grass_square": 0,
+      "roots": []
+    },
+    {
+      "chunk": [
+        8017,
+        7642
+      ],
+      "unreserved_columns": 0,
+      "largest_grass_square": 0,
+      "roots": []
+    },
+    {
+      "chunk": [
+        8017,
+        7643
+      ],
+      "unreserved_columns": 0,
+      "largest_grass_square": 0,
+      "roots": []
+    },
+    {
+      "chunk": [
+        8017,
+        7644
+      ],
+      "unreserved_columns": 0,
+      "largest_grass_square": 0,
+      "roots": []
+    },
+    {
+      "chunk": [
+        8017,
+        7645
+      ],
+      "unreserved_columns": 0,
+      "largest_grass_square": 0,
+      "roots": []
+    },
+    {
+      "chunk": [
+        8017,
+        7646
+      ],
+      "unreserved_columns": 0,
+      "largest_grass_square": 0,
+      "roots": []
+    },
+    {
+      "chunk": [
+        8017,
+        7647
+      ],
+      "unreserved_columns": 0,
+      "largest_grass_square": 0,
+      "roots": []
+    },
+    {
+      "chunk": [
+        8017,
+        7648
+      ],
+      "unreserved_columns": 160,
+      "grass_or_tree_soil_columns": 160,
+      "largest_grass_square": 10,
+      "roots": [
+        [
+          128280,
+          78,
+          122379
+        ]
+      ],
+      "tree_blocks": {
+        "logs": 12,
+        "leaves": 84
+      }
+    },
+    {
+      "chunk": [
+        8017,
+        7649
+      ],
+      "unreserved_columns": 256,
+      "grass_or_tree_soil_columns": 256,
+      "largest_grass_square": 16,
+      "roots": [
+        [
+          128277,
+          78,
+          122391
+        ]
+      ],
+      "tree_blocks": {
+        "logs": 12,
+        "leaves": 83
+      }
+    },
+    {
+      "chunk": [
+        8017,
+        7650
+      ],
+      "unreserved_columns": 24,
+      "grass_or_tree_soil_columns": 24,
+      "largest_grass_square": 1,
+      "roots": []
+    },
+    {
+      "chunk": [
+        8018,
+        7638
+      ],
+      "unreserved_columns": 12,
+      "grass_or_tree_soil_columns": 12,
+      "largest_grass_square": 1,
+      "roots": []
+    },
+    {
+      "chunk": [
+        8018,
+        7639
+      ],
+      "unreserved_columns": 256,
+      "grass_or_tree_soil_columns": 256,
+      "largest_grass_square": 16,
+      "roots": [
+        [
+          128298,
+          78,
+          122228
+        ]
+      ],
+      "tree_blocks": {
+        "logs": 11,
+        "leaves": 84
+      }
+    },
+    {
+      "chunk": [
+        8018,
+        7640
+      ],
+      "unreserved_columns": 220,
+      "grass_or_tree_soil_columns": 220,
+      "largest_grass_square": 10,
+      "roots": [
+        [
+          128300,
+          78,
+          122243
+        ]
+      ],
+      "tree_blocks": {
+        "logs": 10,
+        "leaves": 56
+      }
+    },
+    {
+      "chunk": [
+        8018,
+        7641
+      ],
+      "unreserved_columns": 160,
+      "grass_or_tree_soil_columns": 160,
+      "largest_grass_square": 10,
+      "roots": [
+        [
+          128297,
+          78,
+          122265
+        ]
+      ],
+      "tree_blocks": {
+        "logs": 12,
+        "leaves": 56
+      }
+    },
+    {
+      "chunk": [
+        8018,
+        7642
+      ],
+      "unreserved_columns": 100,
+      "grass_or_tree_soil_columns": 100,
+      "largest_grass_square": 10,
+      "roots": [
+        [
+          128299,
+          78,
+          122275
+        ]
+      ],
+      "tree_blocks": {
+        "logs": 13,
+        "leaves": 84
+      }
+    },
+    {
+      "chunk": [
+        8018,
+        7643
+      ],
+      "unreserved_columns": 0,
+      "largest_grass_square": 0,
+      "roots": []
+    },
+    {
+      "chunk": [
+        8018,
+        7644
+      ],
+      "unreserved_columns": 0,
+      "largest_grass_square": 0,
+      "roots": []
+    },
+    {
+      "chunk": [
+        8018,
+        7645
+      ],
+      "unreserved_columns": 0,
+      "largest_grass_square": 0,
+      "roots": []
+    },
+    {
+      "chunk": [
+        8018,
+        7646
+      ],
+      "unreserved_columns": 100,
+      "grass_or_tree_soil_columns": 100,
+      "largest_grass_square": 10,
+      "roots": [
+        [
+          128298,
+          78,
+          122349
+        ]
+      ],
+      "tree_blocks": {
+        "logs": 11,
+        "leaves": 83
+      }
+    },
+    {
+      "chunk": [
+        8018,
+        7647
+      ],
+      "unreserved_columns": 160,
+      "grass_or_tree_soil_columns": 160,
+      "largest_grass_square": 10,
+      "roots": [
+        [
+          128297,
+          78,
+          122361
+        ]
+      ],
+      "tree_blocks": {
+        "logs": 11,
+        "leaves": 56
+      }
+    },
+    {
+      "chunk": [
+        8018,
+        7648
+      ],
+      "unreserved_columns": 220,
+      "grass_or_tree_soil_columns": 220,
+      "largest_grass_square": 10,
+      "roots": [
+        [
+          128298,
+          78,
+          122375
+        ]
+      ],
+      "tree_blocks": {
+        "logs": 12,
+        "leaves": 70
+      }
+    },
+    {
+      "chunk": [
+        8018,
+        7649
+      ],
+      "unreserved_columns": 256,
+      "grass_or_tree_soil_columns": 256,
+      "largest_grass_square": 16,
+      "roots": [
+        [
+          128297,
+          78,
+          122394
+        ]
+      ],
+      "tree_blocks": {
+        "logs": 12,
+        "leaves": 70
+      }
+    },
+    {
+      "chunk": [
+        8018,
+        7650
+      ],
+      "unreserved_columns": 24,
+      "grass_or_tree_soil_columns": 24,
+      "largest_grass_square": 1,
+      "roots": []
+    },
+    {
+      "chunk": [
+        8019,
+        7638
+      ],
+      "unreserved_columns": 12,
+      "grass_or_tree_soil_columns": 12,
+      "largest_grass_square": 1,
+      "roots": []
+    },
+    {
+      "chunk": [
+        8019,
+        7639
+      ],
+      "unreserved_columns": 256,
+      "grass_or_tree_soil_columns": 256,
+      "largest_grass_square": 16,
+      "roots": [
+        [
+          128310,
+          78,
+          122236
+        ]
+      ],
+      "tree_blocks": {
+        "logs": 15,
+        "leaves": 79
+      }
+    },
+    {
+      "chunk": [
+        8019,
+        7640
+      ],
+      "unreserved_columns": 256,
+      "grass_or_tree_soil_columns": 256,
+      "largest_grass_square": 16,
+      "roots": [
+        [
+          128316,
+          78,
+          122243
+        ]
+      ],
+      "tree_blocks": {
+        "logs": 13,
+        "leaves": 82
+      }
+    },
+    {
+      "chunk": [
+        8019,
+        7641
+      ],
+      "unreserved_columns": 256,
+      "grass_or_tree_soil_columns": 256,
+      "largest_grass_square": 16,
+      "roots": [
+        [
+          128309,
+          78,
+          122264
+        ]
+      ],
+      "tree_blocks": {
+        "logs": 12,
+        "leaves": 84
+      }
+    },
+    {
+      "chunk": [
+        8019,
+        7642
+      ],
+      "unreserved_columns": 160,
+      "grass_or_tree_soil_columns": 160,
+      "largest_grass_square": 10,
+      "roots": [
+        [
+          128312,
+          78,
+          122278
+        ]
+      ],
+      "tree_blocks": {
+        "logs": 9,
+        "leaves": 83
+      }
+    },
+    {
+      "chunk": [
+        8019,
+        7643
+      ],
+      "unreserved_columns": 0,
+      "largest_grass_square": 0,
+      "roots": []
+    },
+    {
+      "chunk": [
+        8019,
+        7644
+      ],
+      "unreserved_columns": 0,
+      "largest_grass_square": 0,
+      "roots": []
+    },
+    {
+      "chunk": [
+        8019,
+        7645
+      ],
+      "unreserved_columns": 0,
+      "largest_grass_square": 0,
+      "roots": []
+    },
+    {
+      "chunk": [
+        8019,
+        7646
+      ],
+      "unreserved_columns": 160,
+      "grass_or_tree_soil_columns": 160,
+      "largest_grass_square": 10,
+      "roots": [
+        [
+          128312,
+          78,
+          122346
+        ]
+      ],
+      "tree_blocks": {
+        "logs": 12,
+        "leaves": 83
+      }
+    },
+    {
+      "chunk": [
+        8019,
+        7647
+      ],
+      "unreserved_columns": 256,
+      "grass_or_tree_soil_columns": 256,
+      "largest_grass_square": 16,
+      "roots": [
+        [
+          128311,
+          78,
+          122356
+        ]
+      ],
+      "tree_blocks": {
+        "logs": 11,
+        "leaves": 84
+      }
+    },
+    {
+      "chunk": [
+        8019,
+        7648
+      ],
+      "unreserved_columns": 256,
+      "grass_or_tree_soil_columns": 256,
+      "largest_grass_square": 16,
+      "roots": [
+        [
+          128313,
+          78,
+          122376
+        ]
+      ],
+      "tree_blocks": {
+        "logs": 10,
+        "leaves": 75
+      }
+    },
+    {
+      "chunk": [
+        8019,
+        7649
+      ],
+      "unreserved_columns": 256,
+      "grass_or_tree_soil_columns": 256,
+      "largest_grass_square": 16,
+      "roots": [
+        [
+          128308,
+          78,
+          122389
+        ]
+      ],
+      "tree_blocks": {
+        "logs": 15,
+        "leaves": 80
+      }
+    },
+    {
+      "chunk": [
+        8019,
+        7650
+      ],
+      "unreserved_columns": 24,
+      "grass_or_tree_soil_columns": 24,
+      "largest_grass_square": 1,
+      "roots": []
+    },
+    {
+      "chunk": [
+        8020,
+        7638
+      ],
+      "unreserved_columns": 19,
+      "grass_or_tree_soil_columns": 19,
+      "largest_grass_square": 1,
+      "roots": []
+    },
+    {
+      "chunk": [
+        8020,
+        7639
+      ],
+      "unreserved_columns": 24,
+      "grass_or_tree_soil_columns": 24,
+      "largest_grass_square": 1,
+      "roots": []
+    },
+    {
+      "chunk": [
+        8020,
+        7640
+      ],
+      "unreserved_columns": 24,
+      "grass_or_tree_soil_columns": 24,
+      "largest_grass_square": 1,
+      "roots": []
+    },
+    {
+      "chunk": [
+        8020,
+        7641
+      ],
+      "unreserved_columns": 24,
+      "grass_or_tree_soil_columns": 24,
+      "largest_grass_square": 1,
+      "roots": []
+    },
+    {
+      "chunk": [
+        8020,
+        7642
+      ],
+      "unreserved_columns": 24,
+      "grass_or_tree_soil_columns": 24,
+      "largest_grass_square": 1,
+      "roots": []
+    },
+    {
+      "chunk": [
+        8020,
+        7643
+      ],
+      "unreserved_columns": 24,
+      "grass_or_tree_soil_columns": 24,
+      "largest_grass_square": 1,
+      "roots": []
+    },
+    {
+      "chunk": [
+        8020,
+        7644
+      ],
+      "unreserved_columns": 14,
+      "grass_or_tree_soil_columns": 14,
+      "largest_grass_square": 1,
+      "roots": []
+    },
+    {
+      "chunk": [
+        8020,
+        7645
+      ],
+      "unreserved_columns": 24,
+      "grass_or_tree_soil_columns": 24,
+      "largest_grass_square": 1,
+      "roots": []
+    },
+    {
+      "chunk": [
+        8020,
+        7646
+      ],
+      "unreserved_columns": 24,
+      "grass_or_tree_soil_columns": 24,
+      "largest_grass_square": 1,
+      "roots": []
+    },
+    {
+      "chunk": [
+        8020,
+        7647
+      ],
+      "unreserved_columns": 24,
+      "grass_or_tree_soil_columns": 24,
+      "largest_grass_square": 1,
+      "roots": []
+    },
+    {
+      "chunk": [
+        8020,
+        7648
+      ],
+      "unreserved_columns": 24,
+      "grass_or_tree_soil_columns": 24,
+      "largest_grass_square": 1,
+      "roots": []
+    },
+    {
+      "chunk": [
+        8020,
+        7649
+      ],
+      "unreserved_columns": 24,
+      "grass_or_tree_soil_columns": 24,
+      "largest_grass_square": 1,
+      "roots": []
+    },
+    {
+      "chunk": [
+        8020,
+        7650
+      ],
+      "unreserved_columns": 30,
+      "grass_or_tree_soil_columns": 30,
+      "largest_grass_square": 1,
+      "roots": []
+    }
+  ]
+}

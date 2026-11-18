@@ -1,18 +1,14 @@
 package net.amurdza.examplemod.event_handlers;
 
-import com.github.alexthe666.iceandfire.entity.IafEntityRegistry;
 import net.amurdza.examplemod.AOEMod;
 import net.amurdza.examplemod.util.ModTags;
 import net.amurdza.examplemod.worldgen.WorldGenUtils;
 import net.minecraft.core.BlockPos;
-import net.minecraft.core.Direction;
-import net.minecraft.tags.BlockTags;
 import net.minecraft.tags.FluidTags;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.Difficulty;
 import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.animal.Animal;
-import net.minecraft.world.entity.monster.Monster;
 import net.minecraft.world.entity.monster.Strider;
 import net.minecraft.world.level.ServerLevelAccessor;
 import net.minecraft.world.level.block.Blocks;
@@ -40,20 +36,11 @@ public class NoFloatingMobSpawns {
         addSpawn(event, EntityType.CAMEL, false,
                 (p,q,r,s,t)->camel(q,s));
 
-        addSpawn(event, IafEntityRegistry.DREAD_KNIGHT.get(), false,
-                Monster::checkMonsterSpawnRules);
-
-        addSpawn(event, IafEntityRegistry.DREAD_THRALL.get(), false,
-                Monster::checkMonsterSpawnRules);
-
-        addSpawn(event, IafEntityRegistry.GORGON.get(), false,
-                Monster::checkMonsterSpawnRules);
-
         addSpawn(event, EntityType.AXOLOTL, true,
                 NoFloatingMobSpawns::checkSurfaceWaterAnimalSpawnRules);
 
-        addSpawn(event, EntityType.TURTLE, false,
-                (p, q, r, s, t) -> turtle(q, s));
+        addSpawn(event, EntityType.TURTLE, true,
+                NoFloatingMobSpawns::checkWaterAnimalSpawnRules);
 
         addSpawn(event, EntityType.GLOW_SQUID, true,
                 NoFloatingMobSpawns::checkWaterAnimalSpawnRules);
@@ -99,7 +86,7 @@ public class NoFloatingMobSpawns {
 
     private static boolean strider(EntityType<Strider> pEntityType, ServerLevelAccessor pServerLevel, MobSpawnType pSpawnType, BlockPos pPos, RandomSource pRandom){
         BlockState state=pServerLevel.getBlockState(pPos.below());
-        return state.is(BlockTags.NYLIUM)||state.is(ModTags.Blocks.basaltStones);
+        return state.is(ModTags.Blocks.soulSediments);
     }
 
     public static boolean checkMonsterSpawnRules(EntityType<? extends Mob> pType, ServerLevelAccessor pLevel, MobSpawnType pSpawnType, BlockPos pPos, RandomSource pRandom) {
@@ -119,20 +106,9 @@ public class NoFloatingMobSpawns {
         BlockState state=level.getBlockState(pos.below());
         return (state.is(Blocks.SAND) || state.is(Blocks.GRASS_BLOCK) || state.is(Blocks.MOSS_BLOCK)) && level.getRawBrightness(pos, 0) > 8;
     }
-    private static boolean turtle(ServerLevelAccessor level, BlockPos pos) {
-        int chunkX = Math.floorDiv(pos.getX(), 16);
-        int regionChunkX = Math.floorMod(chunkX, 64);
-        return (regionChunkX == 6 || regionChunkX == 63)
-                && level.getBlockState(pos.below()).is(BlockTags.SAND)
-                && level.getRawBrightness(pos, 0) > 8;
-    }
     private static boolean shulker(ServerLevelAccessor pLevel, BlockPos pPos, RandomSource pRandom) {
-        for(Direction direction: Direction.values()){
-            if(pLevel.getBlockState(pPos.relative(direction)).is(BlockTags.TERRACOTTA)){
-                return pLevel.getDifficulty() != Difficulty.PEACEFUL && isDarkEnoughToSpawn(pLevel, pPos, pRandom);
-            }
-        }
-        return false;
+        return net.amurdza.examplemod.worldgen.DocumentedMonsters.hasShulkerSurface(pLevel, pPos)
+                && pLevel.getDifficulty() != Difficulty.PEACEFUL && isDarkEnoughToSpawn(pLevel, pPos, pRandom);
     }
 
 }

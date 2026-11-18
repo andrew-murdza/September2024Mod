@@ -1,0 +1,31 @@
+{
+  "scope": "offline voxel geometry audit; no runtime entities, vines or chests",
+  "layouts": [
+    {
+      "kind": "spider",
+      "connected_walking_cells": 20362,
+      "boss_shortest_walk": 214,
+      "pocket_walks": [
+        102,
+        102,
+        155,
+        155
+      ],
+      "queen_spawn_solid_collisions": [],
+      "natural_terrain_boss_reachable": true,
+      "natural_outside_floor_below_mouth": 0
+    },
+    {
+      "kind": "wither",
+      "connected_walking_cells": 16957,
+      "boss_shortest_walk": 86,
+      "pocket_walks": [
+        54,
+        54
+      ],
+      "air_cells_in_sealed_shell": 10522,
+      "unintended_shell_openings": [],
+      "room_center_roof_nubs": []
+    }
+  ]
+}

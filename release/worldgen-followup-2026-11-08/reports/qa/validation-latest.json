@@ -1,0 +1,18 @@
+{
+  "status": "passed",
+  "uniqueTests": 150,
+  "failures": 0,
+  "scope": "Latest outcome per test across the full run and targeted corrective reruns; not a single all-pass run.",
+  "sourceReports": [
+    {
+      "path": "C:\\Users\\andre\\Downloads\\Games\\September2024Mod\\build\\nov8-terrain-qa\\followup-verified-1\\game-test-results.xml",
+      "tests": 150,
+      "failures": 2
+    },
+    {
+      "path": "C:\\Users\\andre\\Downloads\\Games\\September2024Mod\\build\\nov8-terrain-qa\\followup-fixtures-2\\game-test-results.xml",
+      "tests": 10,
+      "failures": 0
+    }
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "status": "failed",
+  "failure": "java.lang.NullPointerException: Cannot invoke \"net.minecraft.client.Camera.getPosition()\" because \"this.camera\" is null",
+  "checks": [
+    "aoemod:textures/entity/orcz/orc_savage.png pack\u003dmod_resources sha256\u003d3cd1dc6a41b38fb7f75d931193f42320052a3c9ef83a43d9ee652c27be721318",
+    "aoemod:textures/entity/orcz/orc_savage_shield.png pack\u003dmod_resources sha256\u003d870f5f948c3b4f80182f67d6cca60ebf15ad639aed26686676cf36366537403e",
+    "aoemod:textures/entity/orcz/orc_savage_big_2sword.png pack\u003dmod_resources sha256\u003d6333a10d90ab6e3670a729b074bfe3fe57801a4c8530fb9599bac3f1d27669e3",
+    "Boss model retains all 32 native cuboids; only three shared sword UVs relocate to (80,80)",
+    "Both Twilight Forest models retain the original shield socket and visible shield.",
+    "Live Goblin Knight identity: name\u003dGoblin Knight, height\u003d2.65, nativeTranslation\u003dUpper Goblin Knight"
+  ]
+}

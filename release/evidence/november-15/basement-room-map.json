@@ -1,0 +1,16 @@
+{
+  "blueprintVersion": 4,
+  "source": "Read-only block-state capture from New World (2), aoemod:plains_dimension, authored basement beside player spawn (-1797,62,-1938)",
+  "body": {"width":61,"length":61,"hallWidth":11,"roomInterior":[11,11],"localBounds":[-30,13,30,73]},
+  "rowsFromEntrance": [
+    ["Wheat","Carrots","11-wide hall","Carrots","Wheat"],
+    ["Potatoes","Beetroot","11-wide hall","Beetroot","Potatoes"],
+    ["Mushrooms + two mines","Cabbage","11-wide hall","Cabbage","Blacksmith"],
+    ["Sugar cane + two mines","Kitchen","11-wide hall","Cows","Chickens"],
+    ["Pumpkins + two mines","Granary","11-wide hall","Pigs","Sheep"]
+  ],
+  "connections": "Three-wide doorways between neighboring rooms; three gates at pen entrances. No openings through the outside perimeter except the six mining shafts. The smith keeps its side workstations and connects through its inner neighboring room.",
+  "lighting": "Each room has five hanging lanterns: center and four two diagonal steps inward from wall corners. Three longitudinal hallway lantern rows maintain at least block light 8 at floor-air cells. Normal standing and wall torches emit 15.",
+  "legacy": "Existing v1/v2/v3 piece NBT retains its original geometry and door positions; newly generated mansions use v4. Only an explicit replacement command updates the saved manual placement record.",
+  "captureScope": "Block states only; no player data, inventories or entity NBT copied. Existing user saves and configs remain untouched."
+}

@@ -1,0 +1,16 @@
+allprojects {
+    afterEvaluate { p ->
+        if (!p.plugins.hasPlugin('net.minecraftforge.gradle')) return
+        p.tasks.matching { it.name in ['reobfJar', 'reobfJarJar'] }.configureEach { useArgsFile() }
+        def focused = p.gradle.startParameter.taskNames.any { it.tokenize(':').last() == 'runGameTestServer' }
+        p.buildDir = p.file(focused ? 'build/tropical-spawn-qa/tests' : 'build/tropical-spawn-qa/full')
+        if (focused) p.sourceSets.main.java.exclude { element ->
+            def path = element.relativePath.pathString
+            path.startsWith('net/amurdza/examplemod/gametest/') && element.file.name != 'TropicalPlayerSpawnTests.java'
+        }
+        p.minecraft.runs.gameTestServer {
+            workingDirectory p.file('build/tropical-spawn-qa/tests/run')
+            jvmArgs '-Xmx3G'
+        }
+    }
+}

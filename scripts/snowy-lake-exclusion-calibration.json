@@ -1,0 +1,56 @@
+{
+  "minecraft_version": "1.20.1",
+  "date": "2026-10-29",
+  "runtime_log": "build/snowy-lake-bank-final-20261029.log",
+  "lake_band": "abs(weirdness) < 0.1; stored quart lake columns also protected at boundaries",
+  "bank_slope_parameter": 1.0,
+  "bank_samples": [
+    {
+      "seed": 0,
+      "columns": 80,
+      "median": 1.845602882529175,
+      "p75": 2.576941016011038,
+      "p95": 4.692081094780865,
+      "deep_floor_range": [
+        12,
+        24
+      ]
+    },
+    {
+      "seed": 12345,
+      "columns": 80,
+      "median": 1.505199322349037,
+      "p75": 2.125,
+      "p95": 5.003124024047375,
+      "deep_floor_range": [
+        12,
+        29
+      ]
+    }
+  ],
+  "generated_lake": {
+    "chunk": [
+      281360,
+      -287500
+    ],
+    "stage": "CARVERS",
+    "protected_columns": 256,
+    "wet_columns": 256,
+    "solid_substrate_blocks": 31827,
+    "buried_air_or_fluid": 0
+  },
+  "cavity_sample_outside_lake_band": {
+    "seeds": [
+      12345,
+      98765,
+      -8152788754161584091
+    ],
+    "vanilla": 3993,
+    "expanded": 5154,
+    "volume_ratio": 1.2907588279489106,
+    "mushroom_solid": 9069,
+    "mushroom_open": 1283
+  },
+  "width_report": "scripts/snowy-width-calibration-040.json",
+  "limits": "Finite seeded samples. Bank target is a typical grade; retained vanilla noise still creates steeper local cliffs. The 50-block limit applies to the added lake depression, not a universal floor clamp. Existing chunks are not rewritten."
+}

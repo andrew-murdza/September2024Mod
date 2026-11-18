@@ -1,0 +1,883 @@
+{
+  "archive": "C:\\Users\\andre\\Downloads\\Games\\September2024Mod\\release\\texture-review-2026-11-08.zip",
+  "errors": [],
+  "coverage": [
+    {
+      "file": "after/assets/aoemod/textures/block/blue_berry_bush_stage2.png",
+      "kind": "verified edited PNG",
+      "status": "present and current"
+    },
+    {
+      "file": "after/assets/aoemod/textures/block/blue_berry_bush_stage3.png",
+      "kind": "verified edited PNG",
+      "status": "present and current"
+    },
+    {
+      "file": "after/assets/aoemod/textures/block/snowy_blue_berry_bush_stage2.png",
+      "kind": "verified edited PNG",
+      "status": "present and current"
+    },
+    {
+      "file": "after/assets/aoemod/textures/block/snowy_blue_berry_bush_stage3.png",
+      "kind": "verified edited PNG",
+      "status": "present and current"
+    },
+    {
+      "file": "after/assets/aoemod/textures/block/soul_soil_quartz_ore.png",
+      "kind": "verified edited PNG",
+      "status": "present and current"
+    },
+    {
+      "file": "after/assets/aoemod/textures/entity/arthropleura.png",
+      "kind": "verified edited PNG",
+      "status": "present and current"
+    },
+    {
+      "file": "after/assets/aoemod/textures/entity/cephalopod/arrow_squid/arrow_squid.png",
+      "kind": "verified edited PNG",
+      "status": "present and current"
+    },
+    {
+      "file": "after/assets/aoemod/textures/entity/orcz/orc_savage.png",
+      "kind": "verified edited PNG",
+      "status": "present and current"
+    },
+    {
+      "file": "after/assets/aoemod/textures/entity/orcz/orc_savage_big_2sword.png",
+      "kind": "verified edited PNG",
+      "status": "present and current"
+    },
+    {
+      "file": "after/assets/aoemod/textures/entity/orcz/orc_savage_shield.png",
+      "kind": "verified edited PNG",
+      "status": "present and current"
+    },
+    {
+      "file": "after/assets/aoemod/textures/entity/spider_queen.png",
+      "kind": "verified edited PNG",
+      "status": "present and current"
+    },
+    {
+      "file": "after/assets/aoemod/textures/item/cooked_anglerfish.png",
+      "kind": "verified edited PNG",
+      "status": "present and current"
+    },
+    {
+      "file": "after/assets/aoemod/textures/item/cooked_anomalocaris.png",
+      "kind": "verified edited PNG",
+      "status": "present and current"
+    },
+    {
+      "file": "after/assets/aoemod/textures/item/cooked_arrow_squid.png",
+      "kind": "verified edited PNG",
+      "status": "present and current"
+    },
+    {
+      "file": "after/assets/aoemod/textures/item/cooked_blue_spotted_stingray.png",
+      "kind": "verified edited PNG",
+      "status": "present and current"
+    },
+    {
+      "file": "after/assets/aoemod/textures/item/cooked_carp.png",
+      "kind": "verified edited PNG",
+      "status": "present and current"
+    },
+    {
+      "file": "after/assets/aoemod/textures/item/cooked_crab_meat.png",
+      "kind": "verified edited PNG",
+      "status": "present and current"
+    },
+    {
+      "file": "after/assets/aoemod/textures/item/cooked_flying_fish.png",
+      "kind": "verified edited PNG",
+      "status": "present and current"
+    },
+    {
+      "file": "after/assets/aoemod/textures/item/cooked_mahi_mahi.png",
+      "kind": "verified edited PNG",
+      "status": "present and current"
+    },
+    {
+      "file": "after/assets/aoemod/textures/item/cooked_octopus.png",
+      "kind": "verified edited PNG",
+      "status": "present and current"
+    },
+    {
+      "file": "after/assets/aoemod/textures/item/cooked_rubber_belly_glider.png",
+      "kind": "verified edited PNG",
+      "status": "present and current"
+    },
+    {
+      "file": "after/assets/aoemod/textures/item/cooked_starfish.png",
+      "kind": "verified edited PNG",
+      "status": "present and current"
+    },
+    {
+      "file": "after/assets/aoemod/textures/item/cooked_swamp_mucker.png",
+      "kind": "verified edited PNG",
+      "status": "present and current"
+    },
+    {
+      "file": "after/assets/aoemod/textures/item/cooked_triops.png",
+      "kind": "verified edited PNG",
+      "status": "present and current"
+    },
+    {
+      "file": "after/assets/aoemod/textures/item/cooked_tuna.png",
+      "kind": "verified edited PNG",
+      "status": "present and current"
+    },
+    {
+      "file": "after/assets/aoemod/textures/item/cooked_umbrella_octopus.png",
+      "kind": "verified edited PNG",
+      "status": "present and current"
+    },
+    {
+      "file": "after/assets/aoemod/textures/item/cooked_vampire_squid.png",
+      "kind": "verified edited PNG",
+      "status": "present and current"
+    },
+    {
+      "file": "after/assets/aoemod/textures/item/plum.png",
+      "kind": "verified edited PNG",
+      "status": "present and current"
+    },
+    {
+      "file": "after/assets/aoemod/textures/item/raw_anglerfish.png",
+      "kind": "verified edited PNG",
+      "status": "present and current"
+    },
+    {
+      "file": "after/assets/aoemod/textures/item/raw_anomalocaris.png",
+      "kind": "verified edited PNG",
+      "status": "present and current"
+    },
+    {
+      "file": "after/assets/aoemod/textures/item/raw_arrow_squid.png",
+      "kind": "verified edited PNG",
+      "status": "present and current"
+    },
+    {
+      "file": "after/assets/aoemod/textures/item/raw_blue_spotted_stingray.png",
+      "kind": "verified edited PNG",
+      "status": "present and current"
+    },
+    {
+      "file": "after/assets/aoemod/textures/item/raw_mahi_mahi.png",
+      "kind": "verified edited PNG",
+      "status": "present and current"
+    },
+    {
+      "file": "after/assets/aoemod/textures/item/raw_octopus.png",
+      "kind": "verified edited PNG",
+      "status": "present and current"
+    },
+    {
+      "file": "after/assets/aoemod/textures/item/raw_rubber_belly_glider.png",
+      "kind": "verified edited PNG",
+      "status": "present and current"
+    },
+    {
+      "file": "after/assets/aoemod/textures/item/raw_triops.png",
+      "kind": "verified edited PNG",
+      "status": "present and current"
+    },
+    {
+      "file": "after/assets/aoemod/textures/item/raw_umbrella_octopus.png",
+      "kind": "verified edited PNG",
+      "status": "present and current"
+    },
+    {
+      "file": "after/assets/aoemod/textures/item/raw_vampire_squid.png",
+      "kind": "verified edited PNG",
+      "status": "present and current"
+    },
+    {
+      "file": "after/assets/aoemod/textures/item/soul_beetroot_soup.png",
+      "kind": "verified edited PNG",
+      "status": "present and current"
+    },
+    {
+      "file": "after/assets/hearthandharvest/textures/block/corn_bottom_stage_0.png",
+      "kind": "verified edited PNG",
+      "status": "present and current"
+    },
+    {
+      "file": "after/assets/hearthandharvest/textures/block/corn_bottom_stage_1.png",
+      "kind": "verified edited PNG",
+      "status": "present and current"
+    },
+    {
+      "file": "after/assets/hearthandharvest/textures/block/corn_bottom_stage_2.png",
+      "kind": "verified edited PNG",
+      "status": "present and current"
+    },
+    {
+      "file": "after/assets/hearthandharvest/textures/block/corn_bottom_stage_3.png",
+      "kind": "verified edited PNG",
+      "status": "present and current"
+    },
+    {
+      "file": "after/assets/hearthandharvest/textures/block/corn_bottom_stage_4.png",
+      "kind": "verified edited PNG",
+      "status": "present and current"
+    },
+    {
+      "file": "after/assets/hearthandharvest/textures/block/corn_bottom_stage_5.png",
+      "kind": "verified edited PNG",
+      "status": "present and current"
+    },
+    {
+      "file": "after/assets/hearthandharvest/textures/block/corn_middle_stage_0.png",
+      "kind": "verified edited PNG",
+      "status": "present and current"
+    },
+    {
+      "file": "after/assets/hearthandharvest/textures/block/corn_middle_stage_1.png",
+      "kind": "verified edited PNG",
+      "status": "present and current"
+    },
+    {
+      "file": "after/assets/hearthandharvest/textures/block/corn_middle_stage_2.png",
+      "kind": "verified edited PNG",
+      "status": "present and current"
+    },
+    {
+      "file": "after/assets/hearthandharvest/textures/block/corn_middle_stage_3.png",
+      "kind": "verified edited PNG",
+      "status": "present and current"
+    },
+    {
+      "file": "after/assets/hearthandharvest/textures/block/corn_middle_stage_4.png",
+      "kind": "verified edited PNG",
+      "status": "present and current"
+    },
+    {
+      "file": "after/assets/hearthandharvest/textures/block/corn_middle_stage_5.png",
+      "kind": "verified edited PNG",
+      "status": "present and current"
+    },
+    {
+      "file": "after/assets/hearthandharvest/textures/block/corn_top_stage_0.png",
+      "kind": "verified edited PNG",
+      "status": "present and current"
+    },
+    {
+      "file": "after/assets/hearthandharvest/textures/block/corn_top_stage_1.png",
+      "kind": "verified edited PNG",
+      "status": "present and current"
+    },
+    {
+      "file": "after/assets/hearthandharvest/textures/block/corn_top_stage_2.png",
+      "kind": "verified edited PNG",
+      "status": "present and current"
+    },
+    {
+      "file": "after/assets/hearthandharvest/textures/block/corn_top_stage_3.png",
+      "kind": "verified edited PNG",
+      "status": "present and current"
+    },
+    {
+      "file": "after/assets/hearthandharvest/textures/block/corn_top_stage_4.png",
+      "kind": "verified edited PNG",
+      "status": "present and current"
+    },
+    {
+      "file": "after/assets/hearthandharvest/textures/block/corn_top_stage_5.png",
+      "kind": "verified edited PNG",
+      "status": "present and current"
+    },
+    {
+      "file": "after/assets/hybrid_aquatic/textures/item/mahi.png",
+      "kind": "verified edited PNG",
+      "status": "present and current"
+    },
+    {
+      "file": "after/assets/aoemod/geo/cephalopod/arrow_squid/arrow_squid.geo.json",
+      "kind": "modified geometry",
+      "status": "present and current"
+    },
+    {
+      "file": "after/assets/aoemod/geo/critter/starfish/starfish.geo.json",
+      "kind": "modified geometry",
+      "status": "present and current"
+    },
+    {
+      "file": "after/assets/aoemod/geo/critter/starfish/starfish_crown_of_thorns.geo.json",
+      "kind": "modified geometry",
+      "status": "present and current"
+    },
+    {
+      "file": "after/assets/aoemod/geo/critter/starfish/starfish_small.geo.json",
+      "kind": "modified geometry",
+      "status": "present and current"
+    },
+    {
+      "file": "after/assets/aoemod/geo/crustacean/flower_crab/flower_crab.geo.json",
+      "kind": "modified geometry",
+      "status": "present and current"
+    },
+    {
+      "file": "after/assets/aoemod/geo/crustacean/lightfoot_crab/lightfoot_crab.geo.json",
+      "kind": "modified geometry",
+      "status": "present and current"
+    },
+    {
+      "file": "after/assets/aoemod/geo/illager_king.geo.json",
+      "kind": "modified geometry",
+      "status": "present and current"
+    },
+    {
+      "file": "after/assets/aoemod/animations/entity/crustacean/flower_crab/flower_crab.animation.json",
+      "kind": "modified animation",
+      "status": "present and current"
+    },
+    {
+      "file": "after/assets/aoemod/animations/entity/crustacean/lightfoot_crab/lightfoot_crab.animation.json",
+      "kind": "modified animation",
+      "status": "present and current"
+    },
+    {
+      "file": "after/source/entity/model/ArthropleuraModel.java",
+      "kind": "implementation source",
+      "status": "present and current"
+    },
+    {
+      "file": "after/source/entity/render/ArthropleuraRenderer.java",
+      "kind": "implementation source",
+      "status": "present and current"
+    },
+    {
+      "file": "after/source/entity/ArthropleuraEntity.java",
+      "kind": "implementation source",
+      "status": "present and current"
+    },
+    {
+      "file": "after/source/entity/SpiderQueenEntity.java",
+      "kind": "implementation source",
+      "status": "present and current"
+    },
+    {
+      "file": "after/source/entity/render/SpiderQueenRenderer.java",
+      "kind": "implementation source",
+      "status": "present and current"
+    },
+    {
+      "file": "after/source/entity/model/IllagerLordModel.java",
+      "kind": "implementation source",
+      "status": "present and current"
+    },
+    {
+      "file": "after/source/entity/render/IllagerLordRenderer.java",
+      "kind": "implementation source",
+      "status": "present and current"
+    },
+    {
+      "file": "after/source/client/StalkerGlowLayer.java",
+      "kind": "implementation source",
+      "status": "present and current"
+    },
+    {
+      "file": "after/source/mixins/othermods/orcz/BoneBossSwordUV.java",
+      "kind": "implementation source",
+      "status": "present and current"
+    },
+    {
+      "file": "after/source/util/StingrayTextureColors.java",
+      "kind": "implementation source",
+      "status": "present and current"
+    },
+    {
+      "file": "after/source/util/AquaticMobSizes.java",
+      "kind": "implementation source",
+      "status": "present and current"
+    },
+    {
+      "file": "after/source/mixins/othermods/hybridaquatic/TallCrabModels.java",
+      "kind": "implementation source",
+      "status": "present and current"
+    },
+    {
+      "file": "after/source/mixins/othermods/hybridaquatic/TallCrabRenderer.java",
+      "kind": "implementation source",
+      "status": "present and current"
+    },
+    {
+      "file": "after/source/mixins/othermods/hybridaquatic/ArrowSquidModel.java",
+      "kind": "implementation source",
+      "status": "present and current"
+    },
+    {
+      "file": "after/source/mixins/othermods/hybridaquatic/StarfishModels.java",
+      "kind": "implementation source",
+      "status": "present and current"
+    },
+    {
+      "file": "after/source/portal/PortalDestination.java",
+      "kind": "implementation source",
+      "status": "present and current"
+    },
+    {
+      "file": "after/source/client/PortalTexturePack.java",
+      "kind": "implementation source",
+      "status": "present and current"
+    },
+    {
+      "file": "after/source/client/PortalClient.java",
+      "kind": "implementation source",
+      "status": "present and current"
+    },
+    {
+      "file": "after/assets/aoemod/textures/entity/illager_lord.png",
+      "kind": "companion model/texture/animation",
+      "status": "present and current"
+    },
+    {
+      "file": "after/assets/aoemod/animations/illager_lord.animation.json",
+      "kind": "companion model/texture/animation",
+      "status": "present and current"
+    },
+    {
+      "file": "after/assets/aoemod/models/block/wooden_portal_x.json",
+      "kind": "companion model/texture/animation",
+      "status": "present and current"
+    },
+    {
+      "file": "after/assets/aoemod/models/block/wooden_portal_z.json",
+      "kind": "companion model/texture/animation",
+      "status": "present and current"
+    },
+    {
+      "file": "after/assets/aoemod/models/block/blue_berry_bush_stage0.json",
+      "kind": "berry model and snow mapping",
+      "status": "present and current"
+    },
+    {
+      "file": "after/assets/aoemod/models/block/blue_berry_bush_stage0.json.mcmeta",
+      "kind": "berry model and snow mapping",
+      "status": "present and current"
+    },
+    {
+      "file": "after/assets/aoemod/models/block/blue_berry_bush_stage1.json",
+      "kind": "berry model and snow mapping",
+      "status": "present and current"
+    },
+    {
+      "file": "after/assets/aoemod/models/block/blue_berry_bush_stage1.json.mcmeta",
+      "kind": "berry model and snow mapping",
+      "status": "present and current"
+    },
+    {
+      "file": "after/assets/aoemod/models/block/blue_berry_bush_stage2.json",
+      "kind": "berry model and snow mapping",
+      "status": "present and current"
+    },
+    {
+      "file": "after/assets/aoemod/models/block/blue_berry_bush_stage2.json.mcmeta",
+      "kind": "berry model and snow mapping",
+      "status": "present and current"
+    },
+    {
+      "file": "after/assets/aoemod/models/block/blue_berry_bush_stage3.json",
+      "kind": "berry model and snow mapping",
+      "status": "present and current"
+    },
+    {
+      "file": "after/assets/aoemod/models/block/blue_berry_bush_stage3.json.mcmeta",
+      "kind": "berry model and snow mapping",
+      "status": "present and current"
+    },
+    {
+      "file": "after/assets/aoemod/models/block/snowy_blue_berry_bush_stage0.json",
+      "kind": "berry model and snow mapping",
+      "status": "present and current"
+    },
+    {
+      "file": "after/assets/aoemod/models/block/snowy_blue_berry_bush_stage1.json",
+      "kind": "berry model and snow mapping",
+      "status": "present and current"
+    },
+    {
+      "file": "after/assets/aoemod/models/block/snowy_blue_berry_bush_stage2.json",
+      "kind": "berry model and snow mapping",
+      "status": "present and current"
+    },
+    {
+      "file": "after/assets/aoemod/models/block/snowy_blue_berry_bush_stage3.json",
+      "kind": "berry model and snow mapping",
+      "status": "present and current"
+    },
+    {
+      "file": "after/runtime-assets/aoemod/textures/block/tropical_azalea_leaves.png",
+      "kind": "runtime-generated resource",
+      "status": "present and current"
+    },
+    {
+      "file": "after/runtime-assets/aoemod/textures/block/tropical_flowering_azalea_leaves.png",
+      "kind": "runtime-generated resource",
+      "status": "present and current"
+    },
+    {
+      "file": "after/runtime-assets/aoemod/textures/block/wooden_portal.png",
+      "kind": "runtime-generated resource",
+      "status": "present and current"
+    },
+    {
+      "file": "after/runtime-assets/aoemod/textures/block/wooden_portal.png.mcmeta",
+      "kind": "runtime-generated resource",
+      "status": "present and current"
+    },
+    {
+      "file": "after/runtime-assets/ambientadditions/textures/entity/blue_spotted_stingray.png",
+      "kind": "runtime-generated resource",
+      "status": "present and current"
+    },
+    {
+      "file": "after/assets/hybrid_aquatic/animations/entity/cephalopod/arrow_squid/arrow_squid.animation.json",
+      "kind": "native swimming animation for revised arrow squid",
+      "status": "present"
+    },
+    {
+      "file": "before/assets/outer_end/textures/entity/stalker_rose.png",
+      "kind": "native rose stalker reference",
+      "status": "present"
+    },
+    {
+      "file": "before/assets/outer_end/textures/entity/stalker_roseglow.png",
+      "kind": "native rose stalker reference",
+      "status": "present"
+    },
+    {
+      "file": "after/assets/aoemod/blockstates/overworld_portal.json",
+      "kind": "portal blockstate",
+      "status": "present and current"
+    },
+    {
+      "file": "after/runtime-assets/portal-colors/overworld_portal.png",
+      "kind": "destination-tinted animation",
+      "status": "present"
+    },
+    {
+      "file": "after/runtime-assets/portal-colors/overworld_portal.png.mcmeta",
+      "kind": "destination-tinted animation",
+      "status": "present"
+    },
+    {
+      "file": "after/assets/aoemod/blockstates/tropical_portal.json",
+      "kind": "portal blockstate",
+      "status": "present and current"
+    },
+    {
+      "file": "after/runtime-assets/portal-colors/tropical_portal.png",
+      "kind": "destination-tinted animation",
+      "status": "present"
+    },
+    {
+      "file": "after/runtime-assets/portal-colors/tropical_portal.png.mcmeta",
+      "kind": "destination-tinted animation",
+      "status": "present"
+    },
+    {
+      "file": "after/assets/aoemod/blockstates/savanna_portal.json",
+      "kind": "portal blockstate",
+      "status": "present and current"
+    },
+    {
+      "file": "after/runtime-assets/portal-colors/savanna_portal.png",
+      "kind": "destination-tinted animation",
+      "status": "present"
+    },
+    {
+      "file": "after/runtime-assets/portal-colors/savanna_portal.png.mcmeta",
+      "kind": "destination-tinted animation",
+      "status": "present"
+    },
+    {
+      "file": "after/assets/aoemod/blockstates/plains_portal.json",
+      "kind": "portal blockstate",
+      "status": "present and current"
+    },
+    {
+      "file": "after/runtime-assets/portal-colors/plains_portal.png",
+      "kind": "destination-tinted animation",
+      "status": "present"
+    },
+    {
+      "file": "after/runtime-assets/portal-colors/plains_portal.png.mcmeta",
+      "kind": "destination-tinted animation",
+      "status": "present"
+    },
+    {
+      "file": "after/assets/aoemod/blockstates/snowy_portal.json",
+      "kind": "portal blockstate",
+      "status": "present and current"
+    },
+    {
+      "file": "after/runtime-assets/portal-colors/snowy_portal.png",
+      "kind": "destination-tinted animation",
+      "status": "present"
+    },
+    {
+      "file": "after/runtime-assets/portal-colors/snowy_portal.png.mcmeta",
+      "kind": "destination-tinted animation",
+      "status": "present"
+    },
+    {
+      "file": "after/assets/aoemod/blockstates/desert_portal.json",
+      "kind": "portal blockstate",
+      "status": "present and current"
+    },
+    {
+      "file": "after/runtime-assets/portal-colors/desert_portal.png",
+      "kind": "destination-tinted animation",
+      "status": "present"
+    },
+    {
+      "file": "after/runtime-assets/portal-colors/desert_portal.png.mcmeta",
+      "kind": "destination-tinted animation",
+      "status": "present"
+    },
+    {
+      "file": "after/assets/aoemod/blockstates/nether_portal.json",
+      "kind": "portal blockstate",
+      "status": "present and current"
+    },
+    {
+      "file": "after/runtime-assets/portal-colors/nether_portal.png",
+      "kind": "destination-tinted animation",
+      "status": "present"
+    },
+    {
+      "file": "after/runtime-assets/portal-colors/nether_portal.png.mcmeta",
+      "kind": "destination-tinted animation",
+      "status": "present"
+    },
+    {
+      "file": "seafood/raw/hybrid_aquatic__mahi.png",
+      "kind": "seafood pair raw",
+      "status": "present"
+    },
+    {
+      "file": "seafood/cooked/aoemod__cooked_mahi_mahi.png",
+      "kind": "seafood pair cooked",
+      "status": "present"
+    },
+    {
+      "file": "seafood/raw/aoemod__raw_anomalocaris.png",
+      "kind": "seafood pair raw",
+      "status": "present"
+    },
+    {
+      "file": "seafood/cooked/aoemod__cooked_anomalocaris.png",
+      "kind": "seafood pair cooked",
+      "status": "present"
+    },
+    {
+      "file": "seafood/raw/aoemod__raw_rubber_belly_glider.png",
+      "kind": "seafood pair raw",
+      "status": "present"
+    },
+    {
+      "file": "seafood/cooked/aoemod__cooked_rubber_belly_glider.png",
+      "kind": "seafood pair cooked",
+      "status": "present"
+    },
+    {
+      "file": "seafood/raw/alexsmobs__flying_fish.png",
+      "kind": "seafood pair raw",
+      "status": "present"
+    },
+    {
+      "file": "seafood/cooked/aoemod__cooked_flying_fish.png",
+      "kind": "seafood pair cooked",
+      "status": "present"
+    },
+    {
+      "file": "seafood/raw/aoemod__raw_triops.png",
+      "kind": "seafood pair raw",
+      "status": "present"
+    },
+    {
+      "file": "seafood/cooked/aoemod__cooked_triops.png",
+      "kind": "seafood pair cooked",
+      "status": "present"
+    },
+    {
+      "file": "seafood/raw/aoemod__raw_blue_spotted_stingray.png",
+      "kind": "seafood pair raw",
+      "status": "present"
+    },
+    {
+      "file": "seafood/cooked/aoemod__cooked_blue_spotted_stingray.png",
+      "kind": "seafood pair cooked",
+      "status": "present"
+    },
+    {
+      "file": "seafood/raw/ecologics__crab_meat.png",
+      "kind": "seafood pair raw",
+      "status": "present"
+    },
+    {
+      "file": "seafood/cooked/aoemod__cooked_crab_meat.png",
+      "kind": "seafood pair cooked",
+      "status": "present"
+    },
+    {
+      "file": "seafood/raw/ecologics__crab_meat.png",
+      "kind": "seafood pair raw",
+      "status": "present"
+    },
+    {
+      "file": "seafood/cooked/aoemod__cooked_crab_meat.png",
+      "kind": "seafood pair cooked",
+      "status": "present"
+    },
+    {
+      "file": "seafood/raw/ecologics__crab_meat.png",
+      "kind": "seafood pair raw",
+      "status": "present"
+    },
+    {
+      "file": "seafood/cooked/aoemod__cooked_crab_meat.png",
+      "kind": "seafood pair cooked",
+      "status": "present"
+    },
+    {
+      "file": "seafood/raw/hybrid_aquatic__starfish.png",
+      "kind": "seafood pair raw",
+      "status": "present"
+    },
+    {
+      "file": "seafood/cooked/aoemod__cooked_starfish.png",
+      "kind": "seafood pair cooked",
+      "status": "present"
+    },
+    {
+      "file": "seafood/raw/aoemod__raw_octopus.png",
+      "kind": "seafood pair raw",
+      "status": "present"
+    },
+    {
+      "file": "seafood/cooked/aoemod__cooked_octopus.png",
+      "kind": "seafood pair cooked",
+      "status": "present"
+    },
+    {
+      "file": "seafood/raw/aoemod__raw_umbrella_octopus.png",
+      "kind": "seafood pair raw",
+      "status": "present"
+    },
+    {
+      "file": "seafood/cooked/aoemod__cooked_umbrella_octopus.png",
+      "kind": "seafood pair cooked",
+      "status": "present"
+    },
+    {
+      "file": "seafood/raw/hybrid_aquatic__carp.png",
+      "kind": "seafood pair raw",
+      "status": "present"
+    },
+    {
+      "file": "seafood/cooked/aoemod__cooked_carp.png",
+      "kind": "seafood pair cooked",
+      "status": "present"
+    },
+    {
+      "file": "seafood/raw/finsandtails__swamp_mucker.png",
+      "kind": "seafood pair raw",
+      "status": "present"
+    },
+    {
+      "file": "seafood/cooked/aoemod__cooked_swamp_mucker.png",
+      "kind": "seafood pair cooked",
+      "status": "present"
+    },
+    {
+      "file": "seafood/raw/aoemod__raw_arrow_squid.png",
+      "kind": "seafood pair raw",
+      "status": "present"
+    },
+    {
+      "file": "seafood/cooked/aoemod__cooked_arrow_squid.png",
+      "kind": "seafood pair cooked",
+      "status": "present"
+    },
+    {
+      "file": "seafood/raw/aoemod__raw_vampire_squid.png",
+      "kind": "seafood pair raw",
+      "status": "present"
+    },
+    {
+      "file": "seafood/cooked/aoemod__cooked_vampire_squid.png",
+      "kind": "seafood pair cooked",
+      "status": "present"
+    },
+    {
+      "file": "seafood/raw/hybrid_aquatic__tuna.png",
+      "kind": "seafood pair raw",
+      "status": "present"
+    },
+    {
+      "file": "seafood/cooked/aoemod__cooked_tuna.png",
+      "kind": "seafood pair cooked",
+      "status": "present"
+    },
+    {
+      "file": "seafood/raw/aoemod__raw_anglerfish.png",
+      "kind": "seafood pair raw",
+      "status": "present"
+    },
+    {
+      "file": "seafood/cooked/aoemod__cooked_anglerfish.png",
+      "kind": "seafood pair cooked",
+      "status": "present"
+    },
+    {
+      "file": "seafood/raw/ecologics__crab_meat.png",
+      "kind": "seafood pair raw",
+      "status": "present"
+    },
+    {
+      "file": "seafood/cooked/aoemod__cooked_crab_meat.png",
+      "kind": "seafood pair cooked",
+      "status": "present"
+    }
+  ],
+  "forbidden_entries": [],
+  "intentionally_excluded_verified_artwork": [
+    "aoemod/textures/item/cooked_glow_squid.png",
+    "aoemod/textures/item/cooked_squid.png",
+    "aoemod/textures/item/cooked_sulfur_end_fish.png",
+    "aoemod/textures/item/cooked_warped_toad.png",
+    "aoemod/textures/item/raw_glow_squid.png",
+    "aoemod/textures/item/raw_squid.png",
+    "aoemod/textures/item/raw_warped_toad.png",
+    "aoemod/textures/item/sulfur_end_fish.png"
+  ],
+  "historical_inventory_files_absent_from_workspace": [],
+  "portal_colors": {
+    "overworld": "86A9DC",
+    "tropical": "48D05A",
+    "savanna": "E99D36",
+    "plains": "929292",
+    "snowy": "FFFFFF",
+    "desert": "F8DD39",
+    "nether": "EF4444"
+  },
+  "seafood_pairs": 19,
+  "screenshots": {
+    "before": {
+      "views": 72,
+      "pngs": 72,
+      "source": "Actual Minecraft world framebuffer: live server-spawned mobs, water or land habitat, ordinary world-rendered blocks"
+    },
+    "after": {
+      "views": 114,
+      "pngs": 114,
+      "source": "Actual Minecraft world framebuffer: live server-spawned mobs, water or land habitat, ordinary world-rendered blocks"
+    }
+  },
+  "checksum_verified_files": 450,
+  "archive_files": 451,
+  "status": "passed"
+}

@@ -1,5 +1,11 @@
 {
-  "carvers": {},
+  "carvers": {
+    "air": [
+      "aoemod:plains/cave",
+      "aoemod:plains/cave_extra_underground",
+      "aoemod:plains/canyon"
+    ]
+  },
   "downfall": 0.5,
   "effects": {
     "fog_color": 12638463,
@@ -25,14 +31,16 @@
       "aoemod:dimension_blobs/plains/diorite",
       "aoemod:dimension_blobs/plains/granite",
       "aoemod:dimension_blobs/plains/gravel",
-      "aoemod:blobs/clay",
       "aoemod:blobs/gravel",
       "aoemod:dimension_ores/plains/coal_upper",
       "aoemod:dimension_ores/plains/coal_lower",
       "aoemod:dimension_ores/plains/iron_main",
       "aoemod:dimension_ores/plains/iron_scattered",
       "aoemod:dimension_ores/plains/copper",
-      "aoemod:dimension_ores/plains/gold"
+      "aoemod:dimension_ores/plains/gold",
+      "aoemod:plains/disk_sand",
+      "aoemod:plains/disk_clay",
+      "aoemod:plains/disk_gravel"
     ],
     [],
     [],
@@ -102,12 +110,6 @@
         "weight": 1
       },
       {
-        "type": "naturalist:deer",
-        "maxCount": 5,
-        "minCount": 2,
-        "weight": 5
-      },
-      {
         "type": "ecologics:squirrel",
         "maxCount": 5,
         "minCount": 2,
@@ -162,20 +164,13 @@
         "maxCount": 8
       },
       {
-        "type": "alexsmobs:lobster",
+        "type": "hybrid_aquatic:flower_crab",
         "weight": 10,
         "minCount": 4,
         "maxCount": 4
       }
     ],
-    "water_creature": [
-      {
-        "type": "minecraft:squid",
-        "weight": 10,
-        "minCount": 4,
-        "maxCount": 6
-      }
-    ]
+    "water_creature": []
   },
   "temperature": 0.5
 }

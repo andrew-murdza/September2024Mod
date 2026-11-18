@@ -19,8 +19,7 @@ public abstract class BackportConfigPolicy {
     @Unique
     private static final Set<String> AOE_DISABLED_OPTIONS = Set.of(
             "Copper Age.enable_dye_palettes", "Copper Age.enable_modern_dye_textures",
-            "The Garden Awakens.pale_garden", "The Garden Awakens.creaking",
-            "The Garden Awakens.resin", "The Garden Awakens.resin_loot",
+            "The Garden Awakens.pale_garden", "The Garden Awakens.do_creaking_hearts_work_on_day",
             "The Garden Awakens.pale_trades", "Chase the Skies.dried_ghasts",
             "Spring to Life.spring_trades",
             "Chase the Skies.tears_music_disc", "Chase the Skies.enable_locator_bar",
@@ -34,6 +33,8 @@ public abstract class BackportConfigPolicy {
     private void aoe$enforceBackportExclusions(CallbackInfoReturnable<Object> cir) {
         String path = String.join(".", getPath());
         if (AOE_DISABLED_OPTIONS.contains(path)) cir.setReturnValue(false);
+        if (path.equals("The Garden Awakens.creaking") || path.equals("The Garden Awakens.resin")
+                || path.equals("The Garden Awakens.resin_loot")) cir.setReturnValue(true);
         if (path.equals("Mounts of Mayhem.zombie_nautilus_spawn_chance")) cir.setReturnValue(0.0D);
         if (path.equals("Bundles of Bravery.bundle_recipe")
                 || path.equals("The Garden Awakens.lead_recipe")

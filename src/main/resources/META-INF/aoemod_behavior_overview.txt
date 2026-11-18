@@ -22,11 +22,13 @@ The vanilla Overworld override and the former aoemod:aoedim dimension type/noise
 - aoemod:tropical_dimension: coral_reef, mangrove_swamp, rainforest, cherry_grove, lush_caves.
 - aoemod:savanna_dimension: savanna.
 - aoemod:plains_dimension: plains.
-- aoemod:snowy_dimension: snowy_forest, mushroom_caves, dripstone_caves.
+- aoemod:snowy_dimension: snowy_forest (displayed as Snowy Taiga), dappled_forest, cold_ocean, mushroom_caves. Legacy dripstone-cave resources remain registered.
 - aoemod:desert_dimension: desert, mesa, deep_dark.
 - aoemod:nether_dimension: crimson_forest, warped_forest, soul_sand_valley, basalt_deltas.
 
 Every biome listed above belongs to the aoemod namespace. The jungle and grove biome IDs became rainforest and snowy_forest. Climate-based biome selection replaces the old repeating-band lookup overrides. Legacy density-function and feature definitions remain registered for compatibility, but the six generators do not invoke the former giant band-aligned cave features.
+
+Snowy surface habitats follow absolute weirdness: below 0.1 is Mountain Lake (legacy Cold Ocean), 0.1 through 0.4 is Dappled Forest, and above 0.4 is Snowy Taiga. Lake columns have no underground caves; their rain climate and explicit decoration produce no snow. Dappled water and fog match the lake. Mushroom Caves is an exact Y=-32 through -1 biome band independent of X/Z. Ice and Fire and its hippocampuses have been removed; Nautilus ownership, persistence and riding remain unchanged. Poplars are dappled-only; taiga averages 0.975 regular-spruce and 0.15 giant-spruce attempts per chunk (1.125 total, down 25% while preserving giants). Dappled poplar opportunities are halved and spruce opportunities increase 50%. Spruce in both Snowy forests gains four bare-trunk blocks, raising its crown and total height by four blocks for natural and sapling-grown trees. Giant spruce additionally raises its minimum height four blocks and mean two, retaining its maximum. Plains trees gain one block and keep two-block foliage clearance on flat ground. Two six-bush patches each of sweet and blue berries form a central 2-by-2 chunk cluster per suitable 240-by-240 tile. Dappled grass drops oat seeds; taiga grass drops beetroot seeds. Yaks are dappled-only; goats and reindeer remain taiga-only. Giant mushglooms use two cap layers and reject stone intersections. Mushroom-cave mycelium includes the floor immediately below the biome band, replaces exposed ores and cannot be replaced by ore generation. Suitable Plains and Savanna land tiles reserve a bee tree; ocean-only tiles omit the tree and remain untouched. Savanna land/detail firstOctave values are now -11/-8, two below the preceding -9/-6 settings, with unchanged amplitudes, X/Z scale 2.35 and shoreline threshold -0.5. Four-times-wider noise cycles are paired with four times the complete height deviation from shoreline 61.5, preserving the land and underwater slope scale while yielding larger lakes and higher hills. The deepest solid bed is Y35, with up to 27 water blocks at Y36-Y62; the upper contour remains uncapped. Individual lake shapes and locations change with octave-specific seeds. A four-seed audit measured median complete-lake area increasing from 5,984 to 86,016 square blocks (14.37 times), the highest sampled dry block rising from Y73 to Y103, and water coverage changing from 4.01902% to 3.69482%. Mean Euclidean dry/underwater/bank slopes changed by -1.50%/+1.96%/+1.58%; exact fourfold profile scaling and resource octave values were also verified. Finite-sample results and limits are in scripts/savanna-octave-calibration.json. Saved generator lists migrate without rewriting old chunks.
 
 Tropical terrain uses moss, Savanna uses mud with grass/soil surfaces, Plains uses stone, Snowy uses stone/deepslate with mushroom-cave mycelium, and Desert uses its terracotta/sand surfaces with deep-dark sculk/deepslate. Nether cave terrain uses netherrack/nylium in the two forest biomes, soul sediments in soul sand valley, and basalt/blackstone in basalt deltas. The first four dimensions omit Minecraft's hardcoded deep-lava height range; lava remains available in Desert and Nether.
 
@@ -48,7 +50,7 @@ Jungle:
 
 Savanna:
 
-- Common monsters include zombie, skeleton, and Born in Chaos senor pumpkin.
+- Common monsters include zombie and skeleton.
 - Water life includes squid, pufferfish, cod, lobster, tropical fish, salmon, and arrow squid.
 - Creatures include horse, llama, donkey, rabbit, deer, chicken, cow, sheep, pig, squirrel, emu, bison, moose, gazelle, and boar.
 
@@ -84,12 +86,11 @@ Soul Sand Valley:
 Warped Forest:
 
 - Common monsters include zoglin and creeper.
-- Warped toads spawn as a creature group.
+- Striders spawn as a creature group.
 
 Crimson Forest:
 
 - Hoglins spawn as a creature group.
-- Nether fish spawn naturally in lava-like water ambient slots.
 
 Basalt Deltas:
 
@@ -97,7 +98,7 @@ Basalt Deltas:
 - Striders spawn as a creature group.
 - Lava/water ambient life includes glowdine, searing cod, and cubozoa.
 
-The mod also uses custom mob caps/categories for some cave creature groups. Mushroom cave creatures are focused around mooshrooms, and nether cave creature groups include hoglins, striders, and warped toads.
+The mod also uses custom mob caps/categories for some cave creature groups. Mushroom cave creatures are focused around mooshrooms, and nether cave creature groups include hoglins and striders.
 
 
 3. Structures and cave systems
@@ -237,12 +238,6 @@ Coral and seagrass features:
 5. New blocks
 -------------
 
-Soul berry bush:
-
-- A sweet-berry-like bush that grows on soul sand and soul soil.
-- Drops soul berries.
-- Random tick growth and harvest amount are controlled by mod block behavior configuration.
-
 Blue berry bush:
 
 - A sweet-berry-like bush that uses Fruits Delight blueberries as the item.
@@ -350,18 +345,14 @@ Fireproof block behavior:
 Fish buckets:
 
 - bucket_end_fish
-- bucket_nether_fish
 - bucket_cubozoa
 
 Fish and aquatic food items:
 
 - end_fish
 - cooked_end_fish
-- nether_fish
-- cooked_pufferfish
-- cooked_tropical_fish
 - cooked_glow_squid
-- Naturalist venison/cooked venison are used instead of AOE venison items.
+- Wilder Nature venison/cooked venison are used instead of AOE venison items.
 
 Food items and recipes:
 
@@ -372,25 +363,20 @@ Food items and recipes:
 - cherry_pie
 - banana_pie
 - plum_pie
-- soul_berry_cookie
 - blueberry_cookie
-- seared_cod_roll
-- nether_fish_roll
 - glowshroom_stew
 - honey_bowl
 
 Removed/avoided legacy food items:
 
-- AOE raw/cooked venison items are removed in favor of Naturalist venison.
-- AOE cooked nether fish, cubozoa meat, cooked cubozoa, chorus bread, searing cod kelp wrap, and legacy fruit items are removed.
+- AOE raw/cooked venison items are removed in favor of Wilder Nature venison.
+- AOE nether fish and its bucket/spawn egg, soul berry cookie, seared cod roll, nether fish roll, cubozoa meat, cooked cubozoa, chorus bread, and legacy fruit items are removed.
 
 Crop/seed items:
 
 - carrot_seeds
 - potato_seeds
-- onion_seeds
 - rice_seeds
-- soul_berries
 
 Soul quartz:
 
@@ -478,14 +464,6 @@ End fish:
   - Jungle/default tropical-style areas use variants 6-7.
 - Drops are configured through MobConfig and tied to the entity variant where configured.
 
-Nether fish:
-
-- A lava-compatible fish based on end fish behavior.
-- Uses variants 3-4.
-- Lives in lava rather than water.
-- Naturally spawns in crimson forest-style lava regions.
-- Has one generic raw nether fish item rather than separate meats for each variant.
-
 Cubozoa:
 
 - A lava-compatible jellyfish-like entity.
@@ -556,19 +534,6 @@ Nautilus:
 
 Boss and elite-style mobs:
 
-Archlich:
-
-- Based on Ice and Fire dread lich behavior.
-- Boss-like ranged caster.
-- Uses a Dread Lich skull-style projectile rather than a vanilla fire charge.
-- Periodically summons dread liches and dread knights near itself.
-- Prevents dread liches it summons from recursively summoning their own full ally set by setting the relevant minion/summon limit.
-
-Dread lich interaction:
-
-- Dread liches are modified so their own ally summoning is restricted to dread thralls only.
-- This is intended to work regardless of whether an archlich is present.
-
 Spider Queen:
 
 - Spider boss.
@@ -586,13 +551,6 @@ Illager Lord:
 - Blocks frontal damage while the shield remains.
 - The shield breaks after a configured number of frontal hits.
 - Periodically summons illager allies such as vindicators, evokers, and pillagers.
-
-Born in Chaos pumpkin mobs:
-
-- Sir Pumpkin Head is modified to have no second stage and no mob summoning.
-- Lord Pumpkinhead behavior is modified so it rides/uses the intended pumpkin-head boss behavior and summons senor pumpkin and sir pumpkin head instead of its original summons.
-- Born in Chaos zombie maggot drops and certain Born in Chaos messages are disabled/removed.
-
 
 9. Mob stat and role balancing
 ------------------------------
@@ -626,7 +584,6 @@ Examples:
 - Shulkers are common deep-dark mobs, with reduced duplication/defensive behavior.
 - Blazes and magma cubes are tuned as basalt-deltas common mobs.
 - Zoglins and creepers are tuned as warped-forest mobs.
-- Dread liches, dread knights, and trolls are mountain elite mobs.
 
 MobConfig and MobStatsConfig also configure custom drops, breeding rates, aging rates, food growth, and other biome-dependent mob behavior.
 
@@ -640,7 +597,7 @@ The mod changes spawn placements for several entities:
 - Drowned can spawn on land using monster spawn rules.
 - Striders spawn on solid ground instead of lava, with special valid-ground checks.
 - Axolotls and glow squid use custom water spawn checks.
-- Husks, strays, pillagers, zoglins, piglin brutes, shulkers, Ice and Fire mobs, and other mobs receive custom placement rules.
+- Husks, strays, pillagers, zoglins, piglin brutes, shulkers and other mobs receive custom placement rules.
 - Husks, strays, and similar mobs are allowed to spawn without needing sky exposure.
 - Mooshrooms spawn in the grove biome, only above mycelium.
 
@@ -704,7 +661,7 @@ Custom block drops:
 
 Berry drops:
 
-- Sweet berries, soul berries, and blue berries have biome/config-dependent harvest amounts.
+- Sweet berries and blue berries have biome/config-dependent harvest amounts.
 - Some worldgen replaces half of sweet berry patches with blue berry patches.
 - Berry totals can be multiplied and split so a deterministic half/half-minus-half split goes to blue berries rather than relying on an independent 50% chance.
 
@@ -758,8 +715,8 @@ Fire, collision, and light:
 - Sweet berry bushes do not slow or hurt mobs.
 - Soul sand, soul soil, and honey no longer slow entities.
 - Cave vines are brighter and have modified waterlogging/berry behavior.
-- Coral blocks glow.
-- Glow moss and related blocks have modified light/no-occlusion behavior.
+- Ordinary moss, coral, rich soil and rich soil farmland do not glow and block sunlight normally.
+- Leaves remain transparent to sunlight; berry-bearing cave vines and tropical torchflowers still glow.
 - Less random block offset is applied to some blocks.
 - Sea pickle and ice-on-water behavior are modified.
 
@@ -793,15 +750,14 @@ The mod adds many crafting, smelting, smoking, campfire cooking, food, tool, cor
 Cooking recipes include:
 
 - Modded fish and cooked fish.
-- End fish, glow squid, pufferfish, tropical fish, lobster, Naturalist venison, and prickly pear.
-- Repurposed Drop The Meat items where used by the current food setup.
-- Naturalist venison cooking in furnace, smoker, and campfire variants.
+- End fish, glow squid, pufferfish, tropical fish, lobster, Wilder Nature venison, and prickly pear.
+- Native AOE raw glow squid and raw squid replace retired food dependencies.
+- Wilder Nature venison cooking in furnace, smoker, and campfire variants.
 
 Food crafting includes:
 
 - Pies such as melon pie, glow berry pie, banana pie, orange pie, pear pie, plum pie, and cherry pie.
-- Cookies such as soul berry cookie and blue berry cookie.
-- Wraps/rolls such as searing cod roll and nether fish kelp roll.
+- Blue berry cookies.
 - Integration soups/stews such as Nourished Nether nether fungus stew and Better Carrots carrot soup where present.
 
 Coral recipes:
@@ -842,14 +798,6 @@ Alex's Mobs:
 - Emu egg/feather behavior is modified.
 - Lobster variants are used for water-life behavior.
 
-Born in Chaos:
-
-- Senor pumpkin and sir pumpkin/lord pumpkin mobs are used in spawns/boss behavior.
-- Sir Pumpkin Head is modified to remove second stage and summoning.
-- Lord Pumpkinhead summons are changed.
-- Zombie maggot drops are disabled.
-- A Born in Chaos chasing message is disabled/removed.
-
 Ecologics:
 
 - Azalea logs are used for custom azalea/rainforest trees.
@@ -860,7 +808,7 @@ Ecologics:
 Farmer's Delight:
 
 - Wild rice behavior is modified so it can work with the mod's land/water rules.
-- Rich soil/rich farmland behavior is modified, including glow, drying, moss conversion, and tall-flower support.
+- Rich soil/rich farmland behavior is modified, including drying, moss conversion, and tall-flower support, without added glow.
 - Sweet berry cookie texture/recipe patterns are used as placeholders or analogs for custom cookies.
 
 Fruits Delight:
@@ -868,16 +816,17 @@ Fruits Delight:
 - Pear, plum, orange, cherries, and blueberries are preferred over older custom fruit equivalents where configured.
 - Blue berry bush/item behavior uses Fruits Delight blueberry as the item.
 
-Ice and Fire:
+Orcz:
 
-- Dread lich summoning is changed so dread liches summon only dread thralls.
-- Dread lich/dread knight/troll/gorgon spawn placements are modified.
-- Troll behavior is changed in daylight/AI contexts.
+- All native entities, spawn eggs, items and recipes are enabled for testing.
+- Native biome additions and both original camp features generate in Overworld biomes, outside AOE Savanna.
+- The existing two natural Savanna orc species remain unchanged pending further selection.
+- Ice and Fire and its unused dependent Archlich have been removed.
 
 Nether Depths Upgrade:
 
 - Lava fish spawn behavior is integrated.
-- Nether fish/cubozoa behavior is compatible with lava aquatic spawning.
+- Cubozoa behavior is compatible with lava aquatic spawning.
 
 Nourished Nether / Netherific:
 
@@ -996,10 +945,8 @@ Trees and worldgen:
 External mod mixins:
 
 - Alex's Mobs emu/lobster behavior.
-- Born in Chaos pumpkin and zombie-maggot behavior.
 - Ecologics cactus/azalea behavior.
 - Farmer's Delight rich soil/farmland and wild rice behavior.
-- Ice and Fire dread lich/troll behavior.
 - Nether Depths Upgrade lava fish spawning.
 - Quark copper chain and glow shroom behavior.
 - Snow Real Magic berry/snow behavior.
@@ -1013,7 +960,7 @@ The mod uses many custom and modified tags.
 
 Important tag-style behaviors:
 
-- Soul sediments include soul sand and soul soil for soul berries, pale oak saplings, and related placement.
+- Soul sediments include soul sand and soul soil for nether wart, pale oak saplings, and related placement.
 - Rainforest biome tags control special 2x2 sapling growth.
 - Glow shroom block, red mushroom block, brown mushroom block, nether wart block, and warped wart block are treated like leaves for mob-spawning/support purposes.
 - Pale oak blocks are added to appropriate logs/planks/wooden/fence/door/stairs/slab/button/pressure-plate/tool tags.
@@ -1026,8 +973,8 @@ Important tag-style behaviors:
 
 The mod includes client registration for:
 
-- Entity renderers for custom fish, cubozoa, nautilus, breeze, creaking, bogged, parched, archlich, spider queen, illager lord, horsemen/jockeys, and sea serpent.
-- Custom models for entities including fish variants, nautilus, breeze, creaking, parched, bogged, archlich, spider queen, illager lord, and sea serpent.
+- Entity renderers for custom fish, cubozoa, nautilus, breeze, creaking, bogged, parched, spider queen, illager lord, horsemen/jockeys, and sea serpent.
+- Custom models for entities including fish variants, nautilus, breeze, creaking, parched, bogged, spider queen, illager lord, and sea serpent.
 - Item render properties or custom transforms for spears.
 - Block/item models and textures for new blocks/items.
 

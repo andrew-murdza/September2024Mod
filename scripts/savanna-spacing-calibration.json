@@ -1,0 +1,132 @@
+{
+  "audit_source": "scripts/SavannaSpacingAudit.java",
+  "region_per_seed": "[-2048,2048) squared, sampled every four blocks; four seeds",
+  "previous": {
+    "water_percent": 21.10898494720459,
+    "complete_lakes": 1182,
+    "boundary_lakes": 158,
+    "median_lake_area": 5792,
+    "p90_lake_area": 25792,
+    "lowest_land_block": 62,
+    "highest_land_block": 69,
+    "land_elevations": 8,
+    "mean_euclidean_dry_slope": 0.034870489300176506
+  },
+  "current": {
+    "water_percent": 4.019021987915039,
+    "complete_lakes": 294,
+    "boundary_lakes": 22,
+    "median_lake_area": 5984,
+    "p90_lake_area": 19120,
+    "lowest_land_block": 62,
+    "highest_land_block": 73,
+    "land_elevations": 12,
+    "mean_euclidean_dry_slope": 0.024397268018450997
+  },
+  "dry_euclidean_slope_ratio": 0.699653733230738,
+  "median_lake_area_ratio": 1.0331491712707181,
+  "lake_count_ratio": 0.24873096446700507,
+  "seeds": [
+    {
+      "previous": {
+        "water_percent": 19.597148895263672,
+        "complete_lakes": 333,
+        "boundary_lakes": 36,
+        "median_lake_area": 5312,
+        "p90_lake_area": 21840,
+        "lowest_land_block": 62,
+        "highest_land_block": 68,
+        "land_elevations": 7,
+        "mean_euclidean_dry_slope": 0.034348996043375754
+      },
+      "seed": 0,
+      "current": {
+        "water_percent": 2.7729034423828125,
+        "complete_lakes": 68,
+        "boundary_lakes": 4,
+        "median_lake_area": 5152,
+        "p90_lake_area": 12976,
+        "lowest_land_block": 62,
+        "highest_land_block": 71,
+        "land_elevations": 10,
+        "mean_euclidean_dry_slope": 0.02349333812063787
+      }
+    },
+    {
+      "previous": {
+        "water_percent": 21.515560150146484,
+        "complete_lakes": 280,
+        "boundary_lakes": 43,
+        "median_lake_area": 5472,
+        "p90_lake_area": 29552,
+        "lowest_land_block": 62,
+        "highest_land_block": 69,
+        "land_elevations": 8,
+        "mean_euclidean_dry_slope": 0.03566835273446959
+      },
+      "seed": 12345,
+      "current": {
+        "water_percent": 5.413913726806641,
+        "complete_lakes": 73,
+        "boundary_lakes": 3,
+        "median_lake_area": 8192,
+        "p90_lake_area": 29808,
+        "lowest_land_block": 62,
+        "highest_land_block": 73,
+        "land_elevations": 12,
+        "mean_euclidean_dry_slope": 0.02480110280845459
+      }
+    },
+    {
+      "previous": {
+        "water_percent": 22.098159790039062,
+        "complete_lakes": 284,
+        "boundary_lakes": 42,
+        "median_lake_area": 5120,
+        "p90_lake_area": 29488,
+        "lowest_land_block": 62,
+        "highest_land_block": 69,
+        "land_elevations": 8,
+        "mean_euclidean_dry_slope": 0.03506235087254214
+      },
+      "seed": 98765,
+      "current": {
+        "water_percent": 4.607582092285156,
+        "complete_lakes": 82,
+        "boundary_lakes": 11,
+        "median_lake_area": 6336,
+        "p90_lake_area": 19072,
+        "lowest_land_block": 62,
+        "highest_land_block": 73,
+        "land_elevations": 12,
+        "mean_euclidean_dry_slope": 0.024593775064350534
+      }
+    },
+    {
+      "previous": {
+        "water_percent": 21.22507095336914,
+        "complete_lakes": 285,
+        "boundary_lakes": 37,
+        "median_lake_area": 7872,
+        "p90_lake_area": 26848,
+        "lowest_land_block": 62,
+        "highest_land_block": 68,
+        "land_elevations": 7,
+        "mean_euclidean_dry_slope": 0.03441810311560423
+      },
+      "seed": -8152788754161584091,
+      "current": {
+        "water_percent": 3.281688690185547,
+        "complete_lakes": 71,
+        "boundary_lakes": 4,
+        "median_lake_area": 5888,
+        "p90_lake_area": 15216,
+        "lowest_land_block": 62,
+        "highest_land_block": 72,
+        "land_elevations": 11,
+        "mean_euclidean_dry_slope": 0.02471720789855516
+      }
+    }
+  ],
+  "limitations": "Finite seeded sample of continuous terrain. Lake areas and connectivity are estimated on a four-block lattice. Boundary-crossing lakes count toward water coverage but not size/count distributions. Euclidean slopes use central differences with epsilon0.1 before block rounding. Existing chunks remain unchanged."
+}

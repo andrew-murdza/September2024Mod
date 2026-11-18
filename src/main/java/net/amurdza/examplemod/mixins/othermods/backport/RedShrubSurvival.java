@@ -15,10 +15,10 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 @Mixin(BushBlock.class)
 public abstract class RedShrubSurvival {
     @Inject(method = "canSurvive", at = @At("HEAD"), cancellable = true)
-    private void aoe$redShrubRequiresCrimsonNylium(BlockState state, LevelReader level, BlockPos pos,
-                                                CallbackInfoReturnable<Boolean> cir) {
+    private void aoemod$redShrubRequiresGrass(BlockState state, LevelReader level, BlockPos pos,
+                                                   CallbackInfoReturnable<Boolean> cir) {
         if (BuiltInRegistries.BLOCK.getKey(state.getBlock()).equals(new ResourceLocation("minecraft", "red_shrub"))) {
-            cir.setReturnValue(level.getBlockState(pos.below()).is(Blocks.CRIMSON_NYLIUM));
+            cir.setReturnValue(level.getBlockState(pos.below()).is(Blocks.GRASS_BLOCK));
         }
     }
 }

@@ -5,11 +5,7 @@
     "aoemod:blackstone_gold_ore",
     "aoemod:basalt_quartz_ore",
     "aoemod:blackstone_quartz_ore",
-    "aoemod:soul_soil_gold_ore",
-    "aoemod:soul_soil_quartz_ore",
-    "aoemod:soul_sand_gold_ore",
-    "aoemod:soul_sand_quartz_ore",
     "minecraft:gravel",
-    "aoemod:copper_chain"
+    "minecraft:copper_chain"
   ]
 }

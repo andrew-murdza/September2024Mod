@@ -1,0 +1,9 @@
+Original source: the player's nine-tent camp at Savanna spawn in New World, captured read-only on 2026-11-14.
+Original center: X=-2184, Z=-712; floor Y=72. This older source is retained for archived layouts.
+
+Current version-seven tent: scripts/data/orc-tent-12-authored.nbt, captured read-only from New World on 2026-11-15 at X=-1772, Y=77, Z=-846. It contains the authored12x12 block-state footprint; no inventories or player data. Relative cushion seats are recorded in orc-tent-12-authored.json.
+
+Regenerate: python scripts/generate-orc-village.py
+Validate: python scripts/test-orc-village.py
+
+The current square camp uses nine12x12 tents,24 clear blocks between tents,eight-wide roads,26x26 pens with four four-wide gates,one-deep crop ponds,six clear blocks between stockade posts,and a grass margin for bushes. Existing V3-V6 structure templates remain archived. Runtime supplies36 residents,72 red cushions,32 penned animals,and the previous total loot budget across36 chests.

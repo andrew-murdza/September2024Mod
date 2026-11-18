@@ -54,6 +54,7 @@ public class AOEMod
 
     public AOEMod()
     {
+        net.amurdza.examplemod.registry.ModMobCategories.initialize();
         IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
 
         modEventBus.addListener(this::commonSetup);
@@ -73,6 +74,9 @@ public class AOEMod
 
         //custom blocks
         ModBlocks.register(modEventBus);
+        net.amurdza.examplemod.registry.RetainedCharnia.register(modEventBus);
+        net.amurdza.examplemod.registry.RetainedDragonFruit.register(modEventBus);
+        net.amurdza.examplemod.registry.RetainedSquidFoods.register(modEventBus);
         ModPortals.register(modEventBus);
         ModTreeDecorators.register(modEventBus);
 
@@ -92,6 +96,7 @@ public class AOEMod
     }
 
     private void commonSetup(final FMLCommonSetupEvent event) {
+        event.enqueueWork(net.amurdza.examplemod.event_handlers.TropicalBiomeSync::register);
 //        ModSurfaceRuleConditions.bootstrap();
         event.enqueueWork(BlockGrowthConfig::init);
         event.enqueueWork(() -> {
@@ -103,6 +108,7 @@ public class AOEMod
             setNotFlammable(fire, ModBlocks.PALE_MOSS_BLOCK.get());
             setNotFlammable(fire, ModBlocks.PALE_MOSS_CARPET.get());
             setNotFlammable(fire, ModBlocks.PALE_HANGING_MOSS.get());
+            setNotFlammable(fire, ForgeRegistries.BLOCKS.getValue(new ResourceLocation("minecraft", "red_shrub")));
             setNotFlammable(fire, ForgeRegistries.BLOCKS.getValue(new ResourceLocation("nourished_nether", "soul_weeds")));
             ComposterBlock.COMPOSTABLES.put(ModBlocks.AZALEA_SAPLING.get().asItem(), 0.3F);
 
@@ -160,11 +166,10 @@ public class AOEMod
 // NATURAL BLOCKS (plants, vegetation, ores-as-natural, etc.)
         if (tab == CreativeModeTabs.NATURAL_BLOCKS) {
 
-            event.accept(ModItems.SOUL_BERRIES.get());
             event.accept(ModItems.SOUL_BEETROOT_SEEDS.get());
             event.accept(ModItems.CARROT_SEEDS.get());
+            event.accept(ModItems.BEAN_SEEDS.get());
             event.accept(ModItems.POTATO_SEEDS.get());
-            event.accept(ModItems.ONION_SEEDS.get());
             event.accept(ModItems.RICE_SEEDS.get());
 
             event.accept(ModBlocks.DESERT_GRASS.get());
@@ -190,7 +195,6 @@ public class AOEMod
         }
 
         if (tab == CreativeModeTabs.BUILDING_BLOCKS) {
-            event.accept(ModBlocks.COPPER_CHAIN.get());
             event.accept(ModBlocks.PALE_OAK_LOG.get());
             event.accept(ModBlocks.STRIPPED_PALE_OAK_LOG.get());
             event.accept(ModBlocks.PALE_OAK_WOOD.get());
@@ -208,20 +212,8 @@ public class AOEMod
 
 // FOOD AND DRINKS
         if (tab == CreativeModeTabs.FOOD_AND_DRINKS) {
-            event.accept(ModItems.SOUL_BERRIES.get());
             event.accept(ModItems.SOUL_BEETROOT.get());
             event.accept(ModItems.SOUL_BEETROOT_SOUP.get());
-
-            // raw seafood
-            event.accept(ModItems.END_FISH.get());
-            event.accept(ModItems.NETHER_FISH.get());
-
-            // cooked seafood
-            event.accept(ModItems.COOKED_PUFFERFISH.get());
-            event.accept(ModItems.COOKED_TROPICAL_FISH.get());
-            event.accept(ModItems.COOKED_SQUID.get());
-            event.accept(ModItems.COOKED_GLOW_SQUID.get());
-            event.accept(ModItems.COOKED_END_FISH.get());
 
             // pies
             event.accept(ModItems.MELON_PIE.get());
@@ -233,11 +225,11 @@ public class AOEMod
             event.accept(ModItems.CHERRY_PIE.get());
 
             // other
-            event.accept(ModItems.SOUL_BERRY_COOKIE.get());
             event.accept(ModItems.BLUEBERRY_COOKIE.get());
-            event.accept(ModItems.SEARED_COD_ROLL.get());
-            event.accept(ModItems.NETHER_FISH_ROLL.get());
             event.accept(ModItems.GLOWSHROOM_STEW.get());
+            event.accept(ModItems.MUSHGLOOM_STEW.get());
+            event.accept(ModItems.BULLET_PEPPER_SOUP.get());
+            event.accept(ModItems.CARROT_SOUP.get());
             event.accept(ModItems.HONEY_BOWL.get());
         }
 
@@ -248,10 +240,6 @@ public class AOEMod
             event.accept(ModItems.BONE_HOE.get());
             event.accept(ModItems.BONE_PICKAXE.get());
             event.accept(ModItems.BONE_SHEARS.get());
-            event.accept(ModItems.COPPER_AXE.get());
-            event.accept(ModItems.COPPER_SHOVEL.get());
-            event.accept(ModItems.COPPER_HOE.get());
-            event.accept(ModItems.COPPER_PICKAXE.get());
             event.accept(ModItems.BUCKET_END_FISH.get());
             event.accept(ModItems.BUCKET_CUBOZOA.get());
         }
@@ -263,19 +251,6 @@ public class AOEMod
             event.accept(ModItems.BONE_SPEAR.get());
             event.accept(ModItems.BREEZE_ROD.get());
             event.accept(ModItems.MACE.get());
-            event.accept(ModItems.COPPER_SWORD.get());
-            event.accept(ModItems.COPPER_AXE.get());
-            event.accept(ModItems.COPPER_HELMET.get());
-            event.accept(ModItems.COPPER_CHESTPLATE.get());
-            event.accept(ModItems.COPPER_LEGGINGS.get());
-            event.accept(ModItems.COPPER_BOOTS.get());
-            event.accept(ModItems.WOODEN_SPEAR.get());
-            event.accept(ModItems.STONE_SPEAR.get());
-            event.accept(ModItems.COPPER_SPEAR.get());
-            event.accept(ModItems.IRON_SPEAR.get());
-            event.accept(ModItems.GOLDEN_SPEAR.get());
-            event.accept(ModItems.DIAMOND_SPEAR.get());
-            event.accept(ModItems.NETHERITE_SPEAR.get());
             event.accept(ModItems.WOODEN_SHIELD.get());
             event.accept(ModItems.COPPER_SHIELD.get());
             event.accept(ModItems.IRON_SHIELD.get());
@@ -287,7 +262,6 @@ public class AOEMod
 
         // BUILDING BLOCKS (farmland fits better here than NATURAL)
         if (tab == CreativeModeTabs.SPAWN_EGGS) {
-            event.accept(ModEntities.ARCHLICH_SPAWN_EGG.get());
             event.accept(ModEntities.SPIDER_QUEEN_SPAWN_EGG.get());
             event.accept(ModEntities.ILLAGER_LORD_SPAWN_EGG.get());
             event.accept(ModEntities.BOGGED_SPAWN_EGG.get());
@@ -337,14 +311,11 @@ public class AOEMod
                 ItemBlockRenderTypes.setRenderLayer(ModBlocks.PALE_OAK_LEAVES.get(), RenderType.cutoutMipped());
                 ItemBlockRenderTypes.setRenderLayer(ModBlocks.PALE_OAK_SAPLING.get(), RenderType.cutout());
                 ItemBlockRenderTypes.setRenderLayer(ModBlocks.AZALEA_SAPLING.get(), RenderType.cutout());
-                ItemBlockRenderTypes.setRenderLayer(ModBlocks.COPPER_CHAIN.get(), RenderType.cutout());
-                for (var spear : new net.minecraft.world.item.Item[]{
-                        ModItems.WOODEN_SPEAR.get(), ModItems.STONE_SPEAR.get(), ModItems.COPPER_SPEAR.get(),
-                        ModItems.IRON_SPEAR.get(), ModItems.GOLDEN_SPEAR.get(), ModItems.DIAMOND_SPEAR.get(),
-                        ModItems.NETHERITE_SPEAR.get(), ModItems.BONE_SPEAR.get()}) {
-                    ItemProperties.register(spear, AOEMod.makeID("in_hand"),
-                            (stack, level, entity, seed) -> entity == null ? 0.0F : 1.0F);
-                }
+                ItemBlockRenderTypes.setRenderLayer(net.amurdza.examplemod.registry.RetainedDragonFruit.WILD.get(), RenderType.cutout());
+                ItemBlockRenderTypes.setRenderLayer(net.amurdza.examplemod.registry.RetainedDragonFruit.BUDDING.get(), RenderType.cutout());
+                ItemBlockRenderTypes.setRenderLayer(net.amurdza.examplemod.registry.RetainedDragonFruit.CROP.get(), RenderType.cutout());
+                ItemProperties.register(ModItems.BONE_SPEAR.get(), AOEMod.makeID("in_hand"),
+                        (stack, level, entity, seed) -> entity == null ? 0.0F : 1.0F);
             });
         }
     }

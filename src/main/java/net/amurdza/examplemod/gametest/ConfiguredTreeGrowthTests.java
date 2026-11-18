@@ -44,8 +44,8 @@ public final class ConfiguredTreeGrowthTests {
         clear(tropical, origin);
         tropical.setBlock(origin.below(), Blocks.MOSS_BLOCK.defaultBlockState(), 2);
         TreeConfiguration configuration = (TreeConfiguration) tropical.registryAccess()
-                .registryOrThrow(Registries.CONFIGURED_FEATURE).getHolderOrThrow(TreeFeatures.AZALEA_TREE).value().config();
-        // Quark's enabled azalea-wood module replaces this vanilla feature's trunk provider on reload.
+                .registryOrThrow(Registries.CONFIGURED_FEATURE).get(new net.minecraft.resources.ResourceLocation("aoemod:rainforest/tree/natural_azalea")).config();
+        // Tropical saplings and natural azaleas share the same enlarged configuration.
         BlockState expectedTrunk = configuration.trunkProvider.getState(RandomSource.create(7), origin);
         helper.assertTrue(expectedTrunk.is(BlockTags.LOGS), "Loaded azalea feature must provide a real log trunk");
         try {
@@ -57,7 +57,7 @@ public final class ConfiguredTreeGrowthTests {
                 tropical.setBlock(origin, Blocks.AIR.defaultBlockState(), 2);
                 GrowthPlacementBuffer proposed = new GrowthPlacementBuffer(tropical);
                 boolean rawPlaced = tropical.registryAccess().registryOrThrow(Registries.CONFIGURED_FEATURE)
-                        .getHolderOrThrow(TreeFeatures.AZALEA_TREE).value().place(proposed,
+                        .get(new net.minecraft.resources.ResourceLocation("aoemod:rainforest/tree/natural_azalea")).place(proposed,
                                 tropical.getChunkSource().getGenerator(), RandomSource.create(7), origin);
                 Set<String> denied = new HashSet<>();
                 proposed.isValid((pos, state) -> {

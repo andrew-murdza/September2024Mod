@@ -78,7 +78,8 @@ public final class PlantGameplayTests {
         helper.assertTrue(BlockConfig.blockGrowthChance(snowy, BlockPos.ZERO, wheat) < 0,
                 "No configured wheat rate must preserve the default instead of forcing zero");
         for (Block block : new Block[]{Blocks.GRASS, Blocks.FERN, Blocks.LARGE_FERN}) {
-            var entries = BlockConfig.blockDropEntries(snowy, BlockPos.ZERO, block.defaultBlockState());
+            var entries = BlockConfig.blockDropEntries(biomeBoundary(snowy, BlockPos.ZERO, "snowy_forest", "snowy_forest"),
+                    BlockPos.ZERO, block.defaultBlockState());
             helper.assertFalse(entries.isEmpty(), "Snowy seed pool missing for " + block);
             helper.assertTrue(entries.stream().allMatch(entry -> entry.item() == Items.BEETROOT_SEEDS),
                     "Snowy grass and ferns must only select beetroot seeds");
@@ -249,7 +250,8 @@ public final class PlantGameplayTests {
                 "The documented prickly-pear support cactus is desert-only");
         helper.assertTrue(BiomePlacementRestrictions.isAllowed(plains, pos, Blocks.SUGAR_CANE.defaultBlockState()),
                 "Naturally harvested sugar cane must seed its optional storage-block cycle");
-        helper.assertTrue(BiomePlacementRestrictions.isAllowed(snowy, pos, Blocks.SWEET_BERRY_BUSH.defaultBlockState()),
+        helper.assertTrue(BiomePlacementRestrictions.isAllowed(biomeBoundary(snowy, pos, "snowy_forest", "snowy_forest"),
+                        pos, Blocks.SWEET_BERRY_BUSH.defaultBlockState()),
                 "Snowy sweet berries must seed their sack/unpacking cycle");
         helper.assertFalse(BiomePlacementRestrictions.isAllowed(tropical, pos, Blocks.SWEET_BERRY_BUSH.defaultBlockState()),
                 "The dimension documents supersede the old tropical sweet-berry placement rule");

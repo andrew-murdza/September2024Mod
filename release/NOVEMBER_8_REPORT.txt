@@ -1,0 +1,55 @@
+Historical verification of the first 8 November update.
+Current artifact details and replacement world screenshots are recorded in NOVEMBER_8_REVIEW_REVISION.txt.
+The hashes and screenshot counts below describe the earlier delivery, which has been superseded.
+
+8 November 2026 — completed update
+Minecraft 1.20.1 / Forge 47.4.22 / Java 17
+
+Files
+- aoemod-1.0.0-1.20.1-all.jar: 4960768 bytes; SHA256 3465e7fd5233aa39544b46a282f541480bdc20e6526ff34cffa8b7d81ee9135b
+- texture-review-2026-11-08.zip: 4386872 bytes; SHA256 cb4b5bfe41b8ce085e1a88dce0ef5fed0d060ee5f9194d42ff73a4df700558f0
+  344 files: 150 actual Minecraft gallery screenshots (102 current, 48 before/reference),
+  38 distinct raw/cooked seafood PNGs, requested textures/models/animations and source files.
+  Extract the ZIP and open index.html. Provenance distinguishes exact historical versions
+  from upstream source references. Ordinary squid, glow squid, and endfish images are excluded.
+
+Implemented changes
+See IMPLEMENTED_CHANGES.md for the full requested content, spawn, terrain, cave, rendering,
+food, and configuration-preservation changes. All 421 original run/config files remain
+byte-identical; no configuration files were added or removed there.
+
+Crash diagnosis and verification
+The user's crash-2026-11-08_12.47.09-client.txt identified Alex's Mobs updateAllChunks
+accessing a null vanilla render chunk during Desert-to-Snowy travel with Immersive Portals
+and Embeddium. The compatibility mixin now uses the active renderer's invalidation API.
+The isolated client completed Desert -> Snowy -> Desert -> Snowy with actual lava-vision
+changes and direct Alex chunk-refresh calls. It also verified the cobalt Stalker texture,
+exactly one emissive layer, and cold-land/red-lava Strider textures without shivering.
+Settled frame samples contained zero null slots; this was repeated travel validation,
+not a claim of artificially reproducing a null slot. The client exited automatically.
+
+Validation
+- Gradle runData + build: passed. Generated resources unchanged.
+- Final Gradle build + prepareStandaloneClient: passed; normal launcher snapshot refreshed.
+- 96 unique gameplay tests verified: initial combined run passed 95/96. The one old test
+  still sampled the former straight entrance. Its measurement was corrected to follow
+  the curved entrance; all 7 focused rerun tests passed. No production fix was needed.
+- Registry-backed resource audit: 4,246 checks, 1,540 JSON files, zero errors.
+- Dependency audit: 44 locked jars and 99 required dependencies, zero errors.
+- Final JAR matches current source resources, contains every configured mixin class,
+  embeds MixinExtras, and includes the production Embeddium method selector.
+- ZIP member checksums verified; excluded image violations: zero.
+- Test Minecraft instances closed. QA launcher now refuses overlapping Minecraft runs,
+  uses two active processors and a 5GB heap, and writes only to disposable QA directories.
+
+Reproduce
+.\gradlew.bat --offline -I scripts/nov8-revision-qa.init.gradle build
+.\gradlew.bat --offline -I scripts/nov8-revision-qa.init.gradle runGameTestServer -PrevisionRun=nov8-check
+.\gradlew.bat --offline -I scripts/nov8-revision-qa.init.gradle runData
+Detailed machine-readable reports: evidence/nov8/validation.json and adjacent evidence.
+
+Compatibility
+Terrain and structures change in newly generated chunks. Existing placed blocks and
+structures are not rewritten. Retired registry IDs are retained for save readability.
+Only the three requested Cultural Delights squid foods are integrated; do not add the full
+Cultural Delights JAR. Both raw squid foods use the same cooked_squid result.

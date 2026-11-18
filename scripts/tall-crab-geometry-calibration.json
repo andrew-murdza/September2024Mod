@@ -1,0 +1,32 @@
+{
+  "method": "Native GeckoLib geometry with reflected-X and Z/Y/X transforms; 241 samples each of idle and walking animation, including every leg cube corner.",
+  "reference": "Both solid shell tops stand 17/16 blocks above the visible supporting surface: one pixel above full-height short seagrass. AquaticGroundSupport keeps aquatic feet on the visible top of mud and soul sand. Eye stalks extend one model unit above the shell; the shadow ends at the outermost resting leg corner.",
+  "species": {
+    "flower_crab": {
+      "static_height_model_units": 8.064935064935064,
+      "rendered_head_top_blocks": 1.0625,
+      "rendered_eye_top_blocks": 1.2128906249999998,
+      "shadow_radius_blocks": 1.3509506526865118,
+      "footprint_diameter_blocks": 2.7019013053730236,
+      "minimum_leg_angle_degrees": 45.0,
+      "maximum_leg_angle_degrees": 45.00000000241596,
+      "minimum_animated_foot_y_model_units": 0.02500000070456876,
+      "minimum_planted_legs_in_walk_and_idle": 4,
+      "body_scale_vs_previous_maximum_individual": 1.925,
+      "idle_and_walk_frames_audited": 482
+    },
+    "lightfoot_crab": {
+      "static_height_model_units": 7.181818181818182,
+      "rendered_head_top_blocks": 1.0625,
+      "rendered_eye_top_blocks": 1.234375,
+      "shadow_radius_blocks": 1.342223329023756,
+      "footprint_diameter_blocks": 2.684446658047512,
+      "minimum_leg_angle_degrees": 45.0,
+      "maximum_leg_angle_degrees": 45.00000000241596,
+      "minimum_animated_foot_y_model_units": 0.024999998433419268,
+      "minimum_planted_legs_in_walk_and_idle": 4,
+      "body_scale_vs_previous_maximum_individual": 2.2,
+      "idle_and_walk_frames_audited": 482
+    }
+  }
+}

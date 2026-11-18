@@ -35,7 +35,9 @@ import static net.amurdza.examplemod.util.BiomePlacementRestrictions.*;
 public final class DocumentedPlacementTests {
     @GameTest(template = "plant_gameplay_empty")
     public static void documentOverridesAndModdedSources(GameTestHelper h) {
-        expect(h, "minecraft:mud", TROPICAL | SAVANNA | SNOWY);
+        expect(h, "minecraft:mud", SAVANNA | SNOWY);
+        expect(h, "minecraft:moss_block", TROPICAL);
+        expect(h, "minecraft:moss_carpet", TROPICAL);
         expect(h, "minecraft:muddy_mangrove_roots", TROPICAL);
         expect(h, "minecraft:clay", PLAINS | SNOWY);
         expect(h, "minecraft:lava", SNOWY | DESERT | NETHER);
@@ -47,11 +49,57 @@ public final class DocumentedPlacementTests {
         expect(h, "minecraft:sunflower", PLAINS);
         expect(h, "farmersdelight:cabbages", TROPICAL | SAVANNA | PLAINS);
         expect(h, "floral:blue_tulip", SAVANNA);
-        expect(h, "floral_flair:blue_hyacinth", TROPICAL);
-        expect(h, "betterend:charnia_cyan", SNOWY);
+        expect(h, "betterend:charnia_light_blue", SNOWY);
         expect(h, "hybrid_aquatic:bull_kelp", DESERT);
         expect(h, "aoemod:pale_oak_planks", DESERT | NETHER);
         expect(h, "aoemod:pale_oak_leaves", NETHER);
+        h.succeed();
+    }
+
+    @GameTest(template = "plant_gameplay_empty")
+    public static void mossReplacementIsLimitedToTropical(GameTestHelper h) {
+        ServerLevel tropical = h.getLevel().getServer().getLevel(GameplayDimensions.TROPICAL);
+        ServerLevel savanna = h.getLevel().getServer().getLevel(GameplayDimensions.SAVANNA);
+        ServerLevel snowy = h.getLevel().getServer().getLevel(GameplayDimensions.SNOWY);
+        BlockPos pos = new BlockPos(0, 80, 0);
+        h.assertTrue(isAllowed(tropical, pos, Blocks.MOSS_BLOCK.defaultBlockState()), "Tropical moss must remain available");
+        h.assertFalse(isAllowed(tropical, pos, Blocks.MUD.defaultBlockState()), "Tropical mud must be unavailable after its moss replacement");
+        h.assertTrue(isAllowed(tropical, pos, Blocks.MUDDY_MANGROVE_ROOTS.defaultBlockState()), "Mangrove roots remain part of tropical trees");
+        h.assertTrue(isAllowed(savanna, pos, Blocks.MUD.defaultBlockState()), "Savanna keeps its original mud");
+        h.assertFalse(isAllowed(savanna, pos, Blocks.MOSS_BLOCK.defaultBlockState()), "Savanna must reject moss blocks");
+        h.assertFalse(isAllowed(savanna, pos, Blocks.MOSS_CARPET.defaultBlockState()), "Savanna must reject moss carpet");
+        h.assertTrue(isAllowed(snowy, pos, Blocks.MUD.defaultBlockState()), "Snowy mud must remain available");
+        h.assertTrue(isAllowed(h.getLevel(), pos, Blocks.MUD.defaultBlockState()), "Vanilla dimensions keep vanilla mud placement");
+        h.assertTrue(isAllowed(h.getLevel(), pos, Blocks.MOSS_BLOCK.defaultBlockState()), "Vanilla dimensions keep vanilla moss placement");
+        h.succeed();
+    }
+
+    @GameTest(template = "plant_gameplay_empty")
+    public static void placementFeedbackNamesOnlyRelevantHabitats(GameTestHelper h) {
+        ServerLevel tropical = h.getLevel().getServer().getLevel(GameplayDimensions.TROPICAL);
+        ServerLevel savanna = h.getLevel().getServer().getLevel(GameplayDimensions.SAVANNA);
+        ServerLevel nether = h.getLevel().getServer().getLevel(GameplayDimensions.NETHER);
+        ServerLevel snowy = h.getLevel().getServer().getLevel(GameplayDimensions.SNOWY);
+        BlockPos pos = new BlockPos(0, 80, 0);
+        String mud = placementFailureMessage(tropical, pos, Blocks.MUD.defaultBlockState()).orElseThrow().getString();
+        h.assertTrue(mud.endsWith("in tropical dimension."), "Dimension-wide mud denial must not suggest another biome: " + mud);
+        String moss = placementFailureMessage(savanna, pos, Blocks.MOSS_BLOCK.defaultBlockState()).orElseThrow().getString();
+        h.assertTrue(moss.endsWith("in savanna dimension."), "Dimension-wide moss denial must not suggest another biome: " + moss);
+        String water = placementFailureMessage(nether, pos, Blocks.WATER.defaultBlockState()).orElseThrow().getString();
+        h.assertTrue(water.endsWith("in nether dimension."), "Dimension-wide fluid denial must not suggest another biome: " + water);
+        var crimson = boundary(nether, pos, "crimson_forest", "crimson_forest");
+        String soulSand = placementFailureMessage(crimson, pos, Blocks.SOUL_SAND.defaultBlockState()).orElseThrow().getString();
+        h.assertTrue(soulSand.endsWith("outside soul sand valley."), "Soul sand feedback must name its required habitat: " + soulSand);
+        String wart = placementFailureMessage(crimson, pos, Blocks.NETHER_WART.defaultBlockState()).orElseThrow().getString();
+        h.assertTrue(wart.endsWith("outside soul sand valley."), "Soul-valley plants must name their required habitat: " + wart);
+        var valleyAbove = boundary(nether, pos, "crimson_forest", "soul_sand_valley");
+        h.assertTrue(placementFailureMessage(valleyAbove, pos, Blocks.SOUL_SAND.defaultBlockState()).isEmpty(), "Allowed substrate boundary must not show a denial");
+        var forest = boundary(snowy, pos, "snowy_forest", "snowy_forest");
+        String beetroot = placementFailureMessage(forest, pos, Blocks.BEETROOTS.defaultBlockState()).orElseThrow().getString();
+        h.assertTrue(beetroot.endsWith("outside mushroom caves."), "Other habitat feedback must identify the actual biome: " + beetroot);
+        String foreignWart = placementFailureMessage(savanna, pos, Blocks.NETHER_WART.defaultBlockState()).orElseThrow().getString();
+        h.assertTrue(foreignWart.endsWith("in savanna dimension."), "A foreign dimension must take precedence over a plant's Nether habitat: " + foreignWart);
+        h.assertTrue(placementFailureMessage(savanna, pos, Blocks.MUD.defaultBlockState()).isEmpty(), "Allowed placement must not show a denial");
         h.succeed();
     }
 

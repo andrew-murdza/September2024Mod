@@ -60,8 +60,18 @@ public abstract class WitherSummons {
         for (int i = 0; i < amount; ++i) {
             int x = wither.blockPosition().getX() + wither.getRandom().nextInt(13) - 6;
             int z = wither.blockPosition().getZ() + wither.getRandom().nextInt(13) - 6;
-            int y = level.getHeight(Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, x, z);
-            BlockPos pos = new BlockPos(x, y, z);
+            BlockPos pos = null;
+            // Heightmaps point above the entire cave. Search the nearby room floor instead.
+            for (int y = wither.blockPosition().getY() + 4; y >= wither.blockPosition().getY() - 16; y--) {
+                BlockPos candidate = new BlockPos(x, y, z);
+                if (level.getBlockState(candidate.below()).isFaceSturdy(level, candidate.below(), net.minecraft.core.Direction.UP)
+                        && level.isEmptyBlock(candidate) && level.isEmptyBlock(candidate.above())
+                        && level.isEmptyBlock(candidate.above(2))) {
+                    pos = candidate;
+                    break;
+                }
+            }
+            if (pos == null) continue;
             EntityType<? extends AbstractSkeleton> type = EntityType.WITHER_SKELETON;
             AbstractSkeleton minion = type.spawn(level, pos, MobSpawnType.MOB_SUMMONED);
             if (minion != null) {

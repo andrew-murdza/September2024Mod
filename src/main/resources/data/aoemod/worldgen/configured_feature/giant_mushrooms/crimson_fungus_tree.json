@@ -23,7 +23,7 @@
     },
     "trunk_width": 1,
     "place_water_ring": false,
-    "include_weeping_vines": true,
+    "include_weeping_vines": false,
     "valid_ground": {
       "type": "minecraft:matching_blocks",
       "blocks": "minecraft:crimson_nylium"

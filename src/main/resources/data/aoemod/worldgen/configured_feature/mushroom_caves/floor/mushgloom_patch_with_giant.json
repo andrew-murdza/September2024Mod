@@ -1,0 +1,9 @@
+{
+  "type": "aoemod:feature_sequence",
+  "config": {
+    "features": [
+      "twilightforest:mushroom/big_mushgloom",
+      "aoemod:mushrooms/mushroom_caves/mushgloom_patch"
+    ]
+  }
+}

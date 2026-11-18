@@ -1,14 +1,11 @@
 package net.amurdza.examplemod.event_handlers;
 
-import com.github.alexthe666.iceandfire.entity.IafEntityRegistry;
 import net.amurdza.examplemod.AOEMod;
-import net.amurdza.examplemod.entity.ArchlichEntity;
 import net.amurdza.examplemod.entity.IllagerLordEntity;
 import net.amurdza.examplemod.entity.SpiderQueenEntity;
 import net.amurdza.examplemod.registry.ModEntities;
 import net.amurdza.examplemod.registry.ModItems;
 import net.amurdza.examplemod.util.ModTags;
-import net.mcreator.borninchaosv.init.BornInChaosV1ModEntities;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerLevel;
@@ -44,7 +41,6 @@ import net.minecraft.world.entity.projectile.LargeFireball;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
-import net.minecraft.world.item.enchantment.Enchantments;
 import net.minecraftforge.event.entity.EntityJoinLevelEvent;
 import net.minecraftforge.event.entity.living.LivingEvent;
 import net.minecraftforge.event.entity.living.LivingHurtEvent;
@@ -57,7 +53,6 @@ public final class MobTierBalancing {
     private static final String ZOMBIE_HORSEMAN_RIDER_TAG = "aoe.zombieHorsemanRider";
     private static final String SKELETON_HORSEMAN_RIDER_TAG = "aoe.skeletonHorsemanRider";
 
-    private static final ResourceLocation ALEX_CENTIPEDE_HEAD = new ResourceLocation("alexsmobs", "centipede_head");
     private static final ResourceLocation QUARK_WRAITH = new ResourceLocation("quark", "wraith");
     private static final ResourceLocation BACKPORTED_PARCHED = new ResourceLocation("minecraft", "parched");
     private static final ResourceLocation BACKPORTED_CAMEL_HUSK = new ResourceLocation("minecraft", "camel_husk");
@@ -121,16 +116,12 @@ public final class MobTierBalancing {
 
         EntityType<?> type = mob.getType();
 
-        if (type == ModEntities.CREAKING.get()) {
-            stats(mob, 18.0D, 1.0D, 0.20D, 4.0D, 0.2D);
-        } else if (type == EntityType.SPIDER) {
+        if (type == EntityType.SPIDER) {
             stats(mob, 12.0D, 2.0D, 0.30D, 0.0D, 0.0D);
         } else if (type == EntityType.CAVE_SPIDER) {
             stats(mob, 18.0D, 2.0D, 0.33D, 1.0D, 0.0D);
         } else if (type == ModEntities.BOGGED.get()) {
             stats(mob, 22.0D, 2.0D, 0.24D, 1.0D, 0.0D);
-        } else if (isType(mob, ALEX_CENTIPEDE_HEAD)) {
-            stats(mob, 38.0D, 4.5D, 0.18D, 7.0D, 0.35D);
         } else if (mob instanceof SpiderQueenEntity) {
             stats(mob, 150.0D, 8.5D, 0.31D, 6.0D, 0.35D);
         } else if (mob.getTags().contains(ZOMBIE_HORSEMAN_RIDER_TAG)) {
@@ -141,17 +132,11 @@ public final class MobTierBalancing {
             stats(mob, 18.0D, 2.5D, 0.22D, 0.0D, 0.0D);
         } else if (type == EntityType.SKELETON) {
             tuneSkeletonStats(mob);
-        } else if (type == BornInChaosV1ModEntities.SENOR_PUMPKIN.get()) {
-            stats(mob, 16.0D, 3.0D, 0.28D, 0.0D, 0.0D);
-        } else if (type == BornInChaosV1ModEntities.SIR_PUMPKINHEAD.get()) {
-            stats(mob, 32.0D, 2.0D, 0.29D, 2.0D, 0.1D);
         } else if (type == ModEntities.ZOMBIE_HORSEMAN.get() || type == ModEntities.SKELETON_HORSEMAN.get()) {
             stats(mob, type == ModEntities.SKELETON_HORSEMAN.get() ? 36.0D : 28.0D, 0.0D, 0.28D, 2.0D, 0.15D);
             if (mob instanceof AbstractHorse horse) {
                 set(horse, Attributes.JUMP_STRENGTH, 0.65D);
             }
-        } else if (type == BornInChaosV1ModEntities.LORD_PUMPKINHEAD.get()) {
-            stats(mob, 190.0D, 11.0D, 0.28D, 8.0D, 0.45D);
         } else if (type == EntityType.PILLAGER) {
             stats(mob, 20.0D, 2.0D, 0.25D, 0.0D, 0.0D);
         } else if (mob instanceof Ravager) {
@@ -174,16 +159,6 @@ public final class MobTierBalancing {
             stats(mob, 28.0D, 3.0D, 0.60D, 1.0D, 0.0D);
         } else if (mob instanceof Drowned) {
             stats(mob, 20.0D, 0.5D, 0.21D, 0.0D, 0.0D);
-        } else if (type == IafEntityRegistry.DREAD_THRALL.get()) {
-            stats(mob, 25.0D, 3.5D, 0.23D, 2.0D, 0.0D);
-        } else if (type == IafEntityRegistry.DREAD_LICH.get()) {
-            stats(mob, 38.0D, 3.0D, 0.24D, 2.0D, 0.05D);
-        } else if (type == IafEntityRegistry.DREAD_KNIGHT.get()) {
-            stats(mob, 50.0D, 5.0D, 0.18D, 15.0D, 0.35D);
-        } else if (type == IafEntityRegistry.TROLL.get()) {
-            stats(mob, 80.0D, 8.0D, 0.18D, 8.0D, 0.55D);
-        } else if (mob instanceof ArchlichEntity) {
-            stats(mob, 280.0D, 16.0D, 0.24D, 12.0D, 0.55D);
         } else if (type == EntityType.HUSK) {
             stats(mob, 28.0D, 3.5D, 0.23D, 3.0D, 0.0D);
         } else if (type == ModEntities.PARCHED.get() || isType(mob, BACKPORTED_PARCHED)) {
@@ -225,30 +200,27 @@ public final class MobTierBalancing {
     private static void tuneOneTimeEquipment(Mob mob) {
         EntityType<?> type = mob.getType();
 
-        if (type == BornInChaosV1ModEntities.SIR_PUMPKINHEAD.get()) {
-            equip(mob, EquipmentSlot.MAINHAND, Items.IRON_SWORD);
-        } else if (type == BornInChaosV1ModEntities.LORD_PUMPKINHEAD.get()) {
-            equip(mob, EquipmentSlot.MAINHAND, Items.IRON_SWORD);
-        } else if (mob.getTags().contains(ZOMBIE_HORSEMAN_RIDER_TAG)) {
+        if (mob.getTags().contains(ZOMBIE_HORSEMAN_RIDER_TAG)) {
             equip(mob, EquipmentSlot.MAINHAND, ModItems.IRON_SPEAR.get());
             equipLeatherArmor(mob);
         } else if (mob.getTags().contains(SKELETON_HORSEMAN_RIDER_TAG)) {
-            ItemStack bow = new ItemStack(Items.BOW);
-            bow.enchant(Enchantments.POWER_ARROWS, 1);
-            equip(mob, EquipmentSlot.MAINHAND, bow);
-            equipLeatherArmor(mob);
+            clearEquipment(mob);
+            equip(mob, EquipmentSlot.MAINHAND, Items.BOW);
+            mob.setCanPickUpLoot(false);
+        } else if (mob instanceof Drowned && net.amurdza.examplemod.util.GameplayDimensions.is(
+                mob.level(), net.amurdza.examplemod.util.GameplayDimensions.TROPICAL)) {
+            clearEquipment(mob);
+            mob.setCanPickUpLoot(false);
         } else if (mob instanceof Drowned) {
             equip(mob, EquipmentSlot.MAINHAND, ModItems.COPPER_SWORD.get());
             equip(mob, EquipmentSlot.HEAD, ModItems.COPPER_HELMET.get());
             equip(mob, EquipmentSlot.CHEST, ModItems.COPPER_CHESTPLATE.get());
             equip(mob, EquipmentSlot.LEGS, ModItems.COPPER_LEGGINGS.get());
             equip(mob, EquipmentSlot.FEET, ModItems.COPPER_BOOTS.get());
-        } else if (type == IafEntityRegistry.DREAD_THRALL.get()) {
-            clearEquipment(mob);
         } else if (mob instanceof ZombifiedPiglin) {
             equip(mob, EquipmentSlot.MAINHAND, Items.GOLDEN_SWORD);
         } else if (mob instanceof WitherSkeleton) {
-            equip(mob, EquipmentSlot.MAINHAND, Items.IRON_SWORD);
+            equip(mob, EquipmentSlot.MAINHAND, Items.STONE_SWORD);
         }
     }
 

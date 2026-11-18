@@ -1,0 +1,24 @@
+allprojects {
+    afterEvaluate { p ->
+        if (!p.plugins.hasPlugin('net.minecraftforge.gradle')) return
+        p.tasks.matching { it.name in ['reobfJar', 'reobfJarJar'] }.configureEach { useArgsFile() }
+        def focused = p.gradle.startParameter.taskNames.contains('runGameTestServer')
+        p.buildDir = p.file(focused ? 'build/nether-revision-qa/tests' : 'build/nether-revision-qa/full')
+        if (focused) p.sourceSets.main.java.exclude { element ->
+            def path = element.relativePath.pathString
+            path.startsWith('net/amurdza/examplemod/gametest/') && !(element.file.name in [
+                    'CaveSupportTests.java', 'GeneratedDimensionTests.java', 'DimensionTerrainTests.java',
+                    'DesertNetherStackTests.java', 'NetherPlantGameplayTests.java',
+                    'NetherVegetationRevisionTests.java', 'DocumentedEcologyTests.java'])
+        }
+        p.minecraft.runs.gameTestServer {
+            workingDirectory p.file('build/nether-revision-qa/run')
+        }
+        p.minecraft.runs.data {
+            workingDirectory p.file('build/nether-revision-qa/data-run')
+            args.clear()
+            args '--mod', p.mod_id, '--all', '--output', p.file('build/nether-revision-qa/generated').absolutePath,
+                    '--existing', p.file('src/main/resources').absolutePath
+        }
+    }
+}

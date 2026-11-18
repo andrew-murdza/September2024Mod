@@ -21,17 +21,12 @@ import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.monster.Spider;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.ServerLevelAccessor;
-import net.minecraft.world.level.levelgen.Heightmap;
 import net.minecraft.world.phys.AABB;
 import org.jetbrains.annotations.Nullable;
-import software.bernie.geckolib.animatable.GeoEntity;
-import software.bernie.geckolib.core.animatable.instance.AnimatableInstanceCache;
-import software.bernie.geckolib.core.animation.AnimatableManager;
-import software.bernie.geckolib.util.GeckoLibUtil;
 
 import java.util.UUID;
 
-public class SpiderQueenEntity extends Spider implements GeoEntity {
+public class SpiderQueenEntity extends Spider {
     private static final String SUMMON_COOLDOWN_TAG = "SpiderQueenSummonCooldown";
     private static final String SUMMONER_TAG = "SpiderQueenSummoner";
     private static final int MAX_ACTIVE_SUMMONS = 6;
@@ -43,7 +38,6 @@ public class SpiderQueenEntity extends Spider implements GeoEntity {
             BossEvent.BossBarColor.PURPLE,
             BossEvent.BossBarOverlay.PROGRESS
     );
-    private final AnimatableInstanceCache animationCache = GeckoLibUtil.createInstanceCache(this);
     private int summonCooldown;
 
     public SpiderQueenEntity(EntityType<? extends Spider> entityType, Level level) {
@@ -109,19 +103,14 @@ public class SpiderQueenEntity extends Spider implements GeoEntity {
             EntityType<? extends Spider> type = this.random.nextBoolean()
                     ? EntityType.SPIDER
                     : EntityType.CAVE_SPIDER;
-            Spider minion = type.spawn(level, this.findSummonPosition(level), MobSpawnType.MOB_SUMMONED);
+            BlockPos feet = net.amurdza.examplemod.util.BossSummonPosition.find(level, this, type, this.random);
+            if (feet == null) continue;
+            Spider minion = type.spawn(level, feet, MobSpawnType.MOB_SUMMONED);
             if (minion != null) {
                 minion.getPersistentData().putUUID(SUMMONER_TAG, owner);
                 minion.setTarget(target);
             }
         }
-    }
-
-    private BlockPos findSummonPosition(ServerLevel level) {
-        int x = this.blockPosition().getX() + this.random.nextInt(11) - 5;
-        int z = this.blockPosition().getZ() + this.random.nextInt(11) - 5;
-        int y = level.getHeight(Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, x, z);
-        return new BlockPos(x, y, z);
     }
 
     private int nextSummonCooldown() {
@@ -175,16 +164,5 @@ public class SpiderQueenEntity extends Spider implements GeoEntity {
     @Override
     public boolean removeWhenFarAway(double distanceToClosestPlayer) {
         return false;
-    }
-
-    @Override
-    public void registerControllers(AnimatableManager.ControllerRegistrar controllers) {
-        // The supplied spider archive has geometry but no animation file.
-        // SpiderQueenModel applies its walk and look motion procedurally.
-    }
-
-    @Override
-    public AnimatableInstanceCache getAnimatableInstanceCache() {
-        return this.animationCache;
     }
 }

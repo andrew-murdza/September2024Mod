@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cross",
+  "textures": {
+    "cross": "aoemod:block/blue_berry_bush_stage2"
+  }
+}

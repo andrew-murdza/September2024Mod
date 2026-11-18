@@ -1,0 +1,31 @@
+{
+  "runs": [
+    {
+      "stage": "v2",
+      "tests": 96,
+      "failures": [
+        {
+          "test": [
+            "aoemod:plant_gameplay_empty",
+            "fallingpassageswidenwithoutchanginghorizontalconnectors"
+          ],
+          "details": [
+            {
+              "message": "The rising desert outlet must receive the same fifteen-block width"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "stage": "v3",
+      "tests": 7,
+      "failures": []
+    }
+  ],
+  "latest_result_per_test": {
+    "tests": 96,
+    "passed": 96,
+    "failed": []
+  }
+}

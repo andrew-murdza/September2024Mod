@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smelting",
+  "ingredient": {
+    "item": "aoemod:raw_arthropleura"
+  },
+  "result": "aoemod:cooked_arthropleura",
+  "experience": 0.35,
+  "cookingtime": 200
+}

@@ -1,0 +1,82 @@
+{
+  "world": "New World",
+  "dimension": "aoemod:savanna_dimension",
+  "origin": [
+    -1772,
+    77,
+    -846
+  ],
+  "size": [
+    12,
+    10,
+    12
+  ],
+  "captured": "Block states and relative cushion seats only; no inventory contents, UUIDs, player data or world writes",
+  "cushions": [
+    {
+      "position": [
+        3.5,
+        1.0,
+        5.5
+      ],
+      "yaw": 0.0
+    },
+    {
+      "position": [
+        3.5,
+        1.0,
+        6.5
+      ],
+      "yaw": 0.0
+    },
+    {
+      "position": [
+        5.5,
+        1.0,
+        3.5
+      ],
+      "yaw": 270.0
+    },
+    {
+      "position": [
+        6.5,
+        1.0,
+        3.5
+      ],
+      "yaw": 270.0
+    },
+    {
+      "position": [
+        8.5,
+        1.0,
+        6.5
+      ],
+      "yaw": 0.0
+    },
+    {
+      "position": [
+        8.5,
+        1.0,
+        5.5
+      ],
+      "yaw": 0.0
+    },
+    {
+      "position": [
+        5.5,
+        1.0,
+        8.5
+      ],
+      "yaw": 90.0
+    },
+    {
+      "position": [
+        6.5,
+        1.0,
+        8.5
+      ],
+      "yaw": 90.0
+    }
+  ],
+  "sha256": "d10f6446dd26d7e93612e6fa207bbc1735a9a5cb6c16ab8925fb0a2b643fb50f"
+}

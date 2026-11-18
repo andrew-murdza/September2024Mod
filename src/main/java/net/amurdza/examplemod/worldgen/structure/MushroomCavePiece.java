@@ -953,7 +953,7 @@ public class MushroomCavePiece extends AbstractSpiralCavePiece {
             BoundingBox box,
             ChunkPos chunkPos
     ) {
-        placeGuaranteedInnerRingBerryPatches(level, box);
+        // Surface taiga's six-bush patches are the only natural berry source.
         double mooshroomPathFraction = mooshroomGroupPathFraction();
         double intermediateGroupUpperPathFraction = polarBearGroupPathFraction(
                 INTERMEDIATE_GROUP_POLAR_ARC_SHIFT

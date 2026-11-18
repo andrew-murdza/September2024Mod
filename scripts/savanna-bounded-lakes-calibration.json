@@ -1,0 +1,118 @@
+{
+  "audit_source": "scripts/SavannaHeightAudit.java",
+  "block_columns_per_seed": 16777216,
+  "region": "[-2048,2048) x [-2048,2048), every block after four-block terrain interpolation",
+  "maximum_height": 74.0,
+  "existing_dry_land_uplift": 3.5,
+  "shore_noise": -0.42,
+  "basin_lattice_area_bounds": [
+    1024,
+    32768
+  ],
+  "water_ratio": 0.38944697564736863,
+  "lake_count_ratio": 0.7409470752089137,
+  "seeds": [
+    {
+      "current": {
+        "maximum_area": 32702,
+        "boundary_lakes": 5,
+        "water_blocks": 883816,
+        "lakes_below_512_blocks": 0,
+        "minimum_area": 1119,
+        "complete_lakes": 68,
+        "median_area": 8831,
+        "p90_area": 26288,
+        "coverage_percent": 5.267953872680664
+      },
+      "seed": 0,
+      "previous": {
+        "maximum_area": 133241,
+        "boundary_lakes": 12,
+        "water_blocks": 2228355,
+        "lakes_below_512_blocks": 5,
+        "minimum_area": 85,
+        "complete_lakes": 93,
+        "median_area": 13289,
+        "p90_area": 52444,
+        "coverage_percent": 13.282030820846558
+      }
+    },
+    {
+      "current": {
+        "maximum_area": 32145,
+        "boundary_lakes": 11,
+        "water_blocks": 956052,
+        "lakes_below_512_blocks": 0,
+        "minimum_area": 1084,
+        "complete_lakes": 76,
+        "median_area": 9984,
+        "p90_area": 25999,
+        "coverage_percent": 5.698513984680176
+      },
+      "seed": 12345,
+      "previous": {
+        "maximum_area": 100451,
+        "boundary_lakes": 17,
+        "water_blocks": 2036250,
+        "lakes_below_512_blocks": 2,
+        "minimum_area": 92,
+        "complete_lakes": 94,
+        "median_area": 15285,
+        "p90_area": 42173,
+        "coverage_percent": 12.136995792388916
+      }
+    },
+    {
+      "current": {
+        "maximum_area": 30299,
+        "boundary_lakes": 9,
+        "water_blocks": 1025179,
+        "lakes_below_512_blocks": 0,
+        "minimum_area": 1432,
+        "complete_lakes": 74,
+        "median_area": 11584,
+        "p90_area": 25063,
+        "coverage_percent": 6.1105430126190186
+      },
+      "seed": 98765,
+      "previous": {
+        "maximum_area": 119434,
+        "boundary_lakes": 18,
+        "water_blocks": 2248214,
+        "lakes_below_512_blocks": 2,
+        "minimum_area": 193,
+        "complete_lakes": 95,
+        "median_area": 15466,
+        "p90_area": 43319,
+        "coverage_percent": 13.400399684906006
+      }
+    },
+    {
+      "current": {
+        "maximum_area": 32560,
+        "boundary_lakes": 6,
+        "water_blocks": 597794,
+        "lakes_below_512_blocks": 0,
+        "minimum_area": 1344,
+        "complete_lakes": 48,
+        "median_area": 9541,
+        "p90_area": 22685,
+        "coverage_percent": 3.5631299018859863
+      },
+      "seed": -8152788754161584091,
+      "previous": {
+        "maximum_area": 252152,
+        "boundary_lakes": 19,
+        "water_blocks": 2378869,
+        "lakes_below_512_blocks": 4,
+        "minimum_area": 3,
+        "complete_lakes": 77,
+        "median_area": 14152,
+        "p90_area": 63541,
+        "coverage_percent": 14.179164171218872
+      }
+    }
+  ],
+  "checks": "Monotone raw height transfer, exact3.5 uplift and unchanged dry derivatives, identical submerged reference profile; production component filter used.",
+  "limitations": "Finite four-seed region sample. Basin acceptance estimates area on the four-block density lattice; actual block shore area can differ. Boundary-crossing lakes count toward water coverage but are excluded from complete-lake size/count distributions. Existing chunks remain unchanged."
+}

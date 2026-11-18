@@ -1,5 +1,7 @@
 # Loaded block availability
 
+Historical registry snapshot from 20 October 2026. This list has not been regenerated for the November content removals or placement revisions; it is not a current acquisition/catalog list. See `IMPLEMENTED_CHANGES.md` and `NOVEMBER_8_REVIEW_REVISION.txt` for current behavior.
+
 Generated from the running server's block registry, tags, and recipes. Includes all installed backports. ‘All’ and ‘none’ refer to the six AOE dimensions, not vanilla or other mods' dimensions, which retain their original placement. These are dimension/material eligibility results, not a guarantee of placement on every surface. This does not promise that a block is obtainable: hidden dependency content and technical blocks remain in the registry and are listed too. Mycelium, nylium, netherrack, soul sediments and living Nether plants also have local biome checks. Block survival, collisions, water, support, and two-block clearance still apply.
 
 An entry in ‘none’ can be intentional when no dimension allows every ingredient and the finished block. The six dimension documents take priority over older placement annotations. Recipe ingredients and building restrictions can still exclude a finished product even when individual ingredients occur elsewhere. Local biome requirements are checked when placing or growing the block; this dimension summary does not remove them.

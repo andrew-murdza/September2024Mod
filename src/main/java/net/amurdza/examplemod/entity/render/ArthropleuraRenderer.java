@@ -7,7 +7,7 @@ import net.minecraft.client.renderer.entity.MobRenderer;
 import net.minecraft.resources.ResourceLocation;
 
 public final class ArthropleuraRenderer extends MobRenderer<ArthropleuraEntity, ArthropleuraModel> {
-    private static final ResourceLocation MATERIAL = new ResourceLocation("minecraft", "textures/block/white_concrete.png");
+    private static final ResourceLocation MATERIAL = new ResourceLocation("aoemod", "textures/entity/arthropleura.png");
 
     public ArthropleuraRenderer(EntityRendererProvider.Context context) {
         super(context, new ArthropleuraModel(context.bakeLayer(EntityRenderers.ARTHROPLEURA_MODEL)), 0.7F);

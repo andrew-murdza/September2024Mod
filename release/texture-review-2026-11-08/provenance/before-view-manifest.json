@@ -1,0 +1,927 @@
+[
+  {
+    "id": "ambientadditions:blue_spotted_stingray",
+    "title": "Blue Spotted Stingray",
+    "label": "ambientadditions_blue_spotted_stingray_view_1",
+    "angle": 25,
+    "angleName": "View 1",
+    "pitch": -20,
+    "scale": 200,
+    "baselineKind": "upstream reference rendered using the shared/current compatible geometry",
+    "baselineSource": "ambientadditions installed dependency archive"
+  },
+  {
+    "id": "ambientadditions:blue_spotted_stingray",
+    "title": "Blue Spotted Stingray",
+    "label": "ambientadditions_blue_spotted_stingray_view_2",
+    "angle": 115,
+    "angleName": "View 2",
+    "pitch": -20,
+    "scale": 200,
+    "baselineKind": "upstream reference rendered using the shared/current compatible geometry",
+    "baselineSource": "ambientadditions installed dependency archive"
+  },
+  {
+    "id": "ambientadditions:blue_spotted_stingray",
+    "title": "Blue Spotted Stingray",
+    "label": "ambientadditions_blue_spotted_stingray_view_3_above",
+    "angle": 205,
+    "angleName": "View 3 / above",
+    "pitch": -45,
+    "scale": 200,
+    "baselineKind": "upstream reference rendered using the shared/current compatible geometry",
+    "baselineSource": "ambientadditions installed dependency archive"
+  },
+  {
+    "id": "hybrid_aquatic:lightfoot_crab",
+    "title": "Lightfoot Crab",
+    "label": "hybrid_aquatic_lightfoot_crab_view_1",
+    "angle": 25,
+    "angleName": "View 1",
+    "pitch": -20,
+    "scale": 130,
+    "baselineKind": "native upstream geometry, animation and texture; crab scale compensation removes AOE enlargement",
+    "baselineSource": "hybrid_aquatic installed dependency archive",
+    "visualRadius": 1.8
+  },
+  {
+    "id": "hybrid_aquatic:lightfoot_crab",
+    "title": "Lightfoot Crab",
+    "label": "hybrid_aquatic_lightfoot_crab_view_2",
+    "angle": 115,
+    "angleName": "View 2",
+    "pitch": -20,
+    "scale": 130,
+    "baselineKind": "native upstream geometry, animation and texture; crab scale compensation removes AOE enlargement",
+    "baselineSource": "hybrid_aquatic installed dependency archive",
+    "visualRadius": 1.8
+  },
+  {
+    "id": "hybrid_aquatic:lightfoot_crab",
+    "title": "Lightfoot Crab",
+    "label": "hybrid_aquatic_lightfoot_crab_view_3_above",
+    "angle": 205,
+    "angleName": "View 3 / above",
+    "pitch": -45,
+    "scale": 130,
+    "baselineKind": "native upstream geometry, animation and texture; crab scale compensation removes AOE enlargement",
+    "baselineSource": "hybrid_aquatic installed dependency archive",
+    "visualRadius": 1.8
+  },
+  {
+    "id": "hybrid_aquatic:flower_crab",
+    "title": "Flower Crab",
+    "label": "hybrid_aquatic_flower_crab_view_1",
+    "angle": 25,
+    "angleName": "View 1",
+    "pitch": -20,
+    "scale": 130,
+    "baselineKind": "native upstream geometry, animation and texture; crab scale compensation removes AOE enlargement",
+    "baselineSource": "hybrid_aquatic installed dependency archive",
+    "visualRadius": 1.8
+  },
+  {
+    "id": "hybrid_aquatic:flower_crab",
+    "title": "Flower Crab",
+    "label": "hybrid_aquatic_flower_crab_view_2",
+    "angle": 115,
+    "angleName": "View 2",
+    "pitch": -20,
+    "scale": 130,
+    "baselineKind": "native upstream geometry, animation and texture; crab scale compensation removes AOE enlargement",
+    "baselineSource": "hybrid_aquatic installed dependency archive",
+    "visualRadius": 1.8
+  },
+  {
+    "id": "hybrid_aquatic:flower_crab",
+    "title": "Flower Crab",
+    "label": "hybrid_aquatic_flower_crab_view_3_above",
+    "angle": 205,
+    "angleName": "View 3 / above",
+    "pitch": -45,
+    "scale": 130,
+    "baselineKind": "native upstream geometry, animation and texture; crab scale compensation removes AOE enlargement",
+    "baselineSource": "hybrid_aquatic installed dependency archive",
+    "visualRadius": 1.8
+  },
+  {
+    "id": "hybrid_aquatic:arrow_squid",
+    "title": "Arrow Squid",
+    "label": "hybrid_aquatic_arrow_squid_view_1",
+    "angle": 25,
+    "angleName": "View 1",
+    "pitch": -20,
+    "scale": 145,
+    "baselineKind": "native upstream geometry, animation and texture; crab scale compensation removes AOE enlargement",
+    "baselineSource": "hybrid_aquatic installed dependency archive",
+    "settleTicks": 60
+  },
+  {
+    "id": "hybrid_aquatic:arrow_squid",
+    "title": "Arrow Squid",
+    "label": "hybrid_aquatic_arrow_squid_view_2",
+    "angle": 115,
+    "angleName": "View 2",
+    "pitch": -20,
+    "scale": 145,
+    "baselineKind": "native upstream geometry, animation and texture; crab scale compensation removes AOE enlargement",
+    "baselineSource": "hybrid_aquatic installed dependency archive",
+    "settleTicks": 70
+  },
+  {
+    "id": "hybrid_aquatic:arrow_squid",
+    "title": "Arrow Squid",
+    "label": "hybrid_aquatic_arrow_squid_view_3_above",
+    "angle": 205,
+    "angleName": "View 3 / above",
+    "pitch": -45,
+    "scale": 145,
+    "baselineKind": "native upstream geometry, animation and texture; crab scale compensation removes AOE enlargement",
+    "baselineSource": "hybrid_aquatic installed dependency archive",
+    "settleTicks": 80
+  },
+  {
+    "id": "aoemod:arthropleura",
+    "title": "Arthropleura",
+    "label": "aoemod_arthropleura_view_1",
+    "angle": 25,
+    "angleName": "View 1",
+    "pitch": -20,
+    "scale": 130,
+    "baselineKind": "exact archived pre-revision implementation",
+    "baselineSource": "tmp/seafood-refinements/models/ArthropleuraModel-before.java and ArthropleuraRenderer-before.java",
+    "note": "Archived fourteen-plate model before the eight-plate textured revision"
+  },
+  {
+    "id": "aoemod:arthropleura",
+    "title": "Arthropleura",
+    "label": "aoemod_arthropleura_view_2",
+    "angle": 115,
+    "angleName": "View 2",
+    "pitch": -20,
+    "scale": 130,
+    "baselineKind": "exact archived pre-revision implementation",
+    "baselineSource": "tmp/seafood-refinements/models/ArthropleuraModel-before.java and ArthropleuraRenderer-before.java",
+    "note": "Archived fourteen-plate model before the eight-plate textured revision"
+  },
+  {
+    "id": "aoemod:arthropleura",
+    "title": "Arthropleura",
+    "label": "aoemod_arthropleura_view_3_above",
+    "angle": 205,
+    "angleName": "View 3 / above",
+    "pitch": -45,
+    "scale": 130,
+    "baselineKind": "exact archived pre-revision implementation",
+    "baselineSource": "tmp/seafood-refinements/models/ArthropleuraModel-before.java and ArthropleuraRenderer-before.java",
+    "note": "Archived fourteen-plate model before the eight-plate textured revision"
+  },
+  {
+    "id": "aoemod:spider_queen",
+    "title": "Spider Queen",
+    "label": "aoemod_spider_queen_view_1",
+    "angle": 25,
+    "angleName": "View 1",
+    "pitch": -20,
+    "scale": 115,
+    "baselineKind": "upstream reference rendered using the shared/current compatible geometry",
+    "baselineSource": "twilightforest-4.3.2508.jar!assets/twilightforest/textures/model/kingspider.png",
+    "note": "Twilight Forest king-spider source texture on the shared spider geometry"
+  },
+  {
+    "id": "aoemod:spider_queen",
+    "title": "Spider Queen",
+    "label": "aoemod_spider_queen_view_2",
+    "angle": 115,
+    "angleName": "View 2",
+    "pitch": -20,
+    "scale": 115,
+    "baselineKind": "upstream reference rendered using the shared/current compatible geometry",
+    "baselineSource": "twilightforest-4.3.2508.jar!assets/twilightforest/textures/model/kingspider.png",
+    "note": "Twilight Forest king-spider source texture on the shared spider geometry"
+  },
+  {
+    "id": "aoemod:spider_queen",
+    "title": "Spider Queen",
+    "label": "aoemod_spider_queen_view_3_above",
+    "angle": 205,
+    "angleName": "View 3 / above",
+    "pitch": -45,
+    "scale": 115,
+    "baselineKind": "upstream reference rendered using the shared/current compatible geometry",
+    "baselineSource": "twilightforest-4.3.2508.jar!assets/twilightforest/textures/model/kingspider.png",
+    "note": "Twilight Forest king-spider source texture on the shared spider geometry"
+  },
+  {
+    "id": "aoemod:illager_lord",
+    "title": "Illager Lord",
+    "label": "aoemod_illager_lord_view_1",
+    "angle": 25,
+    "angleName": "View 1",
+    "pitch": -20,
+    "scale": 200,
+    "visualRadius": 2.5,
+    "baselineKind": "prior committed equipment-anchor geometry with the current compatible item renderer",
+    "baselineSource": "git HEAD:src/main/resources/assets/aoemod/geo/illager_king.geo.json; imported texture unchanged"
+  },
+  {
+    "id": "aoemod:illager_lord",
+    "title": "Illager Lord",
+    "label": "aoemod_illager_lord_view_2",
+    "angle": 115,
+    "angleName": "View 2",
+    "pitch": -20,
+    "scale": 200,
+    "visualRadius": 2.5,
+    "baselineKind": "prior committed equipment-anchor geometry with the current compatible item renderer",
+    "baselineSource": "git HEAD:src/main/resources/assets/aoemod/geo/illager_king.geo.json; imported texture unchanged"
+  },
+  {
+    "id": "aoemod:illager_lord",
+    "title": "Illager Lord",
+    "label": "aoemod_illager_lord_view_3_above",
+    "angle": 205,
+    "angleName": "View 3 / above",
+    "pitch": -45,
+    "scale": 200,
+    "visualRadius": 2.5,
+    "baselineKind": "prior committed equipment-anchor geometry with the current compatible item renderer",
+    "baselineSource": "git HEAD:src/main/resources/assets/aoemod/geo/illager_king.geo.json; imported texture unchanged"
+  },
+  {
+    "id": "orcz:orcsavagemace",
+    "title": "Orcsavagemace",
+    "label": "orcz_orcsavagemace_view_1",
+    "angle": 25,
+    "angleName": "View 1",
+    "pitch": -20,
+    "scale": 105,
+    "baselineKind": "upstream reference rendered using the shared/current compatible geometry",
+    "baselineSource": "orcz installed dependency archive",
+    "note": "Native Orcz metal equipment before bone recolor"
+  },
+  {
+    "id": "orcz:orcsavagemace",
+    "title": "Orcsavagemace",
+    "label": "orcz_orcsavagemace_view_2",
+    "angle": 115,
+    "angleName": "View 2",
+    "pitch": -20,
+    "scale": 105,
+    "baselineKind": "upstream reference rendered using the shared/current compatible geometry",
+    "baselineSource": "orcz installed dependency archive",
+    "note": "Native Orcz metal equipment before bone recolor"
+  },
+  {
+    "id": "orcz:orcsavagemace",
+    "title": "Orcsavagemace",
+    "label": "orcz_orcsavagemace_view_3_above",
+    "angle": 205,
+    "angleName": "View 3 / above",
+    "pitch": -45,
+    "scale": 105,
+    "baselineKind": "upstream reference rendered using the shared/current compatible geometry",
+    "baselineSource": "orcz installed dependency archive",
+    "note": "Native Orcz metal equipment before bone recolor"
+  },
+  {
+    "id": "orcz:orcshield",
+    "title": "Orcshield",
+    "label": "orcz_orcshield_view_1",
+    "angle": 25,
+    "angleName": "View 1",
+    "pitch": -20,
+    "scale": 105,
+    "baselineKind": "upstream reference rendered using the shared/current compatible geometry",
+    "baselineSource": "orcz installed dependency archive",
+    "note": "Native Orcz metal equipment before bone recolor"
+  },
+  {
+    "id": "orcz:orcshield",
+    "title": "Orcshield",
+    "label": "orcz_orcshield_view_2",
+    "angle": 115,
+    "angleName": "View 2",
+    "pitch": -20,
+    "scale": 105,
+    "baselineKind": "upstream reference rendered using the shared/current compatible geometry",
+    "baselineSource": "orcz installed dependency archive",
+    "note": "Native Orcz metal equipment before bone recolor"
+  },
+  {
+    "id": "orcz:orcshield",
+    "title": "Orcshield",
+    "label": "orcz_orcshield_view_3_above",
+    "angle": 205,
+    "angleName": "View 3 / above",
+    "pitch": -45,
+    "scale": 105,
+    "baselineKind": "upstream reference rendered using the shared/current compatible geometry",
+    "baselineSource": "orcz installed dependency archive",
+    "note": "Native Orcz metal equipment before bone recolor"
+  },
+  {
+    "id": "orcz:bigorcboss",
+    "title": "Bigorcboss",
+    "label": "orcz_bigorcboss_view_1",
+    "angle": 25,
+    "angleName": "View 1",
+    "pitch": -20,
+    "scale": 80,
+    "baselineKind": "upstream reference rendered using the shared/current compatible geometry",
+    "baselineSource": "orcz installed dependency archive",
+    "note": "Native Orcz metal equipment before bone recolor"
+  },
+  {
+    "id": "orcz:bigorcboss",
+    "title": "Bigorcboss",
+    "label": "orcz_bigorcboss_view_2",
+    "angle": 115,
+    "angleName": "View 2",
+    "pitch": -20,
+    "scale": 80,
+    "baselineKind": "upstream reference rendered using the shared/current compatible geometry",
+    "baselineSource": "orcz installed dependency archive",
+    "note": "Native Orcz metal equipment before bone recolor"
+  },
+  {
+    "id": "orcz:bigorcboss",
+    "title": "Bigorcboss",
+    "label": "orcz_bigorcboss_view_3_above",
+    "angle": 205,
+    "angleName": "View 3 / above",
+    "pitch": -45,
+    "scale": 80,
+    "baselineKind": "upstream reference rendered using the shared/current compatible geometry",
+    "baselineSource": "orcz installed dependency archive",
+    "note": "Native Orcz metal equipment before bone recolor"
+  },
+  {
+    "id": "outer_end:stalker",
+    "title": "Stalker",
+    "label": "outer_end_stalker_view_1",
+    "angle": 25,
+    "angleName": "View 1",
+    "pitch": -20,
+    "scale": 95,
+    "baselineKind": "native upstream renderer and rose variant without the added AOE emissive layer",
+    "baselineSource": "outer_end-1.0.0.jar!assets/outer_end/textures/entity/stalker_rose.png"
+  },
+  {
+    "id": "outer_end:stalker",
+    "title": "Stalker",
+    "label": "outer_end_stalker_view_2",
+    "angle": 115,
+    "angleName": "View 2",
+    "pitch": -20,
+    "scale": 95,
+    "baselineKind": "native upstream renderer and rose variant without the added AOE emissive layer",
+    "baselineSource": "outer_end-1.0.0.jar!assets/outer_end/textures/entity/stalker_rose.png"
+  },
+  {
+    "id": "outer_end:stalker",
+    "title": "Stalker",
+    "label": "outer_end_stalker_view_3_above",
+    "angle": 205,
+    "angleName": "View 3 / above",
+    "pitch": -45,
+    "scale": 95,
+    "baselineKind": "native upstream renderer and rose variant without the added AOE emissive layer",
+    "baselineSource": "outer_end-1.0.0.jar!assets/outer_end/textures/entity/stalker_rose.png"
+  },
+  {
+    "id": "hybrid_aquatic:starfish",
+    "title": "Starfish small",
+    "label": "hybrid_aquatic_starfish_small_view_1",
+    "angle": 25,
+    "angleName": "View 1",
+    "pitch": -20,
+    "scale": 230,
+    "baselineKind": "native upstream geometry, animation and texture; crab scale compensation removes AOE enlargement",
+    "baselineSource": "hybrid_aquatic installed dependency archive",
+    "variant": "SMALL",
+    "visualRadius": 0.7
+  },
+  {
+    "id": "hybrid_aquatic:starfish",
+    "title": "Starfish small",
+    "label": "hybrid_aquatic_starfish_small_view_2",
+    "angle": 115,
+    "angleName": "View 2",
+    "pitch": -20,
+    "scale": 230,
+    "baselineKind": "native upstream geometry, animation and texture; crab scale compensation removes AOE enlargement",
+    "baselineSource": "hybrid_aquatic installed dependency archive",
+    "variant": "SMALL",
+    "visualRadius": 0.7
+  },
+  {
+    "id": "hybrid_aquatic:starfish",
+    "title": "Starfish small",
+    "label": "hybrid_aquatic_starfish_small_view_3_above",
+    "angle": 205,
+    "angleName": "View 3 / above",
+    "pitch": -70,
+    "scale": 230,
+    "baselineKind": "native upstream geometry, animation and texture; crab scale compensation removes AOE enlargement",
+    "baselineSource": "hybrid_aquatic installed dependency archive",
+    "variant": "SMALL",
+    "visualRadius": 0.7
+  },
+  {
+    "id": "hybrid_aquatic:starfish",
+    "title": "Starfish medium",
+    "label": "hybrid_aquatic_starfish_medium_view_1",
+    "angle": 25,
+    "angleName": "View 1",
+    "pitch": -20,
+    "scale": 230,
+    "baselineKind": "native upstream geometry, animation and texture; crab scale compensation removes AOE enlargement",
+    "baselineSource": "hybrid_aquatic installed dependency archive",
+    "variant": "MEDIUM",
+    "visualRadius": 0.7
+  },
+  {
+    "id": "hybrid_aquatic:starfish",
+    "title": "Starfish medium",
+    "label": "hybrid_aquatic_starfish_medium_view_2",
+    "angle": 115,
+    "angleName": "View 2",
+    "pitch": -20,
+    "scale": 230,
+    "baselineKind": "native upstream geometry, animation and texture; crab scale compensation removes AOE enlargement",
+    "baselineSource": "hybrid_aquatic installed dependency archive",
+    "variant": "MEDIUM",
+    "visualRadius": 0.7
+  },
+  {
+    "id": "hybrid_aquatic:starfish",
+    "title": "Starfish medium",
+    "label": "hybrid_aquatic_starfish_medium_view_3_above",
+    "angle": 205,
+    "angleName": "View 3 / above",
+    "pitch": -70,
+    "scale": 230,
+    "baselineKind": "native upstream geometry, animation and texture; crab scale compensation removes AOE enlargement",
+    "baselineSource": "hybrid_aquatic installed dependency archive",
+    "variant": "MEDIUM",
+    "visualRadius": 0.7
+  },
+  {
+    "id": "hybrid_aquatic:starfish",
+    "title": "Starfish crown of thorns",
+    "label": "hybrid_aquatic_starfish_crown_of_thorns_view_1",
+    "angle": 25,
+    "angleName": "View 1",
+    "pitch": -20,
+    "scale": 230,
+    "baselineKind": "native upstream geometry, animation and texture; crab scale compensation removes AOE enlargement",
+    "baselineSource": "hybrid_aquatic installed dependency archive",
+    "variant": "CROWN_OF_THORNS",
+    "visualRadius": 0.7
+  },
+  {
+    "id": "hybrid_aquatic:starfish",
+    "title": "Starfish crown of thorns",
+    "label": "hybrid_aquatic_starfish_crown_of_thorns_view_2",
+    "angle": 115,
+    "angleName": "View 2",
+    "pitch": -20,
+    "scale": 230,
+    "baselineKind": "native upstream geometry, animation and texture; crab scale compensation removes AOE enlargement",
+    "baselineSource": "hybrid_aquatic installed dependency archive",
+    "variant": "CROWN_OF_THORNS",
+    "visualRadius": 0.7
+  },
+  {
+    "id": "hybrid_aquatic:starfish",
+    "title": "Starfish crown of thorns",
+    "label": "hybrid_aquatic_starfish_crown_of_thorns_view_3_above",
+    "angle": 205,
+    "angleName": "View 3 / above",
+    "pitch": -70,
+    "scale": 230,
+    "baselineKind": "native upstream geometry, animation and texture; crab scale compensation removes AOE enlargement",
+    "baselineSource": "hybrid_aquatic installed dependency archive",
+    "variant": "CROWN_OF_THORNS",
+    "visualRadius": 0.7
+  },
+  {
+    "id": "minecraft:sweet_berry_bush",
+    "title": "Blue berries stage 2",
+    "label": "blue_berries_stage_2_front",
+    "angle": 30,
+    "angleName": "front",
+    "scale": 190,
+    "block": true,
+    "properties": {
+      "age": "2"
+    },
+    "baselineKind": "upstream block artwork before AOE palette/composite change",
+    "baselineSource": "before/assets/"
+  },
+  {
+    "id": "minecraft:sweet_berry_bush",
+    "title": "Blue berries stage 2",
+    "label": "blue_berries_stage_2_side",
+    "angle": 120,
+    "angleName": "side",
+    "scale": 190,
+    "block": true,
+    "properties": {
+      "age": "2"
+    },
+    "baselineKind": "upstream block artwork before AOE palette/composite change",
+    "baselineSource": "before/assets/"
+  },
+  {
+    "id": "minecraft:sweet_berry_bush",
+    "title": "Snowy blue berries stage 2",
+    "label": "snowy_blue_berries_stage_2_front",
+    "angle": 30,
+    "angleName": "front",
+    "scale": 190,
+    "block": true,
+    "properties": {
+      "age": "2"
+    },
+    "model": "snowrealmagic:block/snowy_sweet_berry_bush_stage2",
+    "baselineKind": "upstream block artwork before AOE palette/composite change",
+    "baselineSource": "before/assets/"
+  },
+  {
+    "id": "minecraft:sweet_berry_bush",
+    "title": "Snowy blue berries stage 2",
+    "label": "snowy_blue_berries_stage_2_side",
+    "angle": 120,
+    "angleName": "side",
+    "scale": 190,
+    "block": true,
+    "properties": {
+      "age": "2"
+    },
+    "model": "snowrealmagic:block/snowy_sweet_berry_bush_stage2",
+    "baselineKind": "upstream block artwork before AOE palette/composite change",
+    "baselineSource": "before/assets/"
+  },
+  {
+    "id": "minecraft:sweet_berry_bush",
+    "title": "Blue berries",
+    "label": "blue_berries_front",
+    "angle": 30,
+    "angleName": "front",
+    "scale": 190,
+    "block": true,
+    "properties": {
+      "age": "3"
+    },
+    "baselineKind": "upstream block artwork before AOE palette/composite change",
+    "baselineSource": "before/assets/"
+  },
+  {
+    "id": "minecraft:sweet_berry_bush",
+    "title": "Blue berries",
+    "label": "blue_berries_side",
+    "angle": 120,
+    "angleName": "side",
+    "scale": 190,
+    "block": true,
+    "properties": {
+      "age": "3"
+    },
+    "baselineKind": "upstream block artwork before AOE palette/composite change",
+    "baselineSource": "before/assets/"
+  },
+  {
+    "id": "minecraft:sweet_berry_bush",
+    "title": "Snowy blue berries",
+    "label": "snowy_blue_berries_front",
+    "angle": 30,
+    "angleName": "front",
+    "scale": 190,
+    "block": true,
+    "properties": {
+      "age": "3"
+    },
+    "model": "snowrealmagic:block/snowy_sweet_berry_bush_stage3",
+    "baselineKind": "upstream block artwork before AOE palette/composite change",
+    "baselineSource": "before/assets/"
+  },
+  {
+    "id": "minecraft:sweet_berry_bush",
+    "title": "Snowy blue berries",
+    "label": "snowy_blue_berries_side",
+    "angle": 120,
+    "angleName": "side",
+    "scale": 190,
+    "block": true,
+    "properties": {
+      "age": "3"
+    },
+    "model": "snowrealmagic:block/snowy_sweet_berry_bush_stage3",
+    "baselineKind": "upstream block artwork before AOE palette/composite change",
+    "baselineSource": "before/assets/"
+  },
+  {
+    "id": "aoemod:soul_soil_quartz_ore",
+    "title": "Soul soil quartz ore",
+    "label": "soul_soil_quartz_ore_front",
+    "angle": 30,
+    "angleName": "front",
+    "scale": 190,
+    "block": true,
+    "properties": {},
+    "baselineKind": "upstream block artwork before AOE palette/composite change",
+    "baselineSource": "before/assets/"
+  },
+  {
+    "id": "aoemod:soul_soil_quartz_ore",
+    "title": "Soul soil quartz ore",
+    "label": "soul_soil_quartz_ore_side",
+    "angle": 120,
+    "angleName": "side",
+    "scale": 190,
+    "block": true,
+    "properties": {},
+    "baselineKind": "upstream block artwork before AOE palette/composite change",
+    "baselineSource": "before/assets/"
+  },
+  {
+    "id": "minecraft:azalea_leaves",
+    "title": "Tropical azalea leaves",
+    "label": "tropical_azalea_leaves_front",
+    "angle": 30,
+    "angleName": "front",
+    "scale": 190,
+    "block": true,
+    "properties": {},
+    "dimension": "minecraft:overworld",
+    "baselineKind": "upstream block artwork before AOE palette/composite change",
+    "baselineSource": "before/assets/"
+  },
+  {
+    "id": "minecraft:azalea_leaves",
+    "title": "Tropical azalea leaves",
+    "label": "tropical_azalea_leaves_side",
+    "angle": 120,
+    "angleName": "side",
+    "scale": 190,
+    "block": true,
+    "properties": {},
+    "dimension": "minecraft:overworld",
+    "baselineKind": "upstream block artwork before AOE palette/composite change",
+    "baselineSource": "before/assets/"
+  },
+  {
+    "id": "minecraft:flowering_azalea_leaves",
+    "title": "Tropical flowering azalea leaves",
+    "label": "tropical_flowering_azalea_leaves_front",
+    "angle": 30,
+    "angleName": "front",
+    "scale": 190,
+    "block": true,
+    "properties": {},
+    "dimension": "minecraft:overworld",
+    "baselineKind": "upstream block artwork before AOE palette/composite change",
+    "baselineSource": "before/assets/"
+  },
+  {
+    "id": "minecraft:flowering_azalea_leaves",
+    "title": "Tropical flowering azalea leaves",
+    "label": "tropical_flowering_azalea_leaves_side",
+    "angle": 120,
+    "angleName": "side",
+    "scale": 190,
+    "block": true,
+    "properties": {},
+    "dimension": "minecraft:overworld",
+    "baselineKind": "upstream block artwork before AOE palette/composite change",
+    "baselineSource": "before/assets/"
+  },
+  {
+    "id": "minecraft:nether_portal",
+    "title": "Wooden overworld portal",
+    "label": "wooden_overworld_portal_front",
+    "angle": 30,
+    "angleName": "front",
+    "scale": 190,
+    "block": true,
+    "properties": {
+      "axis": "x"
+    },
+    "baselineKind": "vanilla portal source animation before neutralization and destination tint",
+    "baselineSource": "before/assets/"
+  },
+  {
+    "id": "minecraft:nether_portal",
+    "title": "Wooden overworld portal",
+    "label": "wooden_overworld_portal_side",
+    "angle": 120,
+    "angleName": "side",
+    "scale": 190,
+    "block": true,
+    "properties": {
+      "axis": "x"
+    },
+    "baselineKind": "vanilla portal source animation before neutralization and destination tint",
+    "baselineSource": "before/assets/"
+  },
+  {
+    "id": "minecraft:nether_portal",
+    "title": "Wooden tropical portal",
+    "label": "wooden_tropical_portal_front",
+    "angle": 30,
+    "angleName": "front",
+    "scale": 190,
+    "block": true,
+    "properties": {
+      "axis": "x"
+    },
+    "baselineKind": "vanilla portal source animation before neutralization and destination tint",
+    "baselineSource": "before/assets/"
+  },
+  {
+    "id": "minecraft:nether_portal",
+    "title": "Wooden tropical portal",
+    "label": "wooden_tropical_portal_side",
+    "angle": 120,
+    "angleName": "side",
+    "scale": 190,
+    "block": true,
+    "properties": {
+      "axis": "x"
+    },
+    "baselineKind": "vanilla portal source animation before neutralization and destination tint",
+    "baselineSource": "before/assets/"
+  },
+  {
+    "id": "minecraft:nether_portal",
+    "title": "Wooden savanna portal",
+    "label": "wooden_savanna_portal_front",
+    "angle": 30,
+    "angleName": "front",
+    "scale": 190,
+    "block": true,
+    "properties": {
+      "axis": "x"
+    },
+    "baselineKind": "vanilla portal source animation before neutralization and destination tint",
+    "baselineSource": "before/assets/"
+  },
+  {
+    "id": "minecraft:nether_portal",
+    "title": "Wooden savanna portal",
+    "label": "wooden_savanna_portal_side",
+    "angle": 120,
+    "angleName": "side",
+    "scale": 190,
+    "block": true,
+    "properties": {
+      "axis": "x"
+    },
+    "baselineKind": "vanilla portal source animation before neutralization and destination tint",
+    "baselineSource": "before/assets/"
+  },
+  {
+    "id": "minecraft:nether_portal",
+    "title": "Wooden plains portal",
+    "label": "wooden_plains_portal_front",
+    "angle": 30,
+    "angleName": "front",
+    "scale": 190,
+    "block": true,
+    "properties": {
+      "axis": "x"
+    },
+    "baselineKind": "vanilla portal source animation before neutralization and destination tint",
+    "baselineSource": "before/assets/"
+  },
+  {
+    "id": "minecraft:nether_portal",
+    "title": "Wooden plains portal",
+    "label": "wooden_plains_portal_side",
+    "angle": 120,
+    "angleName": "side",
+    "scale": 190,
+    "block": true,
+    "properties": {
+      "axis": "x"
+    },
+    "baselineKind": "vanilla portal source animation before neutralization and destination tint",
+    "baselineSource": "before/assets/"
+  },
+  {
+    "id": "minecraft:nether_portal",
+    "title": "Wooden snowy portal",
+    "label": "wooden_snowy_portal_front",
+    "angle": 30,
+    "angleName": "front",
+    "scale": 190,
+    "block": true,
+    "properties": {
+      "axis": "x"
+    },
+    "baselineKind": "vanilla portal source animation before neutralization and destination tint",
+    "baselineSource": "before/assets/"
+  },
+  {
+    "id": "minecraft:nether_portal",
+    "title": "Wooden snowy portal",
+    "label": "wooden_snowy_portal_side",
+    "angle": 120,
+    "angleName": "side",
+    "scale": 190,
+    "block": true,
+    "properties": {
+      "axis": "x"
+    },
+    "baselineKind": "vanilla portal source animation before neutralization and destination tint",
+    "baselineSource": "before/assets/"
+  },
+  {
+    "id": "minecraft:nether_portal",
+    "title": "Wooden desert portal",
+    "label": "wooden_desert_portal_front",
+    "angle": 30,
+    "angleName": "front",
+    "scale": 190,
+    "block": true,
+    "properties": {
+      "axis": "x"
+    },
+    "baselineKind": "vanilla portal source animation before neutralization and destination tint",
+    "baselineSource": "before/assets/"
+  },
+  {
+    "id": "minecraft:nether_portal",
+    "title": "Wooden desert portal",
+    "label": "wooden_desert_portal_side",
+    "angle": 120,
+    "angleName": "side",
+    "scale": 190,
+    "block": true,
+    "properties": {
+      "axis": "x"
+    },
+    "baselineKind": "vanilla portal source animation before neutralization and destination tint",
+    "baselineSource": "before/assets/"
+  },
+  {
+    "id": "minecraft:nether_portal",
+    "title": "Wooden nether portal",
+    "label": "wooden_nether_portal_front",
+    "angle": 30,
+    "angleName": "front",
+    "scale": 190,
+    "block": true,
+    "properties": {
+      "axis": "x"
+    },
+    "baselineKind": "vanilla portal source animation before neutralization and destination tint",
+    "baselineSource": "before/assets/"
+  },
+  {
+    "id": "minecraft:nether_portal",
+    "title": "Wooden nether portal",
+    "label": "wooden_nether_portal_side",
+    "angle": 120,
+    "angleName": "side",
+    "scale": 190,
+    "block": true,
+    "properties": {
+      "axis": "x"
+    },
+    "baselineKind": "vanilla portal source animation before neutralization and destination tint",
+    "baselineSource": "before/assets/"
+  },
+  {
+    "id": "hearthandharvest:corn_stalk",
+    "title": "Corn stage 5",
+    "label": "corn_stage_5_front",
+    "angle": 30,
+    "angleName": "front",
+    "scale": 190,
+    "block": true,
+    "properties": {
+      "age": "5",
+      "section": "bottom"
+    },
+    "baselineKind": "upstream block artwork before AOE palette/composite change",
+    "baselineSource": "before/assets/"
+  },
+  {
+    "id": "hearthandharvest:corn_stalk",
+    "title": "Corn stage 5",
+    "label": "corn_stage_5_side",
+    "angle": 120,
+    "angleName": "side",
+    "scale": 190,
+    "block": true,
+    "properties": {
+      "age": "5",
+      "section": "bottom"
+    },
+    "baselineKind": "upstream block artwork before AOE palette/composite change",
+    "baselineSource": "before/assets/"
+  }
+]

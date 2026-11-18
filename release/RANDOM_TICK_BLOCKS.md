@@ -1,5 +1,7 @@
 # Registered random-ticking blocks without a growth override
 
+Historical registry snapshot from 20 October 2026. Dependencies and retained content have changed since this audit; this table does not describe the complete current runtime registry. See `production-dependencies.json` and `NOVEMBER_8_REVIEW_REVISION.txt` for the delivered revision.
+
 Generated from every possible block state in the loaded registry. This includes installed backports and dependency mods. Registered compatibility copies and hidden dependency content remain listed even when normal acquisition is disabled. A block is listed if any state requests random ticks and it is absent from `BlockGrowthConfig`. Tick eligibility does not guarantee meaningful work: some blocks inherit an empty random-tick method. See `RANDOM_TICK_REVIEW.md` for the behavior distinction.
 
 | Block ID | Random-ticking states | Total states |

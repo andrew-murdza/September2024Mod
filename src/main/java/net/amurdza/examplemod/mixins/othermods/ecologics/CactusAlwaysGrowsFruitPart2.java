@@ -1,5 +1,6 @@
 package net.amurdza.examplemod.mixins.othermods.ecologics;
 
+import net.amurdza.examplemod.util.CactusGrowth;
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.util.RandomSource;
@@ -12,10 +13,8 @@ import org.spongepowered.asm.mixin.Overwrite;
 public abstract class CactusAlwaysGrowsFruitPart2 {
 
     /**
-     * Makes ForgeHooks.onCropsGrowPre run even when the cactus is already 3+ blocks tall.
-     * Vanilla only calls onCropsGrowPre inside `if (i < 3)`.
-     * This version calls it whenever the block above is empty, then only performs vanilla growth
-     * when `i < 3`.
+     * Short cacti grow taller; columns of at least three blocks can instead grow prickly pears.
+     * The Forge pre-event retains the configured growth multiplier for both paths.
      * @author amurdza
      * @reason simplest way to get the wanted behavior.
      */
@@ -24,6 +23,7 @@ public abstract class CactusAlwaysGrowsFruitPart2 {
         BlockPos blockpos = pPos.above();
         if (pLevel.isEmptyBlock(blockpos)) {
             if(ForgeHooks.onCropsGrowPre(pLevel, blockpos, pState, true)){
+                CactusGrowth.advance(pLevel, pPos, pState, 1);
                 ForgeHooks.onCropsGrowPost(pLevel, pPos, pState);
             }
         }

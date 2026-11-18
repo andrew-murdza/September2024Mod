@@ -43,7 +43,7 @@ public class EyeblossomBlock extends FlowerBlock {
     }
 
     private void tryChangingState(BlockState state, ServerLevel level, BlockPos pos, RandomSource random) {
-        boolean shouldBeOpen = !level.isDay();
+        boolean shouldBeOpen = net.amurdza.examplemod.util.SoulCaveClock.isNight(level);
         if (shouldBeOpen == this.open) {
             return;
         }

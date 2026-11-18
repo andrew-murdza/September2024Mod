@@ -1,0 +1,29 @@
+{
+  "audit": "scripts/SavannaHeightAudit.java",
+  "baseline": "Previous October 30 revision: noise shift 0.1426, half-gradient land",
+  "noise": {
+    "key": "aoemod:terrain/savanna/land",
+    "first_octave": -8,
+    "amplitudes": [1, 0.15],
+    "xz_scale": 1.25
+  },
+  "sampling": {"min": -2048, "max": 2048, "step": 8, "columns_per_seed": 263169, "total_columns": 1052676},
+  "noise_shift": 0,
+  "water_height_cutoff": 61.5,
+  "mean_previous_water_percent": 26.006675,
+  "mean_water_percent": 13.002425,
+  "coverage_ratio": 0.49996347,
+  "maximum_height": 70.5,
+  "checks": {
+    "monotone_height_transfer": "passed",
+    "existing_dry_land_derivative_unchanged": "passed (finite difference error <1e-7)",
+    "existing_dry_land_raised_by_constant": "passed (height error <1e-10)",
+    "submerged_reference_profile_unchanged": "passed (height error <1e-10)"
+  },
+  "seeds": [
+    {"seed": 0, "previous_water_percent": 25.9613, "water_percent": 13.0164, "land_slope_median": 0.0320, "submerged_slope_median": 0.3395},
+    {"seed": 12345, "previous_water_percent": 24.8650, "water_percent": 11.8958, "land_slope_median": 0.0321, "submerged_slope_median": 0.3619},
+    {"seed": 98765, "previous_water_percent": 26.4708, "water_percent": 13.1281, "land_slope_median": 0.0335, "submerged_slope_median": 0.3451},
+    {"seed": -8152788754161584091, "previous_water_percent": 26.7296, "water_percent": 13.9694, "land_slope_median": 0.0305, "submerged_slope_median": 0.3202}
+  ]
+}

@@ -1,0 +1,468 @@
+{
+  "bundle": "worldgen-followup-2026-11-08",
+  "texturePairs": 10,
+  "screenshots": 39,
+  "qaReports": 24,
+  "files": [
+    {
+      "path": "plant-palette-comparison.png",
+      "kind": "Optional enlarged palette comparison",
+      "sha256": "a0471ecc373328ec85bb232b9b61ae3c354748a0f0cf30665781a653fa66ff1c"
+    },
+    {
+      "path": "reports/orc-settlement-template-audit.json",
+      "kind": "Template evidence",
+      "sha256": "8ce7a0e29c82bb4d03972f591d1a98b4a06d4fdf09a7c37b658dfaaca3f82fab"
+    },
+    {
+      "path": "reports/plant-recolor-report.json",
+      "kind": "Passed pixel-preservation evidence",
+      "sha256": "e67e07b48dd37c15893dfadff4d04713bbeb495ed7d62a5e1a260494d5fbed22"
+    },
+    {
+      "path": "reports/qa/artifact-final-audit.json",
+      "kind": "Passed QA report",
+      "sha256": "a2cbb9572a448f993df016a6c1706ca80d417fad9bf6394e1f3a0c106fdfa012"
+    },
+    {
+      "path": "reports/qa/boss-density.json",
+      "kind": "Measured QA evidence",
+      "sha256": "07ccd4a93dfdbf1997ed4410986e20e1582f1895403588dd657ba39eaa19cdd6"
+    },
+    {
+      "path": "reports/qa/boss-expansion-metrics.json",
+      "kind": "Measured QA evidence",
+      "sha256": "e0b32999bd3e1e4100e3c1d060e850abe15f77c0696f8d6ef8034a6d481ad5cb"
+    },
+    {
+      "path": "reports/qa/boss-expansion-views.json",
+      "kind": "Measured QA evidence",
+      "sha256": "363485244771501e2a98290f4689c13481fb1875f6aa9c53be2c10b321fe9f35"
+    },
+    {
+      "path": "reports/qa/boss-geometry-audit.json",
+      "kind": "Measured QA evidence",
+      "sha256": "9c4fadf49eee280eec481bf6693a84de0fb017ac5740e64d99b909539355cfd6"
+    },
+    {
+      "path": "reports/qa/build-and-datagen-audit.json",
+      "kind": "Passed QA report",
+      "sha256": "6a030ffb25c1712908ad3f95e0f964f81013b14966b5fde9bf096191160957fe"
+    },
+    {
+      "path": "reports/qa/capture-source-1-evidence.json",
+      "kind": "Passed QA report",
+      "sha256": "76809cb1908f7a7cccbe88779509c671e5bef54e0afd1d7744c3fa90538ab602"
+    },
+    {
+      "path": "reports/qa/capture-source-2-evidence.json",
+      "kind": "Passed QA report",
+      "sha256": "7b040b4a4f1b7a16c55e8bb262c79e468507d078b9ba226c4b4c296f096a3452"
+    },
+    {
+      "path": "reports/qa/config-preservation-audit.json",
+      "kind": "Passed QA report",
+      "sha256": "4123180f063d80a509befa98063c0469846a2c94b4313c2f8422c85fd8f2b109"
+    },
+    {
+      "path": "reports/qa/crop-visual-review.json",
+      "kind": "Passed QA report",
+      "sha256": "b42d45d1495c295538c86f0d49d399aec97fb1141200f4af76ed9d848b87ac55"
+    },
+    {
+      "path": "reports/qa/desert-junction-interpolation-audit.json",
+      "kind": "Passed QA report",
+      "sha256": "6cf0fdebefe28cf0f74e5a53d02226f0d7943ae82bcdfe65818855af6fb5a513"
+    },
+    {
+      "path": "reports/qa/desert-snowy-transition-audit.json",
+      "kind": "Passed QA report",
+      "sha256": "68d90856883dce9b11c9b3b99ff26e6bd7799a339cd08d494b08bd9281ef86a3"
+    },
+    {
+      "path": "reports/qa/followup-worldgen-scenes.json",
+      "kind": "Measured QA evidence",
+      "sha256": "5a3348d4f9769a9b79a46e1f9ec75d746f96e0b5847fb27fb5368e9b7b85b9ca"
+    },
+    {
+      "path": "reports/qa/followup-worldgen-views.json",
+      "kind": "Measured QA evidence",
+      "sha256": "e066769180d08389341227b17c944b4b0eb9d192e1fd0c5b3dafa96f49fdf973"
+    },
+    {
+      "path": "reports/qa/game-test-results.xml",
+      "kind": "Passed GameTest report",
+      "sha256": "88660e0f73700e539f1441f81687d8efb4bfc8d8107aab79dd81d36f79d14f4d"
+    },
+    {
+      "path": "reports/qa/orc-staged-item-audit.json",
+      "kind": "Passed QA report",
+      "sha256": "483eed2005296d6620ff9b924261a113230b3f6dc2d08deaa8d90b040aad43b2"
+    },
+    {
+      "path": "reports/qa/resources-final.json",
+      "kind": "Passed QA report",
+      "sha256": "41ffaffaef8f38197ef8a2679ad9176fddc817326fbd1ab6aa8554da9943441d"
+    },
+    {
+      "path": "reports/qa/spiral-numerical-audit.json",
+      "kind": "Passed QA report",
+      "sha256": "b91fdf3f20e3c9a072b1162e0411ff79a61e01b8e53bc378bbc77401518b3e9d"
+    },
+    {
+      "path": "reports/qa/structure-visual-review.json",
+      "kind": "Passed QA report",
+      "sha256": "806f827d4d9c5493d7ef04d82404b08caf29a23ee5ce56c180e70466ae4e3b68"
+    },
+    {
+      "path": "reports/qa/terrain-evidence-review.json",
+      "kind": "Passed QA report",
+      "sha256": "69212b612cd34792317fc595e66f56b86cb6ba36d6648db110f02b97a1da1de9"
+    },
+    {
+      "path": "reports/qa/terrain-retake-evidence.json",
+      "kind": "Measured QA evidence",
+      "sha256": "813d904b718f93dc1dcbc47fdbb165d45d11a7d2fe3d4e3779396b7c90d6d210"
+    },
+    {
+      "path": "reports/qa/terrain-visual-review.json",
+      "kind": "Passed QA report",
+      "sha256": "0ce3028958033a9790af36a0873c55f9d12eecdd118e46fa2b3cbdd019f48ecf"
+    },
+    {
+      "path": "reports/qa/validation-latest.json",
+      "kind": "Passed QA report",
+      "sha256": "a705a30a3999aa21e1381299054e65f02f93193dec6d9b94b24eebb8ddf74aac"
+    },
+    {
+      "path": "reports/qa/wither-retake-camera-evidence.json",
+      "kind": "Measured QA evidence",
+      "sha256": "6f39c5c262387c4f7b7091d440d4f326a0338fa57ba6de7732f2cdef6980fe74"
+    },
+    {
+      "path": "reports/screenshot-report.json",
+      "kind": "Passed screenshot capture report",
+      "sha256": "b29faab4a598b698d28fd2a9171bd3464b756ba5bcf3d8f2a5702bd58e61a9ef"
+    },
+    {
+      "path": "screenshots/cotton_stage_0.png",
+      "kind": "Staged crop beds",
+      "sha256": "d3ca002505875e295cea762974910a52afac65f7f24945df23b05bbfadfd46ea"
+    },
+    {
+      "path": "screenshots/cotton_stage_1.png",
+      "kind": "Staged crop beds",
+      "sha256": "e050482bd157f116acd5ef1fd2b492c4013e8d3d74c745cc2f9459db5f806abd"
+    },
+    {
+      "path": "screenshots/cotton_stage_2.png",
+      "kind": "Staged crop beds",
+      "sha256": "1d12bdad657673644170f5cf31fc312e9d4fb26940458148e56d3ee37a92afac"
+    },
+    {
+      "path": "screenshots/cotton_stage_3.png",
+      "kind": "Staged crop beds",
+      "sha256": "a47f1a57bf843b5d59369b91397612cb0b5804e510105bfbfda57ecad2060d2c"
+    },
+    {
+      "path": "screenshots/desert_curved_mouth_exit_oblique.png",
+      "kind": "Natural terrain",
+      "sha256": "a998a9844d72b47c93057c9b7b85ea72fd48cee879eae0ffb85030284719898f"
+    },
+    {
+      "path": "screenshots/desert_curved_mouth_overview.png",
+      "kind": "Natural terrain",
+      "sha256": "b81d4f6dca731d4f6881d9efc1047544ca44b5c8b639ff5017d057f296b4ebea"
+    },
+    {
+      "path": "screenshots/orc-boar-pen.png",
+      "kind": "Staged structure fixtures",
+      "sha256": "3fca5a7a3f5885097eacf03320a5ef38e6204f0c6217d494292a9ddd2046a95a"
+    },
+    {
+      "path": "screenshots/orc-courtyard.png",
+      "kind": "Staged structure fixtures",
+      "sha256": "6decd15832f3234c38ad212ea59a238c1f70d6f087220f4e1f03e21903031cee"
+    },
+    {
+      "path": "screenshots/orc-curved-palisade.png",
+      "kind": "Staged structure fixtures",
+      "sha256": "86c77cbc544323ff314863929f6c9192ddedd08884e2934e329575cdad07e7e5"
+    },
+    {
+      "path": "screenshots/orc-full-compound.png",
+      "kind": "Staged structure fixtures",
+      "sha256": "caa99f6b47e610ff11e5e3e108ed12406999c3a863a317f2c76c600274fc3928"
+    },
+    {
+      "path": "screenshots/orc-irrigated-crops.png",
+      "kind": "Staged structure fixtures",
+      "sha256": "3510a61caba827727ff5bb300d2510f60baf912290aa22f62b4ffcfaf7bd873c"
+    },
+    {
+      "path": "screenshots/orc-native-large-house.png",
+      "kind": "Staged structure fixtures",
+      "sha256": "789206613dfd4704740352ce94cf69b5ccb532def6dbd1d9dabd965e8d1f79ed"
+    },
+    {
+      "path": "screenshots/orc-native-small-house.png",
+      "kind": "Staged structure fixtures",
+      "sha256": "a90ebd4ef7a52fcf483f76ebe5bea8b33dfb7bcf173d6963885b008c1c35b736"
+    },
+    {
+      "path": "screenshots/orc-sheep-pen.png",
+      "kind": "Staged structure fixtures",
+      "sha256": "c89d19249200700a70ee3ce5203bd414df6d29d82cf1d41b65cce069ce146273"
+    },
+    {
+      "path": "screenshots/pitcher_crop_stage_1.png",
+      "kind": "Staged crop beds",
+      "sha256": "d8853eb3fe49e225ee9f76edba1b5b8887a59430ed80980e455ac82384c20744"
+    },
+    {
+      "path": "screenshots/pitcher_crop_stage_2.png",
+      "kind": "Staged crop beds",
+      "sha256": "e0a061b3e38ac47869964c93042b3283f386c9f22660d7ae678057337cffacd8"
+    },
+    {
+      "path": "screenshots/pitcher_crop_stage_3.png",
+      "kind": "Staged crop beds",
+      "sha256": "87ed365628038f6034d26b45f49aeb0c6f048db6cf9c3e7ea34673a2ed88afac"
+    },
+    {
+      "path": "screenshots/pitcher_crop_stage_4.png",
+      "kind": "Staged crop beds",
+      "sha256": "52955ddc06dce4f277898a77dda91374d09adca3a5651eef1c0b79fe4ec06962"
+    },
+    {
+      "path": "screenshots/snowy_dappled_boundary_overview.png",
+      "kind": "Natural terrain",
+      "sha256": "7382c7855245cb435ece1dbf648a1024238f4fb909989a69fd5fd88d25fa9413"
+    },
+    {
+      "path": "screenshots/snowy_dappled_boundary_reverse.png",
+      "kind": "Natural terrain",
+      "sha256": "82d5b818bfdc3f6dfbdf68e21f8c96d0e254121ff9cc6f5cd8137cdfa1daa2df"
+    },
+    {
+      "path": "screenshots/spider-boss.png",
+      "kind": "Staged structure fixtures",
+      "sha256": "42204d4dc9bcacc6f6f5e9054ffada4ceda8308066ac1c9d2e72f28c9f327499"
+    },
+    {
+      "path": "screenshots/spider-entry.png",
+      "kind": "Staged structure fixtures",
+      "sha256": "8f72fe5bfb6dbfa7bc76574ea70b0c9eb2d3e2891fc3fec0b202015f4b5b5dd0"
+    },
+    {
+      "path": "screenshots/spider-exterior.png",
+      "kind": "Staged structure fixtures",
+      "sha256": "3ed40aa824084c5034dbfa67fc559a8beaa221f282df684305e2f16346b86ed9"
+    },
+    {
+      "path": "screenshots/spider-pocket-1.png",
+      "kind": "Staged structure fixtures",
+      "sha256": "4ace4b313b4416c453b4fb6783dbaceb2520f5288e02a3748f024e44212e7751"
+    },
+    {
+      "path": "screenshots/spider-pocket-2.png",
+      "kind": "Staged structure fixtures",
+      "sha256": "89f77225953c576e270cbb31b078b060f119753ff70a534e43f25fd1e91076c0"
+    },
+    {
+      "path": "screenshots/spider-pocket-3.png",
+      "kind": "Staged structure fixtures",
+      "sha256": "ae30acd9fd5468597284618b2ab8e22cf9a1e5a1e9a95a79c3b6c2ce8983a647"
+    },
+    {
+      "path": "screenshots/spider-pocket-4.png",
+      "kind": "Staged structure fixtures",
+      "sha256": "013faccb6e3629ee705ff19bc3276384943e014bc433dd12424c7ee94b6c7a42"
+    },
+    {
+      "path": "screenshots/tropical_coast_along_shore.png",
+      "kind": "Natural terrain",
+      "sha256": "ada16a820a08ac941b20a91053ba5007412521f497c89b7908b5596fe73f8931"
+    },
+    {
+      "path": "screenshots/tropical_coast_land_and_water.png",
+      "kind": "Natural terrain",
+      "sha256": "88fa6b7ddd0b2a34fef0112ef54bbdd9f0fb960eba8b476208a512fb431bf397"
+    },
+    {
+      "path": "screenshots/wild_cotton.png",
+      "kind": "Staged crop beds",
+      "sha256": "1a5340d370de213e68991f85091f45e5d56b306576bae80607635c6cc4b065bd"
+    },
+    {
+      "path": "screenshots/wither_exterior_close_oblique.png",
+      "kind": "Staged structure fixtures",
+      "sha256": "a9dbfa9262e336e366326b0aeebb71ec9c97db4c65eefa2d55faab1719ff2c34"
+    },
+    {
+      "path": "screenshots/wither-boss.png",
+      "kind": "Staged structure fixtures",
+      "sha256": "45ea1171c0cd1f0f897f646b402e38c55a579016e3b4031dca908111d404754c"
+    },
+    {
+      "path": "screenshots/wither-entry.png",
+      "kind": "Staged structure fixtures",
+      "sha256": "d703148cab6e16d14703b896ab88a623df8874b124ea7ec90224b98e25caa085"
+    },
+    {
+      "path": "screenshots/wither-pocket-1.png",
+      "kind": "Staged structure fixtures",
+      "sha256": "9ad62d6f01ac6f1544adc3cc3bdb46da1c3f763d63f4aab911fc290818a96045"
+    },
+    {
+      "path": "screenshots/wither-pocket-2.png",
+      "kind": "Staged structure fixtures",
+      "sha256": "729a22fafba30fc47c008970c76a9b0b0929e569bd0d0d90bf44dc254a11a589"
+    },
+    {
+      "path": "screenshots/yeti-approach.png",
+      "kind": "Staged structure fixtures",
+      "sha256": "551ce1da55079ded3289f1043d4cb16295c8e939e1d2cf55868d5e15fcb50b6d"
+    },
+    {
+      "path": "screenshots/yeti-exterior.png",
+      "kind": "Staged structure fixtures",
+      "sha256": "4437427c9a8e9d2c87c518db36d10eedafdc4824f6e745cc92d8e0b352a766d5"
+    },
+    {
+      "path": "screenshots/yeti-native-floor-loot-1.png",
+      "kind": "Staged structure fixtures",
+      "sha256": "6be88726374e69a255171bd52b8b3e937d2d178e290d17404395005d06472347"
+    },
+    {
+      "path": "screenshots/yeti-native-floor-loot-2.png",
+      "kind": "Staged structure fixtures",
+      "sha256": "f8cc93f2beb877c9d250a9522734c6eefa542f58087e0df5e54988dac5c19c68"
+    },
+    {
+      "path": "scripts/generate-orc-camp-overrides.py",
+      "kind": "Source script",
+      "sha256": "4388e33960c8337a3fe764fba0ac147e419d85c7401fd88e9998ced2ab1ec8c3"
+    },
+    {
+      "path": "scripts/generate-orc-settlement.py",
+      "kind": "Source script",
+      "sha256": "65678ac8bcae2836724a179d0e5eef9fef6c637fe54e58a32e7abea413121d16"
+    },
+    {
+      "path": "scripts/package-worldgen-followup.ps1",
+      "kind": "Source script",
+      "sha256": "c01536f87ff61f0d9efbb4fbfcda448fa7af5b1b6a4f67a9aeef60ef96cad980"
+    },
+    {
+      "path": "scripts/recolor-cotton-pitcher.ps1",
+      "kind": "Source script",
+      "sha256": "ef67e5208909bdcc97b9dd6b240e3b2763a2e5959207096f5925703203585d5e"
+    },
+    {
+      "path": "structures/data/aoemod/structures/orc_settlement.nbt",
+      "kind": "Orc settlement template",
+      "sha256": "19e19fa699d43c542bae2284083f4982eee428aeb182baa29c5d07c093ac1a82"
+    },
+    {
+      "path": "textures/after/assets/hearthandharvest/textures/block/cotton_stage0.png",
+      "kind": "Recolored plant texture",
+      "sha256": "0fd0108c50c67bf7f23788b78d7b118d1f4ca42ef7249e6e1e146e5e205fd680"
+    },
+    {
+      "path": "textures/after/assets/hearthandharvest/textures/block/cotton_stage1.png",
+      "kind": "Recolored plant texture",
+      "sha256": "648a65202ed6ce3aef2bebd853c22bf94b7b31dda794893d5a48e0947edc6607"
+    },
+    {
+      "path": "textures/after/assets/hearthandharvest/textures/block/cotton_stage2.png",
+      "kind": "Recolored plant texture",
+      "sha256": "0fd1765c27f6d46bbfba76f04051fe6721a8d4d5247efefe4e1fd2ba814a193d"
+    },
+    {
+      "path": "textures/after/assets/hearthandharvest/textures/block/cotton_stage3.png",
+      "kind": "Recolored plant texture",
+      "sha256": "a80fb02377d52c6035ca17f58a6f84e98c71d0e10022a0c06da2a9bd2e81ebfb"
+    },
+    {
+      "path": "textures/after/assets/hearthandharvest/textures/block/wild_cotton.png",
+      "kind": "Recolored plant texture",
+      "sha256": "71dc0ff3a01264027c32ec4bc181f940e9e79e993c299fa8d44d4e32d6d07506"
+    },
+    {
+      "path": "textures/after/assets/minecraft/textures/block/pitcher_crop_bottom_stage_1.png",
+      "kind": "Recolored plant texture",
+      "sha256": "84001a4bffde61d2f52486fa5f5011198282bd5a6d261d81d4cd44e2afb70ff0"
+    },
+    {
+      "path": "textures/after/assets/minecraft/textures/block/pitcher_crop_bottom_stage_2.png",
+      "kind": "Recolored plant texture",
+      "sha256": "746968766a24c65a361c9ceb940d5d9a66a87dcd016db6e876d3da69088fa492"
+    },
+    {
+      "path": "textures/after/assets/minecraft/textures/block/pitcher_crop_bottom_stage_3.png",
+      "kind": "Recolored plant texture",
+      "sha256": "884c5e62cd61371d1e23bee7a3145054e8805c128dbba9efa417ac03944842ee"
+    },
+    {
+      "path": "textures/after/assets/minecraft/textures/block/pitcher_crop_bottom_stage_4.png",
+      "kind": "Recolored plant texture",
+      "sha256": "477fc881b5d8981abb78a4a3828752ce4178c7813be18df1b2ed4e65dcde9d14"
+    },
+    {
+      "path": "textures/after/assets/minecraft/textures/block/pitcher_crop_top_stage_3.png",
+      "kind": "Recolored plant texture",
+      "sha256": "1a76aab69adc884ec03dca360b494e10a9109027c607efa33cad7b1f83f1ade6"
+    },
+    {
+      "path": "textures/before/assets/hearthandharvest/textures/block/cotton_stage0.png",
+      "kind": "Original plant texture",
+      "sha256": "945bd7cd272ecfd730c6585d6fbe1ecba0a8c265499e0814d309901db1c41b3f"
+    },
+    {
+      "path": "textures/before/assets/hearthandharvest/textures/block/cotton_stage1.png",
+      "kind": "Original plant texture",
+      "sha256": "edef92721ff45a8dcb329dbeaa7671fc2ed09df4fa86487ab25a05e1d8b1f065"
+    },
+    {
+      "path": "textures/before/assets/hearthandharvest/textures/block/cotton_stage2.png",
+      "kind": "Original plant texture",
+      "sha256": "91de903531820f17d927fe2121c619af0d481e5852e15f40466edc4b23f16d42"
+    },
+    {
+      "path": "textures/before/assets/hearthandharvest/textures/block/cotton_stage3.png",
+      "kind": "Original plant texture",
+      "sha256": "7eb5d53534d22046ac78fb6d23addaf4ecedd485c03ee9f8e263d1f39bd1ddbb"
+    },
+    {
+      "path": "textures/before/assets/hearthandharvest/textures/block/wild_cotton.png",
+      "kind": "Original plant texture",
+      "sha256": "c93ab9deb887f2e579f6fd9541d26d4f4e8e9d3d88b36c43f36c7e3e9dfcc6fd"
+    },
+    {
+      "path": "textures/before/assets/minecraft/textures/block/pitcher_crop_bottom_stage_1.png",
+      "kind": "Original plant texture",
+      "sha256": "911e79785fda46abdde5e4d967ba2e1b7937c7ea6331e59efde31716004a5e2e"
+    },
+    {
+      "path": "textures/before/assets/minecraft/textures/block/pitcher_crop_bottom_stage_2.png",
+      "kind": "Original plant texture",
+      "sha256": "f41bbf69380935f6b6d973f306bf9d6e215f2d37909edc266c06f36d419a762e"
+    },
+    {
+      "path": "textures/before/assets/minecraft/textures/block/pitcher_crop_bottom_stage_3.png",
+      "kind": "Original plant texture",
+      "sha256": "b0614bb24df83e5aa2c081fb3735a3afba7df96ee43409a3b5847b21ae82a076"
+    },
+    {
+      "path": "textures/before/assets/minecraft/textures/block/pitcher_crop_bottom_stage_4.png",
+      "kind": "Original plant texture",
+      "sha256": "5ad54dd435b9f8f0642ff704ff8b66734ffb442b1854e912a96cf56d1a08682c"
+    },
+    {
+      "path": "textures/before/assets/minecraft/textures/block/pitcher_crop_top_stage_3.png",
+      "kind": "Original plant texture",
+      "sha256": "171cc9a1f7c102fbb82155222abdc1fc3df8823607c0e76ea3223743e38c29e3"
+    }
+  ]
+}

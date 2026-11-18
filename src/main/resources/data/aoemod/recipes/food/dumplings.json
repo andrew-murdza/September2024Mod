@@ -8,9 +8,6 @@
       "item": "minecraft:wheat"
     },
     {
-      "item": "farmersdelight:onion"
-    },
-    {
       "tag": "aoemod:food_wrappable"
     }
   ],

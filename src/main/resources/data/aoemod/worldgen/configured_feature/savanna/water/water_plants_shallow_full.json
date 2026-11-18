@@ -17,7 +17,7 @@
     ],
     "features": [
       {
-        "chance": 0.075,
+        "chance": 0.0375,
         "feature": "aoemod:savanna/water/water_plants_shallow"
       },
       {
@@ -25,7 +25,7 @@
         "feature": "aoemod:water/kelp"
       },
       {
-        "chance": 0.8875,
+        "chance": 0.925,
         "feature": "aoemod:water/short_seagrass"
       }
     ]

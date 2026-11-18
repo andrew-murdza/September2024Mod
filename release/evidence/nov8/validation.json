@@ -1,0 +1,98 @@
+{
+  "date": "2026-11-08",
+  "status": "passed",
+  "build": "build + runData passed; final build + prepareStandaloneClient passed",
+  "generated_resource_changes": 0,
+  "gameplay_tests": {
+    "runs": [
+      {
+        "stage": "v2",
+        "tests": 96,
+        "failures": [
+          {
+            "test": [
+              "aoemod:plant_gameplay_empty",
+              "fallingpassageswidenwithoutchanginghorizontalconnectors"
+            ],
+            "details": [
+              {
+                "message": "The rising desert outlet must receive the same fifteen-block width"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "stage": "v3",
+        "tests": 7,
+        "failures": []
+      }
+    ],
+    "latest_result_per_test": {
+      "tests": 96,
+      "passed": 96,
+      "failed": []
+    }
+  },
+  "resource_audit": {
+    "checks": 4246,
+    "json_files": 1540,
+    "errors": 0
+  },
+  "dependency_audit": {
+    "locked_jars": 44,
+    "required_dependencies_checked": 99,
+    "errors": 0
+  },
+  "client": {
+    "status": "passed",
+    "checks": [
+      {
+        "dimension": "aoemod:desert_dimension",
+        "nullVanillaRenderSlots": 0,
+        "alexLavaVisionChunkRefresh": "passed"
+      },
+      {
+        "dimension": "aoemod:snowy_dimension",
+        "nullVanillaRenderSlots": 0,
+        "alexLavaVisionChunkRefresh": "passed"
+      },
+      {
+        "dimension": "aoemod:desert_dimension",
+        "nullVanillaRenderSlots": 0,
+        "alexLavaVisionChunkRefresh": "passed"
+      },
+      {
+        "dimension": "aoemod:snowy_dimension",
+        "nullVanillaRenderSlots": 0,
+        "alexLavaVisionChunkRefresh": "passed"
+      },
+      {
+        "renderers": "native cobalt texture + one emissive layer; cold land strider + red lava strider; no suffocating state"
+      }
+    ]
+  },
+  "configuration_files_preserved": 421,
+  "jar": {
+    "file": "aoemod-1.0.0-1.20.1-all.jar",
+    "sha256": "3465e7fd5233aa39544b46a282f541480bdc20e6526ff34cffa8b7d81ee9135b",
+    "bytes": 4960768
+  },
+  "texture_archive": {
+    "file": "texture-review-2026-11-08.zip",
+    "sha256": "cb4b5bfe41b8ce085e1a88dce0ef5fed0d060ee5f9194d42ff73a4df700558f0",
+    "bytes": 4386872,
+    "files": 344,
+    "screenshots": 150,
+    "current_views": 102,
+    "before_or_reference_views": 48,
+    "unique_seafood_pngs": 38,
+    "excluded_image_violations": 0
+  },
+  "limits": [
+    "Terrain and structure changes apply to newly generated chunks.",
+    "Retired registry IDs remain readable for existing saves; removed content is unavailable through normal catalogs, spawning, drops, and recipes.",
+    "Before imagery distinguishes exact archived implementation from upstream references in the archive provenance manifests.",
+    "The client travel test exercised lava-vision refresh across dimensions; settled snapshots had zero null slots, so no forced-null reproduction is claimed."
+  ]
+}

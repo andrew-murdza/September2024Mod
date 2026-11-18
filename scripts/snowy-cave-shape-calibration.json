@@ -1,0 +1,111 @@
+{
+  "minecraft_version": "1.20.1",
+  "date": "2026-10-30",
+  "audit_source": "scripts/SnowyCaveShapeAudit.java",
+  "audit_log": "build/snowy-cave-shape-audit/final.log",
+  "changes": {
+    "removed_noise_branches": [
+      "noodle (already disabled)",
+      "2D spaghetti",
+      "3D spaghetti in entrances"
+    ],
+    "cavern_noise_coordinate_scale": 0.6,
+    "nominal_linear_cavern_size_multiplier": 1.6666666666666667,
+    "previous_cheese_bias": 0.016,
+    "current_cheese_bias": 0.136
+  },
+  "cavity_volume": {
+    "method": "Actual Minecraft 1.20.1 density codecs and RandomState; compare cave air only where the identical uncarved terrain is solid, outside the protected lake band. Same sample grid as the prior expanded-volume audit.",
+    "x_z_range": [
+      -1536,
+      1536
+    ],
+    "x_z_step": 96,
+    "y_range": [
+      -60,
+      100
+    ],
+    "y_step": 8,
+    "seeds": [
+      {
+        "seed": 12345,
+        "previous": 1553,
+        "current": 1776,
+        "vanilla": 1168
+      },
+      {
+        "seed": 98765,
+        "previous": 1843,
+        "current": 1678,
+        "vanilla": 1456
+      },
+      {
+        "seed": -8152788754161584091,
+        "previous": 1758,
+        "current": 1717,
+        "vanilla": 1369
+      }
+    ],
+    "previous_expanded_air_samples": 5154,
+    "current_air_samples": 5171,
+    "vanilla_air_samples": 3993,
+    "current_to_previous_ratio": 1.0032984090027164,
+    "current_to_vanilla_ratio": 1.295016278487353
+  },
+  "morphology": {
+    "method": "Six-neighbor connected components on a two-block lattice using the actual 4x8x4 density interpolation cells. Exclude uncarved terrain air and protected continuous/quart lake columns. Exclude components touching each sampled box boundary from enclosed-component statistics.",
+    "seeds": [
+      12345,
+      98765,
+      -8152788754161584091
+    ],
+    "box_minimum_x_z": [
+      [
+        -512,
+        -512
+      ],
+      [
+        512,
+        512
+      ],
+      [
+        1024,
+        -1024
+      ]
+    ],
+    "box_minimum_y": -56,
+    "box_edge_blocks": 128,
+    "box_count": 9,
+    "two_block_samples_per_profile": 2359296,
+    "small_enclosed_threshold_blocks": 512,
+    "previous": {
+      "all_sampled_cave_air_volume": 1469984,
+      "enclosed_components": 27,
+      "small_enclosed_components": 26,
+      "small_enclosed_air_volume": 864,
+      "median_enclosed_volume": 8
+    },
+    "current": {
+      "all_sampled_cave_air_volume": 1198600,
+      "enclosed_components": 5,
+      "small_enclosed_components": 4,
+      "small_enclosed_air_volume": 328,
+      "median_enclosed_volume": 120
+    },
+    "small_component_reduction_fraction": 0.8461538461538461,
+    "small_enclosed_air_reduction_fraction": 0.6203703703703703
+  },
+  "carvers": {
+    "tunnel_radius_multiplier_relative_to_previous": 2,
+    "start_probability_multiplier_relative_to_previous": 0.25,
+    "expected_tunnel_cross_section_budget_ratio": 1.0,
+    "canyon": "unchanged",
+    "measurement_limit": "This is the analytic probability-times-cross-section budget for carved tunnels, not a measured total post-carver union volume. Small initial carver rooms, overlapping tunnels and lake clipping are not included in that equality."
+  },
+  "generator": {
+    "script": "scripts/generate_snowy_worldgen.py",
+    "resource_file_count": 29,
+    "repeated_generation_byte_identical": true
+  },
+  "limits": "Finite deterministic samples do not guarantee equal cave volume for individual seeds or areas. Removing narrow passage generators and enlarging chambers strongly reduces small enclosed pockets; four small pockets remained in the sampled interpolated noise field, so there is no universal minimum cavity size. The large-region volume sample retains the prior expansion, while the nine local morphology boxes have different air volume because rooms moved and merged. Existing chunks are not rewritten."
+}

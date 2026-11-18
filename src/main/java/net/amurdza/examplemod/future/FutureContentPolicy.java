@@ -4,6 +4,7 @@ import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import net.amurdza.examplemod.AOEMod;
 import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
@@ -16,6 +17,8 @@ import net.minecraftforge.eventbus.api.EventPriority;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.ModList;
+import net.minecraftforge.registries.ForgeRegistries;
+import net.minecraftforge.registries.MissingMappingsEvent;
 
 import java.util.Map;
 import java.util.Set;
@@ -23,7 +26,7 @@ import java.util.Set;
 /** Keeps the requested backports from introducing a second copy of existing AOE content. */
 public final class FutureContentPolicy {
     private static final Set<String> EXCLUDED_ENTITIES = Set.of(
-            "creaking", "nautilus", "zombie_nautilus", "happy_ghast");
+            "nautilus", "zombie_nautilus", "happy_ghast");
     private static final Set<String> COPPER_EQUIPMENT = Set.of(
             "copper_sword", "copper_shovel", "copper_pickaxe", "copper_axe", "copper_hoe",
             "copper_helmet", "copper_chestplate", "copper_leggings", "copper_boots");
@@ -46,32 +49,36 @@ public final class FutureContentPolicy {
         if (!enabled()) return false;
         String path = id.getPath();
         if (id.getNamespace().equals(AOEMod.MOD_ID)) {
-            return SPEARS.contains(path) || path.equals("copper_chain") || REPLACED_MOB_EGGS.containsKey(path);
+            return path.equals("desert_grass") || path.equals("desert_tallgrass")
+                    || COPPER_EQUIPMENT.contains(path) || SPEARS.contains(path)
+                    || path.equals("copper_chain") || REPLACED_MOB_EGGS.containsKey(path);
         }
         if (!id.getNamespace().equals("minecraft")) return false;
-        return COPPER_EQUIPMENT.contains(path)
-                || path.equals("dried_ghast") || path.endsWith("_harness")
+        return path.equals("dried_ghast") || path.endsWith("_harness")
                 || path.equals("happy_ghast_spawn_egg")
                 || path.equals("nautilus_spawn_egg") || path.equals("zombie_nautilus_spawn_egg")
-                || path.endsWith("_nautilus_armor") || path.equals("creaking_spawn_egg")
-                || path.equals("creaking_heart") || path.contains("resin")
+                || path.endsWith("_nautilus_armor")
                 || (path.contains("pale_oak") && !path.equals("pale_oak_shelf"))
                 || path.startsWith("pale_moss") || path.equals("pale_hanging_moss")
                 || path.endsWith("eyeblossom")
                 || path.equals("music_disc_tears") || path.equals("music_disc_lava_chicken");
     }
 
-    /** Recipe ingredients use existing AOE copper equipment; old spears use the complete backport. */
+    /** Old copper equipment, chains, and ordinary spears use their single backport registration. */
     public static ResourceLocation canonicalItem(ResourceLocation id) {
         if (!enabled()) return id;
+        if (id.getNamespace().equals(AOEMod.MOD_ID)) {
+            if (id.getPath().equals("desert_grass")) return new ResourceLocation("minecraft", "short_dry_grass");
+            if (id.getPath().equals("desert_tallgrass")) return new ResourceLocation("minecraft", "tall_dry_grass");
+            if (id.getPath().equals("raw_spider_crab_leg")) return new ResourceLocation("ecologics", "crab_meat");
+            if (id.getPath().equals("cooked_spider_crab_leg")) return new ResourceLocation(AOEMod.MOD_ID, "cooked_crab_meat");
+        }
         if (id.getNamespace().equals(AOEMod.MOD_ID) && REPLACED_MOB_EGGS.containsKey(id.getPath())) {
             return new ResourceLocation("minecraft", REPLACED_MOB_EGGS.get(id.getPath()));
         }
-        if (id.getNamespace().equals("minecraft") && COPPER_EQUIPMENT.contains(id.getPath())) {
-            return new ResourceLocation(AOEMod.MOD_ID, id.getPath());
-        }
         if (id.getNamespace().equals(AOEMod.MOD_ID)
-                && (SPEARS.contains(id.getPath()) || id.getPath().equals("copper_chain"))) {
+                && (COPPER_EQUIPMENT.contains(id.getPath()) || SPEARS.contains(id.getPath())
+                || id.getPath().equals("copper_chain"))) {
             return new ResourceLocation("minecraft", id.getPath());
         }
         return id;
@@ -109,6 +116,23 @@ public final class FutureContentPolicy {
 
     @Mod.EventBusSubscriber(modid = AOEMod.MOD_ID, bus = Mod.EventBusSubscriber.Bus.FORGE)
     public static final class EntityEvents {
+        @SubscribeEvent
+        public static void migrateRemovedCopies(MissingMappingsEvent event) {
+            if (!enabled()) return;
+            for (var mapping : event.getMappings(Registries.ITEM, AOEMod.MOD_ID)) {
+                ResourceLocation canonical = canonicalItem(mapping.getKey());
+                if (!canonical.equals(mapping.getKey()) && ForgeRegistries.ITEMS.containsKey(canonical)) {
+                    mapping.remap(ForgeRegistries.ITEMS.getValue(canonical));
+                }
+            }
+            for (var mapping : event.getMappings(Registries.BLOCK, AOEMod.MOD_ID)) {
+                ResourceLocation canonical = canonicalItem(mapping.getKey());
+                if (!canonical.equals(mapping.getKey()) && ForgeRegistries.BLOCKS.containsKey(canonical)) {
+                    mapping.remap(ForgeRegistries.BLOCKS.getValue(canonical));
+                }
+            }
+        }
+
         @SubscribeEvent(priority = EventPriority.HIGHEST)
         public static void preventExcludedEntities(EntityJoinLevelEvent event) {
             if (!enabled()) return;

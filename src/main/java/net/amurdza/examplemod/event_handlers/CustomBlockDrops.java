@@ -19,6 +19,8 @@ import net.minecraft.world.item.enchantment.Enchantments;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.block.state.properties.BlockStateProperties;
+import net.minecraft.world.level.block.state.properties.DoubleBlockHalf;
 import net.minecraftforge.common.Tags;
 import net.minecraftforge.event.level.BlockEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -54,20 +56,25 @@ public class CustomBlockDrops {
         if (dropEntries.isEmpty()) {
             return;
         }
-        ItemStack tool = player.getMainHandItem();
+        if (player.isCreative()) {
+            event.setCanceled(true);
+            // destroyBlock(false) suppresses only the selected block's loot.
+            // Its partner must be removed before neighbor updates can give the
+            // upper grass/fern half an independent regional seed roll.
+            removeGrassPartner(level, pos, state);
+            level.destroyBlock(pos, false, player);
+            return;
+        }
 
+        ItemStack tool = player.getMainHandItem();
         if (shouldLetVanillaShearsHandle(state, tool)) {
             return;
         }
 
         event.setCanceled(true);
 
-        if (player.isCreative()) {
-            level.destroyBlock(pos, false, player);
-            return;
-        }
-
         level.levelEvent(player, 2001, pos, Block.getId(state));
+        removeGrassPartner(level, pos, state);
         level.setBlock(pos, Blocks.AIR.defaultBlockState(), 35);
 
         int xp = state.getExpDrop(level, level.random, pos, fortuneLevel(tool), silkTouchLevel(tool));
@@ -82,6 +89,17 @@ public class CustomBlockDrops {
 
     private static boolean hasConfiguredCustomDrops(Block block) {
         return BlockConfig.BLOCK_INFO_BY_BLOCK.containsKey(block);
+    }
+
+    private static void removeGrassPartner(ServerLevel level, BlockPos pos, BlockState state) {
+        if (!state.is(Blocks.TALL_GRASS) && !state.is(Blocks.LARGE_FERN)) return;
+        DoubleBlockHalf half = state.getValue(BlockStateProperties.DOUBLE_BLOCK_HALF);
+        BlockPos partner = half == DoubleBlockHalf.LOWER ? pos.above() : pos.below();
+        BlockState partnerState = level.getBlockState(partner);
+        if (partnerState.is(state.getBlock())
+                && partnerState.getValue(BlockStateProperties.DOUBLE_BLOCK_HALF) != half) {
+            level.setBlock(partner, Blocks.AIR.defaultBlockState(), Block.UPDATE_CLIENTS | Block.UPDATE_KNOWN_SHAPE);
+        }
     }
 
     /** A reusable base loot roll for workers; null delegates to the original table, empty is a valid zero roll. */

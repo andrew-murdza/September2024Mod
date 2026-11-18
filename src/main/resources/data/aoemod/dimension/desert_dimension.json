@@ -8,7 +8,8 @@
       "dimension": "desert",
       "biomes": [
         "aoemod:desert",
-        "aoemod:deep_dark"
+        "aoemod:deep_dark",
+        "aoemod:desert_lake"
       ]
     }
   }

@@ -9,4 +9,8 @@ import org.spongepowered.asm.mixin.gen.Invoker;
 public interface FireBlockAccessor {
     @Invoker("setFlammable")
     void aoemod$setFlammable(Block block, int encouragement, int flammability);
+
+    @Invoker(value = "tryCatchFire", remap = false)
+    void aoemod$tryCatchFire(net.minecraft.world.level.Level level, net.minecraft.core.BlockPos pos, int chance,
+            net.minecraft.util.RandomSource random, int age, net.minecraft.core.Direction face);
 }

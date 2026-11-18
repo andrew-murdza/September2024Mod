@@ -3,21 +3,17 @@ package net.amurdza.examplemod.worldgen.tree_decorators;
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import net.amurdza.examplemod.registry.ModTreeDecorators;
+import net.amurdza.examplemod.util.GameplayDimensions;
+import net.amurdza.examplemod.worldgen.CaveVinePlacement;
 import net.minecraft.core.BlockPos;
-import net.minecraft.core.Direction;
 import net.minecraft.util.RandomSource;
 import net.minecraft.util.valueproviders.IntProvider;
 import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.block.Blocks;
-import net.minecraft.world.level.block.CaveVinesBlock;
 import net.minecraft.world.level.block.state.BlockState;
-import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.levelgen.feature.treedecorators.TreeDecorator;
 import net.minecraft.world.level.levelgen.feature.treedecorators.TreeDecoratorType;
 import org.jetbrains.annotations.NotNull;
-
-import java.util.ArrayList;
-import java.util.List;
 
 public class RainforestCanopyDecorator extends TreeDecorator {
     public static final Codec<RainforestCanopyDecorator> CODEC = RecordCodecBuilder.create(instance ->
@@ -61,14 +57,14 @@ public class RainforestCanopyDecorator extends TreeDecorator {
                 continue;
             }
 
-            if (isTooCloseToBlockingBelow(context, start)) {
-                continue;
-            }
-
             if (choice == PlacementChoice.SPORE_BLOSSOM) {
-                placeSporeBlossom(context, start);
+                if (context.level() instanceof LevelReader level && GameplayDimensions.is(level, GameplayDimensions.TROPICAL)
+                        && GameplayDimensions.biomeIs(level, start, "mangrove_swamp")) continue;
+                if (context.level() instanceof LevelReader level && GameplayDimensions.is(level, GameplayDimensions.TROPICAL)
+                        && random.nextInt(4) != 0) continue;
+                if (!isTooCloseToBlockingBelow(context, start)) placeSporeBlossom(context, start);
             } else {
-                placeCaveVines(context, start, Math.max(1, this.caveVinesLength.sample(random)));
+                CaveVinePlacement.place(context, start, this.caveVinesLength.sample(random));
             }
         }
     }
@@ -101,45 +97,6 @@ public class RainforestCanopyDecorator extends TreeDecorator {
         context.setBlock(pos, state);
     }
 
-    private void placeCaveVines(Context context, BlockPos start, int length) {
-        List<BlockPos> positions = new ArrayList<>();
-        BlockPos.MutableBlockPos cursor = start.mutable();
-
-        for (int i = 0; i < length; i++) {
-            if (!context.isAir(cursor) || isTooCloseToBlockingBelow(context, cursor)) {
-                break;
-            }
-
-            positions.add(cursor.immutable());
-            cursor.move(Direction.DOWN);
-        }
-
-        if (positions.isEmpty()) {
-            return;
-        }
-
-        for (int i = 0; i < positions.size(); i++) {
-            boolean last = i == positions.size() - 1;
-            BlockState state = last
-                    ? Blocks.CAVE_VINES.defaultBlockState()
-                    : Blocks.CAVE_VINES_PLANT.defaultBlockState();
-
-            if (state.hasProperty(BlockStateProperties.BERRIES)) {
-                state = state.setValue(BlockStateProperties.BERRIES, true);
-            }
-
-            if (state.hasProperty(BlockStateProperties.WATERLOGGED)) {
-                state = state.setValue(BlockStateProperties.WATERLOGGED, false);
-            }
-
-            if (state.is(Blocks.CAVE_VINES)) {
-                state = state.setValue(CaveVinesBlock.AGE, 25);
-            }
-
-            context.setBlock(positions.get(i), state);
-        }
-    }
-
     private static boolean isTooCloseToBlockingBelow(Context context, BlockPos pos) {
         for (int dy = 0; dy <= 4; dy++) {
             BlockPos checkPos = pos.below(dy);
@@ -158,11 +115,7 @@ public class RainforestCanopyDecorator extends TreeDecorator {
             return true;
         }
 
-        if (context.level() instanceof LevelReader level) {
-            return state.getCollisionShape(level, pos).isEmpty();
-        }
-
-        return false;
+        return !state.isSolid() && !state.is(net.minecraft.tags.BlockTags.LEAVES);
     }
 
     private enum PlacementChoice {

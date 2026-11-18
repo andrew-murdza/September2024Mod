@@ -5,9 +5,18 @@ import net.amurdza.examplemod.worldgen.structure.LongMushroomCaveStructure;
 import net.amurdza.examplemod.worldgen.structure.LongNetherCaveStructure;
 import net.amurdza.examplemod.worldgen.structure.MushroomCavePiece;
 import net.amurdza.examplemod.worldgen.structure.NetherCavePiece;
+import net.amurdza.examplemod.worldgen.structure.BossLairStructure;
+import net.amurdza.examplemod.worldgen.structure.BossLairPiece;
+import net.amurdza.examplemod.worldgen.structure.IllagerMansionStructure;
+import net.amurdza.examplemod.worldgen.structure.IllagerMansionProcessor;
+import net.amurdza.examplemod.worldgen.structure.SavannaOrcCampProcessor;
+import net.amurdza.examplemod.worldgen.structure.MansionBossPiece;
+import net.amurdza.examplemod.worldgen.structure.MansionBasementPiece;
+import net.amurdza.examplemod.worldgen.structure.SavannaOrcCampPiece;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.world.level.levelgen.structure.StructureType;
 import net.minecraft.world.level.levelgen.structure.pieces.StructurePieceType;
+import net.minecraft.world.level.levelgen.structure.templatesystem.StructureProcessorType;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.RegistryObject;
@@ -19,6 +28,30 @@ public class ModStructures {
 
     public static final DeferredRegister<StructurePieceType> PIECE_TYPES =
             DeferredRegister.create(Registries.STRUCTURE_PIECE, AOEMod.MOD_ID);
+
+    public static final DeferredRegister<StructureProcessorType<?>> PROCESSOR_TYPES =
+            DeferredRegister.create(Registries.STRUCTURE_PROCESSOR, AOEMod.MOD_ID);
+    public static final RegistryObject<StructureProcessorType<IllagerMansionProcessor>> MANSION_PROCESSOR =
+            PROCESSOR_TYPES.register("plains_mansion_materials", () -> () -> IllagerMansionProcessor.CODEC);
+    public static final RegistryObject<StructureProcessorType<SavannaOrcCampProcessor>> SAVANNA_ORC_CAMP_PROCESSOR =
+            PROCESSOR_TYPES.register("savanna_orc_camp_materials", () -> () -> SavannaOrcCampProcessor.CODEC);
+
+    public static final RegistryObject<StructureType<BossLairStructure>> BOSS_LAIR =
+            STRUCTURE_TYPES.register("boss_lair", () -> () -> BossLairStructure.CODEC);
+    public static final RegistryObject<StructurePieceType> BOSS_LAIR_PIECE =
+            PIECE_TYPES.register("boss_lair_piece", () -> BossLairPiece::new);
+    public static final RegistryObject<StructurePieceType> ORC_CAMP_PIECE =
+            PIECE_TYPES.register("savanna_orc_camp_piece", () -> SavannaOrcCampPiece::new);
+    public static final RegistryObject<StructureType<IllagerMansionStructure>> ILLAGER_MANSION =
+            STRUCTURE_TYPES.register("illager_mansion", () -> () -> IllagerMansionStructure.CODEC);
+    public static final RegistryObject<StructurePieceType> MANSION_BOSS_PIECE =
+            PIECE_TYPES.register("mansion_boss_piece", () -> MansionBossPiece::new);
+    public static final RegistryObject<StructurePieceType> MANSION_RESIDENTS_PIECE =
+            PIECE_TYPES.register("mansion_residents", () -> net.amurdza.examplemod.worldgen.structure.MansionResidentsPiece::new);
+    public static final RegistryObject<StructurePieceType> MANSION_BASEMENT_PIECE =
+            PIECE_TYPES.register("mansion_basement", () -> MansionBasementPiece::load);
+    public static final RegistryObject<StructurePieceType> MANSION_ENVELOPE_PIECE =
+            PIECE_TYPES.register("mansion_envelope", () -> net.amurdza.examplemod.worldgen.structure.MansionEnvelopePiece::new);
 
     public static final RegistryObject<StructureType<LongNetherCaveStructure>> NETHER_CAVE =
             STRUCTURE_TYPES.register("nether_cave", () -> LongNetherCaveStructure.CODEC::codec);
@@ -35,5 +68,6 @@ public class ModStructures {
     public static void register(IEventBus bus) {
         STRUCTURE_TYPES.register(bus);
         PIECE_TYPES.register(bus);
+        PROCESSOR_TYPES.register(bus);
     }
 }

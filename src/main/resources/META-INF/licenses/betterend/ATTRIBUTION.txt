@@ -1,0 +1,31 @@
+Retained Better End charnia resources
+
+Source: Better End 20.0.11, distributed in betterend-20.0.11.jar
+Project: https://github.com/quiqueck/BetterEnd
+Distribution: https://www.curseforge.com/minecraft/mc-mods/betterend
+Attribution: Team BetterX; paulevs (original author)
+Upstream copyright notice: Copyright (c) 2020 paulevsGitch
+
+The original LICENSE and LICENSE.ASSETS from that archive are reproduced
+unchanged beside this notice. LICENSE contains the MIT license and references
+the separately listed asset exceptions in LICENSE.ASSETS. The retained charnia
+resources are not among the three exceptions listed in that archive.
+
+Retained resources:
+- assets/betterend/blockstates/charnia_light_blue.json
+- assets/betterend/models/block/charnia.json
+- assets/betterend/models/block/charnia_light_blue.json
+- assets/betterend/models/item/charnia_light_blue.json
+- assets/betterend/textures/block/charnia_light_blue.png
+- assets/betterend/textures/item/charnia_light_blue.png
+- data/betterend/loot_tables/blocks/charnia_light_blue.json
+
+Changes in this distribution:
+- Added the Forge minecraft:cutout render type to the shared charnia model.
+- Reduced the English language file to the two retained plant names.
+- Implemented local block registration and underwater plant behavior without
+  loading Better End or BCLib. Legacy betterend registry IDs are preserved.
+
+The retained textures, variant models, blockstates, and block loot tables are
+otherwise copied unchanged. The shared model retains its original designer
+credit to Paulevs.

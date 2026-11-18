@@ -2,6 +2,7 @@ package net.amurdza.examplemod.event_handlers;
 
 import net.amurdza.examplemod.AOEMod;
 import net.amurdza.examplemod.config.BlockConfig;
+import net.amurdza.examplemod.util.CactusGrowth;
 import net.amurdza.examplemod.util.Helper;
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
@@ -16,7 +17,6 @@ import net.minecraftforge.event.level.BlockEvent;
 import net.minecraftforge.eventbus.api.Event;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
-import samebutdifferent.ecologics.registry.ModBlocks;
 
 @EventBusSubscriber(modid = AOEMod.MOD_ID, bus = EventBusSubscriber.Bus.FORGE)
 public class BlockGrowthRate {
@@ -113,6 +113,11 @@ public class BlockGrowthRate {
     }
 
     private static void applyAgeIncrements(ServerLevel level, BlockPos pos, BlockState state, int increments) {
+        if (state.is(Blocks.CACTUS)) {
+            BlockPos top = level.getBlockState(pos).is(Blocks.CACTUS) ? pos : pos.below();
+            CactusGrowth.advance(level, top, state, increments);
+            return;
+        }
         for (int i = 0; i < AGE_PROPERTIES.length; i++) {
             IntegerProperty prop = AGE_PROPERTIES[i];
 
@@ -124,7 +129,7 @@ public class BlockGrowthRate {
             int oldAge = state.getValue(prop);
             int newAge = oldAge + increments;
 
-            boolean columnPlant = state.is(Blocks.CACTUS) || state.is(Blocks.SUGAR_CANE);
+            boolean columnPlant = state.is(Blocks.SUGAR_CANE);
 
             if (columnPlant) {
                 if (state.is(Blocks.SUGAR_CANE)) {
@@ -150,8 +155,6 @@ public class BlockGrowthRate {
                     } else {
                         level.setBlockAndUpdate(pos.below(), state.setValue(prop, newAge));
                     }
-                } else if (state.is(Blocks.CACTUS)) {
-                    level.setBlockAndUpdate(pos, ModBlocks.PRICKLY_PEAR.get().defaultBlockState());
                 }
             } else {
                 level.setBlock(pos, state.setValue(prop, Math.min(newAge, max)), 4);

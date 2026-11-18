@@ -4,19 +4,19 @@
     "features": [
       {
         "feature": "aoemod:mushroom_caves/floor/brown_mushroom_patch_with_giant",
-        "count": 4
+        "count": 3
       },
       {
         "feature": "aoemod:mushroom_caves/floor/red_mushroom_patch_with_giant",
-        "count": 4
+        "count": 3
       },
       {
         "feature": "aoemod:mushroom_caves/floor/glow_shroom_patch_with_giant",
-        "count": 4
+        "count": 3
       },
       {
-        "feature": "twilightforest:mushroom/big_mushgloom",
-        "count": 4
+        "feature": "aoemod:mushroom_caves/floor/mushgloom_patch_with_giant",
+        "count": 3
       }
     ],
     "default_feature": "aoemod:nothing",

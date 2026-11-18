@@ -1,0 +1,173 @@
+{
+  "passed": true,
+  "captures": [
+    {
+      "label": "Camp overhead",
+      "image": "C:/Users/andre/Downloads/Games/September2024Mod/build/nov15-round2/visuals/client-views-a/screenshots/camp_overhead.png",
+      "passed": true,
+      "notes": [
+        "Nine red tents form a regular three-by-three layout with broad, even clear gaps and a continuous dirt-path interior.",
+        "Four crop quadrants turn cleanly around the central area; broad roads separate the large outer pens.",
+        "No stray tent-corner crop islands are visible. Far fog limits inspection of the complete outer wall."
+      ]
+    },
+    {
+      "label": "Main gate",
+      "image": "C:/Users/andre/Downloads/Games/September2024Mod/build/nov15-round2/visuals/client-views-a/screenshots/camp_gate.png",
+      "passed": true,
+      "notes": [
+        "A broad, unobstructed dirt-path entrance runs between log posts beneath the horizontal lintel; the skull faces outward.",
+        "Grass and plants remain beside the path at the inner wall edge. No obstructing center ridge or missing approach lane is visible.",
+        "Exact eight-block road width is covered by artifact checks rather than estimated from perspective."
+      ]
+    },
+    {
+      "label": "Tent interior",
+      "image": "C:/Users/andre/Downloads/Games/September2024Mod/build/nov15-round2/visuals/client-views-a/screenshots/camp_tent_interior.png",
+      "passed": true,
+      "notes": [
+        "The red-wool tent retains beds, hay floor, chests, cushions, a central campfire and orcs in a coherent interior.",
+        "Smoke obscures part of the center and rear; this view does not establish the complete furniture count or twelve-block footprint."
+      ]
+    },
+    {
+      "label": "Palisade and shared pen edge",
+      "image": "C:/Users/andre/Downloads/Games/September2024Mod/build/nov15-round2/visuals/client-views-a/screenshots/camp_palisade_and_shared_pen.png",
+      "passed": true,
+      "notes": [
+        "The close palisade has regularly spaced log posts, continuous acacia panels and the intended ornaments.",
+        "A green strip with plants remains along its inside before the road; the adjoining pen has ample space around its pond, hay and livestock.",
+        "No visible clipped wall or irregular open gap was found; exact six-clear-block post spacing is separately checked."
+      ]
+    },
+    {
+      "label": "Crop corner",
+      "image": "C:/Users/andre/Downloads/Games/September2024Mod/build/nov15-round2/visuals/client-views-a/screenshots/camp_crop_corner.png",
+      "passed": true,
+      "notes": [
+        "Crop bands, including the tall outer band, make continuous L-shaped turns with broad paths along both legs.",
+        "The adjacent tent corner is clear and pathed; visible pumpkins have no torches on top.",
+        "Dense crops partly conceal individual pumpkin stems, so the precise pumpkin-stem-stem-pumpkin sequence relies on block-level checks."
+      ]
+    },
+    {
+      "label": "Mushroom patch",
+      "image": "C:/Users/andre/Downloads/Games/September2024Mod/build/nov15-round2/visuals/client-views-a/screenshots/camp_mushroom_patch.png",
+      "passed": true,
+      "notes": [
+        "Mixed red and brown mushrooms visibly sit on a distinct podzol patch beside the path and crop rows.",
+        "No grass replacement or pumpkin-mounted torch is visible in this close view. Other mushroom patches are outside the frame."
+      ]
+    },
+    {
+      "label": "Livestock pens",
+      "image": "C:/Users/andre/Downloads/Games/September2024Mod/build/nov15-round2/visuals/client-views-a/screenshots/camp_pens.png",
+      "passed": true,
+      "notes": [
+        "Large pens contain livestock, square ponds, hay and retained ground vegetation; roads between pens are broad and unobstructed.",
+        "Visible centered gate runs are continuous and broad, with no missing fence sections.",
+        "The frame cannot expose all four sides of every pen; twenty-four-block interiors and four-wide gates on each side are separately checked."
+      ]
+    },
+    {
+      "label": "Twelve crop rows and cane ponds",
+      "image": "C:/Users/andre/Downloads/Games/September2024Mod/build/nov15-round2/visuals/client-views-a/screenshots/camp_twelve_rows_and_cane.png",
+      "passed": true,
+      "notes": [
+        "The close crop belt shows multiple continuous crop rows, regularly spaced pumpkins without torches, and contained blue irrigation ponds surrounded by tall cane.",
+        "The foreground road and central dirt-path area are continuous; enlarged tents remain evenly spaced with clear corners.",
+        "Podzol and mixed mushrooms are visible at the crop-belt end. Cane emerges above the water, while its submerged root and exact one-block pond depth are hidden and verified by separate artifact checks."
+      ]
+    },
+    {
+      "label": "mansion-full-third-floor-slab-roof",
+      "image": "C:/Users/andre/Downloads/Games/September2024Mod/build/nov15-round2/visuals/client-views-a/screenshots/mansion-full-third-floor-slab-roof.png",
+      "passed": true,
+      "notes": "Complete square roof and three equal-height facade tiers are visible, without roof gaps, missing chunks or floating caps. Ground-floor windows repeat the upper-floor window pattern. The solid plank backing beneath each slab is covered by native block assertions, not directly visible here."
+    },
+    {
+      "label": "mansion-main-entry",
+      "image": "C:/Users/andre/Downloads/Games/September2024Mod/build/nov15-round2/visuals/client-views-a/screenshots/mansion-main-entry.png",
+      "passed": true,
+      "notes": "Main cobblestone stair is clear at the ground-floor approach; shorter foyer, floor/carpet boundary, adjacent plank torch posts and log cross are visible. Full route connectivity is established by the native walking test."
+    },
+    {
+      "label": "mansion-foyer-eight-block-floor-connection",
+      "image": "C:/Users/andre/Downloads/Games/September2024Mod/build/nov15-round2/visuals/client-views-a/screenshots/mansion-foyer-eight-block-floor-connection.png",
+      "passed": true,
+      "notes": "Upper foyer landing connects flush into the carpeted hall. No added three-step birch rise or raised carpet corner post is visible. Oak-plank torch columns and white carpet borders are clear."
+    },
+    {
+      "label": "mansion-upper-stair-hall",
+      "image": "C:\\Users\\andre\\Downloads\\Games\\September2024Mod\\build\\nov15-round2\\visuals\\client-views-b\\screenshots\\mansion-upper-stair-hall.png",
+      "passed": true,
+      "notes": "Replacement side camera clearly shows the continuous cobblestone flight reaching a flat birch landing and the carpeted upper hallway, with no raised birch spacer steps or blocking face panel. This replaces the occluded first camera; native navigation and headroom checks also passed."
+    },
+    {
+      "label": "mansion-oak-posts-and-carpet-corners",
+      "image": "C:/Users/andre/Downloads/Games/September2024Mod/build/nov15-round2/visuals/client-views-a/screenshots/mansion-oak-posts-and-carpet-corners.png",
+      "passed": true,
+      "notes": "Repeated torch-bearing columns are visibly oak planks, with red hallway carpet and white borders at corridor intersections. Illagers partly overlap the distant floor, but nearby border geometry is unobstructed."
+    },
+    {
+      "label": "mansion-cellar-behind-main-stairs",
+      "image": "C:/Users/andre/Downloads/Games/September2024Mod/build/nov15-round2/visuals/client-views-a/screenshots/mansion-cellar-behind-main-stairs.png",
+      "passed": true,
+      "notes": "Three-wide stone-brick descent, dry landing and single iron door are visible. Wall-torch tips are visible. The upper camera angle hides most of the ceiling and exterior lanterns, so this frame alone does not establish exact ceiling height or both lantern positions."
+    },
+    {
+      "label": "mansion-revised-cellar",
+      "image": "C:/Users/andre/Downloads/Games/September2024Mod/build/nov15-round2/visuals/client-views-a/screenshots/mansion-revised-cellar.png",
+      "passed": true,
+      "notes": "Dry, continuous central hall with repeated paired room entrances and three inward lantern rows. No spill, floating light or blocked floor is visible. The full twenty-room map and crop pairing require the layout assertions rather than this single hall view."
+    },
+    {
+      "label": "mansion-authored-crops",
+      "image": "C:/Users/andre/Downloads/Games/September2024Mod/build/nov15-round2/visuals/client-views-a/screenshots/mansion-authored-crops.png",
+      "passed": true,
+      "notes": "Carrot room is inside the outer mushroom room, with a connecting opening, contained irrigation, inward corner lanterns and central lantern. Crop rows and the visible mushroom plot remain intact."
+    },
+    {
+      "label": "mansion-authored-pens",
+      "image": "C:/Users/andre/Downloads/Games/September2024Mod/build/nov15-round2/visuals/client-views-a/screenshots/mansion-authored-pens.png",
+      "passed": true,
+      "notes": "Pig pen has grass between the hay banks, retained water trough, side gates and inward lanterns. Stone under occupied hay is hidden by hay and is established by block assertions."
+    },
+    {
+      "label": "mansion-four-lowered-chandeliers",
+      "image": "C:/Users/andre/Downloads/Games/September2024Mod/build/nov15-round2/visuals/client-views-a/screenshots/mansion-four-lowered-chandeliers.png",
+      "passed": true,
+      "notes": "Lowered fence-and-torch chandeliers render above preserved tables, white table coverings and flower pots. The near fixture and two rear fixtures are clear; the near fixture partly hides the fourth, so the image establishes appearance and clearance but not the exact four-fixture count by itself."
+    },
+    {
+      "label": "desert-straight-sand-entrance-0",
+      "image": "C:\\Users\\andre\\Downloads\\Games\\September2024Mod\\build\\nov15-round2\\visuals\\client-views-a\\screenshots\\desert-straight-sand-entrance-0.png",
+      "passed": true,
+      "notes": "Pass: a straight, dry opening cuts through the sand/red-sand terrace edge. Adjacent original terrace surfaces and the rim remain sandy; exposed stone and mineral patches are confined to the cut opening. No visible water breach or obstructed entrance. The camera clearly frames the complete mouth."
+    },
+    {
+      "label": "desert-straight-sand-entrance-1",
+      "image": "C:\\Users\\andre\\Downloads\\Games\\September2024Mod\\build\\nov15-round2\\visuals\\client-views-a\\screenshots\\desert-straight-sand-entrance-1.png",
+      "passed": true,
+      "notes": "Pass: the paired entrance likewise has a straight approach and intact sandy sides on the opposite exported terrace bank. No stone coating extends across the uncut surrounding sand or red-sand terrace, and no visible lake breach. The camera clearly frames the mouth and approach."
+    },
+    {
+      "label": "desert-curved-descent-near-t-zero",
+      "image": "C:\\Users\\andre\\Downloads\\Games\\September2024Mod\\build\\nov15-round2\\visuals\\client-views-a\\screenshots\\desert-curved-descent-near-t-zero.png",
+      "passed": true,
+      "notes": "Pass: the interior view shows a continuous descending stone floor, ample headroom, and a gentle turn toward the lower passage. The central walking route is open; sparse mushrooms remain off its center. No visible wall gap, water intrusion, or blocked descent. One frame cannot establish the complete route or its T-gradient relationship; those are covered by the passing native tests."
+    },
+    {
+      "label": "restored-tropical-coast",
+      "image": "C:\\Users\\andre\\Downloads\\Games\\September2024Mod\\build\\nov15-round2\\visuals\\client-views-a\\screenshots\\restored-tropical-coast.png",
+      "passed": true,
+      "notes": "Restored dense rainforest canopy, tall jungle trees and the outer woodland/ground vegetation render without visible gaps or missing textures. The frame looks inland and fog limits the whole-island outline; exact restored bands are independently covered by archived-equivalence and native biome tests."
+    },
+    {
+      "label": "cherry-final-bamboo",
+      "image": "C:\\Users\\andre\\Downloads\\Games\\September2024Mod\\build\\nov15-round2\\visuals\\client-views-a\\screenshots\\cherry-final-bamboo.png",
+      "passed": true,
+      "notes": "Healthy bamboo renders among restored pink cherry trees and flowers. The close view demonstrates the cherry habitat and bamboo under the canopy; branches hide other stems and the full patch boundary, so the ten-stem/six-by-six count and clearance rules rely on the passing native tests."
+    }
+  ]
+}

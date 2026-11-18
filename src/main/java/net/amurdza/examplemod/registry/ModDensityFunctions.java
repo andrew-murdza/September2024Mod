@@ -19,6 +19,11 @@ public final class ModDensityFunctions {
 
     static {
         DENSITY_FUNCTION_TYPES.register("dimension_terrain", net.amurdza.examplemod.worldgen.DimensionTerrain.CODEC::codec);
+        DENSITY_FUNCTION_TYPES.register("surface_water_biome", net.amurdza.examplemod.worldgen.SurfaceWaterBiome.CODEC::codec);
+        DENSITY_FUNCTION_TYPES.register("mountain_lake_offset", net.amurdza.examplemod.worldgen.MountainLakeOffset.CODEC::codec);
+        DENSITY_FUNCTION_TYPES.register("snowy_terrain_profile", net.amurdza.examplemod.worldgen.SnowyTerrainProfile.CODEC::codec);
+        DENSITY_FUNCTION_TYPES.register("mountain_ridges", net.amurdza.examplemod.worldgen.MountainRidges.CODEC::codec);
+        DENSITY_FUNCTION_TYPES.register("desert_bands", net.amurdza.examplemod.worldgen.DesertBands.CODEC::codec);
         DENSITY_FUNCTION_TYPES.register("continents", Continents.CODEC::codec);
         DENSITY_FUNCTION_TYPES.register("rivers", RadialRivers.CODEC::codec);
         DENSITY_FUNCTION_TYPES.register("offset", SteppedMountainOffset.CODEC::codec);

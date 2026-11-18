@@ -22,15 +22,14 @@ public final class DocumentedContentBalance {
     private DocumentedContentBalance() { }
 
     public static void registerGrowth() {
+        growth(GameplayDimensions.TROPICAL, 0.55F, "upgrade_aquatic:mulberry_vine");
         growth(GameplayDimensions.TROPICAL, 1.0F, "pineapple_delight:pineapple_crop",
                 "hearthandharvest:corn_stalk", "hearthandharvest:cotton", "legumedelight:beans",
                 "legumedelight:budding_beans", "legumedelight:beans_on_rope");
-        growth(GameplayDimensions.TROPICAL, 0.55F, "upgrade_aquatic:mulberry_vine");
+        growth(GameplayDimensions.SAVANNA, 1.0F, "hearthandharvest:corn_stalk");
         growth(GameplayDimensions.SAVANNA, 0.5F, "vintagedelight:oat_crop", "farmersdelight:cabbages");
         growth(GameplayDimensions.PLAINS, 0.34F, "farmersdelight:cabbages");
         growth(GameplayDimensions.DESERT, 0.2F, "vintagedelight:peanut_crop");
-        growth(GameplayDimensions.DESERT, 0.15F, "collectorsreap:pink_dragon_fruits",
-                "collectorsreap:budding_pink_dragon_fruits");
         growth(GameplayDimensions.DESERT, 0.28F, "hybrid_aquatic:bull_kelp", "hybrid_aquatic:bull_kelp_plant");
         growth(GameplayDimensions.SNOWY, 0.6F, "twilightforest:mushgloom");
         growth(GameplayDimensions.SNOWY, 0.14F, "minecraft:poplar_sapling");
@@ -84,61 +83,59 @@ public final class DocumentedContentBalance {
         // soul sand valley, warped forest, crimson forest, basalt deltas.
         livestock("biodiverse:capybara", 0, 1.5F, 1.25F, "minecraft:beef", "minecraft:cooked_beef", 3, 0.5F);
         livestock("biodiverse:cassowary", 0, 1.5F, 1.25F,
-                "bountiful_critters:pheasant", "bountiful_critters:cooked_pheasant", 2, 0);
-        livestock("aoemod:arthropleura", 0, 1, 1.25F,
-                "untamedwilds:food_pachyderm_raw", "untamedwilds:food_pachyderm_cooked", 4, 0);
+                "wildernature:turkey_meat", "wildernature:cooked_turkey_meat", 2, 0);
+        livestock("aoemod:arthropleura", 0, 1, 1.25F, "aoemod:raw_arthropleura", "aoemod:cooked_arthropleura", 3, 0);
         livestock("biodiverse:wildebeest", 1, 2, 1.5F, "minecraft:beef", "minecraft:cooked_beef", 5, 2);
         livestock("biodiverse:oryx", 1, 2, 1.5F, "wildernature:venison", "wildernature:cooked_venison", 4, 1);
         livestock("alexsmobs:bison", 1, 2, 1.5F, "wildernature:bison_meat", "wildernature:cooked_bison_meat", 6, 2);
         livestock("alexsmobs:emu", 1, 2, 1.5F, "wildernature:cassowary_meat", "wildernature:cooked_cassowary_meat", 3, 0);
         livestock("alexsmobs:kangaroo", 1, 2, 1.5F, "alexsmobs:kangaroo_meat", "alexsmobs:cooked_kangaroo_meat", 3, 1);
         livestock("twilightforest:boar", 1, 2, 1.5F, "minecraft:porkchop", "minecraft:cooked_porkchop", 4, 0);
-        livestock("environmental:reindeer", 3, 0.8F, 1, "biodiverse:raw_venison", "biodiverse:cooked_venison", 3, 1);
         livestock("biodiverse:reindeer", 3, 0.8F, 1, "biodiverse:raw_venison", "biodiverse:cooked_venison", 3, 1);
-        livestock("alexsmobs:jerboa", 4, 0.6F, 1, "untamedwilds:food_turtle_raw", "untamedwilds:food_turtle_cooked", 1, 0);
-        livestock("outer_end:stalker", 5, 0.5F, 1, "outer_end:stalker_meat", "outer_end:cooked_stalker_meat", 2, 0);
 
         // Decorative and working animals gain no meat/resource reward by default.
         working("wildernature:flamingo", 0, 1.25F);
-        working("alexsmobs:anaconda", 0, 0.75F);
         working("alexsmobs:elephant", 0, 0.5F);
-        working("alexsmobs:laviathan", 9, 0.4F);
 
-        fish("angling:mahi_mahi", "aoemod:raw_mahi_mahi", "aoemod:cooked_mahi_mahi", 3, 0);
         fish("angling:anomalocaris", "aoemod:raw_anomalocaris", "aoemod:cooked_anomalocaris", 2, 0);
-        fish("finsandtails:rubber_belly_glider", "aoemod:raw_rubber_belly_glider", "aoemod:cooked_rubber_belly_glider", 3, 0);
-        fish("alexsmobs:flying_fish", "aoemod:raw_flying_fish", "aoemod:cooked_flying_fish", 2, 3);
-        fish("angling:anglerfish", "aoemod:raw_anglerfish", "aoemod:cooked_anglerfish", 2, 3);
-        fish("aquatica:isopod", "aoemod:raw_isopod", "aoemod:cooked_isopod", 2, 3);
+        fish("alexsmobs:flying_fish", "alexsmobs:flying_fish", "aoemod:cooked_flying_fish", 2, 3);
         fish("alexsmobs:triops", "aoemod:raw_triops", "aoemod:cooked_triops", 1, 4);
         fish("ambientadditions:blue_spotted_stingray", "aoemod:raw_blue_spotted_stingray", "aoemod:cooked_blue_spotted_stingray", 1, 4);
-        fish("upgrade_aquatic:lionfish", "upgrade_aquatic:lionfish", "upgrade_aquatic:cooked_lionfish", 2, 0);
-        fish("hybrid_aquatic:lightfoot_crab", "hybrid_aquatic:lightfoot_crab_claw", "hybrid_aquatic:cooked_crab", 2, 0);
-        fish("hybrid_aquatic:octopus", "aoemod:raw_octopus", "aoemod:cooked_octopus", 3, 0);
-        fish("hybrid_aquatic:trout", "hybrid_aquatic:trout", "aoemod:cooked_trout", 2, 0);
-        fish("collectorsreap:tiger_prawn", "collectorsreap:tiger_prawn", "aoemod:cooked_giant_river_prawn", 2, 0);
-        fish("upgrade_aquatic:perch", "upgrade_aquatic:perch", "upgrade_aquatic:cooked_perch", 1, 1, 2);
-        fish("hybrid_aquatic:carp", "hybrid_aquatic:carp", "aoemod:cooked_carp", 1.5F, 1, 2);
+        fish("hybrid_aquatic:coconut_crab", "ecologics:crab_meat", "aoemod:cooked_crab_meat", 2, 0);
+        fish("hybrid_aquatic:lightfoot_crab", "ecologics:crab_meat", "aoemod:cooked_crab_meat", 2, 0);
+        fish("hybrid_aquatic:flower_crab", "ecologics:crab_meat", "aoemod:cooked_crab_meat", 2, 1, 2);
+        fish("hybrid_aquatic:fiddler_crab", "ecologics:crab_meat", "aoemod:cooked_crab_meat", 2, 4);
+        fish("hybrid_aquatic:starfish", "hybrid_aquatic:starfish", "aoemod:cooked_starfish", 1, 0);
+        fish("hybrid_aquatic:octopus", "aoemod:raw_octopus", "aoemod:cooked_octopus", 3, 1, 2);
+        fish("hybrid_aquatic:umbrella_octopus", "aoemod:raw_umbrella_octopus", "aoemod:cooked_umbrella_octopus", 2, 0);
         fish("finsandtails:swamp_mucker", "finsandtails:swamp_mucker", "aoemod:cooked_swamp_mucker", 1.5F, 1, 2);
-        fish("bountiful_critters:krill", "bountiful_critters:raw_krill", "bountiful_critters:fried_krill", 2, 3);
         fish("hybrid_aquatic:arrow_squid", "aoemod:raw_arrow_squid", "aoemod:cooked_arrow_squid", 3, 3);
         fish("hybrid_aquatic:vampire_squid", "aoemod:raw_vampire_squid", "aoemod:cooked_vampire_squid", 3, 3);
-        fish("hybrid_aquatic:needlefish", "hybrid_aquatic:needlefish", "aoemod:cooked_needlefish", 2, 3);
-        fish("aoemod:swordfish", "aoemod:raw_swordfish", "aoemod:cooked_swordfish", 3, 3);
         fish("hybrid_aquatic:tuna", "hybrid_aquatic:tuna", "aoemod:cooked_tuna", 3, 3);
-        fish("hybrid_aquatic:dragonfish", "hybrid_aquatic:dragonfish", "aoemod:cooked_dragonfish", 2, 3);
-        fish("alexscaves:lanternfish", "alexscaves:lanternfish", "alexscaves:cooked_lanternfish", 2, 3);
+        fish("alexsmobs:giant_squid", "alexsmobs:lost_tentacle", "aoemod:cooked_lost_tentacle", 3, 3);
         fish("alexscaves:tripodfish", "alexscaves:tripodfish", "alexscaves:cooked_tripodfish", 2, 3);
-        fish("hybrid_aquatic:spider_crab", "aoemod:raw_spider_crab_leg", "aoemod:cooked_spider_crab_leg", 3, 3);
+        fish("hybrid_aquatic:spider_crab", "ecologics:crab_meat", "aoemod:cooked_crab_meat", 3, 3);
         fish("finsandtails:golden_river_ray", "finsandtails:raw_golden_river_ray_wing", "finsandtails:golden_river_ray_wing_fillet", 1, 4);
-        fish("hybrid_aquatic:hound_shark", "aoemod:raw_hound_shark", "aoemod:cooked_hound_shark", 2, 4);
-        fish("ambientadditions:shame_faced_crab", "aoemod:raw_shame_faced_crab", "aoemod:cooked_shame_faced_crab", 1, 4);
+
+        fish("netherdepthsupgrade:blazefish", "minecraft:blaze_rod", null, 1, 6, 7, 8, 9);
+        fish("netherdepthsupgrade:glowdine", "minecraft:glowstone_dust", null, 1, 6, 7, 8, 9);
+        fish("netherdepthsupgrade:magmacubefish", "minecraft:magma_cream", null, 1, 6, 7, 8, 9);
+        fish("aoemod:cubozoa", "minecraft:slime_ball", null, 1, 6, 7, 8, 9);
+        EntityType<?> witherbone = entity("netherdepthsupgrade:wither_bonefish");
+        if (witherbone != null) {
+            float[] netherYield = {0, 0, 0, 0, 0, 0, 1, 1, 1, 1};
+            MobConfig.addMobInfo(witherbone, row(netherYield, Items.BONE, null), row(netherYield, Items.COAL, null));
+        }
     }
 
     private static void working(String id, int region, float aging) {
+        working(id, region, aging, 1);
+    }
+
+    private static void working(String id, int region, float aging, float offspring) {
         EntityType<?> type = entity(id);
         if (type != null && !MobConfig.MOB_INFO_BY_MOB.containsKey(type)) {
-            MobConfig.addMobInfo(type, row(region, aging, null, null), row(region, 1, null, null));
+            MobConfig.addMobInfo(type, row(region, aging, null, null), row(region, offspring, null, null));
         }
     }
 

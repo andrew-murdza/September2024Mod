@@ -1,0 +1,323 @@
+{
+  "items": {
+    "pineapple_delight": [
+      "pineapple",
+      "pineapple_pie",
+      "pineapple_wild_crop",
+      "pineapple_crop"
+    ],
+    "vintagedelight": [
+      "peanut",
+      "peanut_crop",
+      "roasted_peanut"
+    ],
+    "wildernature": [
+      "bison_meat",
+      "cooked_bison_meat",
+      "venison",
+      "cooked_venison",
+      "cassowary_meat",
+      "cooked_cassowary_meat",
+      "pelican_meat",
+      "cooked_pelican_meat",
+      "turkey_meat",
+      "cooked_turkey_meat"
+    ],
+    "ecologics": [
+      "prickly_pear",
+      "cooked_prickly_pear",
+      "azalea_*",
+      "stripped_azalea_*",
+      "crab_meat"
+    ],
+    "hybrid_aquatic": [
+      "tuna",
+      "starfish",
+      "bull_kelp"
+    ],
+    "alexscaves": [
+      "tripodfish",
+      "cooked_tripodfish",
+      "bioluminesscence",
+      "ping_pong_sponge",
+      "bone_worms",
+      "smooth_bone",
+      "smooth_bone_slab",
+      "smooth_bone_stairs",
+      "smooth_bone_wall",
+      "bioluminescent_torch"
+    ],
+    "mynethersdelight": [
+      "bullet_pepper",
+      "powder_cannon",
+      "powdery_cane",
+      "powdery_cannon"
+    ],
+    "biomesoplenty": [
+      "pink_daffodil"
+    ],
+    "nourished_nether": [
+      "soul_weeds",
+      "nether_fungus_stew",
+      "smooth_basalt_slab",
+      "smooth_basalt_stairs",
+      "smooth_basalt_wall",
+      "soul_quartz",
+      "soul_quartz_block",
+      "soul_quartz_stairs",
+      "netherrack_slab",
+      "netherrack_stairs",
+      "netherrack_wall",
+      "nether_brick_fence_gate",
+      "soul_quartz_slab"
+    ],
+    "netherdepthsupgrade": [
+      "lava_glass",
+      "crimson_kelp",
+      "warped_kelp",
+      "crimson_seagrass",
+      "warped_seagrass",
+      "tall_crimson_seagrass",
+      "tall_warped_seagrass",
+      "crimson_kelp_block",
+      "warped_kelp_block"
+    ],
+    "betterend": [
+      "charnia_light_blue",
+      "charnia_cyan"
+    ],
+    "hearthandharvest": [
+      "wild_cotton",
+      "cotton",
+      "cotton_seeds",
+      "cotton_bale",
+      "corn",
+      "corn_kernels",
+      "corn_stalk"
+    ],
+    "fruitsdelight": [
+      "orange",
+      "pear",
+      "cranberry"
+    ],
+    "twilightforest": [
+      "mushgloom",
+      "huge_mushgloom",
+      "huge_mushgloom_stem"
+    ],
+    "finsandtails": [
+      "raw_golden_river_ray_wing",
+      "golden_river_ray_wing_fillet",
+      "swamp_mucker"
+    ],
+    "floral": [
+      "blue_tulip",
+      "yellow_tulip"
+    ],
+    "farmersdelight": [
+      "wild_tomatoes",
+      "wild_cabbages",
+      "wild_carrots",
+      "wild_rice",
+      "tomato",
+      "tomato_seeds",
+      "cabbage",
+      "cabbage_seeds",
+      "rice",
+      "tomatoes",
+      "cabbages",
+      "tomato_sauce",
+      "pumpkin_slice",
+      "sweet_berry_cookie",
+      "honey_cookie",
+      "dumplings",
+      "cabbage_rolls",
+      "chocolate_pie",
+      "apple_pie",
+      "rich_soil_farmland"
+    ],
+    "legumedelight": [
+      "peanuts",
+      "wild_beans",
+      "beans",
+      "refried_beans"
+    ],
+    "biomeswevegone": [
+      "sandy_farmland",
+      "japanese_orchid"
+    ],
+    "biodiverse": [
+      "raw_venison",
+      "cooked_venison",
+      "cassowary_egg"
+    ],
+    "alexsmobs": [
+      "banana",
+      "emu_feather",
+      "emu_leggings",
+      "lobster_tail",
+      "cooked_lobster_tail",
+      "emu_egg",
+      "boiled_emu_egg",
+      "kangaroo_meat",
+      "cooked_kangaroo_meat",
+      "lost_tentacle",
+      "flying_fish"
+    ],
+    "quark": [
+      "glow_shroom",
+      "glow_shroom_stem",
+      "glow_shroom_ring",
+      "glow_shroom_block",
+      "*diorite*",
+      "*andesite*",
+      "*calcite*",
+      "*dripstone*",
+      "*granite*",
+      "*sandstone_bricks*",
+      "gold_bars",
+      "paper_*",
+      "ancient_tome",
+      "*_hedge",
+      "seed_pouch"
+    ],
+    "upgrade_aquatic": [
+      "mulberry",
+      "mulberry_pie",
+      "star_coral",
+      "star_coral_block",
+      "star_coral_fan",
+      "star_coral_wall_fan",
+      "petal_coral",
+      "petal_coral_block",
+      "petal_coral_fan",
+      "petal_coral_wall_fan",
+      "finger_coral",
+      "finger_coral_block",
+      "finger_coral_fan",
+      "finger_coral_wall_fan",
+      "pickerelweed",
+      "tall_pickerelweed",
+      "squid_bucket",
+      "glow_squid_bucket",
+      "boiled_pickerelweed",
+      "dead_star_coral",
+      "dead_star_coral_block",
+      "dead_star_coral_fan",
+      "dead_star_coral_wall_fan",
+      "dead_petal_coral",
+      "dead_petal_coral_block",
+      "dead_petal_coral_fan",
+      "dead_petal_coral_wall_fan",
+      "dead_finger_coral",
+      "dead_finger_coral_block",
+      "dead_finger_coral_fan",
+      "dead_finger_coral_wall_fan"
+    ],
+    "environmental": [
+      "blue_delphinium",
+      "purple_delphinium"
+    ],
+    "collectorsreap": [
+      "pink_dragon_fruit",
+      "dragon_fruit_seeds",
+      "dragon_bush"
+    ],
+    "orcz": [],
+    "outer_end": [
+      "stalker_meat",
+      "cooked_stalker_meat"
+    ],
+    "culturaldelights": [
+      "squid",
+      "glow_squid",
+      "cooked_squid"
+    ]
+  },
+  "entities": {
+    "minecraft": [
+      "*"
+    ],
+    "aoemod": [
+      "*",
+      "yak"
+    ],
+    "alexsmobs": [
+      "bison",
+      "elephant",
+      "emu",
+      "flying_fish",
+      "gazelle",
+      "giant_squid",
+      "gorilla",
+      "kangaroo",
+      "lobster",
+      "moose",
+      "orca",
+      "triops"
+    ],
+    "twilightforest": [
+      "alpha_yeti",
+      "blockchain_goblin",
+      "boar",
+      "redcap",
+      "slime_beetle",
+      "upper_goblin_knight",
+      "yeti"
+    ],
+    "hybrid_aquatic": [
+      "arrow_squid",
+      "octopus",
+      "umbrella_octopus",
+      "flower_crab",
+      "lightfoot_crab",
+      "spider_crab",
+      "starfish",
+      "tuna",
+      "vampire_squid",
+      "hound_shark",
+      "fiddler_crab",
+      "coconut_crab"
+    ],
+    "wildernature": [],
+    "alexscaves": [
+      "tripodfish",
+      "gossamer_worm"
+    ],
+    "angling": [
+      "anomalocaris",
+      "sea_slug"
+    ],
+    "finsandtails": [
+      "golden_river_ray",
+      "swamp_mucker"
+    ],
+    "biodiverse": [
+      "capybara",
+      "cassowary",
+      "oryx",
+      "wildebeest",
+      "reindeer"
+    ],
+    "ambientadditions": [
+      "blue_spotted_stingray"
+    ],
+    "environmental": [],
+    "quark": [],
+    "upgrade_aquatic": [],
+    "netherdepthsupgrade": [
+      "blazefish",
+      "glowdine",
+      "magmacubefish",
+      "wither_bonefish"
+    ],
+    "orcz": [
+      "orcsavagemace",
+      "orcshield",
+      "bigorcboss"
+    ],
+    "outer_end": [
+      "stalker"
+    ]
+  }
+}

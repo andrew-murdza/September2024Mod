@@ -46,6 +46,7 @@ public class AllSurfacesFeature extends Feature<AllSurfacesFeatureConfig> {
         WorldGenLevel level = context.level();
         ChunkAccess chunk = level.getChunk(context.origin());
         ChunkPos chunkPos = chunk.getPos();
+        var mansionForests = net.amurdza.examplemod.worldgen.structure.MansionForestFloor.forChunk(level, chunkPos);
 
         int minX = chunkPos.getMinBlockX();
         int minZ = chunkPos.getMinBlockZ();
@@ -88,7 +89,7 @@ public class AllSurfacesFeature extends Feature<AllSurfacesFeatureConfig> {
                         }
                     }
                 } else {
-                    int y = getSurfaceStartY(chunk, cfg, dx, dz);
+                    int y = getSurfaceStartY(level, chunk, cfg, dx, dz, mansionForests);
 
                     if (y > maxY || y < minY) {
                         continue;
@@ -331,7 +332,7 @@ public class AllSurfacesFeature extends Feature<AllSurfacesFeatureConfig> {
             int localX = x & 15;
             int localZ = z & 15;
 
-            int y = getSurfaceStartY(chunk, cfg, localX, localZ);
+            int y = getSurfaceStartY(level, chunk, cfg, localX, localZ, List.of());
 
             if (y >= minY && y <= maxY) {
                 pos.set(x, y, z);
@@ -397,7 +398,7 @@ public class AllSurfacesFeature extends Feature<AllSurfacesFeatureConfig> {
                 if (cfg.allLayers) {
                     candidate.set(x, origin.getY(), z);
                 } else {
-                    candidate.set(x, getSurfaceStartY(chunk, cfg, dx, dz), z);
+                    candidate.set(x, getSurfaceStartY(level, chunk, cfg, dx, dz, List.of()), z);
                 }
 
                 if (isValidGuaranteedFeaturePlacementOrigin(level, candidate, cfg)) {
@@ -492,11 +493,20 @@ public class AllSurfacesFeature extends Feature<AllSurfacesFeatureConfig> {
     }
 
     private int getSurfaceStartY(
+            WorldGenLevel level,
             ChunkAccess chunk,
             AllSurfacesFeatureConfig cfg,
             int localX,
-            int localZ
+            int localZ,
+            List<net.amurdza.examplemod.worldgen.structure.MansionForestFloor.Forest> mansionForests
     ) {
+        if (cfg.target == AIR) {
+            int x = chunk.getPos().getMinBlockX() + localX, z = chunk.getPos().getMinBlockZ() + localZ;
+            for (var forest : mansionForests) {
+                Integer root = forest.rootY(level, x, z);
+                if (root != null) return root;
+            }
+        }
         Heightmap.Types heightmap = switch (cfg.target) {
             case AIR -> Heightmap.Types.WORLD_SURFACE_WG;
             case WATER, LAVA -> Heightmap.Types.OCEAN_FLOOR_WG;

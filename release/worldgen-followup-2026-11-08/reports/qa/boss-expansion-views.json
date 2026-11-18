@@ -1,0 +1,227 @@
+[
+  {
+    "dimension": "aoemod:snowy_dimension",
+    "x": 8250.5,
+    "y": 311,
+    "z": 8260.5,
+    "yaw": 139.53777,
+    "pitch": 20.333239,
+    "label": "yeti-exterior"
+  },
+  {
+    "dimension": "aoemod:snowy_dimension",
+    "x": 8192.5,
+    "y": 275,
+    "z": 8234.5,
+    "yaw": -180.0,
+    "pitch": 2.29061,
+    "label": "yeti-approach"
+  },
+  {
+    "dimension": "aoemod:snowy_dimension",
+    "x": 8177.5,
+    "y": 276,
+    "z": 8181.5,
+    "yaw": -180.0,
+    "pitch": 27.92359,
+    "label": "yeti-native-floor-loot-1"
+  },
+  {
+    "dimension": "aoemod:snowy_dimension",
+    "x": 8207.5,
+    "y": 276,
+    "z": 8181.5,
+    "yaw": -180.0,
+    "pitch": 27.92359,
+    "label": "yeti-native-floor-loot-2"
+  },
+  {
+    "dimension": "aoemod:tropical_dimension",
+    "x": 8270.5,
+    "y": 248,
+    "z": 8274.5,
+    "yaw": 137.2906,
+    "pitch": 25.740767,
+    "label": "spider-exterior"
+  },
+  {
+    "dimension": "aoemod:tropical_dimension",
+    "x": 8245.5,
+    "y": 210,
+    "z": 8245.5,
+    "yaw": 135.0,
+    "pitch": 5.028818,
+    "label": "spider-entry"
+  },
+  {
+    "dimension": "aoemod:tropical_dimension",
+    "x": 8227.5,
+    "y": 196,
+    "z": 8186.5,
+    "yaw": 143.1301,
+    "pitch": 12.625837,
+    "label": "spider-pocket-1"
+  },
+  {
+    "dimension": "aoemod:tropical_dimension",
+    "x": 8185.5,
+    "y": 196,
+    "z": 8228.5,
+    "yaw": 143.1301,
+    "pitch": 12.625837,
+    "label": "spider-pocket-2"
+  },
+  {
+    "dimension": "aoemod:tropical_dimension",
+    "x": 8200.5,
+    "y": 188,
+    "z": 8158.5,
+    "yaw": 143.1301,
+    "pitch": 12.625837,
+    "label": "spider-pocket-3"
+  },
+  {
+    "dimension": "aoemod:tropical_dimension",
+    "x": 8157.5,
+    "y": 188,
+    "z": 8201.5,
+    "yaw": 143.1301,
+    "pitch": 12.625837,
+    "label": "spider-pocket-4"
+  },
+  {
+    "dimension": "aoemod:tropical_dimension",
+    "x": 8164.5,
+    "y": 179,
+    "z": 8174.5,
+    "yaw": -180.0,
+    "pitch": 17.32792,
+    "label": "spider-boss"
+  },
+  {
+    "dimension": "aoemod:nether_dimension",
+    "x": 8240.5,
+    "y": 110,
+    "z": 8250.5,
+    "yaw": 140.38931,
+    "pitch": 19.810326,
+    "label": "wither-exterior"
+  },
+  {
+    "dimension": "aoemod:nether_dimension",
+    "x": 8192.5,
+    "y": 82,
+    "z": 8227.5,
+    "yaw": -180.0,
+    "pitch": 5.332159,
+    "label": "wither-entry"
+  },
+  {
+    "dimension": "aoemod:nether_dimension",
+    "x": 8210.5,
+    "y": 80,
+    "z": 8197.5,
+    "yaw": 143.1301,
+    "pitch": 12.625837,
+    "label": "wither-pocket-1"
+  },
+  {
+    "dimension": "aoemod:nether_dimension",
+    "x": 8180.5,
+    "y": 80,
+    "z": 8197.5,
+    "yaw": 143.1301,
+    "pitch": 12.625837,
+    "label": "wither-pocket-2"
+  },
+  {
+    "dimension": "aoemod:nether_dimension",
+    "x": 8192.5,
+    "y": 81,
+    "z": 8180.5,
+    "yaw": -180.0,
+    "pitch": 17.32792,
+    "label": "wither-boss"
+  },
+  {
+    "dimension": "aoemod:savanna_dimension",
+    "x": 8130.5,
+    "y": 246,
+    "z": 8253.5,
+    "yaw": -134.5342,
+    "pitch": 22.55224,
+    "label": "orc-exterior"
+  },
+  {
+    "dimension": "aoemod:savanna_dimension",
+    "x": 8192.5,
+    "y": 282,
+    "z": 8222.5,
+    "yaw": -180.0,
+    "pitch": 67.69242,
+    "label": "orc-full-compound"
+  },
+  {
+    "dimension": "aoemod:savanna_dimension",
+    "x": 8192.5,
+    "y": 212,
+    "z": 8222.5,
+    "yaw": -180.0,
+    "pitch": 5.937416,
+    "label": "orc-courtyard"
+  },
+  {
+    "dimension": "aoemod:savanna_dimension",
+    "x": 8188.5,
+    "y": 211,
+    "z": 8174.5,
+    "yaw": 90.0,
+    "pitch": 0.45835647,
+    "label": "orc-native-large-house"
+  },
+  {
+    "dimension": "aoemod:savanna_dimension",
+    "x": 8202.5,
+    "y": 211,
+    "z": 8222.5,
+    "yaw": -180.0,
+    "pitch": 6.3904953,
+    "label": "orc-native-small-house"
+  },
+  {
+    "dimension": "aoemod:savanna_dimension",
+    "x": 8172.5,
+    "y": 214,
+    "z": 8199.5,
+    "yaw": 124.99202,
+    "pitch": 26.62781,
+    "label": "orc-sheep-pen"
+  },
+  {
+    "dimension": "aoemod:savanna_dimension",
+    "x": 8212.5,
+    "y": 214,
+    "z": 8199.5,
+    "yaw": -124.99202,
+    "pitch": 26.62781,
+    "label": "orc-boar-pen"
+  },
+  {
+    "dimension": "aoemod:savanna_dimension",
+    "x": 8192.5,
+    "y": 222,
+    "z": 8218.5,
+    "yaw": -180.0,
+    "pitch": 28.505363,
+    "label": "orc-irrigated-crops"
+  },
+  {
+    "dimension": "aoemod:savanna_dimension",
+    "x": 8160.5,
+    "y": 215,
+    "z": 8208.5,
+    "yaw": 150.64224,
+    "pitch": 15.584008,
+    "label": "orc-curved-palisade"
+  }
+]

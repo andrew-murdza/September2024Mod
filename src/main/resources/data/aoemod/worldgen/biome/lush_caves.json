@@ -35,7 +35,7 @@
       "minecraft:glow_lichen",
       "minecraft:patch_tall_grass_2",
       "minecraft:lush_caves_ceiling_vegetation",
-      "minecraft:cave_vines",
+      "aoemod:ceiling_cave_vines",
       "minecraft:lush_caves_vegetation",
       "minecraft:rooted_azalea_tree",
       "minecraft:spore_blossom",
@@ -54,14 +54,7 @@
         "weight": 10
       }
     ],
-    "axolotls": [
-      {
-        "type": "minecraft:axolotl",
-        "maxCount": 6,
-        "minCount": 4,
-        "weight": 10
-      }
-    ],
+    "axolotls": [],
     "creature": [],
     "misc": [],
     "monster": [
@@ -130,7 +123,14 @@
         "weight": 25
       }
     ],
-    "water_creature": []
+    "water_creature": [
+      {
+        "type": "minecraft:axolotl",
+        "maxCount": 6,
+        "minCount": 4,
+        "weight": 10
+      }
+    ]
   },
   "temperature": 0.5
 }

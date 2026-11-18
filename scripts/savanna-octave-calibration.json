@@ -1,0 +1,184 @@
+{
+  "audit_source": "scripts/SavannaOctaveAudit.java",
+  "previous_region_per_seed": "[-2048,2048) squared, sampled every four blocks; four seeds",
+  "current_region_per_seed": "[-8192,8192) squared, sampled every sixteen blocks; four seeds",
+  "previous_first_octaves": {
+    "detail": -6,
+    "land": -9
+  },
+  "current_first_octaves": {
+    "detail": -8,
+    "land": -11
+  },
+  "horizontal_wavelength_factor": 4.0,
+  "vertical_relief_factor": 4.0,
+  "previous": {
+    "columns": 4194304,
+    "water_percent": 4.019021987915039,
+    "complete_lakes": 294,
+    "boundary_lakes": 22,
+    "median_lake_area": 5984,
+    "p90_lake_area": 19120,
+    "lowest_land_block": 62,
+    "highest_land_block": 73,
+    "lowest_continuous_height": 55.0,
+    "highest_continuous_height": 73.18323146608347,
+    "mean_euclidean_dry_slope": 0.024397268018450977,
+    "mean_euclidean_underwater_slope": 0.10197255529300411,
+    "mean_euclidean_underwater_bank_slope": 0.10793521526503269
+  },
+  "current": {
+    "columns": 4194304,
+    "water_percent": 3.6948204040527344,
+    "complete_lakes": 288,
+    "boundary_lakes": 20,
+    "median_lake_area": 86016,
+    "p90_lake_area": 293888,
+    "lowest_land_block": 62,
+    "highest_land_block": 103,
+    "lowest_continuous_height": 35.5,
+    "highest_continuous_height": 103.29587348733757,
+    "mean_euclidean_dry_slope": 0.024032313632589144,
+    "mean_euclidean_underwater_slope": 0.1039668247979002,
+    "mean_euclidean_underwater_bank_slope": 0.10963838910720043
+  },
+  "dry_euclidean_slope_ratio": 0.9850411781521674,
+  "underwater_euclidean_slope_ratio": 1.0195569239112017,
+  "underwater_bank_euclidean_slope_ratio": 1.0157795936941028,
+  "median_lake_area_ratio": 14.37433155080214,
+  "seeds": [
+    {
+      "previous": {
+        "columns": 1048576,
+        "water_percent": 2.7729034423828125,
+        "complete_lakes": 68,
+        "boundary_lakes": 4,
+        "median_lake_area": 5152,
+        "p90_lake_area": 12976,
+        "lowest_land_block": 62,
+        "highest_land_block": 71,
+        "lowest_continuous_height": 55.0,
+        "highest_continuous_height": 71.24160913902836,
+        "mean_euclidean_dry_slope": 0.02349333812063781,
+        "mean_euclidean_underwater_slope": 0.09842317783212359,
+        "mean_euclidean_underwater_bank_slope": 0.10126674192523247
+      },
+      "seed": 0,
+      "current": {
+        "columns": 1048576,
+        "water_percent": 4.120635986328125,
+        "complete_lakes": 63,
+        "boundary_lakes": 6,
+        "median_lake_area": 126976,
+        "p90_lake_area": 304128,
+        "lowest_land_block": 62,
+        "highest_land_block": 103,
+        "lowest_continuous_height": 35.5,
+        "highest_continuous_height": 103.29587348733757,
+        "mean_euclidean_dry_slope": 0.023448974641137516,
+        "mean_euclidean_underwater_slope": 0.1062508636914833,
+        "mean_euclidean_underwater_bank_slope": 0.1125043027517187
+      }
+    },
+    {
+      "previous": {
+        "columns": 1048576,
+        "water_percent": 5.413913726806641,
+        "complete_lakes": 73,
+        "boundary_lakes": 3,
+        "median_lake_area": 8192,
+        "p90_lake_area": 29808,
+        "lowest_land_block": 62,
+        "highest_land_block": 73,
+        "lowest_continuous_height": 55.0,
+        "highest_continuous_height": 73.18323146608347,
+        "mean_euclidean_dry_slope": 0.02480110280845464,
+        "mean_euclidean_underwater_slope": 0.10504643233216304,
+        "mean_euclidean_underwater_bank_slope": 0.11529579990090509
+      },
+      "seed": 12345,
+      "current": {
+        "columns": 1048576,
+        "water_percent": 2.8980255126953125,
+        "complete_lakes": 72,
+        "boundary_lakes": 2,
+        "median_lake_area": 77568,
+        "p90_lake_area": 251136,
+        "lowest_land_block": 62,
+        "highest_land_block": 102,
+        "lowest_continuous_height": 35.5,
+        "highest_continuous_height": 101.90899120982962,
+        "mean_euclidean_dry_slope": 0.024618745551651822,
+        "mean_euclidean_underwater_slope": 0.10349762232491513,
+        "mean_euclidean_underwater_bank_slope": 0.10727412003289745
+      }
+    },
+    {
+      "previous": {
+        "columns": 1048576,
+        "water_percent": 4.607582092285156,
+        "complete_lakes": 82,
+        "boundary_lakes": 11,
+        "median_lake_area": 6336,
+        "p90_lake_area": 19072,
+        "lowest_land_block": 62,
+        "highest_land_block": 73,
+        "lowest_continuous_height": 55.0,
+        "highest_continuous_height": 72.88348522437387,
+        "mean_euclidean_dry_slope": 0.02459377506435045,
+        "mean_euclidean_underwater_slope": 0.10389164920289547,
+        "mean_euclidean_underwater_bank_slope": 0.11088671616482436
+      },
+      "seed": 98765,
+      "current": {
+        "columns": 1048576,
+        "water_percent": 3.8393020629882812,
+        "complete_lakes": 74,
+        "boundary_lakes": 6,
+        "median_lake_area": 92928,
+        "p90_lake_area": 366848,
+        "lowest_land_block": 62,
+        "highest_land_block": 102,
+        "lowest_continuous_height": 35.5,
+        "highest_continuous_height": 101.61228120322207,
+        "mean_euclidean_dry_slope": 0.02444265753507229,
+        "mean_euclidean_underwater_slope": 0.10119182592099683,
+        "mean_euclidean_underwater_bank_slope": 0.10593905778143992
+      }
+    },
+    {
+      "previous": {
+        "columns": 1048576,
+        "water_percent": 3.281688690185547,
+        "complete_lakes": 71,
+        "boundary_lakes": 4,
+        "median_lake_area": 5888,
+        "p90_lake_area": 15216,
+        "lowest_land_block": 62,
+        "highest_land_block": 72,
+        "lowest_continuous_height": 55.0,
+        "highest_continuous_height": 71.60478342088189,
+        "mean_euclidean_dry_slope": 0.02471720789855517,
+        "mean_euclidean_underwater_slope": 0.0972061047467851,
+        "mean_euclidean_underwater_bank_slope": 0.09835511983420923
+      },
+      "seed": -8152788754161584091,
+      "current": {
+        "columns": 1048576,
+        "water_percent": 3.9213180541992188,
+        "complete_lakes": 79,
+        "boundary_lakes": 6,
+        "median_lake_area": 72448,
+        "p90_lake_area": 352000,
+        "lowest_land_block": 62,
+        "highest_land_block": 100,
+        "lowest_continuous_height": 35.5,
+        "highest_continuous_height": 100.38681481317462,
+        "mean_euclidean_dry_slope": 0.02361107053291368,
+        "mean_euclidean_underwater_slope": 0.1046304095301709,
+        "mean_euclidean_underwater_bank_slope": 0.1121040774369637
+      }
+    }
+  ],
+  "limitations": "Finite seeded samples of continuous terrain on proportionately scaled lattices. Changing firstOctave changes octave-specific random permutations, so the samples are not the same lakes stretched in place. Lake areas and connectivity are lattice estimates; boundary-crossing lakes count toward water coverage but not area distributions. Euclidean slopes use central differences with epsilon 0.1 before block rounding. Uniform height-profile scaling and unchanged noise amplitudes preserve the slope scale; finite-sample slope means vary. Existing chunks remain unchanged."
+}

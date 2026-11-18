@@ -1,0 +1,9 @@
+{
+  "nativeRoofPlacementOrder": true,
+  "columns": 6400,
+  "surfaceCounts": {
+    "minecraft:oak_slab": 6241,
+    "minecraft:oak_stairs": 159
+  },
+  "unsupportedCapsOrMissingRoof": []
+}

@@ -1,0 +1,28 @@
+{
+  "status": "passed",
+  "checks": [
+    {
+      "dimension": "aoemod:desert_dimension",
+      "nullVanillaRenderSlots": 0,
+      "alexLavaVisionChunkRefresh": "passed"
+    },
+    {
+      "dimension": "aoemod:snowy_dimension",
+      "nullVanillaRenderSlots": 0,
+      "alexLavaVisionChunkRefresh": "passed"
+    },
+    {
+      "dimension": "aoemod:desert_dimension",
+      "nullVanillaRenderSlots": 0,
+      "alexLavaVisionChunkRefresh": "passed"
+    },
+    {
+      "dimension": "aoemod:snowy_dimension",
+      "nullVanillaRenderSlots": 0,
+      "alexLavaVisionChunkRefresh": "passed"
+    },
+    {
+      "renderers": "native cobalt texture + one emissive layer; cold land strider + red lava strider; no suffocating state"
+    }
+  ]
+}

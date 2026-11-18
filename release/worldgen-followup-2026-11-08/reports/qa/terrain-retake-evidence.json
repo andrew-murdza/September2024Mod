@@ -1,0 +1,48 @@
+{
+  "status": "evidence",
+  "sourceWorld": "build/nov8-terrain-qa/followup-fixtures-2/world",
+  "method": "Read the saved native Desert chunk block palettes directly; no world launch or edits.",
+  "checkedColumns": [
+    {
+      "x": 10597372,
+      "z": 110,
+      "highestGroundY": 51,
+      "firstAirY": 52
+    },
+    {
+      "x": 10597387,
+      "z": 110,
+      "highestGroundY": 56,
+      "firstAirY": 57
+    },
+    {
+      "x": 10597360,
+      "z": 107,
+      "highestGroundY": 56,
+      "firstAirY": 57
+    },
+    {
+      "x": 10597394,
+      "z": 121,
+      "highestGroundY": 57,
+      "firstAirY": 58
+    },
+    {
+      "x": 10597370,
+      "z": 109,
+      "highestGroundY": 52,
+      "firstAirY": 53
+    }
+  ],
+  "camera": [
+    10597394.5,
+    77.0,
+    121.5
+  ],
+  "target": [
+    10597370.5,
+    54.5,
+    109.5
+  ],
+  "reason": "Raised southeast oblique view toward the inner exit stairs, distinct from the existing south-side overview. Replaces the low upward-facing closeup; target uses the saved stair elevations."
+}

@@ -1,0 +1,25 @@
+{
+  "passed": true,
+  "document_iteration": "16 November 2026",
+  "document_revision": "AHj4eMRhGqiY2oSqLNfdizc-vBL2-6Ci2pC2EftY6xq4Kzw3wf7navrMiHfP2WJK1bC8fdgzaLzutrMmQaeTX5xibRPexULe0KJ8BUXkDcI",
+  "game_tests": {
+    "distinct": 25,
+    "passing_latest": 25
+  },
+  "build": "passed",
+  "isolated_data_generation": "passed; generated resources unchanged",
+  "existing_save_new_world_and_reload": "passed",
+  "reviewed_native_views": 9,
+  "resource_validation": {
+    "json_files": 1562,
+    "checks": 1747,
+    "passed": true
+  },
+  "packaged_source_resources": 1886,
+  "protected_user_files": 1241,
+  "changed_user_files": [],
+  "production_jars_verified": 66,
+  "jar_sha256": "5c3a2fdf55460a55edf7afe54e03f512927dfddde8d6e183ededc35c866c264c",
+  "normal_launcher_refreshed": true,
+  "terrain_cuts": "deferred as requested"
+}

@@ -25,7 +25,7 @@ public abstract class WitherProjectileBehavior {
     @Inject(method = "onHitEntity", at = @At("HEAD"), cancellable = true)
     private void aoemod$protectMonsters(EntityHitResult hitResult, CallbackInfo ci) {
         Entity target = hitResult.getEntity();
-        if (target instanceof Monster) {
+        if (!net.amurdza.examplemod.util.WitherTargets.allowed(target)) {
             ci.cancel();
             return;
         }

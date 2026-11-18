@@ -1,0 +1,591 @@
+{
+  "document": "https://docs.google.com/document/d/1b_LfrTdisfHR7NcC3B9VnAaKOMxLdFqjUpQvDxckc6Q/edit",
+  "test_runs": [
+    {
+      "directory": "test-server-a",
+      "tests": 37,
+      "failures": [
+        {
+          "name": "directlyconstructedworldgenregionusesexactshorebiomesateveryaltitude",
+          "message": "WorldGenRegion vegetation lookup must match the exact displayed shore biome at BlockPos{x=381, y=63, z=-162}"
+        },
+        {
+          "name": "horsemenusenormalhostilelifetimeswithoutbonuslightningtraps",
+          "message": "A natural skeleton horseman retains one lightning effect"
+        },
+        {
+          "name": "nativemangroverootsreplaceflowersbutfloracannotreplaceroots",
+          "message": "Atomic tree validation must allow roots through a tall flower carpet"
+        },
+        {
+          "name": "decoratedislandhasallfifteenpersistentgroups",
+          "message": "Generated island has wrong animal total: 0"
+        }
+      ]
+    },
+    {
+      "directory": "test-server-b",
+      "tests": 19,
+      "failures": []
+    },
+    {
+      "directory": "test-server-c2",
+      "tests": 26,
+      "failures": [
+        {
+          "name": "bothnativefeaturecommandsplacethesavannacamp",
+          "message": "Each new village chest must retain its common stock and individual loot-share index"
+        },
+        {
+          "name": "versiontwochunkclippingandreloadkeeporiginalseatsguardsandstock",
+          "message": "Generated camp walls must not turn into forced tall panels at MutableBlockPos{x=4089, y=203, z=4060}"
+        },
+        {
+          "name": "naturalsavannagridgeneratesthecompletenativecampondryland",
+          "message": "New camps require 36 unobstructed orcs plus eight separate groups of four livestock: {alexsmobs:emu=4, alexsmobs:bison=4, orcz:orcshield=17, biodiverse:wildebeest=4, biodiverse:oryx=4, orcz:orcsavagemace=18, alexsmobs:gazelle=4, orcz:bigorcboss=1, minecraft:sheep=4, alexsmobs:kangaroo=4, twilightforest:boar=4}"
+        },
+        {
+          "name": "smallerreplacementinvalidateswatchedchunksfromthepreviousmansion",
+          "message": "The previous wing must lie outside the replacement's bounds"
+        },
+        {
+          "name": "villagepopulationpersistsacrosschunksandpiecereload",
+          "message": "No village resident may spawn inside authored furnishings or fences"
+        }
+      ]
+    },
+    {
+      "directory": "test-server-d",
+      "tests": 6,
+      "failures": [
+        {
+          "name": "versiontwochunkclippingandreloadkeeporiginalseatsguardsandstock",
+          "message": "Generated legacy palisade connections differ from vanilla walls at MutableBlockPos{x=4100, y=204, z=4060}: actual=Block{aoemod:acacia_palisade}[east=tall,north=none,south=none,up=true,waterlogged=false,west=tall], expected=Block{minecraft:cobblestone_wall}[east=tall,north=none,south=none,up=false,waterlogged=false,west=tall]"
+        }
+      ]
+    },
+    {
+      "directory": "test-server-e",
+      "tests": 1,
+      "failures": []
+    }
+  ],
+  "distinct_tests": 76,
+  "latest_test_failures": {},
+  "resource_and_delivery_checks": {
+    "delivery-verification.json": {
+      "jar": "C:\\Users\\andre\\Downloads\\Games\\September2024Mod\\build\\libs\\aoemod-1.0.0-1.20.1-all.jar",
+      "sha256": "eb50e3341bff40506b13015b0b3fb8342542a3a217a554c3cd9ff825da1ec857",
+      "bytes": 6392864,
+      "source_resources_verified": 1859,
+      "missing_resources": [],
+      "mismatched_resources": [],
+      "protected_user_files": 798,
+      "changed_user_files": [],
+      "generated_resources_unchanged": true,
+      "changed_sources": [
+        "src/main/java/net/amurdza/examplemod/client/CompatibilityScreens.java",
+        "src/main/java/net/amurdza/examplemod/config/BlockConfig.java",
+        "src/main/java/net/amurdza/examplemod/entity/future/SkeletonHorsemanEntity.java",
+        "src/main/java/net/amurdza/examplemod/entity/future/ZombieHorsemanEntity.java",
+        "src/main/java/net/amurdza/examplemod/entity/render/YakPannierLayer.java",
+        "src/main/java/net/amurdza/examplemod/entity/render/YakRenderer.java",
+        "src/main/java/net/amurdza/examplemod/event_handlers/ClientMansionMining.java",
+        "src/main/java/net/amurdza/examplemod/event_handlers/DesertSandTilling.java",
+        "src/main/java/net/amurdza/examplemod/event_handlers/SavannaHorsemanSpawns.java",
+        "src/main/java/net/amurdza/examplemod/gametest/AquaticVisualRevisionTests.java",
+        "src/main/java/net/amurdza/examplemod/gametest/BossDensityAuditTests.java",
+        "src/main/java/net/amurdza/examplemod/gametest/ClientAssetRevisionAudit.java",
+        "src/main/java/net/amurdza/examplemod/gametest/CreatureNetCreativeTests.java",
+        "src/main/java/net/amurdza/examplemod/gametest/DesertCropGameplayTests.java",
+        "src/main/java/net/amurdza/examplemod/gametest/DesertNovemberRevisionTests.java",
+        "src/main/java/net/amurdza/examplemod/gametest/DesertRoundTwoTests.java",
+        "src/main/java/net/amurdza/examplemod/gametest/DragonFruitTests.java",
+        "src/main/java/net/amurdza/examplemod/gametest/InventoryRemovalTests.java",
+        "src/main/java/net/amurdza/examplemod/gametest/InventoryRoundTwoTests.java",
+        "src/main/java/net/amurdza/examplemod/gametest/MansionBasementV3Tests.java",
+        "src/main/java/net/amurdza/examplemod/gametest/MansionNovember15Tests.java",
+        "src/main/java/net/amurdza/examplemod/gametest/MansionNovember15UpperTests.java",
+        "src/main/java/net/amurdza/examplemod/gametest/MansionRevisionTests.java",
+        "src/main/java/net/amurdza/examplemod/gametest/MansionSoilPlacementTests.java",
+        "src/main/java/net/amurdza/examplemod/gametest/November15AppearanceAudit.java",
+        "src/main/java/net/amurdza/examplemod/gametest/November15AppearanceSceneTests.java",
+        "src/main/java/net/amurdza/examplemod/gametest/November15DesertAppearanceTests.java",
+        "src/main/java/net/amurdza/examplemod/gametest/November15SavannaTests.java",
+        "src/main/java/net/amurdza/examplemod/gametest/RetainedContentTests.java",
+        "src/main/java/net/amurdza/examplemod/gametest/RetainedMobTests.java",
+        "src/main/java/net/amurdza/examplemod/gametest/SavannaCampGenerationBoundaryTests.java",
+        "src/main/java/net/amurdza/examplemod/gametest/SavannaCampVegetationTests.java",
+        "src/main/java/net/amurdza/examplemod/gametest/SavannaNovemberRevisionTests.java",
+        "src/main/java/net/amurdza/examplemod/gametest/SavannaOrcCampGenerationTests.java",
+        "src/main/java/net/amurdza/examplemod/gametest/SavannaReviewRegressionTests.java",
+        "src/main/java/net/amurdza/examplemod/gametest/SavannaRoundThreeTests.java",
+        "src/main/java/net/amurdza/examplemod/gametest/SavannaRoundTwoTests.java",
+        "src/main/java/net/amurdza/examplemod/gametest/StructureLocateTests.java",
+        "src/main/java/net/amurdza/examplemod/gametest/TropicalIslandFaunaTests.java",
+        "src/main/java/net/amurdza/examplemod/gametest/TropicalIslandPlantQuotaTests.java",
+        "src/main/java/net/amurdza/examplemod/gametest/TropicalMoundRegressionTests.java",
+        "src/main/java/net/amurdza/examplemod/gametest/TropicalMushroomOrderTests.java",
+        "src/main/java/net/amurdza/examplemod/gametest/TropicalNovemberFifteenTests.java",
+        "src/main/java/net/amurdza/examplemod/gametest/TropicalShoreBiomeTests.java",
+        "src/main/java/net/amurdza/examplemod/gametest/TropicalTerrainRegressionTests.java",
+        "src/main/java/net/amurdza/examplemod/gametest/TropicalTreeAllocationTests.java",
+        "src/main/java/net/amurdza/examplemod/gametest/TropicalVegetationTests.java",
+        "src/main/java/net/amurdza/examplemod/gametest/TropicalWorldgenBiomeTests.java",
+        "src/main/java/net/amurdza/examplemod/mixins/block_behavior/light/BrighterNormalTorches.java",
+        "src/main/java/net/amurdza/examplemod/mixins/client/AdventureMansionFeedback.java",
+        "src/main/java/net/amurdza/examplemod/mixins/no_fire_in_tropical/NoLightningFireInTropical.java",
+        "src/main/java/net/amurdza/examplemod/mixins/othermods/byg/SandyFarmlandReversion.java",
+        "src/main/java/net/amurdza/examplemod/mixins/othermods/environmental/SlabfishMenuAccess.java",
+        "src/main/java/net/amurdza/examplemod/mixins/othermods/hybridaquatic/FiddlerCrabTextures.java",
+        "src/main/java/net/amurdza/examplemod/mixins/trees/MangroveRootsOverFlowers.java",
+        "src/main/java/net/amurdza/examplemod/mixins/worldgen/ChunkPacketMansionProtection.java",
+        "src/main/java/net/amurdza/examplemod/mixins/worldgen/LevelChunkMansionProtection.java",
+        "src/main/java/net/amurdza/examplemod/mixins/worldgen/SyncPlacedMansionProtection.java",
+        "src/main/java/net/amurdza/examplemod/mixins/worldgen/TropicalBiomeZoom.java",
+        "src/main/java/net/amurdza/examplemod/mixins/worldgen/TropicalFinalBamboo.java",
+        "src/main/java/net/amurdza/examplemod/mixins/worldgen/TropicalPlantReplacementDuringGeneration.java",
+        "src/main/java/net/amurdza/examplemod/registry/ModCreativeTabs.java",
+        "src/main/java/net/amurdza/examplemod/registry/ModStructurePlacementTypes.java",
+        "src/main/java/net/amurdza/examplemod/util/ObtainableContent.java",
+        "src/main/java/net/amurdza/examplemod/util/RetainedContent.java",
+        "src/main/java/net/amurdza/examplemod/worldgen/DimensionBiomeSource.java",
+        "src/main/java/net/amurdza/examplemod/worldgen/DimensionTerrain.java",
+        "src/main/java/net/amurdza/examplemod/worldgen/DocumentedFloraFeature.java",
+        "src/main/java/net/amurdza/examplemod/worldgen/GrowthPlacementBuffer.java",
+        "src/main/java/net/amurdza/examplemod/worldgen/SavannaCampColumns.java",
+        "src/main/java/net/amurdza/examplemod/worldgen/SavannaCampVegetation.java",
+        "src/main/java/net/amurdza/examplemod/worldgen/TropicalBamboo.java",
+        "src/main/java/net/amurdza/examplemod/worldgen/TropicalIslandPlan.java",
+        "src/main/java/net/amurdza/examplemod/worldgen/TropicalLayout.java",
+        "src/main/java/net/amurdza/examplemod/worldgen/TropicalPlantIntegrity.java",
+        "src/main/java/net/amurdza/examplemod/worldgen/TropicalVegetation.java",
+        "src/main/java/net/amurdza/examplemod/worldgen/feature/features/TropicalCherryTreesFeature.java",
+        "src/main/java/net/amurdza/examplemod/worldgen/structure/AuthoredMansionRooms.java",
+        "src/main/java/net/amurdza/examplemod/worldgen/structure/BossLairStructure.java",
+        "src/main/java/net/amurdza/examplemod/worldgen/structure/IllagerMansionProcessor.java",
+        "src/main/java/net/amurdza/examplemod/worldgen/structure/IllagerMansionStructure.java",
+        "src/main/java/net/amurdza/examplemod/worldgen/structure/IslandBossPlacement.java",
+        "src/main/java/net/amurdza/examplemod/worldgen/structure/LegacySavannaOrcVillageV5.java",
+        "src/main/java/net/amurdza/examplemod/worldgen/structure/MansionBasementLayoutV4.java",
+        "src/main/java/net/amurdza/examplemod/worldgen/structure/MansionBasementPiece.java",
+        "src/main/java/net/amurdza/examplemod/worldgen/structure/MansionEnvelopePiece.java",
+        "src/main/java/net/amurdza/examplemod/worldgen/structure/MansionProtectionSnapshot.java",
+        "src/main/java/net/amurdza/examplemod/worldgen/structure/MansionRoomAccess.java",
+        "src/main/java/net/amurdza/examplemod/worldgen/structure/MansionRoomCatalogue.java",
+        "src/main/java/net/amurdza/examplemod/worldgen/structure/MansionUpperLayout.java",
+        "src/main/java/net/amurdza/examplemod/worldgen/structure/PlacedMansions.java",
+        "src/main/java/net/amurdza/examplemod/worldgen/structure/PlacedOrcVillages.java",
+        "src/main/java/net/amurdza/examplemod/worldgen/structure/SavannaCampPlacement.java",
+        "src/main/java/net/amurdza/examplemod/worldgen/structure/SavannaOrcCampPiece.java",
+        "src/main/java/net/amurdza/examplemod/worldgen/structure/SavannaOrcVillage.java",
+        "src/main/resources/META-INF/accesstransformer.cfg",
+        "src/main/resources/META-INF/mods.toml",
+        "src/main/resources/aoemod-retained-content.json",
+        "src/main/resources/aoemod.mixins.json",
+        "src/main/resources/assets/aoemod/textures/entity/crustacean/fiddler_crab/fiddler_crab_blue.png",
+        "src/main/resources/assets/aoemod/textures/entity/crustacean/fiddler_crab/fiddler_crab_purple.png",
+        "src/main/resources/assets/aoemod/textures/entity/crustacean/fiddler_crab/fiddler_crab_red.png",
+        "src/main/resources/data/aoemod/structure_data/mansion_basement_rooms_v4.json",
+        "src/main/resources/data/aoemod/structure_data/orc_village_v5_vegetation.json",
+        "src/main/resources/data/aoemod/structure_data/orc_village_vegetation.json",
+        "src/main/resources/data/aoemod/structures/orc_village.nbt",
+        "src/main/resources/data/aoemod/structures/orc_village_v5.nbt",
+        "src/main/resources/data/aoemod/tags/blocks/dimension_sources/tropical.json",
+        "src/main/resources/data/aoemod/worldgen/structure_set/orc_camps.json",
+        "src/main/resources/data/forge/tags/items/fruits/plum.json",
+        "src/main/resources/data/snowrealmagic/tags/blocks/containables.json"
+      ],
+      "passed": true
+    },
+    "pack-dependencies.json": {
+      "passed": true,
+      "locked_jars": 41,
+      "checked_jars": 41,
+      "available_mod_ids_including_embedded": 48,
+      "required_dependencies_checked": 89,
+      "errors": [],
+      "limitations": "Version range and mixin compatibility are verified by the actual Forge runtime, not this static presence check."
+    },
+    "resources.json": {
+      "json_files": 1559,
+      "checks": 1744,
+      "registry_validated": false,
+      "passed": true,
+      "errors": [],
+      "warnings": []
+    },
+    "camp-artifact-checks.json": {
+      "passed": true,
+      "version": 6,
+      "chests": 36,
+      "beds": 72,
+      "pens": 8,
+      "crop_ponds": 28,
+      "mud_columns": 448,
+      "regular_posts": 132,
+      "skull_posts": 44,
+      "checks": [
+        "seven-wide roads",
+        "sealed square wall",
+        "skull every third post",
+        "12 crop rows",
+        "hydrated farmland",
+        "submerged cane",
+        "20x20 pen interiors",
+        "8x8 pen ponds",
+        "legacy v4 unchanged"
+      ]
+    }
+  },
+  "fresh_world_smoke": {
+    "status": "passed",
+    "phase": "FINAL_QUIT",
+    "started": "2026-11-16T00:06:29.284Z",
+    "elapsedMillis": 107349,
+    "priorWorld": "FollowupQA",
+    "newWorldFolder": "November15FreshWorld",
+    "checks": [
+      {
+        "charniaIds": {
+          "lightBlueItem": 6860,
+          "cyanBlock": 4682,
+          "cyanItem": 6861,
+          "lightBlueBlock": 4681
+        },
+        "frozenIdsRestored": false,
+        "registeredBlockStateRoundTrips": 308578,
+        "step": "initial title"
+      },
+      {
+        "charniaIds": {
+          "lightBlueItem": 8325,
+          "cyanBlock": 6238,
+          "cyanItem": 8326,
+          "lightBlueBlock": 6237
+        },
+        "frozenIdsRestored": false,
+        "registeredBlockStateRoundTrips": 308578,
+        "step": "joined PRIOR_JOIN"
+      },
+      {
+        "dimension": "aoemod:plains_dimension",
+        "chunkX": -113,
+        "settledClientTicks": 100,
+        "clientChunksReceived": 25,
+        "step": "PRIOR_JOIN joined and serialized",
+        "packetBytes": 27012,
+        "chunkZ": -122
+      },
+      {
+        "charniaIds": {
+          "lightBlueItem": 6860,
+          "cyanBlock": 4682,
+          "cyanItem": 6861,
+          "lightBlueBlock": 4681
+        },
+        "frozenIdsRestored": true,
+        "registeredBlockStateRoundTrips": 308578,
+        "step": "after PRIOR_QUIT"
+      },
+      {
+        "seed": "5481635986579024772",
+        "worldFolder": "November15FreshWorld",
+        "screen": "net.minecraft.client.gui.screens.worldselection.CreateWorldScreen",
+        "step": "new world screen"
+      },
+      {
+        "charniaIds": {
+          "lightBlueItem": 6860,
+          "cyanBlock": 4682,
+          "cyanItem": 6861,
+          "lightBlueBlock": 4681
+        },
+        "frozenIdsRestored": false,
+        "registeredBlockStateRoundTrips": 308578,
+        "step": "joined NEW_JOIN"
+      },
+      {
+        "dimension": "aoemod:tropical_dimension",
+        "chunkX": -13,
+        "settledClientTicks": 100,
+        "clientChunksReceived": 25,
+        "step": "NEW_JOIN joined and serialized",
+        "packetBytes": 13297,
+        "chunkZ": -6
+      },
+      {
+        "charniaIds": {
+          "lightBlueItem": 6860,
+          "cyanBlock": 4682,
+          "cyanItem": 6861,
+          "lightBlueBlock": 4681
+        },
+        "frozenIdsRestored": true,
+        "registeredBlockStateRoundTrips": 308578,
+        "step": "after NEW_QUIT"
+      },
+      {
+        "charniaIds": {
+          "lightBlueItem": 6860,
+          "cyanBlock": 4682,
+          "cyanItem": 6861,
+          "lightBlueBlock": 4681
+        },
+        "frozenIdsRestored": false,
+        "registeredBlockStateRoundTrips": 308578,
+        "step": "joined REJOIN"
+      },
+      {
+        "dimension": "aoemod:tropical_dimension",
+        "chunkX": -13,
+        "settledClientTicks": 100,
+        "clientChunksReceived": 25,
+        "step": "REJOIN joined and serialized",
+        "packetBytes": 11079,
+        "chunkZ": -6
+      },
+      {
+        "charniaIds": {
+          "lightBlueItem": 6860,
+          "cyanBlock": 4682,
+          "cyanItem": 6861,
+          "lightBlueBlock": 4681
+        },
+        "frozenIdsRestored": true,
+        "registeredBlockStateRoundTrips": 308578,
+        "step": "after FINAL_QUIT"
+      }
+    ],
+    "screen": "net.minecraft.client.gui.screens.TitleScreen"
+  },
+  "native_screenshots": [
+    {
+      "file": "C:\\Users\\andre\\Downloads\\Games\\September2024Mod\\build\\nov15-iteration\\visuals\\client-b\\followup-screenshot-report.json",
+      "status": "passed",
+      "views": 10,
+      "labels": [
+        "mansion-full-third-floor-slab-roof",
+        "mansion-foyer-raised-floor-connection",
+        "mansion-revised-cellar",
+        "mansion-oak-posts-and-carpet-corners",
+        "mansion-authored-mushrooms-and-mines",
+        "mansion-authored-pens",
+        "yak-native-donkey-panniers",
+        "fiddler-native-purple",
+        "fiddler-native-red",
+        "desert-cut-stone-natural-rim"
+      ]
+    },
+    {
+      "file": "C:\\Users\\andre\\Downloads\\Games\\September2024Mod\\build\\nov15-iteration\\visuals\\client-c2\\followup-screenshot-report.json",
+      "status": "passed",
+      "views": 2,
+      "labels": [
+        "smaller-tropical-island",
+        "rainforest-final-bamboo"
+      ]
+    },
+    {
+      "file": "C:\\Users\\andre\\Downloads\\Games\\September2024Mod\\build\\nov15-iteration\\visuals\\client-c2-coast\\followup-screenshot-report.json",
+      "status": "passed",
+      "views": 1,
+      "labels": [
+        "smaller-tropical-island"
+      ]
+    },
+    {
+      "file": "C:\\Users\\andre\\Downloads\\Games\\September2024Mod\\build\\nov15-iteration\\visuals\\client-d\\followup-screenshot-report.json",
+      "status": "passed",
+      "views": 4,
+      "labels": [
+        "camp_overhead",
+        "camp_pens",
+        "camp_gate",
+        "camp-twelve-row-crops-and-submerged-cane"
+      ]
+    }
+  ],
+  "live_asset_audits": [
+    {
+      "file": "C:\\Users\\andre\\Downloads\\Games\\September2024Mod\\build\\nov15-iteration\\visuals\\client-b\\asset-report.json",
+      "status": "failed",
+      "checks": [
+        "aoemod:textures/entity/orcz/orc_savage.png pack=mod_resources sha256=3cd1dc6a41b38fb7f75d931193f42320052a3c9ef83a43d9ee652c27be721318",
+        "aoemod:textures/entity/orcz/orc_savage_shield.png pack=mod_resources sha256=870f5f948c3b4f80182f67d6cca60ebf15ad639aed26686676cf36366537403e",
+        "aoemod:textures/entity/orcz/orc_savage_big_2sword.png pack=mod_resources sha256=6333a10d90ab6e3670a729b074bfe3fe57801a4c8530fb9599bac3f1d27669e3",
+        "Boss model retains all 32 native cuboids; only three shared sword UVs relocate to (80,80)",
+        "Both Twilight Forest models retain the original shield socket and visible shield.",
+        "Live Goblin Knight identity: name=Goblin Knight, height=2.65, nativeTranslation=Upper Goblin Knight"
+      ]
+    },
+    {
+      "file": "C:\\Users\\andre\\Downloads\\Games\\September2024Mod\\build\\nov15-iteration\\visuals\\client-smoke\\asset-report.json",
+      "status": "passed",
+      "checks": [
+        "aoemod:textures/entity/orcz/orc_savage.png pack=mod_resources sha256=3cd1dc6a41b38fb7f75d931193f42320052a3c9ef83a43d9ee652c27be721318",
+        "aoemod:textures/entity/orcz/orc_savage_shield.png pack=mod_resources sha256=870f5f948c3b4f80182f67d6cca60ebf15ad639aed26686676cf36366537403e",
+        "aoemod:textures/entity/orcz/orc_savage_big_2sword.png pack=mod_resources sha256=6333a10d90ab6e3670a729b074bfe3fe57801a4c8530fb9599bac3f1d27669e3",
+        "Boss model retains all 32 native cuboids; only three shared sword UVs relocate to (80,80)",
+        "Both Twilight Forest models retain the original shield socket and visible shield.",
+        "Live Goblin Knight identity: name=Goblin Knight, height=2.65, nativeTranslation=Upper Goblin Knight",
+        "Goblin Knight: restored native classic renderer delegates retain adult helmet/arms, rider pose, opaque legs and a shared death pivot; one real saved entity.",
+        "Native yak saddle appears only when equipped.",
+        "Yak: two unscaled vanilla donkey chest boxes, native atlas/UVs, flush torso anchors and equipment visibility passed.",
+        "Fiddler blue: native renderer -> aoemod:textures/entity/crustacean/fiddler_crab/fiddler_crab_blue.png pack=mod_resources sha256=93afa1604b71164f6287f5f808d9ffc6d805dd9daa83e85152db921cf4c9686b; legacy namespace already repaired=false",
+        "Fiddler purple: native renderer -> aoemod:textures/entity/crustacean/fiddler_crab/fiddler_crab_purple.png pack=mod_resources sha256=fe433e78e275dded49826923e5c8b5d198ce1733b495627afc0e676cf1110dbb; legacy namespace already repaired=false",
+        "Fiddler red: native renderer -> aoemod:textures/entity/crustacean/fiddler_crab/fiddler_crab_red.png pack=mod_resources sha256=fe433e78e275dded49826923e5c8b5d198ce1733b495627afc0e676cf1110dbb; legacy namespace already repaired=false",
+        "Baked normal + snowlogged blueberry stage 0",
+        "Baked normal + snowlogged blueberry stage 1",
+        "Baked normal + snowlogged blueberry stage 2",
+        "Baked normal + snowlogged blueberry stage 3"
+      ]
+    }
+  ],
+  "terrain_cuts": "Deferred as requested",
+  "visual_review": {
+    "passed": true,
+    "reviewed_at": "2026-11-16T00:22:08.445Z",
+    "views": [
+      {
+        "label": "mansion-full-third-floor-slab-roof",
+        "passed": true,
+        "notes": "Three complete storeys; continuous oak slab roof with clean stepped edges and no holes.",
+        "path": "C:/Users/andre/Downloads/Games/September2024Mod/build/nov15-iteration/visuals/client-b/screenshots/mansion-full-third-floor-slab-roof.png"
+      },
+      {
+        "label": "mansion-foyer-raised-floor-connection",
+        "passed": true,
+        "notes": "Connected stair landing, continuous carpet border and clear headroom.",
+        "path": "C:/Users/andre/Downloads/Games/September2024Mod/build/nov15-iteration/visuals/client-b/screenshots/mansion-foyer-raised-floor-connection.png"
+      },
+      {
+        "label": "mansion-revised-cellar",
+        "passed": true,
+        "notes": "Wide enclosed hall with regular lantern rows and open side doorways.",
+        "path": "C:/Users/andre/Downloads/Games/September2024Mod/build/nov15-iteration/visuals/client-b/screenshots/mansion-revised-cellar.png"
+      },
+      {
+        "label": "mansion-oak-posts-and-carpet-corners",
+        "passed": true,
+        "notes": "Oak posts and white/red carpet render cleanly. This close view shows a straight border; diagonal corner adjacency is covered by structure checks.",
+        "path": "C:/Users/andre/Downloads/Games/September2024Mod/build/nov15-iteration/visuals/client-b/screenshots/mansion-oak-posts-and-carpet-corners.png"
+      },
+      {
+        "label": "mansion-authored-mushrooms-and-mines",
+        "passed": true,
+        "notes": "Authored mushroom plot, contained water, adjacent side openings and twin mineshaft openings render correctly.",
+        "path": "C:/Users/andre/Downloads/Games/September2024Mod/build/nov15-iteration/visuals/client-b/screenshots/mansion-authored-mushrooms-and-mines.png"
+      },
+      {
+        "label": "mansion-authored-pens",
+        "passed": true,
+        "notes": "Cow pen retains hay and water, with a gated connection to the neighboring chicken pen.",
+        "path": "C:/Users/andre/Downloads/Games/September2024Mod/build/nov15-iteration/visuals/client-b/screenshots/mansion-authored-pens.png"
+      },
+      {
+        "label": "yak-native-donkey-panniers",
+        "passed": true,
+        "notes": "Side-by-side native donkey and yak show matching chest shape, atlas and scale; chest is attached flush to yak torso.",
+        "path": "C:/Users/andre/Downloads/Games/September2024Mod/build/nov15-iteration/visuals/client-b/screenshots/yak-native-donkey-panniers.png"
+      },
+      {
+        "label": "fiddler-native-purple",
+        "passed": true,
+        "notes": "Former purple variant has an orange shell matching legs; underside is visibly connected rather than sand-colored.",
+        "path": "C:/Users/andre/Downloads/Games/September2024Mod/build/nov15-iteration/visuals/client-b/screenshots/fiddler-native-purple.png"
+      },
+      {
+        "label": "fiddler-native-red",
+        "passed": true,
+        "notes": "Former reddish variant uses the same warm shell/underside as its legs; blue control variant remains blue.",
+        "path": "C:/Users/andre/Downloads/Games/September2024Mod/build/nov15-iteration/visuals/client-b/screenshots/fiddler-native-red.png"
+      },
+      {
+        "label": "desert-cut-stone-natural-rim",
+        "passed": true,
+        "notes": "Visible entrance is stone only along the excavated hollow; surrounding orange/brown terracotta slopes and natural rim remain intact.",
+        "path": "C:/Users/andre/Downloads/Games/September2024Mod/build/nov15-iteration/visuals/client-b/screenshots/desert-cut-stone-natural-rim.png"
+      },
+      {
+        "label": "camp_overhead",
+        "passed": true,
+        "notes": "Square camp, nine widely spaced tents, continuous crop belt, podzol road margins, paired perimeter pens and broad inner/outer roads are visible.",
+        "path": "C:/Users/andre/Downloads/Games/September2024Mod/build/nov15-iteration/visuals/client-d/screenshots/camp_overhead.png"
+      },
+      {
+        "label": "camp_pens",
+        "passed": true,
+        "notes": "Large fenced grass pens with centered square ponds and hay; roads separate pens from crops and palisade. Live animals are inside the pens.",
+        "path": "C:/Users/andre/Downloads/Games/September2024Mod/build/nov15-iteration/visuals/client-d/screenshots/camp_pens.png"
+      },
+      {
+        "label": "camp-twelve-row-crops-and-submerged-cane",
+        "passed": true,
+        "notes": "Ordered crop strips and repeated four-square water ponds render correctly with cane entirely submerged; tent approaches and podzol margins stay clear.",
+        "path": "C:/Users/andre/Downloads/Games/September2024Mod/build/nov15-iteration/visuals/client-d/screenshots/camp-twelve-row-crops-and-submerged-cane.png"
+      },
+      {
+        "label": "camp_gate",
+        "passed": true,
+        "notes": "Native log gate decoration retained, wide continuous path runs into the camp, and adjacent palisade and pen joins are clean.",
+        "path": "C:/Users/andre/Downloads/Games/September2024Mod/build/nov15-iteration/visuals/client-d/screenshots/camp_gate.png"
+      },
+      {
+        "label": "rainforest-final-bamboo",
+        "passed": true,
+        "notes": "Bamboo rises from the green forest floor and stops beneath solid logs/leaves. Cherry foliage and moved lilacs coexist with the rainforest canopy.",
+        "path": "C:/Users/andre/Downloads/Games/September2024Mod/build/nov15-iteration/visuals/client-c2/screenshots/rainforest-final-bamboo.png"
+      },
+      {
+        "label": "smaller-tropical-island",
+        "passed": true,
+        "notes": "Lower coastal view clearly shows compact rainforest with interspersed cherry foliage, a narrow dry mangrove margin, submerged mangrove band and shallow outer water. Far-side detail remains naturally fog-limited; exact widths/radius are covered by generation tests.",
+        "path": "C:/Users/andre/Downloads/Games/September2024Mod/build/nov15-iteration/visuals/client-c2-coast/screenshots/smaller-tropical-island.png"
+      }
+    ],
+    "rejected_captures": [
+      {
+        "path": "C:/Users/andre/Downloads/Games/September2024Mod/build/nov15-iteration/visuals/client-c2/screenshots/smaller-tropical-island.png",
+        "reason": "Camera at Y255 was outside the useful render-distance view of the terrain; replaced by lower coastal capture. This is a rejected QA viewpoint, not a terrain failure."
+      }
+    ],
+    "limitations": [
+      "Screenshots demonstrate selected geometry and rendering; numerical dimensions, counts, lighting, population persistence and collision are checked separately by GameTests.",
+      "The duplicate B asset audit failed before entity-dispatcher camera initialization. The complete smoke asset audit passed on byte-identical runtime files."
+    ]
+  },
+  "asset_evidence_continuity": {
+    "passed": true,
+    "successful_asset_audit": "C:\\Users\\andre\\Downloads\\Games\\September2024Mod\\build\\nov15-iteration\\visuals\\client-smoke\\asset-report.json",
+    "clients": [
+      {
+        "client": "client-b",
+        "verified_files": 3094,
+        "differences": []
+      },
+      {
+        "client": "client-c2",
+        "verified_files": 3094,
+        "differences": []
+      },
+      {
+        "client": "client-c2-coast",
+        "verified_files": 3094,
+        "differences": []
+      },
+      {
+        "client": "client-d",
+        "verified_files": 3094,
+        "differences": []
+      },
+      {
+        "client": "client-smoke",
+        "verified_files": 3094,
+        "differences": []
+      }
+    ],
+    "duplicate_failure": "client-b manual Goblin rendering ran before EntityRenderDispatcher.camera initialized. Its optional duplicate asset report is retained; the complete smoke-client audit passed on identical runtime files. Native structure captures continued independently."
+  },
+  "passed": true
+}

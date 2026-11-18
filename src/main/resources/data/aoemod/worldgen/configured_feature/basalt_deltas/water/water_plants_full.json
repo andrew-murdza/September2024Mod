@@ -17,12 +17,20 @@
     ],
     "features": [
       {
-        "chance": 0.32,
+        "chance": 0.16,
         "feature": "aoemod:basalt_deltas/water/crimson_seagrass"
       },
       {
-        "chance": 0.025,
+        "chance": 0.16,
+        "feature": "aoemod:basalt_deltas/water/warped_seagrass"
+      },
+      {
+        "chance": 0.0125,
         "feature": "aoemod:water/crimson_kelp"
+      },
+      {
+        "chance": 0.0125,
+        "feature": "aoemod:water/warped_kelp"
       }
     ]
   }

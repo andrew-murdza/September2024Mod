@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smelting",
+  "ingredient": {
+    "item": "wildernature:bison_meat"
+  },
+  "result": "wildernature:cooked_bison_meat",
+  "experience": 0.35,
+  "cookingtime": 200
+}

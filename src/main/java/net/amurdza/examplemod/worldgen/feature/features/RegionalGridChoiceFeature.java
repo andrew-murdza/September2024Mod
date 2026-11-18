@@ -37,6 +37,9 @@ public class RegionalGridChoiceFeature extends Feature<RegionalGridChoiceConfig>
     @Override
     public boolean place(FeaturePlaceContext<RegionalGridChoiceConfig> context) {
         RegionalGridChoiceConfig cfg = context.config();
+        boolean reservedBeeTree = (cfg.salt.equals("plains_floor") || cfg.salt.equals("savanna_floor"))
+                && net.amurdza.examplemod.worldgen.BeeNestTrees.ownsChunk(context.level(),
+                Math.floorDiv(context.origin().getX(), 16), Math.floorDiv(context.origin().getZ(), 16));
 
         if (cfg.features.isEmpty()
                 && cfg.groups.isEmpty()
@@ -55,6 +58,7 @@ public class RegionalGridChoiceFeature extends Feature<RegionalGridChoiceConfig>
             if (selected == null) {
                 continue;
             }
+            if (reservedBeeTree && selected.value().feature() instanceof net.minecraft.world.level.levelgen.feature.TreeFeature) continue;
 
             placedAnything |= tryPlaceNearFloor(context, selected, pos);
         }
@@ -539,6 +543,7 @@ public class RegionalGridChoiceFeature extends Feature<RegionalGridChoiceConfig>
                     3 + random.nextInt(11)
             );
             case CENTER -> origin.offset(7, 0, 7);
+            case CENTER_JITTER_TWO -> origin.offset(5 + random.nextInt(5), 0, 5 + random.nextInt(5));
             case CORNER -> origin;
         };
     }

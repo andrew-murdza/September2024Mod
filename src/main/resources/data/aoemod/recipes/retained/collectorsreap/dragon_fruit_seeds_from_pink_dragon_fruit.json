@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "collectorsreap:pink_dragon_fruit"
+    }
+  ],
+  "result": {
+    "item": "collectorsreap:dragon_fruit_seeds"
+  }
+}

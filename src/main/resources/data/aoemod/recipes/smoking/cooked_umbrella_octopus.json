@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smoking",
+  "ingredient": {
+    "item": "aoemod:raw_umbrella_octopus"
+  },
+  "result": "aoemod:cooked_umbrella_octopus",
+  "experience": 0.35,
+  "cookingtime": 100
+}

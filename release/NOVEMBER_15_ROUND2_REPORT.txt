@@ -1,0 +1,21 @@
+15 November 2026 — second document revision
+
+Tropical
+Restored Environmental, Biomes O' Plenty and Biomes We've Gone, the original island bands, cherry grove, ecology, flowers, and sandy farmland. Kept mangrove-root precedence over flowers. Bamboo occurs only in cherry grove: ten stems within a six-by-six patch, at approximately the original Japanese-orchid patch frequency.
+
+Savanna
+Captured the user's twelve-by-twelve tent from the closed recent save. New camps have 24 clear blocks between tents, eight-wide roads, dirt paths throughout the central area, and no corner crops around tents. Enlarged the stockade to preserve six clear blocks between every pair of regular log posts, including corners, with an inner grass margin and bushes. Added mushrooms to podzol margins. Crop rows turn at every corner; the inner rows are wheat plus a repeating pumpkin/stem/stem/pumpkin row. Crop ponds are one block deep, with one submerged cane block and two dry ones, and continuous mud down to bedrock. Enlarged each pen to 26 by 26 blocks and added four centered four-wide gates. Preserved 36 chests and their previous total loot. Natural placement and locate use the actual terrain field, with dry ten-block relief supported by the existing foundations. Archived v6 templates and reservation masks preserve saved camps.
+
+Plains
+Rearranged the twenty basement rooms into ten mirrored crops by the central hall, four adjacent pens with the smith at the end, and the requested service/farm grouping opposite. Updated grass behind pen fences, lantern positions, authored entrance height/lights, plank supports, and lowered chandeliers. New mansion upper floors use a ten-by-ten native cell grid, eight-block storeys, ground-floor windows, connected stairs and shorter facade patterns. Retained full plank roof blocks beneath slab caps. Limited white carpet borders to three-wide red carpet, protected bed wool/furnishings, and excluded the tall bedroom. Roof overlaps and landscaping above empty foyer padding preserve the complete roof. Versioned compact templates preserve the original resources used by saved mansions.
+
+Desert
+Placed caverns around the actual terrace field's extrema. Straight surface entrances follow its negative gradient toward dry sand on opposite sides of the terrace. Curved descents remain near T=0 in wider solid banks; lower portal-seam geometry is retained. Intact surface rims retain their original blocks instead of becoming stone.
+
+Existing user saves, configs, options, and the room gallery are preserved. Terrain-cut investigation remains deferred. New layouts require fresh chunks or newly placed structures.
+
+Validation: final build and isolated runData passed. All 64 distinct focused GameTests have passing latest outcomes. The client loaded a copy of the existing save, created a fresh world, saved it and reloaded it successfully. All 23 targeted native screenshots passed visual review. Resource validation passed 1,745 checks across 1,560 JSON files; all 1882 source resources match the JAR. All 1060 protected user save/config/options files are unchanged. Generated data is unchanged. The normal launcher and 66-JAR production staging were refreshed and verified.
+
+JAR SHA-256: c15e71fe0aec139d892bd019b07dc5e7641c437cf1c018d2c3b09828022c136c
+
+Evidence: evidence/november-15-round2/

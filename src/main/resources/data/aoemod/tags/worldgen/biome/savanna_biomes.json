@@ -1,6 +1,7 @@
 {
   "replace": false,
   "values": [
-    "aoemod:savanna"
+    "aoemod:savanna",
+    "aoemod:savanna_lake"
   ]
 }

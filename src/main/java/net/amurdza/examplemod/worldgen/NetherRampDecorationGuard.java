@@ -30,7 +30,8 @@ public final class NetherRampDecorationGuard {
         return TERRAIN.computeIfAbsent(random, state -> {
             DimensionTerrain[] found = {null};
             state.router().continents().mapAll(function -> {
-                if (function instanceof DimensionTerrain terrain && terrain.dimension().equals("nether")) found[0] = terrain;
+                if (function instanceof DimensionTerrain terrain
+                        && (terrain.dimension().equals("nether") || terrain.dimension().equals("desert"))) found[0] = terrain;
                 return function;
             });
             return Optional.ofNullable(found[0]);
@@ -39,16 +40,22 @@ public final class NetherRampDecorationGuard {
 
     public static boolean allows(WorldGenLevel level, BlockPos pos, BlockState proposed) {
         // ServerLevel also implements WorldGenLevel: player building and bonemeal remain ordinary gameplay.
-        if (!(level instanceof WorldGenRegion) || !GameplayDimensions.NETHER.equals(level.getLevel().dimension())) return true;
+        if (!(level instanceof WorldGenRegion) || !(GameplayDimensions.NETHER.equals(level.getLevel().dimension())
+                || GameplayDimensions.DESERT.equals(level.getLevel().dimension()))) return true;
         // Feature attempts may leave the write region. Do not read an unavailable chunk before vanilla rejects them.
         if (level.isOutsideBuildHeight(pos) || !level.ensureCanWrite(pos)) return false;
         DimensionTerrain terrain = terrain(level.getLevel().getChunkSource().randomState()).orElse(null);
         if (terrain == null) return true;
+        boolean newDesertPassage = GameplayDimensions.DESERT.equals(level.getLevel().dimension())
+                && terrain.desertCaves().protectsWalkway(pos.getX(), pos.getY(), pos.getZ());
         var column = new DensityFunction.SinglePointContext(pos.getX(), 0, pos.getZ());
-        if (DimensionTerrain.netherRampDistance(pos.getZ(), terrain.detail().compute(column)) > 2.5) return true;
-        double floor = DimensionTerrain.netherRampFloor(pos.getX(), terrain.lake().compute(column));
+        if (!newDesertPassage && DimensionTerrain.netherRampDistance(pos.getZ(), terrain.rampDetail().compute(column)) > 2.5) return true;
+        double floor = DimensionTerrain.netherRampFloor(pos.getX(), terrain.rampBasin().compute(column));
+        if (GameplayDimensions.DESERT.equals(level.getLevel().dimension())) floor -= 160;
         // Include interpolation's floor rounding, the supporting block, and adult headroom.
-        if (pos.getY() < floor - 2 || pos.getY() > floor + 5) return true;
+        // The first air block can round up by1.5 blocks, so its eighth block
+        // can be above floor+8. Reserve the full9.5-block tunnel envelope.
+        if (!newDesertPassage && (pos.getY() < floor - 2 || pos.getY() > floor + 10)) return true;
         if (!proposed.getFluidState().isEmpty() || hazardous(proposed)) return false;
         BlockState existing = level.getBlockState(pos);
         var oldShape = existing.getCollisionShape(level, pos);

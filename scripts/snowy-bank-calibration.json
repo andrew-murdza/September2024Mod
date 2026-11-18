@@ -1,0 +1,35 @@
+{
+  "minecraft_version": "1.20.1",
+  "test": "SnowyVanillaTerrainTests.generatedLakeBankSlopeAudit",
+  "profile": {
+    "ridge_domain_stretch": 2.0,
+    "weirdness_value_remapping": false,
+    "lake_bank_slope_parameter": 1.1,
+    "sea_level": 63,
+    "maximum_extra_lake_depth": 50
+  },
+  "method": "Use actual NoiseBasedChunkGenerator.getBaseHeight OCEAN_FLOOR_WG columns, including vanilla three-dimensional terrain and noise caves. Measure slope as the magnitude of centered X/Z height differences sampled four blocks either side of each bank column.",
+  "selection": "For each seed, scan X/Z from -4096 to 4096 in steps of 32/48. Retain the first 80 mountain-lake bank columns with nominal offset height 20..60 and actual water depth 5..45. Separately inspect the first 80 deep columns with nominal offset height at most 20.",
+  "measurements": [
+    {
+      "seed": 0,
+      "bank_columns": 80,
+      "median_slope": 1.976423537605237,
+      "p75_slope": 2.6516504294495533,
+      "p95_slope": 4.5155979670471105,
+      "sampled_bank_water_depth": [6, 40],
+      "sampled_deep_floor_y": [-11, 27]
+    },
+    {
+      "seed": 12345,
+      "bank_columns": 80,
+      "median_slope": 1.7544586059522749,
+      "p75_slope": 2.462214450449026,
+      "p95_slope": 5.257435211203273,
+      "sampled_bank_water_depth": [5, 41],
+      "sampled_deep_floor_y": [2, 29]
+    }
+  ],
+  "regression": "For each tested seed, require sufficient real columns, a varied deep floor, and median bank slope between 1 and 2 inclusive.",
+  "limitations": "These are bounded seeded samples, not global quantiles or per-column slope guarantees. Vanilla three-dimensional noise and cave openings retain steeper local cliffs. The extra lake offset stops at its nominal fifty-block-deep target; underlying vanilla noise, continentalness, erosion, and cavities can leave shallower or deeper actual floor columns."
+}

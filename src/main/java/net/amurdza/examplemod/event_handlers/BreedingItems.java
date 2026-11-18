@@ -1,7 +1,6 @@
 package net.amurdza.examplemod.event_handlers;
 
 import com.github.alexthe666.alexsmobs.entity.EntityGorilla;
-import com.github.alexthe666.alexsmobs.entity.EntityWarpedToad;
 import net.amurdza.examplemod.util.AnimalFoodOverrides;
 import net.amurdza.examplemod.config.MobConfig;
 import net.amurdza.examplemod.future.FutureMobCompatibility;
@@ -56,16 +55,12 @@ public class BreedingItems {
                 handled = handled || useFood(mob,player,stack,Items.BEETROOT);
                 handled = handled || useFood(mob,player,stack,Items.WHEAT);
                 handled = handled || useFood(mob,player,stack,Items.POTATO);
-                handled = handled || useFood(mob, player, stack, ModItems.ONION.get());
             }
             else if(mob instanceof Horse || mob instanceof Donkey || mob instanceof Llama){
                 handled = handled || useFood(mob,player,stack,Items.WHEAT);
             }
             else if(mob instanceof Camel){
                 handled = handled || useFood(mob, player, stack, samebutdifferent.ecologics.registry.ModItems.PRICKLY_PEAR.get());
-            }
-            else if(mob instanceof EntityWarpedToad){
-                handled = handled || useFood(mob, player, stack, Items.WARPED_FUNGUS);
             }
             else if(mob instanceof Frog || mob instanceof Turtle || mob instanceof Axolotl){
                 handled = handled || useFood(mob,player,stack,Items.SEAGRASS);
@@ -75,7 +70,6 @@ public class BreedingItems {
                 handled = handled || useFood(mob,player,stack,Items.BEETROOT);
                 handled = handled || useFood(mob,player,stack,Items.CARROT);
                 handled = handled || useFood(mob,player,stack,Items.POTATO);
-                handled = handled || useFood(mob, player, stack, ModItems.ONION.get());
             }
             else if((mob instanceof Ocelot ||mob instanceof Cat)&&!stack.is(Items.COD)&&!stack.is(Items.SALMON)){
                 handled = handled || useFood(mob, player, stack, ModTags.Items.rawFish);

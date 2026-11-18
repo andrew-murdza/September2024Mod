@@ -19,11 +19,16 @@ public class ModFeatures {
         FEATURES.register("lava_border_sulfur", LavaBorderSulfurFeature::new);
         FEATURES.register("special_biome_tree", ()->new AOETree(AOETreeConfiguration.CODEC));
         FEATURES.register("seagrass",()->new SeagrassFeature(ProbabilityFeatureConfiguration.CODEC));
+        FEATURES.register("plains_seafloor", PlainsSeafloorFeature::new);
         FEATURES.register("kelp",()->new KelpFeature(KelpFeatureConfig.CODEC));
         FEATURES.register("all_surface",()->new AllSurfacesFeature(AllSurfacesFeatureConfig.CODEC));
         FEATURES.register("random_selector",()->new RandomSelectionFeature(RandomSelectionFeatureConfig.CODEC));
         FEATURES.register("block_column",()->new BlockColumn(BlockColumnConfiguration.CODEC));
         FEATURES.register("glow_lichen",()->new GlowLichenFeature(NoneFeatureConfiguration.CODEC));
+        FEATURES.register("deep_dark_vein", DeepDarkVeinFeature::new);
+        FEATURES.register("dappled_trees", DappledTreesFeature::new);
+        FEATURES.register("snowy_trees", SnowyTreesFeature::new);
+        FEATURES.register("mushroom_cave_vegetation", MushroomCaveVegetationFeature::new);
         FEATURES.register("huge_glow_shroom",()->new GiantGlowshroomFeature(HugeMushroomFeatureConfiguration.CODEC));
         FEATURES.register("crimson_seagrass",()->new CrimsonSeaGrassFeature(ProbabilityFeatureConfiguration.CODEC));
         FEATURES.register("warped_seagrass",()->new WarpedSeagrassFeature(ProbabilityFeatureConfiguration.CODEC));
@@ -35,6 +40,7 @@ public class ModFeatures {
         FEATURES.register("rainforest_tree", ()->new RainforestTreeFeature(RainforestTreeFeatureConfig.CODEC));
         FEATURES.register("cave_vines", ()->new CaveVineColumn(CaveVineConfig.CODEC));
         FEATURES.register("sugar_cane", ()->new SugarCaneFeature(NoneFeatureConfiguration.CODEC));
+        FEATURES.register("tropical_cherry_trees", () -> new TropicalCherryTreesFeature(NoneFeatureConfiguration.CODEC));
         FEATURES.register("chunk_patch", ()->new FixedCountChunkFeature(FixedCountChunkPatchConfiguration.CODEC));
         FEATURES.register("spiral_cave_chunk", ()->new SpiralCaveChunkFeature(SpiralCaveFeatureConfig.CODEC));
     }

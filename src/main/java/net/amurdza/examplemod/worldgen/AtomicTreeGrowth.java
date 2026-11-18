@@ -15,18 +15,24 @@ public final class AtomicTreeGrowth {
 
     public static <C extends FeatureConfiguration> boolean place(FeaturePlaceContext<C> context,
                                                                  Function<FeaturePlaceContext<C>, Boolean> generate) {
-        if (!GameplayDimensions.isCustom(context.level()) || context.level() instanceof GrowthPlacementBuffer) {
+        if (!GameplayDimensions.isCustom(context.level())) {
             return generate.apply(context);
         }
+        // Natural vegetation has its own outer transaction for crop protection.
+        // A nested feature still needs its collision checks and a private rollback
+        // boundary: otherwise the outer buffer can accept an invalid tree shape.
         for (int attempt = 0; attempt < 4; attempt++) {
             GrowthPlacementBuffer buffer = new GrowthPlacementBuffer(context.level());
             FeaturePlaceContext<C> staged = new FeaturePlaceContext<>(context.topFeature(), buffer,
                     context.chunkGenerator(), context.random(), context.origin(), context.config());
             if (!generate.apply(staged)) continue;
+            SnowyCanopySnow.cover(buffer);
             boolean[] accepted = {false};
             GrowthPlacementContext.runTree(buffer, context.origin(), () -> {
                 if (buffer.isValid((pos, state) -> TreeGrowthPlacementRules.isAllowed(buffer, context.origin(), pos, state)
                         && BiomePlacementRestrictions.isAllowed(buffer, pos, state)
+                        && TreeGrowthCollisionRules.isAllowed(context.level(), pos, state)
+                        && SavannaCampVegetation.allowsTree(context.level(), pos)
                         && NetherRampDecorationGuard.allows(context.level(), pos, state))) {
                     accepted[0] = buffer.commit();
                 }

@@ -57,6 +57,7 @@ public class GridChoiceConfig implements FeatureConfiguration {
         IN_SQUARE("in_square"),
         SMALL_IN_SQUARE("small_in_square"),
         CENTER_SQUARE("center_square"),
+        CENTER_JITTER_TWO("center_jitter_two"),
         CENTER("center"),
         CORNER("corner");
 

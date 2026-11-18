@@ -1,0 +1,99 @@
+{
+  "type": "minecraft:chest",
+  "pools": [
+    {
+      "rolls": {
+        "type": "minecraft:uniform",
+        "min": 7,
+        "max": 10
+      },
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:bone"
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:string"
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:white_wool"
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:rabbit"
+        },
+        {
+          "type": "minecraft:item",
+          "name": "aoemod:raw_arthropleura"
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:beef"
+        },
+        {
+          "type": "minecraft:item",
+          "name": "wildernature:turkey_meat"
+        }
+      ],
+      "functions": [
+        {
+          "function": "minecraft:set_count",
+          "count": {
+            "type": "minecraft:uniform",
+            "min": 3,
+            "max": 7
+          }
+        }
+      ]
+    },
+    {
+      "rolls": {
+        "type": "minecraft:uniform",
+        "min": 4,
+        "max": 6
+      },
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "aoemod:carrot_seeds"
+        },
+        {
+          "type": "minecraft:item",
+          "name": "aoemod:bean_seeds"
+        },
+        {
+          "type": "minecraft:item",
+          "name": "hearthandharvest:corn_kernels"
+        },
+        {
+          "type": "minecraft:item",
+          "name": "farmersdelight:cabbage_seeds"
+        },
+        {
+          "type": "minecraft:item",
+          "name": "aoemod:rice_seeds"
+        },
+        {
+          "type": "minecraft:item",
+          "name": "farmersdelight:tomato_seeds"
+        },
+        {
+          "type": "minecraft:item",
+          "name": "pineapple_delight:pineapple_crop"
+        }
+      ],
+      "functions": [
+        {
+          "function": "minecraft:set_count",
+          "count": {
+            "type": "minecraft:uniform",
+            "min": 2,
+            "max": 5
+          }
+        }
+      ]
+    }
+  ]
+}

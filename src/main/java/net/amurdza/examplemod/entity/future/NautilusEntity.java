@@ -140,7 +140,7 @@ public class NautilusEntity extends TamableAnimal {
     @Override
     public void travel(Vec3 input) {
         LivingEntity controller = this.getControllingPassenger();
-        if (this.isAlive() && controller instanceof Player player) {
+        if (this.isAlive() && this.isInWater() && controller instanceof Player player) {
             this.setYRot(player.getYRot());
             this.yRotO = this.getYRot();
             this.setXRot(player.getXRot() * 0.5F);

@@ -1,0 +1,50 @@
+[
+  {
+    "dimension": "aoemod:snowy_dimension",
+    "boss": [
+      8192,
+      273,
+      8196
+    ],
+    "shortestBossWalk": 41,
+    "connectedWalkingCells": 5887,
+    "structure": "yeti",
+    "bounds": "BoundingBox{minX\u003d8148, minY\u003d267, minZ\u003d8148, maxX\u003d8236, maxY\u003d300, maxZ\u003d8236}"
+  },
+  {
+    "dimension": "aoemod:tropical_dimension",
+    "boss": [
+      8164,
+      175,
+      8164
+    ],
+    "shortestBossWalk": 214,
+    "connectedWalkingCells": 20357,
+    "structure": "spider",
+    "bounds": "BoundingBox{minX\u003d8128, minY\u003d171, minZ\u003d8128, maxX\u003d8256, maxY\u003d236, maxZ\u003d8256}"
+  },
+  {
+    "dimension": "aoemod:nether_dimension",
+    "boss": [
+      8192,
+      77,
+      8170
+    ],
+    "shortestBossWalk": 86,
+    "connectedWalkingCells": 3775,
+    "structure": "wither",
+    "bounds": "BoundingBox{minX\u003d8167, minY\u003d74, minZ\u003d8154, maxX\u003d8217, maxY\u003d98, maxZ\u003d8231}"
+  },
+  {
+    "dimension": "aoemod:savanna_dimension",
+    "boss": [
+      8192,
+      209,
+      8183
+    ],
+    "shortestBossWalk": 49,
+    "connectedWalkingCells": 6533,
+    "structure": "orc",
+    "bounds": "BoundingBox{minX\u003d8147, minY\u003d198, minZ\u003d8153, maxX\u003d8236, maxY\u003d223, maxZ\u003d8230}"
+  }
+]

@@ -13,8 +13,6 @@ public class BlockBehaviorConfig {
     public static final Map<ResourceKey<Level>, Float> DIMENSION_TO_GLOW_BERRY_AMOUNTS = new LinkedHashMap<>();
     public static final Map<ResourceKey<Level>, Float> DIMENSION_TO_SWEET_BERRIES_PARTIALLY_GROWN_AMOUNTS = new LinkedHashMap<>();
     public static final Map<ResourceKey<Level>, Float> DIMENSION_TO_MATURE_SWEET_BERRY_AMOUNTS = new LinkedHashMap<>();
-    public static final Map<ResourceKey<Level>, Float> DIMENSION_TO_SOUL_BERRIES_PARTIALLY_GROWN_AMOUNTS = new LinkedHashMap<>();
-    public static final Map<ResourceKey<Level>, Float> DIMENSION_TO_MATURE_SOUL_BERRY_AMOUNTS = new LinkedHashMap<>();
     public static final Map<ResourceKey<Level>, Integer> DIMENSION_TO_GRASS_SPREAD_NUM_TRIES = new LinkedHashMap<>();
 
     static {
@@ -23,12 +21,10 @@ public class BlockBehaviorConfig {
         DIMENSION_TO_SWEET_BERRIES_PARTIALLY_GROWN_AMOUNTS.put(GameplayDimensions.TROPICAL, 2f);
         DIMENSION_TO_SWEET_BERRIES_PARTIALLY_GROWN_AMOUNTS.put(GameplayDimensions.SNOWY, 1f);
 
-        DIMENSION_TO_SOUL_BERRIES_PARTIALLY_GROWN_AMOUNTS.put(GameplayDimensions.NETHER, 1f);
 
         DIMENSION_TO_MATURE_SWEET_BERRY_AMOUNTS.put(GameplayDimensions.TROPICAL, 4f);
         DIMENSION_TO_MATURE_SWEET_BERRY_AMOUNTS.put(GameplayDimensions.SNOWY, 2f);
 
-        DIMENSION_TO_MATURE_SOUL_BERRY_AMOUNTS.put(GameplayDimensions.NETHER, 2f);
 
         DIMENSION_TO_GRASS_SPREAD_NUM_TRIES.put(GameplayDimensions.TROPICAL, 12);
         DIMENSION_TO_GRASS_SPREAD_NUM_TRIES.put(GameplayDimensions.SAVANNA, 8);

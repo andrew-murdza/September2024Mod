@@ -1,0 +1,21 @@
+{
+  "status": "passed",
+  "checks": [
+    "aoemod:textures/entity/orcz/orc_savage.png pack\u003dmod_resources sha256\u003d3cd1dc6a41b38fb7f75d931193f42320052a3c9ef83a43d9ee652c27be721318",
+    "aoemod:textures/entity/orcz/orc_savage_shield.png pack\u003dmod_resources sha256\u003d870f5f948c3b4f80182f67d6cca60ebf15ad639aed26686676cf36366537403e",
+    "aoemod:textures/entity/orcz/orc_savage_big_2sword.png pack\u003dmod_resources sha256\u003d6333a10d90ab6e3670a729b074bfe3fe57801a4c8530fb9599bac3f1d27669e3",
+    "Boss model retains all 32 native cuboids; only three shared sword UVs relocate to (80,80)",
+    "Both Twilight Forest models retain the original shield socket and visible shield.",
+    "Live Goblin Knight identity: name\u003dGoblin Knight, height\u003d2.65, nativeTranslation\u003dUpper Goblin Knight",
+    "Goblin Knight: restored native classic renderer delegates retain adult helmet/arms, rider pose, opaque legs and a shared death pivot; one real saved entity.",
+    "Native yak saddle appears only when equipped.",
+    "Yak: two unscaled vanilla donkey chest boxes, native atlas/UVs, flush torso anchors and equipment visibility passed.",
+    "Fiddler blue: native renderer -\u003e aoemod:textures/entity/crustacean/fiddler_crab/fiddler_crab_blue.png pack\u003dmod_resources sha256\u003d93afa1604b71164f6287f5f808d9ffc6d805dd9daa83e85152db921cf4c9686b; legacy namespace already repaired\u003dfalse",
+    "Fiddler purple: native renderer -\u003e aoemod:textures/entity/crustacean/fiddler_crab/fiddler_crab_purple.png pack\u003dmod_resources sha256\u003dfe433e78e275dded49826923e5c8b5d198ce1733b495627afc0e676cf1110dbb; legacy namespace already repaired\u003dfalse",
+    "Fiddler red: native renderer -\u003e aoemod:textures/entity/crustacean/fiddler_crab/fiddler_crab_red.png pack\u003dmod_resources sha256\u003dfe433e78e275dded49826923e5c8b5d198ce1733b495627afc0e676cf1110dbb; legacy namespace already repaired\u003dfalse",
+    "Baked normal + snowlogged blueberry stage 0",
+    "Baked normal + snowlogged blueberry stage 1",
+    "Baked normal + snowlogged blueberry stage 2",
+    "Baked normal + snowlogged blueberry stage 3"
+  ]
+}

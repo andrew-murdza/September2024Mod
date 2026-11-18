@@ -1,0 +1,32 @@
+allprojects {
+    afterEvaluate { p ->
+        if (!p.plugins.hasPlugin('net.minecraftforge.gradle')) return
+        p.tasks.matching { it.name in ['reobfJar', 'reobfJarJar'] }.configureEach { useArgsFile() }
+        def focused = p.gradle.startParameter.taskNames.any { it.tokenize(':').last() == 'runGameTestServer' }
+        if (focused) {
+            p.buildDir = p.file('build/mob-terrain-revision-qa')
+            def runtimeName = p.findProperty('revisionRun')?.toString() ?: 'run'
+            if (!(runtimeName ==~ /^[A-Za-z0-9-]+$/)) throw new GradleException('revisionRun must be a simple folder name')
+            p.tasks.named('compileJava').configure { destinationDirectory.set(p.file('build/mob-terrain-revision-qa/classes/java/main')) }
+            p.tasks.named('processResources').configure { destinationDir = p.file('build/mob-terrain-revision-qa/resources/main') }
+            p.sourceSets.main.output.classesDirs.setFrom(p.file('build/mob-terrain-revision-qa/classes/java/main'))
+            p.sourceSets.main.output.resourcesDir = p.file('build/mob-terrain-revision-qa/resources/main')
+            def selected = (p.findProperty('revisionTests') ?: 'BossLairRevisionTests,BossLairPlacementTests,BossSummonPositionTests,MobRevisionTests,TerrainNovemberRevisionTests,AquaticSpawnDistanceTests,PlainsCaveVegetationTests,PlantRoundTwoTests,TreeBalanceRevisionTests,DeepDarkVegetationTests,SnowyBerryPatchTests,DappledPumpkinTests,NetherVegetationRevisionTests,DesertCropGameplayTests').split(',').collect { it + '.java' }
+            if (selected.contains('TreeBalanceRevisionTests.java')) selected.add('TropicalTreeShapeTests.java')
+            selected.add('SurfaceWaterCacheTests.java')
+            p.sourceSets.main.java.exclude { element ->
+                element.relativePath.pathString.startsWith('net/amurdza/examplemod/gametest/') && !selected.contains(element.file.name)
+            }
+            p.minecraft.runs.gameTestServer {
+                workingDirectory p.file('build/mob-terrain-revision-qa/' + runtimeName)
+                jvmArgs '-Xmx4G'
+            }
+        }
+        p.minecraft.runs.data {
+            workingDirectory p.file('build/mob-terrain-data-run')
+            args.clear()
+            args '--mod', p.mod_id, '--all', '--output', p.file('src/generated/resources').absolutePath,
+                    '--existing', p.file('src/main/resources').absolutePath
+        }
+    }
+}

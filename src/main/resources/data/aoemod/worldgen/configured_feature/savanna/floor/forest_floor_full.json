@@ -1,17 +1,13 @@
 {
   "type": "aoemod:all_surface",
   "config": {
-    "feature": {
-      "feature": "aoemod:savanna/floor/grass",
-      "placement": []
-    },
     "guaranteed_features": [
       {
         "feature": "aoemod:savanna/floor/grid_choice",
         "placement": []
       }
     ],
-     "target": "air",
+    "target": "air",
     "all_layers": false,
     "predicate": {
       "type": "minecraft:matching_blocks",

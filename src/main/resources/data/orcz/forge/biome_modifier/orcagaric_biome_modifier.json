@@ -1,0 +1,6 @@
+{
+  "type": "forge:add_features",
+  "biomes": "#minecraft:is_overworld",
+  "features": "orcz:orcagaric",
+  "step": "vegetal_decoration"
+}

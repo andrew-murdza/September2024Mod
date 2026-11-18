@@ -1,0 +1,29 @@
+{
+  "passed": true,
+  "captures": [
+    {
+      "label": "camp_nov16_overhead",
+      "image": "C:/Users/andre/Downloads/Games/September2024Mod/build/nov16-iteration/visuals/client-views-a/screenshots/camp_nov16_overhead.png",
+      "passed": true,
+      "notes": "Nine corrected tents form a regular three-by-three grid within the path courtyard. Farm rows, roads, pens and surrounding tree lawns are visibly distinct. Distant stockade edge fades into fog; exact spacing is established by the native/template checks."
+    },
+    {
+      "label": "camp_nov16_gate",
+      "image": "C:/Users/andre/Downloads/Games/September2024Mod/build/nov16-iteration/visuals/client-views-a/screenshots/camp_nov16_gate.png",
+      "passed": true,
+      "notes": "The gate matches the reference: three-wide log uprights, full-width horizontal beam, three fence-mounted skulls per side, and a clear eight-wide road opening. Inner grass and bushes remain beside the posts."
+    },
+    {
+      "label": "camp_nov16_corrected_tent",
+      "image": "C:/Users/andre/Downloads/Games/September2024Mod/build/nov16-iteration/visuals/client-views-a/screenshots/camp_nov16_corrected_tent.png",
+      "passed": true,
+      "notes": "The corrected north fascia now has a single lower band with the extra upper row removed. The stepped roof, entrance, hay flooring and internal furnishings remain intact."
+    },
+    {
+      "label": "camp_nov16_tree_lawn",
+      "image": "C:/Users/andre/Downloads/Games/September2024Mod/build/nov16-iteration/visuals/client-views-a/screenshots/camp_nov16_tree_lawn.png",
+      "passed": true,
+      "notes": "The former standalone corner patch is ordinary grass with complete native acacias. Trunks and crowns remain separate from the surrounding roads, crops and fenced pens."
+    }
+  ]
+}

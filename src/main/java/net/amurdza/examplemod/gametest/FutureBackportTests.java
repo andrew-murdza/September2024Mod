@@ -8,6 +8,7 @@ import com.blackgear.vanillabackport.core.VanillaBackport;
 import net.amurdza.examplemod.AOEMod;
 import net.amurdza.examplemod.future.FutureContentPolicy;
 import net.amurdza.examplemod.item.ModToolTiers;
+import net.amurdza.examplemod.registry.ModItems;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.gametest.framework.GameTest;
@@ -50,11 +51,25 @@ public final class FutureBackportTests {
 
     @GameTest(template = "plant_gameplay_empty")
     public static void completeSpearsMigrateAndKeepPackProgression(GameTestHelper helper) {
-        ItemStack legacy = new ItemStack(BuiltInRegistries.ITEM.get(new ResourceLocation("aoemod", "iron_spear")));
-        legacy.setHoverName(Component.literal("Legacy spear"));
-        ItemStack migrated = FutureContentPolicy.canonicalStack(legacy);
-        helper.assertTrue(migrated.getItem() instanceof SpearItem, "Old nonbone spears must use the complete backport implementation");
-        helper.assertTrue(migrated.getHoverName().getString().equals("Legacy spear"), "Migration must retain custom NBT");
+        for (String name : new String[]{"wooden_spear", "stone_spear", "copper_spear", "iron_spear",
+                "golden_spear", "diamond_spear", "netherite_spear", "copper_sword", "copper_shovel",
+                "copper_pickaxe", "copper_axe", "copper_hoe", "copper_helmet", "copper_chestplate",
+                "copper_leggings", "copper_boots", "copper_chain"}) {
+            ResourceLocation oldId = new ResourceLocation(AOEMod.MOD_ID, name);
+            ResourceLocation nativeId = new ResourceLocation("minecraft", name);
+            helper.assertFalse(BuiltInRegistries.ITEM.containsKey(oldId), "Duplicate AoE registration must be absent: " + name);
+            helper.assertTrue(FutureContentPolicy.canonicalItem(oldId).equals(nativeId)
+                            && BuiltInRegistries.ITEM.containsKey(nativeId) && !FutureContentPolicy.isExcludedItem(nativeId),
+                    "Old IDs must migrate to their available native replacement: " + name);
+        }
+        helper.assertFalse(BuiltInRegistries.BLOCK.containsKey(new ResourceLocation(AOEMod.MOD_ID, "copper_chain")),
+                "Duplicate copper chain block must be absent too");
+        ItemStack migrated = new ItemStack(ModItems.IRON_SPEAR.get());
+        migrated.setHoverName(Component.literal("Legacy spear"));
+        helper.assertTrue(migrated.getItem() instanceof SpearItem, "All equipment references must use the complete native spear");
+        helper.assertTrue(FutureContentPolicy.canonicalStack(migrated) == migrated
+                        && migrated.getHoverName().getString().equals("Legacy spear"),
+                "Native replacements must preserve their existing stack and NBT");
         var netherite = (SpearItem) BuiltInRegistries.ITEM.get(new ResourceLocation("minecraft", "netherite_spear"));
         helper.assertTrue(netherite.getTier() == ModToolTiers.REBALANCED_NETHERITE, "Netherite spear must use the copper/iron midpoint tier");
         helper.assertTrue(netherite.getAttackDamage() == ModToolTiers.REBALANCED_NETHERITE.getAttackDamageBonus(), "Spear attack damage must use the midpoint, including its constructor-cached value");
@@ -63,22 +78,25 @@ public final class FutureBackportTests {
     }
 
     @GameTest(template = "plant_gameplay_empty")
-    public static void redShrubUsesCrimsonRootRules(GameTestHelper helper) {
+    public static void redShrubRequiresGrassAndDoesNotBurn(GameTestHelper helper) {
         var shrub = BuiltInRegistries.BLOCK.get(new ResourceLocation("minecraft", "red_shrub"));
         helper.assertTrue(shrub != Blocks.AIR, "Red shrub must be registered");
-        var shrubState = shrub.defaultBlockState();
-        var roots = Blocks.CRIMSON_ROOTS.defaultBlockState();
         BlockPos support = new BlockPos(1, 1, 1);
         BlockPos plant = helper.absolutePos(support.above());
-        helper.setBlock(support, Blocks.CRIMSON_NYLIUM);
-        helper.assertTrue(shrub.defaultBlockState().canSurvive(helper.getLevel(), plant), "Red shrubs must survive on crimson nylium");
         helper.setBlock(support, Blocks.GRASS_BLOCK);
-        helper.assertTrue(!shrub.defaultBlockState().canSurvive(helper.getLevel(), plant), "Red shrubs must reject grass like crimson roots");
-        helper.assertTrue(!((BonemealableBlock) shrub).isValidBonemealTarget(helper.getLevel(), plant, shrub.defaultBlockState(), false), "Red shrubs must not spread by direct bonemeal");
-        helper.assertTrue(shrubState.getSoundType() == roots.getSoundType(), "Red shrubs must use crimson-root sounds");
-        helper.assertTrue(shrubState.ignitedByLava() == roots.ignitedByLava(), "Red shrubs must inherit crimson-root lava ignition behavior");
-        helper.assertTrue(shrubState.canBeReplaced() == roots.canBeReplaced(), "Red shrubs must inherit crimson-root replaceability");
-        helper.assertTrue(shrubState.getShape(helper.getLevel(), plant).bounds().equals(roots.getShape(helper.getLevel(), plant).bounds()), "Red shrubs must use the crimson-root shape and position offset");
+        helper.assertTrue(shrub.defaultBlockState().canSurvive(helper.getLevel(), plant), "Red shrubs must survive on grass");
+        helper.setBlock(support, Blocks.CRIMSON_NYLIUM);
+        helper.assertFalse(shrub.defaultBlockState().canSurvive(helper.getLevel(), plant), "Red shrubs must no longer survive on crimson nylium");
+        helper.setBlock(support, Blocks.DIRT);
+        helper.assertFalse(shrub.defaultBlockState().canSurvive(helper.getLevel(), plant), "Red shrubs must not survive on dirt");
+        helper.setBlock(support, Blocks.WARPED_NYLIUM);
+        helper.assertFalse(shrub.defaultBlockState().canSurvive(helper.getLevel(), plant), "Red shrubs must not survive on warped nylium");
+        for (var side : net.minecraft.core.Direction.values()) {
+            helper.assertTrue(shrub.defaultBlockState().getFlammability(helper.getLevel(), plant, side) == 0
+                            && shrub.defaultBlockState().getFireSpreadSpeed(helper.getLevel(), plant, side) == 0,
+                    "Red shrubs must neither burn nor spread fire on any face");
+        }
+        helper.assertFalse(shrub.defaultBlockState().ignitedByLava(), "Red shrubs must not be ignited by lava");
         helper.succeed();
     }
 

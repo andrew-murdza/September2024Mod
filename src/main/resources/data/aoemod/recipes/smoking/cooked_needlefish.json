@@ -1,9 +1,0 @@
-{
-  "type": "minecraft:smoking",
-  "ingredient": {
-    "item": "hybrid_aquatic:needlefish"
-  },
-  "result": "aoemod:cooked_needlefish",
-  "experience": 0.35,
-  "cookingtime": 100
-}

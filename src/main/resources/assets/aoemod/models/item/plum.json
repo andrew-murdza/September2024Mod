@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "environmental:item/plum"
+    "layer0": "aoemod:item/plum"
   }
 }

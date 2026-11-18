@@ -1,0 +1,327 @@
+{
+  "distinct_tests": 64,
+  "passing_latest": 64,
+  "remaining_failures": {},
+  "tests": {
+    "circularmoundhasacompletesingleblockoutsideledge": {
+      "passed": true,
+      "source": "camp-a-results.xml",
+      "failure": []
+    },
+    "entiretreerollsbackwhenitsbranchesenterapen": {
+      "passed": true,
+      "source": "camp-a-results.xml",
+      "failure": []
+    },
+    "croppondmudreachesbedrockwithoutreplacingit": {
+      "passed": true,
+      "source": "camp-a-results.xml",
+      "failure": []
+    },
+    "sparsecampclearstallinteriorobstacleswithouttouchingoutsideorotherchunks": {
+      "passed": true,
+      "source": "camp-a-results.xml",
+      "failure": []
+    },
+    "nativegrassandflowersuseraisedpenlawnsandpreserveauthoredcolumns": {
+      "passed": true,
+      "source": "camp-a-results.xml",
+      "failure": []
+    },
+    "squarecampschoosehighdrygroundfortheirentireapron": {
+      "passed": true,
+      "source": "camp-siting-b-results.xml",
+      "failure": []
+    },
+    "groundplanstopsatfirsteightlaneterrainintersection": {
+      "passed": true,
+      "source": "camp-a-results.xml",
+      "failure": []
+    },
+    "alleightentrancecellsdescendtogetherwithoutcenterspines": {
+      "passed": true,
+      "source": "camp-a-results.xml",
+      "failure": []
+    },
+    "oldversionthreepieceskeeptheiroriginalfootprintandpopulationbits": {
+      "passed": true,
+      "source": "camp-a-results.xml",
+      "failure": []
+    },
+    "replacedcampreservationsreleaseoldlawnsandretainuntouchedneighbors": {
+      "passed": true,
+      "source": "camp-a-results.xml",
+      "failure": []
+    },
+    "allthirtysixopenedchestsshareexactlythepreviouseightchestbudget": {
+      "passed": true,
+      "source": "camp-a-results.xml",
+      "failure": []
+    },
+    "nativefeaturessnapshotraisedmoundbeforetreesacrosschunkedges": {
+      "passed": true,
+      "source": "camp-a-results.xml",
+      "failure": []
+    },
+    "plantingmaskssurviveradiuszeroreloadwithoutchangingcampexclusion": {
+      "passed": true,
+      "source": "camp-a-results.xml",
+      "failure": []
+    },
+    "widepengatesremainclosedandcanopenindividually": {
+      "passed": true,
+      "source": "camp-a-results.xml",
+      "failure": []
+    },
+    "shallowcroppondskeeptwodrycanesectionsafterfluidticks": {
+      "passed": true,
+      "source": "camp-a-results.xml",
+      "failure": []
+    },
+    "naturalsavannagridgeneratesthecompletenativecampondryland": {
+      "passed": true,
+      "source": "camp-siting-b-results.xml",
+      "failure": []
+    },
+    "villagepopulationpersistsacrosschunksandpiecereload": {
+      "passed": true,
+      "source": "camp-scenes-a-results.xml",
+      "failure": []
+    },
+    "sandyfarmlandcanonlybecreatedbyhoeinguncovereddesertsand": {
+      "passed": true,
+      "source": "remaining-a-results.xml",
+      "failure": []
+    },
+    "directlyconstructedworldgenregionusesexactshorebiomesateveryaltitude": {
+      "passed": true,
+      "source": "remaining-a-results.xml",
+      "failure": []
+    },
+    "savedblueprintsremainstableandexplicitreplacementrefreshestheirprotection": {
+      "passed": true,
+      "source": "remaining-a-results.xml",
+      "failure": []
+    },
+    "nearbyredstoneuseexplainsthemansionlock": {
+      "passed": true,
+      "source": "remaining-a-results.xml",
+      "failure": []
+    },
+    "pairedstraightmouthsfollownegativetandstayondrysand": {
+      "passed": true,
+      "source": "remaining-a-results.xml",
+      "failure": []
+    },
+    "bamboopatchescontaintenstemsandstopbelowleavesorsolidceilings": {
+      "passed": true,
+      "source": "remaining-a-results.xml",
+      "failure": []
+    },
+    "eachroomtilehasaloweredchandelierwithoutremovingfurniture": {
+      "passed": true,
+      "source": "remaining-a-results.xml",
+      "failure": []
+    },
+    "mansionkeyopensonlyitsowndoubledoor": {
+      "passed": true,
+      "source": "remaining-a-results.xml",
+      "failure": []
+    },
+    "naturalandcommandbasementsexcludewildmushroomsthroughbuffers": {
+      "passed": true,
+      "source": "remaining-a-results.xml",
+      "failure": []
+    },
+    "onedoorkeykeepsthemineablemouthandprotectedbacking": {
+      "passed": true,
+      "source": "remaining-a-results.xml",
+      "failure": []
+    },
+    "bambooselectionmatchesoriginalorchidpatchfrequency": {
+      "passed": true,
+      "source": "remaining-a-results.xml",
+      "failure": []
+    },
+    "actualdesertsurfacebuilderkeepsopencaveentrancesstone": {
+      "passed": true,
+      "source": "remaining-a-results.xml",
+      "failure": []
+    },
+    "interpolateddescentshavesupportedwalkingcentersandsealednearbylakes": {
+      "passed": true,
+      "source": "remaining-a-results.xml",
+      "failure": []
+    },
+    "authoredtwentyroomcellarkeepsitscontentslightingandrotatedconnections": {
+      "passed": true,
+      "source": "remaining-a-results.xml",
+      "failure": []
+    },
+    "cherryflowercyclerestoresoriginalspeciesandweights": {
+      "passed": true,
+      "source": "remaining-a-results.xml",
+      "failure": []
+    },
+    "nativecherrydecorationretainsfinalbambooandexportsviews": {
+      "passed": true,
+      "source": "remaining-a-results.xml",
+      "failure": []
+    },
+    "cherryhascontainedflowerpatcheswithfewertallselections": {
+      "passed": true,
+      "source": "remaining-a-results.xml",
+      "failure": []
+    },
+    "sandyfarmlandrevertstosandwhendryorcovered": {
+      "passed": true,
+      "source": "remaining-a-results.xml",
+      "failure": []
+    },
+    "widenedbasementkeepsstationsminesandsoilinsidetheirrooms": {
+      "passed": true,
+      "source": "remaining-a-results.xml",
+      "failure": []
+    },
+    "sharedcataloguefitsthreecompletenativefloors": {
+      "passed": true,
+      "source": "mansion-b-results.xml",
+      "failure": []
+    },
+    "restoredbiomemodsprovidetheiroriginalregistrations": {
+      "passed": true,
+      "source": "remaining-a-results.xml",
+      "failure": []
+    },
+    "exportoppositeterraceentrancesandcurveddescent": {
+      "passed": true,
+      "source": "remaining-a-results.xml",
+      "failure": []
+    },
+    "rearrangedroomskeepmirroredcropsconnectedpensandinwardlighting": {
+      "passed": true,
+      "source": "remaining-a-results.xml",
+      "failure": []
+    },
+    "completemansionconnectseveryroomandexportsestateviews": {
+      "passed": true,
+      "source": "mansion-c-results.xml",
+      "failure": []
+    },
+    "basementbeginsbehindthemainstairsineveryrotationandkeepsoldblueprints": {
+      "passed": true,
+      "source": "remaining-a-results.xml",
+      "failure": []
+    },
+    "nativemangroverootsreplaceflowersbutfloracannotreplaceroots": {
+      "passed": true,
+      "source": "remaining-a-results.xml",
+      "failure": []
+    },
+    "carpetcornersroofslabsandfoyerstepssurviveclippingandreload": {
+      "passed": true,
+      "source": "mansion-b-results.xml",
+      "failure": []
+    },
+    "carvedentranceskeepstonebutuntouchedrimskeeptheirsurface": {
+      "passed": true,
+      "source": "remaining-a-results.xml",
+      "failure": []
+    },
+    "fullcherrypassmakestwoindependentflowerattemptsandrestorespinkdaffodils": {
+      "passed": true,
+      "source": "remaining-a-results.xml",
+      "failure": []
+    },
+    "lavenderforesttreesaccepttheirlegacynullrootplacer": {
+      "passed": true,
+      "source": "remaining-a-results.xml",
+      "failure": []
+    },
+    "lordkeyretainsitsmansiondimensionaftertransferandreload": {
+      "passed": true,
+      "source": "remaining-a-results.xml",
+      "failure": []
+    },
+    "sandyfarmlandsurvivesacquisitionrebuildandrealhoeuse": {
+      "passed": true,
+      "source": "remaining-a-results.xml",
+      "failure": []
+    },
+    "basementsurviveschunkclippingandworldcleanup": {
+      "passed": true,
+      "source": "remaining-a-results.xml",
+      "failure": []
+    },
+    "restoredislandskeepcherryrainforestandoriginalflowerfaunaallocations": {
+      "passed": true,
+      "source": "remaining-a-results.xml",
+      "failure": []
+    },
+    "sixlitminetunnelshavemineablestoneandprotectedbrickbacking": {
+      "passed": true,
+      "source": "remaining-a-results.xml",
+      "failure": []
+    },
+    "smallerreplacementinvalidateswatchedchunksfromthepreviousmansion": {
+      "passed": true,
+      "source": "remaining-a-results.xml",
+      "failure": []
+    },
+    "nativecrossesandtorchpostsconvertwithoutchangingtemplates": {
+      "passed": true,
+      "source": "mansion-b-results.xml",
+      "failure": []
+    },
+    "cavernsoccupytextremaandleavesolidbanksbetweenthem": {
+      "passed": true,
+      "source": "remaining-a-results.xml",
+      "failure": []
+    },
+    "protectionpacketskeepnaturalandcommandgeometryandmineexceptions": {
+      "passed": true,
+      "source": "remaining-a-results.xml",
+      "failure": []
+    },
+    "bygblockskimonoandlaviathanlosetheirgameplaysources": {
+      "passed": true,
+      "source": "remaining-a-results.xml",
+      "failure": []
+    },
+    "decoratedislandhasallfifteenpersistentgroups": {
+      "passed": true,
+      "source": "remaining-a-results.xml",
+      "failure": []
+    },
+    "raisedentranceceilingandauthoredlightscontainwaterafterfluidticks": {
+      "passed": true,
+      "source": "remaining-a-results.xml",
+      "failure": []
+    },
+    "widenedauthoredlandingcontainswaterandlightstheactualhallfloor": {
+      "passed": true,
+      "source": "remaining-a-results.xml",
+      "failure": []
+    },
+    "largedrydividesfittheexistingfoundationandrampcapacity": {
+      "passed": true,
+      "source": "camp-siting-b-results.xml",
+      "failure": []
+    },
+    "mansionestateflattenssixtyfourblocksthenblendsovertwelve": {
+      "passed": true,
+      "source": "mansion-c-results.xml",
+      "failure": []
+    },
+    "floorpaddingpreservesupperroomsandroofwhileoutsidegroundstillgrades": {
+      "passed": true,
+      "source": "mansion-c-results.xml",
+      "failure": []
+    },
+    "roofmoundsclearperchunkwithoutremovingupperroofsoroutsideterrain": {
+      "passed": true,
+      "source": "mansion-c-results.xml",
+      "failure": []
+    }
+  }
+}

@@ -1,0 +1,651 @@
+{
+  "status": "passed",
+  "phase": "after",
+  "reviewedAt": "2026-11-08T20:15:31.4966045Z",
+  "captureRun": "client-after-world4",
+  "reviewedFrames": 63,
+  "speciesAndVariants": 21,
+  "outsideWater": 0,
+  "groupedIdentityIssues": 0,
+  "reviewMethod": "Inspected all frames through full-resolution images for initial critical species, then labeled contact sheets for all remaining aquatic species; verified capture metadata.",
+  "observations": [
+    "All specimens and appendages fit within the frame.",
+    "Glider throat is compressed in its native swim animation, without the unanimated cube.",
+    "Arrow and vampire squid show separated tentacles in swimming poses.",
+    "All three starfish variants lie flat on the underwater substrate.",
+    "Flying fish first angle is near the surface with the camera just above water; the animal is fully visible.",
+    "Stingray and octopus occupy less of the frame than other species but remain readable."
+  ],
+  "frames": [
+    {
+      "label": "angling_anglerfish_side",
+      "id": "angling:anglerfish",
+      "variant": null,
+      "visualReview": "pass",
+      "inWater": true,
+      "entityUuid": "78398ffb-eae3-4e68-a4c5-39f35bfa0d86",
+      "fullyFramed": true,
+      "correctHabitatPose": true
+    },
+    {
+      "label": "angling_anglerfish_front",
+      "id": "angling:anglerfish",
+      "variant": null,
+      "visualReview": "pass",
+      "inWater": true,
+      "entityUuid": "78398ffb-eae3-4e68-a4c5-39f35bfa0d86",
+      "fullyFramed": true,
+      "correctHabitatPose": true
+    },
+    {
+      "label": "angling_anglerfish_rear",
+      "id": "angling:anglerfish",
+      "variant": null,
+      "visualReview": "pass",
+      "inWater": true,
+      "entityUuid": "78398ffb-eae3-4e68-a4c5-39f35bfa0d86",
+      "fullyFramed": true,
+      "correctHabitatPose": true
+    },
+    {
+      "label": "finsandtails_rubber_belly_glider_side",
+      "id": "finsandtails:rubber_belly_glider",
+      "variant": null,
+      "visualReview": "pass",
+      "inWater": true,
+      "entityUuid": "9aef422e-bbcf-47a9-8bdd-b8d588148d00",
+      "fullyFramed": true,
+      "correctHabitatPose": true
+    },
+    {
+      "label": "finsandtails_rubber_belly_glider_front",
+      "id": "finsandtails:rubber_belly_glider",
+      "variant": null,
+      "visualReview": "pass",
+      "inWater": true,
+      "entityUuid": "9aef422e-bbcf-47a9-8bdd-b8d588148d00",
+      "fullyFramed": true,
+      "correctHabitatPose": true
+    },
+    {
+      "label": "finsandtails_rubber_belly_glider_rear",
+      "id": "finsandtails:rubber_belly_glider",
+      "variant": null,
+      "visualReview": "pass",
+      "inWater": true,
+      "entityUuid": "9aef422e-bbcf-47a9-8bdd-b8d588148d00",
+      "fullyFramed": true,
+      "correctHabitatPose": true
+    },
+    {
+      "label": "hybrid_aquatic_arrow_squid_side",
+      "id": "hybrid_aquatic:arrow_squid",
+      "variant": null,
+      "visualReview": "pass",
+      "inWater": true,
+      "entityUuid": "382897ee-de25-4db4-b920-765d50cea531",
+      "fullyFramed": true,
+      "correctHabitatPose": true
+    },
+    {
+      "label": "hybrid_aquatic_arrow_squid_front",
+      "id": "hybrid_aquatic:arrow_squid",
+      "variant": null,
+      "visualReview": "pass",
+      "inWater": true,
+      "entityUuid": "382897ee-de25-4db4-b920-765d50cea531",
+      "fullyFramed": true,
+      "correctHabitatPose": true
+    },
+    {
+      "label": "hybrid_aquatic_arrow_squid_rear",
+      "id": "hybrid_aquatic:arrow_squid",
+      "variant": null,
+      "visualReview": "pass",
+      "inWater": true,
+      "entityUuid": "382897ee-de25-4db4-b920-765d50cea531",
+      "fullyFramed": true,
+      "correctHabitatPose": true
+    },
+    {
+      "label": "hybrid_aquatic_starfish_medium_rear",
+      "id": "hybrid_aquatic:starfish",
+      "variant": "MEDIUM",
+      "visualReview": "pass",
+      "inWater": true,
+      "entityUuid": "b78b22e0-5840-479f-81f2-4d745f699f84",
+      "fullyFramed": true,
+      "correctHabitatPose": true
+    },
+    {
+      "label": "hybrid_aquatic_starfish_medium_front",
+      "id": "hybrid_aquatic:starfish",
+      "variant": "MEDIUM",
+      "visualReview": "pass",
+      "inWater": true,
+      "entityUuid": "b78b22e0-5840-479f-81f2-4d745f699f84",
+      "fullyFramed": true,
+      "correctHabitatPose": true
+    },
+    {
+      "label": "hybrid_aquatic_starfish_medium_side",
+      "id": "hybrid_aquatic:starfish",
+      "variant": "MEDIUM",
+      "visualReview": "pass",
+      "inWater": true,
+      "entityUuid": "b78b22e0-5840-479f-81f2-4d745f699f84",
+      "fullyFramed": true,
+      "correctHabitatPose": true
+    },
+    {
+      "label": "hybrid_aquatic_lightfoot_crab_side",
+      "id": "hybrid_aquatic:lightfoot_crab",
+      "variant": null,
+      "visualReview": "pass",
+      "inWater": true,
+      "entityUuid": "6aa1171b-3262-44a0-bdd7-e2b2405cf86e",
+      "fullyFramed": true,
+      "correctHabitatPose": true
+    },
+    {
+      "label": "hybrid_aquatic_lightfoot_crab_front",
+      "id": "hybrid_aquatic:lightfoot_crab",
+      "variant": null,
+      "visualReview": "pass",
+      "inWater": true,
+      "entityUuid": "6aa1171b-3262-44a0-bdd7-e2b2405cf86e",
+      "fullyFramed": true,
+      "correctHabitatPose": true
+    },
+    {
+      "label": "hybrid_aquatic_lightfoot_crab_rear",
+      "id": "hybrid_aquatic:lightfoot_crab",
+      "variant": null,
+      "visualReview": "pass",
+      "inWater": true,
+      "entityUuid": "6aa1171b-3262-44a0-bdd7-e2b2405cf86e",
+      "fullyFramed": true,
+      "correctHabitatPose": true
+    },
+    {
+      "label": "angling_mahi_mahi_front",
+      "id": "angling:mahi_mahi",
+      "variant": null,
+      "visualReview": "pass",
+      "inWater": true,
+      "entityUuid": "0a2022f1-11b8-46fc-ab1c-d93c33bda4b9",
+      "fullyFramed": true,
+      "correctHabitatPose": true
+    },
+    {
+      "label": "angling_mahi_mahi_side",
+      "id": "angling:mahi_mahi",
+      "variant": null,
+      "visualReview": "pass",
+      "inWater": true,
+      "entityUuid": "0a2022f1-11b8-46fc-ab1c-d93c33bda4b9",
+      "fullyFramed": true,
+      "correctHabitatPose": true
+    },
+    {
+      "label": "angling_mahi_mahi_rear",
+      "id": "angling:mahi_mahi",
+      "variant": null,
+      "visualReview": "pass",
+      "inWater": true,
+      "entityUuid": "0a2022f1-11b8-46fc-ab1c-d93c33bda4b9",
+      "fullyFramed": true,
+      "correctHabitatPose": true
+    },
+    {
+      "label": "angling_anomalocaris_front",
+      "id": "angling:anomalocaris",
+      "variant": null,
+      "visualReview": "pass",
+      "inWater": true,
+      "entityUuid": "d00809d0-e241-47d9-a562-6720be12e2bd",
+      "fullyFramed": true,
+      "correctHabitatPose": true
+    },
+    {
+      "label": "angling_anomalocaris_side",
+      "id": "angling:anomalocaris",
+      "variant": null,
+      "visualReview": "pass",
+      "inWater": true,
+      "entityUuid": "d00809d0-e241-47d9-a562-6720be12e2bd",
+      "fullyFramed": true,
+      "correctHabitatPose": true
+    },
+    {
+      "label": "angling_anomalocaris_rear",
+      "id": "angling:anomalocaris",
+      "variant": null,
+      "visualReview": "pass",
+      "inWater": true,
+      "entityUuid": "d00809d0-e241-47d9-a562-6720be12e2bd",
+      "fullyFramed": true,
+      "correctHabitatPose": true
+    },
+    {
+      "label": "alexsmobs_flying_fish_front",
+      "id": "alexsmobs:flying_fish",
+      "variant": null,
+      "visualReview": "pass",
+      "inWater": true,
+      "entityUuid": "b10f8d5b-1314-4507-839f-d1f561474061",
+      "fullyFramed": true,
+      "correctHabitatPose": true
+    },
+    {
+      "label": "alexsmobs_flying_fish_side",
+      "id": "alexsmobs:flying_fish",
+      "variant": null,
+      "visualReview": "pass",
+      "inWater": true,
+      "entityUuid": "b10f8d5b-1314-4507-839f-d1f561474061",
+      "fullyFramed": true,
+      "correctHabitatPose": true
+    },
+    {
+      "label": "alexsmobs_flying_fish_rear",
+      "id": "alexsmobs:flying_fish",
+      "variant": null,
+      "visualReview": "pass",
+      "inWater": true,
+      "entityUuid": "b10f8d5b-1314-4507-839f-d1f561474061",
+      "fullyFramed": true,
+      "correctHabitatPose": true
+    },
+    {
+      "label": "alexsmobs_triops_front",
+      "id": "alexsmobs:triops",
+      "variant": null,
+      "visualReview": "pass",
+      "inWater": true,
+      "entityUuid": "99307501-30bb-4170-9ff5-6c6c75fcacb0",
+      "fullyFramed": true,
+      "correctHabitatPose": true
+    },
+    {
+      "label": "alexsmobs_triops_side",
+      "id": "alexsmobs:triops",
+      "variant": null,
+      "visualReview": "pass",
+      "inWater": true,
+      "entityUuid": "99307501-30bb-4170-9ff5-6c6c75fcacb0",
+      "fullyFramed": true,
+      "correctHabitatPose": true
+    },
+    {
+      "label": "alexsmobs_triops_rear",
+      "id": "alexsmobs:triops",
+      "variant": null,
+      "visualReview": "pass",
+      "inWater": true,
+      "entityUuid": "99307501-30bb-4170-9ff5-6c6c75fcacb0",
+      "fullyFramed": true,
+      "correctHabitatPose": true
+    },
+    {
+      "label": "ambientadditions_blue_spotted_stingray_front",
+      "id": "ambientadditions:blue_spotted_stingray",
+      "variant": null,
+      "visualReview": "pass",
+      "inWater": true,
+      "entityUuid": "90572ee6-9c5e-489e-8e25-e1e5556e02a4",
+      "fullyFramed": true,
+      "correctHabitatPose": true
+    },
+    {
+      "label": "ambientadditions_blue_spotted_stingray_side",
+      "id": "ambientadditions:blue_spotted_stingray",
+      "variant": null,
+      "visualReview": "pass",
+      "inWater": true,
+      "entityUuid": "90572ee6-9c5e-489e-8e25-e1e5556e02a4",
+      "fullyFramed": true,
+      "correctHabitatPose": true
+    },
+    {
+      "label": "ambientadditions_blue_spotted_stingray_rear",
+      "id": "ambientadditions:blue_spotted_stingray",
+      "variant": null,
+      "visualReview": "pass",
+      "inWater": true,
+      "entityUuid": "90572ee6-9c5e-489e-8e25-e1e5556e02a4",
+      "fullyFramed": true,
+      "correctHabitatPose": true
+    },
+    {
+      "label": "hybrid_aquatic_flower_crab_front",
+      "id": "hybrid_aquatic:flower_crab",
+      "variant": null,
+      "visualReview": "pass",
+      "inWater": true,
+      "entityUuid": "62bbfd06-11c3-436e-90af-7b61d16bc1bf",
+      "fullyFramed": true,
+      "correctHabitatPose": true
+    },
+    {
+      "label": "hybrid_aquatic_flower_crab_side",
+      "id": "hybrid_aquatic:flower_crab",
+      "variant": null,
+      "visualReview": "pass",
+      "inWater": true,
+      "entityUuid": "62bbfd06-11c3-436e-90af-7b61d16bc1bf",
+      "fullyFramed": true,
+      "correctHabitatPose": true
+    },
+    {
+      "label": "hybrid_aquatic_flower_crab_rear",
+      "id": "hybrid_aquatic:flower_crab",
+      "variant": null,
+      "visualReview": "pass",
+      "inWater": true,
+      "entityUuid": "62bbfd06-11c3-436e-90af-7b61d16bc1bf",
+      "fullyFramed": true,
+      "correctHabitatPose": true
+    },
+    {
+      "label": "hybrid_aquatic_fiddler_crab_front",
+      "id": "hybrid_aquatic:fiddler_crab",
+      "variant": null,
+      "visualReview": "pass",
+      "inWater": true,
+      "entityUuid": "2df81f1d-444e-41ea-89ed-aed51167300f",
+      "fullyFramed": true,
+      "correctHabitatPose": true
+    },
+    {
+      "label": "hybrid_aquatic_fiddler_crab_side",
+      "id": "hybrid_aquatic:fiddler_crab",
+      "variant": null,
+      "visualReview": "pass",
+      "inWater": true,
+      "entityUuid": "2df81f1d-444e-41ea-89ed-aed51167300f",
+      "fullyFramed": true,
+      "correctHabitatPose": true
+    },
+    {
+      "label": "hybrid_aquatic_fiddler_crab_rear",
+      "id": "hybrid_aquatic:fiddler_crab",
+      "variant": null,
+      "visualReview": "pass",
+      "inWater": true,
+      "entityUuid": "2df81f1d-444e-41ea-89ed-aed51167300f",
+      "fullyFramed": true,
+      "correctHabitatPose": true
+    },
+    {
+      "label": "hybrid_aquatic_octopus_front",
+      "id": "hybrid_aquatic:octopus",
+      "variant": null,
+      "visualReview": "pass",
+      "inWater": true,
+      "entityUuid": "1f2c828a-7029-4a76-8509-30e2de6f5112",
+      "fullyFramed": true,
+      "correctHabitatPose": true
+    },
+    {
+      "label": "hybrid_aquatic_octopus_side",
+      "id": "hybrid_aquatic:octopus",
+      "variant": null,
+      "visualReview": "pass",
+      "inWater": true,
+      "entityUuid": "1f2c828a-7029-4a76-8509-30e2de6f5112",
+      "fullyFramed": true,
+      "correctHabitatPose": true
+    },
+    {
+      "label": "hybrid_aquatic_octopus_rear",
+      "id": "hybrid_aquatic:octopus",
+      "variant": null,
+      "visualReview": "pass",
+      "inWater": true,
+      "entityUuid": "1f2c828a-7029-4a76-8509-30e2de6f5112",
+      "fullyFramed": true,
+      "correctHabitatPose": true
+    },
+    {
+      "label": "hybrid_aquatic_umbrella_octopus_front",
+      "id": "hybrid_aquatic:umbrella_octopus",
+      "variant": null,
+      "visualReview": "pass",
+      "inWater": true,
+      "entityUuid": "0ac65d8d-0cfa-40df-8b6b-8f650dcc894d",
+      "fullyFramed": true,
+      "correctHabitatPose": true
+    },
+    {
+      "label": "hybrid_aquatic_umbrella_octopus_side",
+      "id": "hybrid_aquatic:umbrella_octopus",
+      "variant": null,
+      "visualReview": "pass",
+      "inWater": true,
+      "entityUuid": "0ac65d8d-0cfa-40df-8b6b-8f650dcc894d",
+      "fullyFramed": true,
+      "correctHabitatPose": true
+    },
+    {
+      "label": "hybrid_aquatic_umbrella_octopus_rear",
+      "id": "hybrid_aquatic:umbrella_octopus",
+      "variant": null,
+      "visualReview": "pass",
+      "inWater": true,
+      "entityUuid": "0ac65d8d-0cfa-40df-8b6b-8f650dcc894d",
+      "fullyFramed": true,
+      "correctHabitatPose": true
+    },
+    {
+      "label": "hybrid_aquatic_carp_front",
+      "id": "hybrid_aquatic:carp",
+      "variant": null,
+      "visualReview": "pass",
+      "inWater": true,
+      "entityUuid": "54e05dd4-c06f-463c-b772-7196df52e3c9",
+      "fullyFramed": true,
+      "correctHabitatPose": true
+    },
+    {
+      "label": "hybrid_aquatic_carp_side",
+      "id": "hybrid_aquatic:carp",
+      "variant": null,
+      "visualReview": "pass",
+      "inWater": true,
+      "entityUuid": "54e05dd4-c06f-463c-b772-7196df52e3c9",
+      "fullyFramed": true,
+      "correctHabitatPose": true
+    },
+    {
+      "label": "hybrid_aquatic_carp_rear",
+      "id": "hybrid_aquatic:carp",
+      "variant": null,
+      "visualReview": "pass",
+      "inWater": true,
+      "entityUuid": "54e05dd4-c06f-463c-b772-7196df52e3c9",
+      "fullyFramed": true,
+      "correctHabitatPose": true
+    },
+    {
+      "label": "finsandtails_swamp_mucker_front",
+      "id": "finsandtails:swamp_mucker",
+      "variant": null,
+      "visualReview": "pass",
+      "inWater": true,
+      "entityUuid": "3d271709-361f-417d-aefa-79e4faf8c010",
+      "fullyFramed": true,
+      "correctHabitatPose": true
+    },
+    {
+      "label": "finsandtails_swamp_mucker_side",
+      "id": "finsandtails:swamp_mucker",
+      "variant": null,
+      "visualReview": "pass",
+      "inWater": true,
+      "entityUuid": "3d271709-361f-417d-aefa-79e4faf8c010",
+      "fullyFramed": true,
+      "correctHabitatPose": true
+    },
+    {
+      "label": "finsandtails_swamp_mucker_rear",
+      "id": "finsandtails:swamp_mucker",
+      "variant": null,
+      "visualReview": "pass",
+      "inWater": true,
+      "entityUuid": "3d271709-361f-417d-aefa-79e4faf8c010",
+      "fullyFramed": true,
+      "correctHabitatPose": true
+    },
+    {
+      "label": "hybrid_aquatic_vampire_squid_front",
+      "id": "hybrid_aquatic:vampire_squid",
+      "variant": null,
+      "visualReview": "pass",
+      "inWater": true,
+      "entityUuid": "155733d2-b357-4b39-a079-9d2e8880f9fb",
+      "fullyFramed": true,
+      "correctHabitatPose": true
+    },
+    {
+      "label": "hybrid_aquatic_vampire_squid_side",
+      "id": "hybrid_aquatic:vampire_squid",
+      "variant": null,
+      "visualReview": "pass",
+      "inWater": true,
+      "entityUuid": "155733d2-b357-4b39-a079-9d2e8880f9fb",
+      "fullyFramed": true,
+      "correctHabitatPose": true
+    },
+    {
+      "label": "hybrid_aquatic_vampire_squid_rear",
+      "id": "hybrid_aquatic:vampire_squid",
+      "variant": null,
+      "visualReview": "pass",
+      "inWater": true,
+      "entityUuid": "155733d2-b357-4b39-a079-9d2e8880f9fb",
+      "fullyFramed": true,
+      "correctHabitatPose": true
+    },
+    {
+      "label": "hybrid_aquatic_tuna_front",
+      "id": "hybrid_aquatic:tuna",
+      "variant": null,
+      "visualReview": "pass",
+      "inWater": true,
+      "entityUuid": "f0980931-693d-4c48-a6e7-620cfc586fcf",
+      "fullyFramed": true,
+      "correctHabitatPose": true
+    },
+    {
+      "label": "hybrid_aquatic_tuna_side",
+      "id": "hybrid_aquatic:tuna",
+      "variant": null,
+      "visualReview": "pass",
+      "inWater": true,
+      "entityUuid": "f0980931-693d-4c48-a6e7-620cfc586fcf",
+      "fullyFramed": true,
+      "correctHabitatPose": true
+    },
+    {
+      "label": "hybrid_aquatic_tuna_rear",
+      "id": "hybrid_aquatic:tuna",
+      "variant": null,
+      "visualReview": "pass",
+      "inWater": true,
+      "entityUuid": "f0980931-693d-4c48-a6e7-620cfc586fcf",
+      "fullyFramed": true,
+      "correctHabitatPose": true
+    },
+    {
+      "label": "hybrid_aquatic_spider_crab_front",
+      "id": "hybrid_aquatic:spider_crab",
+      "variant": null,
+      "visualReview": "pass",
+      "inWater": true,
+      "entityUuid": "75770f49-055a-41e2-a37c-fc13b5532194",
+      "fullyFramed": true,
+      "correctHabitatPose": true
+    },
+    {
+      "label": "hybrid_aquatic_spider_crab_side",
+      "id": "hybrid_aquatic:spider_crab",
+      "variant": null,
+      "visualReview": "pass",
+      "inWater": true,
+      "entityUuid": "75770f49-055a-41e2-a37c-fc13b5532194",
+      "fullyFramed": true,
+      "correctHabitatPose": true
+    },
+    {
+      "label": "hybrid_aquatic_spider_crab_rear",
+      "id": "hybrid_aquatic:spider_crab",
+      "variant": null,
+      "visualReview": "pass",
+      "inWater": true,
+      "entityUuid": "75770f49-055a-41e2-a37c-fc13b5532194",
+      "fullyFramed": true,
+      "correctHabitatPose": true
+    },
+    {
+      "label": "hybrid_aquatic_starfish_small_front",
+      "id": "hybrid_aquatic:starfish",
+      "variant": "SMALL",
+      "visualReview": "pass",
+      "inWater": true,
+      "entityUuid": "44475546-53fe-416c-8c7b-f3b8d1f23039",
+      "fullyFramed": true,
+      "correctHabitatPose": true
+    },
+    {
+      "label": "hybrid_aquatic_starfish_small_side",
+      "id": "hybrid_aquatic:starfish",
+      "variant": "SMALL",
+      "visualReview": "pass",
+      "inWater": true,
+      "entityUuid": "44475546-53fe-416c-8c7b-f3b8d1f23039",
+      "fullyFramed": true,
+      "correctHabitatPose": true
+    },
+    {
+      "label": "hybrid_aquatic_starfish_small_rear",
+      "id": "hybrid_aquatic:starfish",
+      "variant": "SMALL",
+      "visualReview": "pass",
+      "inWater": true,
+      "entityUuid": "44475546-53fe-416c-8c7b-f3b8d1f23039",
+      "fullyFramed": true,
+      "correctHabitatPose": true
+    },
+    {
+      "label": "hybrid_aquatic_starfish_crown_of_thorns_front",
+      "id": "hybrid_aquatic:starfish",
+      "variant": "CROWN_OF_THORNS",
+      "visualReview": "pass",
+      "inWater": true,
+      "entityUuid": "b5d8dccf-c1f9-4738-aee0-48860a1eefe0",
+      "fullyFramed": true,
+      "correctHabitatPose": true
+    },
+    {
+      "label": "hybrid_aquatic_starfish_crown_of_thorns_side",
+      "id": "hybrid_aquatic:starfish",
+      "variant": "CROWN_OF_THORNS",
+      "visualReview": "pass",
+      "inWater": true,
+      "entityUuid": "b5d8dccf-c1f9-4738-aee0-48860a1eefe0",
+      "fullyFramed": true,
+      "correctHabitatPose": true
+    },
+    {
+      "label": "hybrid_aquatic_starfish_crown_of_thorns_rear",
+      "id": "hybrid_aquatic:starfish",
+      "variant": "CROWN_OF_THORNS",
+      "visualReview": "pass",
+      "inWater": true,
+      "entityUuid": "b5d8dccf-c1f9-4738-aee0-48860a1eefe0",
+      "fullyFramed": true,
+      "correctHabitatPose": true
+    }
+  ]
+}

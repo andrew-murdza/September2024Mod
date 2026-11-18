@@ -2,7 +2,6 @@ package net.amurdza.examplemod.entity;
 
 import com.scouter.netherdepthsupgrade.entity.AbstractLavaSchoolingFish;
 import net.amurdza.examplemod.registry.ModItems;
-import net.amurdza.examplemod.util.ModTags;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.syncher.EntityDataAccessor;
 import net.minecraft.network.syncher.EntityDataSerializers;
@@ -20,6 +19,7 @@ import net.minecraft.world.entity.SpawnGroupData;
 import net.minecraft.world.entity.VariantHolder;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
+import net.minecraft.world.entity.animal.Bucketable;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.ServerLevelAccessor;
@@ -27,7 +27,7 @@ import org.jetbrains.annotations.NotNull;
 
 import java.util.function.IntFunction;
 
-public class CubozoaEntity extends AbstractLavaSchoolingFish implements VariantHolder<CubozoaEntity.Variant> {
+public class CubozoaEntity extends AbstractLavaSchoolingFish implements Bucketable, VariantHolder<CubozoaEntity.Variant> {
     public static final int VARIANTS = 2;
 
     private static final EntityDataAccessor<Integer> VARIANT = SynchedEntityData.defineId(
@@ -55,7 +55,7 @@ public class CubozoaEntity extends AbstractLavaSchoolingFish implements VariantH
         SpawnGroupData data = super.finalizeSpawn(world, difficulty, spawnReason, entityData, entityTag);
 
         if (entityTag == null || !entityTag.contains("Variant")) {
-            this.setVariant(chooseNaturalVariant(world));
+            this.setVariant(Variant.VARIANT_1);
         }
 
         if (entityTag != null) {
@@ -72,22 +72,10 @@ public class CubozoaEntity extends AbstractLavaSchoolingFish implements VariantH
         return data;
     }
 
-    private Variant chooseNaturalVariant(ServerLevelAccessor world) {
-        var biome = world.getBiome(this.blockPosition());
-
-        if (net.amurdza.examplemod.util.GameplayDimensions.is(world,
-                net.amurdza.examplemod.util.GameplayDimensions.NETHER)
-                || biome.is(ModTags.Biomes.basaltDeltasBiomes) || biome.is(ModTags.Biomes.crimsonForestBiomes)) {
-            return Variant.VARIANT_1;
-        }
-
-        return Variant.DEFAULT;
-    }
-
     @Override
     protected void defineSynchedData() {
         super.defineSynchedData();
-        this.entityData.define(VARIANT, Variant.DEFAULT.id());
+        this.entityData.define(VARIANT, Variant.VARIANT_1.id());
         this.entityData.define(SCALE, (byte) this.getRandom().nextInt(16));
     }
 
@@ -124,6 +112,20 @@ public class CubozoaEntity extends AbstractLavaSchoolingFish implements VariantH
         return bucket;
     }
 
+    // Alex's Mobs' bucket releases through vanilla Bucketable; NDU's lava-fish
+    // pickup uses BucketableLava. Implement both protocols with the same saved data.
+    @Override
+    public void loadFromBucketTag(@NotNull CompoundTag tag) {
+        super.loadFromBucketTag(tag);
+        if (tag.contains("Variant")) {
+            this.setVariant(Variant.byId(tag.getInt("Variant")));
+        }
+        if (tag.contains("Scale")) {
+            this.entityData.set(SCALE, sanitizeScale(tag.getInt("Scale")));
+        }
+        this.refreshDimensions();
+    }
+
     public static AttributeSupplier.@NotNull Builder createMobAttributes() {
         return LivingEntity
                 .createLivingAttributes()
@@ -139,7 +141,9 @@ public class CubozoaEntity extends AbstractLavaSchoolingFish implements VariantH
 
     @Override
     public void setVariant(Variant variant) {
-        this.entityData.set(VARIANT, variant.id());
+        // Keep the original enum and saved IDs readable, but migrate every old
+        // or explicitly selected appearance to the one retained sulfur variant.
+        this.entityData.set(VARIANT, Variant.VARIANT_1.id());
     }
 
     public int getVariantId() {

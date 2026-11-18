@@ -1,6 +1,7 @@
 package net.amurdza.examplemod.entity.ai;
 
 import net.minecraft.world.SimpleContainer;
+import net.minecraft.world.entity.animal.Cow;
 import java.util.UUID;
 import org.jetbrains.annotations.Nullable;
 
@@ -13,4 +14,8 @@ public interface YakAccess {
     boolean aoe$yakStaying();
     void aoe$setYakStaying(boolean value);
     SimpleContainer aoe$yakInventory();
+    @Nullable Cow aoe$caravanHead();
+    @Nullable Cow aoe$caravanTail();
+    void aoe$setCaravanHead(@Nullable Cow head);
+    void aoe$setCaravanTail(@Nullable Cow tail);
 }

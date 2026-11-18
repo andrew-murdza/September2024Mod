@@ -19,6 +19,25 @@ public class SkeletonHorsemanEntity extends SkeletonHorse {
 
     public SkeletonHorsemanEntity(EntityType<? extends SkeletonHorse> type, Level level) {
         super(type, level);
+        // Untamed horses run the vanilla bucking goal, which also ejects mob riders.
+        this.setTamed(true);
+    }
+
+    @Override
+    public boolean removeWhenFarAway(double distance) {
+        return getOwnerUUID() == null && !isSaddled();
+    }
+
+    @Override
+    protected boolean shouldDespawnInPeaceful() {
+        return getOwnerUUID() == null && !isSaddled();
+    }
+
+    @Override
+    public void readAdditionalSaveData(CompoundTag tag) {
+        super.readAdditionalSaveData(tag);
+        // Repair horsemen saved before their mounts were initialized as tame.
+        this.setTamed(true);
     }
 
     @Override
@@ -36,7 +55,9 @@ public class SkeletonHorsemanEntity extends SkeletonHorse {
                 rider.addTag(RIDER_TAG);
                 rider.moveTo(this.getX(), this.getY(), this.getZ(), this.getYRot(), 0.0F);
                 rider.finalizeSpawn(level, difficulty, MobSpawnType.MOB_SUMMONED, null, null);
+                for (EquipmentSlot slot : EquipmentSlot.values()) rider.setItemSlot(slot, ItemStack.EMPTY);
                 rider.setItemSlot(EquipmentSlot.MAINHAND, new ItemStack(Items.BOW));
+                rider.setCanPickUpLoot(false);
                 // The mount's spawn call adds its passengers after finalizeSpawn returns.
                 rider.startRiding(this, true);
             }

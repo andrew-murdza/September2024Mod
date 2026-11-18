@@ -1,0 +1,25 @@
+{
+  "multipart": [
+    {
+      "apply": {
+        "model": "mynethersdelight:block/cane_on"
+      }
+    },
+    {
+      "when": {
+        "leaves": "small"
+      },
+      "apply": {
+        "model": "mynethersdelight:block/cane_leaves"
+      }
+    },
+    {
+      "when": {
+        "leaves": "large"
+      },
+      "apply": {
+        "model": "mynethersdelight:block/cannon_small_leaves"
+      }
+    }
+  ]
+}

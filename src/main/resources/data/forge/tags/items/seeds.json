@@ -1,4 +1,7 @@
 {
   "replace": false,
-  "values": ["aoemod:soul_beetroot_seeds"]
+  "values": [
+    "aoemod:soul_beetroot_seeds",
+    "#forge:seeds/dragon_fruit"
+  ]
 }

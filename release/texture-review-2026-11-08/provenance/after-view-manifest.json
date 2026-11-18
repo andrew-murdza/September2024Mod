@@ -1,0 +1,1150 @@
+[
+  {
+    "id": "angling:anglerfish",
+    "title": "Anglerfish",
+    "label": "angling_anglerfish_view_2",
+    "angle": 115,
+    "angleName": "View 2",
+    "pitch": -20,
+    "scale": 200
+  },
+  {
+    "id": "angling:anglerfish",
+    "title": "Anglerfish",
+    "label": "angling_anglerfish_view_1",
+    "angle": 25,
+    "angleName": "View 1",
+    "pitch": -20,
+    "scale": 200
+  },
+  {
+    "id": "angling:anglerfish",
+    "title": "Anglerfish",
+    "label": "angling_anglerfish_view_3_above",
+    "angle": 205,
+    "angleName": "View 3 / above",
+    "pitch": -45,
+    "scale": 200
+  },
+  {
+    "id": "finsandtails:rubber_belly_glider",
+    "title": "Rubber Belly Glider",
+    "label": "finsandtails_rubber_belly_glider_view_2",
+    "angle": 115,
+    "angleName": "View 2",
+    "pitch": -20,
+    "scale": 200
+  },
+  {
+    "id": "finsandtails:rubber_belly_glider",
+    "title": "Rubber Belly Glider",
+    "label": "finsandtails_rubber_belly_glider_view_1",
+    "angle": 25,
+    "angleName": "View 1",
+    "pitch": -20,
+    "scale": 200
+  },
+  {
+    "id": "finsandtails:rubber_belly_glider",
+    "title": "Rubber Belly Glider",
+    "label": "finsandtails_rubber_belly_glider_view_3_above",
+    "angle": 205,
+    "angleName": "View 3 / above",
+    "pitch": -45,
+    "scale": 200
+  },
+  {
+    "id": "hybrid_aquatic:arrow_squid",
+    "title": "Arrow Squid",
+    "label": "hybrid_aquatic_arrow_squid_view_2",
+    "angle": 115,
+    "angleName": "View 2",
+    "pitch": -20,
+    "scale": 145,
+    "settleTicks": 70
+  },
+  {
+    "id": "hybrid_aquatic:arrow_squid",
+    "title": "Arrow Squid",
+    "label": "hybrid_aquatic_arrow_squid_view_1",
+    "angle": 25,
+    "angleName": "View 1",
+    "pitch": -20,
+    "scale": 145,
+    "settleTicks": 60
+  },
+  {
+    "id": "hybrid_aquatic:arrow_squid",
+    "title": "Arrow Squid",
+    "label": "hybrid_aquatic_arrow_squid_view_3_above",
+    "angle": 205,
+    "angleName": "View 3 / above",
+    "pitch": -45,
+    "scale": 145,
+    "settleTicks": 80
+  },
+  {
+    "id": "hybrid_aquatic:starfish",
+    "title": "Starfish medium",
+    "label": "hybrid_aquatic_starfish_medium_view_3_above",
+    "angle": 205,
+    "angleName": "View 3 / above",
+    "pitch": -70,
+    "scale": 230,
+    "variant": "MEDIUM",
+    "visualRadius": 0.7
+  },
+  {
+    "id": "hybrid_aquatic:starfish",
+    "title": "Starfish medium",
+    "label": "hybrid_aquatic_starfish_medium_view_1",
+    "angle": 25,
+    "angleName": "View 1",
+    "pitch": -20,
+    "scale": 230,
+    "variant": "MEDIUM",
+    "visualRadius": 0.7
+  },
+  {
+    "id": "hybrid_aquatic:starfish",
+    "title": "Starfish medium",
+    "label": "hybrid_aquatic_starfish_medium_view_2",
+    "angle": 115,
+    "angleName": "View 2",
+    "pitch": -20,
+    "scale": 230,
+    "variant": "MEDIUM",
+    "visualRadius": 0.7
+  },
+  {
+    "id": "hybrid_aquatic:lightfoot_crab",
+    "title": "Lightfoot Crab",
+    "label": "hybrid_aquatic_lightfoot_crab_view_2",
+    "angle": 115,
+    "angleName": "View 2",
+    "pitch": -20,
+    "scale": 130,
+    "visualRadius": 1.8
+  },
+  {
+    "id": "hybrid_aquatic:lightfoot_crab",
+    "title": "Lightfoot Crab",
+    "label": "hybrid_aquatic_lightfoot_crab_view_1",
+    "angle": 25,
+    "angleName": "View 1",
+    "pitch": -20,
+    "scale": 130,
+    "visualRadius": 1.8
+  },
+  {
+    "id": "hybrid_aquatic:lightfoot_crab",
+    "title": "Lightfoot Crab",
+    "label": "hybrid_aquatic_lightfoot_crab_view_3_above",
+    "angle": 205,
+    "angleName": "View 3 / above",
+    "pitch": -45,
+    "scale": 130,
+    "visualRadius": 1.8
+  },
+  {
+    "id": "orcz:bigorcboss",
+    "title": "Bigorcboss",
+    "label": "orcz_bigorcboss_view_1",
+    "angle": 25,
+    "angleName": "View 1",
+    "pitch": -20,
+    "scale": 80
+  },
+  {
+    "id": "orcz:bigorcboss",
+    "title": "Bigorcboss",
+    "label": "orcz_bigorcboss_view_2",
+    "angle": 115,
+    "angleName": "View 2",
+    "pitch": -20,
+    "scale": 80
+  },
+  {
+    "id": "orcz:bigorcboss",
+    "title": "Bigorcboss",
+    "label": "orcz_bigorcboss_view_3_above",
+    "angle": 205,
+    "angleName": "View 3 / above",
+    "pitch": -45,
+    "scale": 80
+  },
+  {
+    "id": "aoemod:arthropleura",
+    "title": "Arthropleura",
+    "label": "aoemod_arthropleura_view_2",
+    "angle": 115,
+    "angleName": "View 2",
+    "pitch": -20,
+    "scale": 130
+  },
+  {
+    "id": "aoemod:arthropleura",
+    "title": "Arthropleura",
+    "label": "aoemod_arthropleura_view_1",
+    "angle": 25,
+    "angleName": "View 1",
+    "pitch": -20,
+    "scale": 130
+  },
+  {
+    "id": "aoemod:arthropleura",
+    "title": "Arthropleura",
+    "label": "aoemod_arthropleura_view_3_above",
+    "angle": 205,
+    "angleName": "View 3 / above",
+    "pitch": -45,
+    "scale": 130
+  },
+  {
+    "id": "aoemod:blue_berry_bush",
+    "title": "Blue berries",
+    "label": "blue_berries_front",
+    "angle": 30,
+    "angleName": "front",
+    "scale": 190,
+    "block": true,
+    "properties": {
+      "age": "3"
+    }
+  },
+  {
+    "id": "aoemod:blue_berry_bush",
+    "title": "Blue berries",
+    "label": "blue_berries_side",
+    "angle": 120,
+    "angleName": "side",
+    "scale": 190,
+    "block": true,
+    "properties": {
+      "age": "3"
+    }
+  },
+  {
+    "id": "aoemod:blue_berry_bush",
+    "title": "Snowy blue berries",
+    "label": "snowy_blue_berries_side",
+    "angle": 120,
+    "angleName": "side",
+    "scale": 190,
+    "block": true,
+    "properties": {
+      "age": "3"
+    },
+    "model": "aoemod:block/snowy_blue_berry_bush_stage3"
+  },
+  {
+    "id": "aoemod:blue_berry_bush",
+    "title": "Snowy blue berries",
+    "label": "snowy_blue_berries_front",
+    "angle": 30,
+    "angleName": "front",
+    "scale": 190,
+    "block": true,
+    "properties": {
+      "age": "3"
+    },
+    "model": "aoemod:block/snowy_blue_berry_bush_stage3"
+  },
+  {
+    "id": "aoemod:tropical_portal",
+    "title": "Wooden tropical portal",
+    "label": "wooden_tropical_portal_front",
+    "angle": 30,
+    "angleName": "front",
+    "scale": 190,
+    "block": true,
+    "properties": {
+      "axis": "x"
+    }
+  },
+  {
+    "id": "aoemod:tropical_portal",
+    "title": "Wooden tropical portal",
+    "label": "wooden_tropical_portal_side",
+    "angle": 120,
+    "angleName": "side",
+    "scale": 190,
+    "block": true,
+    "properties": {
+      "axis": "x"
+    }
+  },
+  {
+    "id": "hearthandharvest:corn_stalk",
+    "title": "Corn stage 5",
+    "label": "corn_stage_5_side",
+    "angle": 120,
+    "angleName": "side",
+    "scale": 190,
+    "block": true,
+    "properties": {
+      "age": "5",
+      "section": "bottom"
+    }
+  },
+  {
+    "id": "hearthandharvest:corn_stalk",
+    "title": "Corn stage 5",
+    "label": "corn_stage_5_front",
+    "angle": 30,
+    "angleName": "front",
+    "scale": 190,
+    "block": true,
+    "properties": {
+      "age": "5",
+      "section": "bottom"
+    }
+  },
+  {
+    "id": "aoemod:illager_lord",
+    "title": "Illager Lord",
+    "label": "aoemod_illager_lord_view_1",
+    "angle": 25,
+    "angleName": "View 1",
+    "pitch": -20,
+    "scale": 200,
+    "visualRadius": 2.5
+  },
+  {
+    "id": "aoemod:illager_lord",
+    "title": "Illager Lord",
+    "label": "aoemod_illager_lord_view_2",
+    "angle": 115,
+    "angleName": "View 2",
+    "pitch": -20,
+    "scale": 200,
+    "visualRadius": 2.5
+  },
+  {
+    "id": "aoemod:illager_lord",
+    "title": "Illager Lord",
+    "label": "aoemod_illager_lord_view_3_above",
+    "angle": 205,
+    "angleName": "View 3 / above",
+    "pitch": -45,
+    "scale": 200,
+    "visualRadius": 2.5
+  },
+  {
+    "id": "minecraft:azalea_leaves",
+    "title": "Tropical azalea leaves",
+    "label": "tropical_azalea_leaves_front",
+    "angle": 30,
+    "angleName": "front",
+    "scale": 190,
+    "block": true,
+    "properties": {},
+    "model": "aoemod:block/tropical_azalea_leaves",
+    "dimension": "aoemod:tropical_dimension"
+  },
+  {
+    "id": "minecraft:azalea_leaves",
+    "title": "Tropical azalea leaves",
+    "label": "tropical_azalea_leaves_side",
+    "angle": 120,
+    "angleName": "side",
+    "scale": 190,
+    "block": true,
+    "properties": {},
+    "model": "aoemod:block/tropical_azalea_leaves",
+    "dimension": "aoemod:tropical_dimension"
+  },
+  {
+    "id": "angling:mahi_mahi",
+    "title": "Mahi Mahi",
+    "label": "angling_mahi_mahi_view_1",
+    "angle": 25,
+    "angleName": "View 1",
+    "pitch": -20,
+    "scale": 200
+  },
+  {
+    "id": "angling:mahi_mahi",
+    "title": "Mahi Mahi",
+    "label": "angling_mahi_mahi_view_2",
+    "angle": 115,
+    "angleName": "View 2",
+    "pitch": -20,
+    "scale": 200
+  },
+  {
+    "id": "angling:mahi_mahi",
+    "title": "Mahi Mahi",
+    "label": "angling_mahi_mahi_view_3_above",
+    "angle": 205,
+    "angleName": "View 3 / above",
+    "pitch": -45,
+    "scale": 200
+  },
+  {
+    "id": "angling:anomalocaris",
+    "title": "Anomalocaris",
+    "label": "angling_anomalocaris_view_1",
+    "angle": 25,
+    "angleName": "View 1",
+    "pitch": -20,
+    "scale": 200
+  },
+  {
+    "id": "angling:anomalocaris",
+    "title": "Anomalocaris",
+    "label": "angling_anomalocaris_view_2",
+    "angle": 115,
+    "angleName": "View 2",
+    "pitch": -20,
+    "scale": 200
+  },
+  {
+    "id": "angling:anomalocaris",
+    "title": "Anomalocaris",
+    "label": "angling_anomalocaris_view_3_above",
+    "angle": 205,
+    "angleName": "View 3 / above",
+    "pitch": -45,
+    "scale": 200
+  },
+  {
+    "id": "alexsmobs:flying_fish",
+    "title": "Flying Fish",
+    "label": "alexsmobs_flying_fish_view_1",
+    "angle": 25,
+    "angleName": "View 1",
+    "pitch": -20,
+    "scale": 200
+  },
+  {
+    "id": "alexsmobs:flying_fish",
+    "title": "Flying Fish",
+    "label": "alexsmobs_flying_fish_view_2",
+    "angle": 115,
+    "angleName": "View 2",
+    "pitch": -20,
+    "scale": 200
+  },
+  {
+    "id": "alexsmobs:flying_fish",
+    "title": "Flying Fish",
+    "label": "alexsmobs_flying_fish_view_3_above",
+    "angle": 205,
+    "angleName": "View 3 / above",
+    "pitch": -45,
+    "scale": 200
+  },
+  {
+    "id": "alexsmobs:triops",
+    "title": "Triops",
+    "label": "alexsmobs_triops_view_1",
+    "angle": 25,
+    "angleName": "View 1",
+    "pitch": -20,
+    "scale": 200
+  },
+  {
+    "id": "alexsmobs:triops",
+    "title": "Triops",
+    "label": "alexsmobs_triops_view_2",
+    "angle": 115,
+    "angleName": "View 2",
+    "pitch": -20,
+    "scale": 200
+  },
+  {
+    "id": "alexsmobs:triops",
+    "title": "Triops",
+    "label": "alexsmobs_triops_view_3_above",
+    "angle": 205,
+    "angleName": "View 3 / above",
+    "pitch": -45,
+    "scale": 200
+  },
+  {
+    "id": "ambientadditions:blue_spotted_stingray",
+    "title": "Blue Spotted Stingray",
+    "label": "ambientadditions_blue_spotted_stingray_view_1",
+    "angle": 25,
+    "angleName": "View 1",
+    "pitch": -20,
+    "scale": 200
+  },
+  {
+    "id": "ambientadditions:blue_spotted_stingray",
+    "title": "Blue Spotted Stingray",
+    "label": "ambientadditions_blue_spotted_stingray_view_2",
+    "angle": 115,
+    "angleName": "View 2",
+    "pitch": -20,
+    "scale": 200
+  },
+  {
+    "id": "ambientadditions:blue_spotted_stingray",
+    "title": "Blue Spotted Stingray",
+    "label": "ambientadditions_blue_spotted_stingray_view_3_above",
+    "angle": 205,
+    "angleName": "View 3 / above",
+    "pitch": -45,
+    "scale": 200
+  },
+  {
+    "id": "hybrid_aquatic:flower_crab",
+    "title": "Flower Crab",
+    "label": "hybrid_aquatic_flower_crab_view_1",
+    "angle": 25,
+    "angleName": "View 1",
+    "pitch": -20,
+    "scale": 130,
+    "visualRadius": 1.8
+  },
+  {
+    "id": "hybrid_aquatic:flower_crab",
+    "title": "Flower Crab",
+    "label": "hybrid_aquatic_flower_crab_view_2",
+    "angle": 115,
+    "angleName": "View 2",
+    "pitch": -20,
+    "scale": 130,
+    "visualRadius": 1.8
+  },
+  {
+    "id": "hybrid_aquatic:flower_crab",
+    "title": "Flower Crab",
+    "label": "hybrid_aquatic_flower_crab_view_3_above",
+    "angle": 205,
+    "angleName": "View 3 / above",
+    "pitch": -45,
+    "scale": 130,
+    "visualRadius": 1.8
+  },
+  {
+    "id": "hybrid_aquatic:fiddler_crab",
+    "title": "Fiddler Crab",
+    "label": "hybrid_aquatic_fiddler_crab_view_1",
+    "angle": 25,
+    "angleName": "View 1",
+    "pitch": -20,
+    "scale": 200
+  },
+  {
+    "id": "hybrid_aquatic:fiddler_crab",
+    "title": "Fiddler Crab",
+    "label": "hybrid_aquatic_fiddler_crab_view_2",
+    "angle": 115,
+    "angleName": "View 2",
+    "pitch": -20,
+    "scale": 200
+  },
+  {
+    "id": "hybrid_aquatic:fiddler_crab",
+    "title": "Fiddler Crab",
+    "label": "hybrid_aquatic_fiddler_crab_view_3_above",
+    "angle": 205,
+    "angleName": "View 3 / above",
+    "pitch": -45,
+    "scale": 200
+  },
+  {
+    "id": "hybrid_aquatic:octopus",
+    "title": "Octopus",
+    "label": "hybrid_aquatic_octopus_view_1",
+    "angle": 25,
+    "angleName": "View 1",
+    "pitch": -20,
+    "scale": 230
+  },
+  {
+    "id": "hybrid_aquatic:octopus",
+    "title": "Octopus",
+    "label": "hybrid_aquatic_octopus_view_2",
+    "angle": 115,
+    "angleName": "View 2",
+    "pitch": -20,
+    "scale": 230
+  },
+  {
+    "id": "hybrid_aquatic:octopus",
+    "title": "Octopus",
+    "label": "hybrid_aquatic_octopus_view_3_above",
+    "angle": 205,
+    "angleName": "View 3 / above",
+    "pitch": -45,
+    "scale": 230
+  },
+  {
+    "id": "hybrid_aquatic:umbrella_octopus",
+    "title": "Umbrella Octopus",
+    "label": "hybrid_aquatic_umbrella_octopus_view_1",
+    "angle": 25,
+    "angleName": "View 1",
+    "pitch": -20,
+    "scale": 200
+  },
+  {
+    "id": "hybrid_aquatic:umbrella_octopus",
+    "title": "Umbrella Octopus",
+    "label": "hybrid_aquatic_umbrella_octopus_view_2",
+    "angle": 115,
+    "angleName": "View 2",
+    "pitch": -20,
+    "scale": 200
+  },
+  {
+    "id": "hybrid_aquatic:umbrella_octopus",
+    "title": "Umbrella Octopus",
+    "label": "hybrid_aquatic_umbrella_octopus_view_3_above",
+    "angle": 205,
+    "angleName": "View 3 / above",
+    "pitch": -45,
+    "scale": 200
+  },
+  {
+    "id": "hybrid_aquatic:carp",
+    "title": "Carp",
+    "label": "hybrid_aquatic_carp_view_1",
+    "angle": 25,
+    "angleName": "View 1",
+    "pitch": -20,
+    "scale": 200
+  },
+  {
+    "id": "hybrid_aquatic:carp",
+    "title": "Carp",
+    "label": "hybrid_aquatic_carp_view_2",
+    "angle": 115,
+    "angleName": "View 2",
+    "pitch": -20,
+    "scale": 200
+  },
+  {
+    "id": "hybrid_aquatic:carp",
+    "title": "Carp",
+    "label": "hybrid_aquatic_carp_view_3_above",
+    "angle": 205,
+    "angleName": "View 3 / above",
+    "pitch": -45,
+    "scale": 200
+  },
+  {
+    "id": "finsandtails:swamp_mucker",
+    "title": "Swamp Mucker",
+    "label": "finsandtails_swamp_mucker_view_1",
+    "angle": 25,
+    "angleName": "View 1",
+    "pitch": -20,
+    "scale": 200
+  },
+  {
+    "id": "finsandtails:swamp_mucker",
+    "title": "Swamp Mucker",
+    "label": "finsandtails_swamp_mucker_view_2",
+    "angle": 115,
+    "angleName": "View 2",
+    "pitch": -20,
+    "scale": 200
+  },
+  {
+    "id": "finsandtails:swamp_mucker",
+    "title": "Swamp Mucker",
+    "label": "finsandtails_swamp_mucker_view_3_above",
+    "angle": 205,
+    "angleName": "View 3 / above",
+    "pitch": -45,
+    "scale": 200
+  },
+  {
+    "id": "hybrid_aquatic:vampire_squid",
+    "title": "Vampire Squid",
+    "label": "hybrid_aquatic_vampire_squid_view_1",
+    "angle": 25,
+    "angleName": "View 1",
+    "pitch": -20,
+    "scale": 200
+  },
+  {
+    "id": "hybrid_aquatic:vampire_squid",
+    "title": "Vampire Squid",
+    "label": "hybrid_aquatic_vampire_squid_view_2",
+    "angle": 115,
+    "angleName": "View 2",
+    "pitch": -20,
+    "scale": 200
+  },
+  {
+    "id": "hybrid_aquatic:vampire_squid",
+    "title": "Vampire Squid",
+    "label": "hybrid_aquatic_vampire_squid_view_3_above",
+    "angle": 205,
+    "angleName": "View 3 / above",
+    "pitch": -45,
+    "scale": 200
+  },
+  {
+    "id": "hybrid_aquatic:tuna",
+    "title": "Tuna",
+    "label": "hybrid_aquatic_tuna_view_1",
+    "angle": 25,
+    "angleName": "View 1",
+    "pitch": -20,
+    "scale": 200
+  },
+  {
+    "id": "hybrid_aquatic:tuna",
+    "title": "Tuna",
+    "label": "hybrid_aquatic_tuna_view_2",
+    "angle": 115,
+    "angleName": "View 2",
+    "pitch": -20,
+    "scale": 200
+  },
+  {
+    "id": "hybrid_aquatic:tuna",
+    "title": "Tuna",
+    "label": "hybrid_aquatic_tuna_view_3_above",
+    "angle": 205,
+    "angleName": "View 3 / above",
+    "pitch": -45,
+    "scale": 200
+  },
+  {
+    "id": "hybrid_aquatic:spider_crab",
+    "title": "Spider Crab",
+    "label": "hybrid_aquatic_spider_crab_view_1",
+    "angle": 25,
+    "angleName": "View 1",
+    "pitch": -20,
+    "scale": 200
+  },
+  {
+    "id": "hybrid_aquatic:spider_crab",
+    "title": "Spider Crab",
+    "label": "hybrid_aquatic_spider_crab_view_2",
+    "angle": 115,
+    "angleName": "View 2",
+    "pitch": -20,
+    "scale": 200
+  },
+  {
+    "id": "hybrid_aquatic:spider_crab",
+    "title": "Spider Crab",
+    "label": "hybrid_aquatic_spider_crab_view_3_above",
+    "angle": 205,
+    "angleName": "View 3 / above",
+    "pitch": -45,
+    "scale": 200
+  },
+  {
+    "id": "aoemod:spider_queen",
+    "title": "Spider Queen",
+    "label": "aoemod_spider_queen_view_1",
+    "angle": 25,
+    "angleName": "View 1",
+    "pitch": -20,
+    "scale": 115
+  },
+  {
+    "id": "aoemod:spider_queen",
+    "title": "Spider Queen",
+    "label": "aoemod_spider_queen_view_2",
+    "angle": 115,
+    "angleName": "View 2",
+    "pitch": -20,
+    "scale": 115
+  },
+  {
+    "id": "aoemod:spider_queen",
+    "title": "Spider Queen",
+    "label": "aoemod_spider_queen_view_3_above",
+    "angle": 205,
+    "angleName": "View 3 / above",
+    "pitch": -45,
+    "scale": 115
+  },
+  {
+    "id": "orcz:orcsavagemace",
+    "title": "Orcsavagemace",
+    "label": "orcz_orcsavagemace_view_1",
+    "angle": 25,
+    "angleName": "View 1",
+    "pitch": -20,
+    "scale": 105
+  },
+  {
+    "id": "orcz:orcsavagemace",
+    "title": "Orcsavagemace",
+    "label": "orcz_orcsavagemace_view_2",
+    "angle": 115,
+    "angleName": "View 2",
+    "pitch": -20,
+    "scale": 105
+  },
+  {
+    "id": "orcz:orcsavagemace",
+    "title": "Orcsavagemace",
+    "label": "orcz_orcsavagemace_view_3_above",
+    "angle": 205,
+    "angleName": "View 3 / above",
+    "pitch": -45,
+    "scale": 105
+  },
+  {
+    "id": "orcz:orcshield",
+    "title": "Orcshield",
+    "label": "orcz_orcshield_view_1",
+    "angle": 25,
+    "angleName": "View 1",
+    "pitch": -20,
+    "scale": 105
+  },
+  {
+    "id": "orcz:orcshield",
+    "title": "Orcshield",
+    "label": "orcz_orcshield_view_2",
+    "angle": 115,
+    "angleName": "View 2",
+    "pitch": -20,
+    "scale": 105
+  },
+  {
+    "id": "orcz:orcshield",
+    "title": "Orcshield",
+    "label": "orcz_orcshield_view_3_above",
+    "angle": 205,
+    "angleName": "View 3 / above",
+    "pitch": -45,
+    "scale": 105
+  },
+  {
+    "id": "outer_end:stalker",
+    "title": "Stalker",
+    "label": "outer_end_stalker_view_1",
+    "angle": 25,
+    "angleName": "View 1",
+    "pitch": -20,
+    "scale": 95
+  },
+  {
+    "id": "outer_end:stalker",
+    "title": "Stalker",
+    "label": "outer_end_stalker_view_2",
+    "angle": 115,
+    "angleName": "View 2",
+    "pitch": -20,
+    "scale": 95
+  },
+  {
+    "id": "outer_end:stalker",
+    "title": "Stalker",
+    "label": "outer_end_stalker_view_3_above",
+    "angle": 205,
+    "angleName": "View 3 / above",
+    "pitch": -45,
+    "scale": 95
+  },
+  {
+    "id": "hybrid_aquatic:starfish",
+    "title": "Starfish small",
+    "label": "hybrid_aquatic_starfish_small_view_1",
+    "angle": 25,
+    "angleName": "View 1",
+    "pitch": -20,
+    "scale": 230,
+    "variant": "SMALL",
+    "visualRadius": 0.7
+  },
+  {
+    "id": "hybrid_aquatic:starfish",
+    "title": "Starfish small",
+    "label": "hybrid_aquatic_starfish_small_view_2",
+    "angle": 115,
+    "angleName": "View 2",
+    "pitch": -20,
+    "scale": 230,
+    "variant": "SMALL",
+    "visualRadius": 0.7
+  },
+  {
+    "id": "hybrid_aquatic:starfish",
+    "title": "Starfish small",
+    "label": "hybrid_aquatic_starfish_small_view_3_above",
+    "angle": 205,
+    "angleName": "View 3 / above",
+    "pitch": -70,
+    "scale": 230,
+    "variant": "SMALL",
+    "visualRadius": 0.7
+  },
+  {
+    "id": "hybrid_aquatic:starfish",
+    "title": "Starfish crown of thorns",
+    "label": "hybrid_aquatic_starfish_crown_of_thorns_view_1",
+    "angle": 25,
+    "angleName": "View 1",
+    "pitch": -20,
+    "scale": 230,
+    "variant": "CROWN_OF_THORNS",
+    "visualRadius": 0.7
+  },
+  {
+    "id": "hybrid_aquatic:starfish",
+    "title": "Starfish crown of thorns",
+    "label": "hybrid_aquatic_starfish_crown_of_thorns_view_2",
+    "angle": 115,
+    "angleName": "View 2",
+    "pitch": -20,
+    "scale": 230,
+    "variant": "CROWN_OF_THORNS",
+    "visualRadius": 0.7
+  },
+  {
+    "id": "hybrid_aquatic:starfish",
+    "title": "Starfish crown of thorns",
+    "label": "hybrid_aquatic_starfish_crown_of_thorns_view_3_above",
+    "angle": 205,
+    "angleName": "View 3 / above",
+    "pitch": -70,
+    "scale": 230,
+    "variant": "CROWN_OF_THORNS",
+    "visualRadius": 0.7
+  },
+  {
+    "id": "aoemod:blue_berry_bush",
+    "title": "Blue berries stage 2",
+    "label": "blue_berries_stage_2_front",
+    "angle": 30,
+    "angleName": "front",
+    "scale": 190,
+    "block": true,
+    "properties": {
+      "age": "2"
+    }
+  },
+  {
+    "id": "aoemod:blue_berry_bush",
+    "title": "Blue berries stage 2",
+    "label": "blue_berries_stage_2_side",
+    "angle": 120,
+    "angleName": "side",
+    "scale": 190,
+    "block": true,
+    "properties": {
+      "age": "2"
+    }
+  },
+  {
+    "id": "aoemod:blue_berry_bush",
+    "title": "Snowy blue berries stage 2",
+    "label": "snowy_blue_berries_stage_2_front",
+    "angle": 30,
+    "angleName": "front",
+    "scale": 190,
+    "block": true,
+    "properties": {
+      "age": "2"
+    },
+    "model": "aoemod:block/snowy_blue_berry_bush_stage2"
+  },
+  {
+    "id": "aoemod:blue_berry_bush",
+    "title": "Snowy blue berries stage 2",
+    "label": "snowy_blue_berries_stage_2_side",
+    "angle": 120,
+    "angleName": "side",
+    "scale": 190,
+    "block": true,
+    "properties": {
+      "age": "2"
+    },
+    "model": "aoemod:block/snowy_blue_berry_bush_stage2"
+  },
+  {
+    "id": "aoemod:soul_soil_quartz_ore",
+    "title": "Soul soil quartz ore",
+    "label": "soul_soil_quartz_ore_front",
+    "angle": 30,
+    "angleName": "front",
+    "scale": 190,
+    "block": true,
+    "properties": {}
+  },
+  {
+    "id": "aoemod:soul_soil_quartz_ore",
+    "title": "Soul soil quartz ore",
+    "label": "soul_soil_quartz_ore_side",
+    "angle": 120,
+    "angleName": "side",
+    "scale": 190,
+    "block": true,
+    "properties": {}
+  },
+  {
+    "id": "minecraft:flowering_azalea_leaves",
+    "title": "Tropical flowering azalea leaves",
+    "label": "tropical_flowering_azalea_leaves_front",
+    "angle": 30,
+    "angleName": "front",
+    "scale": 190,
+    "block": true,
+    "properties": {},
+    "model": "aoemod:block/tropical_flowering_azalea_leaves",
+    "dimension": "aoemod:tropical_dimension"
+  },
+  {
+    "id": "minecraft:flowering_azalea_leaves",
+    "title": "Tropical flowering azalea leaves",
+    "label": "tropical_flowering_azalea_leaves_side",
+    "angle": 120,
+    "angleName": "side",
+    "scale": 190,
+    "block": true,
+    "properties": {},
+    "model": "aoemod:block/tropical_flowering_azalea_leaves",
+    "dimension": "aoemod:tropical_dimension"
+  },
+  {
+    "id": "aoemod:overworld_portal",
+    "title": "Wooden overworld portal",
+    "label": "wooden_overworld_portal_front",
+    "angle": 30,
+    "angleName": "front",
+    "scale": 190,
+    "block": true,
+    "properties": {
+      "axis": "x"
+    }
+  },
+  {
+    "id": "aoemod:overworld_portal",
+    "title": "Wooden overworld portal",
+    "label": "wooden_overworld_portal_side",
+    "angle": 120,
+    "angleName": "side",
+    "scale": 190,
+    "block": true,
+    "properties": {
+      "axis": "x"
+    }
+  },
+  {
+    "id": "aoemod:savanna_portal",
+    "title": "Wooden savanna portal",
+    "label": "wooden_savanna_portal_front",
+    "angle": 30,
+    "angleName": "front",
+    "scale": 190,
+    "block": true,
+    "properties": {
+      "axis": "x"
+    }
+  },
+  {
+    "id": "aoemod:savanna_portal",
+    "title": "Wooden savanna portal",
+    "label": "wooden_savanna_portal_side",
+    "angle": 120,
+    "angleName": "side",
+    "scale": 190,
+    "block": true,
+    "properties": {
+      "axis": "x"
+    }
+  },
+  {
+    "id": "aoemod:plains_portal",
+    "title": "Wooden plains portal",
+    "label": "wooden_plains_portal_front",
+    "angle": 30,
+    "angleName": "front",
+    "scale": 190,
+    "block": true,
+    "properties": {
+      "axis": "x"
+    }
+  },
+  {
+    "id": "aoemod:plains_portal",
+    "title": "Wooden plains portal",
+    "label": "wooden_plains_portal_side",
+    "angle": 120,
+    "angleName": "side",
+    "scale": 190,
+    "block": true,
+    "properties": {
+      "axis": "x"
+    }
+  },
+  {
+    "id": "aoemod:snowy_portal",
+    "title": "Wooden snowy portal",
+    "label": "wooden_snowy_portal_front",
+    "angle": 30,
+    "angleName": "front",
+    "scale": 190,
+    "block": true,
+    "properties": {
+      "axis": "x"
+    }
+  },
+  {
+    "id": "aoemod:snowy_portal",
+    "title": "Wooden snowy portal",
+    "label": "wooden_snowy_portal_side",
+    "angle": 120,
+    "angleName": "side",
+    "scale": 190,
+    "block": true,
+    "properties": {
+      "axis": "x"
+    }
+  },
+  {
+    "id": "aoemod:desert_portal",
+    "title": "Wooden desert portal",
+    "label": "wooden_desert_portal_front",
+    "angle": 30,
+    "angleName": "front",
+    "scale": 190,
+    "block": true,
+    "properties": {
+      "axis": "x"
+    }
+  },
+  {
+    "id": "aoemod:desert_portal",
+    "title": "Wooden desert portal",
+    "label": "wooden_desert_portal_side",
+    "angle": 120,
+    "angleName": "side",
+    "scale": 190,
+    "block": true,
+    "properties": {
+      "axis": "x"
+    }
+  },
+  {
+    "id": "aoemod:nether_portal",
+    "title": "Wooden nether portal",
+    "label": "wooden_nether_portal_front",
+    "angle": 30,
+    "angleName": "front",
+    "scale": 190,
+    "block": true,
+    "properties": {
+      "axis": "x"
+    }
+  },
+  {
+    "id": "aoemod:nether_portal",
+    "title": "Wooden nether portal",
+    "label": "wooden_nether_portal_side",
+    "angle": 120,
+    "angleName": "side",
+    "scale": 190,
+    "block": true,
+    "properties": {
+      "axis": "x"
+    }
+  }
+]

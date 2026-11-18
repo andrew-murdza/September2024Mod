@@ -1,0 +1,13 @@
+{
+  "passed": true,
+  "before": {
+    "src\\main\\resources\\data\\aoemod\\structures\\orc_village.nbt": "b01d006752441a3149f3b44e80ef06e56cfb6cdc9ec8ce79d8c1e124c020d8b5",
+    "src\\main\\resources\\data\\aoemod\\structure_data\\orc_village_vegetation.json": "19afce863481221878d7c6c09c77051889cc97455d1761e42a971802b34e80fe",
+    "scripts\\data\\orc-village-audit.json": "82cb1f33c71f1fefc31aa1141b14648910d47bf07295c825fd50f34ed0e2e143"
+  },
+  "after": {
+    "src\\main\\resources\\data\\aoemod\\structures\\orc_village.nbt": "b01d006752441a3149f3b44e80ef06e56cfb6cdc9ec8ce79d8c1e124c020d8b5",
+    "src\\main\\resources\\data\\aoemod\\structure_data\\orc_village_vegetation.json": "19afce863481221878d7c6c09c77051889cc97455d1761e42a971802b34e80fe",
+    "scripts\\data\\orc-village-audit.json": "82cb1f33c71f1fefc31aa1141b14648910d47bf07295c825fd50f34ed0e2e143"
+  }
+}

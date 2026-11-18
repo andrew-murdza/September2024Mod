@@ -1,0 +1,155 @@
+{
+  "status": "passed",
+  "scope": "Read-only saved fixture item/support audit; no runtime/world changes.",
+  "droppedItemEntities": 121,
+  "entityCountByItem": {
+    "minecraft:acacia_log": 21,
+    "minecraft:leather_chestplate": 9,
+    "minecraft:charcoal": 18,
+    "minecraft:baked_potato": 19,
+    "minecraft:leather": 26,
+    "minecraft:carrot": 14,
+    "minecraft:string": 14
+  },
+  "allDroppedItemIdsBelongToOrcLootTable": true,
+  "unsupportedDecorationItemIds": [],
+  "chestCount": 9,
+  "allChestsStillPresent": true,
+  "allChestSupportsAreAcaciaPlanks": true,
+  "chests": [
+    {
+      "local": [
+        26,
+        3,
+        15
+      ],
+      "world": [
+        8173,
+        209,
+        8168
+      ],
+      "block": "minecraft:chest",
+      "support": "minecraft:acacia_planks"
+    },
+    {
+      "local": [
+        63,
+        3,
+        15
+      ],
+      "world": [
+        8210,
+        209,
+        8168
+      ],
+      "block": "minecraft:chest",
+      "support": "minecraft:acacia_planks"
+    },
+    {
+      "local": [
+        44,
+        3,
+        17
+      ],
+      "world": [
+        8191,
+        209,
+        8170
+      ],
+      "block": "minecraft:chest",
+      "support": "minecraft:acacia_planks"
+    },
+    {
+      "local": [
+        26,
+        3,
+        27
+      ],
+      "world": [
+        8173,
+        209,
+        8180
+      ],
+      "block": "minecraft:chest",
+      "support": "minecraft:acacia_planks"
+    },
+    {
+      "local": [
+        63,
+        3,
+        27
+      ],
+      "world": [
+        8210,
+        209,
+        8180
+      ],
+      "block": "minecraft:chest",
+      "support": "minecraft:acacia_planks"
+    },
+    {
+      "local": [
+        26,
+        3,
+        49
+      ],
+      "world": [
+        8173,
+        209,
+        8202
+      ],
+      "block": "minecraft:chest",
+      "support": "minecraft:acacia_planks"
+    },
+    {
+      "local": [
+        73,
+        3,
+        54
+      ],
+      "world": [
+        8220,
+        209,
+        8207
+      ],
+      "block": "minecraft:chest",
+      "support": "minecraft:acacia_planks"
+    },
+    {
+      "local": [
+        55,
+        3,
+        58
+      ],
+      "world": [
+        8202,
+        209,
+        8211
+      ],
+      "block": "minecraft:chest",
+      "support": "minecraft:acacia_planks"
+    },
+    {
+      "local": [
+        26,
+        3,
+        61
+      ],
+      "world": [
+        8173,
+        209,
+        8214
+      ],
+      "block": "minecraft:chest",
+      "support": "minecraft:acacia_planks"
+    }
+  ],
+  "cause": "Staged GameTest deliberately replays the same template after initial placement. Vanilla StructureTemplate clears the old container contents but retains its unopened loot table, then replaces the chest with BARRIER; chest removal unpacks and drops that loot before the new chest is loaded. First placement into the prepared empty fixture has no existing chest to remove.",
+  "evidence": [
+    "BossStructureExpansionTests.expandedBossLayoutsHaveWalkableBranchesAndPersistedResidents explicitly places all camp chunks twice.",
+    "Pinned Forge mapped-official StructureTemplate.placeInWorld calls Clearable.tryClear followed by setBlock(BARRIER) for NBT blocks.",
+    "Pinned RandomizableContainerBlockEntity.clearContent clears getItems only; it does not clear lootTable.",
+    "Saved dropped IDs exactly match camp loot, including charcoal, leather chestplates and baked potatoes; no unsupported decoration drop IDs."
+  ],
+  "limitation": "Repeated template placement could similarly replace a chest outside QA if deliberately reprocessed; normal newly generated chunks place their clipped template once. No unsupported house geometry found."
+}

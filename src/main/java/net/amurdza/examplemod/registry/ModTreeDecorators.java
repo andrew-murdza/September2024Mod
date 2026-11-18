@@ -3,9 +3,11 @@ package net.amurdza.examplemod.registry;
 import net.amurdza.examplemod.AOEMod;
 import net.amurdza.examplemod.worldgen.feature.features.CaveVineTreeDecorator;
 import net.amurdza.examplemod.worldgen.tree_decorators.ModTrunkVineDecorator;
+import net.amurdza.examplemod.worldgen.tree_decorators.MangroveMulberryDecorator;
 import net.amurdza.examplemod.worldgen.tree_decorators.PaleHangingMossTreeDecorator;
 import net.amurdza.examplemod.worldgen.tree_decorators.RainforestCanopyDecorator;
 import net.amurdza.examplemod.worldgen.tree_decorators.RainforestTrunkDecorator;
+import net.amurdza.examplemod.worldgen.tree_decorators.TropicalShelfMushroomDecorator;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.world.level.levelgen.feature.treedecorators.TreeDecoratorType;
 import net.minecraftforge.eventbus.api.IEventBus;
@@ -36,6 +38,14 @@ public class ModTreeDecorators {
     public static final RegistryObject<TreeDecoratorType<RainforestTrunkDecorator>> RAINFOREST_TRUNK =
             TREE_DECORATORS.register("rainforest_trunk_decorator",
                     () -> new TreeDecoratorType<>(RainforestTrunkDecorator.CODEC));
+
+    public static final RegistryObject<TreeDecoratorType<MangroveMulberryDecorator>> MANGROVE_MULBERRY =
+            TREE_DECORATORS.register("mangrove_mulberry",
+                    () -> new TreeDecoratorType<>(MangroveMulberryDecorator.CODEC));
+
+    public static final RegistryObject<TreeDecoratorType<TropicalShelfMushroomDecorator>> TROPICAL_SHELF_MUSHROOM =
+            TREE_DECORATORS.register("tropical_shelf_mushroom",
+                    () -> new TreeDecoratorType<>(TropicalShelfMushroomDecorator.CODEC));
 
     public static void register(IEventBus modEventBus) {
         TREE_DECORATORS.register(modEventBus);

@@ -13,7 +13,7 @@ public class NoMobBurningInTropical {
     private void aoemod$noFireInTropicalBiomes(int seconds, CallbackInfo ci) {
         Entity entity = (Entity)(Object)this;
 
-        if (entity.isInLava()) {
+        if (entity.isInLava() || net.amurdza.examplemod.event_handlers.UndeadHorseSunlight.applies(entity)) {
             return;
         }
 
@@ -27,7 +27,7 @@ public class NoMobBurningInTropical {
     private void aoemod$noFireTicksInTropicalBiomes(int ticks, CallbackInfo ci) {
         Entity entity = (Entity)(Object)this;
 
-        if (entity.isInLava()) {
+        if (entity.isInLava() || net.amurdza.examplemod.event_handlers.UndeadHorseSunlight.applies(entity)) {
             return;
         }
 

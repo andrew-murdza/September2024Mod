@@ -1,16 +1,4 @@
 {
-  "type": "aoemod:random_selector",
-  "config": {
-    "placement": [],
-    "features": [
-      {
-        "chance": 0.4,
-        "feature": "aoemod:water/short_seagrass"
-      },
-      {
-        "chance": 0.6,
-        "feature": "aoemod:nothing"
-      }
-    ]
-  }
+  "type": "aoemod:plains_seafloor",
+  "config": {}
 }

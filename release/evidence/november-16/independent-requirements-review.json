@@ -1,0 +1,246 @@
+{
+  "scope": "Independent read-only Nov16 Tropical review, cross-section interpretation and focused QA planning",
+  "production_edits": false,
+  "runtime_launched": false,
+  "document_comparison": {
+    "tropical_paragraph_identical": true,
+    "tropical_image_identical": true,
+    "tropical_image_sha256": "28c890ea851889170e06bf9871a3b12039fba6e2df0e22a241045424084c6e71"
+  },
+  "tropical_requirements": [
+    {
+      "id": "tropical-rollback",
+      "document_index": 20,
+      "requirement": "Retain the already restored Tropical baseline except root precedence and cherry bamboo.",
+      "status": "already_implemented_no_new_change",
+      "sources": [
+        "worldgen/TropicalLayout.java",
+        "worldgen/TropicalIslandPlan.java",
+        "worldgen/DimensionBiomeSource.java",
+        "worldgen/TropicalVegetation.java"
+      ],
+      "evidence": "Previous restoration audit compared208224terrain samples and385722allocation decisions across54islands; six-seed native regression passed. Existing cherry/rainforest/mangrove dimensions, flora and15animal groups remain restored."
+    },
+    {
+      "id": "mangrove-root-precedence",
+      "document_index": 20,
+      "requirement": "Flowers/understory must not occupy cells needed by mangrove roots.",
+      "status": "already_implemented_no_new_change",
+      "sources": [
+        "worldgen/TropicalPlantIntegrity.java",
+        "worldgen/TropicalVegetation.java",
+        "mixins/trees/MangroveRootsOverFlowers.java",
+        "mixins/worldgen/TropicalPlantReplacementDuringGeneration.java",
+        "worldgen/GrowthPlacementBuffer.java"
+      ],
+      "evidence": "Actual native root placer accepts flowers, later vegetation cannot overwrite roots, and two-block flower halves are cleaned atomically. Crop quota exclusions remain intentional. Root mixin and worldgen write hooks are registered. Unchanged reference shows blue orchids/grass at root positions."
+    },
+    {
+      "id": "cherry-bamboo",
+      "document_index": 20,
+      "requirement": "Only cherry-grove6\u00d76patches of about10bamboo, at roughly Japanese-orchid patch frequency.",
+      "status": "already_implemented_no_new_change",
+      "sources": [
+        "worldgen/TropicalBamboo.java",
+        "mixins/worldgen/TropicalFinalBamboo.java"
+      ],
+      "evidence": "Complete10distinct-root transaction within6\u00d76; actual habitat checked at each root; final decoration RETURN hook protects against later overwrite; patch selection accounts for two orchid attempts at5/8chance and2/21allocation; existing flowers/crops/fauna clearings preserved."
+    }
+  ],
+  "baseline_source_comparison": [
+    {
+      "path": "src/main/java/net/amurdza/examplemod/worldgen/TropicalLayout.java",
+      "unchanged_since_iteration_baseline": true,
+      "sha256": "59dc17fe08420b3e7a9f066e95a664b3b21a02771da9f9b86a84bdef4e70d080"
+    },
+    {
+      "path": "src/main/java/net/amurdza/examplemod/worldgen/TropicalIslandPlan.java",
+      "unchanged_since_iteration_baseline": true,
+      "sha256": "899af561807b0a32385673fca6b268b1c074c77c945c1883f7a9e61fda829ebc"
+    },
+    {
+      "path": "src/main/java/net/amurdza/examplemod/worldgen/TropicalVegetation.java",
+      "unchanged_since_iteration_baseline": true,
+      "sha256": "8f6f6a1852ec0009c0584a1df82c01bde0bb5a7235b0d322881cd87fec9fa77a"
+    },
+    {
+      "path": "src/main/java/net/amurdza/examplemod/worldgen/TropicalBamboo.java",
+      "unchanged_since_iteration_baseline": true,
+      "sha256": "7d91cd350fdb16af887e508a38cf8fb3c3e7bdf7a97cd42de6e26ce4e3e9033e"
+    },
+    {
+      "path": "src/main/java/net/amurdza/examplemod/worldgen/TropicalPlantIntegrity.java",
+      "unchanged_since_iteration_baseline": true,
+      "sha256": "a79cd96767f8e68db96a44d345e68023fd87a0d242489cdc6f946af336f95e86"
+    },
+    {
+      "path": "src/main/java/net/amurdza/examplemod/worldgen/DimensionBiomeSource.java",
+      "unchanged_since_iteration_baseline": true,
+      "sha256": "bcc6e229edc036f5d293f89a687f298edb359a1cf521102eed038fa5f7043edd"
+    },
+    {
+      "path": "src/main/java/net/amurdza/examplemod/mixins/trees/MangroveRootsOverFlowers.java",
+      "unchanged_since_iteration_baseline": true,
+      "sha256": "385df47bce9d3a2c9cf09fca41a7b1f198d6dec2c176e3f4ca35e610703cfe40"
+    },
+    {
+      "path": "src/main/java/net/amurdza/examplemod/mixins/worldgen/TropicalPlantReplacementDuringGeneration.java",
+      "unchanged_since_iteration_baseline": true,
+      "sha256": "bb2dce5b3f2719dce7be05d5d820ee76d0c9441e36957b21015d7204038c2eea"
+    },
+    {
+      "path": "src/main/java/net/amurdza/examplemod/mixins/worldgen/TropicalFinalBamboo.java",
+      "unchanged_since_iteration_baseline": true,
+      "sha256": "61db8152f70dcc6b2d55a4ed3ec5d18068040aeb75249d77ecb7efed47490b79"
+    },
+    {
+      "path": "src/main/java/net/amurdza/examplemod/gametest/TropicalNovemberFifteenTests.java",
+      "unchanged_since_iteration_baseline": true,
+      "sha256": "0f7aa68998d6f9acdae70e97d2212349b30d1511907fbbb0d24898c411fa4f1c"
+    }
+  ],
+  "previous_runtime_evidence": {
+    "summary": "build/nov15-round2/game-test-summary.json",
+    "overall_latest_passed": 64,
+    "focused": [
+      {
+        "selector": "TropicalNovemberFifteenTests.restoredIslandsKeepCherryRainforestAndOriginalFlowerFaunaAllocations",
+        "passed": true,
+        "source": "remaining-a-results.xml",
+        "failure": []
+      },
+      {
+        "selector": "TropicalNovemberFifteenTests.bambooSelectionMatchesOriginalOrchidPatchFrequency",
+        "passed": true,
+        "source": "remaining-a-results.xml",
+        "failure": []
+      },
+      {
+        "selector": "TropicalNovemberFifteenTests.bambooPatchesContainTenStemsAndStopBelowLeavesOrSolidCeilings",
+        "passed": true,
+        "source": "remaining-a-results.xml",
+        "failure": []
+      },
+      {
+        "selector": "TropicalNovemberFifteenTests.nativeMangroveRootsReplaceFlowersButFloraCannotReplaceRoots",
+        "passed": true,
+        "source": "remaining-a-results.xml",
+        "failure": []
+      }
+    ],
+    "native_visuals": "build/nov15-round2/tropical-visual-review.json",
+    "new_runtime_status": "not run; unchanged section does not require another native visual pass"
+  },
+  "image_interpretations": [
+    {
+      "scope": "Savanna tent",
+      "images": [
+        "kix.nl120e4101gb",
+        "kix.4rayazem6vsh"
+      ],
+      "finding": "Exactly8extra authored red-wool cells x2..9,y5,z0 make north fascia2blocks tall; all other outer faces have only y4header. Remove that row to match target, preserve4wide doorway and inner roof.",
+      "source": "scripts/data/orc-tent-12-authored.nbt",
+      "communicated_to": "root and tropical"
+    },
+    {
+      "scope": "Savanna spacing",
+      "document_index": 394,
+      "finding": "24\u219216 is clear gap, so12wide tents move from center pitch36 to28. Keep3\u00d73layout and12wide footprint."
+    },
+    {
+      "scope": "Savanna interior path",
+      "document_index": 474,
+      "finding": "Entire grass courtyard enclosed by the crop ring becomes dirt path; this does not imply converting pen grass or the outer palisade grass margin."
+    },
+    {
+      "scope": "Savanna podzol",
+      "document_index": 586,
+      "finding": "Remove four standalone corner patches; preserve other authored podzol/mushroom bands unless separately changed."
+    },
+    {
+      "scope": "Savanna gate",
+      "images": [
+        "kix.ye6jps761tmf"
+      ],
+      "finding": "Broad3-log pillars support a horizontal log lintel. Each pillar has fence cap and3skulls. Preserve8wide passage and regular6clear-block palisade intervals; adjust inner grass margin to reconcile grid."
+    },
+    {
+      "scope": "Savanna trees",
+      "document_index": 741,
+      "finding": "Interpret eligibility by viable unreserved planting footprint, not by any single forbidden column excluding an entire mixed chunk. At least one successful native tree per eligible camp chunk; complete tree shape must avoid pens,podzols,roads,farmland and authored structures. Distinguish impossible narrow strips from eligible open lawn in QA."
+    },
+    {
+      "scope": "Plains shaft",
+      "images": [
+        "kix.bx4u4kag2v69"
+      ],
+      "finding": "Threshold/first transverse floor line is stone brick with a plain stone transition before deeper raw shaft; coordinate one-block boundary adjustment rather than wholesale lining."
+    },
+    {
+      "scope": "Plains crop-wall marker",
+      "images": [
+        "kix.xtm59hlm6iri",
+        "kix.bd3h2xiv66k6"
+      ],
+      "finding": "Red wool marks central column behind irrigation channel; final must be stone bricks with no marker wool and both side openings retained. Target image also shows brick face where prior horizontal rough/ore band was visible."
+    },
+    {
+      "scope": "Plains chandelier and staircase",
+      "document_indices": [
+        1069,
+        1247
+      ],
+      "finding": "Chandeliers move up exactly1 from current layout. Floor1\u21922 staircase must come from latest-spawn source, with safe read-only capture and native connectivity verification."
+    }
+  ],
+  "invariants": [
+    "Preserve user saves/config/options and restored Environmental,BOP,BWG dependencies. Compare protected-file manifest after validation.",
+    "No new Snowy/Desert/Tropical terrain changes. No Goblin,spider,or terrain-cut runtime/visual repetition in this iteration.",
+    "Archive saved Savanna V7 template and vegetation mask before V8 overwrite; route old piece versions without recomputing geometry/population.",
+    "Preserve9tents,36chests,total loot budget,72beds,72cushions,36orcs,32animals,four animals per pen and existing shallow ponds/cane behavior.",
+    "Keep natural camp siting on actual seeded DimensionTerrain.land, full dry apron and native8chunk owner-reference limit.",
+    "Keep persisted exact camp chunk-column masks, no remote structure-owner loading from narrow WorldGenRegion, and full-shape atomic native tree placement.",
+    "Preserve existing mansion saved blueprints, key/mining protection and functional ascent, headroom and room reachability."
+  ],
+  "qa_plan": {
+    "unchanged_tropical": "No mandatory rerun. Optional4small contract tests in tropical-minimal-tests.txt if shared vegetation/mixin wiring changes. Reuse previous native visual report otherwise.",
+    "optional_tropical_selectors": [
+      "TropicalNovemberFifteenTests.restoredIslandsKeepCherryRainforestAndOriginalFlowerFaunaAllocations",
+      "TropicalNovemberFifteenTests.bambooSelectionMatchesOriginalOrchidPatchFrequency",
+      "TropicalNovemberFifteenTests.bambooPatchesContainTenStemsAndStopBelowLeavesOrSolidCeilings",
+      "TropicalNovemberFifteenTests.nativeMangroveRootsReplaceFlowersButFloraCannotReplaceRoots"
+    ],
+    "savanna_focused_existing": [
+      "November15SavannaTests.squareCampsChooseHighDryGroundForTheirEntireApron",
+      "SavannaOrcCampGenerationTests.naturalSavannaGridGeneratesTheCompleteNativeCampOnDryLand",
+      "SavannaNovemberRevisionTests.villagePopulationPersistsAcrossChunksAndPieceReload",
+      "SavannaCampGenerationBoundaryTests.radiusZeroPopulationUsesExactSavedCampColumns",
+      "SavannaCampGenerationBoundaryTests.legacyPartialChunksUseOnlyAvailableStartOwners"
+    ],
+    "savanna_new_contracts_needed": [
+      "Actual NBT tent8cell correction/12width/16clear spacing/all8wide roads/full interior path/four corner-patch removal/gate grid",
+      "Native tree success per eligible mixed chunk, full-shape exclusion and deterministic replay",
+      "V7archive identity and version routing"
+    ],
+    "plains_existing_to_adapt": [
+      "MansionNovember15RoundTwoTests.rearrangedRoomsKeepMirroredCropsConnectedPensAndInwardLighting",
+      "MansionNovember15RoundTwoTests.eachRoomTileHasALoweredChandelierWithoutRemovingFurniture",
+      "MansionRevisionTests.completeMansionConnectsEveryRoomAndExportsEstateViews"
+    ],
+    "plains_new_contracts_needed": [
+      "8block hut/farm gap and exact shaft threshold transition after rotation/chunk clipping",
+      "Chandelier up1 and marker column allstonebrick/no markerwool",
+      "Latest-source floor1\u21922 staircase native walking connection and unchanged floor2\u21923"
+    ],
+    "visual_minimum": [
+      "camp overhead",
+      "corrected tent fascia",
+      "gate and palisade spacing",
+      "native trees in eligible mixed camp chunks",
+      "basement hut/farm gap and shaft threshold",
+      "raised chandeliers and marked column",
+      "latest-source floor1\u21922 staircase"
+    ],
+    "execution_owner": "root; sequential isolated runtimes only; no new runtime launched by this review"
+  }
+}

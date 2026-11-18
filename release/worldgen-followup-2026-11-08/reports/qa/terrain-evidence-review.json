@@ -1,0 +1,76 @@
+{
+  "status": "passed",
+  "scope": "Read-only review of native terrain/structure test evidence and measured spacing. Visual screenshot review is separate; see terrain-visual-review.json. Latest outcomes combine the full150-test run with its10-test corrective rerun, not a single all-pass run.",
+  "reviewedTests": [
+    "acceptedbosssiteshavemeasuredeuclideanspacing",
+    "curvedmouthsfinishonlyafteracontinuousdryexit",
+    "displayedhabitatsstayinonecolumnexceptmushroomstratum",
+    "expandedbosslayoutshavewalkablebranchesandpersistedresidents",
+    "highdesertoutletskeeponecontinuoushalfblockgrade",
+    "naturalspidermouthmeetsgroundandkeepsitscoveredapproach",
+    "seededdesertoutletjunctionkeepsclimbablesteps",
+    "snowyforestbeginsatheightseventyanddeepcolumnsmatchsurface",
+    "tinypocketsareremovedacrosschunkedgeswithoutchanginglargercaves",
+    "surfaceascentsturngraduallywithoutmovingtheirlowerlandings"
+  ],
+  "nativeDesertJunctions": {
+    "seeds": [
+      12345,
+      98765
+    ],
+    "stripes": [
+      -1,
+      0,
+      1
+    ],
+    "maximumAllowedAdjacentStep": 1,
+    "outcome": "passed"
+  },
+  "yetiSpacing": {
+    "spacingChunks": 52,
+    "separationChunks": 26,
+    "seeds": [
+      0,
+      8265669121673610644,
+      3330086936475256017
+    ],
+    "interiorSamples": 101,
+    "meanNearest": 1000.3836753250552,
+    "medianNearest": 860.0837168555163,
+    "scope": "Euclidean nearest accepted-site distances; not a guaranteed minimum."
+  },
+  "structureWalkingDistances": {
+    "yeti": 41,
+    "spider": 214,
+    "wither": 86,
+    "orc": 49
+  },
+  "spiderResidentCollisionCheck": "Seven actual native residents, no block/entity collisions after moving the boss-room chest; saved-piece replay and five loot chests passed in corrective rerun.",
+  "sources": [
+    {
+      "path": "boss-density.json",
+      "source": "build/nov8-terrain-qa/followup-verified-1/build/reports/boss-density.json",
+      "sha256": "07ccd4a93dfdbf1997ed4410986e20e1582f1895403588dd657ba39eaa19cdd6"
+    },
+    {
+      "path": "boss-expansion-metrics.json",
+      "source": "build/nov8-terrain-qa/followup-fixtures-2/build/reports/boss-expansion-metrics.json",
+      "sha256": "e0b32999bd3e1e4100e3c1d060e850abe15f77c0696f8d6ef8034a6d481ad5cb"
+    },
+    {
+      "path": "boss-expansion-views.json",
+      "source": "build/nov8-terrain-qa/followup-fixtures-2/build/reports/boss-expansion-views.json",
+      "sha256": "363485244771501e2a98290f4689c13481fb1875f6aa9c53be2c10b321fe9f35"
+    },
+    {
+      "path": "followup-worldgen-scenes.json",
+      "source": "build/nov8-terrain-qa/followup-fixtures-2/build/reports/followup-worldgen-scenes.json",
+      "sha256": "5a3348d4f9769a9b79a46e1f9ec75d746f96e0b5847fb27fb5368e9b7b85b9ca"
+    },
+    {
+      "path": "followup-worldgen-views.json",
+      "source": "build/nov8-terrain-qa/followup-fixtures-2/build/reports/followup-worldgen-views.json",
+      "sha256": "e066769180d08389341227b17c944b4b0eb9d192e1fd0c5b3dafa96f49fdf973"
+    }
+  ]
+}

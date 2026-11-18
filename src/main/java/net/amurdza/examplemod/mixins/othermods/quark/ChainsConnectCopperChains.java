@@ -1,6 +1,5 @@
 package net.amurdza.examplemod.mixins.othermods.quark;
 
-import net.amurdza.examplemod.AOEMod;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
@@ -22,9 +21,6 @@ public class ChainsConnectCopperChains {
     @Mutable
     public static Predicate<BlockState> PREDICATE;
 
-    @Unique
-    private static final ResourceLocation AOEMOD_COPPER_CHAIN = new ResourceLocation(AOEMod.MOD_ID, "copper_chain");
-
     @Inject(method = "<clinit>", at = @At("TAIL"))
     private static void aoemod$allowCopperChains(CallbackInfo ci) {
         PREDICATE = PREDICATE.or(ChainsConnectCopperChains::aoemod$isSupportedChain);
@@ -37,7 +33,7 @@ public class ChainsConnectCopperChains {
         }
 
         ResourceLocation id = ForgeRegistries.BLOCKS.getKey(state.getBlock());
-        return AOEMOD_COPPER_CHAIN.equals(id) || id != null && id.getNamespace().equals("minecraft")
+        return id != null && id.getNamespace().equals("minecraft")
                 && (id.getPath().equals("copper_chain") || id.getPath().endsWith("_copper_chain"));
     }
 }

@@ -56,7 +56,8 @@ public class EndFishEntity extends AbstractSchoolingFish implements VariantHolde
         SpawnGroupData data = super.finalizeSpawn(world, difficulty, spawnReason, entityData, entityTag);
 
         if (entityTag == null || !entityTag.contains("Variant")) {
-            this.setVariant(chooseNaturalVariant(world));
+            // The ordinary catalog egg represents the retained blue fish, regardless of biome.
+            this.setVariant(spawnReason == MobSpawnType.SPAWN_EGG ? randomBlueVariant() : chooseNaturalVariant(world));
         }
 
         if (entityTag != null) {

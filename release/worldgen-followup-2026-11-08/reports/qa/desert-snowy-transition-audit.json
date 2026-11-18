@@ -1,0 +1,9 @@
+{
+  "status": "passed",
+  "kind": "Integrated-server ServerPlayer.teleportTo; not physical portal traversal",
+  "sourceReport": "build/followup-worldgen-visuals/client-1/followup-screenshot-report.json",
+  "from": "desert_curved_mouth_from_ramp",
+  "to": "snowy_dappled_boundary_overview",
+  "result": "Destination terrain rendered and capture sequence completed without crash",
+  "allViewsCaptured": 40
+}

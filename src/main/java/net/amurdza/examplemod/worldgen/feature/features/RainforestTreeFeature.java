@@ -3,6 +3,7 @@ package net.amurdza.examplemod.worldgen.feature.features;
 import com.mojang.serialization.Codec;
 import net.amurdza.examplemod.worldgen.feature.configs.RainforestTreeFeatureConfig;
 import net.amurdza.examplemod.worldgen.AtomicTreeGrowth;
+import net.amurdza.examplemod.util.GameplayDimensions;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.Vec3i;
@@ -16,6 +17,7 @@ import net.minecraft.world.level.block.LeavesBlock;
 import net.minecraft.world.level.block.WeepingVinesBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.Property;
+import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
 import net.minecraft.world.level.levelgen.feature.treedecorators.TreeDecorator;
@@ -230,7 +232,9 @@ public class RainforestTreeFeature extends Feature<RainforestTreeFeatureConfig> 
             for (int dx = -3; dx <= 3; dx++) {
                 for (int dz = -3; dz <= 3; dz++) {
                     mutable.set(origin.getX() + dx, y, origin.getZ() + dz);
-                    if (!level.getBlockState(mutable).isAir()) {
+                    BlockState existing = level.getBlockState(mutable);
+                    if (!existing.isAir() && !(GameplayDimensions.is(level, GameplayDimensions.TROPICAL)
+                            && net.amurdza.examplemod.worldgen.TropicalPlantIntegrity.isCaveVine(existing))) {
                         return false;
                     }
                 }
@@ -241,6 +245,10 @@ public class RainforestTreeFeature extends Feature<RainforestTreeFeatureConfig> 
     }
 
     private static void replaceWaterRing(WorldGenLevel level, BlockPos origin, int trunkWidth, int trunkHeight) {
+        if (GameplayDimensions.is(level, GameplayDimensions.TROPICAL)) {
+            decorateTropicalWaterRing(level, origin, trunkWidth, trunkHeight);
+            return;
+        }
         int minDx = -1;
         int maxDx = trunkWidth;
         int minDz = -1;
@@ -281,6 +289,25 @@ public class RainforestTreeFeature extends Feature<RainforestTreeFeatureConfig> 
                     } else {
                         level.setBlock(pos, Blocks.MOSS_BLOCK.defaultBlockState(), 19);
                     }
+                }
+            }
+        }
+    }
+
+    private static void decorateTropicalWaterRing(WorldGenLevel level, BlockPos origin, int trunkWidth, int trunkHeight) {
+        for (int dx = -1; dx <= trunkWidth; dx++) for (int dz = -1; dz <= trunkWidth; dz++) {
+            if (dx >= 0 && dx < trunkWidth && dz >= 0 && dz < trunkWidth) continue;
+            for (int y = 0; y < trunkHeight; y++) {
+                BlockPos pos = origin.offset(dx, y, dz);
+                if (!level.getBlockState(pos).is(Blocks.WATER) || !level.getFluidState(pos).isSource()) continue;
+                BlockState plant = ((dx + dz) & 1) == 0 ? Blocks.SEAGRASS.defaultBlockState()
+                        : Blocks.SEA_PICKLE.defaultBlockState().setValue(BlockStateProperties.PICKLES, 4)
+                        .setValue(BlockStateProperties.WATERLOGGED, true);
+                if (plant.canSurvive(level, pos)) {
+                    // The rooted plant retains the source water already here;
+                    // there is no solid coral or moss column around this tree.
+                    level.setBlock(pos, plant, 19);
+                    break;
                 }
             }
         }

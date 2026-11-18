@@ -11,7 +11,7 @@ import zipfile
 ROOT = Path(__file__).resolve().parents[1]
 NAMESPACES = {
     'biodiverse', 'blueprint', 'born_in_chaos_v1', 'bountiful_critters',
-    'collectorsreap', 'farmersdelight', 'floral', 'pineapple_delight', 'vintagedelight', 'outer_end',
+    'farmersdelight', 'floral', 'pineapple_delight', 'vintagedelight', 'outer_end', 'collectorsreap',
 }
 
 

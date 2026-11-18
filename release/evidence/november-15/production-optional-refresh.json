@@ -1,0 +1,23 @@
+{
+  "staged_jars": 63,
+  "all_manifest_hashes_match": true,
+  "current_release_matches": true,
+  "preserved_optional_sources": [
+    {
+      "path": "C:\\Users\\andre\\Downloads\\Games\\September2024Mod\\libs\\retired-source-archives\\floral-ramadan-removal-20261031\\floral_flair-1.20.1-2.2.2.jar",
+      "sha256": "9cf4f11c9e3400ed2066b05713ece848d3655dec6d227e72e698c2fa049c2f47"
+    },
+    {
+      "path": "C:\\Users\\andre\\.gradle\\caches\\modules-2\\files-2.1\\curse.maven\\iceandfire-264231\\5633453\\7e828cbb046ca3d622e92c68f956bd1c0155dc6f\\iceandfire-264231-5633453.jar",
+      "sha256": "2b80245fc9b7d6fdc61d71f9892f4c6114eb7f303f65634845aaab25f84d1e82"
+    },
+    {
+      "path": "C:\\Users\\andre\\Downloads\\Games\\September2024Mod\\libs\\retired-source-archives\\floral-ramadan-removal-20261031\\ramadandelight-1.7.jar",
+      "sha256": "51f7c7b619355088b7ec4d5dcceda9360c3abb868d036f736dbb48ac999b8042"
+    },
+    {
+      "path": "C:\\Users\\andre\\Downloads\\Games\\September2024Mod\\build\\nov15-iteration\\optional-production-mods\\villager_realms-1.0.0.jar",
+      "sha256": "a0810e8c9b013a63334fab3a099ec02980f59677701dce6f1e9c2f7dacddcf17"
+    }
+  ]
+}

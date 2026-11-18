@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "axis=x": {
+      "model": "aoemod:block/wooden_portal_x"
+    },
+    "axis=z": {
+      "model": "aoemod:block/wooden_portal_z"
+    }
+  }
+}

@@ -1,9 +1,0 @@
-{
-  "type": "minecraft:smoking",
-  "ingredient": {
-    "item": "aoemod:end_fish"
-  },
-  "result": "aoemod:cooked_end_fish",
-  "experience": 0.35,
-  "cookingtime": 100
-}

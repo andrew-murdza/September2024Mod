@@ -295,25 +295,21 @@ public final class GameplayBugRegressionTests {
     @GameTest(template = TEMPLATE)
     public static void replacementLootPreservesSpecialDropsAndHonorsLooting(GameTestHelper helper) {
         ServerLevel plains = helper.getLevel().getServer().getLevel(GameplayDimensions.PLAINS);
-        var bossType = ModEntities.ILLAGER_LORD.get();
-        var oldBoss = MobConfig.MOB_INFO_BY_MOB.get(bossType);
         var oldZombie = MobConfig.MOB_INFO_BY_MOB.get(EntityType.ZOMBIE);
         try {
-            var boss = bossType.create(plains);
-            boss.moveTo(0, 250, 0);
-            MobConfig.MOB_INFO_BY_MOB.put(bossType, new MobConfig.MobInfo(null, null, List.of(dropRate(false))));
+            var zombie = EntityType.ZOMBIE.create(plains);
+            zombie.moveTo(0, 250, 0);
+            MobConfig.MOB_INFO_BY_MOB.put(EntityType.ZOMBIE, new MobConfig.MobInfo(null, null, List.of(dropRate(false))));
             var original = new ArrayList<ItemEntity>();
-            for (Item item : List.of(ModItems.BOSS_SHIELD.get(), Items.WITHER_SKELETON_SKULL, Items.TOTEM_OF_UNDYING)) {
+            for (Item item : List.of(Items.WITHER_SKELETON_SKULL, Items.TOTEM_OF_UNDYING)) {
                 original.add(new ItemEntity(plains, 0, 250, 0, new ItemStack(item)));
             }
-            var special = new LivingDropsEvent(boss, plains.damageSources().generic(), original, 0, true);
+            var special = new LivingDropsEvent(zombie, plains.damageSources().generic(), original, 0, true);
             CustomMobDrops.addConfiguredDrops(special);
-            for (Item item : List.of(ModItems.BOSS_SHIELD.get(), Items.WITHER_SKELETON_SKULL, Items.TOTEM_OF_UNDYING)) {
+            for (Item item : List.of(Items.WITHER_SKELETON_SKULL, Items.TOTEM_OF_UNDYING)) {
                 helper.assertTrue(special.getDrops().stream().anyMatch(drop -> drop.getItem().is(item)),
                         "Replacement loot discarded a special drop: " + item);
             }
-            var zombie = EntityType.ZOMBIE.create(plains);
-            zombie.moveTo(0, 250, 0);
             for (boolean eligible : new boolean[]{false, true}) {
                 MobConfig.MOB_INFO_BY_MOB.put(EntityType.ZOMBIE, new MobConfig.MobInfo(null, null, List.of(dropRate(eligible))));
                 zombie.getRandom().setSeed(17);
@@ -330,7 +326,6 @@ public final class GameplayBugRegressionTests {
                         "Looting must affect only eligible entries, with a bonus for eligible drops");
             }
         } finally {
-            restore(bossType, oldBoss);
             restore(EntityType.ZOMBIE, oldZombie);
         }
         helper.succeed();

@@ -1,0 +1,602 @@
+[
+  {
+    "file": "after/assets/aoemod/textures/block/blue_berry_bush_stage0.png",
+    "kind": "edited artwork",
+    "source": "project",
+    "sha256": "a77b1211007f64c3087801315201809b66d6331dd14665e7934e4adaf0da8670"
+  },
+  {
+    "file": "after/assets/aoemod/textures/block/blue_berry_bush_stage1.png",
+    "kind": "edited artwork",
+    "source": "project",
+    "sha256": "cdb0afbde53016786ce2a52770bb41ddf76460b9690546e06adce4509345b234"
+  },
+  {
+    "file": "after/assets/aoemod/textures/block/blue_berry_bush_stage2.png",
+    "kind": "edited artwork",
+    "source": "project",
+    "sha256": "416ebca4f039946a6ac0bb12e9b689b5830a616a7e3156bd3b589ebd1f6f068d"
+  },
+  {
+    "file": "after/assets/aoemod/textures/block/blue_berry_bush_stage3.png",
+    "kind": "edited artwork",
+    "source": "project",
+    "sha256": "3111c40e318bcb853f79ee626a7dc609bc33c11ed6a2b245498b917e20fb122e"
+  },
+  {
+    "file": "after/assets/aoemod/textures/block/snowy_blue_berry_bush_stage0.png",
+    "kind": "edited artwork",
+    "source": "project",
+    "sha256": "ee74e33c7521c25e2dac5447b964273f0057c5ae75b535291a627ff16f10615a"
+  },
+  {
+    "file": "after/assets/aoemod/textures/block/snowy_blue_berry_bush_stage1.png",
+    "kind": "edited artwork",
+    "source": "project",
+    "sha256": "a47193659a4214c2bff70d4c8e6965c83627b1a48341d24fd02bfa33dafb8554"
+  },
+  {
+    "file": "after/assets/aoemod/textures/block/snowy_blue_berry_bush_stage2.png",
+    "kind": "edited artwork",
+    "source": "project",
+    "sha256": "546cddc3301524b608a09eb7296fc3efeb4a9297adfbc1201c717c8886b0d9e3"
+  },
+  {
+    "file": "after/assets/aoemod/textures/block/snowy_blue_berry_bush_stage3.png",
+    "kind": "edited artwork",
+    "source": "project",
+    "sha256": "827e3c98da3e440e86f45118e0bbb5352ef2fc3a7f5dc64d665bacaf2b160eb6"
+  },
+  {
+    "file": "after/assets/aoemod/textures/block/soul_soil_quartz_ore.png",
+    "kind": "edited artwork",
+    "source": "project",
+    "sha256": "9e2032e6dd1ebf55b37922aa5c50832943532eb2e4387085e244949b3ed1d1a1"
+  },
+  {
+    "file": "after/assets/aoemod/textures/entity/arthropleura.png",
+    "kind": "edited artwork",
+    "source": "project",
+    "sha256": "e79b35db29974b2bf9dc87a4a6e6fff19f77768c50300d6f90c8bc5bb3ad4795"
+  },
+  {
+    "file": "after/assets/aoemod/textures/entity/cephalopod/arrow_squid/arrow_squid.png",
+    "kind": "edited artwork",
+    "source": "project",
+    "sha256": "262737c74bb12e274fa0858aae976a64b7c514e8fe74ff9f33c93c7a82e3f3ff"
+  },
+  {
+    "file": "after/assets/aoemod/textures/entity/orcz/orc_savage.png",
+    "kind": "edited artwork",
+    "source": "project",
+    "sha256": "3cd1dc6a41b38fb7f75d931193f42320052a3c9ef83a43d9ee652c27be721318"
+  },
+  {
+    "file": "after/assets/aoemod/textures/entity/orcz/orc_savage_big_2sword.png",
+    "kind": "edited artwork",
+    "source": "project",
+    "sha256": "6333a10d90ab6e3670a729b074bfe3fe57801a4c8530fb9599bac3f1d27669e3"
+  },
+  {
+    "file": "after/assets/aoemod/textures/entity/orcz/orc_savage_shield.png",
+    "kind": "edited artwork",
+    "source": "project",
+    "sha256": "870f5f948c3b4f80182f67d6cca60ebf15ad639aed26686676cf36366537403e"
+  },
+  {
+    "file": "after/assets/aoemod/textures/entity/spider_queen.png",
+    "kind": "edited artwork",
+    "source": "project",
+    "sha256": "45f0d1561f798ad04173d18047a6246e1e295f21a4d7609ee9bb2f7ebffde321"
+  },
+  {
+    "file": "after/assets/aoemod/textures/item/cooked_anglerfish.png",
+    "kind": "edited artwork",
+    "source": "project",
+    "sha256": "2d4d35b4cc704736144342ca4e69848d54863f88e64a92dbf82e824ea8bec0b6"
+  },
+  {
+    "file": "after/assets/aoemod/textures/item/cooked_anomalocaris.png",
+    "kind": "edited artwork",
+    "source": "project",
+    "sha256": "fa5ae7dd8a0ccb5e95b2a1f67e50bfda7bcf21392d9646bcc198ecab59ec1807"
+  },
+  {
+    "file": "after/assets/aoemod/textures/item/cooked_arrow_squid.png",
+    "kind": "edited artwork",
+    "source": "project",
+    "sha256": "e8f86730be22592c41e69423b1bb9555f8630a370587856954329284d86be356"
+  },
+  {
+    "file": "after/assets/aoemod/textures/item/cooked_blue_spotted_stingray.png",
+    "kind": "edited artwork",
+    "source": "project",
+    "sha256": "52171a63375344cec42e4faa0c0e4c47e4bdfb6658baef19ebc6c673ca22df53"
+  },
+  {
+    "file": "after/assets/aoemod/textures/item/cooked_carp.png",
+    "kind": "edited artwork",
+    "source": "project",
+    "sha256": "48d55b2a70ddf3df8803ab6c03323f71263da4b8a4406ef7e181801c07a877c3"
+  },
+  {
+    "file": "after/assets/aoemod/textures/item/cooked_crab_meat.png",
+    "kind": "edited artwork",
+    "source": "project",
+    "sha256": "f024d7515d06250923e38618f97e4163b07575713450d96a7f13860386e64e62"
+  },
+  {
+    "file": "after/assets/aoemod/textures/item/cooked_flying_fish.png",
+    "kind": "edited artwork",
+    "source": "project",
+    "sha256": "b7140ca6ba60eb75d989006d7b27b87229813df2b817200dcb500f3aca577be7"
+  },
+  {
+    "file": "after/assets/aoemod/textures/item/cooked_mahi_mahi.png",
+    "kind": "edited artwork",
+    "source": "project",
+    "sha256": "8819b48d14acf98f6a36b7c3b31fe35683a8948b8a93086a37108d17a25de51c"
+  },
+  {
+    "file": "after/assets/aoemod/textures/item/cooked_octopus.png",
+    "kind": "edited artwork",
+    "source": "project",
+    "sha256": "122e00e593419c3c7538587824b102720b53b5593fd100c2f3a24fea29344a54"
+  },
+  {
+    "file": "after/assets/aoemod/textures/item/cooked_rubber_belly_glider.png",
+    "kind": "edited artwork",
+    "source": "project",
+    "sha256": "b49312711bbb2bd3cb4816248e61f1710ed1d97e676026222bcc0802e2c361ee"
+  },
+  {
+    "file": "after/assets/aoemod/textures/item/cooked_starfish.png",
+    "kind": "edited artwork",
+    "source": "project",
+    "sha256": "5052e91ca19d24e14995680b00138c42e68a1878c24fcfbf98fd2803dbd7ad9f"
+  },
+  {
+    "file": "after/assets/aoemod/textures/item/cooked_swamp_mucker.png",
+    "kind": "edited artwork",
+    "source": "project",
+    "sha256": "97de9d4f097fb6c43bd54ab7208aadb3556227e9b748da96ae3a1dcfea210923"
+  },
+  {
+    "file": "after/assets/aoemod/textures/item/cooked_triops.png",
+    "kind": "edited artwork",
+    "source": "project",
+    "sha256": "ec52b53d369c298dbcfebd536179c597ae843d5239d2494fa842c26d5dd7db9e"
+  },
+  {
+    "file": "after/assets/aoemod/textures/item/cooked_tuna.png",
+    "kind": "edited artwork",
+    "source": "project",
+    "sha256": "3c4019eb89030579071706eeeb663f98c29c6628d7c333baf058cb537274708f"
+  },
+  {
+    "file": "after/assets/aoemod/textures/item/cooked_umbrella_octopus.png",
+    "kind": "edited artwork",
+    "source": "project",
+    "sha256": "8fc6a273d3f01051b24bfadbc006f512e15f340e20d23111a20bdb973fe4db73"
+  },
+  {
+    "file": "after/assets/aoemod/textures/item/cooked_vampire_squid.png",
+    "kind": "edited artwork",
+    "source": "project",
+    "sha256": "a7efccc5725b2ff9054dd7c97720184eac2c4d9618c7557bd90756ba25362866"
+  },
+  {
+    "file": "after/assets/aoemod/textures/item/plum.png",
+    "kind": "edited artwork",
+    "source": "project",
+    "sha256": "bee8bc4375f2a25ce0c2cc42f18452f6e9d3c188702ed571acc63ceb778bbd73"
+  },
+  {
+    "file": "after/assets/aoemod/textures/item/raw_anglerfish.png",
+    "kind": "edited artwork",
+    "source": "project",
+    "sha256": "dc60c64e7d810668f9bbba21d796c43f332d8fc2aee37aac384e7edee0c2faa7"
+  },
+  {
+    "file": "after/assets/aoemod/textures/item/raw_anomalocaris.png",
+    "kind": "edited artwork",
+    "source": "project",
+    "sha256": "27701d51a66ef9e4936a60616eab67faed193b19f70fa9db0fb2601162016b47"
+  },
+  {
+    "file": "after/assets/aoemod/textures/item/raw_arrow_squid.png",
+    "kind": "edited artwork",
+    "source": "project",
+    "sha256": "15f2d712ac5cf1182ce130cfea99ed6d1202a92f65a51e48ca72db338020cae4"
+  },
+  {
+    "file": "after/assets/aoemod/textures/item/raw_blue_spotted_stingray.png",
+    "kind": "edited artwork",
+    "source": "project",
+    "sha256": "6972a41667c7a538afe3761905090ecbb101782f7297e2aaa7a5c90493ca28b6"
+  },
+  {
+    "file": "after/assets/aoemod/textures/item/raw_mahi_mahi.png",
+    "kind": "edited artwork",
+    "source": "project",
+    "sha256": "04344eb0c5f601ed1594a25c8680dc0a6072b9cc4b5341c48fda063751ef348e"
+  },
+  {
+    "file": "after/assets/aoemod/textures/item/raw_octopus.png",
+    "kind": "edited artwork",
+    "source": "project",
+    "sha256": "3b3fbc3ed6a8994d9af7488308cc4a5c7babb4e8bc84b43a2a43078b0019ccc1"
+  },
+  {
+    "file": "after/assets/aoemod/textures/item/raw_rubber_belly_glider.png",
+    "kind": "edited artwork",
+    "source": "project",
+    "sha256": "7c643e56666cd3075b7e4b3311a8f6e64a68f22d044a94bd26b3013f0ed3285b"
+  },
+  {
+    "file": "after/assets/aoemod/textures/item/raw_triops.png",
+    "kind": "edited artwork",
+    "source": "project",
+    "sha256": "3c42793ccfa8fc840792cd96356b93a2cd1a8b06de5a2085f9b809bf182f7162"
+  },
+  {
+    "file": "after/assets/aoemod/textures/item/raw_umbrella_octopus.png",
+    "kind": "edited artwork",
+    "source": "project",
+    "sha256": "a416137d046f2d8498aa6218cb3333bdda12387ad866fbea365f10219c8b9ea5"
+  },
+  {
+    "file": "after/assets/aoemod/textures/item/raw_vampire_squid.png",
+    "kind": "edited artwork",
+    "source": "project",
+    "sha256": "e557dd5e35365d31606d61f5b018a8e7cf91b8294b48e0f8eac63db58996e610"
+  },
+  {
+    "file": "after/assets/aoemod/textures/item/soul_beetroot_soup.png",
+    "kind": "edited artwork",
+    "source": "project",
+    "sha256": "04632039f297558b58c82ea52a859854741bc02f2d1667a390eb8e05d1e4edf7"
+  },
+  {
+    "file": "after/assets/hearthandharvest/textures/block/corn_bottom_stage_0.png",
+    "kind": "edited artwork",
+    "source": "project",
+    "sha256": "9307440b89c5ca1216d1b1c3cc9c5d87714461557060ee09548ac85b83cfb7dd"
+  },
+  {
+    "file": "after/assets/hearthandharvest/textures/block/corn_bottom_stage_1.png",
+    "kind": "edited artwork",
+    "source": "project",
+    "sha256": "4c233306e99aaad62fd27a234a82fc02f742bcebb64855f9910a26c4e61d6643"
+  },
+  {
+    "file": "after/assets/hearthandharvest/textures/block/corn_bottom_stage_2.png",
+    "kind": "edited artwork",
+    "source": "project",
+    "sha256": "482ba12c2fc0dac08780bb6226198f66501ecb5e7c645fd461876e26f990a28c"
+  },
+  {
+    "file": "after/assets/hearthandharvest/textures/block/corn_bottom_stage_3.png",
+    "kind": "edited artwork",
+    "source": "project",
+    "sha256": "f0440923bc9c88d02a999e8fcdfce89175f199a8dcdbd710df0fdf9a1139775e"
+  },
+  {
+    "file": "after/assets/hearthandharvest/textures/block/corn_bottom_stage_4.png",
+    "kind": "edited artwork",
+    "source": "project",
+    "sha256": "be44b0cbae13131bb7d5a7d859b473cd750e0a84cfef75aaa6135af6effe3404"
+  },
+  {
+    "file": "after/assets/hearthandharvest/textures/block/corn_bottom_stage_5.png",
+    "kind": "edited artwork",
+    "source": "project",
+    "sha256": "2ebddfc3b25aca4e413a0f8bd7023e06e56e05aec8042a982bf57c826364ee1a"
+  },
+  {
+    "file": "after/assets/hearthandharvest/textures/block/corn_middle_stage_0.png",
+    "kind": "edited artwork",
+    "source": "project",
+    "sha256": "9104974cb2c7e37db5688124a0566a5f078cb68c31a3e59e8d693c5315f85c84"
+  },
+  {
+    "file": "after/assets/hearthandharvest/textures/block/corn_middle_stage_1.png",
+    "kind": "edited artwork",
+    "source": "project",
+    "sha256": "10b0d308c02f89dfbbe8b486a5e34c3ad8f225825eb40693c36a10c61cce5afa"
+  },
+  {
+    "file": "after/assets/hearthandharvest/textures/block/corn_middle_stage_2.png",
+    "kind": "edited artwork",
+    "source": "project",
+    "sha256": "1347ebc5c107a969713f23d60382545dd6fe77e3de865e951e4a0a43b2526d92"
+  },
+  {
+    "file": "after/assets/hearthandharvest/textures/block/corn_middle_stage_3.png",
+    "kind": "edited artwork",
+    "source": "project",
+    "sha256": "99d019a08a3ea73245fa1f8874f86ca2dce6e6b417b5f9af25a141846b10453d"
+  },
+  {
+    "file": "after/assets/hearthandharvest/textures/block/corn_middle_stage_4.png",
+    "kind": "edited artwork",
+    "source": "project",
+    "sha256": "75eb7014cb112b5639749cbae7638ed3b7e25b6bcf29724087337b95e4d65920"
+  },
+  {
+    "file": "after/assets/hearthandharvest/textures/block/corn_middle_stage_5.png",
+    "kind": "edited artwork",
+    "source": "project",
+    "sha256": "c7257702a9cf2e172573ed22ba100c646f4b1d8f5b6471213b8f1c4b76bf8283"
+  },
+  {
+    "file": "after/assets/hearthandharvest/textures/block/corn_top_stage_0.png",
+    "kind": "edited artwork",
+    "source": "project",
+    "sha256": "d4e899d548999b2a86c40f9fa74f75701d87e2cc4fdabffdf77aab493b9bf628"
+  },
+  {
+    "file": "after/assets/hearthandharvest/textures/block/corn_top_stage_1.png",
+    "kind": "edited artwork",
+    "source": "project",
+    "sha256": "e96980d8f4a70fa8a295e024a5d7dae339d8c9d6f0fe36927fad9f9d478bb121"
+  },
+  {
+    "file": "after/assets/hearthandharvest/textures/block/corn_top_stage_2.png",
+    "kind": "edited artwork",
+    "source": "project",
+    "sha256": "2c79cd76931f6d7e42dd6836edce5678b90657e287bfc50950505388b518ca22"
+  },
+  {
+    "file": "after/assets/hearthandharvest/textures/block/corn_top_stage_3.png",
+    "kind": "edited artwork",
+    "source": "project",
+    "sha256": "71ba4ef618b459c4dada119648bde9a95c8024584e96e0c829ff20709cc4065a"
+  },
+  {
+    "file": "after/assets/hearthandharvest/textures/block/corn_top_stage_4.png",
+    "kind": "edited artwork",
+    "source": "project",
+    "sha256": "00f20de859f45797114afc20755bf5e14f4970681c127ece1c619e7bffc69238"
+  },
+  {
+    "file": "after/assets/hearthandharvest/textures/block/corn_top_stage_5.png",
+    "kind": "edited artwork",
+    "source": "project",
+    "sha256": "9da17d34132a20f1a051e942be2eab707d821ffda151ec74567e8785ac3bd2ec"
+  },
+  {
+    "file": "after/assets/hybrid_aquatic/textures/item/mahi.png",
+    "kind": "edited artwork",
+    "source": "project",
+    "sha256": "04344eb0c5f601ed1594a25c8680dc0a6072b9cc4b5341c48fda063751ef348e"
+  },
+  {
+    "file": "seafood/raw/hybrid_aquatic__mahi.png",
+    "kind": "seafood raw",
+    "source": "project:src/main/resources/assets/hybrid_aquatic/textures/item/mahi.png",
+    "sha256": "04344eb0c5f601ed1594a25c8680dc0a6072b9cc4b5341c48fda063751ef348e"
+  },
+  {
+    "file": "seafood/cooked/aoemod__cooked_mahi_mahi.png",
+    "kind": "seafood cooked",
+    "source": "project:src/main/resources/assets/aoemod/textures/item/cooked_mahi_mahi.png",
+    "sha256": "8819b48d14acf98f6a36b7c3b31fe35683a8948b8a93086a37108d17a25de51c"
+  },
+  {
+    "file": "seafood/raw/aoemod__raw_anomalocaris.png",
+    "kind": "seafood raw",
+    "source": "project:src/main/resources/assets/aoemod/textures/item/raw_anomalocaris.png",
+    "sha256": "27701d51a66ef9e4936a60616eab67faed193b19f70fa9db0fb2601162016b47"
+  },
+  {
+    "file": "seafood/cooked/aoemod__cooked_anomalocaris.png",
+    "kind": "seafood cooked",
+    "source": "project:src/main/resources/assets/aoemod/textures/item/cooked_anomalocaris.png",
+    "sha256": "fa5ae7dd8a0ccb5e95b2a1f67e50bfda7bcf21392d9646bcc198ecab59ec1807"
+  },
+  {
+    "file": "seafood/raw/aoemod__raw_rubber_belly_glider.png",
+    "kind": "seafood raw",
+    "source": "project:src/main/resources/assets/aoemod/textures/item/raw_rubber_belly_glider.png",
+    "sha256": "7c643e56666cd3075b7e4b3311a8f6e64a68f22d044a94bd26b3013f0ed3285b"
+  },
+  {
+    "file": "seafood/cooked/aoemod__cooked_rubber_belly_glider.png",
+    "kind": "seafood cooked",
+    "source": "project:src/main/resources/assets/aoemod/textures/item/cooked_rubber_belly_glider.png",
+    "sha256": "b49312711bbb2bd3cb4816248e61f1710ed1d97e676026222bcc0802e2c361ee"
+  },
+  {
+    "file": "seafood/raw/alexsmobs__flying_fish.png",
+    "kind": "seafood raw",
+    "source": "alexsmobs-1.22.9.jar!assets/alexsmobs/textures/item/flying_fish.png",
+    "sha256": "a1f95dbd1c16e2990d87bb63d12917016ee886a02ef98b328721bd8fac5b0d43"
+  },
+  {
+    "file": "seafood/cooked/aoemod__cooked_flying_fish.png",
+    "kind": "seafood cooked",
+    "source": "project:src/main/resources/assets/aoemod/textures/item/cooked_flying_fish.png",
+    "sha256": "b7140ca6ba60eb75d989006d7b27b87229813df2b817200dcb500f3aca577be7"
+  },
+  {
+    "file": "seafood/raw/aoemod__raw_triops.png",
+    "kind": "seafood raw",
+    "source": "project:src/main/resources/assets/aoemod/textures/item/raw_triops.png",
+    "sha256": "3c42793ccfa8fc840792cd96356b93a2cd1a8b06de5a2085f9b809bf182f7162"
+  },
+  {
+    "file": "seafood/cooked/aoemod__cooked_triops.png",
+    "kind": "seafood cooked",
+    "source": "project:src/main/resources/assets/aoemod/textures/item/cooked_triops.png",
+    "sha256": "ec52b53d369c298dbcfebd536179c597ae843d5239d2494fa842c26d5dd7db9e"
+  },
+  {
+    "file": "seafood/raw/aoemod__raw_blue_spotted_stingray.png",
+    "kind": "seafood raw",
+    "source": "project:src/main/resources/assets/aoemod/textures/item/raw_blue_spotted_stingray.png",
+    "sha256": "6972a41667c7a538afe3761905090ecbb101782f7297e2aaa7a5c90493ca28b6"
+  },
+  {
+    "file": "seafood/cooked/aoemod__cooked_blue_spotted_stingray.png",
+    "kind": "seafood cooked",
+    "source": "project:src/main/resources/assets/aoemod/textures/item/cooked_blue_spotted_stingray.png",
+    "sha256": "52171a63375344cec42e4faa0c0e4c47e4bdfb6658baef19ebc6c673ca22df53"
+  },
+  {
+    "file": "seafood/raw/ecologics__crab_meat.png",
+    "kind": "seafood raw",
+    "source": "ecologics-2.2.7.jar!assets/ecologics/textures/item/crab_meat.png",
+    "sha256": "45ea3dbda285fabdd55eef63b0994e911701695bfd4aa48ebb4eb732051b54c2"
+  },
+  {
+    "file": "seafood/cooked/aoemod__cooked_crab_meat.png",
+    "kind": "seafood cooked",
+    "source": "project:src/main/resources/assets/aoemod/textures/item/cooked_crab_meat.png",
+    "sha256": "f024d7515d06250923e38618f97e4163b07575713450d96a7f13860386e64e62"
+  },
+  {
+    "file": "seafood/raw/ecologics__crab_meat.png",
+    "kind": "seafood raw",
+    "source": "ecologics-2.2.7.jar!assets/ecologics/textures/item/crab_meat.png",
+    "sha256": "45ea3dbda285fabdd55eef63b0994e911701695bfd4aa48ebb4eb732051b54c2"
+  },
+  {
+    "file": "seafood/cooked/aoemod__cooked_crab_meat.png",
+    "kind": "seafood cooked",
+    "source": "project:src/main/resources/assets/aoemod/textures/item/cooked_crab_meat.png",
+    "sha256": "f024d7515d06250923e38618f97e4163b07575713450d96a7f13860386e64e62"
+  },
+  {
+    "file": "seafood/raw/ecologics__crab_meat.png",
+    "kind": "seafood raw",
+    "source": "ecologics-2.2.7.jar!assets/ecologics/textures/item/crab_meat.png",
+    "sha256": "45ea3dbda285fabdd55eef63b0994e911701695bfd4aa48ebb4eb732051b54c2"
+  },
+  {
+    "file": "seafood/cooked/aoemod__cooked_crab_meat.png",
+    "kind": "seafood cooked",
+    "source": "project:src/main/resources/assets/aoemod/textures/item/cooked_crab_meat.png",
+    "sha256": "f024d7515d06250923e38618f97e4163b07575713450d96a7f13860386e64e62"
+  },
+  {
+    "file": "seafood/raw/hybrid_aquatic__starfish.png",
+    "kind": "seafood raw",
+    "source": "hybrid_aquatic-1.7.4.jar!assets/hybrid_aquatic/textures/item/starfish.png",
+    "sha256": "a99b7a6cbb6894cdabc1ccf62734877cecd2f3abdf3a4818e41f6dafe1d1a63f"
+  },
+  {
+    "file": "seafood/cooked/aoemod__cooked_starfish.png",
+    "kind": "seafood cooked",
+    "source": "project:src/main/resources/assets/aoemod/textures/item/cooked_starfish.png",
+    "sha256": "5052e91ca19d24e14995680b00138c42e68a1878c24fcfbf98fd2803dbd7ad9f"
+  },
+  {
+    "file": "seafood/raw/aoemod__raw_octopus.png",
+    "kind": "seafood raw",
+    "source": "project:src/main/resources/assets/aoemod/textures/item/raw_octopus.png",
+    "sha256": "3b3fbc3ed6a8994d9af7488308cc4a5c7babb4e8bc84b43a2a43078b0019ccc1"
+  },
+  {
+    "file": "seafood/cooked/aoemod__cooked_octopus.png",
+    "kind": "seafood cooked",
+    "source": "project:src/main/resources/assets/aoemod/textures/item/cooked_octopus.png",
+    "sha256": "122e00e593419c3c7538587824b102720b53b5593fd100c2f3a24fea29344a54"
+  },
+  {
+    "file": "seafood/raw/aoemod__raw_umbrella_octopus.png",
+    "kind": "seafood raw",
+    "source": "project:src/main/resources/assets/aoemod/textures/item/raw_umbrella_octopus.png",
+    "sha256": "a416137d046f2d8498aa6218cb3333bdda12387ad866fbea365f10219c8b9ea5"
+  },
+  {
+    "file": "seafood/cooked/aoemod__cooked_umbrella_octopus.png",
+    "kind": "seafood cooked",
+    "source": "project:src/main/resources/assets/aoemod/textures/item/cooked_umbrella_octopus.png",
+    "sha256": "8fc6a273d3f01051b24bfadbc006f512e15f340e20d23111a20bdb973fe4db73"
+  },
+  {
+    "file": "seafood/raw/hybrid_aquatic__carp.png",
+    "kind": "seafood raw",
+    "source": "hybrid_aquatic-1.7.4.jar!assets/hybrid_aquatic/textures/item/carp.png",
+    "sha256": "f4ac569435df3c217e1995ab7d06a3695623477d946705b6f80abdf3000f26e3"
+  },
+  {
+    "file": "seafood/cooked/aoemod__cooked_carp.png",
+    "kind": "seafood cooked",
+    "source": "project:src/main/resources/assets/aoemod/textures/item/cooked_carp.png",
+    "sha256": "48d55b2a70ddf3df8803ab6c03323f71263da4b8a4406ef7e181801c07a877c3"
+  },
+  {
+    "file": "seafood/raw/finsandtails__swamp_mucker.png",
+    "kind": "seafood raw",
+    "source": "finsandtails-1.20.1-1.1.6.jar!assets/finsandtails/textures/item/swamp_mucker.png",
+    "sha256": "ff1f134d9785da593a641ac9b51422c092313b34c671dda3846354bc4b5035e3"
+  },
+  {
+    "file": "seafood/cooked/aoemod__cooked_swamp_mucker.png",
+    "kind": "seafood cooked",
+    "source": "project:src/main/resources/assets/aoemod/textures/item/cooked_swamp_mucker.png",
+    "sha256": "97de9d4f097fb6c43bd54ab7208aadb3556227e9b748da96ae3a1dcfea210923"
+  },
+  {
+    "file": "seafood/raw/aoemod__raw_arrow_squid.png",
+    "kind": "seafood raw",
+    "source": "project:src/main/resources/assets/aoemod/textures/item/raw_arrow_squid.png",
+    "sha256": "15f2d712ac5cf1182ce130cfea99ed6d1202a92f65a51e48ca72db338020cae4"
+  },
+  {
+    "file": "seafood/cooked/aoemod__cooked_arrow_squid.png",
+    "kind": "seafood cooked",
+    "source": "project:src/main/resources/assets/aoemod/textures/item/cooked_arrow_squid.png",
+    "sha256": "e8f86730be22592c41e69423b1bb9555f8630a370587856954329284d86be356"
+  },
+  {
+    "file": "seafood/raw/aoemod__raw_vampire_squid.png",
+    "kind": "seafood raw",
+    "source": "project:src/main/resources/assets/aoemod/textures/item/raw_vampire_squid.png",
+    "sha256": "e557dd5e35365d31606d61f5b018a8e7cf91b8294b48e0f8eac63db58996e610"
+  },
+  {
+    "file": "seafood/cooked/aoemod__cooked_vampire_squid.png",
+    "kind": "seafood cooked",
+    "source": "project:src/main/resources/assets/aoemod/textures/item/cooked_vampire_squid.png",
+    "sha256": "a7efccc5725b2ff9054dd7c97720184eac2c4d9618c7557bd90756ba25362866"
+  },
+  {
+    "file": "seafood/raw/hybrid_aquatic__tuna.png",
+    "kind": "seafood raw",
+    "source": "hybrid_aquatic-1.7.4.jar!assets/hybrid_aquatic/textures/item/tuna.png",
+    "sha256": "2d8f1b8fb0579260dfcc6c0502ce9f602204c418d1dcce85c8ee711f1621a69d"
+  },
+  {
+    "file": "seafood/cooked/aoemod__cooked_tuna.png",
+    "kind": "seafood cooked",
+    "source": "project:src/main/resources/assets/aoemod/textures/item/cooked_tuna.png",
+    "sha256": "3c4019eb89030579071706eeeb663f98c29c6628d7c333baf058cb537274708f"
+  },
+  {
+    "file": "seafood/raw/aoemod__raw_anglerfish.png",
+    "kind": "seafood raw",
+    "source": "project:src/main/resources/assets/aoemod/textures/item/raw_anglerfish.png",
+    "sha256": "dc60c64e7d810668f9bbba21d796c43f332d8fc2aee37aac384e7edee0c2faa7"
+  },
+  {
+    "file": "seafood/cooked/aoemod__cooked_anglerfish.png",
+    "kind": "seafood cooked",
+    "source": "project:src/main/resources/assets/aoemod/textures/item/cooked_anglerfish.png",
+    "sha256": "2d4d35b4cc704736144342ca4e69848d54863f88e64a92dbf82e824ea8bec0b6"
+  },
+  {
+    "file": "seafood/raw/ecologics__crab_meat.png",
+    "kind": "seafood raw",
+    "source": "ecologics-2.2.7.jar!assets/ecologics/textures/item/crab_meat.png",
+    "sha256": "45ea3dbda285fabdd55eef63b0994e911701695bfd4aa48ebb4eb732051b54c2"
+  },
+  {
+    "file": "seafood/cooked/aoemod__cooked_crab_meat.png",
+    "kind": "seafood cooked",
+    "source": "project:src/main/resources/assets/aoemod/textures/item/cooked_crab_meat.png",
+    "sha256": "f024d7515d06250923e38618f97e4163b07575713450d96a7f13860386e64e62"
+  }
+]

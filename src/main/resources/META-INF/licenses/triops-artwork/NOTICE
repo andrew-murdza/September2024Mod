@@ -1,0 +1,7 @@
+assets/aoemod/textures/item/raw_triops.png is the unchanged placeholder sprite
+previously referenced by AoE's raw Triops item from Collector's Reap 1.5.5:
+assets/collectorsreap/textures/item/tiger_prawn.png.
+
+Source: https://github.com/brnbrd/CollectorsReap/tree/1.20.1
+Copyright (c) 2022 brdbrn. Used under the included MIT License.
+The dependency and its item/entity registries are not included.

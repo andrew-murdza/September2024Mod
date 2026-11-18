@@ -13,15 +13,30 @@
           ],
           "direction": "up"
         }
+      },
+      {
+        "type": "minecraft:block_predicate_filter",
+        "predicate": {
+          "type": "minecraft:matching_blocks",
+          "offset": [
+            0,
+            -1,
+            0
+          ],
+          "blocks": [
+            "minecraft:sand",
+            "minecraft:red_sand"
+          ]
+        }
       }
     ],
     "features": [
       {
-        "chance": 0.02,
+        "chance": 0.04,
         "feature": "aoemod:desert/floor/grass"
       },
       {
-        "chance": 0.98,
+        "chance": 0.96,
         "feature": "aoemod:nothing"
       }
     ]

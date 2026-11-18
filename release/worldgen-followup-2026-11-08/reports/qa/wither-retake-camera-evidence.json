@@ -1,0 +1,84 @@
+{
+  "status": "evidence",
+  "cameraFeet": [
+    8192.5,
+    96.0,
+    8228.5
+  ],
+  "cameraEye": [
+    8192.5,
+    97.62,
+    8228.5
+  ],
+  "target": [
+    8192.5,
+    88,
+    8194.5
+  ],
+  "cameraColumn": [
+    [
+      80,
+      "minecraft:obsidian"
+    ],
+    [
+      81,
+      "minecraft:cave_air"
+    ],
+    [
+      88,
+      "minecraft:obsidian"
+    ],
+    [
+      90,
+      "minecraft:air"
+    ],
+    [
+      100,
+      "minecraft:soul_soil"
+    ],
+    [
+      102,
+      "minecraft:air"
+    ]
+  ],
+  "roofSightlines": {
+    "(8192.5, 88, 8194.5)": null,
+    "(8192.5, 90, 8216.5)": {
+      "point": [
+        8192.5,
+        90.9906,
+        8218.06
+      ],
+      "block": "minecraft:obsidian",
+      "fraction": 0.87
+    },
+    "(8207.5, 88, 8193.5)": {
+      "point": [
+        8206.45,
+        88.6734,
+        8195.95
+      ],
+      "block": "minecraft:obsidian",
+      "fraction": 0.93
+    },
+    "(8177.5, 88, 8193.5)": {
+      "point": [
+        8178.55,
+        88.6734,
+        8195.95
+      ],
+      "block": "minecraft:obsidian",
+      "fraction": 0.93
+    },
+    "(8192.5, 92, 8170.5)": {
+      "point": [
+        8192.5,
+        92.52828,
+        8175.952
+      ],
+      "block": "minecraft:obsidian",
+      "fraction": 0.906
+    }
+  },
+  "result": "Camera is below the natural upper-gallery floor. Rays to the framing target and all four room-roof centers are clear or meet only the authored obsidian shell."
+}

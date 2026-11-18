@@ -1,0 +1,39 @@
+{
+  "status": "passed",
+  "started": "2026-11-09T04:38:35.412234900Z",
+  "elapsedMillis": 76918,
+  "requestedViews": 2,
+  "completedViews": 2,
+  "views": [
+    {
+      "label": "desert_curved_mouth_exit_oblique",
+      "dimension": "aoemod:desert_dimension",
+      "x": 1.05973945E7,
+      "y": 77.0,
+      "z": 121.5,
+      "yaw": 116.56505,
+      "pitch": 41.95235,
+      "settledClientTicks": 120,
+      "readyChunkRadius": 4,
+      "terrainReadiness": "surrounding chunks arrived and terrain build queue is idle",
+      "width": 1440,
+      "height": 1000,
+      "path": "C:\\Users\\andre\\Downloads\\Games\\September2024Mod\\build\\followup-worldgen-visuals\\client-2\\screenshots\\desert_curved_mouth_exit_oblique.png"
+    },
+    {
+      "label": "wither_exterior_close_oblique",
+      "dimension": "aoemod:nether_dimension",
+      "x": 8192.5,
+      "y": 96.0,
+      "z": 8228.5,
+      "yaw": 180.0,
+      "pitch": 15.798392,
+      "settledClientTicks": 120,
+      "readyChunkRadius": 4,
+      "terrainReadiness": "surrounding chunks arrived and terrain build queue is idle",
+      "width": 1440,
+      "height": 1000,
+      "path": "C:\\Users\\andre\\Downloads\\Games\\September2024Mod\\build\\followup-worldgen-visuals\\client-2\\screenshots\\wither_exterior_close_oblique.png"
+    }
+  ]
+}

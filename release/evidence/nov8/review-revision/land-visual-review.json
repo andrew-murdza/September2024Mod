@@ -1,0 +1,404 @@
+{
+  "status": "passed",
+  "review_date": "2026-11-08",
+  "reviewer": "terrain subagent",
+  "method": "Each original 1440x1000 PNG was opened and visually inspected individually; no image manipulation was used.",
+  "scope": "All 21 BEFORE and 21 AFTER land mob screenshots for Arthropleura, queen spider, Illager Lord, three orcs and stalker.",
+  "checks": [
+    "Full model bounds inside image",
+    "Feet and legs not clipped by frame or terrain",
+    "Horns and antennae inside frame",
+    "Weapons and shields visible across views",
+    "Stalker head/lure and tail inside frame",
+    "Three distinct viewpoints for every mob and phase",
+    "Natural land presentation and visible baseline/current differences"
+  ],
+  "count": 42,
+  "before_count": 21,
+  "after_count": 21,
+  "notes": [
+    "Raw front/rear names do not always describe the visible anatomical side. Public view_1/view_2/view_3_above labels remove that ambiguity without changing image content.",
+    "The BEFORE stalker appears purple/pink. The exporter owner was notified to avoid an inaccurate cobalt-blue baseline description.",
+    "This report validates visual framing and presentation, not runtime spawning or behavior."
+  ],
+  "reviewed": [
+    {
+      "phase": "before",
+      "entity": "aoemod_arthropleura",
+      "filename": "screenshots/before/aoemod_arthropleura_front.png",
+      "packaged_filename": "screenshots/before/aoemod_arthropleura_view_1.png",
+      "sha256": "6949c7fe0073b9f95519c89b69fd50083033ba8bb17e9d1e782661975eddbd1f",
+      "status": "passed",
+      "notes": "Historical many-plate uniform brown model is visible in all three views; antennae, full body, tail and legs are inside the frame with a natural land pose."
+    },
+    {
+      "phase": "before",
+      "entity": "aoemod_arthropleura",
+      "filename": "screenshots/before/aoemod_arthropleura_side.png",
+      "packaged_filename": "screenshots/before/aoemod_arthropleura_view_2.png",
+      "sha256": "17ddd3e4e6c8d62de682ae4413937893d61d5b3bbf06cbfcd97b6c41b66843f4",
+      "status": "passed",
+      "notes": "Historical many-plate uniform brown model is visible in all three views; antennae, full body, tail and legs are inside the frame with a natural land pose."
+    },
+    {
+      "phase": "before",
+      "entity": "aoemod_arthropleura",
+      "filename": "screenshots/before/aoemod_arthropleura_rear.png",
+      "packaged_filename": "screenshots/before/aoemod_arthropleura_view_3_above.png",
+      "sha256": "f585de5e8a798c3c9160aa44846be95c14807f7013c64e3480a054889f050dc5",
+      "status": "passed",
+      "notes": "Historical many-plate uniform brown model is visible in all three views; antennae, full body, tail and legs are inside the frame with a natural land pose."
+    },
+    {
+      "phase": "before",
+      "entity": "aoemod_spider_queen",
+      "filename": "screenshots/before/aoemod_spider_queen_front.png",
+      "packaged_filename": "screenshots/before/aoemod_spider_queen_view_1.png",
+      "sha256": "cba7a0b0b1a38ab5fa69206400815f273a1a068807f98c51b4a4107ca87073c8",
+      "status": "passed",
+      "notes": "Native king-spider brown and gold bands are visible; head, abdomen and all legs fit collectively across three distinct land views."
+    },
+    {
+      "phase": "before",
+      "entity": "aoemod_spider_queen",
+      "filename": "screenshots/before/aoemod_spider_queen_side.png",
+      "packaged_filename": "screenshots/before/aoemod_spider_queen_view_2.png",
+      "sha256": "13afe16d60c96c6a45596674af5f1ce3da59e25af0cdeedd34f9d5a05935b6ab",
+      "status": "passed",
+      "notes": "Native king-spider brown and gold bands are visible; head, abdomen and all legs fit collectively across three distinct land views."
+    },
+    {
+      "phase": "before",
+      "entity": "aoemod_spider_queen",
+      "filename": "screenshots/before/aoemod_spider_queen_rear.png",
+      "packaged_filename": "screenshots/before/aoemod_spider_queen_view_3_above.png",
+      "sha256": "96db1f6b0fa90661cc9dbf8e6a5590267c4e28811520a15994b6d216006fcfab",
+      "status": "passed",
+      "notes": "Native king-spider brown and gold bands are visible; head, abdomen and all legs fit collectively across three distinct land views."
+    },
+    {
+      "phase": "before",
+      "entity": "aoemod_illager_lord",
+      "filename": "screenshots/before/aoemod_illager_lord_front.png",
+      "packaged_filename": "screenshots/before/aoemod_illager_lord_view_1.png",
+      "sha256": "bcc66eeb6b50a566b3a4d513424fa24729bc5b6f9252a675273a703e276f845e",
+      "status": "passed",
+      "notes": "Helmet, face, shield, axe and feet are in frame across three distinct land views; imported armor artwork is intact."
+    },
+    {
+      "phase": "before",
+      "entity": "aoemod_illager_lord",
+      "filename": "screenshots/before/aoemod_illager_lord_side.png",
+      "packaged_filename": "screenshots/before/aoemod_illager_lord_view_2.png",
+      "sha256": "d0b90c65c0947d8d66da81353918970ac8b0ffa99d814b03bd5d7cc28b019107",
+      "status": "passed",
+      "notes": "Helmet, face, shield, axe and feet are in frame across three distinct land views; imported armor artwork is intact."
+    },
+    {
+      "phase": "before",
+      "entity": "aoemod_illager_lord",
+      "filename": "screenshots/before/aoemod_illager_lord_rear.png",
+      "packaged_filename": "screenshots/before/aoemod_illager_lord_view_3_above.png",
+      "sha256": "9b0a7d545a876c52b4433624c643b38ebb565b9a86e3fea82eaded9fd05a37c1",
+      "status": "passed",
+      "notes": "Helmet, face, shield, axe and feet are in frame across three distinct land views; imported armor artwork is intact."
+    },
+    {
+      "phase": "before",
+      "entity": "orcz_bigorcboss",
+      "filename": "screenshots/before/orcz_bigorcboss_front.png",
+      "packaged_filename": "screenshots/before/orcz_bigorcboss_view_1.png",
+      "sha256": "440fd022e115f141ebbd2907195effc52104dc379a5da6e99bf34f4d25e880ce",
+      "status": "passed",
+      "notes": "Native dark metal dual blades, both horns, complete body and feet fit; three distinct land views."
+    },
+    {
+      "phase": "before",
+      "entity": "orcz_bigorcboss",
+      "filename": "screenshots/before/orcz_bigorcboss_side.png",
+      "packaged_filename": "screenshots/before/orcz_bigorcboss_view_2.png",
+      "sha256": "c0f41318007b6cf6d6c3aef030915cb88f0cd71c2f315463731420abc3c7e78e",
+      "status": "passed",
+      "notes": "Native dark metal dual blades, both horns, complete body and feet fit; three distinct land views."
+    },
+    {
+      "phase": "before",
+      "entity": "orcz_bigorcboss",
+      "filename": "screenshots/before/orcz_bigorcboss_rear.png",
+      "packaged_filename": "screenshots/before/orcz_bigorcboss_view_3_above.png",
+      "sha256": "ef2a4e3878ec2aaa59d5d5c6f371a6896061280870dfcd11e805e0562c21cc18",
+      "status": "passed",
+      "notes": "Native dark metal dual blades, both horns, complete body and feet fit; three distinct land views."
+    },
+    {
+      "phase": "before",
+      "entity": "orcz_orcsavagemace",
+      "filename": "screenshots/before/orcz_orcsavagemace_front.png",
+      "packaged_filename": "screenshots/before/orcz_orcsavagemace_view_1.png",
+      "sha256": "8538c34f882aea48c228bbf597fd4aa027689e5ed582be2367e63a4b67ac6251",
+      "status": "passed",
+      "notes": "Native dark metal mace head, handle, horns, shoulders and feet fit; three distinct land views."
+    },
+    {
+      "phase": "before",
+      "entity": "orcz_orcsavagemace",
+      "filename": "screenshots/before/orcz_orcsavagemace_side.png",
+      "packaged_filename": "screenshots/before/orcz_orcsavagemace_view_2.png",
+      "sha256": "fc405141f64261c205fd4b43ad6d4b5c3c95a625d73ff1c662665f39c6d4309a",
+      "status": "passed",
+      "notes": "Native dark metal mace head, handle, horns, shoulders and feet fit; three distinct land views."
+    },
+    {
+      "phase": "before",
+      "entity": "orcz_orcsavagemace",
+      "filename": "screenshots/before/orcz_orcsavagemace_rear.png",
+      "packaged_filename": "screenshots/before/orcz_orcsavagemace_view_3_above.png",
+      "sha256": "6db5f1d5ff035d63a633b893766f91f95a8703c30c1da3b5fb0adfd3afb434c6",
+      "status": "passed",
+      "notes": "Native dark metal mace head, handle, horns, shoulders and feet fit; three distinct land views."
+    },
+    {
+      "phase": "before",
+      "entity": "orcz_orcshield",
+      "filename": "screenshots/before/orcz_orcshield_front.png",
+      "packaged_filename": "screenshots/before/orcz_orcshield_view_1.png",
+      "sha256": "6ce8d0529bb0030ec5ef0e947c862ba424d33da4d3c6b8eb6ac06ad6268abfeb",
+      "status": "passed",
+      "notes": "Native dark metal weapon and shield are visible, with complete head and feet; all equipment fits across three distinct land views."
+    },
+    {
+      "phase": "before",
+      "entity": "orcz_orcshield",
+      "filename": "screenshots/before/orcz_orcshield_side.png",
+      "packaged_filename": "screenshots/before/orcz_orcshield_view_2.png",
+      "sha256": "c47fd9acdc602a2fc56b8c81ad0e00fd4433e2d58be9744ef072062b55c9d258",
+      "status": "passed",
+      "notes": "Native dark metal weapon and shield are visible, with complete head and feet; all equipment fits across three distinct land views."
+    },
+    {
+      "phase": "before",
+      "entity": "orcz_orcshield",
+      "filename": "screenshots/before/orcz_orcshield_rear.png",
+      "packaged_filename": "screenshots/before/orcz_orcshield_view_3_above.png",
+      "sha256": "3cd07c5bfadc4f1d737d42f1a0e763a66e790b557fa1f84cd569d49e7f474c9e",
+      "status": "passed",
+      "notes": "Native dark metal weapon and shield are visible, with complete head and feet; all equipment fits across three distinct land views."
+    },
+    {
+      "phase": "before",
+      "entity": "outer_end_stalker",
+      "filename": "screenshots/before/outer_end_stalker_front.png",
+      "packaged_filename": "screenshots/before/outer_end_stalker_view_1.png",
+      "sha256": "e28c8cd09fcb00791c00375b4449b65fd5b7d5758e5a67c71e0ecd35eb62918f",
+      "status": "passed",
+      "notes": "Native purple/pink markings are visibly present; entire head/lure, long tail and all legs fit across three distinct land views. This visual baseline must be described as the native variant, not cobalt blue."
+    },
+    {
+      "phase": "before",
+      "entity": "outer_end_stalker",
+      "filename": "screenshots/before/outer_end_stalker_side.png",
+      "packaged_filename": "screenshots/before/outer_end_stalker_view_2.png",
+      "sha256": "29e3f8271708aa50a54f2319f460763559e9879ba4f1cab22934c9fb8fb683be",
+      "status": "passed",
+      "notes": "Native purple/pink markings are visibly present; entire head/lure, long tail and all legs fit across three distinct land views. This visual baseline must be described as the native variant, not cobalt blue."
+    },
+    {
+      "phase": "before",
+      "entity": "outer_end_stalker",
+      "filename": "screenshots/before/outer_end_stalker_rear.png",
+      "packaged_filename": "screenshots/before/outer_end_stalker_view_3_above.png",
+      "sha256": "a1c5c5681bf23f6695b25f15ecefb8270abe25fee940537251571bfddb8e0bfc",
+      "status": "passed",
+      "notes": "Native purple/pink markings are visibly present; entire head/lure, long tail and all legs fit across three distinct land views. This visual baseline must be described as the native variant, not cobalt blue."
+    },
+    {
+      "phase": "after",
+      "entity": "aoemod_arthropleura",
+      "filename": "screenshots/after/aoemod_arthropleura_front.png",
+      "packaged_filename": "screenshots/after/aoemod_arthropleura_view_1.png",
+      "sha256": "eb83c053f02c73c990a89205bccffb082a0d795a2501aedc06685ec2cb76272e",
+      "status": "passed",
+      "notes": "Current black and orange plated texture and lighter legs are visible; complete antennae, body, tail and legs fit in all three views."
+    },
+    {
+      "phase": "after",
+      "entity": "aoemod_arthropleura",
+      "filename": "screenshots/after/aoemod_arthropleura_side.png",
+      "packaged_filename": "screenshots/after/aoemod_arthropleura_view_2.png",
+      "sha256": "11ad4dabfd2103be6b4d5a21313d3954d6362725d5ee9fedf21ae20dc059625b",
+      "status": "passed",
+      "notes": "Current black and orange plated texture and lighter legs are visible; complete antennae, body, tail and legs fit in all three views."
+    },
+    {
+      "phase": "after",
+      "entity": "aoemod_arthropleura",
+      "filename": "screenshots/after/aoemod_arthropleura_rear.png",
+      "packaged_filename": "screenshots/after/aoemod_arthropleura_view_3_above.png",
+      "sha256": "08eff676fc5da85285d0ded8804744c04145b25ae8ac815125ccf1f60dbda9c4",
+      "status": "passed",
+      "notes": "Current black and orange plated texture and lighter legs are visible; complete antennae, body, tail and legs fit in all three views."
+    },
+    {
+      "phase": "after",
+      "entity": "aoemod_spider_queen",
+      "filename": "screenshots/after/aoemod_spider_queen_front.png",
+      "packaged_filename": "screenshots/after/aoemod_spider_queen_view_1.png",
+      "sha256": "5156e2c42bb460371b6a8daf5f22d1b96f6a7576c853958bad731a634eb28ee3",
+      "status": "passed",
+      "notes": "Current dark spider artwork and red eyes are visible; head, abdomen and all legs fit collectively across three distinct land views."
+    },
+    {
+      "phase": "after",
+      "entity": "aoemod_spider_queen",
+      "filename": "screenshots/after/aoemod_spider_queen_side.png",
+      "packaged_filename": "screenshots/after/aoemod_spider_queen_view_2.png",
+      "sha256": "d02a700b3b5a28e003d90217db6e3c9223522dbe8a00f84fdbeefb4fa911e80b",
+      "status": "passed",
+      "notes": "Current dark spider artwork and red eyes are visible; head, abdomen and all legs fit collectively across three distinct land views."
+    },
+    {
+      "phase": "after",
+      "entity": "aoemod_spider_queen",
+      "filename": "screenshots/after/aoemod_spider_queen_rear.png",
+      "packaged_filename": "screenshots/after/aoemod_spider_queen_view_3_above.png",
+      "sha256": "24f6f12e26aeaa971795aa9a17f6468415a19767c838c113b0f6e0c4242e0822",
+      "status": "passed",
+      "notes": "Current dark spider artwork and red eyes are visible; head, abdomen and all legs fit collectively across three distinct land views."
+    },
+    {
+      "phase": "after",
+      "entity": "aoemod_illager_lord",
+      "filename": "screenshots/after/aoemod_illager_lord_front.png",
+      "packaged_filename": "screenshots/after/aoemod_illager_lord_view_1.png",
+      "sha256": "155fc798188dd26727c18fd9111ceaa4b44e5af1b8f75932433469e4ee80bb3d",
+      "status": "passed",
+      "notes": "Helmet, face, shield, axe and feet are in frame across three distinct land views; current hand attachment remains visible."
+    },
+    {
+      "phase": "after",
+      "entity": "aoemod_illager_lord",
+      "filename": "screenshots/after/aoemod_illager_lord_side.png",
+      "packaged_filename": "screenshots/after/aoemod_illager_lord_view_2.png",
+      "sha256": "2a28a070eb173a6f3b217c300431cf2707902ba3f17b75f6be34b3c71da9009d",
+      "status": "passed",
+      "notes": "Helmet, face, shield, axe and feet are in frame across three distinct land views; current hand attachment remains visible."
+    },
+    {
+      "phase": "after",
+      "entity": "aoemod_illager_lord",
+      "filename": "screenshots/after/aoemod_illager_lord_rear.png",
+      "packaged_filename": "screenshots/after/aoemod_illager_lord_view_3_above.png",
+      "sha256": "1fc3b5eefec21fafe62295aa06f2274c671bdff66c246c0fb8be4d58c0dd6a35",
+      "status": "passed",
+      "notes": "Helmet, face, shield, axe and feet are in frame across three distinct land views; current hand attachment remains visible."
+    },
+    {
+      "phase": "after",
+      "entity": "orcz_bigorcboss",
+      "filename": "screenshots/after/orcz_bigorcboss_front.png",
+      "packaged_filename": "screenshots/after/orcz_bigorcboss_view_1.png",
+      "sha256": "2124a726986cd643381d541b3375ecfcecf0d8b069ffaf2eb726edb036b44957",
+      "status": "passed",
+      "notes": "Both bone blades, both horns, complete body and feet fit; three distinct land views."
+    },
+    {
+      "phase": "after",
+      "entity": "orcz_bigorcboss",
+      "filename": "screenshots/after/orcz_bigorcboss_side.png",
+      "packaged_filename": "screenshots/after/orcz_bigorcboss_view_2.png",
+      "sha256": "997c2c1dcbd7e937627586c6114f696a18b42eda848b4dd7c3561c998889f695",
+      "status": "passed",
+      "notes": "Both bone blades, both horns, complete body and feet fit; three distinct land views."
+    },
+    {
+      "phase": "after",
+      "entity": "orcz_bigorcboss",
+      "filename": "screenshots/after/orcz_bigorcboss_rear.png",
+      "packaged_filename": "screenshots/after/orcz_bigorcboss_view_3_above.png",
+      "sha256": "fd273b26dd60f12b7c7d9a2d9792666a08bf33a1b909e53e9fcbfcae77efc2a6",
+      "status": "passed",
+      "notes": "Both bone blades, both horns, complete body and feet fit; three distinct land views."
+    },
+    {
+      "phase": "after",
+      "entity": "orcz_orcsavagemace",
+      "filename": "screenshots/after/orcz_orcsavagemace_front.png",
+      "packaged_filename": "screenshots/after/orcz_orcsavagemace_view_1.png",
+      "sha256": "9767dbffaf581ce8c3c9aa1b8c540809922414ba284b26cafb69bfe62fedd53b",
+      "status": "passed",
+      "notes": "Bone mace head, handle, horns, shoulders and feet fit; three distinct land views."
+    },
+    {
+      "phase": "after",
+      "entity": "orcz_orcsavagemace",
+      "filename": "screenshots/after/orcz_orcsavagemace_side.png",
+      "packaged_filename": "screenshots/after/orcz_orcsavagemace_view_2.png",
+      "sha256": "a70e5547ce658a2da0f78d92ca79a114ad92c8783e8e3967583d7d123019ccac",
+      "status": "passed",
+      "notes": "Bone mace head, handle, horns, shoulders and feet fit; three distinct land views."
+    },
+    {
+      "phase": "after",
+      "entity": "orcz_orcsavagemace",
+      "filename": "screenshots/after/orcz_orcsavagemace_rear.png",
+      "packaged_filename": "screenshots/after/orcz_orcsavagemace_view_3_above.png",
+      "sha256": "2058ef06e31f67cafea1ef440f4f79fadafea049ea4cc06beacb757cba650754",
+      "status": "passed",
+      "notes": "Bone mace head, handle, horns, shoulders and feet fit; three distinct land views."
+    },
+    {
+      "phase": "after",
+      "entity": "orcz_orcshield",
+      "filename": "screenshots/after/orcz_orcshield_front.png",
+      "packaged_filename": "screenshots/after/orcz_orcshield_view_1.png",
+      "sha256": "83455e20121f216cdddb7b23e64964d8b8cb5423de2495f05534a47343646106",
+      "status": "passed",
+      "notes": "Bone weapon and shield are visible, with complete head and feet; all equipment fits across three distinct land views."
+    },
+    {
+      "phase": "after",
+      "entity": "orcz_orcshield",
+      "filename": "screenshots/after/orcz_orcshield_side.png",
+      "packaged_filename": "screenshots/after/orcz_orcshield_view_2.png",
+      "sha256": "a0b7f9b90f684ed2afdf47117b916dc049a911d9311554b89407a1620bec45cd",
+      "status": "passed",
+      "notes": "Bone weapon and shield are visible, with complete head and feet; all equipment fits across three distinct land views."
+    },
+    {
+      "phase": "after",
+      "entity": "orcz_orcshield",
+      "filename": "screenshots/after/orcz_orcshield_rear.png",
+      "packaged_filename": "screenshots/after/orcz_orcshield_view_3_above.png",
+      "sha256": "237415f2eda35451ca8a21278b07d046153f48d9334eb464e59afdd0efe74bee",
+      "status": "passed",
+      "notes": "Bone weapon and shield are visible, with complete head and feet; all equipment fits across three distinct land views."
+    },
+    {
+      "phase": "after",
+      "entity": "outer_end_stalker",
+      "filename": "screenshots/after/outer_end_stalker_front.png",
+      "packaged_filename": "screenshots/after/outer_end_stalker_view_1.png",
+      "sha256": "172a9747054b3ec4ec6bd38ace0238b8d4521e0e2b36f84a58cad18a0cd890ad",
+      "status": "passed",
+      "notes": "Blue-white emissive markings are visibly present; entire head/lure, long tail and all legs fit across three distinct land views."
+    },
+    {
+      "phase": "after",
+      "entity": "outer_end_stalker",
+      "filename": "screenshots/after/outer_end_stalker_side.png",
+      "packaged_filename": "screenshots/after/outer_end_stalker_view_2.png",
+      "sha256": "b81881983fe3257e527bec1c31a9b7725b20de560cc5626ca0ffb6df1451b013",
+      "status": "passed",
+      "notes": "Blue-white emissive markings are visibly present; entire head/lure, long tail and all legs fit across three distinct land views."
+    },
+    {
+      "phase": "after",
+      "entity": "outer_end_stalker",
+      "filename": "screenshots/after/outer_end_stalker_rear.png",
+      "packaged_filename": "screenshots/after/outer_end_stalker_view_3_above.png",
+      "sha256": "a5ea624b20ed7bbec20b69848f66e3b377e590bdd81d60aa0d22959688a983e3",
+      "status": "passed",
+      "notes": "Blue-white emissive markings are visibly present; entire head/lure, long tail and all legs fit across three distinct land views."
+    }
+  ]
+}

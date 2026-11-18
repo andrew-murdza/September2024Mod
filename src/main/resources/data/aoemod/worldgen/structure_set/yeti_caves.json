@@ -1,0 +1,11 @@
+{
+  "structures": [
+    {
+      "structure": "aoemod:yeti_cave",
+      "weight": 1
+    }
+  ],
+  "placement": {
+    "type": "aoemod:plateau_lair"
+  }
+}

@@ -1,6 +1,10 @@
 package net.amurdza.examplemod.worldgen;
 
+import net.amurdza.examplemod.worldgen.tree_decorators.MangroveMulberryDecorator;
 import net.amurdza.examplemod.registry.ModConfiguredFeatures;
+import net.amurdza.examplemod.registry.ModBlocks;
+import net.amurdza.examplemod.util.GameplayDimensions;
+import net.amurdza.examplemod.AOEMod;
 import net.amurdza.examplemod.util.ModTags;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.registries.Registries;
@@ -38,8 +42,12 @@ public final class RainforestSaplingHelper {
 
     private RainforestSaplingHelper() {}
 
+    public static boolean shouldHandleTropical(ServerLevel level, BlockState state) {
+        return tropicalFeature(level, state) != null;
+    }
+
     public static boolean shouldHandle(ServerLevel level, BlockPos pos, BlockState state) {
-        return RAINFOREST_MEGA_TREES.containsKey(state.getBlock())
+        return tropicalFeature(level, state) != null || RAINFOREST_MEGA_TREES.containsKey(state.getBlock())
                 && level.getBiome(pos).is(ModTags.Biomes.rainforestBiomes);
     }
 
@@ -55,6 +63,15 @@ public final class RainforestSaplingHelper {
             RandomSource random,
             @Nullable ChunkGenerator generator
     ) {
+        ResourceKey<ConfiguredFeature<?, ?>> tropicalFeature = tropicalFeature(level, state);
+        if (tropicalFeature != null) {
+            if (state.hasProperty(SaplingBlock.STAGE) && state.getValue(SaplingBlock.STAGE) == 0) {
+                level.setBlock(pos, state.cycle(SaplingBlock.STAGE), 4);
+                return false;
+            }
+            return placeSingleFeature(level, pos, state, random, tropicalFeature,
+                    generator == null ? level.getChunkSource().getGenerator() : generator);
+        }
         ResourceKey<ConfiguredFeature<?, ?>> featureKey = RAINFOREST_MEGA_TREES.get(state.getBlock());
         if (featureKey == null) {
             return false;
@@ -75,6 +92,15 @@ public final class RainforestSaplingHelper {
                 : generator;
 
         return placeTwoByTwoFeature(level, base.get(), random, featureKey, actualGenerator);
+    }
+
+    private static @Nullable ResourceKey<ConfiguredFeature<?, ?>> tropicalFeature(ServerLevel level, BlockState state) {
+        if (!GameplayDimensions.is(level, GameplayDimensions.TROPICAL)) return null;
+        String path = state.is(Blocks.OAK_SAPLING) ? "natural_fancy_oak"
+                : state.is(ModBlocks.AZALEA_SAPLING.get()) ? "natural_azalea"
+                : state.is(Blocks.MANGROVE_PROPAGULE) ? "natural_mangrove" : null;
+        return path == null ? null : ResourceKey.create(Registries.CONFIGURED_FEATURE,
+                AOEMod.makeID("rainforest/tree/" + path));
     }
 
     public static boolean growNormalSaplingTree(
@@ -171,7 +197,10 @@ public final class RainforestSaplingHelper {
                 .registryOrThrow(Registries.CONFIGURED_FEATURE)
                 .get(featureKey);
 
-        boolean placed = tree != null && tree.place(level, generator, random, pos);
+        boolean tropicalMangrove = GameplayDimensions.is(level, GameplayDimensions.TROPICAL)
+                && featureKey.location().equals(AOEMod.makeID("rainforest/tree/natural_mangrove"));
+        boolean placed = tree != null && (tropicalMangrove ? placeMangrove(level, pos, tree, generator, random)
+                : tree.place(level, generator, random, pos));
 
         if (!placed) {
             level.setBlock(pos, oldState, 4);
@@ -180,5 +209,26 @@ public final class RainforestSaplingHelper {
         }
 
         return placed;
+    }
+
+    private static boolean placeMangrove(ServerLevel level, BlockPos origin, ConfiguredFeature<?, ?> tree,
+                                                ChunkGenerator generator, RandomSource random) {
+        for (int attempt = 0; attempt < 128; attempt++) {
+            GrowthPlacementBuffer buffer = new GrowthPlacementBuffer(level);
+            boolean generated = MangroveMulberryDecorator
+                    .withSixMulberries(() -> tree.place(buffer, generator, random, origin));
+            if (!generated || !MangroveMulberryDecorator
+                    .hasSixSupportedMulberries(buffer)) continue;
+            boolean[] placed = {false};
+            net.amurdza.examplemod.util.GrowthPlacementContext.runTree(buffer, origin, () -> {
+                if (buffer.isValid((pos, state) -> TreeGrowthCollisionRules.isAllowed(level, pos, state)
+                        && net.amurdza.examplemod.util.TreeGrowthPlacementRules.isAllowed(buffer, origin, pos, state)
+                        && net.amurdza.examplemod.util.BiomePlacementRestrictions.isAllowed(buffer, pos, state))) {
+                    placed[0] = buffer.commit();
+                }
+            });
+            if (placed[0]) return true;
+        }
+        return false;
     }
 }

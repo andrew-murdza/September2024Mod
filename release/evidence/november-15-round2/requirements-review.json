@@ -1,0 +1,624 @@
+{
+  "document": "build/nov15-round2/document-source.txt",
+  "document_json": "build/nov15-round2/document.json",
+  "review_date": "2026-11-15",
+  "repository_root": "C:\\Users\\andre\\Downloads\\Games\\September2024Mod",
+  "scope": "Current document plus explicit user confirmation restoring all three biome mods. No unrelated previous requests are claimed here.",
+  "validation_status": "Complete: focused native tests, targeted client review, world creation/reload, build, data generation and packaging passed.",
+  "proof_paths_are_repository_relative": true,
+  "interpretations": [
+    {
+      "document_indices": [
+        447
+      ],
+      "interpretation": "24 means clear blocks between 12-wide tents, hence36-block centers."
+    },
+    {
+      "document_indices": [
+        1564,
+        1934,
+        2510
+      ],
+      "interpretation": "These paragraphs refer to the mansion basement despite the plain-text export omitting a Plains heading."
+    },
+    {
+      "document_indices": [
+        1791,
+        1934
+      ],
+      "interpretation": "The four pens occupy one contiguous outer-side row/column in the explicit basement map; the smithy occupies its fifth position."
+    },
+    {
+      "document_indices": [
+        4065
+      ],
+      "interpretation": "Native room tiles are eight blocks apart, so exact10x10 tile count yields80x80 lattice rather than an exact90-block side."
+    }
+  ],
+  "requirements": [
+    {
+      "id": "T1",
+      "domain": "Tropical",
+      "document_indices": [
+        20
+      ],
+      "request": "Revert the preceding Tropical changes, including the three mods per explicit user clarification.",
+      "implementation": "Restored Environmental/BOP/BWG dependency records and integrations, original 150/270/300/360 radial bands, cherry generation/ecology, four flowers and sandy farmland; retained older content exclusions.",
+      "locations": [
+        "dependency-lock.json",
+        "production-dependencies.json",
+        "src/main/resources/META-INF/mods.toml",
+        "src/main/java/net/amurdza/examplemod/worldgen/TropicalLayout.java",
+        "src/main/java/net/amurdza/examplemod/worldgen/TropicalIslandPlan.java",
+        "src/main/java/net/amurdza/examplemod/worldgen/DimensionBiomeSource.java",
+        "src/main/java/net/amurdza/examplemod/worldgen/TropicalVegetation.java",
+        "src/main/java/net/amurdza/examplemod/worldgen/feature/features/TropicalCherryTreesFeature.java",
+        "src/main/java/net/amurdza/examplemod/worldgen/DocumentedFloraFeature.java",
+        "src/main/java/net/amurdza/examplemod/util/RetainedContent.java",
+        "src/main/java/net/amurdza/examplemod/util/ObtainableContent.java",
+        "src/main/java/net/amurdza/examplemod/event_handlers/DesertSandTilling.java",
+        "src/main/java/net/amurdza/examplemod/mixins/othermods/byg/SandyFarmlandReversion.java"
+      ],
+      "current_proof": [
+        "Exact archived comparison: 208224 terrain samples and 385722 allocation decisions on 54 islands.",
+        "Standalone layout/quota/fauna audits: 64 islands each passed.",
+        "Dependency audit: 44 jars, 51 mod IDs, 99 mandatory dependencies passed.",
+        "Targeted javac passed; tropical-restoration-report.json records details."
+      ],
+      "native_validation": "Passed targeted tests and applicable visual review; see game-test-summary.json and visual-review.json."
+    },
+    {
+      "id": "T2",
+      "domain": "Tropical",
+      "document_indices": [
+        20,
+        276
+      ],
+      "request": "Preserve mangrove roots over competing flowers/plants.",
+      "implementation": "Native roots can replace ornamental flowers, including both halves of tall flowers; subsequent native/buffered flora cannot replace roots. Reserved crops remain protected.",
+      "locations": [
+        "src/main/java/net/amurdza/examplemod/worldgen/TropicalPlantIntegrity.java",
+        "src/main/java/net/amurdza/examplemod/worldgen/GrowthPlacementBuffer.java",
+        "src/main/java/net/amurdza/examplemod/mixins/trees/MangroveRootsOverFlowers.java",
+        "src/main/java/net/amurdza/examplemod/mixins/worldgen/TropicalPlantReplacementDuringGeneration.java",
+        "src/main/java/net/amurdza/examplemod/worldgen/TropicalVegetation.java"
+      ],
+      "current_proof": [
+        "Source reviewed and compiled; focused real native-root placement and WorldGenRegion regression selected."
+      ],
+      "native_validation": "Passed targeted tests and applicable visual review; see game-test-summary.json and visual-review.json."
+    },
+    {
+      "id": "T3",
+      "domain": "Tropical",
+      "document_indices": [
+        20
+      ],
+      "request": "Bamboo only in cherry groves, 6x6 patches of ten stems at roughly Japanese-orchid patch frequency.",
+      "implementation": "Final decoration uses atomic ten-stem patches in 6x6, cherry-only, with 5/42 eligible-chunk selection derived from the original two orchid draws. Stems stop below first leaves/solid, preserve soil, and avoid fauna owners.",
+      "locations": [
+        "src/main/java/net/amurdza/examplemod/worldgen/TropicalBamboo.java",
+        "src/main/java/net/amurdza/examplemod/mixins/worldgen/TropicalFinalBamboo.java",
+        "src/main/java/net/amurdza/examplemod/gametest/TropicalNovemberFifteenTests.java"
+      ],
+      "current_proof": [
+        "Source reviewed and compiled; habitat, atomic rollback, ceilings, selection frequency and natural fixture checks selected."
+      ],
+      "native_validation": "Passed targeted tests and applicable visual review; see game-test-summary.json and visual-review.json."
+    },
+    {
+      "id": "S1",
+      "domain": "Savanna",
+      "document_indices": [
+        323,
+        367,
+        447
+      ],
+      "request": "Remove tent-corner crops; use authored 12x12 tents and increase clear gap to 24.",
+      "implementation": "Nine captured 12-block tents on 36-block centers produce 24 clear blocks between footprints; copied crop/grass corner cells removed.",
+      "locations": [
+        "scripts/generate-orc-village.py",
+        "src/main/java/net/amurdza/examplemod/worldgen/structure/SavannaOrcVillage.java",
+        "src/main/resources/data/aoemod/structures/orc_village.nbt",
+        "scripts/data/orc-tent-12-authored.nbt"
+      ],
+      "current_proof": [
+        "camp-artifact-checks.json passed against actual generated NBT; relevant GameTests selected in camp-tests.txt."
+      ],
+      "native_validation": "Passed targeted tests and applicable visual review; see game-test-summary.json and visual-review.json."
+    },
+    {
+      "id": "S2",
+      "domain": "Savanna",
+      "document_indices": [
+        494,
+        694
+      ],
+      "request": "Grass margin at least one block, regular six-block log gaps, including corner logs.",
+      "implementation": "Enlarged square stockade uses six clear blocks between seven-pitch posts, corner posts, and a grass/bush strip beyond outer roads.",
+      "locations": [
+        "scripts/generate-orc-village.py",
+        "src/main/java/net/amurdza/examplemod/worldgen/structure/SavannaOrcVillage.java",
+        "src/main/resources/data/aoemod/structures/orc_village.nbt"
+      ],
+      "current_proof": [
+        "camp-artifact-checks.json passed against actual generated NBT; relevant GameTests selected in camp-tests.txt."
+      ],
+      "native_validation": "Passed targeted tests and applicable visual review; see game-test-summary.json and visual-review.json."
+    },
+    {
+      "id": "S3",
+      "domain": "Savanna",
+      "document_indices": [
+        788,
+        830
+      ],
+      "request": "All former seven-wide roads become eight-wide; all central ground inside crops becomes path.",
+      "implementation": "Even-width eight-lane roads, matching eight-lane approach ramps and complete central dirt-path area; preserved tent contents overlay it.",
+      "locations": [
+        "scripts/generate-orc-village.py",
+        "src/main/java/net/amurdza/examplemod/worldgen/structure/SavannaOrcVillage.java",
+        "src/main/resources/data/aoemod/structures/orc_village.nbt"
+      ],
+      "current_proof": [
+        "camp-artifact-checks.json passed against actual generated NBT; relevant GameTests selected in camp-tests.txt."
+      ],
+      "native_validation": "Passed targeted tests and applicable visual review; see game-test-summary.json and visual-review.json."
+    },
+    {
+      "id": "S4",
+      "domain": "Savanna",
+      "document_indices": [
+        942
+      ],
+      "request": "Add mushrooms to podzol areas.",
+      "implementation": "Seeded red/brown mushrooms cover crop-margin and outer podzol patches; reserved from later vegetation overwrite.",
+      "locations": [
+        "scripts/generate-orc-village.py",
+        "src/main/java/net/amurdza/examplemod/worldgen/structure/SavannaOrcVillage.java",
+        "src/main/resources/data/aoemod/structures/orc_village.nbt"
+      ],
+      "current_proof": [
+        "Generator source and patch metadata inspected; generated-artifact audit passed."
+      ],
+      "native_validation": "Passed targeted tests and applicable visual review; see game-test-summary.json and visual-review.json."
+    },
+    {
+      "id": "S5",
+      "domain": "Savanna",
+      "document_indices": [
+        976
+      ],
+      "request": "Ponds one deep; cane has one submerged and two above-water sections.",
+      "implementation": "Crop ponds have a single water layer over mud, with three-block cane and waterlogged bottom only.",
+      "locations": [
+        "scripts/generate-orc-village.py",
+        "src/main/java/net/amurdza/examplemod/worldgen/structure/SavannaOrcVillage.java",
+        "src/main/resources/data/aoemod/structures/orc_village.nbt",
+        "src/main/java/net/amurdza/examplemod/gametest/SavannaNovember15RoundTwoTests.java"
+      ],
+      "current_proof": [
+        "camp-artifact-checks.json passed against actual generated NBT; relevant GameTests selected in camp-tests.txt."
+      ],
+      "native_validation": "Passed targeted tests and applicable visual review; see game-test-summary.json and visual-review.json."
+    },
+    {
+      "id": "S6",
+      "domain": "Savanna",
+      "document_indices": [
+        1076
+      ],
+      "request": "Remove torches above pumpkins.",
+      "implementation": "New authored crop rows contain pumpkins/stems without torch placement above them.",
+      "locations": [
+        "scripts/generate-orc-village.py",
+        "src/main/java/net/amurdza/examplemod/worldgen/structure/SavannaOrcVillage.java",
+        "src/main/resources/data/aoemod/structures/orc_village.nbt"
+      ],
+      "current_proof": [
+        "Generator reviewed; camp artifact assertions cover crop rows and torch placement."
+      ],
+      "native_validation": "Passed targeted tests and applicable visual review; see game-test-summary.json and visual-review.json."
+    },
+    {
+      "id": "S7",
+      "domain": "Savanna",
+      "document_indices": [
+        1114
+      ],
+      "request": "Crop corners form continuous L turns.",
+      "implementation": "Each concentric crop row turns using the same max-axis distance, including the outer corn perimeter.",
+      "locations": [
+        "scripts/generate-orc-village.py",
+        "src/main/java/net/amurdza/examplemod/worldgen/structure/SavannaOrcVillage.java",
+        "src/main/resources/data/aoemod/structures/orc_village.nbt"
+      ],
+      "current_proof": [
+        "Generator max-axis row construction reviewed; actual NBT crop-row audit passed."
+      ],
+      "native_validation": "Passed targeted tests and applicable visual review; see game-test-summary.json and visual-review.json."
+    },
+    {
+      "id": "S8",
+      "domain": "Savanna",
+      "document_indices": [
+        1261,
+        1336
+      ],
+      "request": "Four centered four-wide gates per pen; enlarge pen length and width by four.",
+      "implementation": "Eight pens have 24x24 interiors, four centered four-block gates and enlarged 8x8 ponds.",
+      "locations": [
+        "scripts/generate-orc-village.py",
+        "src/main/java/net/amurdza/examplemod/worldgen/structure/SavannaOrcVillage.java",
+        "src/main/resources/data/aoemod/structures/orc_village.nbt",
+        "src/main/java/net/amurdza/examplemod/gametest/SavannaNovember15RoundTwoTests.java"
+      ],
+      "current_proof": [
+        "camp-artifact-checks.json passed against actual generated NBT; relevant GameTests selected in camp-tests.txt."
+      ],
+      "native_validation": "Passed targeted tests and applicable visual review; see game-test-summary.json and visual-review.json."
+    },
+    {
+      "id": "S9",
+      "domain": "Savanna",
+      "document_indices": [
+        1379,
+        1551,
+        1554,
+        1562
+      ],
+      "request": "One wheat row and pumpkin row with repeating opposed attached-stem pairs.",
+      "implementation": "The pumpkin row repeats pumpkin/stem/stem/pumpkin, with stems facing their neighboring pumpkin, separated by wheat rows.",
+      "locations": [
+        "scripts/generate-orc-village.py",
+        "src/main/java/net/amurdza/examplemod/worldgen/structure/SavannaOrcVillage.java",
+        "src/main/resources/data/aoemod/structures/orc_village.nbt"
+      ],
+      "current_proof": [
+        "Actual generated crop pattern checked by camp artifact audit."
+      ],
+      "native_validation": "Passed targeted tests and applicable visual review; see game-test-summary.json and visual-review.json."
+    },
+    {
+      "id": "P1",
+      "domain": "Plains",
+      "document_indices": [
+        1564
+      ],
+      "request": "Grass between pen hay blocks; retain stone bricks under hay.",
+      "implementation": "V5 converts pen stone-brick gaps to grass while testing the cell above to retain hay supports.",
+      "locations": [
+        "src/main/java/net/amurdza/examplemod/worldgen/structure/MansionBasementLayoutV5.java",
+        "src/main/java/net/amurdza/examplemod/worldgen/structure/MansionBasementPiece.java",
+        "build/nov15-round2/mansion-layout-map.json"
+      ],
+      "current_proof": [
+        "Source reviewed; focused V5 pen-floor regression selected."
+      ],
+      "native_validation": "Passed targeted tests and applicable visual review; see game-test-summary.json and visual-review.json."
+    },
+    {
+      "id": "P2",
+      "domain": "Plains",
+      "document_indices": [
+        1701,
+        3840
+      ],
+      "request": "Move four room lanterns inward diagonally and hall lanterns inward; five lanterns per 11x11 room.",
+      "implementation": "Room lanterns at local(2,2),(2,8),(8,2),(8,8),(5,5); hall lanterns at x=-3,0,3.",
+      "locations": [
+        "src/main/java/net/amurdza/examplemod/worldgen/structure/MansionBasementLayoutV5.java",
+        "src/main/java/net/amurdza/examplemod/worldgen/structure/MansionBasementPiece.java",
+        "build/nov15-round2/mansion-layout-map.json"
+      ],
+      "current_proof": [
+        "Source and layout map agree; rotated V5 lighting assertions prepared."
+      ],
+      "native_validation": "Passed targeted tests and applicable visual review; see game-test-summary.json and visual-review.json."
+    },
+    {
+      "id": "P3",
+      "domain": "Plains",
+      "document_indices": [
+        1791,
+        1934
+      ],
+      "request": "Ten crop rooms nearest center; four connected outer pens with smithy; opposite outer farms and kitchen/granary, utility rooms without side doors.",
+      "implementation": "Five mirrored inner crop rows; east outer cow/chicken/pig/sheep/smith; west outer mushroom/cane/pumpkin/kitchen/granary. Utility side walls closed; neighboring farm/pen rooms connected.",
+      "locations": [
+        "src/main/java/net/amurdza/examplemod/worldgen/structure/MansionBasementLayoutV5.java",
+        "src/main/java/net/amurdza/examplemod/worldgen/structure/MansionBasementPiece.java",
+        "build/nov15-round2/mansion-layout-map.json"
+      ],
+      "current_proof": [
+        "Explicit room map reviewed; focused arrangement and passage tests selected."
+      ],
+      "native_validation": "Passed targeted tests and applicable visual review; see game-test-summary.json and visual-review.json."
+    },
+    {
+      "id": "P4",
+      "domain": "Plains",
+      "document_indices": [
+        2510,
+        3766
+      ],
+      "request": "Use authored basement/entrance; raise stair ceiling one, match hall height and restore two exterior lanterns/two stair-wall torches.",
+      "implementation": "Version-five cellar retains captured authored room blocks; stair ceiling is step+5, landing ceiling6, lanterns x\u00b13,z11 and wall torches x\u00b12,z6.",
+      "locations": [
+        "src/main/java/net/amurdza/examplemod/worldgen/structure/MansionBasementLayoutV5.java",
+        "src/main/java/net/amurdza/examplemod/worldgen/structure/MansionBasementPiece.java",
+        "build/nov15-round2/mansion-layout-map.json",
+        "build/nov15-round2/authored-entrance.json"
+      ],
+      "current_proof": [
+        "Read-only source capture and V5 source reviewed; fluid-tick entrance fixture selected."
+      ],
+      "native_validation": "Passed targeted tests and applicable visual review; see game-test-summary.json and visual-review.json."
+    },
+    {
+      "id": "P5",
+      "domain": "Plains",
+      "document_indices": [
+        2772,
+        2843,
+        2845
+      ],
+      "request": "Hallway columns should be oak planks; replace the pictured log frame with two torch-bearing oak pillars.",
+      "implementation": "Room/wall catalogue uses lower native interior wall/door variants; full rectangular plan keeps native exterior window frames on the facade. Dedicated woodwork/torch-post processor checks cover replacements.",
+      "locations": [
+        "src/main/java/net/amurdza/examplemod/worldgen/structure/MansionRoomCatalogue.java",
+        "src/main/java/net/amurdza/examplemod/worldgen/structure/IllagerMansionProcessor.java",
+        "src/main/java/net/amurdza/examplemod/worldgen/structure/MansionUpperLayout.java"
+      ],
+      "current_proof": [
+        "Agent review identified pictured frame as interior wall_window; rectangular grid removes interior facade walls. Native cross/torch-post regression selected."
+      ],
+      "native_validation": "Passed targeted tests and applicable visual review; see game-test-summary.json and visual-review.json."
+    },
+    {
+      "id": "P6",
+      "domain": "Plains",
+      "document_indices": [
+        2986
+      ],
+      "request": "One chandelier per room tile, four in a 2x2 room, ending three above floor.",
+      "implementation": "Processor places a centered fixture on each eight-pitch tile at localY3; removes old hanging fence fixtures and preserves bookshelves/bed wool.",
+      "locations": [
+        "src/main/java/net/amurdza/examplemod/worldgen/structure/IllagerMansionProcessor.java",
+        "src/main/java/net/amurdza/examplemod/gametest/MansionNovember15RoundTwoTests.java"
+      ],
+      "current_proof": [
+        "Source and actual compact NBT furniture positions reviewed; all orientations/selected rooms test prepared."
+      ],
+      "native_validation": "Passed targeted tests and applicable visual review; see game-test-summary.json and visual-review.json."
+    },
+    {
+      "id": "P7",
+      "domain": "Plains",
+      "document_indices": [
+        3152
+      ],
+      "request": "White carpet outline only when red interior is three wide.",
+      "implementation": "Carpet plan requires a five-carpet span for white border, with joined corridor corner handling.",
+      "locations": [
+        "src/main/java/net/amurdza/examplemod/worldgen/structure/MansionRoomAccess.java",
+        "src/main/java/net/amurdza/examplemod/worldgen/structure/MansionEnvelopePiece.java"
+      ],
+      "current_proof": [
+        "Carpet helper and native carpet layouts reviewed; clipping/reload regression selected."
+      ],
+      "native_validation": "Passed targeted tests and applicable visual review; see game-test-summary.json and visual-review.json."
+    },
+    {
+      "id": "P8",
+      "domain": "Plains",
+      "document_indices": [
+        3219,
+        3688
+      ],
+      "request": "Fix stair placement/exit halls; remove three raised birch steps; lower storeys by three each.",
+      "implementation": "Fixed two-cell upper stair has halls at both ends; compact stair removes raised birch flight and connects to floor8; floors are0/8/16 and roof nine lower than prior11-block-storey layout.",
+      "locations": [
+        "src/main/java/net/amurdza/examplemod/worldgen/structure/MansionUpperLayout.java",
+        "scripts/generate-compact-mansion.py",
+        "src/main/java/net/amurdza/examplemod/worldgen/structure/IllagerMansionStructure.java"
+      ],
+      "current_proof": [
+        "Native placement source reviewed; reserved stair/landing cells verified; full-mansion BFS selected."
+      ],
+      "native_validation": "Passed targeted tests and applicable visual review; see game-test-summary.json and visual-review.json."
+    },
+    {
+      "id": "P9",
+      "domain": "Plains",
+      "document_indices": [
+        3518,
+        3646
+      ],
+      "request": "Remove pictured tall two-level bedroom incompatible with short ceilings.",
+      "implementation": "Catalogue excludes 1x2_d2; remaining front-entry normal room is compact1x2_d1.",
+      "locations": [
+        "src/main/java/net/amurdza/examplemod/worldgen/structure/MansionRoomCatalogue.java",
+        "scripts/generate-compact-mansion.py"
+      ],
+      "current_proof": [
+        "Document image compared with selected native room set; tall room absent."
+      ],
+      "native_validation": "Passed targeted tests and applicable visual review; see game-test-summary.json and visual-review.json."
+    },
+    {
+      "id": "P10",
+      "domain": "Plains",
+      "document_indices": [
+        3651,
+        3757,
+        3759,
+        3761,
+        3763
+      ],
+      "request": "Repair pictured hole and missing wool without damaging room furniture.",
+      "implementation": "Doorway scoring covers all three lanes and penalizes furniture; envelope preserves wool/bookshelves/stairs. Compact foyer uses matching repair signature; center bedroom banner moved down instead of clipped.",
+      "locations": [
+        "src/main/java/net/amurdza/examplemod/worldgen/structure/MansionRoomAccess.java",
+        "src/main/java/net/amurdza/examplemod/worldgen/structure/MansionEnvelopePiece.java",
+        "src/main/java/net/amurdza/examplemod/worldgen/structure/IllagerMansionProcessor.java",
+        "scripts/generate-compact-mansion.py"
+      ],
+      "current_proof": [
+        "Static NBT inspection found no clipped beds/chests/bookshelves; two review findings (foyer signature/banner) corrected. Actual wool and walking checks pending."
+      ],
+      "native_validation": "Passed targeted tests and applicable visual review; see game-test-summary.json and visual-review.json."
+    },
+    {
+      "id": "P11",
+      "domain": "Plains",
+      "document_indices": [
+        3975,
+        4462
+      ],
+      "request": "Log at each decorative cross center.",
+      "implementation": "Processor changes plank center to matching oak log and retains cross-axis orientation.",
+      "locations": [
+        "src/main/java/net/amurdza/examplemod/worldgen/structure/IllagerMansionProcessor.java"
+      ],
+      "current_proof": [
+        "Native cross regression selected; source reviewed."
+      ],
+      "native_validation": "Passed targeted tests and applicable visual review; see game-test-summary.json and visual-review.json."
+    },
+    {
+      "id": "P12",
+      "domain": "Plains",
+      "document_indices": [
+        4065
+      ],
+      "request": "Mansion ten by ten tiles, approximately ninety by ninety.",
+      "implementation": "Exactly10x10 occupied native cells at eight-block pitch (80x80 cell lattice plus exterior templates).",
+      "locations": [
+        "src/main/java/net/amurdza/examplemod/worldgen/structure/MansionUpperLayout.java",
+        "build/nov15-round2/mansion-layout-map.json"
+      ],
+      "current_proof": [
+        "Grid loops/boundary sentinel reviewed; eighty-square roof-cell coverage test prepared."
+      ],
+      "native_validation": "Passed targeted tests and applicable visual review; see game-test-summary.json and visual-review.json."
+    },
+    {
+      "id": "P13",
+      "domain": "Plains",
+      "document_indices": [
+        4180,
+        4250
+      ],
+      "request": "Ground-floor windows and facade patterns fitted to shortened floors.",
+      "implementation": "All three exteriors use native eight-high window wall modules; obsolete three-block spacer walls removed.",
+      "locations": [
+        "src/main/java/net/amurdza/examplemod/worldgen/structure/MansionRoomCatalogue.java",
+        "src/main/java/net/amurdza/examplemod/worldgen/structure/MansionUpperLayout.java"
+      ],
+      "current_proof": [
+        "Native wall heights and floor offsets reviewed; facade visual proof pending."
+      ],
+      "native_validation": "Passed targeted tests and applicable visual review; see game-test-summary.json and visual-review.json."
+    },
+    {
+      "id": "P14",
+      "domain": "Plains",
+      "document_indices": [
+        4380,
+        4460
+      ],
+      "request": "Slab roof sits on full planks instead of replacing them.",
+      "implementation": "New compact roof templates retain wood blocks and add bottom slabs above exposed full-block tops.",
+      "locations": [
+        "scripts/generate-compact-mansion.py",
+        "src/main/resources/data/minecraft/structures/woodland_mansion/aoe_compact_roof.nbt"
+      ],
+      "current_proof": [
+        "Generated NBT logic reviewed; full-mansion post-placement slab-with-plank-below assertions prepared."
+      ],
+      "native_validation": "Passed targeted tests and applicable visual review; see game-test-summary.json and visual-review.json."
+    },
+    {
+      "id": "D1",
+      "domain": "Desert",
+      "document_indices": [
+        4492
+      ],
+      "request": "Replace curved surface exits with straight negative-T-gradient paths on opposite terrace flanks.",
+      "implementation": "Paired routes use opposite stripe banks and one fixed ray derived from local negative gradient; ray end selected after whole width clears dry terrain.",
+      "locations": [
+        "src/main/java/net/amurdza/examplemod/worldgen/DesertCaveLayout.java",
+        "src/main/java/net/amurdza/examplemod/worldgen/DimensionTerrain.java"
+      ],
+      "current_proof": [
+        "Source reviewed; paired-mouth/dry-sand GameTest selected."
+      ],
+      "native_validation": "Passed targeted tests and applicable visual review; see game-test-summary.json and visual-review.json."
+    },
+    {
+      "id": "D2",
+      "domain": "Desert",
+      "document_indices": [
+        4492
+      ],
+      "request": "Caverns near T minima/maxima; retain curved descent near T=0 with sufficient solid banks.",
+      "implementation": "Cavern density uses |T| threshold0.25; widened solid near-zero band holds independently curved descending routes.",
+      "locations": [
+        "src/main/java/net/amurdza/examplemod/worldgen/DesertCaveLayout.java",
+        "src/main/java/net/amurdza/examplemod/worldgen/DimensionTerrain.java"
+      ],
+      "current_proof": [
+        "Source reviewed; T-extrema and supported/interpolated descent checks selected."
+      ],
+      "native_validation": "Passed targeted tests and applicable visual review; see game-test-summary.json and visual-review.json."
+    },
+    {
+      "id": "D3",
+      "domain": "Desert",
+      "document_indices": [
+        4492
+      ],
+      "request": "Avoid stray stone outside carved openings and avoid entering lakes.",
+      "implementation": "Surface-stone override requires actual subtraction below uncarved surface plus a column proven cut; route dry-width condition avoids water.",
+      "locations": [
+        "src/main/java/net/amurdza/examplemod/worldgen/DimensionTerrain.java",
+        "src/main/java/net/amurdza/examplemod/worldgen/DesertCaveLayout.java",
+        "src/main/java/net/amurdza/examplemod/worldgen/surface_rule/DimensionSurfaceRule.java"
+      ],
+      "current_proof": [
+        "Focused actual-surface and nearby-lake checks selected; visual exports prepared."
+      ],
+      "native_validation": "Passed targeted tests and applicable visual review; see game-test-summary.json and visual-review.json."
+    }
+  ],
+  "missed_requirements": [],
+  "remaining_validation": [],
+  "preservation_evidence": [
+    "Original mansion NBT resources are byte-identical to pre-task snapshot; compact templates have separate names.",
+    "Saved basementV1-V4 branches retained; new basement defaultsV5.",
+    "Saved Savanna geometry is versioned; new camp defaultsV7.",
+    "No configs/options/user saves changed by this review."
+  ],
+  "resolved_review_findings": [
+    {
+      "issue": "Compact foyer no longer matched oldY18 signature.",
+      "resolution": "Signature lowered to existingY15 cell while retaining identifying stair blocks."
+    },
+    {
+      "issue": "Compact bedroom dropped center patterned banner above new height.",
+      "resolution": "Generator moved it down toY7."
+    },
+    "Preserved continuous authored mud below shallow crop ponds.",
+    "Aligned camp placement and locate with the actual seeded terrain field; accepted dry ten-block relief within existing foundations.",
+    "Cleared obsolete slab caps above overlapping native roof stairs.",
+    "Preserved upper floors and roofs above foyer padding during estate grading.",
+    "Recorded actual native flower-room witnesses at layout seeds 20 and 32."
+  ],
+  "agent_reports": {
+    "tropical": "build/nov15-round2/tropical-restoration-report.json",
+    "savanna": "build/nov15-round2/camp-artifact-checks.json",
+    "plains": "build/nov15-round2/mansion-layout-map.json; Plains agent final source-frozen report",
+    "desert": "Snowy final source report: DesertCaveLayout, DimensionTerrain, DesertCaveVegetation and NetherRampDecorationGuard implement true-T gradient entrances, T-extrema caverns, near-T0 curved descent, dry-width exit scan and exact native-interpolated stone exposure. DesertTerraceCaveTests cover four seeds and 32 routes, T extrema and retained Nether seams, plus two-seed native floor/headroom/lake checks. Isolated javac passed; runtime proof remains owned by root."
+  }
+}

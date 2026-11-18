@@ -1,0 +1,45 @@
+8 November 2026 — final texture-review revision
+
+This report identifies the current JAR and replacement archive. NOVEMBER_8_REPORT.txt
+and older evidence describe the earlier update; its studio screenshots are superseded.
+
+Delivered files
+- aoemod-1.0.0-1.20.1-all.jar: 4971126 bytes; SHA256 3f6785a976bf0e49dfdc716695b2908417e30357d12013a24bb6233dd8b0f318
+- texture-review-2026-11-08.zip: 101488912 bytes; SHA256 ff51fa56096a6fe88ea0b8ac047831c6ad684b61ee3809870966088b2d56aeeb
+
+Changes
+- Removed warped toad custom content, its two foods, recipes/assets and old guaranteed cave spawns.
+  Native dependency toads remain excluded from retained content and world entry.
+- Removed AoE cooked pufferfish/tropical-fish content and their custom drop overrides.
+  Vanilla fish remain available for replacement by other mods; these subjects are absent from the archive.
+- Replaced every studio screenshot with an untouched actual-world Minecraft frame.
+  Aquatic animals swim in water tanks; land animals stand on land. Mob frames have generous margins.
+  This corrects flopped fish, clipped appendages, inflated glider throat, closed arrow-squid tentacles,
+  invalid starfish poses and berry-plane lighting seen in the previous studio captures.
+  These were capture-state problems; no speculative production renderer changes were needed.
+- Included all three edited starfish variants, both larger crabs, Arthropleura, queen spider,
+  bone-equipped orcs, Illager Lord, Stalker, all blueberry stages, related blocks and all seven portals.
+- Archive contains 186 screenshots (114 current and 72 before/reference), 32 distinct seafood PNGs
+  and 19 raw-to-cooked pair records. Extract it and open index.html.
+- Ordinary squid, glow squid, their foods, endfish, warped toad, pufferfish and tropical fish are excluded.
+  Requested arrow squid and vampire squid remain included.
+- The prior terrain, spawn, crash and renderer fixes remain included; see IMPLEMENTED_CHANGES.md.
+
+Verification
+- Gradle build and prepareStandaloneClient passed. Normal launcher runtime snapshot refreshed.
+- runData produced no resource changes. All 22 focused food/removal/retention gameplay tests passed.
+- Resource audit: 4203 checks across 1524 JSON files; zero errors.
+- Food texture audit passed; JAR resources and configured mixin classes match the build.
+- Archive coverage, SHA256 and ZIP CRC checks passed. All screenshot views received visual review.
+- All 421 original run/config files remain byte-identical, with no additions or removals.
+- Minecraft QA ran sequentially with a global guard against an existing client or test server.
+  The other project's test server was allowed to finish. QA clients use two processors and 5GB maximum heap.
+- Current evidence: evidence/nov8/review-revision/validation.json and evidence/nov8/texture-review-coverage.json.
+
+Source and compatibility notes
+- Exact old artwork/models are included where preserved. Other before images are clearly identified
+  upstream references; Illager Lord uses its old hand-anchor geometry with the current compatible renderer.
+- The four removed AoE foods are deliberately ignored on old-save registry mapping, removing old stacks.
+  Unrelated missing mappings are not suppressed. Earlier retained legacy IDs remain readable.
+- Only the three requested Cultural Delights squid foods remain integrated; both raws share cooked_squid.
+- Existing terrain is not rewritten. Previous crash travel verification remains documented in the earlier report.

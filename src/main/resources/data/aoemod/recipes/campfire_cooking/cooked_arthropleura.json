@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:campfire_cooking",
+  "ingredient": {
+    "item": "aoemod:raw_arthropleura"
+  },
+  "result": "aoemod:cooked_arthropleura",
+  "experience": 0.35,
+  "cookingtime": 600
+}

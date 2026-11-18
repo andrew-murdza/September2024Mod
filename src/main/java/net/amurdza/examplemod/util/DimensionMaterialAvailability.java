@@ -41,7 +41,7 @@ public final class DimensionMaterialAvailability {
     private static final Map<RecipeManager, Map<Item, Integer>> CACHE = Collections.synchronizedMap(new WeakHashMap<>());
     private static final Set<String> NATURAL_BLOCKS = Set.of(
             "stone", "cobblestone", "andesite", "diorite", "granite", "deepslate", "cobbled_deepslate", "tuff", "calcite", "polished_basalt", "terracotta",
-            "dirt", "coarse_dirt", "rooted_dirt", "grass_block", "mycelium", "moss_block", "rich_soil",
+            "dirt", "coarse_dirt", "rooted_dirt", "grass_block", "podzol", "mycelium", "moss_block", "rich_soil",
             "sand", "red_sand", "gravel", "clay", "mud", "netherrack", "soul_sand", "soul_soil",
             "blackstone", "basalt", "smooth_basalt", "obsidian", "crying_obsidian", "magma_block", "glowstone",
             "snow", "snow_block", "ice", "packed_ice", "blue_ice", "powder_snow", "ancient_debris",
@@ -165,7 +165,8 @@ public final class DimensionMaterialAvailability {
             case "clay_ball" -> PLAINS | SNOWY;
             case "cocoa_beans" -> TROPICAL;
             case "amethyst_shard", "prismarine_shard", "prismarine_crystals", "snowball" -> SNOWY;
-            case "wheat", "wheat_seeds", "carrot", "potato" -> TROPICAL | SAVANNA | PLAINS;
+            case "wheat", "wheat_seeds" -> TROPICAL | SAVANNA | PLAINS | SNOWY;
+            case "carrot", "potato" -> TROPICAL | SAVANNA | PLAINS;
             case "beetroot", "beetroot_seeds" -> SAVANNA | PLAINS | SNOWY;
             case "soul_beetroot", "soul_beetroot_seeds" -> NETHER;
             case "chorus_fruit", "popped_chorus_fruit", "shulker_shell", "dragon_breath", "ender_pearl" -> DESERT;

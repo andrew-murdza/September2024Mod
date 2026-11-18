@@ -1,3 +1,8 @@
+Current update: 8 November 2026
+The current delivery is documented in NOVEMBER_8_REVIEW_REVISION.txt, which identifies its final artifact and evidence files. NOVEMBER_8_REPORT.txt and evidence/nov8/validation.json describe the superseded first 8 November delivery; their hashes and screenshot counts do not identify the current files.
+
+Historical October report below (older artifacts and test profile)
+
 September 2024 and Angling — final validation
 Completed: October 20, 2026
 Environment: Minecraft 1.20.1, Forge 47.4.22, Java 17.0.9, Windows 11
@@ -91,7 +96,8 @@ Sound limitations: evidence/client-audio-compatibility.json
 Machine-readable combined results: validation.json
 File integrity: SHA256SUMS.txt
 
-Earlier candidate logs may remain as historical debugging evidence. The hashes and
-current report paths above identify the delivered build. Install with the pinned
+Earlier candidate logs remain as historical debugging evidence. The October hashes
+and report paths in this historical section identify that earlier build; use
+NOVEMBER_8_REVIEW_REVISION.txt and SHA256SUMS.txt for the current delivery. Install with the pinned
 dependencies listed in production-dependencies.json; these two jars alone are not
 the complete September modpack.

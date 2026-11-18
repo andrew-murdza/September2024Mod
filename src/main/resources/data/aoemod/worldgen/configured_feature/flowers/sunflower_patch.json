@@ -1,6 +1,9 @@
 {
-  "type": "aoemod:fixed_count_random_patch",
+  "type": "minecraft:random_patch",
   "config": {
+    "tries": 32,
+    "xz_spread": 5,
+    "y_spread": 2,
     "feature": {
       "feature": {
         "type": "minecraft:simple_block",
@@ -38,9 +41,6 @@
           }
         }
       ]
-    },
-    "count": 5,
-    "xz_spread": 7,
-    "y_spread": 0
+    }
   }
 }

@@ -1,6 +1,9 @@
-﻿{
-  "type": "aoemod:chunk_patch",
+{
+  "type": "minecraft:random_patch",
   "config": {
+    "tries": 32,
+    "xz_spread": 5,
+    "y_spread": 2,
     "feature": {
       "feature": "aoemod:small_dripleaf",
       "placement": [
@@ -23,8 +26,6 @@
           }
         }
       ]
-    },
-    "count": 4,
-    "y_spread": 0
+    }
   }
 }

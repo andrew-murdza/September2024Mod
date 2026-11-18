@@ -1,9 +1,6 @@
 {
   "replace": false,
   "values": [
-    "collectorsreap:budding_pink_dragon_fruits",
-    "collectorsreap:dragon_bush",
-    "collectorsreap:pink_dragon_fruits",
     "ecologics:prickly_pear",
     "hybrid_aquatic:bull_kelp",
     "hybrid_aquatic:bull_kelp_plant",
@@ -25,8 +22,8 @@
     "minecraft:sandstone",
     "minecraft:smooth_basalt",
     "minecraft:smooth_sandstone",
+    "minecraft:sugar_cane",
     "minecraft:sulfur",
-    "vintagedelight:peanut_crop",
-    "vintagedelight:wild_peanuts"
+    "vintagedelight:peanut_crop"
   ]
 }

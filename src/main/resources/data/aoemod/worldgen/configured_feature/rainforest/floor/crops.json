@@ -13,12 +13,6 @@
         {
           "weight": 1,
           "data": {
-            "Name": "farmersdelight:wild_onions"
-          }
-        },
-        {
-          "weight": 1,
-          "data": {
             "Name": "farmersdelight:wild_potatoes"
           }
         },

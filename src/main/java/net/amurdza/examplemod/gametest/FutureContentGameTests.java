@@ -100,23 +100,41 @@ public final class FutureContentGameTests {
     }
 
     @GameTest(template = TEMPLATE)
-    public static void redShrubsUseAoeCrimsonRootSpreading(GameTestHelper helper) throws ReflectiveOperationException {
+    public static void redShrubsKeepNativeSpreading(GameTestHelper helper) throws ReflectiveOperationException {
         var shrub = BuiltInRegistries.BLOCK.get(new ResourceLocation("minecraft", "red_shrub"));
         helper.assertTrue(shrub != Blocks.AIR, "Red shrub must be registered");
         var eligible = BoneMeal.class.getDeclaredMethod("isEligibleBonemealTarget", ServerLevel.class, BlockPos.class, BlockState.class);
         eligible.setAccessible(true);
         var flowerLike = BoneMeal.class.getDeclaredMethod("isFlowerLike", Block.class);
         flowerLike.setAccessible(true);
-        for (Block block : new Block[]{Blocks.CRIMSON_ROOTS, shrub}) {
-            helper.assertTrue((boolean) eligible.invoke(null, helper.getLevel(), helper.absolutePos(new BlockPos(1, 1, 1)), block.defaultBlockState()),
-                    "AOE bonemeal must intercept " + block + " for the same root-spreading behavior");
-            helper.assertTrue((boolean) flowerLike.invoke(null, block),
-                    "AOE must route " + block + " to its existing flower/root spread implementation");
+        helper.assertTrue((boolean) flowerLike.invoke(null, Blocks.CRIMSON_ROOTS), "Crimson roots retain AOE spreading");
+        helper.assertFalse((boolean) flowerLike.invoke(null, shrub), "Red shrubs retain their native spreading");
+        var pos = helper.absolutePos(new BlockPos(2, 2, 2));
+        var level = helper.getLevel();
+        level.setBlock(pos.below(), Blocks.GRASS_BLOCK.defaultBlockState(), 3);
+        level.setBlock(pos, shrub.defaultBlockState(), 3);
+        for (var side : net.minecraft.core.Direction.Plane.HORIZONTAL) {
+            level.setBlock(pos.relative(side), Blocks.AIR.defaultBlockState(), 3);
+            level.setBlock(pos.relative(side).below(), Blocks.CRIMSON_NYLIUM.defaultBlockState(), 3);
+        }
+        level.setBlock(pos.east().below(), Blocks.GRASS_BLOCK.defaultBlockState(), 3);
+        boolean nativeEligible = ((net.minecraft.world.level.block.BonemealableBlock) shrub)
+                .isValidBonemealTarget(helper.getLevel(), pos, shrub.defaultBlockState(), false);
+        helper.assertTrue((boolean) eligible.invoke(null, helper.getLevel(), pos, shrub.defaultBlockState()) == nativeEligible,
+                "AOE must preserve the red shrub's native fertilizer eligibility");
+        helper.assertTrue(nativeEligible, "Red shrubs must be fertilizable beside an empty grass-supported cell");
+        ((net.minecraft.world.level.block.BonemealableBlock) shrub).performBonemeal(level,
+                net.minecraft.util.RandomSource.create(13), pos, shrub.defaultBlockState());
+        helper.assertTrue(level.getBlockState(pos.east()).is(shrub), "Native fertilizer spreading must grow the shrub on grass");
+        for (var side : net.minecraft.core.Direction.Plane.HORIZONTAL) {
+            if (side != net.minecraft.core.Direction.EAST) helper.assertTrue(level.getBlockState(pos.relative(side)).isAir(),
+                    "Fertilizer must not spread red shrubs onto crimson nylium");
         }
         helper.succeed();
     }
 
-    @GameTest(template = TEMPLATE)
+    // Newly forced vanilla-noise terrain must finish neighboring chunk decoration before entity queries.
+    @GameTest(template = TEMPLATE, timeoutTicks = 1200)
     public static void copperGolemsStillConstructInPlains(GameTestHelper helper) {
         ServerLevel plains = helper.getLevel().getServer().getLevel(GameplayDimensions.PLAINS);
         helper.assertTrue(plains != null, "The plains dimension must be loaded");
@@ -125,6 +143,12 @@ public final class FutureContentGameTests {
         BlockPos pumpkinPos = copperPos.above();
         boolean alreadyForced = plains.getForcedChunks().contains(net.minecraft.world.level.ChunkPos.asLong(copperPos.getX() >> 4, copperPos.getZ() >> 4));
         plains.setChunkForced(copperPos.getX() >> 4, copperPos.getZ() >> 4, true);
+        // GameTestServer advances ticks faster than real time. Complete the
+        // entity-ticking neighborhood synchronously so its timeout cannot race
+        // background terrain decoration in this otherwise playerless dimension.
+        for (int dx = -2; dx <= 2; dx++) for (int dz = -2; dz <= 2; dz++) {
+            plains.getChunk((copperPos.getX() >> 4) + dx, (copperPos.getZ() >> 4) + dz);
+        }
         helper.startSequence().thenWaitUntil(() -> helper.assertTrue(plains.isPositionEntityTicking(copperPos),
                 "Copper golem test chunk must become entity-ticking before spatial queries"))
                 .thenExecute(() -> verifyCopperGolemConstruction(helper, plains, copperPos, pumpkinPos, alreadyForced)).thenSucceed();
@@ -213,11 +237,31 @@ public final class FutureContentGameTests {
         helper.succeed();
     }
 
-    @GameTest(template = TEMPLATE)
+    @GameTest(template = TEMPLATE, timeoutTicks = 1200)
     public static void normalAndLapisGolemsRespectDimensions(GameTestHelper helper) {
         ServerLevel snowy = helper.getLevel().getServer().getLevel(GameplayDimensions.SNOWY);
         helper.assertTrue(snowy != null, "The snowy dimension must be loaded");
         BlockPos origin = helper.absolutePos(new BlockPos(2, 1, 1));
+        BlockPos snowyHead = new BlockPos(origin.getX(), snowy.getMaxBuildHeight() - 8, origin.getZ());
+        int chunkX = snowyHead.getX() >> 4;
+        int chunkZ = snowyHead.getZ() >> 4;
+        boolean alreadyForced = snowy.getForcedChunks().contains(net.minecraft.world.level.ChunkPos.asLong(chunkX, chunkZ));
+        snowy.setChunkForced(chunkX, chunkZ, true);
+        for (int dx = -2; dx <= 2; dx++) for (int dz = -2; dz <= 2; dz++) snowy.getChunk(chunkX + dx, chunkZ + dz);
+        // A FULL chunk alone does not expose newly added entities to spatial queries.
+        // Match the copper-golem integration fixture before checking the lapis spawn.
+        helper.startSequence().thenWaitUntil(() -> helper.assertTrue(snowy.isPositionEntityTicking(snowyHead),
+                "Lapis golem test chunk must become entity-ticking before spatial queries"))
+                .thenExecute(() -> {
+                    try {
+                        verifyNormalAndLapisGolems(helper, snowy, origin);
+                    } finally {
+                        if (!alreadyForced) snowy.setChunkForced(chunkX, chunkZ, false);
+                    }
+                }).thenSucceed();
+    }
+
+    private static void verifyNormalAndLapisGolems(GameTestHelper helper, ServerLevel snowy, BlockPos origin) {
         for (ServerLevel level : new ServerLevel[]{helper.getLevel(), snowy}) {
             boolean custom = level == snowy;
             BlockPos head = custom ? new BlockPos(origin.getX(), level.getMaxBuildHeight() - 8, origin.getZ()) : origin.above(2);
@@ -238,7 +282,6 @@ public final class FutureContentGameTests {
         plains.getChunk(head);
         assertGolemPattern(helper, plains, head, List.of(head.below(), head.below(2), head.below().west(), head.below().east()),
                 Blocks.IRON_BLOCK, Blocks.CARVED_PUMPKIN, EntityType.IRON_GOLEM, false, false);
-        helper.succeed();
     }
 
     @GameTest(template = TEMPLATE)
@@ -265,7 +308,7 @@ public final class FutureContentGameTests {
     @GameTest(template = TEMPLATE)
     public static void netheriteEquipmentUsesCopperIronMidpoints(GameTestHelper helper) {
         for (String kind : new String[]{"sword", "shovel", "pickaxe", "axe", "hoe", "helmet", "chestplate", "leggings", "boots"}) {
-            Item copper = item(helper, "aoemod:copper_" + kind);
+            Item copper = item(helper, "minecraft:copper_" + kind);
             Item iron = item(helper, "minecraft:iron_" + kind);
             Item netherite = item(helper, "minecraft:netherite_" + kind);
             assertMidpointDurability(helper, copper, iron, netherite, kind);
@@ -284,7 +327,7 @@ public final class FutureContentGameTests {
                 }
             }
         }
-        Item copperPickaxe = item(helper, "aoemod:copper_pickaxe");
+        Item copperPickaxe = item(helper, "minecraft:copper_pickaxe");
         float expectedSpeed = (copperPickaxe.getDefaultInstance().getDestroySpeed(Blocks.STONE.defaultBlockState())
                 + Items.IRON_PICKAXE.getDefaultInstance().getDestroySpeed(Blocks.STONE.defaultBlockState())) / 2.0F;
         helper.assertTrue(Items.NETHERITE_PICKAXE.getDefaultInstance().getDestroySpeed(Blocks.STONE.defaultBlockState()) == expectedSpeed,

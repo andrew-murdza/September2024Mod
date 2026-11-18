@@ -1,6 +1,7 @@
 {
   "replace": false,
   "values": [
-    "aoemod:plains"
+    "aoemod:plains",
+    "aoemod:plains_lake"
   ]
 }

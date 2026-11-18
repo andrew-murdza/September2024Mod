@@ -44,8 +44,10 @@ public final class GameplayDimensions {
     }
 
     public static boolean biomeIs(LevelReader level, BlockPos pos, String path) {
-        return level.getBiome(pos).is(ResourceKey.create(Registries.BIOME,
-                new ResourceLocation(AOEMod.MOD_ID, path)));
+        var biome = level.getBiome(pos);
+        return biome.is(ResourceKey.create(Registries.BIOME, new ResourceLocation(AOEMod.MOD_ID, path)))
+                || (path.equals("plains") || path.equals("savanna") || path.equals("desert"))
+                && biome.is(ResourceKey.create(Registries.BIOME, new ResourceLocation(AOEMod.MOD_ID, path + "_lake")));
     }
 
     private static ResourceKey<Level> key(String path) {

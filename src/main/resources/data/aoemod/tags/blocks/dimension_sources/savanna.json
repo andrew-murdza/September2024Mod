@@ -1,24 +1,25 @@
 {
   "replace": false,
   "values": [
+    "alexscaves:smooth_bone",
+    "alexscaves:smooth_bone_slab",
+    "alexscaves:smooth_bone_stairs",
+    "alexscaves:smooth_bone_wall",
     "farmersdelight:cabbages",
-    "farmersdelight:wild_beetroots",
     "farmersdelight:wild_cabbages",
     "farmersdelight:wild_carrots",
-    "farmersdelight:wild_potatoes",
     "floral:blue_tulip",
     "floral:yellow_tulip",
+    "hearthandharvest:corn_stalk",
     "minecraft:attached_pumpkin_stem",
     "minecraft:beetroots",
     "minecraft:brown_mushroom",
     "minecraft:carrots",
     "minecraft:carved_pumpkin",
-    "minecraft:glow_lichen",
     "minecraft:grass",
     "minecraft:grass_block",
     "minecraft:kelp",
     "minecraft:kelp_plant",
-    "minecraft:moss_block",
     "minecraft:mud",
     "minecraft:orange_tulip",
     "minecraft:pink_tulip",
@@ -36,7 +37,7 @@
     "minecraft:wet_sponge",
     "minecraft:wheat",
     "minecraft:white_tulip",
-    "vintagedelight:oat_crop",
-    "vintagedelight:wild_oats"
+    "quark:charcoal_block",
+    "aoemod:acacia_palisade"
   ]
 }

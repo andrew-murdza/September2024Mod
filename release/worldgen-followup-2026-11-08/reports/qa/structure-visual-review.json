@@ -1,0 +1,285 @@
+{
+  "status": "passed",
+  "reviewedUtc": "2026-11-09T04:40:42.9053293Z",
+  "reviewer": "assets",
+  "method": "Visually inspected every original native-resolution 1440x1000 Minecraft framebuffer PNG using view_image; no image editing or resampling.",
+  "scope": "25 staged structure frames only; natural terrain and crops reviewed separately.",
+  "reviewedFrames": 26,
+  "acceptedFrames": 24,
+  "limitations": [
+    "Structure scenes are disposable staged placement fixtures, not evidence of natural terrain integration.",
+    "Four spider pocket chests are partially clipped while full resident and room subjects remain clear.",
+    "Porch item sprites are a documented staged replay artifact, confirmed by saved-world item IDs and the vanilla chest/template placement code; no unsupported decoration was found.",
+    "Wither exterior replacement is a close roof view beneath a native upper-gallery ceiling. Natural fog softens rear roofs; it complements rather than replaces the four-center geometry test."
+  ],
+  "retakeManifest": "tmp/nov8-worldgen-followup/structure-retake-views.json",
+  "frames": [
+    {
+      "label": "yeti-exterior",
+      "filename": "yeti-exterior.png",
+      "sourcePath": "C:\\Users\\andre\\Downloads\\Games\\September2024Mod\\build\\followup-worldgen-visuals\\client-1\\screenshots\\yeti-exterior.png",
+      "sha256": "4437427c9a8e9d2c87c518db36d10eedafdc4824f6e745cc92d8e0b352a766d5",
+      "width": 1440,
+      "height": 1000,
+      "status": "passed",
+      "observation": "Native stepped snow exterior and two entrances visible; staged platform is intentional. Entire cave shell is framed."
+    },
+    {
+      "label": "yeti-approach",
+      "filename": "yeti-approach.png",
+      "sourcePath": "C:\\Users\\andre\\Downloads\\Games\\September2024Mod\\build\\followup-worldgen-visuals\\client-1\\screenshots\\yeti-approach.png",
+      "sha256": "551ce1da55079ded3289f1043d4cb16295c8e939e1d2cf55868d5e15fcb50b6d",
+      "width": 1440,
+      "height": 1000,
+      "status": "passed",
+      "observation": "Entry, native icicles, snow floor tiers, residents, both chests and spawner visible."
+    },
+    {
+      "label": "yeti-native-floor-loot-1",
+      "filename": "yeti-native-floor-loot-1.png",
+      "sourcePath": "C:\\Users\\andre\\Downloads\\Games\\September2024Mod\\build\\followup-worldgen-visuals\\client-1\\screenshots\\yeti-native-floor-loot-1.png",
+      "sha256": "6be88726374e69a255171bd52b8b3e937d2d178e290d17404395005d06472347",
+      "width": 1440,
+      "height": 1000,
+      "status": "passed",
+      "observation": "First complete chest centered on native solid snow floor with clear surrounding space."
+    },
+    {
+      "label": "yeti-native-floor-loot-2",
+      "filename": "yeti-native-floor-loot-2.png",
+      "sourcePath": "C:\\Users\\andre\\Downloads\\Games\\September2024Mod\\build\\followup-worldgen-visuals\\client-1\\screenshots\\yeti-native-floor-loot-2.png",
+      "sha256": "f8cc93f2beb877c9d250a9522734c6eefa542f58087e0df5e54988dac5c19c68",
+      "width": 1440,
+      "height": 1000,
+      "status": "passed",
+      "observation": "Second complete chest centered on native solid snow floor with clear surrounding space."
+    },
+    {
+      "label": "spider-exterior",
+      "filename": "spider-exterior.png",
+      "sourcePath": "C:\\Users\\andre\\Downloads\\Games\\September2024Mod\\build\\followup-worldgen-visuals\\client-1\\screenshots\\spider-exterior.png",
+      "sha256": "3ed40aa824084c5034dbfa67fc559a8beaa221f282df684305e2f16346b86ed9",
+      "width": 1440,
+      "height": 1000,
+      "status": "passed",
+      "observation": "Complete moss hill and approach mouth visible above the intentional staged platform."
+    },
+    {
+      "label": "spider-entry",
+      "filename": "spider-entry.png",
+      "sourcePath": "C:\\Users\\andre\\Downloads\\Games\\September2024Mod\\build\\followup-worldgen-visuals\\client-1\\screenshots\\spider-entry.png",
+      "sha256": "8f72fe5bfb6dbfa7bc76574ea70b0c9eb2d3e2891fc3fec0b202015f4b5b5dd0",
+      "width": 1440,
+      "height": 1000,
+      "status": "passed",
+      "observation": "Full tunnel cross-section and descending path readable; no camera obstruction."
+    },
+    {
+      "label": "spider-pocket-1",
+      "filename": "spider-pocket-1.png",
+      "sourcePath": "C:\\Users\\andre\\Downloads\\Games\\September2024Mod\\build\\followup-worldgen-visuals\\client-1\\screenshots\\spider-pocket-1.png",
+      "sha256": "4ace4b313b4416c453b4fb6783dbaceb2520f5288e02a3748f024e44212e7751",
+      "width": 1440,
+      "height": 1000,
+      "status": "passed",
+      "observation": "Room, full spider and branch approach clear. Chest partly cropped at right image edge; accepted room framing limitation."
+    },
+    {
+      "label": "spider-pocket-2",
+      "filename": "spider-pocket-2.png",
+      "sourcePath": "C:\\Users\\andre\\Downloads\\Games\\September2024Mod\\build\\followup-worldgen-visuals\\client-1\\screenshots\\spider-pocket-2.png",
+      "sha256": "89f77225953c576e270cbb31b078b060f119753ff70a534e43f25fd1e91076c0",
+      "width": 1440,
+      "height": 1000,
+      "status": "passed",
+      "observation": "Room, full cave spider and branch approach clear. Chest partly cropped at lower left edge; accepted room framing limitation."
+    },
+    {
+      "label": "spider-pocket-3",
+      "filename": "spider-pocket-3.png",
+      "sourcePath": "C:\\Users\\andre\\Downloads\\Games\\September2024Mod\\build\\followup-worldgen-visuals\\client-1\\screenshots\\spider-pocket-3.png",
+      "sha256": "ae30acd9fd5468597284618b2ab8e22cf9a1e5a1e9a95a79c3b6c2ce8983a647",
+      "width": 1440,
+      "height": 1000,
+      "status": "passed",
+      "observation": "Room, full spider, native hanging vines and branch approach clear. Chest partly cropped at right edge."
+    },
+    {
+      "label": "spider-pocket-4",
+      "filename": "spider-pocket-4.png",
+      "sourcePath": "C:\\Users\\andre\\Downloads\\Games\\September2024Mod\\build\\followup-worldgen-visuals\\client-1\\screenshots\\spider-pocket-4.png",
+      "sha256": "013faccb6e3629ee705ff19bc3276384943e014bc433dd12424c7ee94b6c7a42",
+      "width": 1440,
+      "height": 1000,
+      "status": "passed",
+      "observation": "Room, full cave spider and branch approach clear. Chest partly cropped at lower left edge."
+    },
+    {
+      "label": "spider-boss",
+      "filename": "spider-boss.png",
+      "sourcePath": "C:\\Users\\andre\\Downloads\\Games\\September2024Mod\\build\\followup-worldgen-visuals\\client-1\\screenshots\\spider-boss.png",
+      "sha256": "42204d4dc9bcacc6f6f5e9054ffada4ceda8308066ac1c9d2e72f28c9f327499",
+      "width": 1440,
+      "height": 1000,
+      "status": "passed",
+      "observation": "Complete queen and helpers visible with chest and chamber floor. Nearby hanging vine fills upper right without covering boss."
+    },
+    {
+      "label": "wither-exterior",
+      "filename": "wither-exterior.png",
+      "sourcePath": "C:\\Users\\andre\\Downloads\\Games\\September2024Mod\\build\\followup-worldgen-visuals\\client-1\\screenshots\\wither-exterior.png",
+      "sha256": "32ec4f151434653d15c89c044a7c388b4180ac9d8dd4054166c48bc9e3d40ece",
+      "width": 1440,
+      "height": 1000,
+      "status": "superseded_by_retake",
+      "observation": "Primary structure is obscured by natural foreground terrain and cyan fog. Reject this angle; close oblique retake requested."
+    },
+    {
+      "label": "wither-entry",
+      "filename": "wither-entry.png",
+      "sourcePath": "C:\\Users\\andre\\Downloads\\Games\\September2024Mod\\build\\followup-worldgen-visuals\\client-1\\screenshots\\wither-entry.png",
+      "sha256": "d703148cab6e16d14703b896ab88a623df8874b124ea7ec90224b98e25caa085",
+      "width": 1440,
+      "height": 1000,
+      "status": "passed",
+      "observation": "Obsidian entrance and tunnel are clearly readable. Natural teal vegetation remains in staged fixture but does not block passage."
+    },
+    {
+      "label": "wither-pocket-1",
+      "filename": "wither-pocket-1.png",
+      "sourcePath": "C:\\Users\\andre\\Downloads\\Games\\September2024Mod\\build\\followup-worldgen-visuals\\client-1\\screenshots\\wither-pocket-1.png",
+      "sha256": "9ad62d6f01ac6f1544adc3cc3bdb46da1c3f763d63f4aab911fc290818a96045",
+      "width": 1440,
+      "height": 1000,
+      "status": "passed",
+      "observation": "Full skeleton, complete foreground chest and connecting room visible; distant entities readable through natural fog."
+    },
+    {
+      "label": "wither-pocket-2",
+      "filename": "wither-pocket-2.png",
+      "sourcePath": "C:\\Users\\andre\\Downloads\\Games\\September2024Mod\\build\\followup-worldgen-visuals\\client-1\\screenshots\\wither-pocket-2.png",
+      "sha256": "729a22fafba30fc47c008970c76a9b0b0929e569bd0d0d90bf44dc254a11a589",
+      "width": 1440,
+      "height": 1000,
+      "status": "passed",
+      "observation": "Full magma cubes, complete chest and connecting room visible."
+    },
+    {
+      "label": "wither-boss",
+      "filename": "wither-boss.png",
+      "sourcePath": "C:\\Users\\andre\\Downloads\\Games\\September2024Mod\\build\\followup-worldgen-visuals\\client-1\\screenshots\\wither-boss.png",
+      "sha256": "45ea1171c0cd1f0f897f646b402e38c55a579016e3b4031dca908111d404754c",
+      "width": 1440,
+      "height": 1000,
+      "status": "passed",
+      "observation": "Whole Wither, helpers and closed chamber readable. Chest partially overlapped by helper, not clipped by frame."
+    },
+    {
+      "label": "orc-exterior",
+      "filename": "orc-exterior.png",
+      "sourcePath": "C:\\Users\\andre\\Downloads\\Games\\September2024Mod\\build\\followup-worldgen-visuals\\client-1\\screenshots\\orc-exterior.png",
+      "sha256": "9955ccf240c355d986c0749be63977bf24b5b84a19d96d3549511140cb028b42",
+      "width": 1440,
+      "height": 1000,
+      "status": "omit_from_selection",
+      "observation": "Front curved palisade and foreground houses readable, but distant half fades into fog. Omit this angle from selected gallery; full-compound is the clear overview."
+    },
+    {
+      "label": "orc-full-compound",
+      "filename": "orc-full-compound.png",
+      "sourcePath": "C:\\Users\\andre\\Downloads\\Games\\September2024Mod\\build\\followup-worldgen-visuals\\client-1\\screenshots\\orc-full-compound.png",
+      "sha256": "caa99f6b47e610ff11e5e3e108ed12406999c3a863a317f2c76c600274fc3928",
+      "width": 1440,
+      "height": 1000,
+      "status": "passed",
+      "observation": "All six houses, two pens, two crop plots, gate, courtyard and entire curved palisade visible with margin. Animals are beyond entity draw distance here and verified in dedicated pen views."
+    },
+    {
+      "label": "orc-courtyard",
+      "filename": "orc-courtyard.png",
+      "sourcePath": "C:\\Users\\andre\\Downloads\\Games\\September2024Mod\\build\\followup-worldgen-visuals\\client-1\\screenshots\\orc-courtyard.png",
+      "sha256": "6decd15832f3234c38ad212ea59a238c1f70d6f087220f4e1f03e21903031cee",
+      "width": 1440,
+      "height": 1000,
+      "status": "passed",
+      "observation": "Central path, campfire, crop plots and surrounding native-style houses readable; scene provides ground-level context."
+    },
+    {
+      "label": "orc-native-large-house",
+      "filename": "orc-native-large-house.png",
+      "sourcePath": "C:\\Users\\andre\\Downloads\\Games\\September2024Mod\\build\\followup-worldgen-visuals\\client-1\\screenshots\\orc-native-large-house.png",
+      "sha256": "789206613dfd4704740352ce94cf69b5ccb532def6dbd1d9dabd965e8d1f79ed",
+      "width": 1440,
+      "height": 1000,
+      "status": "passed",
+      "observation": "Entire decorated large house and roof horns framed; resident and one interior chest visible. Porch item sprites are camp loot dropped by deliberate QA template replay, confirmed by orc-staged-item-audit.json; all nine chests and their acacia-plank supports remain intact."
+    },
+    {
+      "label": "orc-native-small-house",
+      "filename": "orc-native-small-house.png",
+      "sourcePath": "C:\\Users\\andre\\Downloads\\Games\\September2024Mod\\build\\followup-worldgen-visuals\\client-1\\screenshots\\orc-native-small-house.png",
+      "sha256": "a90ebd4ef7a52fcf483f76ebe5bea8b33dfb7bcf173d6963885b008c1c35b736",
+      "width": 1440,
+      "height": 1000,
+      "status": "passed",
+      "observation": "Complete small-house rear exterior, native roof shape and white roof ornament framed. This angle does not show its entrance or interior chest."
+    },
+    {
+      "label": "orc-sheep-pen",
+      "filename": "orc-sheep-pen.png",
+      "sourcePath": "C:\\Users\\andre\\Downloads\\Games\\September2024Mod\\build\\followup-worldgen-visuals\\client-1\\screenshots\\orc-sheep-pen.png",
+      "sha256": "c89d19249200700a70ee3ce5203bd414df6d29d82cf1d41b65cce069ce146273",
+      "width": 1440,
+      "height": 1000,
+      "status": "passed",
+      "observation": "Complete closed pen with exactly three visible sheep, hay and recessed water; palisade, skull posts and bushes visible behind."
+    },
+    {
+      "label": "orc-boar-pen",
+      "filename": "orc-boar-pen.png",
+      "sourcePath": "C:\\Users\\andre\\Downloads\\Games\\September2024Mod\\build\\followup-worldgen-visuals\\client-1\\screenshots\\orc-boar-pen.png",
+      "sha256": "3fca5a7a3f5885097eacf03320a5ef38e6204f0c6217d494292a9ddd2046a95a",
+      "width": 1440,
+      "height": 1000,
+      "status": "passed",
+      "observation": "Complete closed pen with exactly three visible boars, hay and recessed water; palisade and bushes visible behind."
+    },
+    {
+      "label": "orc-irrigated-crops",
+      "filename": "orc-irrigated-crops.png",
+      "sourcePath": "C:\\Users\\andre\\Downloads\\Games\\September2024Mod\\build\\followup-worldgen-visuals\\client-1\\screenshots\\orc-irrigated-crops.png",
+      "sha256": "3510a61caba827727ff5bb300d2510f60baf912290aa22f62b4ffcfaf7bd873c",
+      "width": 1440,
+      "height": 1000,
+      "status": "passed",
+      "observation": "Both mature crop plots and central irrigation channels clear, together with campfire, paths and houses."
+    },
+    {
+      "label": "orc-curved-palisade",
+      "filename": "orc-curved-palisade.png",
+      "sourcePath": "C:\\Users\\andre\\Downloads\\Games\\September2024Mod\\build\\followup-worldgen-visuals\\client-1\\screenshots\\orc-curved-palisade.png",
+      "sha256": "86c77cbc544323ff314863929f6c9192ddedd08884e2934e329575cdad07e7e5",
+      "width": 1440,
+      "height": 1000,
+      "status": "passed",
+      "observation": "Curved logs, taller fence posts, skulls and leaf bushes readable in close perspective; adjacent sheep pen visible."
+    },
+    {
+      "label": "wither_exterior_close_oblique",
+      "filename": "wither_exterior_close_oblique.png",
+      "sourcePath": "C:\\Users\\andre\\Downloads\\Games\\September2024Mod\\build\\followup-worldgen-visuals\\client-2\\screenshots\\wither_exterior_close_oblique.png",
+      "sha256": "a9dbfa9262e336e366326b0aeebb71ec9c97db4c65eefa2d55faab1719ff2c34",
+      "width": 1440,
+      "height": 1000,
+      "status": "passed",
+      "replaces": "wither-exterior",
+      "observation": "Replacement angle below native upper-gallery floor clearly shows foreground obsidian roof and side-room outer contours. No isolated one-block nub is visible on foreground roof. Distant roof centers are softened by native cyan fog; this frame alone does not visually prove removal at all four centers. Saved-world roof geometry audit and passing regression cover all four."
+    }
+  ],
+  "selectedStructureFrames": 24,
+  "excludedFrames": [
+    "wither-exterior.png",
+    "orc-exterior.png"
+  ],
+  "acceptance": "All 24 selected structure frames passed review. Two weak original angles are excluded; the accepted replacement is included without editing image bytes."
+}

@@ -1,0 +1,10 @@
+{
+  "staged_jars": 66,
+  "mismatched_jars": [],
+  "restored_mods": [
+    "biomesoplenty",
+    "biomeswevegone",
+    "environmental"
+  ],
+  "release_matches_build": true
+}

@@ -1,0 +1,15 @@
+{
+  "passed": true,
+  "jar_sha256": "3465e7fd5233aa39544b46a282f541480bdc20e6526ff34cffa8b7d81ee9135b",
+  "jar_bytes": 4960768,
+  "source_resources_match": true,
+  "all_mixin_classes_present": true,
+  "production_embeddium_selector_present": true,
+  "user_configuration": {
+    "files_before": 421,
+    "files_after": 421,
+    "changed": [],
+    "added": [],
+    "removed": []
+  }
+}

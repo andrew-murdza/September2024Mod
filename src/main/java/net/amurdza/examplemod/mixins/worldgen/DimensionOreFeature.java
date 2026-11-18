@@ -16,10 +16,11 @@ import org.spongepowered.asm.mixin.Mixin;
 public class DimensionOreFeature {
     @WrapMethod(method = "place")
     private boolean aoemod$oreMaterials(FeaturePlaceContext<OreConfiguration> context, Operation<Boolean> original) {
-        if (!GameplayDimensions.isCustom(context.level())) return original.call(context);
-        int dimension = BiomePlacementRestrictions.dimensionMask(context.level());
-        if (context.config().targetStates.stream().noneMatch(target ->
-                (BiomePlacementRestrictions.allowedMask(target.state.getBlock()) & dimension) != 0)) return false;
-        return OrePlacementContext.run(context.level(), () -> original.call(context));
+        if (GameplayDimensions.isCustom(context.level())) {
+            int dimension = BiomePlacementRestrictions.dimensionMask(context.level());
+            if (context.config().targetStates.stream().noneMatch(target ->
+                    (BiomePlacementRestrictions.allowedMask(target.state.getBlock()) & dimension) != 0)) return false;
+        }
+        return OrePlacementContext.runVein(context, () -> original.call(context));
     }
 }

@@ -7,7 +7,8 @@
       "type": "aoemod:dimension_regions",
       "dimension": "plains",
       "biomes": [
-        "aoemod:plains"
+        "aoemod:plains",
+        "aoemod:plains_lake"
       ]
     }
   }

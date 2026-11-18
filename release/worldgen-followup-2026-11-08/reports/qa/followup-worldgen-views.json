@@ -1,0 +1,137 @@
+[
+  {
+    "label": "tropical_coast_land_and_water",
+    "dimension": "aoemod:tropical_dimension",
+    "x": 616405.5,
+    "y": 94.0,
+    "z": 402190.5,
+    "yaw": 132.39743,
+    "pitch": 23.139845
+  },
+  {
+    "label": "tropical_coast_along_shore",
+    "dimension": "aoemod:tropical_dimension",
+    "x": 616383.5,
+    "y": 92.0,
+    "z": 402096.5,
+    "yaw": 24.77514,
+    "pitch": 23.262089
+  },
+  {
+    "label": "cotton_stage_0",
+    "dimension": "aoemod:tropical_dimension",
+    "x": 616185.7,
+    "y": 151.0,
+    "z": 402150.5,
+    "yaw": 143.74615,
+    "pitch": 30.826204
+  },
+  {
+    "label": "cotton_stage_1",
+    "dimension": "aoemod:tropical_dimension",
+    "x": 616190.7,
+    "y": 151.0,
+    "z": 402150.5,
+    "yaw": 143.74615,
+    "pitch": 30.826204
+  },
+  {
+    "label": "cotton_stage_2",
+    "dimension": "aoemod:tropical_dimension",
+    "x": 616195.7,
+    "y": 151.0,
+    "z": 402150.5,
+    "yaw": 143.74615,
+    "pitch": 30.826204
+  },
+  {
+    "label": "cotton_stage_3",
+    "dimension": "aoemod:tropical_dimension",
+    "x": 616200.7,
+    "y": 151.0,
+    "z": 402150.5,
+    "yaw": 143.74615,
+    "pitch": 30.826204
+  },
+  {
+    "label": "wild_cotton",
+    "dimension": "aoemod:tropical_dimension",
+    "x": 616205.7,
+    "y": 151.0,
+    "z": 402150.5,
+    "yaw": 143.74615,
+    "pitch": 29.677065
+  },
+  {
+    "label": "pitcher_crop_stage_1",
+    "dimension": "aoemod:tropical_dimension",
+    "x": 616186.0,
+    "y": 151.0,
+    "z": 402158.0,
+    "yaw": 144.46233,
+    "pitch": 27.300047
+  },
+  {
+    "label": "pitcher_crop_stage_2",
+    "dimension": "aoemod:tropical_dimension",
+    "x": 616191.0,
+    "y": 151.0,
+    "z": 402158.0,
+    "yaw": 144.46233,
+    "pitch": 27.300047
+  },
+  {
+    "label": "pitcher_crop_stage_3",
+    "dimension": "aoemod:tropical_dimension",
+    "x": 616196.0,
+    "y": 151.0,
+    "z": 402158.0,
+    "yaw": 144.46233,
+    "pitch": 21.219553
+  },
+  {
+    "label": "pitcher_crop_stage_4",
+    "dimension": "aoemod:tropical_dimension",
+    "x": 616201.0,
+    "y": 151.0,
+    "z": 402158.0,
+    "yaw": 144.46233,
+    "pitch": 21.219553
+  },
+  {
+    "label": "snowy_dappled_boundary_overview",
+    "dimension": "aoemod:snowy_dimension",
+    "x": 1230648.5,
+    "y": 118.0,
+    "z": -616143.5,
+    "yaw": 143.1301,
+    "pitch": 39.590748
+  },
+  {
+    "label": "snowy_dappled_boundary_reverse",
+    "dimension": "aoemod:snowy_dimension",
+    "x": 1230580.5,
+    "y": 94.0,
+    "z": -616229.5,
+    "yaw": -40.100906,
+    "pitch": 27.280664
+  },
+  {
+    "label": "desert_curved_mouth_overview",
+    "dimension": "aoemod:desert_dimension",
+    "x": 1.0597361579219157E7,
+    "y": 83.0,
+    "z": 140.26877836088275,
+    "yaw": 174.84088,
+    "pitch": 34.787937
+  },
+  {
+    "label": "desert_curved_mouth_from_ramp",
+    "dimension": "aoemod:desert_dimension",
+    "x": 1.0597372744003922E7,
+    "y": 51.8,
+    "z": 110.09521697479957,
+    "yaw": 108.52271,
+    "pitch": -25.237099
+  }
+]

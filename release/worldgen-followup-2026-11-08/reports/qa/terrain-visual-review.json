@@ -1,0 +1,81 @@
+{
+  "status": "passed",
+  "scope": "Six selected natural terrain screenshots: two Tropical coast views, two Snowy/dappled boundary views, and two Desert mouth views. The low Desert closeup from attempt1 is excluded and replaced by the reviewed attempt2 oblique view. These are naturally generated terrain, not staged structures or crop beds.",
+  "reviewedCount": 6,
+  "acceptedCount": 6,
+  "retakesRequested": [],
+  "method": "Viewed original PNGs without cropping, editing or resampling. Visual review supplements the native numerical/GameTest evidence; it does not prove biome spawning or all entrances.",
+  "reviewed": [
+    {
+      "label": "tropical_coast_land_and_water",
+      "filename": "build/followup-worldgen-visuals/client-1/screenshots/tropical_coast_land_and_water.png",
+      "sha256": "88fa6b7ddd0b2a34fef0112ef54bbdd9f0fb960eba8b476208a512fb431bf397",
+      "width": 1440,
+      "height": 1000,
+      "status": "passed",
+      "observations": "Foreground shoreline shows trees rooted on dry land and in the shallow water, continuous underwater vegetation and visible coral beyond. The coast is fully rendered in the foreground. Distant fog makes some canopy fragments look detached; this image does not verify distant tree completeness."
+    },
+    {
+      "label": "tropical_coast_along_shore",
+      "filename": "build/followup-worldgen-visuals/client-1/screenshots/tropical_coast_along_shore.png",
+      "sha256": "ada16a820a08ac941b20a91053ba5007412521f497c89b7908b5596fe73f8931",
+      "width": 1440,
+      "height": 1000,
+      "status": "passed",
+      "observations": "A distinct along-shore angle clearly shows the land-to-water transition, mangrove trunks and submerged flora. Foreground geometry is continuous. The render-distance fog limits assessment of the far background."
+    },
+    {
+      "label": "desert_curved_mouth_overview",
+      "filename": "build/followup-worldgen-visuals/client-1/screenshots/desert_curved_mouth_overview.png",
+      "sha256": "b81d4f6dca731d4f6881d9efc1047544ca44b5c8b639ff5017d057f296b4ebea",
+      "width": 1440,
+      "height": 1000,
+      "status": "passed",
+      "observations": "Curved terraced entrance and lower dark opening are fully inside the frame. Nearby sand/red-sand terrain is continuous; no obvious foreground mesh gap is visible. A single image cannot establish variation across different entrances."
+    },
+    {
+      "label": "snowy_dappled_boundary_overview",
+      "filename": "build/followup-worldgen-visuals/client-1/screenshots/snowy_dappled_boundary_overview.png",
+      "sha256": "7382c7855245cb435ece1dbf648a1024238f4fb909989a69fd5fd88d25fa9413",
+      "width": 1440,
+      "height": 1000,
+      "status": "passed",
+      "observations": "Snow-covered uphill terrain and spruce crowns meet the orange/brown dappled forest in a clear sharp boundary. The foreground has no visible half-green/half-orange grass blending or missing terrain. Distant fog limits background assessment."
+    },
+    {
+      "label": "snowy_dappled_boundary_reverse",
+      "filename": "build/followup-worldgen-visuals/client-1/screenshots/snowy_dappled_boundary_reverse.png",
+      "sha256": "82d5b818bfdc3f6dfbdf68e21f8c96d0e254121ff9cc6f5cd8137cdfa1daa2df",
+      "width": 1440,
+      "height": 1000,
+      "status": "passed",
+      "observations": "Reverse angle shows autumn-colored dappled trees and brown grass below the snow-covered spruce slope. The same sharp boundary is visible from the opposite side, with continuous foreground ground and snow-covered crowns."
+    },
+    {
+      "label": "desert_curved_mouth_exit_oblique",
+      "filename": "build/followup-worldgen-visuals/client-2/screenshots/desert_curved_mouth_exit_oblique.png",
+      "sha256": "a998a9844d72b47c93057c9b7b85ea72fd48cee879eae0ffb85030284719898f",
+      "width": 1440,
+      "height": 1000,
+      "status": "passed",
+      "observations": "Replacement oblique view clearly shows the entire stepped descent, bend into the lower opening and continuous dry surface around the exit. Sand/red-sand terrain and the distant shore provide context. The full mouth is inside frame; unlike the excluded closeup, no near stair face obscures the route. Paired with the south-side overview, this is a distinct useful angle."
+    }
+  ],
+  "totalFramesInspected": 7,
+  "excluded": [
+    {
+      "label": "desert_curved_mouth_from_ramp",
+      "filename": "build/followup-worldgen-visuals/client-1/screenshots/desert_curved_mouth_from_ramp.png",
+      "sha256": "bbc8785bba8e26efd94ab0f6f4a727cdc9d0a69d1a8cc7f803a1a88fbab4de27",
+      "width": 1440,
+      "height": 1000,
+      "status": "excluded",
+      "observations": "Camera is too low and looks upward: more than half the frame is sky, while close stair faces obscure the broader walking route and curved mouth. Genuine capture, but weak explanatory evidence; replace with the proposed oblique exit view.",
+      "replacement": "desert_curved_mouth_exit_oblique"
+    }
+  ],
+  "captureProvenance": [
+    "build/followup-worldgen-visuals/client-1/followup-screenshot-report.json",
+    "build/followup-worldgen-visuals/client-2/followup-screenshot-report.json"
+  ]
+}

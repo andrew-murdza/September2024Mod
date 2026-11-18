@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "mynethersdelight:bullet_pepper"
+    },
+    {
+      "item": "mynethersdelight:bullet_pepper"
+    },
+    {
+      "item": "minecraft:bowl"
+    }
+  ],
+  "result": {
+    "item": "aoemod:bullet_pepper_soup"
+  }
+}

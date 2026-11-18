@@ -8,7 +8,9 @@
       "dimension": "snowy",
       "biomes": [
         "aoemod:snowy_forest",
-        "aoemod:mushroom_caves"
+        "aoemod:mushroom_caves",
+        "aoemod:cold_ocean",
+        "aoemod:dappled_forest"
       ]
     }
   }

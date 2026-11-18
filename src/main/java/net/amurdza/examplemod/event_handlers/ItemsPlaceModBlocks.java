@@ -14,6 +14,7 @@ import net.minecraft.world.item.Items;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.DoublePlantBlock;
+import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.HorizontalDirectionalBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.DoubleBlockHalf;
@@ -109,7 +110,16 @@ public class ItemsPlaceModBlocks {
                 level.setBlock(pos.above(), previousUpper, 3);
             }
         } else {
-            placed = level.setBlock(pos, state, 3);
+            // Preserve the existing snow container explicitly for this
+            // event-based berry placement. Native canBeReplaced above also
+            // permits replaceable contents such as snowlogged grass/ferns.
+            if (level.getBlockState(pos).is(snownee.snow.CoreModule.TILE_BLOCK.get())
+                    && level.getBlockEntity(pos) instanceof snownee.snow.block.entity.SnowBlockEntity snow) {
+                placed = snow.setContainedState(state, true);
+                if (placed) snow.setChanged();
+            } else placed = level.getBlockState(pos).is(Blocks.SNOW)
+                    ? net.amurdza.examplemod.worldgen.SnowyPlantSnowlogging.place(level, pos, state)
+                    : level.setBlock(pos, state, 3);
         }
         if (!placed) {
             event.setCancellationResult(InteractionResult.FAIL);

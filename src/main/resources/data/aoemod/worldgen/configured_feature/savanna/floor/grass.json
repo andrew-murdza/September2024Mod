@@ -5,13 +5,13 @@
       "type": "minecraft:weighted_state_provider",
       "entries": [
         {
-          "weight": 70,
+          "weight": 60,
           "data": {
             "Name": "minecraft:grass"
           }
         },
         {
-          "weight": 10,
+          "weight": 20,
           "data": {
             "Name": "minecraft:tall_grass",
             "Properties": {

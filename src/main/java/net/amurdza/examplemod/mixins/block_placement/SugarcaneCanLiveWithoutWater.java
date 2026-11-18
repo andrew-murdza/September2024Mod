@@ -68,13 +68,22 @@ public abstract class SugarcaneCanLiveWithoutWater extends Block implements Simp
     @Override
     public boolean canPlaceLiquid(BlockGetter level, BlockPos pos, BlockState state, Fluid fluid) {
         return !level.getBlockState(pos.below()).is(Blocks.SUGAR_CANE)
-                && SimpleWaterloggedBlock.super.canPlaceLiquid(level, pos, state, fluid);
+                && fluid == Fluids.WATER;
     }
 
     @Override
     public boolean placeLiquid(LevelAccessor level, BlockPos pos, BlockState state, FluidState fluidState) {
-        return !level.getBlockState(pos.below()).is(Blocks.SUGAR_CANE)
-                && SimpleWaterloggedBlock.super.placeLiquid(level, pos, state, fluidState);
+        // Interface-super invocations cannot be transplanted safely by this
+        // mixin: Mixin rewrites their owner to SugarCaneBlock. Keep the vanilla
+        // waterlogging implementation here so flowing water cannot trigger an
+        // IncompatibleClassChangeError on the transformed block.
+        if (level.getBlockState(pos.below()).is(Blocks.SUGAR_CANE)
+                || state.getValue(WATERLOGGED) || fluidState.getType() != Fluids.WATER) return false;
+        if (!level.isClientSide()) {
+            level.setBlock(pos, state.setValue(WATERLOGGED, true), Block.UPDATE_ALL);
+            level.scheduleTick(pos, fluidState.getType(), fluidState.getType().getTickDelay(level));
+        }
+        return true;
     }
 
     @Redirect(

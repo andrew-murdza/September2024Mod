@@ -1,0 +1,95 @@
+{
+  "carvers": {
+    "air": [
+      "aoemod:plains/cave",
+      "aoemod:plains/cave_extra_underground",
+      "aoemod:plains/canyon"
+    ]
+  },
+  "downfall": 0.5,
+  "effects": {
+    "fog_color": 12638463,
+    "mood_sound": {
+      "block_search_extent": 8,
+      "offset": 2,
+      "sound": "minecraft:ambient.cave",
+      "tick_delay": 6000
+    },
+    "sky_color": 7907327,
+    "water_color": 4159204,
+    "water_fog_color": 329011
+  },
+  "features": [
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [
+      "aoemod:dimension_blobs/plains/andesite",
+      "aoemod:dimension_blobs/plains/diorite",
+      "aoemod:dimension_blobs/plains/granite",
+      "aoemod:dimension_blobs/plains/gravel",
+      "aoemod:blobs/gravel",
+      "aoemod:dimension_ores/plains/coal_upper",
+      "aoemod:dimension_ores/plains/coal_lower",
+      "aoemod:dimension_ores/plains/iron_main",
+      "aoemod:dimension_ores/plains/iron_scattered",
+      "aoemod:dimension_ores/plains/copper",
+      "aoemod:dimension_ores/plains/gold",
+      "aoemod:plains/disk_sand",
+      "aoemod:plains/disk_clay",
+      "aoemod:plains/disk_gravel"
+    ],
+    [],
+    [],
+    [
+      "minecraft:glow_lichen",
+      "aoemod:savanna/forest_floor",
+      "aoemod:plains/forest_floor",
+      "aoemod:mountains/forest_floor",
+      "aoemod:savanna/seafloor",
+      "aoemod:plains/seafloor"
+    ],
+    []
+  ],
+  "has_precipitation": true,
+  "spawn_costs": {},
+  "spawners": {
+    "ambient": [],
+    "axolotls": [],
+    "creature": [],
+    "misc": [],
+    "monster": [
+      {
+        "type": "minecraft:zombie_villager",
+        "maxCount": 1,
+        "minCount": 1,
+        "weight": 100
+      },
+      {
+        "type": "minecraft:pillager",
+        "maxCount": 4,
+        "minCount": 4,
+        "weight": 100
+      },
+      {
+        "type": "minecraft:ravager",
+        "maxCount": 3,
+        "minCount": 3,
+        "weight": 20
+      },
+      {
+        "type": "minecraft:zombie_horse",
+        "weight": 5,
+        "minCount": 1,
+        "maxCount": 1
+      }
+    ],
+    "underground_water_creature": [],
+    "water_ambient": [],
+    "water_creature": []
+  },
+  "temperature": 0.5
+}

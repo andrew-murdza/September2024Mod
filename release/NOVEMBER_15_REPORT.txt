@@ -1,0 +1,24 @@
+November 15, 2026 document iteration
+Minecraft 1.20.1 / Forge 47.4.22 / Java 17
+
+Implemented the current Tropical, Savanna, Plains, Snowy and Desert list.
+- Removed Environmental, Biomes O' Plenty and Biomes We've Gone from the active development and production dependency manifests.
+- Smaller rainforest islands, rainforest flora/animals moved from cherry groves, final bamboo patches, and mangrove root/flower placement repaired.
+- Larger square Orc camps with the requested tent spacing, crop ring, submerged-cane ponds, pens, roads, skull pattern and high/dry terrain selection. Existing total loot is still divided among 36 chests.
+- Balanced undead horsemen persistence and kept their lightning effect without extra weather trap groups or Savanna lightning fires.
+- Authored square mansion cellar, room/mineshaft/lighting arrangement, early client mining prevention, selected room catalogue on three full floors, oak supports/crosses, carpet connections, torch lighting and slab roofs.
+- Native donkey chest meshes on yaks; corrected live Fiddler crab texture routing; desert entrance stone restricted to actually carved columns.
+
+New terrain and structure geometry apply to newly generated chunks or newly placed structures. Existing structures retain their saved layouts. The room gallery and user configs/saves were preserved; terrain cuts remain deferred.
+
+Validation
+- build, isolated runData and prepareStandaloneClient passed.
+- 76 distinct focused GameTests have passing latest results; earlier failed attempts and their corrective reruns remain in the evidence.
+- Existing-save copy -> fresh world -> saved-world reload passed in the native client.
+- 16 native screenshots manually reviewed; the smoke client's full live asset audit passed.
+- 1,744 resource checks; 1,859 packaged source resources matched; 798 pre-existing user files unchanged.
+- Refreshed production staging has 63 verified jars, including the four pre-existing optional QA jars preserved unchanged. Use production-dependencies.json for the required runtime pack.
+
+See IMPLEMENTED_CHANGES.md for details and evidence/november-15/validation-summary.json for the checks. Native screenshot files are in evidence/november-15/screenshots. Historical November 8 reports retain their original scope and hashes.
+
+QA limitation: the optional duplicate asset audit in screenshot client B attempted an unchanged Goblin render before the entity dispatcher camera initialized. That failed report is retained. The smoke client's complete live asset audit passed, and all runtime snapshot files are verified identical across clients; native screenshot capture was unaffected.

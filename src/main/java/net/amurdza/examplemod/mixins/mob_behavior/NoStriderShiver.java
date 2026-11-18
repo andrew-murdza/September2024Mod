@@ -1,17 +1,15 @@
 package net.amurdza.examplemod.mixins.mob_behavior;
 
-import net.minecraft.tags.TagKey;
 import net.minecraft.world.entity.monster.Strider;
-import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.state.BlockState;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
-import org.spongepowered.asm.mixin.injection.Redirect;
+import org.spongepowered.asm.mixin.injection.ModifyVariable;
 
 @Mixin(Strider.class)
 public class NoStriderShiver {
-    @Redirect(method = "tick",at= @At(value = "INVOKE", target = "Lnet/minecraft/world/level/block/state/BlockState;is(Lnet/minecraft/tags/TagKey;)Z"))
-    private boolean hi(BlockState instance, TagKey<Block> tagKey){
-        return true;
+    @ModifyVariable(method = "setSuffocating", at = @At("HEAD"), argsOnly = true, ordinal = 0)
+    private boolean aoemod$remainWarm(boolean suffocating) {
+        // Covers cold ticks, passengers and restored NBT, including the speed penalty.
+        return false;
     }
 }

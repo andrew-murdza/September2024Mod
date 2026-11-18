@@ -1,0 +1,9 @@
+16 November 2026 — launcher dependency-resolution fix
+
+The normal launcher previously resolved Gradle plugins online on every launch, although the verified build used the installed cache. This could fail before Minecraft started when ForgeGradle's repository was unavailable.
+
+Normal preparation now uses --offline and still compiles changed code/resources before refreshing the runtime snapshot. Launch Minecraft.cmd forwards optional arguments. Use "Launch Minecraft.cmd -Online" explicitly when new dependencies need downloading; -Online and -SkipPrepare cannot be combined. A preparation failure still stops the launch instead of silently using an older snapshot.
+
+Validation: preparation passed through both Windows PowerShell and the exact Launch Minecraft.cmd entry point; the required build passed. All 179 runtime classpath entries exist. All 1241 protected save/config/options files are unchanged. Gameplay code/resources and the delivered release JAR are unchanged; the validation rebuild differs only in its manifest timestamp. No extra Minecraft instance was opened for this preparation-only fix.
+
+Evidence: evidence/november-16-launcher-fix/

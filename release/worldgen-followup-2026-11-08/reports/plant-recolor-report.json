@@ -1,0 +1,82 @@
+[
+  {
+    "height": 16,
+    "changedGreenPixels": 8,
+    "width": 16,
+    "sha256": "0fd0108c50c67bf7f23788b78d7b118d1f4ca42ef7249e6e1e146e5e205fd680",
+    "texture": "hearthandharvest/textures/block/cotton_stage0.png",
+    "alphaAndOtherColorsUnchanged": true
+  },
+  {
+    "height": 16,
+    "changedGreenPixels": 28,
+    "width": 16,
+    "sha256": "648a65202ed6ce3aef2bebd853c22bf94b7b31dda794893d5a48e0947edc6607",
+    "texture": "hearthandharvest/textures/block/cotton_stage1.png",
+    "alphaAndOtherColorsUnchanged": true
+  },
+  {
+    "height": 16,
+    "changedGreenPixels": 31,
+    "width": 16,
+    "sha256": "0fd1765c27f6d46bbfba76f04051fe6721a8d4d5247efefe4e1fd2ba814a193d",
+    "texture": "hearthandharvest/textures/block/cotton_stage2.png",
+    "alphaAndOtherColorsUnchanged": true
+  },
+  {
+    "height": 16,
+    "changedGreenPixels": 37,
+    "width": 16,
+    "sha256": "a80fb02377d52c6035ca17f58a6f84e98c71d0e10022a0c06da2a9bd2e81ebfb",
+    "texture": "hearthandharvest/textures/block/cotton_stage3.png",
+    "alphaAndOtherColorsUnchanged": true
+  },
+  {
+    "height": 16,
+    "changedGreenPixels": 20,
+    "width": 16,
+    "sha256": "71dc0ff3a01264027c32ec4bc181f940e9e79e993c299fa8d44d4e32d6d07506",
+    "texture": "hearthandharvest/textures/block/wild_cotton.png",
+    "alphaAndOtherColorsUnchanged": true
+  },
+  {
+    "height": 16,
+    "changedGreenPixels": 46,
+    "width": 16,
+    "sha256": "84001a4bffde61d2f52486fa5f5011198282bd5a6d261d81d4cd44e2afb70ff0",
+    "texture": "minecraft/textures/block/pitcher_crop_bottom_stage_1.png",
+    "alphaAndOtherColorsUnchanged": true
+  },
+  {
+    "height": 16,
+    "changedGreenPixels": 82,
+    "width": 16,
+    "sha256": "746968766a24c65a361c9ceb940d5d9a66a87dcd016db6e876d3da69088fa492",
+    "texture": "minecraft/textures/block/pitcher_crop_bottom_stage_2.png",
+    "alphaAndOtherColorsUnchanged": true
+  },
+  {
+    "height": 16,
+    "changedGreenPixels": 71,
+    "width": 16,
+    "sha256": "884c5e62cd61371d1e23bee7a3145054e8805c128dbba9efa417ac03944842ee",
+    "texture": "minecraft/textures/block/pitcher_crop_bottom_stage_3.png",
+    "alphaAndOtherColorsUnchanged": true
+  },
+  {
+    "height": 16,
+    "changedGreenPixels": 68,
+    "width": 16,
+    "sha256": "477fc881b5d8981abb78a4a3828752ce4178c7813be18df1b2ed4e65dcde9d14",
+    "texture": "minecraft/textures/block/pitcher_crop_bottom_stage_4.png",
+    "alphaAndOtherColorsUnchanged": true
+  },
+  {
+    "height": 16,
+    "changedGreenPixels": 28,
+    "width": 16,
+    "sha256": "1a76aab69adc884ec03dca360b494e10a9109027c607efa33cad7b1f83f1ade6",
+    "texture": "minecraft/textures/block/pitcher_crop_top_stage_3.png",
+    "alphaAndOtherColorsUnchanged": true
+  }
+]

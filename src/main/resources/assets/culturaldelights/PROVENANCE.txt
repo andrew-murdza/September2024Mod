@@ -1,0 +1,5 @@
+Retained from the user-provided Cultural Delights 0.16.1 archive:
+libs/retired-source-archives/cultural-delights-574622-6029441.jar
+
+Only squid, glow_squid, and cooked_squid item sprites, models, and English names are copied. The matching food properties are implemented in RetainedSquidFoods.java. Both raw items cook into the one cooked_squid item. The rest of Cultural Delights is not loaded.
+Original art remains attributable to Cultural Delights; this is not new AoE artwork.

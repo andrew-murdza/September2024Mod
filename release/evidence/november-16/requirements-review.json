@@ -1,0 +1,101 @@
+{
+  "document": "https://docs.google.com/document/d/1b_LfrTdisfHR7NcC3B9VnAaKOMxLdFqjUpQvDxckc6Q/edit?tab=t.0",
+  "revision": "AHj4eMRhGqiY2oSqLNfdizc-vBL2-6Ci2pC2EftY6xq4Kzw3wf7navrMiHfP2WJK1bC8fdgzaLzutrMmQaeTX5xibRPexULe0KJ8BUXkDcI",
+  "validation_status": "Complete: build, data generation, 25 focused native tests, client save/new-world/reload checks and targeted visual review passed.",
+  "interpretations": [
+    "The huts-to-farmland item belongs to the Savanna camp despite being placed after the Plains heading.",
+    "Six-block palisade spacing means six empty/panel columns between log posts, as previously confirmed.",
+    "The user confirmed that chandelier height means the wooden upstairs chandeliers only."
+  ],
+  "preservation": [
+    "Archive and retain saved camp V7 resources and geometry.",
+    "Keep all 21 earlier compact mansion templates unchanged; add a separate authored entrance identifier and basement V6.",
+    "Preserve user saves, configs, options and the room gallery.",
+    "Tropical restored mods remain installed; no Snowy, Desert or terrain-cut changes."
+  ],
+  "requirements": [
+    {
+      "indices": [
+        20,
+        276
+      ],
+      "change": "Tropical requirements and reference image retained; no new Tropical implementation needed.",
+      "evidence": [
+        "independent-requirements-review.json"
+      ]
+    },
+    {
+      "indices": [
+        317,
+        390,
+        392
+      ],
+      "change": "Remove the eight excess wool fascia cells from the authored north tent face."
+    },
+    {
+      "indices": [
+        394,
+        839
+      ],
+      "change": "Set clear tent spacing to sixteen blocks and tent-to-farmland spacing to eight blocks."
+    },
+    {
+      "indices": [
+        432,
+        474
+      ],
+      "change": "Retain eight-wide roads and the dirt-path courtyard."
+    },
+    {
+      "indices": [
+        586
+      ],
+      "change": "Remove the four standalone outer podzol patches and their planting exclusions."
+    },
+    {
+      "indices": [
+        624,
+        649,
+        651
+      ],
+      "change": "Recreate three-wide gate pillars, eight-wide opening, beam and three skulls per pillar; maintain six clear blocks between regular stockade posts, including corner intervals."
+    },
+    {
+      "indices": [
+        741
+      ],
+      "change": "Fill usable grass areas in camp chunks with complete native acacias, preserving protected pen, podzol, road, crop and building columns."
+    },
+    {
+      "indices": [
+        904,
+        986
+      ],
+      "change": "Add full brick threshold rows to the mine mouths; extend the brick backing by one with a mineable stone column before it."
+    },
+    {
+      "indices": [
+        1069
+      ],
+      "change": "Raise wooden upstairs chandeliers one block; user explicitly confirmed basement lanterns remain unchanged."
+    },
+    {
+      "indices": [
+        1104,
+        1245
+      ],
+      "change": "Make the mine entrance face and marked center column stone bricks, without retaining marker wool."
+    },
+    {
+      "indices": [
+        1247
+      ],
+      "change": "Use the authored straight three-wide birch staircase from the latest saved spawn, including landings and wall torches.",
+      "evidence": [
+        "mansion-resource-verification.json"
+      ]
+    }
+  ],
+  "test_evidence": "game-test-summary.json",
+  "visual_evidence": "visual-review.json"
+}

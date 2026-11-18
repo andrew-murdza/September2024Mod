@@ -1,0 +1,5 @@
+Dragon-fruit textures, models, blockstates and block loot tables are retained from
+Collector's Reap 1.5.5. The farming classes adapt its budding and rope-vine behavior.
+Source: https://github.com/brnbrd/CollectorsReap/tree/1.20.1
+Copyright (c) 2022 brdbrn. Used under the included MIT License.
+Only the dragon-fruit farming chain is retained; the full dependency is not loaded.

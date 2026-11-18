@@ -1,0 +1,137 @@
+import groovy.json.JsonOutput
+import java.nio.file.Files
+import java.nio.file.StandardCopyOption
+import java.time.Instant
+
+// Prepare the normal development client, then let Gradle exit before Java starts.
+// ForgeGradle resolves most JavaExec options inside MinecraftRunTask.exec(), so
+// reading runClient.commandLine before execution would omit essential options.
+// This uses the installed ForgeGradle resolver without executing the run task or
+// requiring an IDE installation, generated IDE project, or hand-maintained JAR list.
+allprojects {
+    afterEvaluate { p ->
+        if (!p.plugins.hasPlugin('net.minecraftforge.gradle')) return
+
+        p.tasks.register('prepareStandaloneClient') {
+            group = 'ForgeGradle runs'
+            description = 'Prepare assets and the protected client snapshot, then export a direct Java launch manifest.'
+            dependsOn {
+                def client = p.tasks.named('runClient').get()
+                // Includes ForgeGradle assets/natives/mappings and this project's
+                // snapshotClientRuntime. It deliberately excludes runClient itself.
+                client.taskDependencies.getDependencies(client)
+            }
+            doLast {
+                def client = p.tasks.named('runClient').get()
+                def config = client.runConfig.get()
+                def snapshot = p.file('run/.aoemod-runtime/client').canonicalFile
+                if (!new File(snapshot, 'net/amurdza/examplemod/AOEMod.class').isFile()
+                        || !new File(snapshot, 'aoemod.mixins.json').isFile()) {
+                    throw new GradleException('The protected client runtime snapshot is incomplete.')
+                }
+
+                // Init scripts load before the project's plugin classloader.
+                // Resolve these protected ForgeGradle helpers only at execution.
+                def resolver = config.getClass().classLoader.loadClass(
+                        'net.minecraftforge.gradle.common.util.runs.RunConfigGenerator')
+                def invokeResolver = { String name, List parameters ->
+                    def method = resolver.declaredMethods.find {
+                        it.name == name && it.parameterCount == parameters.size()
+                    }
+                    if (method == null) throw new GradleException("Installed ForgeGradle cannot export ${name}.")
+                    method.setAccessible(true)
+                    try {
+                        method.invoke(null, parameters as Object[])
+                    } catch (java.lang.reflect.InvocationTargetException failure) {
+                        throw new GradleException("ForgeGradle launch export failed in ${name}.", failure.cause)
+                    }
+                }
+
+                def mutableOutputs = p.sourceSets.main.output.files.collect { it.canonicalFile } as Set
+                def stableRuntimeArtifacts = client.runtimeClasspathArtifacts.filter {
+                    !mutableOutputs.contains(it.canonicalFile)
+                }
+                def roots = invokeResolver('mapModClassesToGradle', [p, config])
+                def tokens = invokeResolver('configureTokensLazy',
+                        [p, config, roots, client.minecraftArtifacts, stableRuntimeArtifacts])
+                def resolve = { Object value -> config.replace(tokens, value.toString()) }
+
+                def jvmArgs = new ArrayList<String>(client.allJvmArgs.collect { it.toString() })
+                jvmArgs.addAll(config.jvmArgs.collect { resolve(it) })
+                if (config.isClient()) jvmArgs.addAll(client.additionalClientArgs.get().collect { resolve(it) })
+                config.properties.each { key, value -> jvmArgs.add("-D${key}=${resolve(value)}".toString()) }
+
+                def programArgs = new ArrayList<String>((client.args ?: []).collect { it.toString() })
+                def resolvedArgs = invokeResolver('getArgsStream', [config, tokens, false])
+                try { resolvedArgs.forEach { programArgs.add(it.toString()) } }
+                finally { resolvedArgs.close() }
+
+                def environment = new LinkedHashMap<String, String>()
+                config.environment.each { key, value -> environment[key.toString()] = resolve(value) }
+                // The normal launch is this mod's prepared snapshot, never the
+                // mutable classes/resources directories used by compilation.
+                environment['MOD_CLASSES'] = "${p.property('mod_id')}%%${snapshot.absolutePath}".toString()
+
+                def classpath = new LinkedHashSet<File>()
+                classpath.add(snapshot)
+                classpath.addAll(client.classpath.files.collect { it.canonicalFile })
+                config.allSources.each { source ->
+                    classpath.addAll(source.runtimeClasspath.files.collect { it.canonicalFile })
+                }
+                classpath.removeAll(mutableOutputs)
+                def missingClasspath = classpath.findAll { !it.exists() }
+                if (!missingClasspath.empty) {
+                    throw new GradleException("Standalone client classpath contains missing files: ${missingClasspath}")
+                }
+
+                // These lazily consumed metadata files must survive an unrelated
+                // build/clean while the client is running, just like its classes.
+                def launchSupport = p.file('run/.aoemod-runtime/client-launch')
+                if (!launchSupport.isDirectory() && !launchSupport.mkdirs()) {
+                    throw new GradleException("Cannot create ${launchSupport}")
+                }
+                def supportProperties = [
+                        'legacyClassPath.file': 'minecraft-classpath.txt',
+                        'net.minecraftforge.gradle.GradleStart.srg.srg-mcp': 'srg-to-mcp.srg',
+                        'mixin.env.refMapRemappingFile': 'srg-to-mcp.srg'
+                ]
+                jvmArgs = jvmArgs.collect { String argument ->
+                    def property = supportProperties.keySet().find { argument.startsWith('-D' + it + '=') }
+                    if (property == null) return argument
+                    def source = p.file(argument.substring(property.length() + 3))
+                    if (!source.isFile()) throw new GradleException("Missing client launch support file: ${source}")
+                    def destination = new File(launchSupport, supportProperties[property])
+                    Files.copy(source.toPath(), destination.toPath(), StandardCopyOption.REPLACE_EXISTING)
+                    '-D' + property + '=' + destination.absolutePath
+                }
+
+                def unresolved = (jvmArgs + programArgs + environment.values()).findAll {
+                    (it =~ /\{[A-Za-z_][A-Za-z0-9_]*\}/).find()
+                }
+                if (!unresolved.empty) throw new GradleException("Unresolved ForgeGradle launch tokens: ${unresolved}")
+                def launcher = client.javaLauncher.get()
+                if (launcher.metadata.languageVersion.asInt() != 17) {
+                    throw new GradleException('The standalone client requires the project Java 17 toolchain.')
+                }
+                def manifest = [
+                        schemaVersion: 1,
+                        preparedAt: Instant.now().toString(),
+                        javaExecutable: launcher.executablePath.asFile.absolutePath,
+                        workingDirectory: p.file(config.workingDirectory).canonicalPath,
+                        mainClass: client.mainClass.get(),
+                        jvmArgs: jvmArgs,
+                        programArgs: programArgs,
+                        environment: environment,
+                        classpath: classpath.collect { it.absolutePath },
+                        runtimeSnapshot: snapshot.absolutePath
+                ]
+                def output = p.file('build/standalone-client/launch.json')
+                output.parentFile.mkdirs()
+                def temporary = new File(output.parentFile, 'launch.json.tmp')
+                temporary.setText(JsonOutput.prettyPrint(JsonOutput.toJson(manifest)) + '\n', 'UTF-8')
+                Files.move(temporary.toPath(), output.toPath(), StandardCopyOption.REPLACE_EXISTING)
+                logger.lifecycle("Prepared direct Java client launch: ${output}")
+            }
+        }
+    }
+}

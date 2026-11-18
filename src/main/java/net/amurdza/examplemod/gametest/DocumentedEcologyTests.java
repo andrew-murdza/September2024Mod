@@ -75,20 +75,30 @@ public final class DocumentedEcologyTests {
 
     @GameTest(template = "plant_gameplay_empty")
     public static void cornUsesConfiguredGrowthInsteadOfItsPrivateRandomGate(GameTestHelper helper) {
-        var level = helper.getLevel();
-        var pos = helper.absolutePos(new BlockPos(1, 2, 1));
+        var level = helper.getLevel().getServer().getLevel(net.amurdza.examplemod.util.GameplayDimensions.TROPICAL);
+        var anchor = helper.absolutePos(new BlockPos(1, 2, 1));
+        var pos = new BlockPos(anchor.getX(), 220, anchor.getZ() + 512);
         var corn = net.minecraftforge.registries.ForgeRegistries.BLOCKS.getValue(new ResourceLocation("hearthandharvest:corn_stalk"));
-        level.setBlock(pos.below(), Blocks.MOSS_BLOCK.defaultBlockState(), 3);
-        level.setBlock(pos.east(), Blocks.GLOWSTONE.defaultBlockState(), 3);
-        level.setBlock(pos, corn.defaultBlockState(), 3);
-        helper.runAfterDelay(5, () -> {
+        var soil = vectorwing.farmersdelight.common.registry.ModBlocks.RICH_SOIL_FARMLAND.get().defaultBlockState()
+                .setValue(net.minecraft.world.level.block.state.properties.BlockStateProperties.MOISTURE, 7);
+        Map<BlockPos, BlockState> previous = new HashMap<>();
+        for (int y = -1; y < 3; y++) previous.put(pos.above(y), level.getBlockState(pos.above(y)));
+        level.setBlock(pos.below(), soil, 18);
+        for (int y = 0; y < 3; y++) level.setBlock(pos.above(y), Blocks.AIR.defaultBlockState(), 18);
+        helper.startSequence().thenWaitUntil(() -> helper.assertTrue(
+                alabaster.hearthandharvest.common.block.CornStalkBlock.hasSufficientLight(level, pos),
+                "Native corn requires propagated fixture lighting")).thenExecute(() -> {
             var map = net.amurdza.examplemod.config.BlockConfig.BLOCK_GROWTH_CHANCE_BY_DIMENSION
                     .computeIfAbsent(level.dimension(), ignored -> new HashMap<>());
             Float original = map.get(corn);
             try {
-                helper.assertTrue(level.getRawBrightness(pos, 0) >= 9, "Corn growth test needs sufficient light");
-                map.put(corn, 0F);
                 var state = corn.defaultBlockState();
+                // Reset hydration after waiting: dry soil halves the configured rate and makes this assertion probabilistic.
+                level.setBlock(pos.below(), soil, 18);
+                level.setBlock(pos, state, 18);
+                helper.assertTrue(state.canSurvive(level, pos) && level.getBlockState(pos.below()).isFertile(level, pos.below()),
+                        "The fixture must support cultivated corn with fully hydrated farmland");
+                map.put(corn, 0F);
                 state.randomTick(level, pos, fixedGateRandom(true));
                 helper.assertTrue(level.getBlockState(pos).getValue(alabaster.hearthandharvest.common.block.CornStalkBlock.AGE) == 0,
                         "A zero configured rate must block even a successful native corn growth roll");
@@ -98,9 +108,9 @@ public final class DocumentedEcologyTests {
                         "A configured rate of one must allow growth even when corn's private random roll fails");
             } finally {
                 if (original == null) map.remove(corn); else map.put(corn, original);
+                previous.forEach((position, saved) -> level.setBlock(position, saved, 18));
             }
-            helper.succeed();
-        });
+        }).thenSucceed();
     }
 
     private static net.minecraft.util.RandomSource fixedGateRandom(boolean pass) {
@@ -114,30 +124,23 @@ public final class DocumentedEcologyTests {
     }
 
     @GameTest(template = "plant_gameplay_empty")
-    public static void wildCornGeneratesCompleteHarvestableStalk(GameTestHelper helper) {
-        var pos = helper.absolutePos(new BlockPos(1, 2, 1));
-        helper.getLevel().setBlock(pos.below(), Blocks.MOSS_BLOCK.defaultBlockState(), 3);
+    public static void cultivatedCornRemainsSeedOnlyEvenOnSuitableTropicalFarmland(GameTestHelper helper) {
+        var level = helper.getLevel().getServer().getLevel(net.amurdza.examplemod.util.GameplayDimensions.TROPICAL);
+        var anchor = helper.absolutePos(new BlockPos(1, 2, 1));
+        var pos = new BlockPos(anchor.getX(), 220, anchor.getZ());
+        var farmland = vectorwing.farmersdelight.common.registry.ModBlocks.RICH_SOIL_FARMLAND.get();
+        level.setBlock(pos.below(), farmland.defaultBlockState(), 18);
         for (int i = 0; i < 3; i++) {
-            helper.getLevel().setBlock(pos.above(i), Blocks.AIR.defaultBlockState(), 3);
-            helper.getLevel().setBlock(pos.above(i).east(), Blocks.GLOWSTONE.defaultBlockState(), 3);
+            level.setBlock(pos.above(i), Blocks.AIR.defaultBlockState(), 18);
         }
-        helper.runAfterDelay(5, () -> {
-            boolean placed = net.amurdza.examplemod.worldgen.DocumentedFloraFeature.placePlant(helper.getLevel(), pos,
-                    "hearthandharvest:corn_stalk", helper.getLevel().random);
-            helper.assertTrue(placed, "Documented wild corn must grow on the tropical moss floor");
-            for (int i = 0; i < 3; i++) {
-                var state = helper.getLevel().getBlockState(pos.above(i));
-                helper.assertTrue(state.getBlock() instanceof alabaster.hearthandharvest.common.block.CornStalkBlock
-                                && state.getValue(alabaster.hearthandharvest.common.block.CornStalkBlock.AGE) == 5,
-                        "Generated corn section " + i + " must be mature; actual state: " + state);
-                helper.assertTrue(state.canSurvive(helper.getLevel(), pos.above(i)), "Corn section must retain its support");
-            }
-            helper.assertTrue(helper.getLevel().getBlockState(pos.above(2))
-                    .getValue(alabaster.hearthandharvest.common.block.CornStalkBlock.SECTION)
-                    == alabaster.hearthandharvest.common.block.CornStalkBlock.CornSection.TOP,
-                    "Generated corn must include its harvestable top");
-            helper.succeed();
-        });
+        helper.assertTrue(level.getBlockState(pos.below()).is(farmland),
+                "The fixture must use permitted tropical farmland");
+        helper.assertFalse(net.amurdza.examplemod.worldgen.DocumentedFloraFeature.placePlant(level, pos,
+                        "hearthandharvest:corn_stalk", level.random),
+                "Natural plant generation must decline cultivated corn even on suitable farmland");
+        for (int i = 0; i < 3; i++) helper.assertTrue(level.isEmptyBlock(pos.above(i)),
+                "Declining wild corn must leave every stalk section empty");
+        helper.succeed();
     }
 
     @GameTest(template = "plant_gameplay_empty")
@@ -150,11 +153,11 @@ public final class DocumentedEcologyTests {
         var bottom = species(DocumentedFauna.Habitat.BOTTOM_WATER, DocumentedFauna.Depth.ANY);
         for (int y = -1; y <= 1; y++) states.put(pos.offset(0, y, 0), Blocks.WATER.defaultBlockState());
         helper.assertTrue(DocumentedFauna.hasSpace(water, pos, small), "A small fish needs three vertically connected water blocks");
-        helper.assertFalse(DocumentedFauna.hasSpace(water, pos, large), "A large fish must not fit the small-fish water column");
+        helper.assertTrue(DocumentedFauna.hasSpace(water, pos, large), "Swimming animals use three water blocks, with real body fit checked at PositionCheck");
         states.put(pos.above(2), Blocks.WATER.defaultBlockState());
         states.put(pos.below(2), Blocks.WATER.defaultBlockState());
         helper.assertTrue(DocumentedFauna.hasSpace(water, pos, large), "A large fish should fit five water blocks");
-        helper.assertFalse(DocumentedFauna.hasSpace(water, pos, bottom), "Bottom fish require solid ground immediately below");
+        helper.assertFalse(DocumentedFauna.hasSpace(water, pos, bottom), "Bottom fish require solid ground beneath the connected water column");
         states.put(pos.below(), Blocks.STONE.defaultBlockState());
         helper.assertTrue(DocumentedFauna.hasSpace(water, pos, bottom), "Bottom fish need solid ground and two water blocks overhead");
         helper.assertFalse(DocumentedFauna.hasSpace(water, pos, small), "A swimming small fish cannot replace a bottom fish on solid ground");

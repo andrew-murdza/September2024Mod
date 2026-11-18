@@ -6,37 +6,11 @@
     "minecraft:mutton",
     "minecraft:chicken",
     "minecraft:rabbit",
-    {
-      "id": "naturalist:duck",
-      "required": false
-    },
-    {
-      "id": "naturalist:venison",
-      "required": false
-    },
-    {
-      "id": "dropthemeat:raw_bear",
-      "required": false
-    },
-    {
-      "id": "dropthemeat:raw_goat",
-      "required": false
-    },
-    {
-      "id": "dropthemeat:raw_llama",
-      "required": false
-    },
-    {
-      "id": "dropthemeat:raw_red_meat",
-      "required": false
-    },
-    {
-      "id": "dropthemeat:raw_turtle",
-      "required": false
-    },
-    {
-      "id": "dropthemeat:raw_squid",
-      "required": false
-    }
+    "wildernature:turkey_meat",
+    "wildernature:cassowary_meat",
+    "wildernature:bison_meat",
+    "wildernature:venison",
+    "biodiverse:raw_venison",
+    "alexsmobs:kangaroo_meat"
   ]
 }

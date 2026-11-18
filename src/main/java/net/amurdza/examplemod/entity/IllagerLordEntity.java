@@ -31,7 +31,6 @@ import net.minecraft.world.entity.monster.Vindicator;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.level.levelgen.Heightmap;
 import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.Vec3;
 import org.jetbrains.annotations.Nullable;
@@ -228,19 +227,14 @@ public class IllagerLordEntity extends Vindicator implements GeoEntity {
             EntityType<? extends AbstractIllager> type = this.random.nextBoolean()
                     ? EntityType.VINDICATOR
                     : EntityType.EVOKER;
-            AbstractIllager minion = type.spawn(level, this.findSummonPosition(level), MobSpawnType.MOB_SUMMONED);
+            BlockPos feet = net.amurdza.examplemod.util.BossSummonPosition.find(level, this, type, this.random);
+            if (feet == null) continue;
+            AbstractIllager minion = type.spawn(level, feet, MobSpawnType.MOB_SUMMONED);
             if (minion != null) {
                 minion.getPersistentData().putUUID(SUMMONER_TAG, owner);
                 minion.setTarget(target);
             }
         }
-    }
-
-    private BlockPos findSummonPosition(ServerLevel level) {
-        int x = this.blockPosition().getX() + this.random.nextInt(13) - 6;
-        int z = this.blockPosition().getZ() + this.random.nextInt(13) - 6;
-        int y = level.getHeight(Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, x, z);
-        return new BlockPos(x, y, z);
     }
 
     private int nextSummonCooldown() {

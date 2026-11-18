@@ -14,7 +14,8 @@ public abstract class NoLightningFireInTropical {
     private void aoemod$noLightningFireInTropical(int extraIgnitions, CallbackInfo ci) {
         LightningBolt self = (LightningBolt)(Object)this;
 
-        if (GameplayDimensions.is(self.level(), GameplayDimensions.TROPICAL)) {
+        if (GameplayDimensions.is(self.level(), GameplayDimensions.TROPICAL)
+                || GameplayDimensions.is(self.level(), GameplayDimensions.SAVANNA)) {
             ci.cancel();
         }
     }

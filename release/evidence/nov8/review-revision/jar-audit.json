@@ -1,0 +1,10 @@
+{
+  "jar": "C:\\Users\\andre\\Downloads\\Games\\September2024Mod\\build\\libs\\aoemod-1.0.0-1.20.1-all.jar",
+  "bytes": 4971126,
+  "sha256": "3f6785a976bf0e49dfdc716695b2908417e30357d12013a24bb6233dd8b0f318",
+  "removed_resource_files": [],
+  "missing_mixin_classes": [],
+  "stale_resources": [],
+  "embedded_mixinextras": true,
+  "status": "passed"
+}

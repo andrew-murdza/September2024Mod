@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smelting",
+  "ingredient": {
+    "item": "alexsmobs:lost_tentacle"
+  },
+  "result": "aoemod:cooked_lost_tentacle",
+  "experience": 0.35,
+  "cookingtime": 200
+}

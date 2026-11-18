@@ -23,6 +23,11 @@ public class SugarCaneFeature extends Feature<NoneFeatureConfiguration> {
 
     @Override
     public boolean place(FeaturePlaceContext<NoneFeatureConfiguration> context) {
+        // Keep this configured feature and its complete compact shore patch;
+        // the caller now supplies vanilla rarity and random chunk origins.
+        if (net.amurdza.examplemod.util.GameplayDimensions.isCustom(context.level())) {
+            return net.amurdza.examplemod.worldgen.ShoreSugarCane.placeConfiguredPatch(context.level(), context.origin()) > 0;
+        }
         LevelAccessor level = context.level();
         BlockPos origin = context.origin();
 

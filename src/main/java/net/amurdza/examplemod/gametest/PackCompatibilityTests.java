@@ -37,12 +37,11 @@ public final class PackCompatibilityTests {
     }
 
     @GameTest(template = "plant_gameplay_empty")
-    public static void compatibilityLootPreservesShearingAndServingDrops(GameTestHelper h) {
+    public static void compatibilityLootPreservesRetainedShearingDrops(GameTestHelper h) {
         for (String blockId : new String[]{
                 "hearthandharvest:wild_cotton", "hearthandharvest:wild_red_grapes",
                 "hearthandharvest:wild_green_grapes", "hearthandharvest:wild_peanuts",
-                "hearthandharvest:wild_hops", "culturaldelights:avocado_leaves",
-                "culturaldelights:fruiting_avocado_leaves", "culturaldelights:exotic_roll_medley"}) {
+                "hearthandharvest:wild_hops"}) {
             var key = id(blockId);
             h.assertTrue(BuiltInRegistries.BLOCK.containsKey(key), "Required pack block missing: " + blockId);
             var block = BuiltInRegistries.BLOCK.get(key);
@@ -50,7 +49,7 @@ public final class PackCompatibilityTests {
                     null, null, new ItemStack(Items.SHEARS));
             var item = BuiltInRegistries.ITEM.get(key);
             h.assertTrue(drops.stream().anyMatch(stack -> stack.is(item) && stack.getCount() == 1),
-                    "Shearing/full serving must preserve its block drop: " + blockId + " got " + drops);
+                    "Shearing must preserve its block drop: " + blockId + " got " + drops);
         }
         h.succeed();
     }
@@ -58,7 +57,7 @@ public final class PackCompatibilityTests {
     @GameTest(template = "plant_gameplay_empty")
     public static void compatibleAdvancementsAndReplacementStewsLoad(GameTestHelper h) {
         var server = h.getLevel().getServer();
-        for (String advancement : new String[]{"outer_end:end/find_catacombs", "nourished_nether:strange_elixir_advancement"}) {
+        for (String advancement : new String[]{"nourished_nether:strange_elixir_advancement"}) {
             h.assertTrue(server.getAdvancements().getAdvancement(id(advancement)) != null,
                     "Missing functional advancement " + advancement);
         }
@@ -71,8 +70,27 @@ public final class PackCompatibilityTests {
         h.assertTrue(server.getRecipeManager().getRecipes().stream().allMatch(recipe -> {
             String namespace = recipe.getId().getNamespace();
             return namespace.equals("minecraft") || namespace.equals("aoemod") || namespace.equals("quark")
-                    || namespace.equals("vanillabackport") || namespace.equals("tiny_takeover_backport");
-        }), "Existing recipe namespace policy must remain enforced");
+                    || namespace.equals("vanillabackport") || namespace.equals("tiny_takeover_backport") || namespace.equals("orcz")
+                    || net.amurdza.examplemod.util.RetainedContent.isSelectedItem(recipe.getResultItem(h.getLevel().registryAccess()));
+        }), "Native recipes may only be restored for explicitly retained outputs");
+        h.succeed();
+    }
+
+    @GameTest(template = "plant_gameplay_empty")
+    public static void retiredDependenciesLeaveNoDataPacksOrBiomeSpawns(GameTestHelper h) {
+        var retired = java.util.Set.of("born_in_chaos_v1", "untamedwilds", "naturalist",
+                "bountiful_critters", "dropthemeat", "dtmeat", "ferdinandsflowers", "culturaldelights", "iceandfire");
+        var server = h.getLevel().getServer();
+        h.assertTrue(java.util.Collections.disjoint(server.getResourceManager().getNamespaces(), retired),
+                "Retired dependencies must not leave a data namespace in the active pack");
+        for (var biome : server.registryAccess().registryOrThrow(Registries.BIOME)) {
+            for (var category : net.minecraft.world.entity.MobCategory.values()) {
+                for (var spawn : biome.getMobSettings().getMobs(category).unwrap()) {
+                    h.assertFalse(retired.contains(BuiltInRegistries.ENTITY_TYPE.getKey(spawn.type).getNamespace()),
+                            "A loaded biome still spawns a retired dependency entity");
+                }
+            }
+        }
         h.succeed();
     }
 

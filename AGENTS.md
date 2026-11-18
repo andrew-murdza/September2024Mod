@@ -20,6 +20,10 @@ Use UTF-8 and four-space indentation. Follow Java conventions: `PascalCase` clas
 
 ## Testing Guidelines
 
+Preserve installed mod settings, especially `run/config/quark-common.toml`. Never reset, replace, or bulk-copy defaults over `run/config`, existing world `serverconfig`, or user options while validating a change. Use an isolated directory under `build/` for GameTests, screenshot clients, and temporary servers. If a specific setting is required, change only that setting when the user requested it; ordinary builds must not touch configs.
+
+Run Minecraft clients and other heavy runtime checks sequentially. Do not launch multiple Minecraft instances at once; this noticeably slows the user's desktop. Cap QA clients to two active processors and a modest heap, and close each test instance before starting the next.
+
 There is currently no JUnit suite or coverage threshold. Validate every change with `.\gradlew.bat build`, then exercise affected behavior through `runClient` or `runServer`. Forge GameTests can be added under the `aoemod` namespace and run with `.\gradlew.bat runGameTestServer`. Put future unit tests in `src/test/java` and name them `<ClassName>Test.java`. For data changes, run `runData` and review generated diffs.
 
 ## Commit & Pull Request Guidelines

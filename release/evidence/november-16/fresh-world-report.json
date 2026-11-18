@@ -1,0 +1,121 @@
+{
+  "status": "passed",
+  "phase": "FINAL_QUIT",
+  "started": "2026-11-16T05:58:22.247Z",
+  "elapsedMillis": 126411,
+  "priorWorld": "FollowupQA",
+  "newWorldFolder": "November16FreshWorld",
+  "checks": [
+    {
+      "charniaIds": {
+        "lightBlueItem": 8325,
+        "cyanBlock": 6238,
+        "cyanItem": 8326,
+        "lightBlueBlock": 6237
+      },
+      "frozenIdsRestored": false,
+      "registeredBlockStateRoundTrips": 347798,
+      "step": "initial title"
+    },
+    {
+      "charniaIds": {
+        "lightBlueItem": 8325,
+        "cyanBlock": 6238,
+        "cyanItem": 8326,
+        "lightBlueBlock": 6237
+      },
+      "frozenIdsRestored": false,
+      "registeredBlockStateRoundTrips": 347798,
+      "step": "joined PRIOR_JOIN"
+    },
+    {
+      "dimension": "aoemod:plains_dimension",
+      "chunkX": -101,
+      "settledClientTicks": 100,
+      "clientChunksReceived": 25,
+      "step": "PRIOR_JOIN joined and serialized",
+      "packetBytes": 23885,
+      "chunkZ": 18
+    },
+    {
+      "charniaIds": {
+        "lightBlueItem": 8325,
+        "cyanBlock": 6238,
+        "cyanItem": 8326,
+        "lightBlueBlock": 6237
+      },
+      "frozenIdsRestored": true,
+      "registeredBlockStateRoundTrips": 347798,
+      "step": "after PRIOR_QUIT"
+    },
+    {
+      "seed": "5481635986579024772",
+      "worldFolder": "November16FreshWorld",
+      "screen": "net.minecraft.client.gui.screens.worldselection.CreateWorldScreen",
+      "step": "new world screen"
+    },
+    {
+      "charniaIds": {
+        "lightBlueItem": 8325,
+        "cyanBlock": 6238,
+        "cyanItem": 8326,
+        "lightBlueBlock": 6237
+      },
+      "frozenIdsRestored": false,
+      "registeredBlockStateRoundTrips": 347798,
+      "step": "joined NEW_JOIN"
+    },
+    {
+      "dimension": "aoemod:tropical_dimension",
+      "chunkX": -22,
+      "settledClientTicks": 100,
+      "clientChunksReceived": 25,
+      "step": "NEW_JOIN joined and serialized",
+      "packetBytes": 16058,
+      "chunkZ": -10
+    },
+    {
+      "charniaIds": {
+        "lightBlueItem": 8325,
+        "cyanBlock": 6238,
+        "cyanItem": 8326,
+        "lightBlueBlock": 6237
+      },
+      "frozenIdsRestored": true,
+      "registeredBlockStateRoundTrips": 347798,
+      "step": "after NEW_QUIT"
+    },
+    {
+      "charniaIds": {
+        "lightBlueItem": 8325,
+        "cyanBlock": 6238,
+        "cyanItem": 8326,
+        "lightBlueBlock": 6237
+      },
+      "frozenIdsRestored": false,
+      "registeredBlockStateRoundTrips": 347798,
+      "step": "joined REJOIN"
+    },
+    {
+      "dimension": "aoemod:tropical_dimension",
+      "chunkX": -22,
+      "settledClientTicks": 100,
+      "clientChunksReceived": 25,
+      "step": "REJOIN joined and serialized",
+      "packetBytes": 6988,
+      "chunkZ": -10
+    },
+    {
+      "charniaIds": {
+        "lightBlueItem": 8325,
+        "cyanBlock": 6238,
+        "cyanItem": 8326,
+        "lightBlueBlock": 6237
+      },
+      "frozenIdsRestored": true,
+      "registeredBlockStateRoundTrips": 347798,
+      "step": "after FINAL_QUIT"
+    }
+  ],
+  "screen": "net.minecraft.client.gui.screens.TitleScreen"
+}

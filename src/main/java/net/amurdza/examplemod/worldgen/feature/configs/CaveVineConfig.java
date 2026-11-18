@@ -10,7 +10,7 @@ public class CaveVineConfig implements FeatureConfiguration {
             p_191222_.group(IntProvider.CODEC.fieldOf("height_provider").forGetter(p->p.heightProvider),
                     Codec.FLOAT.fieldOf("chance").forGetter(p->p.chance),
                     Codec.FLOAT.fieldOf("weeping_vines_chance").forGetter(p->p.weepingVinesChance),
-                            Codec.FLOAT.fieldOf("spore_blossom_chance").forGetter(p->p.weepingVinesChance))
+                            Codec.FLOAT.fieldOf("spore_blossom_chance").forGetter(p->p.sporeBlossomChance))
                     .apply(p_191222_, CaveVineConfig::new));
     public final IntProvider heightProvider;
     public final float chance;

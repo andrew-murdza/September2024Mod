@@ -1,0 +1,61 @@
+// Focused November 8 regression suite. Separate config/save folders and immutable runtime.
+allprojects {
+    afterEvaluate { p ->
+        if (!p.plugins.hasPlugin('net.minecraftforge.gradle')) return
+        // Check after compilation, immediately before JavaExec starts Minecraft.
+        // A pre-Gradle check alone races with another project's runtime launch.
+        p.tasks.matching { it.name in ['runGameTestServer', 'runData'] }.configureEach {
+            doFirst {
+                p.exec {
+                    commandLine 'powershell.exe', '-NoProfile', '-ExecutionPolicy', 'Bypass',
+                            '-File', p.file('scripts/wait-for-minecraft-idle.ps1').absolutePath
+                }
+            }
+        }
+        p.tasks.matching { it.name in ['reobfJar', 'reobfJarJar'] }.configureEach { useArgsFile() }
+        def focused = p.gradle.startParameter.taskNames.any { it.tokenize(':').last() == 'runGameTestServer' }
+        if (focused) {
+            p.buildDir = p.file('build/nov8-terrain-qa')
+            def runtimeName = p.findProperty('revisionRun')?.toString() ?: 'run'
+            if (!(runtimeName ==~ /^[A-Za-z0-9-]+$/)) throw new GradleException('revisionRun must be a simple folder name')
+            p.tasks.named('compileJava').configure { destinationDirectory.set(p.file('build/nov8-terrain-qa/classes/java/main')) }
+            p.tasks.named('processResources').configure { destinationDir = p.file('build/nov8-terrain-qa/resources/main') }
+            p.sourceSets.main.output.classesDirs.setFrom(p.file('build/nov8-terrain-qa/classes/java/main'))
+            p.sourceSets.main.output.resourcesDir = p.file('build/nov8-terrain-qa/resources/main')
+            def selected = (p.findProperty('revisionTests') ?: 'SnowySmallCaveTests,SnowySpruceRevisionTests,TropicalTreeShapeTests,DesertBandRevisionTests,DeepDarkEcologyTests,DeepDarkVegetationTests,CavePassageRevisionTests,DesertSurfaceRevisionTests,OreExposureFollowupTests,BandCompletenessTests,ContentRemovalNovemberTests,FishFoodTextureRecipesTests,OrczCatalogTests,SavannaOrcCampMaterialsTests,InventoryRoundTwoTests,RetainedMobTests,RetainedContentTests,PackTrimFaunaFoodsTests,DeepDarkFaunaRevisionTests,DocumentedPlacementTests').split(',').collect { it + '.java' }
+            if (selected.contains('TreeBalanceRevisionTests.java')) selected.add('TropicalTreeShapeTests.java')
+            if (selected.any { it in ['MooshroomCaveSpawnTests.java', 'TropicalFaunaRevisionTests.java'] }) selected.add('AquaticPlantGenerationTests.java')
+            if (selected.contains('TropicalTreeAllocationTests.java')) selected.add('TropicalTreeShapeTests.java')
+            selected.add('SurfaceWaterCacheTests.java')
+            p.sourceSets.main.java.exclude { element ->
+                element.relativePath.pathString.startsWith('net/amurdza/examplemod/gametest/') && !selected.contains(element.file.name)
+            }
+            def runtimeSnapshot = p.file('build/nov8-terrain-runtime/' + runtimeName)
+            def snapshot = p.tasks.register('snapshotNov8GameTestRuntime', Sync) {
+                dependsOn p.tasks.named('classes')
+                from p.sourceSets.main.output
+                into runtimeSnapshot
+                doLast {
+                    if (!new File(runtimeSnapshot, 'net/amurdza/examplemod/mixins/accessor/BlockStateBaseAccessor.class').isFile())
+                        throw new GradleException('Incomplete immutable GameTest runtime')
+                }
+            }
+            p.tasks.matching { it.name in ['prepareRunGameTestServerCompile', 'runGameTestServer'] }.configureEach {
+                dependsOn snapshot
+            }
+            p.minecraft.runs.gameTestServer {
+                workingDirectory p.file('build/nov8-terrain-qa/' + runtimeName)
+                environment 'MOD_CLASSES', "${p.mod_id}%%${runtimeSnapshot.absolutePath}"
+                jvmArgs '-Xmx4G', '-XX:ActiveProcessorCount=2'
+                if (p.findProperty('followupVisual')?.toString() == 'true') jvmArgs '-Daoemod.followupVisual.enabled=true'
+            }
+        }
+        p.minecraft.runs.data {
+            jvmArgs '-Xmx4G', '-XX:ActiveProcessorCount=2'
+            workingDirectory p.file('build/mob-terrain-data-run')
+            args.clear()
+            args '--mod', p.mod_id, '--all', '--output', p.file('src/generated/resources').absolutePath,
+                    '--existing', p.file('src/main/resources').absolutePath
+        }
+    }
+}

@@ -1,5 +1,6 @@
 package net.amurdza.examplemod.mixins.mob_behavior;
 
+import net.amurdza.examplemod.util.GameplayDimensions;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.world.DifficultyInstance;
 import net.minecraft.world.entity.EquipmentSlot;
@@ -30,6 +31,11 @@ public abstract class FoxesDoNotCarryItems {
             @Nullable CompoundTag tag,
             CallbackInfoReturnable<SpawnGroupData> cir
     ) {
-        ((Fox) (Object) this).setItemSlot(EquipmentSlot.MAINHAND, ItemStack.EMPTY);
+        Fox fox = (Fox) (Object) this;
+        fox.setItemSlot(EquipmentSlot.MAINHAND, ItemStack.EMPTY);
+        if (GameplayDimensions.is(level, GameplayDimensions.SNOWY)
+                && GameplayDimensions.biomeIs(level, fox.blockPosition(), "snowy_forest")) {
+            fox.setVariant(Fox.Type.SNOW);
+        }
     }
 }

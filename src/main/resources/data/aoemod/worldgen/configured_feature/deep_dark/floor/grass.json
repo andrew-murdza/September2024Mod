@@ -12,12 +12,6 @@
         },
         {
           "data": {
-            "Name": "minecraft:sculk_catalyst"
-          },
-          "weight": 5
-        },
-        {
-          "data": {
             "Name": "minecraft:sculk_shrieker"
           },
           "weight": 1

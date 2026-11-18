@@ -1,6 +1,5 @@
 package net.amurdza.examplemod.worldgen.structure;
 
-import com.github.alexthe666.alexsmobs.entity.AMEntityRegistry;
 import net.amurdza.examplemod.AOEMod;
 import net.amurdza.examplemod.config.CaveStructureConfig;
 import net.amurdza.examplemod.registry.ModBlocks;
@@ -24,8 +23,6 @@ import net.minecraft.world.level.ChunkPos;
 import net.minecraft.world.level.WorldGenLevel;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
-import net.minecraft.world.level.block.NetherWartBlock;
-import net.minecraft.world.level.block.SweetBerryBushBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.chunk.ChunkGenerator;
 import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
@@ -163,8 +160,6 @@ public class NetherCavePiece extends AbstractSpiralCavePiece {
             {-2, -1},
             {1, -2}
     };
-    private static final double[] NETHER_WART_PATCH_INNER_FRACTIONS = new double[] {0.5D};
-    private static final double[] SOUL_BERRY_PATCH_INNER_FRACTIONS = new double[] {0.5D};
     private static final double[] EYEBLOSSOM_PATCH_INNER_FRACTIONS = new double[] {
             7.0D / REFERENCE_HORIZONTAL_RADIUS,
             20.0D / REFERENCE_HORIZONTAL_RADIUS,
@@ -174,8 +169,6 @@ public class NetherCavePiece extends AbstractSpiralCavePiece {
             24.0D / REFERENCE_HORIZONTAL_RADIUS,
             10.0D / REFERENCE_HORIZONTAL_RADIUS
     };
-    private static final double[] NETHER_WART_PATCH_PATH_FRACTIONS = new double[] {0.28D};
-    private static final double[] SOUL_BERRY_PATCH_PATH_FRACTIONS = new double[] {0.68D};
     private static final double[] EYEBLOSSOM_PATCH_PATH_FRACTIONS = new double[] {
             1.0D / 14.0D,
             3.0D / 14.0D,
@@ -479,30 +472,8 @@ public class NetherCavePiece extends AbstractSpiralCavePiece {
     }
 
     private void setSculk(WorldGenLevel level, BlockPos pos, Direction direction, Section surfaceSection) {
-        boolean verticalSurface = direction.getAxis() == Direction.Axis.Y;
-        if (surfaceSection != Section.DEEP_DARK) {
-            return;
-        }
-
-        for(int i=0; i<4; i++){
-            if(i>1 && verticalSurface){
-                return;
-            }
-            BlockPos pos1 = pos.relative(direction,i);
-            if(!verticalSurface && sectionFor(pos1) != Section.DEEP_DARK){
-                return;
-            }
-            BlockState state = level.getBlockState(pos1);
-            if(!state.is(Blocks.SCULK_CATALYST)&&!state.is(Blocks.SCULK_SHRIEKER)
-                    &&!state.is(Blocks.SCULK_SENSOR)
-                    &&!state.is(Blocks.CHORUS_FLOWER)
-                    &&!state.is(Blocks.CHORUS_PLANT)&&!state.is(Blocks.SCULK)){
-                Block replaceBlock = i < 2 ? Blocks.SCULK : Blocks.END_STONE;
-                setBlock(level, pos1, replaceBlock);
-            }
-            else {
-                break;
-            }
+        if (surfaceSection == Section.DEEP_DARK) {
+            net.amurdza.examplemod.worldgen.DeepDarkEcology.coatSurface(level, pos, direction);
         }
     }
 
@@ -1415,10 +1386,7 @@ public class NetherCavePiece extends AbstractSpiralCavePiece {
                 block = terracottaBlock;
             } else if (y >= redSandstoneStartY) {
                 block = Blocks.RED_SANDSTONE;
-            } else if (distanceFromWest < 2) {
-                block = Blocks.SCULK;
-            } else if (distanceFromWest < 4 && sideSlopeDistance > 2) {
-                block = Blocks.END_STONE;
+
             } else {
                 block = Blocks.STONE;
             }
@@ -2025,28 +1993,6 @@ public class NetherCavePiece extends AbstractSpiralCavePiece {
                 box,
                 allSamples,
                 soulSandValleySamples,
-                FOUR_BY_FOUR_PATCH_OFFSETS,
-                NETHER_WART_PATCH_INNER_FRACTIONS,
-                NETHER_WART_PATCH_PATH_FRACTIONS,
-                Blocks.NETHER_WART.defaultBlockState().setValue(NetherWartBlock.AGE, 3),
-                true
-        );
-        placeGuaranteedSoulSandValleyPatchType(
-                level,
-                box,
-                allSamples,
-                soulSandValleySamples,
-                FOUR_BY_FOUR_PATCH_OFFSETS,
-                SOUL_BERRY_PATCH_INNER_FRACTIONS,
-                SOUL_BERRY_PATCH_PATH_FRACTIONS,
-                ModBlocks.SOUL_BERRY_BUSH.get().defaultBlockState().setValue(SweetBerryBushBlock.AGE, 3),
-                true
-        );
-        placeGuaranteedSoulSandValleyPatchType(
-                level,
-                box,
-                allSamples,
-                soulSandValleySamples,
                 EYEBLOSSOM_PATCH_OFFSETS,
                 EYEBLOSSOM_PATCH_INNER_FRACTIONS,
                 EYEBLOSSOM_PATCH_PATH_FRACTIONS,
@@ -2270,24 +2216,6 @@ public class NetherCavePiece extends AbstractSpiralCavePiece {
             List<PatchSample> soulSandValleySamples
     ) {
         Set<Long> columns = new HashSet<>();
-        addGuaranteedPatchColumns(
-                columns,
-                allSamples,
-                soulSandValleySamples,
-                FOUR_BY_FOUR_PATCH_OFFSETS,
-                NETHER_WART_PATCH_INNER_FRACTIONS,
-                NETHER_WART_PATCH_PATH_FRACTIONS,
-                true
-        );
-        addGuaranteedPatchColumns(
-                columns,
-                allSamples,
-                soulSandValleySamples,
-                FOUR_BY_FOUR_PATCH_OFFSETS,
-                SOUL_BERRY_PATCH_INNER_FRACTIONS,
-                SOUL_BERRY_PATCH_PATH_FRACTIONS,
-                true
-        );
         addGuaranteedPatchColumns(
                 columns,
                 allSamples,
@@ -2868,11 +2796,6 @@ public class NetherCavePiece extends AbstractSpiralCavePiece {
                 level, random, box, EntityType.STRIDER, 4,
                 state -> state.is(Blocks.SOUL_SAND) || state.is(Blocks.SOUL_SOIL),
                 pos -> isNearNetherMobRadius(pos, this.maxSoulSandValleyY, this.maxWarpedForestY)
-        );
-        spawnGuaranteedMobsStrictlyOncePerStructure(
-                level, random, box, AMEntityRegistry.WARPED_TOAD.get(), 4,
-                state -> state.is(Blocks.WARPED_NYLIUM),
-                pos -> isNearNetherMobRadius(pos, this.maxWarpedForestY, this.maxCrimsonForestY)
         );
     }
 

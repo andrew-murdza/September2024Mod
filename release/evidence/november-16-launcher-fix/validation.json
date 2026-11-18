@@ -1,0 +1,15 @@
+{
+  "passed": true,
+  "windows_powershell_preparation": "passed",
+  "normal_cmd_entry_point_preparation": "passed",
+  "build": "passed",
+  "protected_files": 1241,
+  "changed_user_files": [],
+  "runtime_classpath_entries_verified": 179,
+  "gameplay_code_and_resources_unchanged": true,
+  "rebuilt_jar_differences": [
+    "META-INF/MANIFEST.MF"
+  ],
+  "release_jar_preserved": true,
+  "validation_scope": "Actual default preparation and build; Minecraft gameplay code was unchanged."
+}

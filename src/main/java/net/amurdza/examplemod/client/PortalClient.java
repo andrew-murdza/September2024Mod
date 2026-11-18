@@ -28,6 +28,7 @@ public final class PortalClient {
     @SubscribeEvent
     public static void packs(net.minecraftforge.event.AddPackFindersEvent event) {
         PortalTexturePack.register(event);
+        TropicalAzaleaTexturePack.register(event);
     }
 
     @SubscribeEvent

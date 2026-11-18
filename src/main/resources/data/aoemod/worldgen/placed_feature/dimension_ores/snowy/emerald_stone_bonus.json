@@ -1,0 +1,39 @@
+{
+  "feature": "aoemod:dimension_ores/snowy_emerald_stone_bonus",
+  "placement": [
+    {
+      "type": "minecraft:count",
+      "count": {
+        "type": "minecraft:weighted_list",
+        "distribution": [
+          {
+            "data": 20,
+            "weight": 97
+          },
+          {
+            "data": 21,
+            "weight": 15
+          }
+        ]
+      }
+    },
+    {
+      "type": "minecraft:in_square"
+    },
+    {
+      "type": "minecraft:height_range",
+      "height": {
+        "type": "minecraft:uniform",
+        "min_inclusive": {
+          "absolute": -32
+        },
+        "max_inclusive": {
+          "absolute": 31
+        }
+      }
+    },
+    {
+      "type": "minecraft:biome"
+    }
+  ]
+}

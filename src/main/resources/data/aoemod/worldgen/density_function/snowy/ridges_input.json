@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:flat_cache",
+  "argument": {
+    "type": "aoemod:mountain_ridges",
+    "ridge": "minecraft:ridge",
+    "shift": "minecraft:offset",
+    "stretch": 2.0,
+    "deep_water_width": 110.0
+  }
+}

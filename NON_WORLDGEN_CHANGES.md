@@ -2,6 +2,12 @@
 
 Source snapshot: 12 October 2026, repository commit `529d3ed` and the current source files. This is a review of what AOE Mod implements for Minecraft Forge 1.20.1, organized so individual mechanics can be kept, revised or removed.
 
+October 27 ecology revision: Plains grass now drops only wheat seeds, beetroot seeds and potato seeds; Savanna adds oat seeds. The choices share one seed lottery, rather than adding independent item drops. Wild carrots, cabbages, pumpkins and Savanna mushrooms remain visible world sources. Hearth & Harvest animal manure production is disabled at its shared helper, including feeding/grazing timers, periodic production, direct drops and the associated sound; registered manure items remain compatible with existing inventories. Born in Chaos's scheduled Bad Feeling warning and its activation procedure are disabled, preventing both sound and empty chat from old saved or externally applied effects while retaining normal mob spawning and unrelated messages/sounds.
+
+October 28 follow-up: dappled ground cover now yields oat seeds while snowy taiga retains beetroot seeds; both retain their existing rates and shears behavior. Dappled oats and pumpkins are allowed to be planted and grown. Aquatica and custom Swordfish content have been removed. Manual underwater sugarcane placement is unchanged.
+
+October 31 desert revision: cactus columns first grow to three blocks, then attempt prickly pears using the existing growth rate. Environmental cactus bobbles have no valid hosts. Wild peanuts drop one `legumedelight:peanuts`, displayed as Peanut Seeds: this nonfood item plants Vintage Delight peanuts but cannot be used as a recipe ingredient. The ordinary edible peanut still plants the same crop and retains its recipes. Wild dragon-fruit bushes drop one dragon-fruit seed instead of fruit, including when harvested with shears or Fortune.
+
 ## Scope and how to read this
 
 - **Included:** added blocks/items/mobs, farming and growth, placement restrictions, drops, animal husbandry, combat, runtime mob spawning, food, recipes, enchanting, presentation and changes to other mods.
@@ -58,7 +64,7 @@ These names refer to the mod's biome tags, not every vanilla biome with the same
 
 "Soul sediments" means soul sand, soul soil, soul sand gold ore, soul soil gold ore, soul sand quartz ore and soul soil quartz ore. Rules using this category accept all six blocks.
 
-"Basalt stones" means basalt, smooth basalt, blackstone, gilded blackstone, basalt gold ore, basalt quartz ore, blackstone gold ore and blackstone quartz ore. This is the substrate group used in the strider spawning rule.
+"Basalt stones" means basalt, smooth basalt, blackstone, gilded blackstone, basalt gold ore, basalt quartz ore, blackstone gold ore and blackstone quartz ore. Strider spawning uses soul sediments instead.
 
 Sources: [src/main/resources/data/aoemod/tags/worldgen/biome/](src/main/resources/data/aoemod/tags/worldgen/biome), [src/main/resources/data/aoemod/tags/blocks/soul_sediments.json](src/main/resources/data/aoemod/tags/blocks/soul_sediments.json), [util/ModTags.java](src/main/java/net/amurdza/examplemod/util/ModTags.java).
 
@@ -448,7 +454,7 @@ Sources: [src/main/resources/data/minecraft/tags/blocks/](src/main/resources/dat
 - **Rainforest prevents fire placement/spread and lightning-started fire.** Both ordinary and soul-fire placement events are blocked there, and ordinary fire ticks remove existing fire in that biome.
 - **Living entities in rainforest are protected from burning, fire contact, lava, magma/hot-floor damage and lightning damage.** Lightning-strike events are canceled, and fire is cleared during living ticks and hurt handling. Entity ignition setters also reject new fire outside direct lava contact; the living-entity protection still cancels lava damage and extinguishes them.
 - **Pale moss blocks, pale moss carpet, pale hanging moss and Nourished Nether soul weeds are nonflammable.** They are excluded from lava-ignitable properties; attempts to light fire on/against them are blocked, and ordinary fire touching these protected blocks is removed. Soul weeds also explicitly report no flammability/fire spread.
-- **Ordinary moss blocks, live coral blocks, rich soil and rich soil farmland emit strong light.** Cave vines with berries emit stronger light than vanilla. Leaves no longer block light; ordinary moss passes skylight. Pale moss is a separate plain block and does not automatically inherit ordinary moss's glow.
+- **Ordinary moss blocks, live coral blocks, rich soil and rich soil farmland do not emit light and retain normal solid-block sunlight obstruction.** Cave vines with berries retain their stronger light, and tropical torchflowers still glow. Leaves retain their transparent sunlight rule.
 - **Plants are centered instead of using the horizontal random offset.** This affects mangrove propagules, tall seagrass, dandelions, torchflowers, poppies, blue orchids, alliums, azure bluets, every tulip color, oxeye daisies, cornflowers, wither roses, lilies of the valley, sunflowers, lilacs, rose bushes, peonies, tall grass, large ferns, pitcher plants, bamboo and bamboo saplings, warped roots, crimson roots, nether sprouts, pointed dripstone and hanging roots. The generic horizontal-offset change also affects modded blocks requesting the same offset type. Ferns additionally lose their ordinary full random offset; short grass keeps its full random offset. Custom blocks copying affected properties inherit those changes.
 
 Sources: [mixins/block_behavior/entity_inside/](src/main/java/net/amurdza/examplemod/mixins/block_behavior/entity_inside), [mixins/block_behavior/CarvedPumpkinNoGolems.java](src/main/java/net/amurdza/examplemod/mixins/block_behavior/CarvedPumpkinNoGolems.java), [mixins/block_behavior/SoulSandSoilHoneyDontSlow.java](src/main/java/net/amurdza/examplemod/mixins/block_behavior/SoulSandSoilHoneyDontSlow.java), [mixins/block_behavior/NoIceOnWaterPart1.java](src/main/java/net/amurdza/examplemod/mixins/block_behavior/NoIceOnWaterPart1.java), [mixins/block_behavior/SnowDoesNotMelt.java](src/main/java/net/amurdza/examplemod/mixins/block_behavior/SnowDoesNotMelt.java), [mixins/block_behavior/LessBlockOffsetsPart1.java](src/main/java/net/amurdza/examplemod/mixins/block_behavior/LessBlockOffsetsPart1.java), [mixins/block_behavior/LessBlockOffsetsPart2.java](src/main/java/net/amurdza/examplemod/mixins/block_behavior/LessBlockOffsetsPart2.java), [mixins/block_behavior/light/](src/main/java/net/amurdza/examplemod/mixins/block_behavior/light), [mixins/lava_and_water/](src/main/java/net/amurdza/examplemod/mixins/lava_and_water), [mixins/no_fire_in_tropical/](src/main/java/net/amurdza/examplemod/mixins/no_fire_in_tropical), [event_handlers/NoTropicalFire.java](src/main/java/net/amurdza/examplemod/event_handlers/NoTropicalFire.java), [mixins/othermods/snowrealmagic/](src/main/java/net/amurdza/examplemod/mixins/othermods/snowrealmagic), [mixins/othermods/nourishednether/SoulWeedsNotFlammable.java](src/main/java/net/amurdza/examplemod/mixins/othermods/nourishednether/SoulWeedsNotFlammable.java), [AOEMod.java](src/main/java/net/amurdza/examplemod/AOEMod.java).
@@ -697,7 +703,7 @@ Sources: [MobCharacteristics](src/main/java/net/amurdza/examplemod/event_handler
 
 - The global target/direct-attack filter rejects targets and ordinary `Mob.doHurtTarget` attacks when **both participants are ordinary mobs**. Exceptions are players, villagers, piglins, piglin brutes, tamed `TamableAnimal` mobs, and tamed horses: having one of these on either side permits the target through this filter. This stops much ordinary mob-on-mob predation and fighting without making all mobs passive to players; it is not universal immunity to incidental projectile, explosion, or custom damage paths.
 - The same participant rule suppresses `AvoidEntityGoal` fleeing and clears forbidden attack, revenge, anger, and avoidance memories in brain-based mobs. Wardens have corresponding anger cleared for forbidden targets.
-- Animals, water animals, and Ice and Fire sirens have the exact standard hunting, retaliation, avoidance, panic, and leap goal classes removed, together with specified Alex's Mobs prey/flee/herd panic/item-target/turtle-egg goals and Quark's rave goal. Goal subclasses are not automatically removed by this exact-class removal.
+- Animals and water animals have the exact standard hunting, retaliation, avoidance, panic, and leap goal classes removed, together with specified Alex's Mobs prey/flee/herd panic/item-target/turtle-egg goals and Quark's rave goal. Goal subclasses are not automatically removed by this exact-class removal.
 - **Moose** additionally lose their jostling and ordinary melee-attack goals.
 - Forge's mob-griefing query returns false for mobs other than **villagers**. Actions that use this query, including many mob block changes and item collection behaviors, are suppressed; villagers retain the ordinary query behavior. This is broader than explosion protection alone.
 - **Zombified piglins** gain an ordinary nearest-player hostile target goal.
@@ -711,10 +717,9 @@ The server assigns custom maximum health, melee attack, speed, armor, and knockb
 
 - **Vanilla:** spider, cave spider, zombie, skeleton, pillager, ravager, zombie villager, witch, evoker, vex, vindicator, stray, drowned, husk, enderman, shulker, warden, ghast, zoglin, zombified piglin, wither skeleton, magma cube, blaze.
 - **Born in Chaos:** Senor Pumpkin, Sir Pumpkinhead, Lord Pumpkinhead.
-- **Ice and Fire:** Dread Thrall, Dread Lich, Dread Knight, troll.
 - **Alex's Mobs:** centipede head.
 - **Quark:** wraith.
-- **This mod:** Creaking, Bogged, Spider Queen, zombie/skeleton horseman mounts, Illager King, Breeze, Archlich, Parched, Camel Husk Jockey; tagged zombie/skeleton horseman riders also have separate stat definitions.
+- **This mod:** Creaking, Bogged, Spider Queen, zombie/skeleton horseman mounts, Illager King, Breeze, Parched, Camel Husk Jockey; tagged zombie/skeleton horseman riders also have separate stat definitions.
 
 Additional conditions:
 
@@ -732,7 +737,6 @@ Additional conditions:
 | Tagged zombie horseman rider | Iron spear and full leather armor |
 | Tagged skeleton horseman rider | Power-enchanted bow and full leather armor |
 | Drowned | Copper sword and full copper armor |
-| Dread Thrall | All equipment cleared |
 | Zombified piglin | Golden sword |
 | Wither skeleton | Iron sword |
 
@@ -752,13 +756,11 @@ Source: [MobTierBalancing](src/main/java/net/amurdza/examplemod/event_handlers/M
 - **Shulkers:** have a custom closed-shell armor bonus, cannot duplicate through shulker-bullet hits, and can despawn when far from players.
 - **Guardians:** the ordinary target selector no longer includes squid. Although it still lists axolotls, the broader ordinary-mob target filter can reject guardian-versus-axolotl targeting.
 - **Wither:** periodically summons a capped nearby contingent of wither skeletons while fighting and not in its invulnerable spawn phase. Its skulls do not directly hit `Monster` entities, their explosions exclude `Monster` entities, and skull explosions do not damage blocks. A non-monster mob killed by a direct skull hit from a Wither is replaced with a newly spawned wither skeleton.
-- **Ordinary Dread Liches:** summon Dread Thralls instead of choosing among their original minion types.
-- **Ice and Fire trolls:** always use the axe weapon type, do not turn to stone through the normal sky-visibility test, and clear their attack target while exposed to bright daytime sky.
 - **Sir Pumpkinhead:** its legacy form-change and summon procedures are canceled; it remains in its original form.
 - **Lord Pumpkinhead:** legacy arena-block, transformation, and damage-triggered summon procedures are canceled. It is equipped with an iron sword, is mounted on a persistent tamed skeleton horse, and periodically summons capped groups of Sir Pumpkinhead/Senor Pumpkin while it has a live target. If dismounted, its tick logic attempts to create another mount.
 - **Born in Chaos zombie maggots:** the zombie-maggot spawning procedure is canceled entirely.
 
-Sources: [MobTierBalancing](src/main/java/net/amurdza/examplemod/event_handlers/MobTierBalancing.java), [hostile behavior mixins](src/main/java/net/amurdza/examplemod/mixins/mob_behavior), [despawning mixins](src/main/java/net/amurdza/examplemod/mixins/despawning), [Born in Chaos mixins](src/main/java/net/amurdza/examplemod/mixins/othermods/born_in_chaos), [Ice and Fire mixins](src/main/java/net/amurdza/examplemod/mixins/othermods/iceandfire).
+Sources: [MobTierBalancing](src/main/java/net/amurdza/examplemod/event_handlers/MobTierBalancing.java), [hostile behavior mixins](src/main/java/net/amurdza/examplemod/mixins/mob_behavior), [despawning mixins](src/main/java/net/amurdza/examplemod/mixins/despawning), [Born in Chaos mixins](src/main/java/net/amurdza/examplemod/mixins/othermods/born_in_chaos).
 
 ## Added mobs
 
@@ -780,7 +782,6 @@ These entities and their spawn eggs are registered; their existence should not b
 | **Cubozoa** | Lava-schooling jellyfish-like mob with size variation and a variant/size-preserving bucket. Crimson forest and basalt deltas choose its alternate variant; other biomes use the default variant. |
 | **Sea Serpent** | Large multipart aquatic creature with custom swimming, segmented motion/hitboxes, reduced arrow damage, reduced damage passed through body parts, and resistance to knockback in water. It ignores block-sticking slowdown and has no attack/taming/breeding behavior implemented in this class; it wanders through water. |
 | **Spider Queen** | Large spider boss with a boss bar and no distance despawning. Successful melee hits add Weakness, Poison, and Slowness. During combat it periodically summons capped groups of spiders and cave spiders targeting its current enemy. |
-| **Archlich** | Dread-Lich-derived enemy with custom model/animations. Fires Dread Lich skulls and periodically summons a capped number of Dread Liches or Dread Knights. Summoned Dread Liches are initialized with their summon counter already filled to prevent another layer of summons. |
 | **Illager King** (`aoemod:illager_lord`) | Vindicator-derived boss with a boss bar, iron axe, full iron armor, and Boss Shield. Its shield blocks frontal damage except damage bypassing invulnerability; repeated blocked hits break it permanently. It summons capped groups of vindicators and evokers during combat and does not despawn with distance. Its entity class tries to drop an unbroken shield on death, but the general drop replacement subsequently removes it (see caveats). |
 
 Sources: [ModEntities](src/main/java/net/amurdza/examplemod/registry/ModEntities.java), [entity classes](src/main/java/net/amurdza/examplemod/entity), [future mob classes](src/main/java/net/amurdza/examplemod/entity/future), [SeaSerpentEntity](src/main/java/net/amurdza/examplemod/entity/sea_serpent/SeaSerpentEntity.java).
@@ -861,7 +862,6 @@ For compactness, **the six dry/underground/Nether groups** below means **desert,
 | Creaking | Oak/mangrove/cherry/dark-oak/jungle/azalea logs; oak/cherry/dark-oak/jungle/azalea saplings and mangrove propagules | Tropical |
 | Zombie Horseman mount | Rotten flesh → leather on fire; bone, emerald | Savanna |
 | Skeleton Horseman mount | Bow, arrow, bone, emerald | Savanna |
-| Archlich | Bone, diamond, lapis lazuli, emerald | Mountains |
 | Illager King | Iron ingot, emerald | Plains |
 | Creeper | Gunpowder | All six groups |
 | Slime | Slimeball | Tropical |
@@ -884,9 +884,6 @@ For compactness, **the six dry/underground/Nether groups** below means **desert,
 | Senor Pumpkin | Pumpkin slice, bone | Savanna |
 | Sir Pumpkinhead, Lord Pumpkinhead | Pumpkin, bone, emerald | Savanna |
 | Wraith | Ghast tear | All six groups |
-| Troll | Iron ingot, spruce log, bone, emerald | Mountains |
-| Dread Knight | Iron ingot, bone, emerald | Mountains |
-| Dread Lich | Diamond, bone, emerald | Mountains |
 
 Mobs registered in `MobConfig` with **no item entries** do not have their death drops replaced by this handler; a registration alone is not a removal of all loot. This includes examples such as fox, horse, villager, piglin, allay, bat, silverfish, endermite, piglin brute, Ender Dragon, and vex.
 
@@ -898,11 +895,10 @@ These are checks performed when mobs try to spawn, rather than terrain/structure
 
 - **Hoglins, striders, mooshrooms, and warped toads** are assigned the creature spawning category.
 - **Mooshrooms** bypass the normal brightness requirement in their mushroom spawn predicate.
-- **Striders:** an early mixin registers soul-sediment ground spawning, but the later Forge spawn-placement replacement uses **nylium or basalt-stone-tag blocks**. That later replacement is the effective registered ground predicate.
+- **Striders:** both the early mixin and the effective Forge spawn-placement replacement require **soul-sediment blocks**. Their natural biome roster is soul sand valley.
 - **Sniffers:** receive ordinary ground animal spawning rules.
 - **Camels:** require sand, grass block, or moss beneath them and sufficient brightness.
 - **Turtles:** require bright sand, with an additional repeating restriction to selected X-direction chunk columns.
-- **Dread Knights, Dread Thralls, and gorgons:** receive ground placement with monster spawning rules.
 - **Drowned, slimes, husks, strays, pillagers, zoglins, and piglin brutes:** use a ground-placement monster predicate requiring non-Peaceful difficulty, darkness, and the common mob ground predicate. In particular, the Drowned registration replaces its normal water-spawn placement.
 - **Axolotls:** use in-water placement with the mod's local water-column helper instead of a fixed world sea level. The helper is intended to select a shallow band, but only counts a particular falling-water state (see caveat).
 - **Glow squid:** use in-water placement and require water above and beneath them; the replacement removes the original depth/darkness predicate.
@@ -1034,7 +1030,7 @@ These files are present, but do not establish the working changes their names su
 - **Cooked Fish tag misspells Cooked End Fish**, invalidating cooked-fish and dependent food-wrappable behavior as described above.
 - **Sniffer digging resource is inactive/broken:** `aoemod:gameplay/sniffer_digging` is not an override of vanilla's `minecraft:gameplay/sniffer_digging`, has no code reference here, and has an invalid nested entries array. Its apparent rice/onion/potato/carrot selection is not a working sniffer change.
 - **Cherry vine is an unused leftover, not an added block.** Its [self-drop table](src/main/resources/data/aoemod/loot_tables/blocks/cherry_vine.json) refers to `aoemod:cherry_vine`, but no such block/item is registered.
-- **Leftover custom entity loot files:** Giant Spider Crab, Isopod, Shrimp, and Squat Lobster tables reference unregistered `aoemod:crab_legs`, `aoemod:isopod`, `aoemod:shrimp`, and `aoemod:squat_lobster` items; Giraffe references `wildernature:venison`, whose mod is absent from the current dependency list. Do not mistake these files for the working event-driven mob drop configuration. Archlich's table has no pools; Zebra's file is an empty object.
+- **Leftover custom entity loot files:** Giant Spider Crab, Isopod, Shrimp, and Squat Lobster tables reference unregistered `aoemod:crab_legs`, `aoemod:isopod`, `aoemod:shrimp`, and `aoemod:squat_lobster` items; Giraffe references `wildernature:venison`, whose mod is absent from the current dependency list. Do not mistake these files for the working event-driven mob drop configuration. Zebra's file is an empty object.
 - **Snow-survival tag is invalid:** `minecraft:snow_layer_cannot_survive_on` references required `#minecraft:barrier`, but no such tag definition is present, so its intended ice/packed-ice/blue-ice list is not reliably loaded. Existing historical logs corroborate this and the recipe/tag/loot failures above, but those logs are not a fresh test of this audit.
 - **Several biome-placement block tags are invalid**, affecting their apparent placement restrictions: `not_rainforest` has nonexistent block IDs `minecraft:redstone_repeater` and `minecraft:redstone`; `rainforest_only` has `minecraft:frog_spawn`; `rainforest_savanna_plains_only` has `minecraft:hay_bale`; `soul_sand_valley_only` has `aoemod:eye_blossom`. Correct registered forms differ. The **Planting and building restrictions** section separates these intended rules from the valid tags.
 

@@ -12,6 +12,7 @@ import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.LevelReader;
 
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
@@ -47,9 +48,11 @@ public final class BlockConfig {
             return -1.0F;
         }
 
-        return BLOCK_GROWTH_CHANCE_BY_DIMENSION
+        float chance = BLOCK_GROWTH_CHANCE_BY_DIMENSION
                 .getOrDefault(level.dimension(), Map.of())
                 .getOrDefault(block, -1.0F);
+        return chance >= 0 && block instanceof alabaster.hearthandharvest.common.block.CornStalkBlock
+                ? chance * net.amurdza.examplemod.util.CornCultivation.moistureMultiplier(level, pos) : chance;
     }
 
     public static boolean hasGrowthConfig(Block block) {
@@ -62,6 +65,10 @@ public final class BlockConfig {
     }
 
     public static List<BlockLootEntry> blockDropEntries(Level level, BlockPos pos, BlockState state) {
+        return blockDropEntries((LevelReader) level, pos, state);
+    }
+
+    public static List<BlockLootEntry> blockDropEntries(LevelReader level, BlockPos pos, BlockState state) {
         BlockInfo info = BLOCK_INFO_BY_BLOCK.get(state.getBlock());
 
         if (info == null || info.drops().isEmpty()) {
@@ -69,7 +76,11 @@ public final class BlockConfig {
         }
 
         return info.drops().stream()
-                .filter(entry -> level.dimension().equals(entry.dimension()))
+                .filter(entry -> GameplayDimensions.is(level, entry.dimension()))
+                .map(entry -> entry.groupedSeedRoll() && entry.dimension().equals(GameplayDimensions.SNOWY)
+                        && GameplayDimensions.biomeIs(level, pos, "dappled_forest")
+                        ? new BlockLootEntry(entry.dimension(), Items.WHEAT_SEEDS, entry.dropAmount(),
+                                entry.affectedByFortune(), true) : entry)
                 .toList();
     }
 
@@ -395,10 +406,6 @@ public final class BlockConfig {
                 drop(GameplayDimensions.NETHER, Items.NETHER_WART, matureAge3Amount(3))
         );
 
-        addLoot(vectorwing.farmersdelight.common.registry.ModBlocks.ONION_CROP.get(),
-                drop(GameplayDimensions.TROPICAL, vectorwing.farmersdelight.common.registry.ModItems.ONION.get(), matureAge7Amount(8.5f))
-        );
-
         addLoot(vectorwing.farmersdelight.common.registry.ModBlocks.RICE_CROP.get(),
                 drop(GameplayDimensions.TROPICAL, vectorwing.farmersdelight.common.registry.ModItems.RICE.get(), matureAge3Amount(7))
         );
@@ -414,8 +421,6 @@ public final class BlockConfig {
         );
 
         addLoot(samebutdifferent.ecologics.registry.ModBlocks.PRICKLY_PEAR.get(),
-                drop(GameplayDimensions.TROPICAL, samebutdifferent.ecologics.registry.ModItems.PRICKLY_PEAR.get(),
-                        matureAge3Amount(3,0)),
                 drop(GameplayDimensions.DESERT, samebutdifferent.ecologics.registry.ModItems.PRICKLY_PEAR.get(),
                         matureAge3Amount(1,0))
         );
@@ -444,9 +449,9 @@ public final class BlockConfig {
 
     private static void registerVanillaPlants() {
         addSeeds(Blocks.GRASS,List.of(GameplayDimensions.TROPICAL,GameplayDimensions.SAVANNA,GameplayDimensions.PLAINS,GameplayDimensions.SNOWY));
-        addSeeds(Blocks.TALL_GRASS,List.of(GameplayDimensions.TROPICAL,GameplayDimensions.SAVANNA,GameplayDimensions.PLAINS));
-        addSeeds(Blocks.FERN,List.of(GameplayDimensions.TROPICAL,GameplayDimensions.SNOWY));
-        addSeeds(Blocks.LARGE_FERN,List.of(GameplayDimensions.TROPICAL,GameplayDimensions.SNOWY));
+        addSeeds(Blocks.TALL_GRASS,List.of(GameplayDimensions.TROPICAL,GameplayDimensions.SAVANNA,GameplayDimensions.PLAINS,GameplayDimensions.SNOWY));
+        addSeeds(Blocks.FERN,List.of(GameplayDimensions.TROPICAL,GameplayDimensions.SAVANNA,GameplayDimensions.PLAINS,GameplayDimensions.SNOWY));
+        addSeeds(Blocks.LARGE_FERN,List.of(GameplayDimensions.TROPICAL,GameplayDimensions.SAVANNA,GameplayDimensions.PLAINS,GameplayDimensions.SNOWY));
         addSeeds(ModBlocks.DESERT_GRASS.get(), GameplayDimensions.DESERT);
         addSeeds(ModBlocks.DESERT_TALL_GRASS.get(), GameplayDimensions.DESERT);
 
@@ -483,32 +488,32 @@ public final class BlockConfig {
                     seedDrop(dimension, Items.MELON_SEEDS, val),
                     seedDrop(dimension, ModItems.RICE_SEEDS.get(), val),
                     seedDrop(dimension, vectorwing.farmersdelight.common.registry.ModItems.CABBAGE_SEEDS.get(), val),
-                    seedDrop(dimension, vectorwing.farmersdelight.common.registry.ModItems.TOMATO_SEEDS.get(), val),
-                    seedDrop(dimension, ModItems.ONION_SEEDS.get(), val)
+                    seedDrop(dimension, vectorwing.farmersdelight.common.registry.ModItems.TOMATO_SEEDS.get(), val)
             );
+            if (block == Blocks.GRASS || block == Blocks.TALL_GRASS || block == Blocks.FERN || block == Blocks.LARGE_FERN) {
+                addLoot(block, seedDrop(dimension,
+                        ForgeRegistries.ITEMS.getValue(new ResourceLocation("hearthandharvest:corn_kernels")), val));
+            }
         }
-        else if (dimension.equals(GameplayDimensions.SAVANNA)){
+        else if (dimension.equals(GameplayDimensions.SAVANNA) || dimension.equals(GameplayDimensions.PLAINS)) {
+            // Preserve one 1/8 seed lottery; Savanna has four crops, Plains three.
+            boolean savanna = dimension.equals(GameplayDimensions.SAVANNA);
+            float chance = 0.125f * mult / (savanna ? 4 : 3);
             addLoot(block,
-                    seedDrop(dimension, Items.WHEAT_SEEDS, 0.25f * mult),
-                    seedDrop(dimension, Items.PUMPKIN_SEEDS, 0.015f * mult),
-                    seedDrop(dimension, Items.POTATO, 0.03f * mult),
-                    seedDrop(dimension, Items.CARROT, 0.03f * mult)
-            );
-        }
-        else if (dimension.equals(GameplayDimensions.PLAINS)){
-            addLoot(block,
-                    seedDrop(dimension, Items.WHEAT_SEEDS, 0.0625f * mult),
-                    seedDrop(dimension, Items.PUMPKIN_SEEDS, 0.0125f * mult),
-                    seedDrop(dimension, ModItems.CARROT_SEEDS.get(), 0.025f * mult),
-                    seedDrop(dimension, ModItems.POTATO_SEEDS.get(), 0.025f * mult)
-            );
+                    seedDrop(dimension, Items.WHEAT_SEEDS, chance),
+                    seedDrop(dimension, Items.BEETROOT_SEEDS, chance),
+                    seedDrop(dimension, ModItems.POTATO_SEEDS.get(), chance));
+            if (savanna) addLoot(block, seedDrop(dimension,
+                    ForgeRegistries.ITEMS.getValue(new ResourceLocation("hearthandharvest:corn_kernels")), chance));
         }
         else if (dimension.equals(GameplayDimensions.SNOWY)){
             addLoot(block,
                     seedDrop(dimension, Items.BEETROOT_SEEDS, 0.05f * mult));
         }
         else if (dimension.equals(GameplayDimensions.DESERT)){
-            addLoot(block, seedDrop(dimension, Items.WHEAT_SEEDS, 0.08f * mult));
+            addLoot(block,
+                    seedDrop(dimension, ForgeRegistries.ITEMS.getValue(new ResourceLocation("legumedelight:peanuts")), 0.04f * mult),
+                    seedDrop(dimension, net.amurdza.examplemod.registry.RetainedDragonFruit.SEEDS.get(), 0.04f * mult));
         }
     }
 

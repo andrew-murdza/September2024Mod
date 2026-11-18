@@ -1,0 +1,90 @@
+{
+  "minecraft_version": "1.20.1",
+  "audit_source": "scripts/SnowyWidthAudit.java",
+  "historical_035_report": "scripts/snowy-width-calibration.json",
+  "method": "Run-length transects using production MountainRidges with vanilla Xoroshiro ridge/offset seeds. Incomplete boundary runs excluded from widths; all points included in sample fractions. Both horizontal axes sampled. Current classifications use Climate.quantizeCoord after the actual float conversion.",
+  "seeds": [
+    0,
+    12345,
+    98765,
+    -8152788754161584091
+  ],
+  "transect_fixed_coordinates": [
+    -8192,
+    -1536,
+    1536,
+    8192
+  ],
+  "transects": 32,
+  "length_per_transect_blocks": 32768,
+  "sample_step_blocks": 4,
+  "sample_points_per_profile": 262176,
+  "profile": {
+    "full_domain_stretch": 2.0,
+    "mountain_lake": "abs(quantized weirdness) < 1000",
+    "dappled_forest": "1000 <= abs(quantized weirdness) <= 4000",
+    "snowy_taiga": "abs(quantized weirdness) > 4000"
+  },
+  "vanilla_same_040_classification": {
+    "mountain_lake": {
+      "mean_width": 74.17819234480541,
+      "median_width": 52,
+      "runs": 3109,
+      "sample_fraction": 0.2214390333211278
+    },
+    "dappled_forest": {
+      "mean_width": 110.89309210526316,
+      "median_width": 80,
+      "runs": 4864,
+      "sample_fraction": 0.5182015134871232
+    },
+    "snowy_taiga": {
+      "mean_width": 154.690992018244,
+      "median_width": 132,
+      "runs": 1754,
+      "sample_fraction": 0.2603594531917491
+    }
+  },
+  "current_040_classification": {
+    "mountain_lake": {
+      "mean_width": 139.28509585652444,
+      "median_width": 104,
+      "runs": 1617,
+      "sample_fraction": 0.2155155315513243
+    },
+    "dappled_forest": {
+      "mean_width": 211.53525009846396,
+      "median_width": 160,
+      "runs": 2539,
+      "sample_fraction": 0.5190444586842426
+    },
+    "snowy_taiga": {
+      "mean_width": 295.9266450916936,
+      "median_width": 256,
+      "runs": 927,
+      "sample_fraction": 0.26544000976443305
+    }
+  },
+  "previous_035_continuous_classification_same_samples": {
+    "mountain_lake": {
+      "mean_width": 139.28509585652444,
+      "median_width": 104,
+      "runs": 1617,
+      "sample_fraction": 0.2155155315513243
+    },
+    "dappled_forest": {
+      "mean_width": 175.4253647586981,
+      "median_width": 136,
+      "runs": 2673,
+      "sample_fraction": 0.45171564140119613
+    },
+    "snowy_taiga": {
+      "mean_width": 326.1216730038023,
+      "median_width": 280,
+      "runs": 1052,
+      "sample_fraction": 0.33276882704747957
+    }
+  },
+  "interpretation": "The full ridge and domain-shift noise coordinates remain divided by two. Weirdness values and terrain vertical amplitude are unchanged. Raising the taiga threshold from 0.35 to strictly above 0.4 transfers part of the former taiga band to dappled forest; the reduced taiga share is intentional. Vanilla comparisons apply these same habitat cuts to the unstretched vanilla ridge field, not vanilla's complete multi-noise biome selection.",
+  "limitations": "Finite transects estimate widths and coverage; they do not guarantee individual contour widths or global two-dimensional biome area. Minecraft climate quantization makes the effective strict upper threshold approximately 0.4001. Four-block sampling cannot resolve thinner runs, and client biome blending can shift visible color boundaries."
+}

@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smoking",
+  "ingredient": {
+    "item": "biodiverse:raw_venison"
+  },
+  "result": "biodiverse:cooked_venison",
+  "experience": 0.35,
+  "cookingtime": 100
+}

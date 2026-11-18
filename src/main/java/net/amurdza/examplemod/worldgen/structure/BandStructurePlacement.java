@@ -3,17 +3,21 @@ package net.amurdza.examplemod.worldgen.structure;
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import net.amurdza.examplemod.registry.ModStructurePlacementTypes;
+import net.minecraft.core.BlockPos;
 import net.minecraft.core.Vec3i;
 import net.minecraft.util.ExtraCodecs;
 import net.minecraft.util.Mth;
+import net.minecraft.world.level.ChunkPos;
 import net.minecraft.world.level.chunk.ChunkGeneratorStructureState;
 import net.minecraft.world.level.levelgen.structure.placement.StructurePlacement;
 import net.minecraft.world.level.levelgen.structure.placement.StructurePlacementType;
 import org.jetbrains.annotations.NotNull;
 
+import java.util.LinkedHashSet;
+import java.util.List;
 import java.util.Optional;
 
-public class BandStructurePlacement extends StructurePlacement {
+public class BandStructurePlacement extends StructurePlacement implements LocatableStructurePlacement {
     public static final double Z_START_BLOCKS = 0.0D;
     public static final double MAX_CONTINENTS = 0.5D;
 
@@ -75,6 +79,28 @@ public class BandStructurePlacement extends StructurePlacement {
     }
 
     private static final int CHUNK_SIZE = 16;
+
+    @Override
+    public List<ChunkPos> locateCandidates(ChunkGeneratorStructureState state, BlockPos origin, int radius) {
+        var candidates = new LinkedHashSet<ChunkPos>();
+        double period = getPeriodBlocks();
+        double spacing = this.xSpacing * (double) CHUNK_SIZE;
+        int centerColumn = (int) Math.round((origin.getX() - (double) this.xStart) / spacing);
+        int centerCycle = Mth.floor((origin.getZ() - Z_START_BLOCKS) / period);
+        for (int cycle = centerCycle - radius; cycle <= centerCycle + radius; cycle++) {
+            double baseZ = Z_START_BLOCKS + cycle * period;
+            for (double phase : new double[]{continentsToPhaseA(this.targetContinents), continentsToPhaseB(this.targetContinents)}) {
+                double z = cleanNearZero(baseZ + phase * period);
+                if (z < Z_START_BLOCKS) continue;
+                for (int column = centerColumn - radius; column <= centerColumn + radius; column++) {
+                    double x = cleanNearZero(this.xStart + column * spacing);
+                    var chunk = new ChunkPos(Mth.floor(x / CHUNK_SIZE), Mth.floor(z / CHUNK_SIZE));
+                    if (isStructureChunk(state, chunk.x, chunk.z)) candidates.add(chunk);
+                }
+            }
+        }
+        return List.copyOf(candidates);
+    }
 
     private double getNearestTargetZFromContinents(double z) {
         double phaseA = continentsToPhaseA(this.targetContinents);

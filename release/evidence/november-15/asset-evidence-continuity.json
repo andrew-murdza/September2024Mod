@@ -1,0 +1,32 @@
+{
+  "passed": true,
+  "successful_asset_audit": "C:\\Users\\andre\\Downloads\\Games\\September2024Mod\\build\\nov15-iteration\\visuals\\client-smoke\\asset-report.json",
+  "clients": [
+    {
+      "client": "client-b",
+      "verified_files": 3094,
+      "differences": []
+    },
+    {
+      "client": "client-c2",
+      "verified_files": 3094,
+      "differences": []
+    },
+    {
+      "client": "client-c2-coast",
+      "verified_files": 3094,
+      "differences": []
+    },
+    {
+      "client": "client-d",
+      "verified_files": 3094,
+      "differences": []
+    },
+    {
+      "client": "client-smoke",
+      "verified_files": 3094,
+      "differences": []
+    }
+  ],
+  "duplicate_failure": "client-b manual Goblin rendering ran before EntityRenderDispatcher.camera initialized. Its optional duplicate asset report is retained; the complete smoke-client audit passed on identical runtime files. Native structure captures continued independently."
+}

@@ -7,47 +7,7 @@
     "minecraft:cooked_chicken",
     "minecraft:cooked_rabbit",
     {
-      "id": "naturalist:cooked_duck",
-      "required": false
-    },
-    {
-      "id": "naturalist:cooked_venison",
-      "required": false
-    },
-    {
-      "id": "dropthemeat:cooked_bear",
-      "required": false
-    },
-    {
-      "id": "dropthemeat:cooked_goat",
-      "required": false
-    },
-    {
-      "id": "dropthemeat:cooked_llama",
-      "required": false
-    },
-    {
-      "id": "dropthemeat:cooked_squid",
-      "required": false
-    },
-    {
-      "id": "dropthemeat:cooked_red_meat",
-      "required": false
-    },
-    {
-      "id": "dropthemeat:cooked_turtle",
-      "required": false
-    },
-    {
-      "id": "dropthemeat:cooked_wolf",
-      "required": false
-    },
-    {
-      "id": "aoemod:cooked_glow_squid",
-      "required": false
-    },
-    {
-      "id": "aoemod:cooked_squid",
+      "id": "culturaldelights:cooked_squid",
       "required": false
     },
     {

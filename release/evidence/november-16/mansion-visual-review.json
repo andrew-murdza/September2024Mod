@@ -1,0 +1,35 @@
+{
+  "passed": true,
+  "captures": [
+    {
+      "label": "mansion-authored-birch-stair-approach",
+      "image": "C:/Users/andre/Downloads/Games/September2024Mod/build/nov16-iteration/visuals/client-views-a/screenshots/mansion-authored-birch-stair-approach.png",
+      "passed": true,
+      "notes": "Clear view of the new straight, three-wide birch flight with eight treads, birch side supports and wall torches. It matches the normalized latest-save capture; the old split cobblestone flight is gone. Minor scene artifact: several dropped wooden items appear at the lower right; no visible stair or support defect."
+    },
+    {
+      "label": "mansion-authored-birch-stair-landing",
+      "image": "C:/Users/andre/Downloads/Games/September2024Mod/build/nov16-iteration/visuals/client-views-a/screenshots/mansion-authored-birch-stair-landing.png",
+      "passed": true,
+      "notes": "The upper birch landing joins the red-and-white carpeted hall without an added step. The open stairwell, supported perimeter columns and a descending wall torch are visible. The paired approach image supplies the full-flight view; this image establishes the upper connection."
+    },
+    {
+      "label": "mansion-brick-mine-face",
+      "image": "C:/Users/andre/Downloads/Games/September2024Mod/build/nov16-iteration/visuals/client-views-a/screenshots/mansion-brick-mine-face.png",
+      "passed": true,
+      "notes": "Both shaft mouths remain open. The former rough upper band and marked central vertical face are stone bricks, with no red wool marker. Pumpkin rows and irrigation remain intact and basement lantern positions are unchanged. Crops obscure much of the threshold floor, whose complete brick row is verified by the native block assertions."
+    },
+    {
+      "label": "mansion-stone-before-far-backing",
+      "image": "C:/Users/andre/Downloads/Games/September2024Mod/build/nov16-iteration/visuals/client-views-a/screenshots/mansion-stone-before-far-backing.png",
+      "passed": true,
+      "notes": "The raw-stone corridor and its side torch remain intact; the visible end is plain stone, as requested. The protected brick backing is intentionally hidden behind that stone cap, so its one-block-farther position is established by the native placement/protection assertions rather than this image."
+    },
+    {
+      "label": "mansion-raised-wooden-chandeliers",
+      "image": "C:/Users/andre/Downloads/Games/September2024Mod/build/nov16-iteration/visuals/client-views-a/screenshots/mansion-raised-wooden-chandeliers.png",
+      "passed": true,
+      "notes": "All four wooden room chandeliers are visible above intact tables, white coverings and flower pots. They sit higher with shorter stems and clear space below; the nearest upper stem extends beyond the frame, while the other complete fixtures show the ceiling attachment. Exact one-block elevation is verified by the focused orientation test."
+    }
+  ]
+}

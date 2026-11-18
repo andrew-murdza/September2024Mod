@@ -1,0 +1,192 @@
+[
+  {
+    "entity": "angling:mahi_mahi",
+    "raw": "hybrid_aquatic:mahi",
+    "cooked": "aoemod:cooked_mahi_mahi",
+    "availability": "current food pair",
+    "raw_file": "seafood/raw/hybrid_aquatic__mahi.png",
+    "raw_source": "project:src/main/resources/assets/hybrid_aquatic/textures/item/mahi.png",
+    "cooked_file": "seafood/cooked/aoemod__cooked_mahi_mahi.png",
+    "cooked_source": "project:src/main/resources/assets/aoemod/textures/item/cooked_mahi_mahi.png"
+  },
+  {
+    "entity": "angling:anomalocaris",
+    "raw": "aoemod:raw_anomalocaris",
+    "cooked": "aoemod:cooked_anomalocaris",
+    "availability": "current food pair",
+    "raw_file": "seafood/raw/aoemod__raw_anomalocaris.png",
+    "raw_source": "project:src/main/resources/assets/aoemod/textures/item/raw_anomalocaris.png",
+    "cooked_file": "seafood/cooked/aoemod__cooked_anomalocaris.png",
+    "cooked_source": "project:src/main/resources/assets/aoemod/textures/item/cooked_anomalocaris.png"
+  },
+  {
+    "entity": "finsandtails:rubber_belly_glider",
+    "raw": "aoemod:raw_rubber_belly_glider",
+    "cooked": "aoemod:cooked_rubber_belly_glider",
+    "availability": "current food pair",
+    "raw_file": "seafood/raw/aoemod__raw_rubber_belly_glider.png",
+    "raw_source": "project:src/main/resources/assets/aoemod/textures/item/raw_rubber_belly_glider.png",
+    "cooked_file": "seafood/cooked/aoemod__cooked_rubber_belly_glider.png",
+    "cooked_source": "project:src/main/resources/assets/aoemod/textures/item/cooked_rubber_belly_glider.png"
+  },
+  {
+    "entity": "alexsmobs:flying_fish",
+    "raw": "alexsmobs:flying_fish",
+    "cooked": "aoemod:cooked_flying_fish",
+    "availability": "current food pair",
+    "raw_file": "seafood/raw/alexsmobs__flying_fish.png",
+    "raw_source": "alexsmobs-1.22.9.jar!assets/alexsmobs/textures/item/flying_fish.png",
+    "cooked_file": "seafood/cooked/aoemod__cooked_flying_fish.png",
+    "cooked_source": "project:src/main/resources/assets/aoemod/textures/item/cooked_flying_fish.png"
+  },
+  {
+    "entity": "alexsmobs:triops",
+    "raw": "aoemod:raw_triops",
+    "cooked": "aoemod:cooked_triops",
+    "availability": "current food pair",
+    "raw_file": "seafood/raw/aoemod__raw_triops.png",
+    "raw_source": "project:src/main/resources/assets/aoemod/textures/item/raw_triops.png",
+    "cooked_file": "seafood/cooked/aoemod__cooked_triops.png",
+    "cooked_source": "project:src/main/resources/assets/aoemod/textures/item/cooked_triops.png"
+  },
+  {
+    "entity": "ambientadditions:blue_spotted_stingray",
+    "raw": "aoemod:raw_blue_spotted_stingray",
+    "cooked": "aoemod:cooked_blue_spotted_stingray",
+    "availability": "current food pair",
+    "raw_file": "seafood/raw/aoemod__raw_blue_spotted_stingray.png",
+    "raw_source": "project:src/main/resources/assets/aoemod/textures/item/raw_blue_spotted_stingray.png",
+    "cooked_file": "seafood/cooked/aoemod__cooked_blue_spotted_stingray.png",
+    "cooked_source": "project:src/main/resources/assets/aoemod/textures/item/cooked_blue_spotted_stingray.png"
+  },
+  {
+    "entity": "hybrid_aquatic:lightfoot_crab",
+    "raw": "ecologics:crab_meat",
+    "cooked": "aoemod:cooked_crab_meat",
+    "availability": "current food pair",
+    "raw_file": "seafood/raw/ecologics__crab_meat.png",
+    "raw_source": "ecologics-2.2.7.jar!assets/ecologics/textures/item/crab_meat.png",
+    "cooked_file": "seafood/cooked/aoemod__cooked_crab_meat.png",
+    "cooked_source": "project:src/main/resources/assets/aoemod/textures/item/cooked_crab_meat.png"
+  },
+  {
+    "entity": "hybrid_aquatic:flower_crab",
+    "raw": "ecologics:crab_meat",
+    "cooked": "aoemod:cooked_crab_meat",
+    "availability": "current food pair",
+    "raw_file": "seafood/raw/ecologics__crab_meat.png",
+    "raw_source": "ecologics-2.2.7.jar!assets/ecologics/textures/item/crab_meat.png",
+    "cooked_file": "seafood/cooked/aoemod__cooked_crab_meat.png",
+    "cooked_source": "project:src/main/resources/assets/aoemod/textures/item/cooked_crab_meat.png"
+  },
+  {
+    "entity": "hybrid_aquatic:fiddler_crab",
+    "raw": "ecologics:crab_meat",
+    "cooked": "aoemod:cooked_crab_meat",
+    "availability": "current food pair",
+    "raw_file": "seafood/raw/ecologics__crab_meat.png",
+    "raw_source": "ecologics-2.2.7.jar!assets/ecologics/textures/item/crab_meat.png",
+    "cooked_file": "seafood/cooked/aoemod__cooked_crab_meat.png",
+    "cooked_source": "project:src/main/resources/assets/aoemod/textures/item/cooked_crab_meat.png"
+  },
+  {
+    "entity": "hybrid_aquatic:starfish",
+    "raw": "hybrid_aquatic:starfish",
+    "cooked": "aoemod:cooked_starfish",
+    "availability": "current food pair",
+    "raw_file": "seafood/raw/hybrid_aquatic__starfish.png",
+    "raw_source": "hybrid_aquatic-1.7.4.jar!assets/hybrid_aquatic/textures/item/starfish.png",
+    "cooked_file": "seafood/cooked/aoemod__cooked_starfish.png",
+    "cooked_source": "project:src/main/resources/assets/aoemod/textures/item/cooked_starfish.png"
+  },
+  {
+    "entity": "hybrid_aquatic:octopus",
+    "raw": "aoemod:raw_octopus",
+    "cooked": "aoemod:cooked_octopus",
+    "availability": "current food pair",
+    "raw_file": "seafood/raw/aoemod__raw_octopus.png",
+    "raw_source": "project:src/main/resources/assets/aoemod/textures/item/raw_octopus.png",
+    "cooked_file": "seafood/cooked/aoemod__cooked_octopus.png",
+    "cooked_source": "project:src/main/resources/assets/aoemod/textures/item/cooked_octopus.png"
+  },
+  {
+    "entity": "hybrid_aquatic:umbrella_octopus",
+    "raw": "aoemod:raw_umbrella_octopus",
+    "cooked": "aoemod:cooked_umbrella_octopus",
+    "availability": "current food pair",
+    "raw_file": "seafood/raw/aoemod__raw_umbrella_octopus.png",
+    "raw_source": "project:src/main/resources/assets/aoemod/textures/item/raw_umbrella_octopus.png",
+    "cooked_file": "seafood/cooked/aoemod__cooked_umbrella_octopus.png",
+    "cooked_source": "project:src/main/resources/assets/aoemod/textures/item/cooked_umbrella_octopus.png"
+  },
+  {
+    "entity": "hybrid_aquatic:carp",
+    "raw": "hybrid_aquatic:carp",
+    "cooked": "aoemod:cooked_carp",
+    "availability": "current food pair",
+    "raw_file": "seafood/raw/hybrid_aquatic__carp.png",
+    "raw_source": "hybrid_aquatic-1.7.4.jar!assets/hybrid_aquatic/textures/item/carp.png",
+    "cooked_file": "seafood/cooked/aoemod__cooked_carp.png",
+    "cooked_source": "project:src/main/resources/assets/aoemod/textures/item/cooked_carp.png"
+  },
+  {
+    "entity": "finsandtails:swamp_mucker",
+    "raw": "finsandtails:swamp_mucker",
+    "cooked": "aoemod:cooked_swamp_mucker",
+    "availability": "current food pair",
+    "raw_file": "seafood/raw/finsandtails__swamp_mucker.png",
+    "raw_source": "finsandtails-1.20.1-1.1.6.jar!assets/finsandtails/textures/item/swamp_mucker.png",
+    "cooked_file": "seafood/cooked/aoemod__cooked_swamp_mucker.png",
+    "cooked_source": "project:src/main/resources/assets/aoemod/textures/item/cooked_swamp_mucker.png"
+  },
+  {
+    "entity": "hybrid_aquatic:arrow_squid",
+    "raw": "aoemod:raw_arrow_squid",
+    "cooked": "aoemod:cooked_arrow_squid",
+    "availability": "current food pair",
+    "raw_file": "seafood/raw/aoemod__raw_arrow_squid.png",
+    "raw_source": "project:src/main/resources/assets/aoemod/textures/item/raw_arrow_squid.png",
+    "cooked_file": "seafood/cooked/aoemod__cooked_arrow_squid.png",
+    "cooked_source": "project:src/main/resources/assets/aoemod/textures/item/cooked_arrow_squid.png"
+  },
+  {
+    "entity": "hybrid_aquatic:vampire_squid",
+    "raw": "aoemod:raw_vampire_squid",
+    "cooked": "aoemod:cooked_vampire_squid",
+    "availability": "current food pair",
+    "raw_file": "seafood/raw/aoemod__raw_vampire_squid.png",
+    "raw_source": "project:src/main/resources/assets/aoemod/textures/item/raw_vampire_squid.png",
+    "cooked_file": "seafood/cooked/aoemod__cooked_vampire_squid.png",
+    "cooked_source": "project:src/main/resources/assets/aoemod/textures/item/cooked_vampire_squid.png"
+  },
+  {
+    "entity": "hybrid_aquatic:tuna",
+    "raw": "hybrid_aquatic:tuna",
+    "cooked": "aoemod:cooked_tuna",
+    "availability": "current food pair",
+    "raw_file": "seafood/raw/hybrid_aquatic__tuna.png",
+    "raw_source": "hybrid_aquatic-1.7.4.jar!assets/hybrid_aquatic/textures/item/tuna.png",
+    "cooked_file": "seafood/cooked/aoemod__cooked_tuna.png",
+    "cooked_source": "project:src/main/resources/assets/aoemod/textures/item/cooked_tuna.png"
+  },
+  {
+    "entity": "angling:anglerfish",
+    "raw": "aoemod:raw_anglerfish",
+    "cooked": "aoemod:cooked_anglerfish",
+    "availability": "current food pair",
+    "raw_file": "seafood/raw/aoemod__raw_anglerfish.png",
+    "raw_source": "project:src/main/resources/assets/aoemod/textures/item/raw_anglerfish.png",
+    "cooked_file": "seafood/cooked/aoemod__cooked_anglerfish.png",
+    "cooked_source": "project:src/main/resources/assets/aoemod/textures/item/cooked_anglerfish.png"
+  },
+  {
+    "entity": "hybrid_aquatic:spider_crab",
+    "raw": "ecologics:crab_meat",
+    "cooked": "aoemod:cooked_crab_meat",
+    "availability": "current food pair",
+    "raw_file": "seafood/raw/ecologics__crab_meat.png",
+    "raw_source": "ecologics-2.2.7.jar!assets/ecologics/textures/item/crab_meat.png",
+    "cooked_file": "seafood/cooked/aoemod__cooked_crab_meat.png",
+    "cooked_source": "project:src/main/resources/assets/aoemod/textures/item/cooked_crab_meat.png"
+  }
+]

@@ -1,0 +1,17 @@
+{
+  "requirement": "Lower tropical terrain at Y85 and Y86 to Y84, widening the summit.",
+  "maximumTerrainY": 84,
+  "build": "passed",
+  "requiredGameTests": 5,
+  "failedGameTests": 0,
+  "radialProfilesChecked": 576,
+  "generatedColumnsChecked": 2304,
+  "visualCheck": "passed",
+  "screenshot": "tropical-y84-summit.png",
+  "screenshotClientClosed": true,
+  "installedConfigFilesChecked": 421,
+  "installedConfigFilesChanged": 0,
+  "installedConfigFilesAdded": 0,
+  "jar": "C:\\Users\\andre\\Downloads\\Games\\September2024Mod\\build\\tropical-nov17\\compiled\\libs\\aoemod-1.0.0-1.20.1-all.jar",
+  "jarSha256": "4F133ADBFE3C6CB8D2DE46BCE6D55558C9B8B28071F2D9AD368D3A7A5161BF97"
+}

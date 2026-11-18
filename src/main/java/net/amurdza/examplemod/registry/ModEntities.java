@@ -1,17 +1,16 @@
 package net.amurdza.examplemod.registry;
 
 import net.amurdza.examplemod.AOEMod;
-import net.amurdza.examplemod.entity.ArchlichEntity;
 import net.amurdza.examplemod.entity.ArthropleuraEntity;
+import net.amurdza.examplemod.entity.YakEntity;
 import net.amurdza.examplemod.entity.CubozoaEntity;
 import net.amurdza.examplemod.entity.EndFishEntity;
 import net.amurdza.examplemod.entity.IllagerLordEntity;
-import net.amurdza.examplemod.entity.NetherFishEntity;
 import net.amurdza.examplemod.entity.SpiderQueenEntity;
-import net.amurdza.examplemod.entity.SwordfishEntity;
 import net.amurdza.examplemod.entity.future.*;
 import net.amurdza.examplemod.entity.sea_serpent.SeaSerpentEntity;
 import net.amurdza.examplemod.util.ColorUtil;
+import net.amurdza.examplemod.item.YakSpawnEggItem;
 import net.minecraft.core.BlockPos;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.FluidTags;
@@ -60,25 +59,20 @@ public final class ModEntities {
             EndFishEntity::new
     );
 
-    public static final RegistryObject<EntityType<SwordfishEntity>> SWORDFISH = registerMob(
-            "swordfish", MobCategory.WATER_CREATURE, 1.2F, 0.7F, SwordfishEntity::new);
 
     public static final RegistryObject<EntityType<ArthropleuraEntity>> ARTHROPLEURA = registerMob(
             "arthropleura", MobCategory.CREATURE, 1.4F, 0.55F, ArthropleuraEntity::new);
 
-    public static final RegistryObject<ForgeSpawnEggItem> SWORDFISH_SPAWN_EGG =
-            spawnEgg("swordfish", SWORDFISH, 0x294F63, 0xCAD6D6);
+
+    public static final RegistryObject<EntityType<YakEntity>> YAK = registerMob(
+            "yak", MobCategory.CREATURE, .9F, 1.4F, YakEntity::new);
+
+    public static final RegistryObject<YakSpawnEggItem> YAK_SPAWN_EGG =
+            ModItems.ITEMS.register("spawn_egg_yak", () -> new YakSpawnEggItem(new net.minecraft.world.item.Item.Properties()));
 
     public static final RegistryObject<ForgeSpawnEggItem> ARTHROPLEURA_SPAWN_EGG =
             spawnEgg("arthropleura", ARTHROPLEURA, 0x743B18, 0xBC8749);
 
-    public static final RegistryObject<EntityType<NetherFishEntity>> NETHER_FISH = registerMob(
-            "nether_fish",
-            MobCategory.WATER_AMBIENT,
-            0.5F,
-            0.5F,
-            NetherFishEntity::new
-    );
 
     public static final RegistryObject<EntityType<CubozoaEntity>> CUBOZOA = registerMob(
             "cubozoa",
@@ -86,14 +80,6 @@ public final class ModEntities {
             0.6F,
             1.0F,
             CubozoaEntity::new
-    );
-
-    public static final RegistryObject<EntityType<ArchlichEntity>> ARCHLICH = registerMob(
-            "archlich",
-            MobCategory.MONSTER,
-            0.6F,
-            1.99F,
-            ArchlichEntity::new
     );
 
     public static final RegistryObject<EntityType<SpiderQueenEntity>> SPIDER_QUEEN = registerMob(
@@ -183,15 +169,6 @@ public final class ModEntities {
                     )
             );
 
-    public static final RegistryObject<ForgeSpawnEggItem> NETHER_FISH_SPAWN_EGG =
-            ModItems.ITEMS.register("spawn_egg_nether_fish",
-                    () -> new ForgeSpawnEggItem(
-                            NETHER_FISH,
-                            ColorUtil.color(166, 57, 29),
-                            ColorUtil.color(255, 169, 54),
-                            new net.minecraft.world.item.Item.Properties()
-                    )
-            );
 
     public static final RegistryObject<ForgeSpawnEggItem> CUBOZOA_SPAWN_EGG =
             ModItems.ITEMS.register("spawn_egg_cubozoa",
@@ -209,16 +186,6 @@ public final class ModEntities {
                             SEA_SERPENT,
                             ColorUtil.color(151, 77, 181),
                             ColorUtil.color(93, 176, 238),
-                            new net.minecraft.world.item.Item.Properties()
-                    )
-            );
-
-    public static final RegistryObject<ForgeSpawnEggItem> ARCHLICH_SPAWN_EGG =
-            ModItems.ITEMS.register("spawn_egg_archlich",
-                    () -> new ForgeSpawnEggItem(
-                            ARCHLICH,
-                            ColorUtil.color(29, 38, 59),
-                            ColorUtil.color(117, 210, 232),
                             new net.minecraft.world.item.Item.Properties()
                     )
             );
@@ -297,12 +264,10 @@ public final class ModEntities {
     public static void onEntityAttributes(EntityAttributeCreationEvent event) {
         // Config gating: attribute registration is harmless even if you later disable spawns/eggs.
         event.put(END_FISH.get(), EndFishEntity.createMobAttributes().build());
-        event.put(SWORDFISH.get(), SwordfishEntity.createAttributes().build());
         event.put(ARTHROPLEURA.get(), ArthropleuraEntity.createAttributes().build());
-        event.put(NETHER_FISH.get(), NetherFishEntity.createMobAttributes().build());
+        event.put(YAK.get(), YakEntity.createAttributes().build());
         event.put(CUBOZOA.get(), CubozoaEntity.createMobAttributes().build());
         event.put(ModEntities.SEA_SERPENT.get(), SeaSerpentEntity.createAttributes().build());
-        event.put(ARCHLICH.get(), ArchlichEntity.createAttributes().build());
         event.put(SPIDER_QUEEN.get(), SpiderQueenEntity.createAttributes().build());
         event.put(ILLAGER_LORD.get(), IllagerLordEntity.createAttributes().build());
         event.put(BOGGED.get(), BoggedEntity.createAttributes().build());
@@ -318,8 +283,8 @@ public final class ModEntities {
 
     @SubscribeEvent
     public static void onSpawnPlacements(SpawnPlacementRegisterEvent event) {
-        event.register(SWORDFISH.get(), SpawnPlacements.Type.IN_WATER, Heightmap.Types.MOTION_BLOCKING,
-                SwordfishEntity::checkSpawnRules, SpawnPlacementRegisterEvent.Operation.OR);
+        event.register(YAK.get(), SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
+                net.minecraft.world.entity.animal.Animal::checkAnimalSpawnRules, SpawnPlacementRegisterEvent.Operation.OR);
         event.register(ARTHROPLEURA.get(), SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
                 ArthropleuraEntity::checkSpawnRules, SpawnPlacementRegisterEvent.Operation.OR);
         // If you want Fabric-like “config disables entity entirely”, the closest Forge pattern is:
@@ -330,13 +295,6 @@ public final class ModEntities {
                 SpawnPlacements.Type.IN_WATER,
                 Heightmap.Types.MOTION_BLOCKING,
                 TropicalFish::checkSurfaceWaterAnimalSpawnRules, // implement like vanilla fish, or use a shared predicate
-                SpawnPlacementRegisterEvent.Operation.OR
-        );
-        event.register(
-                NETHER_FISH.get(),
-                SpawnPlacements.Type.NO_RESTRICTIONS,
-                Heightmap.Types.MOTION_BLOCKING,
-                ModEntities::checkLavaFishSpawnRules,
                 SpawnPlacementRegisterEvent.Operation.OR
         );
         event.register(

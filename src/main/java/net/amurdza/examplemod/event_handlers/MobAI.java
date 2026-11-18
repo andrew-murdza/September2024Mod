@@ -2,10 +2,6 @@ package net.amurdza.examplemod.event_handlers;
 
 import com.github.alexthe666.alexsmobs.entity.*;
 import com.github.alexthe666.alexsmobs.entity.ai.*;
-import com.github.alexthe666.iceandfire.entity.EntitySiren;
-import com.starfish_studios.naturalist.common.entity.Boar;
-import com.starfish_studios.naturalist.common.entity.Deer;
-import com.starfish_studios.naturalist.common.entity.core.ai.goal.AlertOthersPanicGoal;
 import net.amurdza.examplemod.AOEMod;
 import net.amurdza.examplemod.mixins.accessor.TargetGoalTypeAccessor;
 import net.amurdza.examplemod.entity.ai.PolarBearOwnerMeleeAttackGoal;
@@ -89,7 +85,7 @@ public class MobAI {
                     addTempt(mob, ModTags.Items.rawFish);
                     addTempt(mob, AnimalFoodOverrides.blueberry());
                 } else if (entity instanceof Rabbit) {//Other cases already covered by herbivore section
-                    mob.setMaxUpStep(1.5F);
+                    mob.setMaxUpStep(1.0F);
                     addTempt(mob, ModTags.Items.smallerFlowers);
                     addTempt(mob, Items.BEETROOT);
                     addTempt(mob, Items.POTATO);
@@ -98,7 +94,6 @@ public class MobAI {
                     addTempt(mob, Items.SWEET_BERRIES);
                     addTempt(mob, AnimalFoodOverrides.blueberry());
                     addTempt(mob, ModTags.Items.fruits);
-                    addTempt(mob, ModItems.ONION.get());
                 } else if (entity instanceof Horse || entity instanceof AbstractChestedHorse || entity instanceof Llama) {
                     addTempt(mob, Items.WHEAT);
                 } else if (entity instanceof Cat||entity instanceof Ocelot) {
@@ -123,11 +118,6 @@ public class MobAI {
                     removeAI(goal -> goal instanceof TemptGoal, mob.goalSelector);
                     addTempt(mob, samebutdifferent.ecologics.registry.ModItems.PRICKLY_PEAR.get());
                 }
-                else if (entity instanceof Deer){
-                    mob.setMaxUpStep(0.6F);
-                    removeAI(mob, AlertOthersPanicGoal.class);
-                    addTempt(mob, Items.WHEAT);
-                }
                 else if (AnimalFoodOverrides.isSquirrel(entity)||entity instanceof Chicken) {
                     addTempt(mob, AnimalFoodOverrides.cabbageSeeds(), AnimalFoodOverrides.tomatoSeeds(),
                             Items.BEETROOT_SEEDS, Items.WHEAT_SEEDS, Items.MELON_SEEDS, Items.PUMPKIN_SEEDS);
@@ -137,9 +127,9 @@ public class MobAI {
                     addTempt(3, mob, ModTags.Items.mushrooms);
                     addTempt(4, mob, Items.WHEAT);
                 }
-                else if (entity instanceof EntityWarpedToad) {
+                else if (entity instanceof net.minecraft.world.entity.monster.Strider) {
                     removeAI(goal -> goal instanceof TemptGoal, mob.goalSelector);
-                    addTempt(mob, Items.WARPED_FUNGUS);
+                    addTempt(mob, Items.NETHER_WART);
                 }
                 else if(entity instanceof Frog|| entity instanceof Turtle|| entity instanceof Axolotl) {
                     removeAI(goal -> goal instanceof TemptGoal, mob.goalSelector);
@@ -148,6 +138,7 @@ public class MobAI {
                 }
                 else if(AnimalFoodOverrides.isHerbivoreFoodTarget(entity)) {
                     removeAI(goal -> goal instanceof TemptGoal, mob.goalSelector);
+                    if (entity instanceof Rabbit) addTempt(mob, AnimalFoodOverrides.RABBIT_LEGUMES);
                     addTempt(mob, Items.BEETROOT);
                     addTempt(mob, Items.POTATO);
                     addTempt(mob, Items.CARROT);
@@ -155,7 +146,6 @@ public class MobAI {
                     addTempt(mob, Items.SWEET_BERRIES);
                     addTempt(mob, AnimalFoodOverrides.blueberry());
                     addTempt(mob, ModTags.Items.fruits);
-                    addTempt(mob, ModItems.ONION.get());
                 }
 
                 //Protect Turtle
@@ -171,7 +161,7 @@ public class MobAI {
                     removeAI(mob,Class.forName("net.minecraft.world.entity.animal.Rabbit$RaidGardenGoal"));
                 }
 
-                if(mob instanceof Animal || mob instanceof WaterAnimal || mob instanceof EntitySiren){
+                if(mob instanceof Animal || mob instanceof WaterAnimal){
                     //Vanilla
                     removeAI(mob, NearestAttackableTargetGoal.class, AvoidEntityGoal.class,
                             NonTameRandomTargetGoal.class, HurtByTargetGoal.class,
@@ -243,9 +233,6 @@ public class MobAI {
             clearPolarBearAnger(polarBear);
         }
 
-        if (entity instanceof Turtle turtle) {
-            redirectPregnantTurtleHome(level, turtle);
-        }
     }
 
     private static void keepStructureMobNearHome(ServerLevel level, Mob mob) {
@@ -303,6 +290,7 @@ public class MobAI {
         }
 
         clearLivingMemoryIfForbidden(mob, MemoryModuleType.ATTACK_TARGET);
+        clearLivingMemoryIfForbidden(mob, MemoryModuleType.ROAR_TARGET);
         clearLivingMemoryIfForbidden(mob, MemoryModuleType.NEAREST_ATTACKABLE);
         clearLivingMemoryIfForbidden(mob, MemoryModuleType.HURT_BY_ENTITY);
         clearLivingMemoryIfForbidden(mob, MemoryModuleType.AVOID_TARGET);
@@ -362,7 +350,7 @@ public class MobAI {
         }
     }
 
-    private static boolean isNotAllowedMobTarget(Mob attacker, LivingEntity target) {
+    public static boolean isNotAllowedMobTarget(Mob attacker, LivingEntity target) {
         if (attacker instanceof PolarBearTamingAccess polarBear
                 && polarBear.aoe$canAttackOwnerTarget(target)) {
             return false;
@@ -396,54 +384,6 @@ public class MobAI {
         }
 
         return true;
-    }
-
-    private static void redirectPregnantTurtleHome(ServerLevel level, Turtle turtle) {
-        if (!turtle.hasEgg() || turtle.tickCount % 100 != 0) {
-            return;
-        }
-
-        BlockPos nearestLand = findNearestTurtleLand(level, turtle.blockPosition(), 48);
-        if (nearestLand != null) {
-            turtle.setHomePos(nearestLand);
-        }
-    }
-
-    private static BlockPos findNearestTurtleLand(ServerLevel level, BlockPos origin, int radius) {
-        BlockPos best = null;
-        double bestDistance = Double.MAX_VALUE;
-
-        for (int dx = -radius; dx <= radius; dx++) {
-            for (int dz = -radius; dz <= radius; dz++) {
-                int x = origin.getX() + dx;
-                int z = origin.getZ() + dz;
-                int y = level.getHeight(Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, x, z) - 1;
-
-                if (Math.abs(y - origin.getY()) > 24) {
-                    continue;
-                }
-
-                BlockPos land = new BlockPos(x, y, z);
-                if (!isValidTurtleLand(level, land)) {
-                    continue;
-                }
-
-                double distance = land.distSqr(origin);
-                if (distance < bestDistance) {
-                    bestDistance = distance;
-                    best = land;
-                }
-            }
-        }
-
-        return best;
-    }
-
-    private static boolean isValidTurtleLand(ServerLevel level, BlockPos land) {
-        BlockPos eggPos = land.above();
-        return level.getBlockState(land).is(BlockTags.SAND)
-                && level.isEmptyBlock(eggPos)
-                && level.getFluidState(eggPos).isEmpty();
     }
 
     private static boolean removeTurtleAttack(Goal goal) {

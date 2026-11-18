@@ -1,0 +1,14 @@
+{
+  "type": "aoemod:boss_lair",
+  "kind": "spider",
+  "biomes": ["aoemod:rainforest"],
+  "step": "surface_structures",
+  "terrain_adaptation": "none",
+  "spawn_overrides": {
+    "monster": {"bounding_box": "piece", "spawns": [
+      {"type": "minecraft:spider", "weight": 10, "minCount": 1, "maxCount": 3},
+      {"type": "minecraft:cave_spider", "weight": 10, "minCount": 1, "maxCount": 3},
+      {"type": "twilightforest:slime_beetle", "weight": 10, "minCount": 1, "maxCount": 3}
+    ]}
+  }
+}

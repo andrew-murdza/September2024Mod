@@ -1,0 +1,118 @@
+{
+  "basementVersion": 5,
+  "bodySize": [
+    61,
+    61
+  ],
+  "roomInterior": [
+    11,
+    11
+  ],
+  "centralHallWidth": 11,
+  "rows": [
+    {
+      "rowFromEntrance": 1,
+      "localZ": [
+        14,
+        24
+      ],
+      "westOuter": "MUSHROOM",
+      "westInner": "CARROT",
+      "eastInner": "CARROT",
+      "eastOuter": "COW"
+    },
+    {
+      "rowFromEntrance": 2,
+      "localZ": [
+        26,
+        36
+      ],
+      "westOuter": "CANE",
+      "westInner": "BEET",
+      "eastInner": "BEET",
+      "eastOuter": "CHICKEN"
+    },
+    {
+      "rowFromEntrance": 3,
+      "localZ": [
+        38,
+        48
+      ],
+      "westOuter": "PUMPKIN",
+      "westInner": "CABBAGE",
+      "eastInner": "CABBAGE",
+      "eastOuter": "PIG"
+    },
+    {
+      "rowFromEntrance": 4,
+      "localZ": [
+        50,
+        60
+      ],
+      "westOuter": "KITCHEN",
+      "westInner": "WHEAT",
+      "eastInner": "WHEAT",
+      "eastOuter": "SHEEP"
+    },
+    {
+      "rowFromEntrance": 5,
+      "localZ": [
+        62,
+        72
+      ],
+      "westOuter": "GRANARY",
+      "westInner": "POTATO",
+      "eastInner": "POTATO",
+      "eastOuter": "SMITH"
+    }
+  ],
+  "closedSideWalls": [
+    "KITCHEN",
+    "GRANARY",
+    "SMITH"
+  ],
+  "roomLanterns": [
+    [
+      2,
+      4,
+      2
+    ],
+    [
+      2,
+      4,
+      8
+    ],
+    [
+      8,
+      4,
+      2
+    ],
+    [
+      8,
+      4,
+      8
+    ],
+    [
+      5,
+      4,
+      5
+    ]
+  ],
+  "hallLanternX": [
+    -3,
+    0,
+    3
+  ],
+  "upperCellGrid": [
+    10,
+    10
+  ],
+  "upperCellPitch": 8,
+  "upperFloorYOffsets": [
+    0,
+    8,
+    16
+  ],
+  "sourceEntranceCapture": "authored-entrance.json",
+  "legacy": "Saved V1\u2013V4 basements and existing native room resource names are preserved."
+}

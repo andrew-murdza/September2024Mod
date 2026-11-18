@@ -1,0 +1,26 @@
+{
+  "minecraft_version": "1.20.1",
+  "method": "Run-length transects using production MountainRidges with vanilla Xoroshiro ridge/offset seeds. Incomplete boundary runs excluded. Both horizontal axes sampled.",
+  "audit_source": "scripts/SnowyWidthAudit.java",
+  "seeds": [0, 12345, 98765, -8152788754161584091],
+  "transect_fixed_coordinates": [-8192, -1536, 1536, 8192],
+  "transects": 32,
+  "length_per_transect_blocks": 32768,
+  "sample_step_blocks": 4,
+  "profile": {
+    "full_domain_stretch": 2.0,
+    "raw_lake_edge": 0.1,
+    "raw_dappled_edge": 0.35,
+    "mapped_lake_edge": 0.1,
+    "mapped_dappled_edge": 0.35
+  },
+  "vanilla_central_low_band": {"mean_width": 333.51, "median_width": 244, "runs": 2069, "sample_fraction": 0.6736},
+  "vanilla_lake_sub_band": {"mean_width": 74.18, "median_width": 52, "runs": 3109, "sample_fraction": 0.2214},
+  "vanilla_dappled_sub_band": {"mean_width": 90.74, "median_width": 64, "runs": 5194, "sample_fraction": 0.4522},
+  "vanilla_high_band": {"mean_width": 163.32, "median_width": 136, "runs": 2079, "sample_fraction": 0.3264},
+  "mountain_lake": {"mean_width": 139.29, "median_width": 104, "runs": 1617, "sample_fraction": 0.2155},
+  "dappled_forest": {"mean_width": 175.43, "median_width": 136, "runs": 2673, "sample_fraction": 0.4517},
+  "snowy_taiga": {"mean_width": 326.12, "median_width": 280, "runs": 1052, "sample_fraction": 0.3328},
+  "interpretation": "The latest user preference retains more snowy taiga and favors doubling the horizontal Perlin scale. The full ridge and domain-shift noise coordinates are divided by two; weirdness values are not remapped and vertical amplitude remains vanilla. Mean widths are 1.88, 1.93, and 2.00 times the corresponding vanilla sub-band widths. The two low sub-bands are not each as wide as the former combined central band.",
+  "coverage_tradeoff": "Snowy taiga covers 33.28% of this sample versus vanilla's 32.64%, replacing the earlier 1.82% width-priority profile. All three bands widen together, including taiga. Finite transects differ slightly because they sample different portions of a noise domain; these are statistical widths, not guarantees for individual contours."
+}

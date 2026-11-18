@@ -13,7 +13,7 @@ public final class TreeGrowthPlacementRules {
     private TreeGrowthPlacementRules() { }
 
     public static boolean isAllowed(LevelReader level, BlockPos origin, BlockPos pos, BlockState state) {
-        String habitat = habitat(level, state);
+        String habitat = habitat(level, origin, state);
         if (habitat == null) return true;
         if (level.isOutsideBuildHeight(origin) || level.isOutsideBuildHeight(pos)) return false;
         if (!GameplayDimensions.biomeIs(level, origin, habitat)) return false;
@@ -21,7 +21,7 @@ public final class TreeGrowthPlacementRules {
     }
 
     public static boolean allowsExtension(LevelReader level, BlockPos origin, BlockPos pos, BlockState state) {
-        String habitat = habitat(level, state);
+        String habitat = habitat(level, origin, state);
         if (habitat == null || pos.getY() <= origin.getY() || level.isOutsideBuildHeight(pos)
                 || !GameplayDimensions.biomeIs(level, origin, habitat)
                 || GameplayDimensions.biomeIs(level, pos, habitat)) return false;
@@ -37,7 +37,7 @@ public final class TreeGrowthPlacementRules {
         return false;
     }
 
-    private static String habitat(LevelReader level, BlockState state) {
+    private static String habitat(LevelReader level, BlockPos origin, BlockState state) {
         ResourceLocation id = ForgeRegistries.BLOCKS.getKey(state.getBlock());
         if (id == null) return null;
         String path = id.getPath();
@@ -53,8 +53,14 @@ public final class TreeGrowthPlacementRules {
             if (path.equals("mushroom_stem") || path.equals("red_mushroom_block")
                     || path.equals("brown_mushroom_block") || path.contains("mushgloom")
                     || path.startsWith("glow_shroom")) return "mushroom_caves";
-            if ((path.contains("spruce") || path.contains("poplar"))
-                    && (path.endsWith("log") || path.endsWith("wood") || path.endsWith("leaves"))) return "snowy_forest";
+            if (path.contains("poplar")
+                    && (path.endsWith("log") || path.endsWith("wood") || path.endsWith("leaves"))) return "dappled_forest";
+            if (path.contains("spruce")
+                    && (path.endsWith("log") || path.endsWith("wood") || path.endsWith("leaves"))) {
+                return GameplayDimensions.biomeIs(level, origin, "dappled_forest") ? "dappled_forest"
+                        : GameplayDimensions.biomeIs(level, origin, "mountain_lake") ? "mountain_lake"
+                        : GameplayDimensions.biomeIs(level, origin, "cold_ocean") ? "cold_ocean" : "snowy_forest";
+            }
         }
         return null;
     }

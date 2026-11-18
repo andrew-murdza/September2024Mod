@@ -1,6 +1,8 @@
 {
   "replace": false,
   "values": [
-    "aoemod:snowy_forest"
+    "aoemod:snowy_forest",
+    "aoemod:cold_ocean",
+    "aoemod:mountain_lake"
   ]
 }

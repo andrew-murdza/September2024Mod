@@ -31,8 +31,8 @@ public abstract class WitherProjectileExplosionBehavior {
     )
     private List<Entity> aoemod$excludeMonsters(Level level, Entity excludedEntity, AABB bounds) {
         List<Entity> affectedEntities = level.getEntities(excludedEntity, bounds);
-        if (this.source instanceof WitherSkull) {
-            affectedEntities.removeIf(entity -> entity instanceof Monster);
+        if (this.source instanceof WitherSkull || this.source instanceof net.minecraft.world.entity.boss.wither.WitherBoss) {
+            affectedEntities.removeIf(entity -> !net.amurdza.examplemod.util.WitherTargets.allowed(entity));
         }
         return affectedEntities;
     }

@@ -1,6 +1,7 @@
 package net.amurdza.examplemod.mixins.block_behavior;
 
 import net.amurdza.examplemod.block.BlockHelper;
+import net.amurdza.examplemod.worldgen.CaveVinePlacement;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.server.level.ServerLevel;
@@ -14,6 +15,7 @@ import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.CaveVinesBlock;
 import net.minecraft.world.level.block.GrowingPlantHeadBlock;
 import net.minecraft.world.level.block.SimpleWaterloggedBlock;
@@ -73,7 +75,7 @@ public abstract class CaveVineHeadBehavior extends GrowingPlantHeadBlock impleme
 
     @Inject(method = "canGrowInto", at = @At("HEAD"), cancellable = true)
     private void aoe$canGrowInto(BlockState state, CallbackInfoReturnable<Boolean> cir) {
-        cir.setReturnValue(state.isAir() || state.getFluidState().is(FluidTags.WATER));
+        cir.setReturnValue(state.isAir() || state.is(Blocks.WATER));
     }
 
     @Inject(method = "use", at = @At("HEAD"), cancellable = true)
@@ -135,7 +137,7 @@ public abstract class CaveVineHeadBehavior extends GrowingPlantHeadBlock impleme
             )) {
                 BlockPos growPos = pos.relative(this.growthDirection);
 
-                if (this.canGrowInto(level.getBlockState(growPos))) {
+                if (this.canGrowInto(level.getBlockState(growPos)) && CaveVinePlacement.hasFloorClearance(level, growPos)) {
                     boolean inWater = level.getFluidState(growPos).is(FluidTags.WATER);
 
                     BlockState growState = this.getGrowIntoState(state, level.random)

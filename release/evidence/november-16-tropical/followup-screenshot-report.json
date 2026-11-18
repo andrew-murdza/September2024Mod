@@ -1,0 +1,213 @@
+{
+  "status": "passed",
+  "started": "2026-11-17T04:30:22.240556700Z",
+  "elapsedMillis": 38647,
+  "requestedViews": 4,
+  "completedViews": 4,
+  "views": [
+    {
+      "label": "tropical-y64-twelve-block-terrace",
+      "dimension": "aoemod:tropical_dimension",
+      "x": 1350579.3318271318,
+      "y": 77.0,
+      "z": 883631.044974766,
+      "yaw": 129.80557,
+      "pitch": 25.07841,
+      "settledClientTicks": 120,
+      "readyChunkRadius": 4,
+      "terrainReadiness": "surrounding chunks arrived and terrain build queue is idle",
+      "tropicalClientBiomeAudit": {
+        "layoutSynchronized": true,
+        "radiusBlocks": 48,
+        "columnsChecked": 9409,
+        "altitudeComparisons": 9409,
+        "terrainHeightComparisons": 9409,
+        "mangroveColumns": 6143,
+        "rainforestColumns": 3266,
+        "coralColumns": 0,
+        "cherryColumns": 0
+      },
+      "width": 1440,
+      "height": 1000,
+      "path": "C:\\Users\\andre\\Downloads\\Games\\September2024Mod\\build\\tropical-nov16\\visuals\\client-1\\screenshots\\tropical-y64-twelve-block-terrace.png"
+    },
+    {
+      "label": "tropical-y75-rainforest-cherry-boundary",
+      "dimension": "aoemod:tropical_dimension",
+      "x": 1350451.3318271318,
+      "y": 109.0,
+      "z": 883644.044974766,
+      "yaw": 152.74467,
+      "pitch": 43.81755,
+      "settledClientTicks": 120,
+      "readyChunkRadius": 4,
+      "terrainReadiness": "surrounding chunks arrived and terrain build queue is idle",
+      "biomeProbeResults": [
+        {
+          "x": 1350441,
+          "y": 20,
+          "z": 883611,
+          "expected": "aoemod:rainforest",
+          "actual": "aoemod:rainforest"
+        },
+        {
+          "x": 1350441,
+          "y": 39,
+          "z": 883611,
+          "expected": "aoemod:rainforest",
+          "actual": "aoemod:rainforest"
+        },
+        {
+          "x": 1350441,
+          "y": 54,
+          "z": 883611,
+          "expected": "aoemod:rainforest",
+          "actual": "aoemod:rainforest"
+        },
+        {
+          "x": 1350441,
+          "y": 70,
+          "z": 883611,
+          "expected": "aoemod:rainforest",
+          "actual": "aoemod:rainforest"
+        },
+        {
+          "x": 1350441,
+          "y": 71,
+          "z": 883611,
+          "expected": "aoemod:rainforest",
+          "actual": "aoemod:rainforest"
+        },
+        {
+          "x": 1350441,
+          "y": 100,
+          "z": 883611,
+          "expected": "aoemod:rainforest",
+          "actual": "aoemod:rainforest"
+        },
+        {
+          "x": 1350441,
+          "y": 200,
+          "z": 883611,
+          "expected": "aoemod:rainforest",
+          "actual": "aoemod:rainforest"
+        },
+        {
+          "x": 1350426,
+          "y": 20,
+          "z": 883611,
+          "expected": "aoemod:cherry_grove",
+          "actual": "aoemod:cherry_grove"
+        },
+        {
+          "x": 1350426,
+          "y": 39,
+          "z": 883611,
+          "expected": "aoemod:cherry_grove",
+          "actual": "aoemod:cherry_grove"
+        },
+        {
+          "x": 1350426,
+          "y": 54,
+          "z": 883611,
+          "expected": "aoemod:cherry_grove",
+          "actual": "aoemod:cherry_grove"
+        },
+        {
+          "x": 1350426,
+          "y": 70,
+          "z": 883611,
+          "expected": "aoemod:cherry_grove",
+          "actual": "aoemod:cherry_grove"
+        },
+        {
+          "x": 1350426,
+          "y": 71,
+          "z": 883611,
+          "expected": "aoemod:cherry_grove",
+          "actual": "aoemod:cherry_grove"
+        },
+        {
+          "x": 1350426,
+          "y": 100,
+          "z": 883611,
+          "expected": "aoemod:cherry_grove",
+          "actual": "aoemod:cherry_grove"
+        },
+        {
+          "x": 1350426,
+          "y": 200,
+          "z": 883611,
+          "expected": "aoemod:cherry_grove",
+          "actual": "aoemod:cherry_grove"
+        }
+      ],
+      "tropicalClientBiomeAudit": {
+        "layoutSynchronized": true,
+        "radiusBlocks": 48,
+        "columnsChecked": 9409,
+        "altitudeComparisons": 9409,
+        "terrainHeightComparisons": 7012,
+        "mangroveColumns": 0,
+        "rainforestColumns": 7012,
+        "coralColumns": 0,
+        "cherryColumns": 2397
+      },
+      "width": 1440,
+      "height": 1000,
+      "path": "C:\\Users\\andre\\Downloads\\Games\\September2024Mod\\build\\tropical-nov16\\visuals\\client-1\\screenshots\\tropical-y75-rainforest-cherry-boundary.png"
+    },
+    {
+      "label": "tropical-y85-summit",
+      "dimension": "aoemod:tropical_dimension",
+      "x": 1350329.3318271318,
+      "y": 119.0,
+      "z": 883646.044974766,
+      "yaw": 136.68468,
+      "pitch": 36.51914,
+      "settledClientTicks": 120,
+      "readyChunkRadius": 4,
+      "terrainReadiness": "surrounding chunks arrived and terrain build queue is idle",
+      "tropicalClientBiomeAudit": {
+        "layoutSynchronized": true,
+        "radiusBlocks": 48,
+        "columnsChecked": 9409,
+        "altitudeComparisons": 9409,
+        "terrainHeightComparisons": 0,
+        "mangroveColumns": 0,
+        "rainforestColumns": 0,
+        "coralColumns": 0,
+        "cherryColumns": 9409
+      },
+      "width": 1440,
+      "height": 1000,
+      "path": "C:\\Users\\andre\\Downloads\\Games\\September2024Mod\\build\\tropical-nov16\\visuals\\client-1\\screenshots\\tropical-y85-summit.png"
+    },
+    {
+      "label": "cherry-final-bamboo",
+      "dimension": "aoemod:tropical_dimension",
+      "x": 535136.5,
+      "y": 85.0,
+      "z": 584034.5,
+      "yaw": 135.0,
+      "pitch": -12.0,
+      "settledClientTicks": 120,
+      "readyChunkRadius": 4,
+      "terrainReadiness": "surrounding chunks arrived and terrain build queue is idle",
+      "tropicalClientBiomeAudit": {
+        "layoutSynchronized": true,
+        "radiusBlocks": 48,
+        "columnsChecked": 9409,
+        "altitudeComparisons": 9409,
+        "terrainHeightComparisons": 0,
+        "mangroveColumns": 0,
+        "rainforestColumns": 0,
+        "coralColumns": 0,
+        "cherryColumns": 9409
+      },
+      "width": 1440,
+      "height": 1000,
+      "path": "C:\\Users\\andre\\Downloads\\Games\\September2024Mod\\build\\tropical-nov16\\visuals\\client-1\\screenshots\\cherry-final-bamboo.png"
+    }
+  ]
+}

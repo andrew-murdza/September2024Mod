@@ -138,6 +138,7 @@ public class GridChoiceFeature extends Feature<GridChoiceConfig> {
                     3 + random.nextInt(11)
             );
             case CENTER -> origin.offset(7, 0, 7);
+            case CENTER_JITTER_TWO -> origin.offset(5 + random.nextInt(5), 0, 5 + random.nextInt(5));
             case CORNER -> origin;
         };
     }

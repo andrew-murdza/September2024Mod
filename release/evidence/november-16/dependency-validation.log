@@ -1,0 +1,9 @@
+{
+  "passed": true,
+  "locked_jars": 44,
+  "checked_jars": 44,
+  "available_mod_ids_including_embedded": 51,
+  "required_dependencies_checked": 99,
+  "errors": [],
+  "limitations": "Version range and mixin compatibility are verified by the actual Forge runtime, not this static presence check."
+}

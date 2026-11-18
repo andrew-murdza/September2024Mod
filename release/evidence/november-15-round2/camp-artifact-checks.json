@@ -1,0 +1,25 @@
+{
+  "passed": true,
+  "version": 7,
+  "chests": 36,
+  "beds": 72,
+  "pens": 8,
+  "crop_ponds": 28,
+  "mud_columns": 448,
+  "regular_posts": 120,
+  "skull_posts": 40,
+  "checks": [
+    "eight-wide roads",
+    "sealed square wall",
+    "skull every third post",
+    "12 crop rows",
+    "hydrated farmland",
+    "one-deep ponds with one submerged and two dry cane sections",
+    "four four-wide gates per pen",
+    "12-block authored tents and 24-clear-block gaps",
+    "six-clear-block post gaps",
+    "24x24 pen interiors",
+    "8x8 pen ponds",
+    "legacy v4 unchanged"
+  ]
+}

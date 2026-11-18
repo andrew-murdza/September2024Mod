@@ -1,0 +1,58 @@
+{
+  "date": "2026-11-08T20:34:16.787148+00:00",
+  "status": "passed",
+  "supersedes": "NOVEMBER_8_REPORT.txt artifact hashes and studio gallery",
+  "build": "build + prepareStandaloneClient passed; final changes after focused gameplay tests affect only opt-in gallery setup",
+  "game_tests": {
+    "passed": 22,
+    "failed": 0,
+    "evidence": "game-test-results.xml"
+  },
+  "resources": {
+    "checks": 4203,
+    "json_files": 1524,
+    "errors": 0,
+    "registry_note": "Prior full registry dump plus current dedicated tests for removed registrations"
+  },
+  "generated_resource_changes": 0,
+  "configuration": {
+    "status": "passed",
+    "files": 421,
+    "changed": [],
+    "added": [],
+    "removed": []
+  },
+  "screenshots": {
+    "before": {
+      "views": 72,
+      "aquatic_views": 21,
+      "source": "Actual Minecraft world framebuffer: live server-spawned mobs, water or land habitat, ordinary world-rendered blocks"
+    },
+    "after": {
+      "views": 114,
+      "aquatic_views": 63,
+      "source": "Actual Minecraft world framebuffer: live server-spawned mobs, water or land habitat, ordinary world-rendered blocks"
+    }
+  },
+  "seafood": {
+    "pairs": 19,
+    "distinct_pngs": 32
+  },
+  "archive_audit": "../texture-review-coverage.json",
+  "artifacts": {
+    "aoemod-1.0.0-1.20.1-all.jar": {
+      "bytes": 4971126,
+      "sha256": "3f6785a976bf0e49dfdc716695b2908417e30357d12013a24bb6233dd8b0f318"
+    },
+    "texture-review-2026-11-08.zip": {
+      "bytes": 101488912,
+      "sha256": "ff51fa56096a6fe88ea0b8ac047831c6ad684b61ee3809870966088b2d56aeeb"
+    }
+  },
+  "prior_gameplay_evidence": "../validation.json",
+  "limits": [
+    "Before images use exact archived versions where preserved and documented upstream references otherwise.",
+    "Removed four AoE food IDs are ignored during old-save mapping; old stacks of those foods are intentionally removed.",
+    "QA-world screenshots verify rendering in actual habitats, not long-term survival balance across every seed."
+  ]
+}

@@ -1,3 +1,16 @@
+8 November 2026 update
+See IMPLEMENTED_CHANGES.md and NOVEMBER_8_REVIEW_REVISION.txt for the current release. NOVEMBER_8_REPORT.txt records the superseded first delivery.
+- Removed the requested Orcz materials/symbols and End Fish from gameplay.
+- Canonical Hybrid Aquatic mahi item; only the three native Cultural Delights squid foods.
+- Corrected cold-water/Nether spawns, independent Stalker cap5 and cobalt glow, strider textures, catalyst light8, and forest grass tint.
+- Snowy cave height/tree placement, terracotta colors/width, curved entrances, buried sculk floors, more even sculk patches, and per-vein ore exposure changes.
+- Fixed Alex's Mobs null render-chunk crash on dimension travel.
+- Real in-world before/after screenshots and requested source assets are in texture-review-2026-11-08.zip; the current review report records final counts and coverage.
+- Removed AoE raw/cooked warped-toad foods and cooked pufferfish/tropical-fish foods. Vanilla pufferfish and tropical fish remain available to other mods.
+- Existing configuration files preserved. Terrain/structure changes apply to newly generated chunks.
+
+Historical integration changelog (superseded where the update above differs)
+
 September 2024 / AOE Mod update
 Minecraft 1.20.1, Forge 47.4.22, Java 17
 

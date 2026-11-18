@@ -1,0 +1,12 @@
+{
+  "type": "aoemod:snowy_trees",
+  "config": {
+    "features": [
+      {
+        "feature": "aoemod:snowy/centered_mega_spruce",
+        "chance": 0.06666666666666667
+      }
+    ],
+    "default": "aoemod:snowy/centered_spruce"
+  }
+}

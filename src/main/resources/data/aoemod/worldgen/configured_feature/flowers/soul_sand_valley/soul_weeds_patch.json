@@ -1,6 +1,9 @@
 {
-  "type": "aoemod:chunk_patch",
+  "type": "minecraft:random_patch",
   "config": {
+    "tries": 32,
+    "xz_spread": 5,
+    "y_spread": 2,
     "feature": {
       "feature": {
         "type": "minecraft:simple_block",
@@ -33,9 +36,6 @@
           }
         }
       ]
-    },
-    "count": 32,
-    "xz_spread": 8,
-    "y_spread": 1
+    }
   }
 }

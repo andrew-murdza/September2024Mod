@@ -1,0 +1,9 @@
+{
+  "status": "passed",
+  "buildLog": "tmp/nov8-worldgen-followup/build-final-3.log",
+  "build": "build prepareStandaloneClient",
+  "dataLog": "tmp/nov8-worldgen-followup/data-final.log",
+  "dataGeneration": "runData",
+  "generatedDataFilesWritten": 0,
+  "artifactSha256": "716174ceacc06138c3464ef3ea422fa407c76cdf66c47192c81f841c43c24532"
+}

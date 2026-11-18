@@ -7,7 +7,6 @@ import net.minecraft.tags.BlockTags;
 import net.minecraft.tags.FluidTags;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
-import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
@@ -41,22 +40,32 @@ public final class BiomePlacementRestrictions {
     private BiomePlacementRestrictions() { }
 
     public static boolean isAllowed(LevelReader level, BlockPos pos, BlockState state) {
-        if (!GameplayDimensions.isCustom(level) || state.isAir()) return true;
+        if (state.isAir()) return true;
+        if (!GameplayDimensions.isCustom(level)) return !RetainedContent.isRemovedBygBlock(ForgeRegistries.BLOCKS.getKey(state.getBlock()));
+        return isAvailableInDimension(level, state)
+                && DocumentedPlacementRules.isBiomeAllowed(level, pos, state, GrowthPlacementContext.isGrowing());
+    }
+
+    private static boolean isAvailableInDimension(LevelReader level, BlockState state) {
         int dimension = dimensionMask(level);
         if (dimension == NETHER && state.getFluidState().is(FluidTags.WATER)) return false;
         if ((dimension & (SNOWY | DESERT | NETHER)) == 0 && state.getFluidState().is(FluidTags.LAVA)) return false;
         if ((allowedMask(state.getBlock()) & dimension) == 0) return false;
+        if (RetainedContent.placementMask(ForgeRegistries.BLOCKS.getKey(state.getBlock())) != null) return true;
         if (state.is(Blocks.NOTE_BLOCK)) return true;
         if (DocumentedPlacementRules.isPortal(state.getBlock())) return true;
-        if (!DocumentedPlacementRules.isBiomeAllowed(level, pos, state, GrowthPlacementContext.isGrowing())) return false;
         Item item = materialItem(state.getBlock());
         return DimensionMaterialAvailability.isAvailable(level, item, dimension);
     }
 
-    public static Optional<Component> placementFailureMessage(Level level, BlockPos pos, BlockState state) {
+    public static Optional<Component> placementFailureMessage(LevelReader level, BlockPos pos, BlockState state) {
         if (isAllowed(level, pos, state)) return Optional.empty();
+        String habitat = isAvailableInDimension(level, state)
+                ? DocumentedPlacementRules.requiredBiomes(level, state, GrowthPlacementContext.isGrowing())
+                        .map(names -> " outside " + names).orElse("")
+                : "";
         return Optional.of(Component.literal(state.getBlock().getName().getString() + " is not available in "
-                + level.dimension().location().getPath().replace('_', ' ') + " at this biome."));
+                + GameplayDimensions.dimension(level).location().getPath().replace('_', ' ') + habitat + "."));
     }
 
     public static int dimensionMask(LevelReader level) {
@@ -97,6 +106,8 @@ public final class BiomePlacementRestrictions {
         }
         ResourceLocation id = ForgeRegistries.BLOCKS.getKey(block);
         if (id == null) return ALL;
+        Integer retained = RetainedContent.placementMask(id);
+        if (retained != null) return retained;
         if (id.getNamespace().equals("snowrealmagic")) return SNOWY;
         String p = id.getPath();
         BlockState state = block.defaultBlockState();
@@ -133,9 +144,11 @@ public final class BiomePlacementRestrictions {
         if (p.equals("fire") || p.equals("soul_fire")) return ALL & ~TROPICAL;
         if (p.equals("lava") || p.equals("lava_cauldron")) return DESERT | NETHER;
         if (p.equals("beetroots")) return TROPICAL | SAVANNA | PLAINS | SNOWY;
-        if (p.equals("wheat") || p.equals("carrots") || p.equals("potatoes") || p.equals("sunflower")) return TROPICAL | SAVANNA | PLAINS;
+        if (p.equals("wheat")) return TROPICAL | SAVANNA | PLAINS | SNOWY;
+        if (p.equals("carrots") || p.equals("potatoes") || p.equals("sunflower")) return TROPICAL | SAVANNA | PLAINS;
         if (p.equals("frogspawn") || p.equals("firefly_bush")) return TROPICAL;
-        if (p.equals("red_shrub")) return NETHER;
+        if (p.equals("red_shrub")) return SNOWY;
+        if (p.equals("shelf_mushroom")) return TROPICAL | SNOWY;
         if (p.startsWith("twisting_vines") || p.startsWith("weeping_vines")) return NETHER;
         if (p.startsWith("cave_vines") || p.equals("attached_melon_stem")) return TROPICAL;
         if (p.equals("budding_tomatoes") || p.equals("rice_panicles")
@@ -147,18 +160,18 @@ public final class BiomePlacementRestrictions {
         if (p.equals("bell")) return PLAINS | SNOWY | DESERT;
         if (p.equals("ancient_debris")) return DESERT | NETHER;
         if (p.contains("terracotta") || p.contains("cinnabar")) return DESERT;
-        if (p.contains("sulfur")) return NETHER;
+        if (p.contains("sulfur")) return DESERT | NETHER;
         if (p.contains("amethyst") || p.equals("snow") || p.equals("snow_block") || p.equals("powder_snow") || p.equals("powder_snow_cauldron")
                 || p.startsWith("snow_brick") || p.startsWith("ice_brick")
                 || p.equals("ice") || p.endsWith("_ice") || p.contains("prismarine") || p.equals("sea_lantern")
                 || p.contains("dripstone") || p.equals("calcite")) return SNOWY;
-        if (p.equals("polished_basalt")) return SNOWY | DESERT | NETHER;
+        if (p.equals("smooth_basalt") || p.equals("polished_basalt")) return SNOWY | DESERT | NETHER;
         if (p.equals("clay")) return PLAINS;
         if (p.equals("mud") || p.equals("muddy_mangrove_roots")) return SAVANNA | SNOWY;
         if (p.equals("red_sand") || p.contains("red_sandstone")) return DESERT | NETHER;
         if (p.equals("sand") || p.equals("suspicious_sand") || p.equals("suspicious_gravel")) return PLAINS | SNOWY | DESERT;
         if (p.equals("coarse_dirt")) return PLAINS | SNOWY;
-        if (p.equals("podzol")) return SNOWY;
+        if (p.equals("podzol")) return PLAINS | SNOWY;
         if (p.equals("stone") || p.equals("cobblestone") || p.equals("andesite") || p.equals("diorite") || p.equals("granite") || p.equals("gravel")) return PLAINS | SNOWY | DESERT;
         if (p.equals("deepslate") || p.equals("cobbled_deepslate") || p.equals("reinforced_deepslate") || p.equals("infested_deepslate") || p.equals("tuff")) return SNOWY | DESERT;
         if (p.startsWith("infested_")) return PLAINS | SNOWY | DESERT;
@@ -211,8 +224,8 @@ public final class BiomePlacementRestrictions {
     private static boolean isLivingNetherPlant(String p) {
         return p.equals("crimson_fungus") || p.equals("crimson_roots") || p.startsWith("weeping_vines")
                 || p.equals("warped_fungus") || p.equals("warped_roots") || p.startsWith("twisting_vines")
-                || p.equals("nether_sprouts") || p.equals("nether_wart") || p.equals("soul_berry_bush") || p.equals("soul_beetroots")
+                || p.equals("nether_sprouts") || p.equals("nether_wart") || p.equals("soul_beetroots")
                 || p.equals("pale_oak_sapling") || p.contains("eyeblossom") || p.equals("pale_hanging_moss")
-                || p.equals("soul_weeds") || p.equals("red_shrub");
+                || p.equals("soul_weeds");
     }
 }

@@ -5,6 +5,8 @@ import net.amurdza.examplemod.registry.ModBlocks;
 import net.amurdza.examplemod.config.BoneMealConfig;
 import net.amurdza.examplemod.util.Helper;
 import net.amurdza.examplemod.util.GameplayDimensions;
+import net.amurdza.examplemod.util.WildCropBalance;
+import net.amurdza.examplemod.worldgen.TropicalCoralReefs;
 import net.amurdza.examplemod.block.BlockHelper;
 import net.amurdza.examplemod.util.ModTags;
 import net.amurdza.examplemod.registry.ModConfiguredFeatures;
@@ -12,9 +14,7 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.Holder;
 import net.minecraft.core.registries.Registries;
-import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.ResourceKey;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
@@ -37,6 +37,8 @@ import net.minecraft.world.level.gameevent.GameEvent;
 import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
 import net.minecraft.world.level.material.FluidState;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent;
+import net.minecraftforge.event.entity.player.BonemealEvent;
+import net.minecraftforge.eventbus.api.Event;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import org.violetmoon.quark.content.world.module.GlimmeringWealdModule;
@@ -48,7 +50,6 @@ import java.util.function.Function;
 
 @Mod.EventBusSubscriber(modid = AOEMod.MOD_ID, bus=Mod.EventBusSubscriber.Bus.FORGE)
 public class BoneMeal {
-    private static final ResourceLocation RED_SHRUB = new ResourceLocation("minecraft", "red_shrub");
 
     @SubscribeEvent
     public static void onRightClickBlock(PlayerInteractEvent.RightClickBlock event) {
@@ -88,6 +89,11 @@ public class BoneMeal {
         // Play the bone meal sound + particles ONCE.
         playBonemealEffectsOnce(level, pos, event);
 
+        if (WildCropBalance.isWildCrop(state)) {
+            WildCropBalance.spread(level, pos, level.random);
+            return;
+        }
+
         // Compute the number of attempts using the dimension's multiplier.
         float mult = getDimensionMultiplier(level, pos);
 
@@ -106,6 +112,21 @@ public class BoneMeal {
             // If we did nothing this iteration, stop early.
             if (!applyOnce(level,pos)) break;
         }
+    }
+
+    /** Dispensers and other callers of BoneMealItem must use the same single roll. */
+    @SubscribeEvent
+    public static void onWildCropBonemeal(BonemealEvent event) {
+        if (TropicalCoralReefs.coralFamily(event.getBlock()) != null) {
+            if (event.getLevel() instanceof ServerLevel level) TropicalCoralReefs.growFromCoral(level, event.getPos(), level.random);
+            event.setResult(Event.Result.ALLOW);
+            return;
+        }
+        if (!WildCropBalance.isWildCrop(event.getBlock())) return;
+        if (event.getLevel() instanceof ServerLevel level) {
+            WildCropBalance.spread(level, event.getPos(), level.random);
+        }
+        event.setResult(Event.Result.ALLOW);
     }
 
 // ----------------------------
@@ -185,8 +206,9 @@ public class BoneMeal {
      */
     private static boolean isEligibleBonemealTarget(ServerLevel level, BlockPos pos, BlockState state) {
         Block block = state.getBlock();
+        if (WildCropBalance.isWildCrop(state) || TropicalCoralReefs.coralFamily(state) != null) return true;
 
-        // The backport's native shrub fertilizer action is disabled; use AOE's crimson-root spread instead.
+        // Crimson roots use the custom spread action; red shrubs keep their native behavior.
         if (isCrimsonRootLike(block)) return true;
 
         if (state.is(Blocks.MYCELIUM)) {
@@ -197,8 +219,6 @@ public class BoneMeal {
         if(block instanceof BonemealableBlock block1){
             return block1.isValidBonemealTarget(level,pos,state,false);
         }
-
-        if (isLiveCoralPlantOrFan(block)) return true;
 
         if (state.is(ModTags.Blocks.duplicatedByBonemeal)) return true;
 
@@ -242,7 +262,7 @@ public class BoneMeal {
     }
 
     private static boolean isCrimsonRootLike(Block block) {
-        return block == Blocks.CRIMSON_ROOTS || RED_SHRUB.equals(BuiltInRegistries.BLOCK.getKey(block));
+        return block == Blocks.CRIMSON_ROOTS;
     }
 
     // ----------------------------
@@ -253,9 +273,8 @@ public class BoneMeal {
         BlockState state = level.getBlockState(pos);
         Block block = state.getBlock();
 
-        if (isLiveCoralPlantOrFan(block)) {
-            growFlowers(level, pos);
-            return true;
+        if (TropicalCoralReefs.coralFamily(state) != null) {
+            return TropicalCoralReefs.growFromCoral(level, pos, level.random);
         }
 
         if (state.is(ModTags.Blocks.duplicatedByBonemeal)) {
@@ -437,19 +456,6 @@ public class BoneMeal {
         return true;
     }
 
-    private static boolean isLiveCoralPlantOrFan(Block block) {
-        return block == Blocks.TUBE_CORAL
-                || block == Blocks.TUBE_CORAL_FAN
-                || block == Blocks.BRAIN_CORAL
-                || block == Blocks.BRAIN_CORAL_FAN
-                || block == Blocks.BUBBLE_CORAL
-                || block == Blocks.BUBBLE_CORAL_FAN
-                || block == Blocks.FIRE_CORAL
-                || block == Blocks.FIRE_CORAL_FAN
-                || block == Blocks.HORN_CORAL
-                || block == Blocks.HORN_CORAL_FAN;
-    }
-
     public static void growFlowers(Level world, BlockPos pos) {
         BlockState state = world.getBlockState(pos);
 
@@ -620,6 +626,11 @@ public class BoneMeal {
             } else if (isCorrectLiquid(replaceState, features.lava())) {
                 if (!level.getBlockState(groundPos).isFaceSturdy(level, groundPos, Direction.UP)) continue;
 
+                if (GameplayDimensions.is(level, GameplayDimensions.SNOWY)
+                        && net.amurdza.examplemod.worldgen.SnowyLakeVegetation.usesDeepPalette(level, target)) {
+                    net.amurdza.examplemod.worldgen.DocumentedFloraFeature.placeDeepWaterPlant(level, target, random);
+                    continue;
+                }
                 boolean liquidAbove = isCorrectLiquid(aboveState, features.lava());
                 featureKey = liquidAbove ? features.fullLiquid() : features.shallowLiquid();
             } else {

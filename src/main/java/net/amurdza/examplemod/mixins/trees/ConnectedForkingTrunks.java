@@ -1,111 +1,82 @@
 package net.amurdza.examplemod.mixins.trees;
 
+import com.llamalad7.mixinextras.injector.wrapmethod.WrapMethod;
+import com.llamalad7.mixinextras.injector.wrapoperation.Operation;
+import com.llamalad7.mixinextras.injector.ModifyExpressionValue;
+import com.llamalad7.mixinextras.sugar.Local;
+import net.amurdza.examplemod.worldgen.TreeLogConnections;
 import net.minecraft.core.BlockPos;
-import net.minecraft.core.Direction;
+import net.minecraft.tags.BlockTags;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.LevelSimulatedReader;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.levelgen.feature.TreeFeature;
 import net.minecraft.world.level.levelgen.feature.configurations.TreeConfiguration;
 import net.minecraft.world.level.levelgen.feature.foliageplacers.FoliagePlacer;
 import net.minecraft.world.level.levelgen.feature.trunkplacers.ForkingTrunkPlacer;
 import net.minecraft.world.level.levelgen.feature.trunkplacers.TrunkPlacer;
 import org.spongepowered.asm.mixin.Mixin;
-import org.spongepowered.asm.mixin.Overwrite;
+import org.spongepowered.asm.mixin.injection.At;
 
-import java.util.ArrayList;
+import java.util.LinkedHashMap;
+import java.util.LinkedHashSet;
 import java.util.List;
-import java.util.OptionalInt;
 import java.util.function.BiConsumer;
 
+/** Keep acacias face-connected without low bends or redundant hanging logs. */
 @Mixin(ForkingTrunkPlacer.class)
 public abstract class ConnectedForkingTrunks extends TrunkPlacer {
-    public ConnectedForkingTrunks(int baseHeight, int heightRandA, int heightRandB) {
-        super(baseHeight, heightRandA, heightRandB);
+    protected ConnectedForkingTrunks(int height, int a, int b) { super(height, a, b); }
+
+    @ModifyExpressionValue(method = "placeTrunk", at = @At(value = "INVOKE", target =
+            "Lnet/minecraft/util/RandomSource;nextInt(I)I", ordinal = 0), require = 1)
+    private int aoemod$straightenOneBlockBase(int bendRoll, @Local(argsOnly = true) int height) {
+        // Vanilla starts bending at height - roll - 1. Move that start beyond
+        // the last trunk block when it would leave only a one-block stump.
+        return height - bendRoll - 1 <= 1 ? -1 : bendRoll;
     }
 
-    /**
-     * Adds a same-height connector log before every horizontal step so acacia
-     * forks connect face-to-face instead of only diagonally touching.
-     *
-     * @author amurdza
-     * @reason Acacia branches should not rely on diagonal-only log contact.
-     */
-    @Overwrite
-    public List<FoliagePlacer.FoliageAttachment> placeTrunk(
-            LevelSimulatedReader level,
-            BiConsumer<BlockPos, BlockState> blockSetter,
-            RandomSource random,
-            int freeTreeHeight,
-            BlockPos pos,
-            TreeConfiguration config
-    ) {
-        setDirtAt(level, blockSetter, random, pos.below(), config);
-        List<FoliagePlacer.FoliageAttachment> attachments = new ArrayList<>();
-        Direction direction = Direction.Plane.HORIZONTAL.getRandomDirection(random);
-        int bendStart = freeTreeHeight - random.nextInt(4) - 1;
-        int bendSteps = 3 - random.nextInt(3);
-        BlockPos.MutableBlockPos mutable = new BlockPos.MutableBlockPos();
-        int x = pos.getX();
-        int z = pos.getZ();
-        OptionalInt lastLogY = OptionalInt.empty();
+    @ModifyExpressionValue(method = "placeTrunk", at = @At(value = "INVOKE", target =
+            "Lnet/minecraft/util/RandomSource;nextInt(I)I", ordinal = 2), require = 1)
+    private int aoemod$skipOneBlockSideFork(int forkRoll, @Local(argsOnly = true) int height,
+                                          @Local(ordinal = 1) int bendStart) {
+        // The secondary fork starts at bendStart - roll - 1. A low fork
+        // must not recreate the one-block stump beside an otherwise valid trunk.
+        return bendStart - forkRoll - 1 <= 1 ? bendStart - height - 1 : forkRoll;
+    }
 
-        for (int yOffset = 0; yOffset < freeTreeHeight; ++yOffset) {
-            int y = pos.getY() + yOffset;
-            int previousX = x;
-            int previousZ = z;
-            boolean stepped = false;
-
-            if (yOffset >= bendStart && bendSteps > 0) {
-                x += direction.getStepX();
-                z += direction.getStepZ();
-                --bendSteps;
-                stepped = true;
-            }
-
-            if (stepped) {
-                this.placeLog(level, blockSetter, random, mutable.set(previousX, y, previousZ), config);
-            }
-
-            if (this.placeLog(level, blockSetter, random, mutable.set(x, y, z), config)) {
-                lastLogY = OptionalInt.of(y + 1);
+    @WrapMethod(method = "placeTrunk")
+    private List<FoliagePlacer.FoliageAttachment> aoemod$connectNativeForks(LevelSimulatedReader level,
+            BiConsumer<BlockPos, BlockState> setter, RandomSource random, int height, BlockPos origin,
+            TreeConfiguration config, Operation<List<FoliagePlacer.FoliageAttachment>> original) {
+        var pending = new LinkedHashMap<BlockPos, BlockState>();
+        // Native forking limbs do not cross; stage their writes until the final
+        // log graph is known so removed logs never reach TreeFeature's decorators.
+        var foliage = original.call(level, (BiConsumer<BlockPos, BlockState>) (pos, state) -> {
+            pending.put(pos.immutable(), state);
+        }, random, height, origin, config);
+        var logs = new LinkedHashSet<BlockPos>();
+        pending.forEach((pos, state) -> { if (state.is(BlockTags.LOGS)) logs.add(pos); });
+        for (BlockPos bridge : TreeLogConnections.connectors(logs, pos -> TreeFeature.validTreePos(level, pos),
+                pos -> level.isStateAtPosition(pos, state -> state.is(BlockTags.LEAVES))
+                        || foliage.stream().anyMatch(attachment -> {
+                            BlockPos crown = attachment.pos();
+                            // Acacia's two lower canopy layers surround this attachment.
+                            return pos.getY() >= crown.getY() - 1 && pos.getY() <= crown.getY()
+                                    && Math.abs(pos.getX() - crown.getX()) <= 2
+                                    && Math.abs(pos.getZ() - crown.getZ()) <= 2;
+                        }))) {
+            if (placeLog(level, (pos, state) -> pending.put(pos.immutable(), state), random, bridge, config)) {
+                logs.add(bridge);
             }
         }
-
-        if (lastLogY.isPresent()) {
-            attachments.add(new FoliagePlacer.FoliageAttachment(new BlockPos(x, lastLogY.getAsInt(), z), 1, false));
-        }
-
-        x = pos.getX();
-        z = pos.getZ();
-        Direction branchDirection = Direction.Plane.HORIZONTAL.getRandomDirection(random);
-        if (branchDirection != direction) {
-            int branchStart = bendStart - random.nextInt(2) - 1;
-            int branchSteps = 1 + random.nextInt(3);
-            lastLogY = OptionalInt.empty();
-
-            for (int yOffset = branchStart; yOffset < freeTreeHeight && branchSteps > 0; --branchSteps) {
-                if (yOffset >= 1) {
-                    int y = pos.getY() + yOffset;
-                    int previousX = x;
-                    int previousZ = z;
-                    x += branchDirection.getStepX();
-                    z += branchDirection.getStepZ();
-
-                    this.placeLog(level, blockSetter, random, mutable.set(previousX, y, previousZ), config);
-
-                    if (this.placeLog(level, blockSetter, random, mutable.set(x, y, z), config)) {
-                        lastLogY = OptionalInt.of(y + 1);
-                    }
-                }
-
-                ++yOffset;
-            }
-
-            if (lastLogY.isPresent()) {
-                attachments.add(new FoliagePlacer.FoliageAttachment(new BlockPos(x, lastLogY.getAsInt(), z), 0, false));
-            }
-        }
-
-        return attachments;
+        var retained = new LinkedHashSet<BlockPos>();
+        retained.add(origin);
+        foliage.forEach(attachment -> retained.add(attachment.pos().below()));
+        var finalLogs = TreeLogConnections.withoutRedundantLowerLogs(logs, retained);
+        pending.forEach((pos, state) -> {
+            if (!state.is(BlockTags.LOGS) || finalLogs.contains(pos)) setter.accept(pos, state);
+        });
+        return foliage;
     }
 }

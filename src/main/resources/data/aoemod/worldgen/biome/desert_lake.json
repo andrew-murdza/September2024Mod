@@ -1,0 +1,83 @@
+{
+  "carvers": {},
+  "downfall": 0,
+  "effects": {
+    "fog_color": 12638463,
+    "mood_sound": {
+      "block_search_extent": 8,
+      "offset": 2,
+      "sound": "minecraft:ambient.cave",
+      "tick_delay": 6000
+    },
+    "music": {
+      "max_delay": 24000,
+      "min_delay": 12000,
+      "replace_current_music": false,
+      "sound": "minecraft:music.overworld.desert"
+    },
+    "sky_color": 7254527,
+    "water_color": 4159204,
+    "water_fog_color": 329011
+  },
+  "features": [
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [
+      "aoemod:dimension_blobs/desert/andesite",
+      "aoemod:dimension_blobs/desert/diorite",
+      "aoemod:dimension_blobs/desert/granite",
+      "aoemod:dimension_blobs/desert/cinnabar",
+      "aoemod:dimension_blobs/desert/sulfur",
+      "aoemod:dimension_blobs/desert/tuff",
+      "aoemod:dimension_ores/desert/coal",
+      "aoemod:dimension_ores/desert/coal_stone_bonus",
+      "aoemod:dimension_ores/desert/coal_upper",
+      "aoemod:dimension_ores/desert/coal_deep",
+      "aoemod:dimension_ores/desert/copper",
+      "aoemod:dimension_ores/desert/copper_deep",
+      "aoemod:dimension_ores/desert/gold_deep",
+      "aoemod:dimension_ores/desert/gold_upper",
+      "aoemod:dimension_ores/desert/redstone",
+      "aoemod:dimension_ores/desert/redstone_deep"
+    ],
+    [],
+    [],
+    [
+      "aoemod:mountains/forest_floor",
+      "aoemod:desert/forest_floor",
+      "aoemod:mountains/seafloor",
+      "aoemod:desert/seafloor"
+    ],
+    []
+  ],
+  "has_precipitation": false,
+  "spawn_costs": {},
+  "spawners": {
+    "ambient": [],
+    "axolotls": [],
+    "creature": [],
+    "misc": [],
+    "monster": [
+      {
+        "type": "minecraft:husk",
+        "maxCount": 4,
+        "minCount": 4,
+        "weight": 100
+      },
+      {
+        "type": "minecraft:parched",
+        "maxCount": 4,
+        "minCount": 4,
+        "weight": 100
+      }
+    ],
+    "underground_water_creature": [],
+    "water_ambient": [],
+    "water_creature": []
+  },
+  "temperature": 2
+}

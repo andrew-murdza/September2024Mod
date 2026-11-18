@@ -25,6 +25,10 @@
     "default_feature": "aoemod:nothing",
     "placement": [
       {
+        "type": "minecraft:heightmap",
+        "heightmap": "WORLD_SURFACE_WG"
+      },
+      {
         "type": "minecraft:block_predicate_filter",
         "predicate": {
           "type": "minecraft:matching_blocks",
@@ -33,7 +37,7 @@
             -1,
             0
           ],
-          "blocks": "minecraft:sand"
+          "blocks": ["minecraft:sand", "minecraft:red_sand"]
         }
       }
     ],

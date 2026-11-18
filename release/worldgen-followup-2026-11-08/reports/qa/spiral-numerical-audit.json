@@ -1,0 +1,13 @@
+{
+  "status": "passed",
+  "scope": "offline equation audit; not a Minecraft runtime test",
+  "parameter_paths": 14241,
+  "maximum_x_displacement": 163.81866290935503,
+  "maximum_z_displacement": 151.65114445113687,
+  "search_bound": 192,
+  "seeded_routes": 25,
+  "mouth_position_bins": 24,
+  "mouth_heading_bins": 7,
+  "supported_center_samples": 5975,
+  "constant_test_surface_height": 96.04013301422472
+}

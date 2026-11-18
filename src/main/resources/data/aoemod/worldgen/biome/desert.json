@@ -30,10 +30,11 @@
       "aoemod:dimension_blobs/desert/andesite",
       "aoemod:dimension_blobs/desert/diorite",
       "aoemod:dimension_blobs/desert/granite",
-      "aoemod:dimension_blobs/desert/terracotta",
       "aoemod:dimension_blobs/desert/cinnabar",
+      "aoemod:dimension_blobs/desert/sulfur",
       "aoemod:dimension_blobs/desert/tuff",
       "aoemod:dimension_ores/desert/coal",
+      "aoemod:dimension_ores/desert/coal_stone_bonus",
       "aoemod:dimension_ores/desert/coal_upper",
       "aoemod:dimension_ores/desert/coal_deep",
       "aoemod:dimension_ores/desert/copper",
@@ -89,14 +90,7 @@
       }
     ],
     "underground_water_creature": [],
-    "water_ambient": [
-      {
-        "type": "aoemod:end_fish",
-        "weight": 15,
-        "minCount": 8,
-        "maxCount": 8
-      }
-    ],
+    "water_ambient": [],
     "water_creature": []
   },
   "temperature": 2

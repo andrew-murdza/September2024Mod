@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:flat_cache",
+  "argument": {
+    "type": "aoemod:mountain_lake_offset",
+    "offset": "aoemod:snowy/vanilla_offset",
+    "ridges": "aoemod:snowy/ridges",
+    "continents": "aoemod:snowy/continents",
+    "erosion": "aoemod:snowy/erosion"
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "passed": true,
+  "version": 8,
+  "chests": 36,
+  "beds": 72,
+  "pens": 8,
+  "crop_ponds": 28,
+  "mud_columns": 448,
+  "regular_posts": 108,
+  "skulls": 60,
+  "checks": [
+    "eight-wide roads",
+    "sealed square wall",
+    "six skulls and three-wide pillars per gateway",
+    "12 crop rows",
+    "hydrated farmland",
+    "one-deep ponds with one submerged and two dry cane sections",
+    "four four-wide gates per pen",
+    "corrected 12-block tents and 16-clear-block gaps",
+    "six-clear-block post gaps",
+    "24x24 pen interiors",
+    "8x8 pen ponds",
+    "eight-block tent-to-farm gap",
+    "four corner podzol patches removed",
+    "legacy v4 and v7 unchanged"
+  ]
+}

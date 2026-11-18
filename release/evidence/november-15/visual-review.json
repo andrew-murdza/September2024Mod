@@ -1,0 +1,112 @@
+{
+  "passed": true,
+  "reviewed_at": "2026-11-16T00:22:08.445Z",
+  "views": [
+    {
+      "label": "mansion-full-third-floor-slab-roof",
+      "passed": true,
+      "notes": "Three complete storeys; continuous oak slab roof with clean stepped edges and no holes.",
+      "path": "C:/Users/andre/Downloads/Games/September2024Mod/build/nov15-iteration/visuals/client-b/screenshots/mansion-full-third-floor-slab-roof.png"
+    },
+    {
+      "label": "mansion-foyer-raised-floor-connection",
+      "passed": true,
+      "notes": "Connected stair landing, continuous carpet border and clear headroom.",
+      "path": "C:/Users/andre/Downloads/Games/September2024Mod/build/nov15-iteration/visuals/client-b/screenshots/mansion-foyer-raised-floor-connection.png"
+    },
+    {
+      "label": "mansion-revised-cellar",
+      "passed": true,
+      "notes": "Wide enclosed hall with regular lantern rows and open side doorways.",
+      "path": "C:/Users/andre/Downloads/Games/September2024Mod/build/nov15-iteration/visuals/client-b/screenshots/mansion-revised-cellar.png"
+    },
+    {
+      "label": "mansion-oak-posts-and-carpet-corners",
+      "passed": true,
+      "notes": "Oak posts and white/red carpet render cleanly. This close view shows a straight border; diagonal corner adjacency is covered by structure checks.",
+      "path": "C:/Users/andre/Downloads/Games/September2024Mod/build/nov15-iteration/visuals/client-b/screenshots/mansion-oak-posts-and-carpet-corners.png"
+    },
+    {
+      "label": "mansion-authored-mushrooms-and-mines",
+      "passed": true,
+      "notes": "Authored mushroom plot, contained water, adjacent side openings and twin mineshaft openings render correctly.",
+      "path": "C:/Users/andre/Downloads/Games/September2024Mod/build/nov15-iteration/visuals/client-b/screenshots/mansion-authored-mushrooms-and-mines.png"
+    },
+    {
+      "label": "mansion-authored-pens",
+      "passed": true,
+      "notes": "Cow pen retains hay and water, with a gated connection to the neighboring chicken pen.",
+      "path": "C:/Users/andre/Downloads/Games/September2024Mod/build/nov15-iteration/visuals/client-b/screenshots/mansion-authored-pens.png"
+    },
+    {
+      "label": "yak-native-donkey-panniers",
+      "passed": true,
+      "notes": "Side-by-side native donkey and yak show matching chest shape, atlas and scale; chest is attached flush to yak torso.",
+      "path": "C:/Users/andre/Downloads/Games/September2024Mod/build/nov15-iteration/visuals/client-b/screenshots/yak-native-donkey-panniers.png"
+    },
+    {
+      "label": "fiddler-native-purple",
+      "passed": true,
+      "notes": "Former purple variant has an orange shell matching legs; underside is visibly connected rather than sand-colored.",
+      "path": "C:/Users/andre/Downloads/Games/September2024Mod/build/nov15-iteration/visuals/client-b/screenshots/fiddler-native-purple.png"
+    },
+    {
+      "label": "fiddler-native-red",
+      "passed": true,
+      "notes": "Former reddish variant uses the same warm shell/underside as its legs; blue control variant remains blue.",
+      "path": "C:/Users/andre/Downloads/Games/September2024Mod/build/nov15-iteration/visuals/client-b/screenshots/fiddler-native-red.png"
+    },
+    {
+      "label": "desert-cut-stone-natural-rim",
+      "passed": true,
+      "notes": "Visible entrance is stone only along the excavated hollow; surrounding orange/brown terracotta slopes and natural rim remain intact.",
+      "path": "C:/Users/andre/Downloads/Games/September2024Mod/build/nov15-iteration/visuals/client-b/screenshots/desert-cut-stone-natural-rim.png"
+    },
+    {
+      "label": "camp_overhead",
+      "passed": true,
+      "notes": "Square camp, nine widely spaced tents, continuous crop belt, podzol road margins, paired perimeter pens and broad inner/outer roads are visible.",
+      "path": "C:/Users/andre/Downloads/Games/September2024Mod/build/nov15-iteration/visuals/client-d/screenshots/camp_overhead.png"
+    },
+    {
+      "label": "camp_pens",
+      "passed": true,
+      "notes": "Large fenced grass pens with centered square ponds and hay; roads separate pens from crops and palisade. Live animals are inside the pens.",
+      "path": "C:/Users/andre/Downloads/Games/September2024Mod/build/nov15-iteration/visuals/client-d/screenshots/camp_pens.png"
+    },
+    {
+      "label": "camp-twelve-row-crops-and-submerged-cane",
+      "passed": true,
+      "notes": "Ordered crop strips and repeated four-square water ponds render correctly with cane entirely submerged; tent approaches and podzol margins stay clear.",
+      "path": "C:/Users/andre/Downloads/Games/September2024Mod/build/nov15-iteration/visuals/client-d/screenshots/camp-twelve-row-crops-and-submerged-cane.png"
+    },
+    {
+      "label": "camp_gate",
+      "passed": true,
+      "notes": "Native log gate decoration retained, wide continuous path runs into the camp, and adjacent palisade and pen joins are clean.",
+      "path": "C:/Users/andre/Downloads/Games/September2024Mod/build/nov15-iteration/visuals/client-d/screenshots/camp_gate.png"
+    },
+    {
+      "label": "rainforest-final-bamboo",
+      "passed": true,
+      "notes": "Bamboo rises from the green forest floor and stops beneath solid logs/leaves. Cherry foliage and moved lilacs coexist with the rainforest canopy.",
+      "path": "C:/Users/andre/Downloads/Games/September2024Mod/build/nov15-iteration/visuals/client-c2/screenshots/rainforest-final-bamboo.png"
+    },
+    {
+      "label": "smaller-tropical-island",
+      "passed": true,
+      "notes": "Lower coastal view clearly shows compact rainforest with interspersed cherry foliage, a narrow dry mangrove margin, submerged mangrove band and shallow outer water. Far-side detail remains naturally fog-limited; exact widths/radius are covered by generation tests.",
+      "path": "C:/Users/andre/Downloads/Games/September2024Mod/build/nov15-iteration/visuals/client-c2-coast/screenshots/smaller-tropical-island.png"
+    }
+  ],
+  "rejected_captures": [
+    {
+      "path": "C:/Users/andre/Downloads/Games/September2024Mod/build/nov15-iteration/visuals/client-c2/screenshots/smaller-tropical-island.png",
+      "reason": "Camera at Y255 was outside the useful render-distance view of the terrain; replaced by lower coastal capture. This is a rejected QA viewpoint, not a terrain failure."
+    }
+  ],
+  "limitations": [
+    "Screenshots demonstrate selected geometry and rendering; numerical dimensions, counts, lighting, population persistence and collision are checked separately by GameTests.",
+    "The duplicate B asset audit failed before entity-dispatcher camera initialization. The complete smoke asset audit passed on byte-identical runtime files."
+  ]
+}

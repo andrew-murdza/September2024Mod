@@ -1,0 +1,35 @@
+{
+  "status": "passed",
+  "started": "2026-11-16T00:21:10.587287900Z",
+  "elapsedMillis": 17731,
+  "requestedViews": 1,
+  "completedViews": 1,
+  "views": [
+    {
+      "label": "smaller-tropical-island",
+      "dimension": "aoemod:tropical_dimension",
+      "x": 306010.7910685664,
+      "y": 145.0,
+      "z": 334585.38453824166,
+      "yaw": 180.0,
+      "pitch": 38.0,
+      "settledClientTicks": 120,
+      "readyChunkRadius": 8,
+      "terrainReadiness": "surrounding chunks arrived and terrain build queue is idle",
+      "tropicalClientBiomeAudit": {
+        "layoutSynchronized": true,
+        "radiusBlocks": 48,
+        "columnsChecked": 9409,
+        "altitudeComparisons": 9409,
+        "terrainHeightComparisons": 2129,
+        "mangroveColumns": 2129,
+        "rainforestColumns": 0,
+        "coralColumns": 7280,
+        "cherryColumns": 0
+      },
+      "width": 1440,
+      "height": 1000,
+      "path": "C:\\Users\\andre\\Downloads\\Games\\September2024Mod\\build\\nov15-iteration\\visuals\\client-c2-coast\\screenshots\\smaller-tropical-island.png"
+    }
+  ]
+}

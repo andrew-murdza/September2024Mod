@@ -54,36 +54,7 @@ public final class ReloadResourceCompatibilityTests {
     }
 
     @GameTest(template = "plant_gameplay_empty")
-    public static void floralFlairBlockLootPreservesFlowersPotsAndTallHalves(GameTestHelper helper) {
-        int checked = 0;
-        for (ResourceLocation id : BuiltInRegistries.BLOCK.keySet()) {
-            if (!id.getNamespace().equals("floral_flair")) continue;
-            Block block = BuiltInRegistries.BLOCK.get(id);
-            var table = helper.getLevel().getServer().getLootData().getLootTable(block.getLootTable());
-            helper.assertTrue(table.getParamSet() == LootContextParamSets.BLOCK,
-                    "Floral Flair block loot must use the block context: " + id);
-            checked++;
-        }
-        helper.assertTrue(checked == 45, "All 45 installed Floral Flair block tables must be exercised");
-        Item foxnip = item("floral_flair:foxnip");
-        List<ItemStack> flower = drops(helper, block("floral_flair:foxnip"), ItemStack.EMPTY, 1);
-        helper.assertTrue(count(flower, foxnip) == 1 && total(flower) == 1,
-                "A single flower must still drop exactly one matching item");
-        List<ItemStack> potted = drops(helper, block("floral_flair:potted_foxnip"), ItemStack.EMPTY, 1);
-        helper.assertTrue(count(potted, foxnip) == 1 && count(potted, Items.FLOWER_POT) == 1 && total(potted) == 2,
-                "Breaking a potted flower must preserve both its flower and pot");
-        BlockState tall = block("floral_flair:fairy_blossom");
-        helper.assertTrue(count(drops(helper, tall.setValue(BlockStateProperties.DOUBLE_BLOCK_HALF,
-                        DoubleBlockHalf.LOWER), ItemStack.EMPTY, 1), item("floral_flair:fairy_blossom")) == 1,
-                "The lower tall-flower half must supply its one drop");
-        helper.assertTrue(drops(helper, tall.setValue(BlockStateProperties.DOUBLE_BLOCK_HALF,
-                        DoubleBlockHalf.UPPER), ItemStack.EMPTY, 1).isEmpty(),
-                "The upper tall-flower half must not duplicate its drop");
-        helper.succeed();
-    }
-
-    @GameTest(template = "plant_gameplay_empty")
-    public static void repairedWildCropLootPreservesToolsAndFortune(GameTestHelper helper) {
+    public static void repairedWildCropLootPreservesToolsAndNineSeedYield(GameTestHelper helper) {
         BlockState peanuts = block("hearthandharvest:wild_peanuts");
         List<ItemStack> harvested = drops(helper, peanuts, ItemStack.EMPTY, 1);
         helper.assertTrue(count(harvested, item("hearthandharvest:peanut")) == 1 && total(harvested) == 1,
@@ -98,19 +69,16 @@ public final class ReloadResourceCompatibilityTests {
         BlockState pineapple = block("pineapple_delight:pineapple_wild_crop");
         Item crop = item("pineapple_delight:pineapple_crop");
         List<ItemStack> basic = drops(helper, pineapple, ItemStack.EMPTY, 1);
-        helper.assertTrue(count(basic, crop) == 1 && total(basic) == 1,
-                "Removing an unreachable alternative must retain one pineapple crop without fortune");
+        helper.assertTrue(count(basic, crop) == 9 && total(basic) == 9,
+                "Wild pineapple must yield nine plantable crops without fortune");
         ItemStack fortune = new ItemStack(Items.DIAMOND_PICKAXE);
         fortune.enchant(Enchantments.BLOCK_FORTUNE, 3);
-        boolean sawBonus = false;
         for (long seed = 1; seed <= 32; seed++) {
             List<ItemStack> enriched = drops(helper, pineapple, fortune, seed);
             int amount = count(enriched, crop);
-            helper.assertTrue(amount >= 1 && amount <= 7 && total(enriched) == amount,
-                    "Fortune III must retain the original one-to-seven pineapple-crop yield");
-            sawBonus |= amount > 1;
+            helper.assertTrue(amount == 9 && total(enriched) == 9,
+                    "Fortune must not inflate the fixed nine-crop exploration reward");
         }
-        helper.assertTrue(sawBonus, "Fortune must still increase at least one tested crop harvest");
         helper.succeed();
     }
 

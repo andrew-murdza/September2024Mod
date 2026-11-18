@@ -12,9 +12,14 @@
     "S": {
       "item": "minecraft:stick"
     },
-    "F": {
-      "item": "minecraft:feather"
-    }
+    "F": [
+      {
+        "item": "minecraft:feather"
+      },
+      {
+        "item": "alexsmobs:emu_feather"
+      }
+    ]
   },
   "result": {
     "item": "aoemod:bone_arrow",

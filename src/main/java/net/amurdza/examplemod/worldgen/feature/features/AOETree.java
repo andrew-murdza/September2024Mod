@@ -5,6 +5,7 @@ import net.amurdza.examplemod.util.QuintConsumer;
 import net.amurdza.examplemod.util.SixConsumer;
 import net.amurdza.examplemod.worldgen.feature.configs.AOETreeConfiguration;
 import net.amurdza.examplemod.worldgen.AtomicTreeGrowth;
+import net.amurdza.examplemod.worldgen.CaveVinePlacement;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.util.RandomSource;
@@ -158,15 +159,11 @@ public class AOETree extends Feature<AOETreeConfiguration> {
             pos1.move(Direction.UP,1);
         }
         if(config.hasCaveVines){
-            BlockState caveVinesHead=Blocks.CAVE_VINES.defaultBlockState().setValue(BlockStateProperties.BERRIES,true)
-                    .setValue(BlockStateProperties.AGE_25,25);
-            for(int i=14;i>=10;i--){
-                for(int j=0;j<2;j++){
-                    for(int l=-3;l<5;l++){
-                        if(l!=0&&l!=1){
-                            level.setBlock(pos.offset(l,i,j==0?-4:5), caveVinesHead,19);
-                            level.setBlock(pos.offset(j==0?-4:5,i,l), caveVinesHead,19);
-                        }
+            for(int j=0;j<2;j++){
+                for(int l=-3;l<5;l++){
+                    if(l!=0&&l!=1){
+                        CaveVinePlacement.place(level, pos.offset(l,14,j==0?-4:5), 5, false);
+                        CaveVinePlacement.place(level, pos.offset(j==0?-4:5,14,l), 5, false);
                     }
                 }
             }

@@ -1,0 +1,65 @@
+{
+  "compactCount": 21,
+  "deterministicRegeneration": true,
+  "compactSha256": {
+    "aoe_compact_1x1_a1.nbt": "ef1d535b2d5104f465a6baa9f9812a21d11cbfe9da7a70c83f492abc202ce49c",
+    "aoe_compact_1x1_a3.nbt": "56c0b814ac6807c92a2b348849e0e7ba640066837e7d6ec7feb36cd83ace08d6",
+    "aoe_compact_1x1_a5.nbt": "c97ff8f723feca3fb94f0b718aa99f363f1fb5a89afa37583e1511840ffd1568",
+    "aoe_compact_1x1_as4.nbt": "b93af150fa8e92688a97f7be9b27118cac3f9926477eb1c7c57a9633ef27167e",
+    "aoe_compact_1x1_b2.nbt": "864e5fcf6293bc8c48e898e8ca771ba262824d1b2ca376ae0fd5fc3727730030",
+    "aoe_compact_1x1_b3.nbt": "733b4e8340b51405b1ab4ce285c5c7fda390275acde17c0d0c4d5875cc457341",
+    "aoe_compact_1x1_b4.nbt": "dfb8baf90d0f2e551ebeb638d93ce7d75cd03786dfa452f473b6735313cd1a98",
+    "aoe_compact_1x2_c1.nbt": "4bd545c5ed33889e8ef8c207062945ce7ed85ddd884e62282d0823c47907a6b8",
+    "aoe_compact_1x2_c3.nbt": "524cff713ce7a610b129a9d42a4de21e526577493b28501252d2356868e9224c",
+    "aoe_compact_1x2_c4.nbt": "628289c86209e117deb4c52b4feb608a52e68483510fff776e5d20b338046817",
+    "aoe_compact_1x2_d1.nbt": "74e53403f779aeff77748b86863cc13ab89684f00b558126e9c89b07518df8ec",
+    "aoe_compact_1x2_d_stairs.nbt": "91bf59c579a52f3b9a49c1ba05ebc9451c59b623773dbd402651e22a534fde1c",
+    "aoe_compact_2x2_b1.nbt": "4397586ff2ff29723c9f6a015c4341f1c68b8d1964f1c22940be65e162cdc2b3",
+    "aoe_compact_2x2_b2.nbt": "f0d4c4dd988ea3f1f12c992355e5d7dc5d24f706cc90c048dd60e5ef9163b20b",
+    "aoe_compact_2x2_b3.nbt": "3e177b1bc679d92ad5fcb84c7095b5d05e7d8f7c95090b6370bd57d1574374cd",
+    "aoe_compact_2x2_b4.nbt": "c3b7c7c0b3e229bbd3b3c1b1e5de48a9c82d95241f443b7482d7363516ca5eee",
+    "aoe_compact_entrance.nbt": "0104e6a3f044121f859c393d13b8940904c1fec9b2ea6dcbc77efcd9527f8b93",
+    "aoe_compact_roof.nbt": "72428fac782acc0753c1d3dd5a45290f29ecddda648cee52111e3f746030ab9b",
+    "aoe_compact_roof_corner.nbt": "68583ff6fa32f2feac766229fc85db4220fdb442a3ddc47fd3af5633ea2e383a",
+    "aoe_compact_roof_front.nbt": "6d05136813dd780dfcabdc6bb9b16b7e86eb233b6a3ac80cb02aa562dba62c60",
+    "aoe_compact_roof_inner_corner.nbt": "54402708d38227178ea5b96dbddd8c6efb604d69734c27a38a2d382f3f57b00c"
+  },
+  "legacyExistingMansionResourceCount": 8,
+  "legacyAllUnchanged": true,
+  "legacyResources": {
+    "assets\\aoemod\\models\\item\\mansion_key.json": {
+      "before": "778877c7cc28aa335f89177a4934d4bb612f56dc7f4f971bfbfbf9b614f6bc16",
+      "after": "778877c7cc28aa335f89177a4934d4bb612f56dc7f4f971bfbfbf9b614f6bc16"
+    },
+    "assets\\aoemod\\textures\\item\\mansion_key.png": {
+      "before": "2f3f34b2e40f592efce0996236d8a6f9575bcb3bb08c63e6d13f742f29de8456",
+      "after": "2f3f34b2e40f592efce0996236d8a6f9575bcb3bb08c63e6d13f742f29de8456"
+    },
+    "data\\aoemod\\loot_tables\\chests\\illager_mansion.json": {
+      "before": "7c12464392aa0475c2028d1b3a178679c9836592ec1fad93bd5965ca564cee3e",
+      "after": "7c12464392aa0475c2028d1b3a178679c9836592ec1fad93bd5965ca564cee3e"
+    },
+    "data\\aoemod\\loot_tables\\chests\\illager_mansion_pantry.json": {
+      "before": "f50fe8f8efd0e16ebf8115d7b0ab7a9e1c550789ee7c0be07c995eae672afd0a",
+      "after": "f50fe8f8efd0e16ebf8115d7b0ab7a9e1c550789ee7c0be07c995eae672afd0a"
+    },
+    "data\\aoemod\\loot_tables\\chests\\illager_mansion_smith.json": {
+      "before": "80d0eb747ab022ba6bca03a7e2623f2c8df095403f9ffd533c39ed19ecff1629",
+      "after": "80d0eb747ab022ba6bca03a7e2623f2c8df095403f9ffd533c39ed19ecff1629"
+    },
+    "data\\aoemod\\structure_data\\mansion_basement_rooms_v4.json": {
+      "before": "5253298142973af0d415fbff2e006695092e70b752116929acedfb88cefcd8fd",
+      "after": "5253298142973af0d415fbff2e006695092e70b752116929acedfb88cefcd8fd"
+    },
+    "data\\aoemod\\worldgen\\structure\\illager_mansion.json": {
+      "before": "f2bd86b13ad9c58a01bfb5626495b8de56e4d9d046d1a23b3aaa35c407d56dff",
+      "after": "f2bd86b13ad9c58a01bfb5626495b8de56e4d9d046d1a23b3aaa35c407d56dff"
+    },
+    "data\\aoemod\\worldgen\\structure_set\\illager_mansions.json": {
+      "before": "3c3d01b16ea5723f5227e495cd62d1be2802065fd7a05f74d3eb1bd0e81e86ac",
+      "after": "3c3d01b16ea5723f5227e495cd62d1be2802065fd7a05f74d3eb1bd0e81e86ac"
+    }
+  },
+  "nativeInputs": "Read-only Minecraft client-extra.jar; no native template names overwritten",
+  "userWorlds": "Only read for exact entrance capture; no saves or configs written"
+}

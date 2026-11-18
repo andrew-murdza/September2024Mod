@@ -2,7 +2,10 @@
   "replace": false,
   "values": [
     "aoemod:snowy_forest",
+    "aoemod:dappled_forest",
     "aoemod:mushroom_caves",
-    "aoemod:dripstone_caves"
+    "aoemod:dripstone_caves",
+    "aoemod:cold_ocean",
+    "aoemod:mountain_lake"
   ]
 }

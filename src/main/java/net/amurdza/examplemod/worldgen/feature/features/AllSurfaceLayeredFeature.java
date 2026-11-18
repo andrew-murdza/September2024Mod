@@ -2,6 +2,7 @@ package net.amurdza.examplemod.worldgen.feature.features;
 
 import com.mojang.serialization.Codec;
 import net.amurdza.examplemod.util.ModTags;
+import net.amurdza.examplemod.worldgen.MushroomCaveFloors;
 import net.amurdza.examplemod.worldgen.feature.configs.AllSurfaceLayeredFeaturesConfig;
 import net.amurdza.examplemod.worldgen.feature.configs.AllSurfacesFeatureConfig;
 import net.minecraft.core.BlockPos;
@@ -514,6 +515,7 @@ public class AllSurfaceLayeredFeature extends Feature<AllSurfaceLayeredFeaturesC
             int maxY
     ) {
         ChunkPos chunkPos = new ChunkPos(new BlockPos(anchorX, 0, anchorZ));
+        MushroomCaveFloors.prepare(level, chunkPos.getMinBlockX(), chunkPos.getMinBlockZ());
         int centerX = chunkPos.getMinBlockX() + 7;
         int centerZ = chunkPos.getMinBlockZ() + 7;
         BlockPos.MutableBlockPos candidate = new BlockPos.MutableBlockPos();

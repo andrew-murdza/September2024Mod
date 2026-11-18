@@ -1,10 +1,8 @@
 {
   "carvers": {},
-  "downfall": 0.9,
+  "downfall": 1.0,
   "effects": {
     "fog_color": 12638463,
-    "foliage_color": 9285927,
-    "grass_color_modifier": "swamp",
     "mood_sound": {
       "block_search_extent": 8,
       "offset": 2.0,
@@ -44,97 +42,76 @@
   "has_precipitation": true,
   "spawn_costs": {},
   "spawners": {
-    "ambient": [
-      {
-        "type": "minecraft:bat",
-        "maxCount": 8,
-        "minCount": 8,
-        "weight": 10
-      }
-    ],
+    "ambient": [],
     "axolotls": [],
-    "creature": [
+    "creature": [],
+    "misc": [],
+    "monster": [],
+    "underground_water_creature": [],
+    "water_ambient": [
       {
-        "type": "minecraft:frog",
+        "type": "minecraft:tropical_fish",
+        "maxCount": 5,
+        "minCount": 2,
+        "weight": 10
+      },
+      {
+        "type": "minecraft:pufferfish",
+        "maxCount": 5,
+        "minCount": 2,
+        "weight": 10
+      },
+      {
+        "type": "angling:anomalocaris",
+        "maxCount": 5,
+        "minCount": 2,
+        "weight": 10
+      },
+      {
+        "type": "hybrid_aquatic:starfish",
+        "maxCount": 5,
+        "minCount": 2,
+        "weight": 20
+      },
+      {
+        "type": "angling:sea_slug",
+        "maxCount": 5,
+        "minCount": 2,
+        "weight": 20
+      },
+      {
+        "type": "hybrid_aquatic:lightfoot_crab",
         "maxCount": 5,
         "minCount": 2,
         "weight": 10
       }
     ],
-    "misc": [],
-    "monster": [
+    "water_creature": [
       {
-        "type": "minecraft:spider",
-        "maxCount": 4,
-        "minCount": 4,
-        "weight": 100
-      },
-      {
-        "type": "minecraft:zombie",
-        "maxCount": 4,
-        "minCount": 4,
-        "weight": 95
-      },
-      {
-        "type": "minecraft:zombie_villager",
-        "maxCount": 1,
-        "minCount": 1,
-        "weight": 5
-      },
-      {
-        "type": "minecraft:skeleton",
-        "maxCount": 4,
-        "minCount": 4,
-        "weight": 100
-      },
-      {
-        "type": "minecraft:creeper",
-        "maxCount": 4,
-        "minCount": 4,
-        "weight": 100
-      },
-      {
-        "type": "minecraft:slime",
-        "maxCount": 4,
-        "minCount": 4,
-        "weight": 100
-      },
-      {
-        "type": "minecraft:enderman",
-        "maxCount": 4,
+        "type": "hybrid_aquatic:umbrella_octopus",
+        "maxCount": 3,
         "minCount": 1,
         "weight": 10
       },
       {
-        "type": "minecraft:witch",
-        "maxCount": 1,
+        "type": "minecraft:axolotl",
+        "maxCount": 3,
         "minCount": 1,
-        "weight": 5
+        "weight": 10
       },
       {
-        "type": "minecraft:slime",
+        "type": "minecraft:turtle",
         "maxCount": 1,
         "minCount": 1,
-        "weight": 1
-      }
-    ],
-    "underground_water_creature": [
+        "weight": 2
+      },
       {
-        "type": "minecraft:glow_squid",
-        "maxCount": 6,
-        "minCount": 4,
-        "weight": 10
+        "type": "minecraft:dolphin",
+        "maxCount": 3,
+        "minCount": 1,
+        "weight": 20
       }
-    ],
-    "water_ambient": [
-      {
-        "type": "minecraft:tropical_fish",
-        "maxCount": 8,
-        "minCount": 8,
-        "weight": 25
-      }
-    ],
-    "water_creature": []
+    ]
   },
-  "temperature": 0.8
+  "temperature": 1.0
 }

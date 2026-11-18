@@ -1,1 +1,6 @@
-{ "replace": false, "values": ["aoemod:pale_oak_planks"] }
+{
+  "replace": false,
+  "values": [
+    "aoemod:pale_oak_planks"
+  ]
+}

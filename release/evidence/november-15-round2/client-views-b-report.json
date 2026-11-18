@@ -1,0 +1,24 @@
+{
+  "status": "passed",
+  "started": "2026-11-16T03:56:42.931835700Z",
+  "elapsedMillis": 26588,
+  "requestedViews": 1,
+  "completedViews": 1,
+  "views": [
+    {
+      "label": "mansion-upper-stair-hall",
+      "dimension": "aoemod:plains_dimension",
+      "x": 4785.5,
+      "y": 85.0,
+      "z": 4761.5,
+      "yaw": -60.0,
+      "pitch": 25.0,
+      "settledClientTicks": 120,
+      "readyChunkRadius": 8,
+      "terrainReadiness": "surrounding chunks arrived and terrain build queue is idle",
+      "width": 1440,
+      "height": 1000,
+      "path": "C:\\Users\\andre\\Downloads\\Games\\September2024Mod\\build\\nov15-round2\\visuals\\client-views-b\\screenshots\\mansion-upper-stair-hall.png"
+    }
+  ]
+}

@@ -11,7 +11,7 @@ import java.util.Map;
  *
  * <p>Block items normally register themselves as the canonical item for their
  * block. These seeds must be able to place the crop without replacing the
- * carrot, potato, onion, or rice item used by pick block.</p>
+ * carrot, potato, or rice item used by pick block.</p>
  */
 public class CropSeedItem extends ItemNameBlockItem {
     public CropSeedItem(Block crop, Properties properties) {

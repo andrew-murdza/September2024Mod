@@ -21,6 +21,12 @@
           "data": {
             "Name": "quark:glow_shroom"
           }
+        },
+        {
+          "weight": 4,
+          "data": {
+            "Name": "twilightforest:mushgloom"
+          }
         }
       ]
     }

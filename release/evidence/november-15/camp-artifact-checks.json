@@ -1,0 +1,22 @@
+{
+  "passed": true,
+  "version": 6,
+  "chests": 36,
+  "beds": 72,
+  "pens": 8,
+  "crop_ponds": 28,
+  "mud_columns": 448,
+  "regular_posts": 132,
+  "skull_posts": 44,
+  "checks": [
+    "seven-wide roads",
+    "sealed square wall",
+    "skull every third post",
+    "12 crop rows",
+    "hydrated farmland",
+    "submerged cane",
+    "20x20 pen interiors",
+    "8x8 pen ponds",
+    "legacy v4 unchanged"
+  ]
+}

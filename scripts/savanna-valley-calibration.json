@@ -1,0 +1,131 @@
+{
+  "audit_source": "scripts/SavannaValleyAudit.java",
+  "region_per_seed": "[-2048,2048) squared, sampled every eight blocks",
+  "seeds": [
+    {
+      "seed": 0,
+      "current": {
+        "sampled_columns": 262144,
+        "water_percent": 9.665679931640625,
+        "full_depth_columns": 6553,
+        "lowest_height": 35.5,
+        "highest_height": 69.12288039444304,
+        "highest_solid_block": 69,
+        "complete_lakes": 19,
+        "boundary_lakes": 13,
+        "complete_lakes_without_full_depth": 0,
+        "dry_minima": 0,
+        "median_complete_lake_area": 60160,
+        "mean_dry_slope": 0.013171261727724207,
+        "max_dry_slope": 0.013888888833625624
+      },
+      "previous": {
+        "sampled_columns": 262144,
+        "water_percent": 3.441619873046875,
+        "full_depth_columns": 6,
+        "lowest_height": 35.5,
+        "highest_height": 88.80243705745988,
+        "highest_solid_block": 89,
+        "complete_lakes": 5,
+        "boundary_lakes": 2,
+        "complete_lakes_without_full_depth": 5,
+        "dry_minima": 125,
+        "median_complete_lake_area": 58432
+      }
+    },
+    {
+      "seed": 12345,
+      "current": {
+        "sampled_columns": 262144,
+        "water_percent": 9.38262939453125,
+        "full_depth_columns": 6197,
+        "lowest_height": 35.5,
+        "highest_height": 68.01555487799665,
+        "highest_solid_block": 68,
+        "complete_lakes": 25,
+        "boundary_lakes": 5,
+        "complete_lakes_without_full_depth": 0,
+        "dry_minima": 0,
+        "median_complete_lake_area": 60736,
+        "mean_dry_slope": 0.013197812695046192,
+        "max_dry_slope": 0.013888888775190835
+      },
+      "previous": {
+        "sampled_columns": 262144,
+        "water_percent": 4.2125701904296875,
+        "full_depth_columns": 145,
+        "lowest_height": 35.5,
+        "highest_height": 88.533392942018,
+        "highest_solid_block": 89,
+        "complete_lakes": 4,
+        "boundary_lakes": 3,
+        "complete_lakes_without_full_depth": 4,
+        "dry_minima": 98,
+        "median_complete_lake_area": 78656
+      }
+    },
+    {
+      "seed": 98765,
+      "current": {
+        "sampled_columns": 262144,
+        "water_percent": 9.991836547851562,
+        "full_depth_columns": 6627,
+        "lowest_height": 35.5,
+        "highest_height": 69.18294905987548,
+        "highest_solid_block": 69,
+        "complete_lakes": 22,
+        "boundary_lakes": 10,
+        "complete_lakes_without_full_depth": 0,
+        "dry_minima": 0,
+        "median_complete_lake_area": 58432,
+        "mean_dry_slope": 0.013225686491387492,
+        "max_dry_slope": 0.013888888870301977
+      },
+      "previous": {
+        "sampled_columns": 262144,
+        "water_percent": 1.9287109375,
+        "full_depth_columns": 0,
+        "lowest_height": 43.652733192911924,
+        "highest_height": 94.79819116715072,
+        "highest_solid_block": 95,
+        "complete_lakes": 3,
+        "boundary_lakes": 1,
+        "complete_lakes_without_full_depth": 3,
+        "dry_minima": 118,
+        "median_complete_lake_area": 54016
+      }
+    },
+    {
+      "seed": -8152788754161584091,
+      "current": {
+        "sampled_columns": 262144,
+        "water_percent": 9.658432006835938,
+        "full_depth_columns": 6371,
+        "lowest_height": 35.5,
+        "highest_height": 68.35063224347948,
+        "highest_solid_block": 68,
+        "complete_lakes": 25,
+        "boundary_lakes": 4,
+        "complete_lakes_without_full_depth": 0,
+        "dry_minima": 0,
+        "median_complete_lake_area": 58240,
+        "mean_dry_slope": 0.01319493982422277,
+        "max_dry_slope": 0.013888888876925949
+      },
+      "previous": {
+        "sampled_columns": 262144,
+        "water_percent": 6.3632965087890625,
+        "full_depth_columns": 491,
+        "lowest_height": 35.5,
+        "highest_height": 94.78315861274729,
+        "highest_solid_block": 95,
+        "complete_lakes": 5,
+        "boundary_lakes": 0,
+        "complete_lakes_without_full_depth": 4,
+        "dry_minima": 119,
+        "median_complete_lake_area": 139520
+      }
+    }
+  ],
+  "limitations": "Finite continuous-height samples using production noise parameters, before block rounding. Eight-neighbor water connectivity and area are raster estimates; map-edge lakes and minima are excluded. Plateau minima use an equality tolerance of 1e-9. Dry interior slopes use central differences with epsilon .01 on a 32-block grid; stencils crossing the shoreline are excluded. This audit does not generate decorated chunks; runtime GameTests check those separately. Existing chunks are unchanged."
+}

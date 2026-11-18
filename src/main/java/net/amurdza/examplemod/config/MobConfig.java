@@ -2,16 +2,12 @@ package net.amurdza.examplemod.config;
 
 import com.github.alexthe666.alexsmobs.entity.AMEntityRegistry;
 import com.github.alexthe666.alexsmobs.item.AMItemRegistry;
-import com.github.alexthe666.iceandfire.entity.IafEntityRegistry;
-import com.morallenplay.dropthemeat.init.ItemInit;
-import com.starfish_studios.naturalist.core.registry.NaturalistEntityTypes;
-import com.starfish_studios.naturalist.core.registry.NaturalistRegistry;
 import dev.hybridlabs.aquatic.entity.HAEntityTypes;
 import net.amurdza.examplemod.registry.ModEntities;
+import net.amurdza.examplemod.registry.DimensionFoods;
 import org.violetmoon.quark.content.mobs.module.WraithModule;
 import samebutdifferent.ecologics.registry.ModBlocks;
 import samebutdifferent.ecologics.registry.ModEntityTypes;
-import net.mcreator.borninchaosv.init.BornInChaosV1ModEntities;
 
 import net.amurdza.examplemod.registry.ModItems;
 import net.amurdza.examplemod.util.ModTags;
@@ -229,6 +225,10 @@ public final class MobConfig {
         return m(0, 0, 0, 0, desert, deepDark, soulSandValley, warpedForest, crimsonForest, basaltDeltas, rawItem, cookedItem);
     }
 
+    private static Item item(String id) {
+        return net.minecraftforge.registries.ForgeRegistries.ITEMS.getValue(new net.minecraft.resources.ResourceLocation(id));
+    }
+
     private static void registerMobInfo() {
         // -------------------------------------------------------------------------
         // Mob info
@@ -301,10 +301,10 @@ public final class MobConfig {
                 m(ModTags.Biomes.crimsonForestBiomes, 1, Items.LEATHER));
 
         addMobInfo(EntityType.STRIDER,
-                m(ModTags.Biomes.soulSandValleyBiomes, 0.30F),
-                m(ModTags.Biomes.soulSandValleyBiomes, 1),
-                m(ModTags.Biomes.soulSandValleyBiomes, 1, Items.MUTTON, Items.COOKED_MUTTON),
-                m(ModTags.Biomes.soulSandValleyBiomes, 3, Items.STRING));
+                desertM(0, 0, 0.30F, 0.30F, 0.30F, 0.30F),
+                desertM(0, 0, 1, 1, 1, 1),
+                desertM(0, 0, 1, 1, 1, 1, Items.MUTTON, Items.COOKED_MUTTON),
+                desertM(0, 0, 3, 3, 3, 3, Items.STRING));
 
         addMobInfo(EntityType.FOX,
                 m(1, 3, 0, 0.5F, 0, 0, 0, 0, 0, 0),
@@ -408,66 +408,47 @@ public final class MobConfig {
                 m(0.1F, 0.05F, 0.05F, 0.15F, 0, 0, 0, 0, 0, 0, Items.BONE_MEAL));
 
 
-        addMobInfo(ModEntities.END_FISH.get(),
-                m(2, 0, 0, 2, 1, 0, 0, 0, 0, 0, ModItems.END_FISH.get(), ModItems.COOKED_END_FISH.get()),
-                m(0.1F, 0, 0, 0.15F, 0.05f, 0, 0, 0, 0, 0, Items.BONE_MEAL));
 
         addMobInfo(ModEntities.CUBOZOA.get(),
                 desertM(0, 0, 1F, 1F, 1F, 1F, Items.SLIME_BALL));
 
 
-        addMobInfo(EntityType.TROPICAL_FISH,
-                m(2, 1, 0, 0, 0, 0, 0, 0, 0, 0, Items.TROPICAL_FISH, ModItems.COOKED_TROPICAL_FISH.get()),
-                m(0.2F, 0.05F, 0, 0, 0, 0, 0, 0, 0, 0, Items.BONE_MEAL));
-
-        addMobInfo(EntityType.PUFFERFISH,
-                m(2, 1, 0, 0, 0, 0, 0, 0, 0, 0, Items.PUFFERFISH, ModItems.COOKED_PUFFERFISH.get()),
-                m(0.15F, 0.05F, 0, 0, 0, 0, 0, 0, 0, 0, Items.BONE_MEAL));
-
         addMobInfo(EntityType.GLOW_SQUID,
-                m(0, 0, 0, 2, 0, 0.5F, 0, 0, 0, 0, com.ncpbails.culturaldelights.item.ModItems.GLOW_SQUID.get(), ModItems.COOKED_GLOW_SQUID.get()),
+                m(0, 0, 0, 2, 0, 0.5F, 0, 0, 0, 0, net.amurdza.examplemod.registry.RetainedSquidFoods.GLOW_SQUID.get(), net.amurdza.examplemod.registry.RetainedSquidFoods.COOKED_SQUID.get()),
                 m(0, 0, 0, 3, 0, 0.7F, 0, 0, 0, 0, Items.GLOW_INK_SAC),
                 m(0, 0, 0, 0.2F, 0, 0.05F, 0, 0, 0, 0, Items.BONE_MEAL));
 
         addMobInfo(EntityType.SQUID,
-                m(2, 1, 1, 2, 0, 0, 0, 0, 0, 0, com.ncpbails.culturaldelights.item.ModItems.SQUID.get(), ModItems.COOKED_SQUID.get()),
+                m(2, 1, 1, 2, 0, 0, 0, 0, 0, 0, net.amurdza.examplemod.registry.RetainedSquidFoods.SQUID.get(), net.amurdza.examplemod.registry.RetainedSquidFoods.COOKED_SQUID.get()),
                 m(3, 2, 1, 3, 0, 0, 0, 0, 0, 0, Items.INK_SAC),
                 m(0.1F, 0.05F, 0.05F, 0.2F, 0, 0, 0, 0, 0, 0, Items.BONE_MEAL));
 
         addMobInfo(AMEntityRegistry.EMU.get(),
                 m(ModTags.Biomes.savannaBiomes, 3),
                 m(ModTags.Biomes.savannaBiomes, 3),
-                m(ModTags.Biomes.savannaBiomes, 3, NaturalistRegistry.DUCK.get(), NaturalistRegistry.COOKED_DUCK.get()),
+                m(ModTags.Biomes.savannaBiomes, 3, item("wildernature:cassowary_meat"), item("wildernature:cooked_cassowary_meat")),
                 m(ModTags.Biomes.savannaBiomes, 3, AMItemRegistry.EMU_FEATHER.get()),
                 m(ModTags.Biomes.savannaBiomes, 0.5F, Items.BONE));
 
         addMobInfo(AMEntityRegistry.BISON.get(),
                 m(ModTags.Biomes.savannaBiomes, 3),
                 m(ModTags.Biomes.savannaBiomes, 3),
-                m(ModTags.Biomes.savannaBiomes, 8, ItemInit.RAW_BEAR.get(), ItemInit.COOKED_BEAR.get()),
+                m(ModTags.Biomes.savannaBiomes, 8, item("wildernature:bison_meat"), item("wildernature:cooked_bison_meat")),
                 m(ModTags.Biomes.savannaBiomes, 7, Items.BROWN_WOOL),
                 m(ModTags.Biomes.savannaBiomes, 2, Items.BONE));
 
         addMobInfo(AMEntityRegistry.GAZELLE.get(),
                 m(ModTags.Biomes.savannaBiomes, 3),
                 m(ModTags.Biomes.savannaBiomes, 3),
-                m(ModTags.Biomes.savannaBiomes, 3, ItemInit.RAW_GOAT.get(), ItemInit.COOKED_GOAT.get()),
+                m(ModTags.Biomes.savannaBiomes, 3, item("wildernature:venison"), item("wildernature:cooked_venison")),
                 m(ModTags.Biomes.savannaBiomes, 3, Items.LEATHER),
                 m(ModTags.Biomes.savannaBiomes, 1, Items.BONE));
 
         addMobInfo(AMEntityRegistry.MOOSE.get(),
                 m(0, 3, 0, 0.5F, 0, 0, 0, 0, 0, 0),
                 m(0, 2, 0, 1, 0, 0, 0, 0, 0, 0),
-                m(0, 2.5F, 0, 1, 0, 0, 0, 0, 0, 0, ItemInit.RAW_LLAMA.get(), ItemInit.COOKED_LLAMA.get()),
                 m(0, 3, 0, 2, 0, 0, 0, 0, 0, 0, Items.LEATHER),
                 m(0, 2, 0, 0.5F, 0, 0, 0, 0, 0, 0, Items.BONE));
-
-        addMobInfo(AMEntityRegistry.WARPED_TOAD.get(),
-                m(ModTags.Biomes.warpedForestBiomes, 0.4F),
-                desertM(0, 0, 1, 1, 0, 0),
-                m(ModTags.Biomes.warpedForestBiomes, 1, ItemInit.RAW_SQUID.get(), ItemInit.COOKED_SQUID.get()),
-                m(ModTags.Biomes.warpedForestBiomes, 2.5F, Items.SHROOMLIGHT),
-                m(0, 0, 1, 0, 0, 0, 0, 0.3F, 0, 0, Items.BONE));
 
         addMobInfo(AMEntityRegistry.LOBSTER.get(),
                 m(2, 1, 1, 2, 0, 0, 0, 0, 0, 0, AMItemRegistry.LOBSTER_TAIL.get(), AMItemRegistry.COOKED_LOBSTER_TAIL.get()),
@@ -480,25 +461,11 @@ public final class MobConfig {
         addMobInfo(ModEntityTypes.SQUIRREL.get(),
                 m(3, 3, 0, 0, 0, 0, 0, 0, 0, 0),
                 m(1.5F, 2, 0, 0, 0, 0, 0, 0, 0, 0),
-                m(1.5F, 3, 0, 0, 0, 0, 0, 0, 0, 0, ItemInit.RAW_RED_MEAT.get(), ItemInit.COOKED_RED_MEAT.get()),
                 m(1.5F, 2, 0, 0, 0, 0, 0, 0, 0, 0, Items.RABBIT_HIDE),
                 m(0.5F, 0.75F, 0, 0, 0, 0, 0, 0, 0, 0, Items.BONE));
 
-        addMobInfo(NaturalistEntityTypes.DEER.get(),
-                m(2, 3, 0, 0, 0, 0, 0, 0, 0, 0),
-                m(2, 2, 0, 0, 0, 0, 0, 0, 0, 0),
-                m(2, 5, 0, 0, 0, 0, 0, 0, 0, 0, NaturalistRegistry.VENISON.get(), NaturalistRegistry.COOKED_VENISON.get()),
-                m(1.5F, 3, 0, 0, 0, 0, 0, 0, 0, 0, Items.LEATHER),
-                m(1, 1.5F, 0, 0, 0, 0, 0, 0, 0, 0, Items.BONE));
-
-        addMobInfo(NaturalistEntityTypes.BOAR.get(),
-                m(ModTags.Biomes.savannaBiomes, 3),
-                m(ModTags.Biomes.savannaBiomes, 3),
-                m(ModTags.Biomes.savannaBiomes, 5, ItemInit.RAW_TURTLE.get(), ItemInit.COOKED_TURTLE.get()),
-                m(ModTags.Biomes.savannaBiomes, 1.75f, Items.BONE));
-
         addMobInfo(HAEntityTypes.INSTANCE.getARROW_SQUID().get(),
-                m(2, 1, 0, 2, 0, 0, 0, 0, 0, 0, ItemInit.RAW_WOLF.get(), ItemInit.COOKED_WOLF.get()),
+                m(2, 1, 0, 2, 0, 0, 0, 0, 0, 0, DimensionFoods.get("raw_arrow_squid"), DimensionFoods.get("cooked_arrow_squid")),
                 m(2, 1, 0, 2, 0, 0, 0, 0, 0, 0, Items.INK_SAC),
                 m(0.5F, 0.05F, 0, 0.4F, 0, 0, 0, 0, 0, 0, Items.BONE_MEAL));
 
@@ -576,8 +543,8 @@ public final class MobConfig {
                 m(ModTags.Biomes.tropicalBiomes, 5, Items.BONE),
                 m(ModTags.Biomes.tropicalBiomes, 12f, Items.EMERALD));
 
-        addMobInfo(AMEntityRegistry.CENTIPEDE_HEAD.get(),
-                m(ModTags.Biomes.tropicalBiomes, 2F, Items.BONE),
+        addMobInfo(twilightforest.init.TFEntities.SLIME_BEETLE.get(),
+                m(ModTags.Biomes.tropicalBiomes, 2F, Items.SLIME_BALL),
                 m(ModTags.Biomes.tropicalBiomes, 0.2f, Items.EMERALD));
 
         addMobInfo(EntityType.SILVERFISH);
@@ -600,8 +567,7 @@ public final class MobConfig {
 
         addMobInfo(ModEntities.CAMEL_HUSK_JOCKEY.get(),
                 desertM(2f, 1.5f, 2f, 1f, 1f, 0.75f, Items.BONE),
-                desertM(3f, 2f, 2.5f, 1.25f, 1.25f, 0.75f, Items.ROTTEN_FLESH),
-                desertM(0.25f, 0.25f, 0.25f, 0.25f, 0.25f, 0.25f, Items.EMERALD));
+                desertM(3f, 2f, 2.5f, 1.25f, 1.25f, 0.75f, Items.ROTTEN_FLESH));
 
         addMobInfo(ModEntities.CREAKING.get(),
                 m(ModTags.Biomes.tropicalBiomes, 0.05F, Items.OAK_LOG),
@@ -619,22 +585,14 @@ public final class MobConfig {
                         net.amurdza.examplemod.registry.ModBlocks.AZALEA_SAPLING.get().asItem()));
 
         addMobInfo(ModEntities.ZOMBIE_HORSEMAN.get(),
-                m(ModTags.Biomes.savannaBiomes,3,Items.ROTTEN_FLESH,Items.LEATHER),
-                m(ModTags.Biomes.savannaBiomes,2,Items.BONE),
-                m(ModTags.Biomes.savannaBiomes,0.1f,Items.EMERALD));
+                m(ModTags.Biomes.savannaBiomes, 2, Items.ROTTEN_FLESH, Items.LEATHER),
+                m(ModTags.Biomes.savannaBiomes, 0.3F, Items.BONE));
 
         addMobInfo(ModEntities.SKELETON_HORSEMAN.get(),
                 m(ModTags.Biomes.savannaBiomes,0.5f,Items.BOW),
                 m(ModTags.Biomes.savannaBiomes,1.5f,Items.ARROW),
                 m(ModTags.Biomes.savannaBiomes,3,Items.BONE),
                 m(ModTags.Biomes.savannaBiomes,0.25f,Items.EMERALD));
-
-        addMobInfo(ModEntities.ARCHLICH.get(),
-                m(ModTags.Biomes.mountainBiomes, 3,Items.BONE),
-                m(ModTags.Biomes.mountainBiomes, 3,Items.DIAMOND),
-                m(ModTags.Biomes.mountainBiomes, 30,Items.LAPIS_LAZULI),
-                m(ModTags.Biomes.mountainBiomes, 24,Items.EMERALD)
-        );
 
         addMobInfo(ModEntities.ILLAGER_LORD.get(),
                 m(ModTags.Biomes.plainsBiomes,12,Items.IRON_INGOT),
@@ -726,38 +684,9 @@ public final class MobConfig {
                 m(0, 5, 15, 25, 15, 5, 0, 0, 0, 0, Items.ROTTEN_FLESH, Items.LEATHER),
                 m(0, 0, 6, 10, 6, 2, 0, 0, 0, 0, Items.BONE));
 
-        addMobInfo(BornInChaosV1ModEntities.SENOR_PUMPKIN.get(),
-                m(ModTags.Biomes.savannaBiomes, 4, vectorwing.farmersdelight.common.registry.ModItems.PUMPKIN_SLICE.get()),
-                m(ModTags.Biomes.savannaBiomes, 0.3f, Items.BONE));
-
-        addMobInfo(BornInChaosV1ModEntities.SIR_PUMPKINHEAD.get(),
-                m(ModTags.Biomes.savannaBiomes, 1, Items.PUMPKIN),
-                m(ModTags.Biomes.savannaBiomes, 2, Items.BONE),
-                m(ModTags.Biomes.savannaBiomes, 0.4f, Items.EMERALD));
-
-        addMobInfo(BornInChaosV1ModEntities.LORD_PUMPKINHEAD.get(),
-                m(ModTags.Biomes.savannaBiomes, 1, Items.PUMPKIN),
-                m(ModTags.Biomes.savannaBiomes, 5, Items.BONE),
-                m(ModTags.Biomes.savannaBiomes, 16, Items.EMERALD));
-
         addMobInfo(WraithModule.wraithType,
                 desertM(0.5f, 1f, 2, 1.5f, 1f, 0.5f, Items.GHAST_TEAR));
 
-        addMobInfo(IafEntityRegistry.TROLL.get(),
-                m(ModTags.Biomes.mountainBiomes, 2, Items.IRON_INGOT),
-                m(ModTags.Biomes.mountainBiomes, 1, Items.SPRUCE_LOG),
-                m(ModTags.Biomes.mountainBiomes, 2, Items.BONE),
-                m(ModTags.Biomes.mountainBiomes, 0.2f, Items.EMERALD));
-
-        addMobInfo(IafEntityRegistry.DREAD_KNIGHT.get(),
-                m(ModTags.Biomes.mountainBiomes, 3.5f, Items.IRON_INGOT),
-                m(ModTags.Biomes.mountainBiomes, 1.5f, Items.BONE),
-                m(ModTags.Biomes.mountainBiomes, 0.2f, Items.EMERALD));
-
-        addMobInfo(IafEntityRegistry.DREAD_LICH.get(),
-                m(ModTags.Biomes.mountainBiomes, 0.5f, Items.DIAMOND),
-                m(ModTags.Biomes.mountainBiomes, 1f, Items.BONE),
-                m(ModTags.Biomes.mountainBiomes, 0.5f, Items.EMERALD));
     }
 
     public static float mobGrowthChance(Entity entity) {

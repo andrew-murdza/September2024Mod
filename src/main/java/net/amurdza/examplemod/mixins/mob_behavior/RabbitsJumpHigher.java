@@ -10,6 +10,6 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 public class RabbitsJumpHigher {
     @Inject(method = "getJumpPower", at = @At("RETURN"), cancellable = true)
     private void aoemod$increaseJumpHeight(CallbackInfoReturnable<Float> cir) {
-        cir.setReturnValue(Math.max(cir.getReturnValue(), 0.6F));
+        cir.setReturnValue(0.39F + ((Rabbit) (Object) this).getJumpBoostPower());
     }
 }

@@ -1,0 +1,13 @@
+{
+  "replace": false,
+  "values": [
+    "minecraft:apple",
+    "minecraft:melon_slice",
+    "fruitsdelight:orange",
+    "fruitsdelight:pear",
+    "fruitsdelight:cranberry",
+    "hearthandharvest:cherry",
+    "alexsmobs:banana",
+    "aoemod:plum"
+  ]
+}

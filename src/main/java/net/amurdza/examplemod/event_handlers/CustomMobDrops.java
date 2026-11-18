@@ -4,7 +4,6 @@ import net.amurdza.examplemod.AOEMod;
 import net.amurdza.examplemod.config.MobConfig;
 import net.amurdza.examplemod.entity.EndFishEntity;
 import net.amurdza.examplemod.entity.IllagerLordEntity;
-import net.amurdza.examplemod.entity.NetherFishEntity;
 import net.amurdza.examplemod.registry.ModItems;
 import net.amurdza.examplemod.util.Helper;
 import net.amurdza.examplemod.util.ModTags;
@@ -28,6 +27,17 @@ public class CustomMobDrops {
     @SubscribeEvent
     public static void addConfiguredDrops(LivingDropsEvent event) {
         LivingEntity entity = event.getEntity();
+
+        if (BossDeathChests.handle(event) || addFixedMonsterDrops(event, entity)) return;
+
+        if (OrcCombatRules.isSelected(entity)) {
+            // The source loot can include metals and Orcz equipment. Both
+            // selected Savanna fighters provide only their bone/leather materials.
+            event.getDrops().clear();
+            dropItem(event, entity, Items.BONE, 2);
+            dropItem(event, entity, Items.LEATHER, 1);
+            return;
+        }
 
         if (addVariantFishDrops(event, entity)) {
             return;
@@ -75,6 +85,40 @@ public class CustomMobDrops {
          * Replace armor equipment drops with resource compensation.
          */
         dropArmorReplacementItems(event, entity);
+    }
+
+    private static boolean addFixedMonsterDrops(LivingDropsEvent event, LivingEntity entity) {
+        String id = String.valueOf(net.minecraftforge.registries.ForgeRegistries.ENTITY_TYPES.getKey(entity.getType()));
+        switch (id) {
+            case "aoemod:skeleton_horseman" -> {
+                event.getDrops().clear();
+                dropItem(event, entity, Items.BONE, 2);
+            }
+            case "twilightforest:yeti" -> {
+                event.getDrops().clear();
+                dropItem(event, entity, Items.BONE, 2);
+                dropItem(event, entity, Items.WHITE_WOOL, 2);
+            }
+            case "twilightforest:upper_goblin_knight" -> {
+                event.getDrops().clear();
+                dropItem(event, entity, Items.BONE, 1);
+                dropItem(event, entity, Items.IRON_INGOT, 2);
+            }
+            case "twilightforest:blockchain_goblin" -> {
+                event.getDrops().clear();
+                dropItem(event, entity, Items.BONE, .25F);
+                dropItem(event, entity, Items.IRON_INGOT, .5F);
+            }
+            case "twilightforest:redcap" -> {
+                event.getDrops().clear();
+                dropItem(event, entity, Items.IRON_INGOT, 1);
+                int bonus = entity.getRandom().nextInt(4);
+                dropItem(event, entity, bonus == 0 ? Items.GOLD_INGOT : bonus == 3 ? Items.COPPER_INGOT : Items.COAL,
+                        bonus == 1 || bonus == 2 ? 2 : 1);
+            }
+            default -> { return false; }
+        }
+        return true;
     }
 
     private static boolean shouldPreserveVanillaDrop(LivingEntity entity, ItemStack stack) {
@@ -190,9 +234,7 @@ public class CustomMobDrops {
     private static boolean addVariantFishDrops(LivingDropsEvent event, LivingEntity entity) {
         Item item = null;
 
-        if (entity instanceof NetherFishEntity netherFish) {
-            item = ModItems.netherFishForVariantIndex(netherFish.getNetherVariantIndex(), entity.isOnFire());
-        } else if (entity instanceof EndFishEntity endFish) {
+        if (entity instanceof EndFishEntity endFish) {
             item = ModItems.endFishForVariant(endFish.getVariantId(), entity.isOnFire());
         }
 

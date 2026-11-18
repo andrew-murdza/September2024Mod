@@ -1,0 +1,2252 @@
+[
+  {
+    "path": "after/assets/aoemod/animations/entity/crustacean/flower_crab/flower_crab.animation.json",
+    "bytes": 19530,
+    "sha256": "233e7662f6050481e9d57b04c9649dfd1b77ea514fdb81723503357740962f7c"
+  },
+  {
+    "path": "after/assets/aoemod/animations/entity/crustacean/lightfoot_crab/lightfoot_crab.animation.json",
+    "bytes": 19427,
+    "sha256": "33b8b95e5a06a78ecb2a0897838831deb8a8f541510c406687262af524c310f5"
+  },
+  {
+    "path": "after/assets/aoemod/animations/illager_lord.animation.json",
+    "bytes": 12543,
+    "sha256": "030c8ed5d78668ab48493b358edbcf5680f960a5db55b7497e6f91e77dff3e8c"
+  },
+  {
+    "path": "after/assets/aoemod/blockstates/desert_portal.json",
+    "bytes": 171,
+    "sha256": "6d46e9cfb43b98644d44580d020793210cf958372eabe2d38f62abbd99a8bc6f"
+  },
+  {
+    "path": "after/assets/aoemod/blockstates/nether_portal.json",
+    "bytes": 171,
+    "sha256": "6d46e9cfb43b98644d44580d020793210cf958372eabe2d38f62abbd99a8bc6f"
+  },
+  {
+    "path": "after/assets/aoemod/blockstates/overworld_portal.json",
+    "bytes": 171,
+    "sha256": "6d46e9cfb43b98644d44580d020793210cf958372eabe2d38f62abbd99a8bc6f"
+  },
+  {
+    "path": "after/assets/aoemod/blockstates/plains_portal.json",
+    "bytes": 171,
+    "sha256": "6d46e9cfb43b98644d44580d020793210cf958372eabe2d38f62abbd99a8bc6f"
+  },
+  {
+    "path": "after/assets/aoemod/blockstates/savanna_portal.json",
+    "bytes": 171,
+    "sha256": "6d46e9cfb43b98644d44580d020793210cf958372eabe2d38f62abbd99a8bc6f"
+  },
+  {
+    "path": "after/assets/aoemod/blockstates/snowy_portal.json",
+    "bytes": 171,
+    "sha256": "6d46e9cfb43b98644d44580d020793210cf958372eabe2d38f62abbd99a8bc6f"
+  },
+  {
+    "path": "after/assets/aoemod/blockstates/tropical_portal.json",
+    "bytes": 171,
+    "sha256": "6d46e9cfb43b98644d44580d020793210cf958372eabe2d38f62abbd99a8bc6f"
+  },
+  {
+    "path": "after/assets/aoemod/geo/cephalopod/arrow_squid/arrow_squid.geo.json",
+    "bytes": 34701,
+    "sha256": "99eb4328256d8a83db38b3f4f5de08cf09ced0f88c2d45cacc243e402bb31ddb"
+  },
+  {
+    "path": "after/assets/aoemod/geo/critter/starfish/starfish.geo.json",
+    "bytes": 7314,
+    "sha256": "aa34b73e3c0f5f082639923acdd1301b9e0161eecb6b500f6140d2180f5c65c8"
+  },
+  {
+    "path": "after/assets/aoemod/geo/critter/starfish/starfish_crown_of_thorns.geo.json",
+    "bytes": 16203,
+    "sha256": "5295811d0827697f613995a6071345b0590e1787288e132ea62cf0ed462e682c"
+  },
+  {
+    "path": "after/assets/aoemod/geo/critter/starfish/starfish_small.geo.json",
+    "bytes": 12928,
+    "sha256": "dff357068c4cc22bb1c0674d96a8764387cd3731d036e57a46ff3f138428c257"
+  },
+  {
+    "path": "after/assets/aoemod/geo/crustacean/flower_crab/flower_crab.geo.json",
+    "bytes": 21789,
+    "sha256": "37bceef7e03955413df1b626bdc51e0dad70bff1e449cce634c2d1fd16658a43"
+  },
+  {
+    "path": "after/assets/aoemod/geo/crustacean/lightfoot_crab/lightfoot_crab.geo.json",
+    "bytes": 23793,
+    "sha256": "c35ed6483ccd63c9982c6e3b4a2c8e7a28960aba5812de9ae5b20008fd22716f"
+  },
+  {
+    "path": "after/assets/aoemod/geo/illager_king.geo.json",
+    "bytes": 10795,
+    "sha256": "4c4aaf8b679316f6ae9f7f218d5ac07baefbec76132dff7157c85a964305217b"
+  },
+  {
+    "path": "after/assets/aoemod/models/block/blue_berry_bush_stage0.json",
+    "bytes": 117,
+    "sha256": "9346cf4f1126beffedb5d6218e60d3ff750a71a00efabc06995a7f0f7f62017b"
+  },
+  {
+    "path": "after/assets/aoemod/models/block/blue_berry_bush_stage0.json.mcmeta",
+    "bytes": 80,
+    "sha256": "4e9f967c50f134978ce801fe2b1f7a6707e2a72b5373130f9038e6776b26cba4"
+  },
+  {
+    "path": "after/assets/aoemod/models/block/blue_berry_bush_stage1.json",
+    "bytes": 117,
+    "sha256": "e1cb4d12f1f66172e603473af738841314c494314da1264a99847f6bfbbb7e92"
+  },
+  {
+    "path": "after/assets/aoemod/models/block/blue_berry_bush_stage1.json.mcmeta",
+    "bytes": 80,
+    "sha256": "79f2cb144b92ddb2ee037375607c3270add820080953c2ed48395b818912f1dc"
+  },
+  {
+    "path": "after/assets/aoemod/models/block/blue_berry_bush_stage2.json",
+    "bytes": 117,
+    "sha256": "736f9f932ff0e641b05902cacb9b58a17118a0372adc6bda22e426c05d39e2bd"
+  },
+  {
+    "path": "after/assets/aoemod/models/block/blue_berry_bush_stage2.json.mcmeta",
+    "bytes": 80,
+    "sha256": "735770450caf810d002cfdbaec1f2b99d21a6b32686dc6b7652bf23ae6cb0ee5"
+  },
+  {
+    "path": "after/assets/aoemod/models/block/blue_berry_bush_stage3.json",
+    "bytes": 117,
+    "sha256": "d445967a628cbd3f8b687f4c2f3b7fd4ff81de6b5d3cf2692c635e03c7bfcbc8"
+  },
+  {
+    "path": "after/assets/aoemod/models/block/blue_berry_bush_stage3.json.mcmeta",
+    "bytes": 80,
+    "sha256": "25a1b66d1c1d6655ce2caed7de424b43b6517d668b1e2fff4b6c506cf4f76389"
+  },
+  {
+    "path": "after/assets/aoemod/models/block/snowy_blue_berry_bush_stage0.json",
+    "bytes": 123,
+    "sha256": "c264b8de8e855a783015f09b7b109a9c629399433a2079cc46615c08547d30e1"
+  },
+  {
+    "path": "after/assets/aoemod/models/block/snowy_blue_berry_bush_stage1.json",
+    "bytes": 123,
+    "sha256": "534acf730d6ee743ea217356d50996a903145465d32e8d73447b7638bbf00a23"
+  },
+  {
+    "path": "after/assets/aoemod/models/block/snowy_blue_berry_bush_stage2.json",
+    "bytes": 123,
+    "sha256": "41d564157f970ecc7407b27e7b9ec7dcce4dd361ecbded3b941ba0b1a0ea13a9"
+  },
+  {
+    "path": "after/assets/aoemod/models/block/snowy_blue_berry_bush_stage3.json",
+    "bytes": 123,
+    "sha256": "006e2c601d82de4b06ea63699ffe6122fb954834728404f362901a5ff69a72bf"
+  },
+  {
+    "path": "after/assets/aoemod/models/block/soul_soil_quartz_ore.json",
+    "bytes": 143,
+    "sha256": "11ba2fbb41c4c11dc313de7c4399eb37a7b31c7b4a0dc5b761ab5e22f06b8224"
+  },
+  {
+    "path": "after/assets/aoemod/models/block/tropical_azalea_leaves.json",
+    "bytes": 107,
+    "sha256": "d760762b72a4f655a265752fec85bf37ceb8a03c3a9f3f2ff258a0be93525552"
+  },
+  {
+    "path": "after/assets/aoemod/models/block/tropical_flowering_azalea_leaves.json",
+    "bytes": 117,
+    "sha256": "b125c6c7e8566561dbabc8d1f1245161a3c9d847185884ff36d981c90a813e24"
+  },
+  {
+    "path": "after/assets/aoemod/models/block/wooden_portal_x.json",
+    "bytes": 728,
+    "sha256": "ca8e10d7b5158ba9c06f2ba45ae6dd9a607cc252f4f7be72a9682d1bd84954fd"
+  },
+  {
+    "path": "after/assets/aoemod/models/block/wooden_portal_z.json",
+    "bytes": 726,
+    "sha256": "c729e988b72a607819c8cbc8c2b42f08410602660cfb445cbdff5f9aab3f308c"
+  },
+  {
+    "path": "after/assets/aoemod/textures/block/blue_berry_bush_stage0.png",
+    "bytes": 201,
+    "sha256": "a77b1211007f64c3087801315201809b66d6331dd14665e7934e4adaf0da8670"
+  },
+  {
+    "path": "after/assets/aoemod/textures/block/blue_berry_bush_stage1.png",
+    "bytes": 291,
+    "sha256": "cdb0afbde53016786ce2a52770bb41ddf76460b9690546e06adce4509345b234"
+  },
+  {
+    "path": "after/assets/aoemod/textures/block/blue_berry_bush_stage2.png",
+    "bytes": 341,
+    "sha256": "416ebca4f039946a6ac0bb12e9b689b5830a616a7e3156bd3b589ebd1f6f068d"
+  },
+  {
+    "path": "after/assets/aoemod/textures/block/blue_berry_bush_stage3.png",
+    "bytes": 350,
+    "sha256": "3111c40e318bcb853f79ee626a7dc609bc33c11ed6a2b245498b917e20fb122e"
+  },
+  {
+    "path": "after/assets/aoemod/textures/block/snowy_blue_berry_bush_stage0.png",
+    "bytes": 192,
+    "sha256": "ee74e33c7521c25e2dac5447b964273f0057c5ae75b535291a627ff16f10615a"
+  },
+  {
+    "path": "after/assets/aoemod/textures/block/snowy_blue_berry_bush_stage1.png",
+    "bytes": 280,
+    "sha256": "a47193659a4214c2bff70d4c8e6965c83627b1a48341d24fd02bfa33dafb8554"
+  },
+  {
+    "path": "after/assets/aoemod/textures/block/snowy_blue_berry_bush_stage2.png",
+    "bytes": 322,
+    "sha256": "546cddc3301524b608a09eb7296fc3efeb4a9297adfbc1201c717c8886b0d9e3"
+  },
+  {
+    "path": "after/assets/aoemod/textures/block/snowy_blue_berry_bush_stage3.png",
+    "bytes": 338,
+    "sha256": "827e3c98da3e440e86f45118e0bbb5352ef2fc3a7f5dc64d665bacaf2b160eb6"
+  },
+  {
+    "path": "after/assets/aoemod/textures/block/soul_soil_quartz_ore.png",
+    "bytes": 591,
+    "sha256": "9e2032e6dd1ebf55b37922aa5c50832943532eb2e4387085e244949b3ed1d1a1"
+  },
+  {
+    "path": "after/assets/aoemod/textures/entity/arthropleura.png",
+    "bytes": 1792,
+    "sha256": "e79b35db29974b2bf9dc87a4a6e6fff19f77768c50300d6f90c8bc5bb3ad4795"
+  },
+  {
+    "path": "after/assets/aoemod/textures/entity/cephalopod/arrow_squid/arrow_squid.png",
+    "bytes": 756,
+    "sha256": "262737c74bb12e274fa0858aae976a64b7c514e8fe74ff9f33c93c7a82e3f3ff"
+  },
+  {
+    "path": "after/assets/aoemod/textures/entity/illager_lord.png",
+    "bytes": 4141,
+    "sha256": "26819061c6938e4839fc190d547b49aec27083903661c41be170d2226444df54"
+  },
+  {
+    "path": "after/assets/aoemod/textures/entity/orcz/orc_savage.png",
+    "bytes": 15016,
+    "sha256": "3cd1dc6a41b38fb7f75d931193f42320052a3c9ef83a43d9ee652c27be721318"
+  },
+  {
+    "path": "after/assets/aoemod/textures/entity/orcz/orc_savage_big_2sword.png",
+    "bytes": 23596,
+    "sha256": "6333a10d90ab6e3670a729b074bfe3fe57801a4c8530fb9599bac3f1d27669e3"
+  },
+  {
+    "path": "after/assets/aoemod/textures/entity/orcz/orc_savage_shield.png",
+    "bytes": 16716,
+    "sha256": "870f5f948c3b4f80182f67d6cca60ebf15ad639aed26686676cf36366537403e"
+  },
+  {
+    "path": "after/assets/aoemod/textures/entity/spider_queen.png",
+    "bytes": 1317,
+    "sha256": "45f0d1561f798ad04173d18047a6246e1e295f21a4d7609ee9bb2f7ebffde321"
+  },
+  {
+    "path": "after/assets/aoemod/textures/item/cooked_anglerfish.png",
+    "bytes": 578,
+    "sha256": "2d4d35b4cc704736144342ca4e69848d54863f88e64a92dbf82e824ea8bec0b6"
+  },
+  {
+    "path": "after/assets/aoemod/textures/item/cooked_anomalocaris.png",
+    "bytes": 518,
+    "sha256": "fa5ae7dd8a0ccb5e95b2a1f67e50bfda7bcf21392d9646bcc198ecab59ec1807"
+  },
+  {
+    "path": "after/assets/aoemod/textures/item/cooked_arrow_squid.png",
+    "bytes": 370,
+    "sha256": "e8f86730be22592c41e69423b1bb9555f8630a370587856954329284d86be356"
+  },
+  {
+    "path": "after/assets/aoemod/textures/item/cooked_blue_spotted_stingray.png",
+    "bytes": 1208,
+    "sha256": "52171a63375344cec42e4faa0c0e4c47e4bdfb6658baef19ebc6c673ca22df53"
+  },
+  {
+    "path": "after/assets/aoemod/textures/item/cooked_carp.png",
+    "bytes": 557,
+    "sha256": "48d55b2a70ddf3df8803ab6c03323f71263da4b8a4406ef7e181801c07a877c3"
+  },
+  {
+    "path": "after/assets/aoemod/textures/item/cooked_crab_meat.png",
+    "bytes": 255,
+    "sha256": "f024d7515d06250923e38618f97e4163b07575713450d96a7f13860386e64e62"
+  },
+  {
+    "path": "after/assets/aoemod/textures/item/cooked_flying_fish.png",
+    "bytes": 337,
+    "sha256": "b7140ca6ba60eb75d989006d7b27b87229813df2b817200dcb500f3aca577be7"
+  },
+  {
+    "path": "after/assets/aoemod/textures/item/cooked_mahi_mahi.png",
+    "bytes": 538,
+    "sha256": "8819b48d14acf98f6a36b7c3b31fe35683a8948b8a93086a37108d17a25de51c"
+  },
+  {
+    "path": "after/assets/aoemod/textures/item/cooked_octopus.png",
+    "bytes": 621,
+    "sha256": "122e00e593419c3c7538587824b102720b53b5593fd100c2f3a24fea29344a54"
+  },
+  {
+    "path": "after/assets/aoemod/textures/item/cooked_rubber_belly_glider.png",
+    "bytes": 502,
+    "sha256": "b49312711bbb2bd3cb4816248e61f1710ed1d97e676026222bcc0802e2c361ee"
+  },
+  {
+    "path": "after/assets/aoemod/textures/item/cooked_starfish.png",
+    "bytes": 1575,
+    "sha256": "5052e91ca19d24e14995680b00138c42e68a1878c24fcfbf98fd2803dbd7ad9f"
+  },
+  {
+    "path": "after/assets/aoemod/textures/item/cooked_swamp_mucker.png",
+    "bytes": 612,
+    "sha256": "97de9d4f097fb6c43bd54ab7208aadb3556227e9b748da96ae3a1dcfea210923"
+  },
+  {
+    "path": "after/assets/aoemod/textures/item/cooked_triops.png",
+    "bytes": 427,
+    "sha256": "ec52b53d369c298dbcfebd536179c597ae843d5239d2494fa842c26d5dd7db9e"
+  },
+  {
+    "path": "after/assets/aoemod/textures/item/cooked_tuna.png",
+    "bytes": 1925,
+    "sha256": "3c4019eb89030579071706eeeb663f98c29c6628d7c333baf058cb537274708f"
+  },
+  {
+    "path": "after/assets/aoemod/textures/item/cooked_umbrella_octopus.png",
+    "bytes": 580,
+    "sha256": "8fc6a273d3f01051b24bfadbc006f512e15f340e20d23111a20bdb973fe4db73"
+  },
+  {
+    "path": "after/assets/aoemod/textures/item/cooked_vampire_squid.png",
+    "bytes": 560,
+    "sha256": "a7efccc5725b2ff9054dd7c97720184eac2c4d9618c7557bd90756ba25362866"
+  },
+  {
+    "path": "after/assets/aoemod/textures/item/plum.png",
+    "bytes": 222,
+    "sha256": "bee8bc4375f2a25ce0c2cc42f18452f6e9d3c188702ed571acc63ceb778bbd73"
+  },
+  {
+    "path": "after/assets/aoemod/textures/item/raw_anglerfish.png",
+    "bytes": 591,
+    "sha256": "dc60c64e7d810668f9bbba21d796c43f332d8fc2aee37aac384e7edee0c2faa7"
+  },
+  {
+    "path": "after/assets/aoemod/textures/item/raw_anomalocaris.png",
+    "bytes": 1117,
+    "sha256": "27701d51a66ef9e4936a60616eab67faed193b19f70fa9db0fb2601162016b47"
+  },
+  {
+    "path": "after/assets/aoemod/textures/item/raw_arrow_squid.png",
+    "bytes": 962,
+    "sha256": "15f2d712ac5cf1182ce130cfea99ed6d1202a92f65a51e48ca72db338020cae4"
+  },
+  {
+    "path": "after/assets/aoemod/textures/item/raw_blue_spotted_stingray.png",
+    "bytes": 1236,
+    "sha256": "6972a41667c7a538afe3761905090ecbb101782f7297e2aaa7a5c90493ca28b6"
+  },
+  {
+    "path": "after/assets/aoemod/textures/item/raw_mahi_mahi.png",
+    "bytes": 467,
+    "sha256": "04344eb0c5f601ed1594a25c8680dc0a6072b9cc4b5341c48fda063751ef348e"
+  },
+  {
+    "path": "after/assets/aoemod/textures/item/raw_octopus.png",
+    "bytes": 1641,
+    "sha256": "3b3fbc3ed6a8994d9af7488308cc4a5c7babb4e8bc84b43a2a43078b0019ccc1"
+  },
+  {
+    "path": "after/assets/aoemod/textures/item/raw_rubber_belly_glider.png",
+    "bytes": 514,
+    "sha256": "7c643e56666cd3075b7e4b3311a8f6e64a68f22d044a94bd26b3013f0ed3285b"
+  },
+  {
+    "path": "after/assets/aoemod/textures/item/raw_triops.png",
+    "bytes": 425,
+    "sha256": "3c42793ccfa8fc840792cd96356b93a2cd1a8b06de5a2085f9b809bf182f7162"
+  },
+  {
+    "path": "after/assets/aoemod/textures/item/raw_umbrella_octopus.png",
+    "bytes": 593,
+    "sha256": "a416137d046f2d8498aa6218cb3333bdda12387ad866fbea365f10219c8b9ea5"
+  },
+  {
+    "path": "after/assets/aoemod/textures/item/raw_vampire_squid.png",
+    "bytes": 1191,
+    "sha256": "e557dd5e35365d31606d61f5b018a8e7cf91b8294b48e0f8eac63db58996e610"
+  },
+  {
+    "path": "after/assets/aoemod/textures/item/soul_beetroot_soup.png",
+    "bytes": 253,
+    "sha256": "04632039f297558b58c82ea52a859854741bc02f2d1667a390eb8e05d1e4edf7"
+  },
+  {
+    "path": "after/assets/hearthandharvest/textures/block/corn_bottom_stage_0.png",
+    "bytes": 227,
+    "sha256": "9307440b89c5ca1216d1b1c3cc9c5d87714461557060ee09548ac85b83cfb7dd"
+  },
+  {
+    "path": "after/assets/hearthandharvest/textures/block/corn_bottom_stage_1.png",
+    "bytes": 257,
+    "sha256": "4c233306e99aaad62fd27a234a82fc02f742bcebb64855f9910a26c4e61d6643"
+  },
+  {
+    "path": "after/assets/hearthandharvest/textures/block/corn_bottom_stage_2.png",
+    "bytes": 350,
+    "sha256": "482ba12c2fc0dac08780bb6226198f66501ecb5e7c645fd461876e26f990a28c"
+  },
+  {
+    "path": "after/assets/hearthandharvest/textures/block/corn_bottom_stage_3.png",
+    "bytes": 353,
+    "sha256": "f0440923bc9c88d02a999e8fcdfce89175f199a8dcdbd710df0fdf9a1139775e"
+  },
+  {
+    "path": "after/assets/hearthandharvest/textures/block/corn_bottom_stage_4.png",
+    "bytes": 393,
+    "sha256": "be44b0cbae13131bb7d5a7d859b473cd750e0a84cfef75aaa6135af6effe3404"
+  },
+  {
+    "path": "after/assets/hearthandharvest/textures/block/corn_bottom_stage_5.png",
+    "bytes": 409,
+    "sha256": "2ebddfc3b25aca4e413a0f8bd7023e06e56e05aec8042a982bf57c826364ee1a"
+  },
+  {
+    "path": "after/assets/hearthandharvest/textures/block/corn_middle_stage_0.png",
+    "bytes": 214,
+    "sha256": "9104974cb2c7e37db5688124a0566a5f078cb68c31a3e59e8d693c5315f85c84"
+  },
+  {
+    "path": "after/assets/hearthandharvest/textures/block/corn_middle_stage_1.png",
+    "bytes": 328,
+    "sha256": "10b0d308c02f89dfbbe8b486a5e34c3ad8f225825eb40693c36a10c61cce5afa"
+  },
+  {
+    "path": "after/assets/hearthandharvest/textures/block/corn_middle_stage_2.png",
+    "bytes": 373,
+    "sha256": "1347ebc5c107a969713f23d60382545dd6fe77e3de865e951e4a0a43b2526d92"
+  },
+  {
+    "path": "after/assets/hearthandharvest/textures/block/corn_middle_stage_3.png",
+    "bytes": 361,
+    "sha256": "99d019a08a3ea73245fa1f8874f86ca2dce6e6b417b5f9af25a141846b10453d"
+  },
+  {
+    "path": "after/assets/hearthandharvest/textures/block/corn_middle_stage_4.png",
+    "bytes": 422,
+    "sha256": "75eb7014cb112b5639749cbae7638ed3b7e25b6bcf29724087337b95e4d65920"
+  },
+  {
+    "path": "after/assets/hearthandharvest/textures/block/corn_middle_stage_5.png",
+    "bytes": 467,
+    "sha256": "c7257702a9cf2e172573ed22ba100c646f4b1d8f5b6471213b8f1c4b76bf8283"
+  },
+  {
+    "path": "after/assets/hearthandharvest/textures/block/corn_top_stage_0.png",
+    "bytes": 235,
+    "sha256": "d4e899d548999b2a86c40f9fa74f75701d87e2cc4fdabffdf77aab493b9bf628"
+  },
+  {
+    "path": "after/assets/hearthandharvest/textures/block/corn_top_stage_1.png",
+    "bytes": 248,
+    "sha256": "e96980d8f4a70fa8a295e024a5d7dae339d8c9d6f0fe36927fad9f9d478bb121"
+  },
+  {
+    "path": "after/assets/hearthandharvest/textures/block/corn_top_stage_2.png",
+    "bytes": 292,
+    "sha256": "2c79cd76931f6d7e42dd6836edce5678b90657e287bfc50950505388b518ca22"
+  },
+  {
+    "path": "after/assets/hearthandharvest/textures/block/corn_top_stage_3.png",
+    "bytes": 319,
+    "sha256": "71ba4ef618b459c4dada119648bde9a95c8024584e96e0c829ff20709cc4065a"
+  },
+  {
+    "path": "after/assets/hearthandharvest/textures/block/corn_top_stage_4.png",
+    "bytes": 392,
+    "sha256": "00f20de859f45797114afc20755bf5e14f4970681c127ece1c619e7bffc69238"
+  },
+  {
+    "path": "after/assets/hearthandharvest/textures/block/corn_top_stage_5.png",
+    "bytes": 427,
+    "sha256": "9da17d34132a20f1a051e942be2eab707d821ffda151ec74567e8785ac3bd2ec"
+  },
+  {
+    "path": "after/assets/hybrid_aquatic/animations/entity/cephalopod/arrow_squid/arrow_squid.animation.json",
+    "bytes": 2532,
+    "sha256": "bac45dd73fe079c0799b55d7940f361c5d2e2a1f301a6abb8cdd5d69a39a9e81"
+  },
+  {
+    "path": "after/assets/hybrid_aquatic/animations/entity/critter/starfish/starfish.animation.json",
+    "bytes": 1022,
+    "sha256": "1e25c203aa20a077084fc5a486afd9a8af9dcc36465ea88f4ff5e7049a8f0df5"
+  },
+  {
+    "path": "after/assets/hybrid_aquatic/animations/entity/critter/starfish/starfish_crown_of_thorns.animation.json",
+    "bytes": 3732,
+    "sha256": "65e8e516c853cc50e289f2c6bc381759c356f888e80b9fafa06398d2b88beebd"
+  },
+  {
+    "path": "after/assets/hybrid_aquatic/textures/entity/critter/starfish/layers/starfish_circle.png",
+    "bytes": 139,
+    "sha256": "aaf0ba0f173ee448234df6d98ce4df67be90298b48098cffeeb1f1cff5bf1680"
+  },
+  {
+    "path": "after/assets/hybrid_aquatic/textures/entity/critter/starfish/layers/starfish_circle_small.png",
+    "bytes": 106,
+    "sha256": "b6ac6260a1fd05127951f3a7b9824de9d5faa3a25725f2cf8d5f82c6f4e1e277"
+  },
+  {
+    "path": "after/assets/hybrid_aquatic/textures/entity/critter/starfish/layers/starfish_stripes.png",
+    "bytes": 165,
+    "sha256": "3d00743bf995cc936d00843a35c06575b33148f77b5b35f8b57592d84270b848"
+  },
+  {
+    "path": "after/assets/hybrid_aquatic/textures/entity/critter/starfish/layers/starfish_stripes_circle.png",
+    "bytes": 195,
+    "sha256": "958e457997935f49879bac52efc6ac7948cd643c1a3f0cb8df24c4f799bfd580"
+  },
+  {
+    "path": "after/assets/hybrid_aquatic/textures/entity/critter/starfish/layers/starfish_stripes_circle_small.png",
+    "bytes": 178,
+    "sha256": "a6d82ab96e3799f16c70d82d9b48ff9b201eecc346cb175fef87bfc2ec36be6d"
+  },
+  {
+    "path": "after/assets/hybrid_aquatic/textures/entity/critter/starfish/layers/starfish_stripes_small.png",
+    "bytes": 176,
+    "sha256": "1a429a09b805206fe0083dc911860ef4134ca913093c8d08e3fc15f5e47667b3"
+  },
+  {
+    "path": "after/assets/hybrid_aquatic/textures/entity/critter/starfish/starfish_crown_of_thorns.png",
+    "bytes": 362,
+    "sha256": "e03d3132f1dfea4116a97d9ab36823a71c3d19d1f2b7b5f6f283fa096b5a99cb"
+  },
+  {
+    "path": "after/assets/hybrid_aquatic/textures/entity/critter/starfish/starfish_medium.png",
+    "bytes": 395,
+    "sha256": "5aaab8449b68f12c9587bd1397e1e95831c51435eb2a105f23f2c5c6905fd721"
+  },
+  {
+    "path": "after/assets/hybrid_aquatic/textures/entity/critter/starfish/starfish_medium_knobbed.png",
+    "bytes": 374,
+    "sha256": "6fdea5e8d1c147a86fc853eb991941e6bb889a627eda985314a9fff344734506"
+  },
+  {
+    "path": "after/assets/hybrid_aquatic/textures/entity/critter/starfish/starfish_small.png",
+    "bytes": 366,
+    "sha256": "ad263c8916618c8ace30555931ed196629c7a904216e54c5f5a40dc171869110"
+  },
+  {
+    "path": "after/assets/hybrid_aquatic/textures/entity/crustacean/flower_crab/flower_crab.png",
+    "bytes": 456,
+    "sha256": "8c765a7fb50c875825bcebc1b467ac37d8b388d0cde8f18a945efb2f34d514a5"
+  },
+  {
+    "path": "after/assets/hybrid_aquatic/textures/entity/crustacean/lightfoot_crab/lightfoot_crab.png",
+    "bytes": 435,
+    "sha256": "187a4f336fa2e33947dc7c45c9dd73768af48e285432f9fe7575fa9658873960"
+  },
+  {
+    "path": "after/assets/hybrid_aquatic/textures/item/mahi.png",
+    "bytes": 467,
+    "sha256": "04344eb0c5f601ed1594a25c8680dc0a6072b9cc4b5341c48fda063751ef348e"
+  },
+  {
+    "path": "after/assets/minecraft/textures/entity/spider/spider.png",
+    "bytes": 927,
+    "sha256": "9d7655c3c25840f96cde37e7ab840c1b158b0fd9e73fbf949c12a81aa8c02b19"
+  },
+  {
+    "path": "after/assets/outer_end/textures/entity/stalker_cobalt.png",
+    "bytes": 4036,
+    "sha256": "2b0002813af0122fd5227720f2534692b110341a617c2a71cf8d8e1e9d6107e6"
+  },
+  {
+    "path": "after/assets/outer_end/textures/entity/stalker_cobaltglow.png",
+    "bytes": 1073,
+    "sha256": "dd67e1690cc22b371aa737fb5520f512a8a3afa3fd4a382694a4b572cdb71206"
+  },
+  {
+    "path": "after/portal-colors.json",
+    "bytes": 713,
+    "sha256": "422455fd76ad4033153cb9ac96ed5312cdeaa7b89edf85af213fa45abcab2700"
+  },
+  {
+    "path": "after/runtime-assets/ambientadditions/textures/entity/blue_spotted_stingray.png",
+    "bytes": 659,
+    "sha256": "3f95dcdb081c1688393ee2bdbed917e681bfda526ce805ac369d901e99b3c29a"
+  },
+  {
+    "path": "after/runtime-assets/aoemod/textures/block/tropical_azalea_leaves.png",
+    "bytes": 469,
+    "sha256": "b59f791fcfdc5c283104d67cae8688af19a4d136145ef673fffe0e15b52a126c"
+  },
+  {
+    "path": "after/runtime-assets/aoemod/textures/block/tropical_flowering_azalea_leaves.png",
+    "bytes": 532,
+    "sha256": "b6128033fed5c846a91f942ef08a60b38bb26a6cf972758ad1aaf2bfad068efb"
+  },
+  {
+    "path": "after/runtime-assets/aoemod/textures/block/wooden_portal.png",
+    "bytes": 16738,
+    "sha256": "c56ec68033276dfc5da2bbe07329400e52cda6d2f600dbe1aa7714bbddf20b1a"
+  },
+  {
+    "path": "after/runtime-assets/aoemod/textures/block/wooden_portal.png.mcmeta",
+    "bytes": 21,
+    "sha256": "802acdb8f55f30146d5ed18414b21ba35650d4e550f81825ea104131c12dc4fc"
+  },
+  {
+    "path": "after/runtime-assets/portal-colors/desert_portal.png",
+    "bytes": 21735,
+    "sha256": "bfbd633caf484fc13d8b392cb3990d3e73c05c7c14cb75947c850ba16c9a4bb3"
+  },
+  {
+    "path": "after/runtime-assets/portal-colors/desert_portal.png.mcmeta",
+    "bytes": 21,
+    "sha256": "802acdb8f55f30146d5ed18414b21ba35650d4e550f81825ea104131c12dc4fc"
+  },
+  {
+    "path": "after/runtime-assets/portal-colors/nether_portal.png",
+    "bytes": 20396,
+    "sha256": "1862ec153fd3e4b3276f7dc4810ce80a9f8c7204f080eb4716202ba8a0ec0f1b"
+  },
+  {
+    "path": "after/runtime-assets/portal-colors/nether_portal.png.mcmeta",
+    "bytes": 21,
+    "sha256": "802acdb8f55f30146d5ed18414b21ba35650d4e550f81825ea104131c12dc4fc"
+  },
+  {
+    "path": "after/runtime-assets/portal-colors/overworld_portal.png",
+    "bytes": 21570,
+    "sha256": "2afae2b184cdb22c991946a3345ae6310dcf4c4f01748121eaa1c14fd6270369"
+  },
+  {
+    "path": "after/runtime-assets/portal-colors/overworld_portal.png.mcmeta",
+    "bytes": 21,
+    "sha256": "802acdb8f55f30146d5ed18414b21ba35650d4e550f81825ea104131c12dc4fc"
+  },
+  {
+    "path": "after/runtime-assets/portal-colors/plains_portal.png",
+    "bytes": 18945,
+    "sha256": "b937e9249b8deabe3c87482b2c15d105c3eeb11ffb1bba92b860d48d44b1390c"
+  },
+  {
+    "path": "after/runtime-assets/portal-colors/plains_portal.png.mcmeta",
+    "bytes": 21,
+    "sha256": "802acdb8f55f30146d5ed18414b21ba35650d4e550f81825ea104131c12dc4fc"
+  },
+  {
+    "path": "after/runtime-assets/portal-colors/savanna_portal.png",
+    "bytes": 21866,
+    "sha256": "9ed4f9b47dd50ec4a7a6ab1ad938300f9c07bb8356c3796865e803f26177b11d"
+  },
+  {
+    "path": "after/runtime-assets/portal-colors/savanna_portal.png.mcmeta",
+    "bytes": 21,
+    "sha256": "802acdb8f55f30146d5ed18414b21ba35650d4e550f81825ea104131c12dc4fc"
+  },
+  {
+    "path": "after/runtime-assets/portal-colors/snowy_portal.png",
+    "bytes": 16738,
+    "sha256": "c56ec68033276dfc5da2bbe07329400e52cda6d2f600dbe1aa7714bbddf20b1a"
+  },
+  {
+    "path": "after/runtime-assets/portal-colors/snowy_portal.png.mcmeta",
+    "bytes": 21,
+    "sha256": "802acdb8f55f30146d5ed18414b21ba35650d4e550f81825ea104131c12dc4fc"
+  },
+  {
+    "path": "after/runtime-assets/portal-colors/tropical_portal.png",
+    "bytes": 22126,
+    "sha256": "c309254cb53f53805bb7a0e80ad6dda53878e83167d95e0b61ede1585b299c1b"
+  },
+  {
+    "path": "after/runtime-assets/portal-colors/tropical_portal.png.mcmeta",
+    "bytes": 21,
+    "sha256": "802acdb8f55f30146d5ed18414b21ba35650d4e550f81825ea104131c12dc4fc"
+  },
+  {
+    "path": "after/source/client/PortalClient.java",
+    "bytes": 1874,
+    "sha256": "d3741b8ddaea7d7730f4e02c5172d4b78ea8d5f9762576fcf12aace652beb88a"
+  },
+  {
+    "path": "after/source/client/PortalTexturePack.java",
+    "bytes": 5168,
+    "sha256": "c6f5797046252bc036409cfdc37f70be4454bd4ea064b2b43d18680826555bd2"
+  },
+  {
+    "path": "after/source/client/StalkerGlowLayer.java",
+    "bytes": 2326,
+    "sha256": "6f67e67ecfe874a6d423fbb9b13ae892a0c2f7557b05bf6cc7cbaae84b7a6522"
+  },
+  {
+    "path": "after/source/entity/ArthropleuraEntity.java",
+    "bytes": 4446,
+    "sha256": "fa3de4bd841ff4999910c93925717394c2f63c97e23dec10b9c41d5206d424ca"
+  },
+  {
+    "path": "after/source/entity/model/ArthropleuraModel.java",
+    "bytes": 6002,
+    "sha256": "ddb501cb2c9b260d7b5b8acf4ed868d03a9dd4cfafecb80551a0610ba2beef23"
+  },
+  {
+    "path": "after/source/entity/model/IllagerLordModel.java",
+    "bytes": 2271,
+    "sha256": "b278ef024cc48cfc9de91521e2a9ea66be8ee0795896c13f29f28f2f1f0c6455"
+  },
+  {
+    "path": "after/source/entity/render/ArthropleuraRenderer.java",
+    "bytes": 864,
+    "sha256": "80364968517f916a16f0516b9847959e528b40e9387c665b931b572aa3554b35"
+  },
+  {
+    "path": "after/source/entity/render/IllagerLordRenderer.java",
+    "bytes": 3930,
+    "sha256": "a684974113cf5e02c96604bcd09e5f193d4a2732416532f098b6acabdc5f4c5f"
+  },
+  {
+    "path": "after/source/entity/render/SpiderQueenRenderer.java",
+    "bytes": 1118,
+    "sha256": "aae617d147116fcce3b4844e63ad0c1c41460e15d25d5349222f492600006525"
+  },
+  {
+    "path": "after/source/entity/SpiderQueenEntity.java",
+    "bytes": 6524,
+    "sha256": "17f4d8d47fe0c0287ff936af217888924b44401109095efc4d72f1047ba1287e"
+  },
+  {
+    "path": "after/source/mixins/othermods/hybridaquatic/ArrowSquidModel.java",
+    "bytes": 1742,
+    "sha256": "1bcc454b8ec8b369b0bffbfb8aed2dddf188ba223af2569b53d295613ff6da3d"
+  },
+  {
+    "path": "after/source/mixins/othermods/hybridaquatic/StarfishModels.java",
+    "bytes": 1754,
+    "sha256": "e19f3412687760df31a87a1e9d3e1c2685d3cc34149f42e33b8e07eaac4773fb"
+  },
+  {
+    "path": "after/source/mixins/othermods/hybridaquatic/TallCrabModels.java",
+    "bytes": 1923,
+    "sha256": "9678eb226932e26b3e375966e88329519d414120bdbfc467432dca53effbbdd1"
+  },
+  {
+    "path": "after/source/mixins/othermods/hybridaquatic/TallCrabRenderer.java",
+    "bytes": 2287,
+    "sha256": "216ead32df09b10a67e8b12bd9f26c520430f7cd0bc34d071403262be9bf732b"
+  },
+  {
+    "path": "after/source/mixins/othermods/orcz/BoneBossSwordUV.java",
+    "bytes": 952,
+    "sha256": "6044024bc1c1a56a089beae1dd7e69402a0bc557fd82be98444474c7f33ee589"
+  },
+  {
+    "path": "after/source/portal/PortalDestination.java",
+    "bytes": 2121,
+    "sha256": "13e912e48eab64558d235f69e1910c0b9a9877fe92fc89cf192d09517888c0dc"
+  },
+  {
+    "path": "after/source/util/AquaticMobSizes.java",
+    "bytes": 2973,
+    "sha256": "288499ddf467cf21b8af17a16949c0aa4eb09ff59fe3189bf216365ef03ed308"
+  },
+  {
+    "path": "after/source/util/StingrayTextureColors.java",
+    "bytes": 1018,
+    "sha256": "6669f72b257db5f64f32129cd3c2250efffa960995f7e8799d6fdf056be80131"
+  },
+  {
+    "path": "before/assets/ambientadditions/textures/entity/blue_spotted_stingray.png",
+    "bytes": 740,
+    "sha256": "130e247434ec151b7d0dd416ca71a621a098d9a4496d34e6e9da2af57f4350a6"
+  },
+  {
+    "path": "before/assets/aoemod/animations/entity/crustacean/flower_crab/flower_crab.animation.json",
+    "bytes": 11625,
+    "sha256": "00d37cc709405d1e14b229512db73963f9cafb6334c5b48c35720ab1f57cc087"
+  },
+  {
+    "path": "before/assets/aoemod/animations/entity/crustacean/lightfoot_crab/lightfoot_crab.animation.json",
+    "bytes": 13137,
+    "sha256": "26c08b3c3b263a75155aaa9c8df98299d6239246613c32b829c07c9fca4e4e1b"
+  },
+  {
+    "path": "before/assets/aoemod/animations/illager_lord.animation.json",
+    "bytes": 12543,
+    "sha256": "030c8ed5d78668ab48493b358edbcf5680f960a5db55b7497e6f91e77dff3e8c"
+  },
+  {
+    "path": "before/assets/aoemod/geo/cephalopod/arrow_squid/arrow_squid.geo.json",
+    "bytes": 2785,
+    "sha256": "fa16e6eec2148cc1cffb9ab1a915e00768f4b12951a773b0719cd917dca79151"
+  },
+  {
+    "path": "before/assets/aoemod/geo/critter/starfish/starfish.geo.json",
+    "bytes": 3272,
+    "sha256": "5ca358dbea87e9f86cb8f40c67f00efd8849e2bfe4a9163ffc3fa4c479fdd366"
+  },
+  {
+    "path": "before/assets/aoemod/geo/critter/starfish/starfish_crown_of_thorns.geo.json",
+    "bytes": 6481,
+    "sha256": "bb1e7a275a56180f4990271e28f513a41b643c2af972cc4d2dae559f1a3afa53"
+  },
+  {
+    "path": "before/assets/aoemod/geo/critter/starfish/starfish_small.geo.json",
+    "bytes": 3272,
+    "sha256": "5ca358dbea87e9f86cb8f40c67f00efd8849e2bfe4a9163ffc3fa4c479fdd366"
+  },
+  {
+    "path": "before/assets/aoemod/geo/crustacean/flower_crab/flower_crab.geo.json",
+    "bytes": 3481,
+    "sha256": "7dbec59703686e7eaafcc948185041690f45f17ef5f987328be964d7e46234c1"
+  },
+  {
+    "path": "before/assets/aoemod/geo/crustacean/lightfoot_crab/lightfoot_crab.geo.json",
+    "bytes": 3546,
+    "sha256": "3088da1d0b0805ebd7cea3a5c5844728300a8e0c5684e067f149f171fa15bd27"
+  },
+  {
+    "path": "before/assets/aoemod/geo/illager_king.geo.json",
+    "bytes": 10795,
+    "sha256": "7726458a52a4385aeb2ceb10b9e204d05631278711cad88c5c065a2ced826ab3"
+  },
+  {
+    "path": "before/assets/aoemod/textures/block/blue_berry_bush_stage0.png",
+    "bytes": 162,
+    "sha256": "850b7db8d530fe22a20f341e1ddfdafd3c2424835bf77cdc7153d4a6eed967b3"
+  },
+  {
+    "path": "before/assets/aoemod/textures/block/blue_berry_bush_stage1.png",
+    "bytes": 255,
+    "sha256": "3b2245eb527b84d135a1e704c0d87cb97a8bf4676380bf7dc0883910bf56808b"
+  },
+  {
+    "path": "before/assets/aoemod/textures/block/blue_berry_bush_stage2.png",
+    "bytes": 280,
+    "sha256": "61fc3ed05a0c77db4f57c7717d9dfb8d52d9d10cd42855fa7e112f2efa2191b8"
+  },
+  {
+    "path": "before/assets/aoemod/textures/block/blue_berry_bush_stage3.png",
+    "bytes": 294,
+    "sha256": "dd8f656694b76937274baa602900b09e923b35869504403331d0f3ff5243e134"
+  },
+  {
+    "path": "before/assets/aoemod/textures/block/snowy_blue_berry_bush_stage0.png",
+    "bytes": 259,
+    "sha256": "d168a671be7927361159089d44f20cc4eddda77413ea20132c3c976645642015"
+  },
+  {
+    "path": "before/assets/aoemod/textures/block/snowy_blue_berry_bush_stage1.png",
+    "bytes": 445,
+    "sha256": "18cb65ad54d538d6e137c71fae8b7df55f56ee7c0cf21e483d26f659d590a0ec"
+  },
+  {
+    "path": "before/assets/aoemod/textures/block/snowy_blue_berry_bush_stage2.png",
+    "bytes": 480,
+    "sha256": "391ab30e4b3fa8f3e0e3adbfda5efc99cfcc787467eeb4236d89e2d93296bc49"
+  },
+  {
+    "path": "before/assets/aoemod/textures/block/snowy_blue_berry_bush_stage3.png",
+    "bytes": 519,
+    "sha256": "598bd82ab991a6cdd665b2b302d31542f3d0a7e76779756592d27d8b1b72851d"
+  },
+  {
+    "path": "before/assets/aoemod/textures/block/soul_soil_quartz_ore.png",
+    "bytes": 2404,
+    "sha256": "a29af6725b65679dc59965ed64f67a7a2bf0c17310f9ebebb31e10a6a362d0ad"
+  },
+  {
+    "path": "before/assets/aoemod/textures/block/tropical_azalea_leaves.png",
+    "bytes": 265,
+    "sha256": "8657b620bc742543174566cbd89871de223d572e8787e7d3503dbd14e4a31da2"
+  },
+  {
+    "path": "before/assets/aoemod/textures/block/tropical_flowering_azalea_leaves.png",
+    "bytes": 297,
+    "sha256": "265b411f8349eeb2e0b71c6ca93dbe3ab755bb863901d83ab4c7995ede11504e"
+  },
+  {
+    "path": "before/assets/aoemod/textures/block/wooden_portal.png",
+    "bytes": 13586,
+    "sha256": "7ba1a700dbb3cd62285b3085bce5f042c744f2a1d47cd984656f8bf1bcb661db"
+  },
+  {
+    "path": "before/assets/aoemod/textures/entity/cephalopod/arrow_squid/arrow_squid.png",
+    "bytes": 1021,
+    "sha256": "64f8ccd6fedc5a85e78fa0a021dc3e457e6655c84471640d26baf2f040200ce5"
+  },
+  {
+    "path": "before/assets/aoemod/textures/entity/illager_lord.png",
+    "bytes": 4141,
+    "sha256": "26819061c6938e4839fc190d547b49aec27083903661c41be170d2226444df54"
+  },
+  {
+    "path": "before/assets/aoemod/textures/entity/orcz/orc_savage.png",
+    "bytes": 16964,
+    "sha256": "04f18605e41d5ff23bca6ecdb6cc158e8449d89fcc4ef81b361cbb2b9bc08c9d"
+  },
+  {
+    "path": "before/assets/aoemod/textures/entity/orcz/orc_savage_big_2sword.png",
+    "bytes": 24848,
+    "sha256": "805a606c237e91bda944481856e39a812dfe83c850a0201ed26b0ad5e407299e"
+  },
+  {
+    "path": "before/assets/aoemod/textures/entity/orcz/orc_savage_shield.png",
+    "bytes": 18809,
+    "sha256": "e7f4b5563f706b280478a695f6719b794f2f728d2d6d8353c2223c7e0d475e93"
+  },
+  {
+    "path": "before/assets/hearthandharvest/textures/block/corn_bottom_stage_0.png",
+    "bytes": 237,
+    "sha256": "cf2392f55e349f772a3ef0573ffad68991944f5cd04400b3688a0bad66d76a76"
+  },
+  {
+    "path": "before/assets/hearthandharvest/textures/block/corn_bottom_stage_1.png",
+    "bytes": 277,
+    "sha256": "bb1ba2980d1ccad5b99147695270d868dc730c7dfdc0289d244c6dd01e86a180"
+  },
+  {
+    "path": "before/assets/hearthandharvest/textures/block/corn_bottom_stage_2.png",
+    "bytes": 366,
+    "sha256": "da24d1e3d3c41a9c4ab335a60ee5cd9f9e713d635df6d7d7c9feca32c55b30e7"
+  },
+  {
+    "path": "before/assets/hearthandharvest/textures/block/corn_bottom_stage_3.png",
+    "bytes": 357,
+    "sha256": "ec947e074abccacfc9cb0a4b0ee54a51692e6c93ee1cf8ff943a52c064674b02"
+  },
+  {
+    "path": "before/assets/hearthandharvest/textures/block/corn_bottom_stage_4.png",
+    "bytes": 398,
+    "sha256": "71f2deab70d3dad767c1b0109dcfc9bd7c6a308f0ceb67a86cb6763b70f424d0"
+  },
+  {
+    "path": "before/assets/hearthandharvest/textures/block/corn_bottom_stage_5.png",
+    "bytes": 413,
+    "sha256": "41989c997617f8c4f80a29324ec838f92244e56e1f519140a84b43850fcad6a3"
+  },
+  {
+    "path": "before/assets/hearthandharvest/textures/block/corn_middle_stage_0.png",
+    "bytes": 244,
+    "sha256": "3c3becee43830977273f22c6c8096e0f2715d12481705f6ecef65efe75ee72b9"
+  },
+  {
+    "path": "before/assets/hearthandharvest/textures/block/corn_middle_stage_1.png",
+    "bytes": 345,
+    "sha256": "34e74753249a6888d260de107093b9865804063217bc6cfe138fb2fe5a116b39"
+  },
+  {
+    "path": "before/assets/hearthandharvest/textures/block/corn_middle_stage_2.png",
+    "bytes": 393,
+    "sha256": "b3d2d5a681d60c73bafe803c88ba9d483f20101363271537a4edd7bcfc2678b3"
+  },
+  {
+    "path": "before/assets/hearthandharvest/textures/block/corn_middle_stage_3.png",
+    "bytes": 389,
+    "sha256": "dca9cc818a066966addbe0af046b920dad356a881e9b04bffac705ff22315d67"
+  },
+  {
+    "path": "before/assets/hearthandharvest/textures/block/corn_middle_stage_4.png",
+    "bytes": 451,
+    "sha256": "d58914c1e0bff18f6b0cbb67f05be59324fefdcc80cf6970616c4bce860093f1"
+  },
+  {
+    "path": "before/assets/hearthandharvest/textures/block/corn_middle_stage_5.png",
+    "bytes": 492,
+    "sha256": "2c2e57a92fe6bf9e2f8285f5e834cca3fc5e3a231b643cfa1ee9c2423bc435d5"
+  },
+  {
+    "path": "before/assets/hearthandharvest/textures/block/corn_top_stage_0.png",
+    "bytes": 238,
+    "sha256": "e68593c3363413f9a50a4d0fb648fe7e64f593fbfa1aaf0dac5c2fb98949b91f"
+  },
+  {
+    "path": "before/assets/hearthandharvest/textures/block/corn_top_stage_1.png",
+    "bytes": 269,
+    "sha256": "108dcd10b5685f018b5a326fde9410384b9f36d2edf17c64c6bd17546db307be"
+  },
+  {
+    "path": "before/assets/hearthandharvest/textures/block/corn_top_stage_2.png",
+    "bytes": 322,
+    "sha256": "241f60b2842eaa52cfdb5bd4c688f17acdd3e95d114630ad5b6844627994d8e7"
+  },
+  {
+    "path": "before/assets/hearthandharvest/textures/block/corn_top_stage_3.png",
+    "bytes": 351,
+    "sha256": "b4b61564714d4030ebb09372ca911a72a0a2431cff55b9fcffe3118a49bd3e59"
+  },
+  {
+    "path": "before/assets/hearthandharvest/textures/block/corn_top_stage_4.png",
+    "bytes": 403,
+    "sha256": "94d706233116a5d3d1ca96ce230f89013a6926a31ddcbb568c8bee7301b8587d"
+  },
+  {
+    "path": "before/assets/hearthandharvest/textures/block/corn_top_stage_5.png",
+    "bytes": 435,
+    "sha256": "971f8fc0b15a79d911ad805a9b45f39cc42777a116cc41b1406189590ea77b23"
+  },
+  {
+    "path": "before/assets/hybrid_aquatic/animations/entity/cephalopod/arrow_squid/arrow_squid.animation.json",
+    "bytes": 2532,
+    "sha256": "bac45dd73fe079c0799b55d7940f361c5d2e2a1f301a6abb8cdd5d69a39a9e81"
+  },
+  {
+    "path": "before/assets/hybrid_aquatic/animations/entity/critter/starfish/starfish.animation.json",
+    "bytes": 1022,
+    "sha256": "1e25c203aa20a077084fc5a486afd9a8af9dcc36465ea88f4ff5e7049a8f0df5"
+  },
+  {
+    "path": "before/assets/hybrid_aquatic/animations/entity/critter/starfish/starfish_crown_of_thorns.animation.json",
+    "bytes": 3732,
+    "sha256": "65e8e516c853cc50e289f2c6bc381759c356f888e80b9fafa06398d2b88beebd"
+  },
+  {
+    "path": "before/assets/hybrid_aquatic/textures/entity/critter/starfish/layers/starfish_circle.png",
+    "bytes": 139,
+    "sha256": "aaf0ba0f173ee448234df6d98ce4df67be90298b48098cffeeb1f1cff5bf1680"
+  },
+  {
+    "path": "before/assets/hybrid_aquatic/textures/entity/critter/starfish/layers/starfish_circle_small.png",
+    "bytes": 106,
+    "sha256": "b6ac6260a1fd05127951f3a7b9824de9d5faa3a25725f2cf8d5f82c6f4e1e277"
+  },
+  {
+    "path": "before/assets/hybrid_aquatic/textures/entity/critter/starfish/layers/starfish_stripes.png",
+    "bytes": 165,
+    "sha256": "3d00743bf995cc936d00843a35c06575b33148f77b5b35f8b57592d84270b848"
+  },
+  {
+    "path": "before/assets/hybrid_aquatic/textures/entity/critter/starfish/layers/starfish_stripes_circle.png",
+    "bytes": 195,
+    "sha256": "958e457997935f49879bac52efc6ac7948cd643c1a3f0cb8df24c4f799bfd580"
+  },
+  {
+    "path": "before/assets/hybrid_aquatic/textures/entity/critter/starfish/layers/starfish_stripes_circle_small.png",
+    "bytes": 178,
+    "sha256": "a6d82ab96e3799f16c70d82d9b48ff9b201eecc346cb175fef87bfc2ec36be6d"
+  },
+  {
+    "path": "before/assets/hybrid_aquatic/textures/entity/critter/starfish/layers/starfish_stripes_small.png",
+    "bytes": 176,
+    "sha256": "1a429a09b805206fe0083dc911860ef4134ca913093c8d08e3fc15f5e47667b3"
+  },
+  {
+    "path": "before/assets/hybrid_aquatic/textures/entity/critter/starfish/starfish_crown_of_thorns.png",
+    "bytes": 362,
+    "sha256": "e03d3132f1dfea4116a97d9ab36823a71c3d19d1f2b7b5f6f283fa096b5a99cb"
+  },
+  {
+    "path": "before/assets/hybrid_aquatic/textures/entity/critter/starfish/starfish_medium.png",
+    "bytes": 395,
+    "sha256": "5aaab8449b68f12c9587bd1397e1e95831c51435eb2a105f23f2c5c6905fd721"
+  },
+  {
+    "path": "before/assets/hybrid_aquatic/textures/entity/critter/starfish/starfish_medium_knobbed.png",
+    "bytes": 374,
+    "sha256": "6fdea5e8d1c147a86fc853eb991941e6bb889a627eda985314a9fff344734506"
+  },
+  {
+    "path": "before/assets/hybrid_aquatic/textures/entity/critter/starfish/starfish_small.png",
+    "bytes": 366,
+    "sha256": "ad263c8916618c8ace30555931ed196629c7a904216e54c5f5a40dc171869110"
+  },
+  {
+    "path": "before/assets/hybrid_aquatic/textures/entity/crustacean/flower_crab/flower_crab.png",
+    "bytes": 456,
+    "sha256": "8c765a7fb50c875825bcebc1b467ac37d8b388d0cde8f18a945efb2f34d514a5"
+  },
+  {
+    "path": "before/assets/hybrid_aquatic/textures/entity/crustacean/lightfoot_crab/lightfoot_crab.png",
+    "bytes": 435,
+    "sha256": "187a4f336fa2e33947dc7c45c9dd73768af48e285432f9fe7575fa9658873960"
+  },
+  {
+    "path": "before/assets/hybrid_aquatic/textures/item/mahi.png",
+    "bytes": 512,
+    "sha256": "176c9161005399fd966246b458f92d4aa0473fe9954fb53f99a6c36c60a2a21a"
+  },
+  {
+    "path": "before/assets/outer_end/textures/entity/stalker_cobalt.png",
+    "bytes": 4036,
+    "sha256": "2b0002813af0122fd5227720f2534692b110341a617c2a71cf8d8e1e9d6107e6"
+  },
+  {
+    "path": "before/assets/outer_end/textures/entity/stalker_cobaltglow.png",
+    "bytes": 1073,
+    "sha256": "dd67e1690cc22b371aa737fb5520f512a8a3afa3fd4a382694a4b572cdb71206"
+  },
+  {
+    "path": "before/assets/outer_end/textures/entity/stalker_rose.png",
+    "bytes": 4050,
+    "sha256": "231ef27b4c767179f3ba71fe430270d3f4cb952f107fd9d50afdb1c0d3d4c00f"
+  },
+  {
+    "path": "before/assets/outer_end/textures/entity/stalker_roseglow.png",
+    "bytes": 1079,
+    "sha256": "f1b37ffc5ff34bb61bb7e5d0ddeb96499a5ccc1e4eca71213892d9c5ee71dfad"
+  },
+  {
+    "path": "before/assets/twilightforest/textures/model/kingspider.png",
+    "bytes": 1090,
+    "sha256": "7d90423c4145e2ce36fd1c51db916c7392dce6756bd968ef557ee42976868ea8"
+  },
+  {
+    "path": "before/source/ArthropleuraModel-before.java",
+    "bytes": 5456,
+    "sha256": "848ad30b5c72ce3e1b2e1065662196860ec1d1fb391b34d5f8f73f34469eb6a8"
+  },
+  {
+    "path": "before/source/ArthropleuraRenderer-before.java",
+    "bytes": 868,
+    "sha256": "f6a542391ecbbd59e6ff2ac9e26e5b6e04f9250e3edc0fd508963727bdda878c"
+  },
+  {
+    "path": "index.html",
+    "bytes": 52139,
+    "sha256": "2f63620bb7484265a850bdebd96131811c8d1b2a0c6ea474843210ba9bf9a086"
+  },
+  {
+    "path": "overview.png",
+    "bytes": 1592946,
+    "sha256": "ecba91d5b53b440c56be71e00435ec4f6bfa3de8bc1a873fffc146620d83271d"
+  },
+  {
+    "path": "provenance/after-view-manifest.json",
+    "bytes": 26144,
+    "sha256": "4086afadf8224312414f833b9dbbc9ab286807ce16d4495e27266a6ef69ef75a"
+  },
+  {
+    "path": "provenance/asset-manifest.json",
+    "bytes": 23906,
+    "sha256": "82a9e238342acb746e5ee048633b3994d6bd8cc9ce4a5e65134b37465d8470a1"
+  },
+  {
+    "path": "provenance/before-view-manifest.json",
+    "bytes": 30110,
+    "sha256": "54a1e1fe923b4134db0ca8456b32cf5894e32010ac33200c6fb0369c4efab902"
+  },
+  {
+    "path": "provenance/TEXTURE_INVENTORY.md",
+    "bytes": 54448,
+    "sha256": "86663c8e7a2d5c5494089154a78e9b76dfc4dcffab0620c58be405ebb93f674d"
+  },
+  {
+    "path": "README.txt",
+    "bytes": 2965,
+    "sha256": "d242018c7ea6c79dffc5cd9425269a20e083fac3803d98658e03e353e0c26848"
+  },
+  {
+    "path": "screenshots/after/alexsmobs_flying_fish_view_1.png",
+    "bytes": 392406,
+    "sha256": "eabbf13977f75424631c61b16bca36a21a5884574adbb52c6c4993c2cb279339"
+  },
+  {
+    "path": "screenshots/after/alexsmobs_flying_fish_view_2.png",
+    "bytes": 309629,
+    "sha256": "5d07c0e5552ad17cb7e19b8bf36b2e50fcae08aa7d9cca2e5063e781cbdf5dbd"
+  },
+  {
+    "path": "screenshots/after/alexsmobs_flying_fish_view_3_above.png",
+    "bytes": 773908,
+    "sha256": "508adb7ad7b3a2fa382a1d559aff3008b552b0d6a57172d30fcdbbe6624dfae1"
+  },
+  {
+    "path": "screenshots/after/alexsmobs_triops_view_1.png",
+    "bytes": 472172,
+    "sha256": "5cfd145fb9e2de46a68dc144c78b29404ada73f4c6b98c4eb5ada676e9a697e9"
+  },
+  {
+    "path": "screenshots/after/alexsmobs_triops_view_2.png",
+    "bytes": 446767,
+    "sha256": "735916dcb04e91478adb494bbc9412d4ecf84ae1da8e19003c119ce006ad3fd2"
+  },
+  {
+    "path": "screenshots/after/alexsmobs_triops_view_3_above.png",
+    "bytes": 342235,
+    "sha256": "e30634944e6218c68cf5ae5818195b935b9529eee1a12ea73a8154b2da62e5a3"
+  },
+  {
+    "path": "screenshots/after/ambientadditions_blue_spotted_stingray_view_1.png",
+    "bytes": 598969,
+    "sha256": "08e25de5353368bb92c206775fc799505cebca94dd64ff757d5db4d7eb4d1d3e"
+  },
+  {
+    "path": "screenshots/after/ambientadditions_blue_spotted_stingray_view_2.png",
+    "bytes": 623119,
+    "sha256": "36e8d610f7b73f332b116da22d8d247707343d7b50f987c557ed53e3051993f0"
+  },
+  {
+    "path": "screenshots/after/ambientadditions_blue_spotted_stingray_view_3_above.png",
+    "bytes": 783145,
+    "sha256": "f94379fdabe23abbeb1bbdff550242d37abb0f7b906da5c3802b1bf6cb9b6671"
+  },
+  {
+    "path": "screenshots/after/angling_anglerfish_view_1.png",
+    "bytes": 577735,
+    "sha256": "e41514b86e82e2e5dc9c911a14fef38add704308bebdeb5a4c78056630d962b5"
+  },
+  {
+    "path": "screenshots/after/angling_anglerfish_view_2.png",
+    "bytes": 735444,
+    "sha256": "ae5e254c618e71b574ed358a627e192e74b0ebe3ec66e7979092bee1986eb9f5"
+  },
+  {
+    "path": "screenshots/after/angling_anglerfish_view_3_above.png",
+    "bytes": 851700,
+    "sha256": "965d3a0c2ea01db8825ca0ba2661951ce716ae75d189e8351e24b38cfb1583ea"
+  },
+  {
+    "path": "screenshots/after/angling_anomalocaris_view_1.png",
+    "bytes": 583831,
+    "sha256": "be6b5924febf061b5431449a109e41dc5a64e1af8d1bf6302110906fa3479edf"
+  },
+  {
+    "path": "screenshots/after/angling_anomalocaris_view_2.png",
+    "bytes": 624046,
+    "sha256": "a2313d90ff6688a8ddc36a988f27122804132afe82145e307edbef82e78f0843"
+  },
+  {
+    "path": "screenshots/after/angling_anomalocaris_view_3_above.png",
+    "bytes": 703352,
+    "sha256": "9905101184fe935989bb2ce5153ca267fe539710b2ee2dc52f3817e12ed24134"
+  },
+  {
+    "path": "screenshots/after/angling_mahi_mahi_view_1.png",
+    "bytes": 682563,
+    "sha256": "97029d0301ccd44616ad913448a52277bff0a87c7cd1994dd30f23cc6943ca83"
+  },
+  {
+    "path": "screenshots/after/angling_mahi_mahi_view_2.png",
+    "bytes": 631557,
+    "sha256": "b70c1a5eff383b866c548233e93951f7bdfea89b80694da01cfdae401789a903"
+  },
+  {
+    "path": "screenshots/after/angling_mahi_mahi_view_3_above.png",
+    "bytes": 781452,
+    "sha256": "72c4bbd29d5da15343966b94e3a9c6b83f1abc85c2095d8f8bdeec537922bee1"
+  },
+  {
+    "path": "screenshots/after/aoemod_arthropleura_view_1.png",
+    "bytes": 526169,
+    "sha256": "eb83c053f02c73c990a89205bccffb082a0d795a2501aedc06685ec2cb76272e"
+  },
+  {
+    "path": "screenshots/after/aoemod_arthropleura_view_2.png",
+    "bytes": 580454,
+    "sha256": "11ad4dabfd2103be6b4d5a21313d3954d6362725d5ee9fedf21ae20dc059625b"
+  },
+  {
+    "path": "screenshots/after/aoemod_arthropleura_view_3_above.png",
+    "bytes": 749537,
+    "sha256": "08eff676fc5da85285d0ded8804744c04145b25ae8ac815125ccf1f60dbda9c4"
+  },
+  {
+    "path": "screenshots/after/aoemod_illager_lord_view_1.png",
+    "bytes": 554981,
+    "sha256": "155fc798188dd26727c18fd9111ceaa4b44e5af1b8f75932433469e4ee80bb3d"
+  },
+  {
+    "path": "screenshots/after/aoemod_illager_lord_view_2.png",
+    "bytes": 627204,
+    "sha256": "2a28a070eb173a6f3b217c300431cf2707902ba3f17b75f6be34b3c71da9009d"
+  },
+  {
+    "path": "screenshots/after/aoemod_illager_lord_view_3_above.png",
+    "bytes": 823839,
+    "sha256": "1fc3b5eefec21fafe62295aa06f2274c671bdff66c246c0fb8be4d58c0dd6a35"
+  },
+  {
+    "path": "screenshots/after/aoemod_spider_queen_view_1.png",
+    "bytes": 563131,
+    "sha256": "5156e2c42bb460371b6a8daf5f22d1b96f6a7576c853958bad731a634eb28ee3"
+  },
+  {
+    "path": "screenshots/after/aoemod_spider_queen_view_2.png",
+    "bytes": 620572,
+    "sha256": "d02a700b3b5a28e003d90217db6e3c9223522dbe8a00f84fdbeefb4fa911e80b"
+  },
+  {
+    "path": "screenshots/after/aoemod_spider_queen_view_3_above.png",
+    "bytes": 849515,
+    "sha256": "24f6f12e26aeaa971795aa9a17f6468415a19767c838c113b0f6e0c4242e0822"
+  },
+  {
+    "path": "screenshots/after/blue_berries_front.png",
+    "bytes": 405639,
+    "sha256": "c55993a5977b1b1ad7d8d712758a38532f5fe03adf7e603a5516268d0c700fe3"
+  },
+  {
+    "path": "screenshots/after/blue_berries_side.png",
+    "bytes": 404374,
+    "sha256": "8a48c0860248fe161858602b20967bf35a1a9b11a7b6f98df0f3a8f000c970cc"
+  },
+  {
+    "path": "screenshots/after/blue_berries_stage_2_front.png",
+    "bytes": 409338,
+    "sha256": "f35366d7c169e45fbe31fe5a9074ea06b8bd36ba0eac54c9852d9089cfc4e5a6"
+  },
+  {
+    "path": "screenshots/after/blue_berries_stage_2_side.png",
+    "bytes": 406994,
+    "sha256": "eafcfe50c1af955ff90200d34fe0dc580e27ea724bdf4001e52a8d046c2b1656"
+  },
+  {
+    "path": "screenshots/after/capture-report.json",
+    "bytes": 101489,
+    "sha256": "43d649edd2170b659958fc6fb90c5943ecf3443e4f43096018ef37528682ce5c"
+  },
+  {
+    "path": "screenshots/after/corn_stage_5_front.png",
+    "bytes": 598787,
+    "sha256": "d001036f596161409e61d4b7c1b469b5d0430a617812e2ff320f253e743d1db7"
+  },
+  {
+    "path": "screenshots/after/corn_stage_5_side.png",
+    "bytes": 600912,
+    "sha256": "2de2bdd2d7a820b4e21fa1d7eb077e6d3b50b4f32338f024ceaaf76eefdd7b7b"
+  },
+  {
+    "path": "screenshots/after/finsandtails_rubber_belly_glider_view_1.png",
+    "bytes": 556506,
+    "sha256": "9c46551f189a3082a1280196b2d70650dc00c46386ac09f800354a4e28fb6705"
+  },
+  {
+    "path": "screenshots/after/finsandtails_rubber_belly_glider_view_2.png",
+    "bytes": 566659,
+    "sha256": "d9ae3f438184257f2500f6f36b02e22f3028e3cee4b408fc62d4ba5e1bcc543b"
+  },
+  {
+    "path": "screenshots/after/finsandtails_rubber_belly_glider_view_3_above.png",
+    "bytes": 918385,
+    "sha256": "9adaf9ae480bc2d73490d09c01e8d51688036935322a3b67bd03b2bd1bfe0330"
+  },
+  {
+    "path": "screenshots/after/finsandtails_swamp_mucker_view_1.png",
+    "bytes": 581588,
+    "sha256": "071092ef21fd546fe5f934045d38573b6e0f1b379a4149f5572932888fee50cb"
+  },
+  {
+    "path": "screenshots/after/finsandtails_swamp_mucker_view_2.png",
+    "bytes": 600739,
+    "sha256": "ee02c24eb3d5aab70997ae1b6db2d07e8a45b1054748e484893b50c9d8f3a3b0"
+  },
+  {
+    "path": "screenshots/after/finsandtails_swamp_mucker_view_3_above.png",
+    "bytes": 784375,
+    "sha256": "a4c8112b508ca32230c2de3ff6570a81769fac23ee3ae998c847577d9c8d147e"
+  },
+  {
+    "path": "screenshots/after/hybrid_aquatic_arrow_squid_view_1.png",
+    "bytes": 606611,
+    "sha256": "6e36cb0d73580916cbf1c33b387ce482ea27e13f0460e5b04d298171a8e018b9"
+  },
+  {
+    "path": "screenshots/after/hybrid_aquatic_arrow_squid_view_2.png",
+    "bytes": 649704,
+    "sha256": "3bd12c184bd6b01e9ec6bf5ee081310cdcddf282002cb2c26e74661cb57ee72a"
+  },
+  {
+    "path": "screenshots/after/hybrid_aquatic_arrow_squid_view_3_above.png",
+    "bytes": 633444,
+    "sha256": "a6177133b0c8afed7b3148cca1909e8c1aac8334a7bd8b128af9e3184ee4b59a"
+  },
+  {
+    "path": "screenshots/after/hybrid_aquatic_carp_view_1.png",
+    "bytes": 491589,
+    "sha256": "340c80f0c2d3fbf8b281d981b4eea52cdfd521b9292ab6c36b94cb9c45557c53"
+  },
+  {
+    "path": "screenshots/after/hybrid_aquatic_carp_view_2.png",
+    "bytes": 620675,
+    "sha256": "74c6ad353903a4ecd6902480c5ae9007b6c8450ff65571c7cd17c998e5f49b10"
+  },
+  {
+    "path": "screenshots/after/hybrid_aquatic_carp_view_3_above.png",
+    "bytes": 729973,
+    "sha256": "d833bbb2492b1a49778fd5fe27a28d05d9257c7f6fe8a75773cf969baa939712"
+  },
+  {
+    "path": "screenshots/after/hybrid_aquatic_fiddler_crab_view_1.png",
+    "bytes": 307102,
+    "sha256": "36a6d162e8b5629b56ada18fb806f8cc68b0612a157be083c29acf3d65823012"
+  },
+  {
+    "path": "screenshots/after/hybrid_aquatic_fiddler_crab_view_2.png",
+    "bytes": 300021,
+    "sha256": "a00f8923f4bcc4ba5f929957e30c6d7f407a71ef04ce4b6d8ed66355fe24538b"
+  },
+  {
+    "path": "screenshots/after/hybrid_aquatic_fiddler_crab_view_3_above.png",
+    "bytes": 216285,
+    "sha256": "ac63cd5d80d8b395baf06eacb82bc0499f653f0e2951500ab285cd01eece4cdf"
+  },
+  {
+    "path": "screenshots/after/hybrid_aquatic_flower_crab_view_1.png",
+    "bytes": 492306,
+    "sha256": "99a20a64dde16d223fb2953912268be9594d16a6a4a26ebc1e11c2f23bf4ea6b"
+  },
+  {
+    "path": "screenshots/after/hybrid_aquatic_flower_crab_view_2.png",
+    "bytes": 483686,
+    "sha256": "44250b66b50b5c0cbf776e41ab768e6b8907a64d5992a96819a0eeeb20a508eb"
+  },
+  {
+    "path": "screenshots/after/hybrid_aquatic_flower_crab_view_3_above.png",
+    "bytes": 456472,
+    "sha256": "08c9a798eae9e9c18852ce8c155ceb690adacf3e542498e62064dc2f6fcd39ff"
+  },
+  {
+    "path": "screenshots/after/hybrid_aquatic_lightfoot_crab_view_1.png",
+    "bytes": 492797,
+    "sha256": "67b7cfcd626f17ab42bf399bff56eaf1f0b1f9fa8c95d061c54aba0900f396f0"
+  },
+  {
+    "path": "screenshots/after/hybrid_aquatic_lightfoot_crab_view_2.png",
+    "bytes": 485729,
+    "sha256": "6af5dd58d390db3507cb61d846577baddf9404e6f5a9b0b0d44893d79afd3a52"
+  },
+  {
+    "path": "screenshots/after/hybrid_aquatic_lightfoot_crab_view_3_above.png",
+    "bytes": 459502,
+    "sha256": "ce4110d6dfe96c931bacdc1bd8a9666911df9df4af8d77ecbc04183f8efea757"
+  },
+  {
+    "path": "screenshots/after/hybrid_aquatic_octopus_view_1.png",
+    "bytes": 603720,
+    "sha256": "2c7649d3b8ed6ece1edc7e77f5363cdd638120326c820b5cbd68ee625e30c97e"
+  },
+  {
+    "path": "screenshots/after/hybrid_aquatic_octopus_view_2.png",
+    "bytes": 613748,
+    "sha256": "7bcd47d66e3fec6f11d6db16d83f01a5f086d708be2a24e7740d3c95344d6226"
+  },
+  {
+    "path": "screenshots/after/hybrid_aquatic_octopus_view_3_above.png",
+    "bytes": 573496,
+    "sha256": "05225ad04ce4b6ef2861e67dbdf3dfb6b98cbc70b590add512aabecacf7af4b0"
+  },
+  {
+    "path": "screenshots/after/hybrid_aquatic_spider_crab_view_1.png",
+    "bytes": 442958,
+    "sha256": "c0d91a6614850b916516c20f636aba8639e69de6f288710b78f26eb3bd247c86"
+  },
+  {
+    "path": "screenshots/after/hybrid_aquatic_spider_crab_view_2.png",
+    "bytes": 442572,
+    "sha256": "6012c1d593208f3aa390ea66469f21ce480cf32794c7659b3501067cde435c10"
+  },
+  {
+    "path": "screenshots/after/hybrid_aquatic_spider_crab_view_3_above.png",
+    "bytes": 408509,
+    "sha256": "2b4c9a429908214d3a339b9ca115e1b29acabcdc51ef5320c3b777fb8113438b"
+  },
+  {
+    "path": "screenshots/after/hybrid_aquatic_starfish_crown_of_thorns_view_1.png",
+    "bytes": 291203,
+    "sha256": "a4a5d965ea2612f7ae212d6588534d347536e0fdc6f28be8343203d731401e7e"
+  },
+  {
+    "path": "screenshots/after/hybrid_aquatic_starfish_crown_of_thorns_view_2.png",
+    "bytes": 288850,
+    "sha256": "69bc8857fe842030fc7177e65cc78a99e1b4a5798d8c76d12b8caf101d3ccbd8"
+  },
+  {
+    "path": "screenshots/after/hybrid_aquatic_starfish_crown_of_thorns_view_3_above.png",
+    "bytes": 203215,
+    "sha256": "66e449b52f13fab07fead1b1b95a5e22ea74e543e6e84919067a9685edc7e71a"
+  },
+  {
+    "path": "screenshots/after/hybrid_aquatic_starfish_medium_view_1.png",
+    "bytes": 231403,
+    "sha256": "656cf939d93848aff1332720438c23c6ba796a89f7ca0ee1950f39b438ff308d"
+  },
+  {
+    "path": "screenshots/after/hybrid_aquatic_starfish_medium_view_2.png",
+    "bytes": 227498,
+    "sha256": "3383c953ae52df7811d679dd44dac702c60a8fd0aab61be86b735773d51cb5ef"
+  },
+  {
+    "path": "screenshots/after/hybrid_aquatic_starfish_medium_view_3_above.png",
+    "bytes": 107194,
+    "sha256": "71bac243f78d4756befcee0aee866eb28ccfc1b2916e8df60bc3ab2e43b43cfb"
+  },
+  {
+    "path": "screenshots/after/hybrid_aquatic_starfish_small_view_1.png",
+    "bytes": 289436,
+    "sha256": "332a1c8a65cd41e26eba0b37d623665afeaeca3b87b94ecdb5d79ef956c4288f"
+  },
+  {
+    "path": "screenshots/after/hybrid_aquatic_starfish_small_view_2.png",
+    "bytes": 289016,
+    "sha256": "51d1c03fde935632b03c5575d316c7a7ecf6b822afc1c672573cbc5e4b5a87b9"
+  },
+  {
+    "path": "screenshots/after/hybrid_aquatic_starfish_small_view_3_above.png",
+    "bytes": 154279,
+    "sha256": "e53a895a7cbab755ca973dfb1244d34570713dc18c978a7a0bb0efa64dd67440"
+  },
+  {
+    "path": "screenshots/after/hybrid_aquatic_tuna_view_1.png",
+    "bytes": 631559,
+    "sha256": "5d8496d2fe62cf276ffc11aeba76e8f81645add7910d1f6f3546c486146913c0"
+  },
+  {
+    "path": "screenshots/after/hybrid_aquatic_tuna_view_2.png",
+    "bytes": 664872,
+    "sha256": "19d9abab35a5fddc23243ce6c7359abde1ebd27bb7c33306b1fbe219c8c81e69"
+  },
+  {
+    "path": "screenshots/after/hybrid_aquatic_tuna_view_3_above.png",
+    "bytes": 811464,
+    "sha256": "7d38caa8fd48680daac50338556829edac087d5b150a6be79ba9981d17528051"
+  },
+  {
+    "path": "screenshots/after/hybrid_aquatic_umbrella_octopus_view_1.png",
+    "bytes": 608233,
+    "sha256": "fa0b7c5f299c17c241ff567daa7bba6a01723c0d0f5a9a1609e67bbc56f5a71e"
+  },
+  {
+    "path": "screenshots/after/hybrid_aquatic_umbrella_octopus_view_2.png",
+    "bytes": 427419,
+    "sha256": "1e24abdb6bc7b8e9d46d113d55de2fb449b33ee6b0e87d9f09bbc052a2779180"
+  },
+  {
+    "path": "screenshots/after/hybrid_aquatic_umbrella_octopus_view_3_above.png",
+    "bytes": 725742,
+    "sha256": "f2e8129ed17eb27ddee9fcc07275a30635b174680542fe731e85fc9b29a64755"
+  },
+  {
+    "path": "screenshots/after/hybrid_aquatic_vampire_squid_view_1.png",
+    "bytes": 571868,
+    "sha256": "5265defaf83d437e3d0c6b20b474e26e0e9f963a4775b2efa2d818ef2910a8f2"
+  },
+  {
+    "path": "screenshots/after/hybrid_aquatic_vampire_squid_view_2.png",
+    "bytes": 562703,
+    "sha256": "341b46120b0c52fe553d58ce4a28fa49e47c21e03c4c5981913e6e5c2aeb545f"
+  },
+  {
+    "path": "screenshots/after/hybrid_aquatic_vampire_squid_view_3_above.png",
+    "bytes": 695801,
+    "sha256": "b61acb68fd8c13dfd2c27ba8af7e9daaddab44d50d9eb7174c8b8d5c1475920b"
+  },
+  {
+    "path": "screenshots/after/orcz_bigorcboss_view_1.png",
+    "bytes": 600335,
+    "sha256": "2124a726986cd643381d541b3375ecfcecf0d8b069ffaf2eb726edb036b44957"
+  },
+  {
+    "path": "screenshots/after/orcz_bigorcboss_view_2.png",
+    "bytes": 673192,
+    "sha256": "997c2c1dcbd7e937627586c6114f696a18b42eda848b4dd7c3561c998889f695"
+  },
+  {
+    "path": "screenshots/after/orcz_bigorcboss_view_3_above.png",
+    "bytes": 901775,
+    "sha256": "fd273b26dd60f12b7c7d9a2d9792666a08bf33a1b909e53e9fcbfcae77efc2a6"
+  },
+  {
+    "path": "screenshots/after/orcz_orcsavagemace_view_1.png",
+    "bytes": 520504,
+    "sha256": "9767dbffaf581ce8c3c9aa1b8c540809922414ba284b26cafb69bfe62fedd53b"
+  },
+  {
+    "path": "screenshots/after/orcz_orcsavagemace_view_2.png",
+    "bytes": 591773,
+    "sha256": "a70e5547ce658a2da0f78d92ca79a114ad92c8783e8e3967583d7d123019ccac"
+  },
+  {
+    "path": "screenshots/after/orcz_orcsavagemace_view_3_above.png",
+    "bytes": 714349,
+    "sha256": "2058ef06e31f67cafea1ef440f4f79fadafea049ea4cc06beacb757cba650754"
+  },
+  {
+    "path": "screenshots/after/orcz_orcshield_view_1.png",
+    "bytes": 526517,
+    "sha256": "83455e20121f216cdddb7b23e64964d8b8cb5423de2495f05534a47343646106"
+  },
+  {
+    "path": "screenshots/after/orcz_orcshield_view_2.png",
+    "bytes": 595439,
+    "sha256": "a0b7f9b90f684ed2afdf47117b916dc049a911d9311554b89407a1620bec45cd"
+  },
+  {
+    "path": "screenshots/after/orcz_orcshield_view_3_above.png",
+    "bytes": 718854,
+    "sha256": "237415f2eda35451ca8a21278b07d046153f48d9334eb464e59afdd0efe74bee"
+  },
+  {
+    "path": "screenshots/after/outer_end_stalker_view_1.png",
+    "bytes": 551865,
+    "sha256": "172a9747054b3ec4ec6bd38ace0238b8d4521e0e2b36f84a58cad18a0cd890ad"
+  },
+  {
+    "path": "screenshots/after/outer_end_stalker_view_2.png",
+    "bytes": 608866,
+    "sha256": "b81881983fe3257e527bec1c31a9b7725b20de560cc5626ca0ffb6df1451b013"
+  },
+  {
+    "path": "screenshots/after/outer_end_stalker_view_3_above.png",
+    "bytes": 799226,
+    "sha256": "a5ea624b20ed7bbec20b69848f66e3b377e590bdd81d60aa0d22959688a983e3"
+  },
+  {
+    "path": "screenshots/after/snowy_blue_berries_front.png",
+    "bytes": 304550,
+    "sha256": "f756938ca86d947b29a997fded731053787a748873b7fcf45023b8c0da592bc0"
+  },
+  {
+    "path": "screenshots/after/snowy_blue_berries_side.png",
+    "bytes": 305814,
+    "sha256": "f0d66f7af97de51253d4709b523b42e123a4cc13ab0bdc85b1b925e17585f1fb"
+  },
+  {
+    "path": "screenshots/after/snowy_blue_berries_stage_2_front.png",
+    "bytes": 307222,
+    "sha256": "681d11ae648fc9ef44042007f7e897f7a19acd2a047a420df0983caa3a7a6e8f"
+  },
+  {
+    "path": "screenshots/after/snowy_blue_berries_stage_2_side.png",
+    "bytes": 308130,
+    "sha256": "936c76799e00cc990f29d5e3996fb51d4ba982cf3128843913a05efcda3a83dd"
+  },
+  {
+    "path": "screenshots/after/soul_soil_quartz_ore_front.png",
+    "bytes": 490867,
+    "sha256": "c9830edfd600537b16cf27ed205b1a7545bd3c220bd4b3181af4f26526901ccf"
+  },
+  {
+    "path": "screenshots/after/soul_soil_quartz_ore_side.png",
+    "bytes": 490176,
+    "sha256": "b6e47562e0e965604961078e20b2e0aa8231b488c1cbf82323fad69144e0fe37"
+  },
+  {
+    "path": "screenshots/after/tropical_azalea_leaves_front.png",
+    "bytes": 74364,
+    "sha256": "eb3db8441356732881187ac6cb3134ac29533286d5d073ce67ee4e136240cee9"
+  },
+  {
+    "path": "screenshots/after/tropical_azalea_leaves_side.png",
+    "bytes": 74483,
+    "sha256": "2e249056afb348b73c25670ea4032d12ab111a7efce407264b4ce94ee986ee48"
+  },
+  {
+    "path": "screenshots/after/tropical_flowering_azalea_leaves_front.png",
+    "bytes": 75931,
+    "sha256": "0cfe977618e6d484f6615a55ac6a5317cd2df8633ebcaa6e119127bdcbc65405"
+  },
+  {
+    "path": "screenshots/after/tropical_flowering_azalea_leaves_side.png",
+    "bytes": 76195,
+    "sha256": "ea88e5442840f5d12c311a8f98f98db1ff31e0f7fc13c5b7576a06fc5df25e5e"
+  },
+  {
+    "path": "screenshots/after/wooden_desert_portal_front.png",
+    "bytes": 778318,
+    "sha256": "5316e621267f8d471c24ac8f6961f805bb63bc5a190ea743376f0fd1baa46be8"
+  },
+  {
+    "path": "screenshots/after/wooden_desert_portal_side.png",
+    "bytes": 782899,
+    "sha256": "f6a73a858fd48734e87a99797e4baa4a0bbbcb1e9927d480da664a59c0354e18"
+  },
+  {
+    "path": "screenshots/after/wooden_nether_portal_front.png",
+    "bytes": 605443,
+    "sha256": "67ea3d5221d02be4fea1d3f09690314cedc4a3ab5cbc4341b003256133cae8f0"
+  },
+  {
+    "path": "screenshots/after/wooden_nether_portal_side.png",
+    "bytes": 573673,
+    "sha256": "f27c5dbdcbe534e51ba29451d25b315e83431204c0c8f2d52f0fd63124a1ecb7"
+  },
+  {
+    "path": "screenshots/after/wooden_overworld_portal_front.png",
+    "bytes": 650693,
+    "sha256": "4afc22e0fb96741bb53921d67b3808007f90f9fd744c1f0e4964caabcbfd73ad"
+  },
+  {
+    "path": "screenshots/after/wooden_overworld_portal_side.png",
+    "bytes": 784882,
+    "sha256": "2c1e479e9518bb266888f80ab447df3d9ba420f463095584662fb72df0438178"
+  },
+  {
+    "path": "screenshots/after/wooden_plains_portal_front.png",
+    "bytes": 779831,
+    "sha256": "09a554ad2bf635b3665335a302a4c34131e305dc1c6cb8e4f826e6f15b1d742e"
+  },
+  {
+    "path": "screenshots/after/wooden_plains_portal_side.png",
+    "bytes": 783654,
+    "sha256": "099292f38a144b08b7197b72164e128508e4a3d257ec7286e377aa8e99fac5d0"
+  },
+  {
+    "path": "screenshots/after/wooden_savanna_portal_front.png",
+    "bytes": 790063,
+    "sha256": "72fdc48550cfe84e3dd963ff9f95498e77475bc7234c37a39502360ffd531337"
+  },
+  {
+    "path": "screenshots/after/wooden_savanna_portal_side.png",
+    "bytes": 781597,
+    "sha256": "ff6b1f4c7d1e8003002fb836b5431a4bf098d94d6da5ab5005d33f5837f84379"
+  },
+  {
+    "path": "screenshots/after/wooden_snowy_portal_front.png",
+    "bytes": 787323,
+    "sha256": "94bbc745072873ea784c5ab34f4740fc7a86de2b7bad1ff7e0c9ef49e7220a2c"
+  },
+  {
+    "path": "screenshots/after/wooden_snowy_portal_side.png",
+    "bytes": 785691,
+    "sha256": "44c5947070a2b2c90d012b463842ce7bb6e27e807b6292f150db1e2431a742d0"
+  },
+  {
+    "path": "screenshots/after/wooden_tropical_portal_front.png",
+    "bytes": 776335,
+    "sha256": "6b09ea105e381fc4b9e2e564d39407cbd81476bfbc15f350473a94fcf3ab74cc"
+  },
+  {
+    "path": "screenshots/after/wooden_tropical_portal_side.png",
+    "bytes": 782870,
+    "sha256": "c15e553779348751fd32a9fc3f8c86cac65f44195d30e2650caed9c1b46071d9"
+  },
+  {
+    "path": "screenshots/before/ambientadditions_blue_spotted_stingray_view_1.png",
+    "bytes": 719162,
+    "sha256": "15f6a0ac20c940277d94308e5b43413f02776ae76e41ae3325bee7b4aa58e148"
+  },
+  {
+    "path": "screenshots/before/ambientadditions_blue_spotted_stingray_view_2.png",
+    "bytes": 571514,
+    "sha256": "a7654660cbb34eb4950ca2abcf05ce5c5f29844616af62483f50c8964d2948dd"
+  },
+  {
+    "path": "screenshots/before/ambientadditions_blue_spotted_stingray_view_3_above.png",
+    "bytes": 872360,
+    "sha256": "dc5d6af6db001fc2a5eaae4bc52c53b880fd7e53836e555cdd1a48df46b9767b"
+  },
+  {
+    "path": "screenshots/before/aoemod_arthropleura_view_1.png",
+    "bytes": 522777,
+    "sha256": "6949c7fe0073b9f95519c89b69fd50083033ba8bb17e9d1e782661975eddbd1f"
+  },
+  {
+    "path": "screenshots/before/aoemod_arthropleura_view_2.png",
+    "bytes": 583586,
+    "sha256": "17ddd3e4e6c8d62de682ae4413937893d61d5b3bbf06cbfcd97b6c41b66843f4"
+  },
+  {
+    "path": "screenshots/before/aoemod_arthropleura_view_3_above.png",
+    "bytes": 745780,
+    "sha256": "f585de5e8a798c3c9160aa44846be95c14807f7013c64e3480a054889f050dc5"
+  },
+  {
+    "path": "screenshots/before/aoemod_illager_lord_view_1.png",
+    "bytes": 555604,
+    "sha256": "bcc66eeb6b50a566b3a4d513424fa24729bc5b6f9252a675273a703e276f845e"
+  },
+  {
+    "path": "screenshots/before/aoemod_illager_lord_view_2.png",
+    "bytes": 627752,
+    "sha256": "d0b90c65c0947d8d66da81353918970ac8b0ffa99d814b03bd5d7cc28b019107"
+  },
+  {
+    "path": "screenshots/before/aoemod_illager_lord_view_3_above.png",
+    "bytes": 822463,
+    "sha256": "9b0a7d545a876c52b4433624c643b38ebb565b9a86e3fea82eaded9fd05a37c1"
+  },
+  {
+    "path": "screenshots/before/aoemod_spider_queen_view_1.png",
+    "bytes": 562628,
+    "sha256": "cba7a0b0b1a38ab5fa69206400815f273a1a068807f98c51b4a4107ca87073c8"
+  },
+  {
+    "path": "screenshots/before/aoemod_spider_queen_view_2.png",
+    "bytes": 620936,
+    "sha256": "13afe16d60c96c6a45596674af5f1ce3da59e25af0cdeedd34f9d5a05935b6ab"
+  },
+  {
+    "path": "screenshots/before/aoemod_spider_queen_view_3_above.png",
+    "bytes": 848271,
+    "sha256": "96db1f6b0fa90661cc9dbf8e6a5590267c4e28811520a15994b6d216006fcfab"
+  },
+  {
+    "path": "screenshots/before/blue_berries_front.png",
+    "bytes": 405274,
+    "sha256": "4bab3bbd52f95b6fbad3a5162c6c23d342c1e6c671fdebd8d67fb2bd622cf577"
+  },
+  {
+    "path": "screenshots/before/blue_berries_side.png",
+    "bytes": 403534,
+    "sha256": "25f05a2a887373a6149694b85677749fa16ac75b3af944882536f1a61f0be6b7"
+  },
+  {
+    "path": "screenshots/before/blue_berries_stage_2_front.png",
+    "bytes": 409983,
+    "sha256": "d7178730367c4ebd56c33e5f4dfd173a5d961eb8d34de0b0268b7aba46e3a8b8"
+  },
+  {
+    "path": "screenshots/before/blue_berries_stage_2_side.png",
+    "bytes": 407389,
+    "sha256": "9a95cc390e22ba6768a97e3939e64cf72cce47ecc3d68b74b5f4593424714c0d"
+  },
+  {
+    "path": "screenshots/before/capture-report.json",
+    "bytes": 57165,
+    "sha256": "a684087f00187457b9ca4f2ab03c79d54d900e211711a28527da77630c316c36"
+  },
+  {
+    "path": "screenshots/before/corn_stage_5_front.png",
+    "bytes": 598677,
+    "sha256": "f6bef924bb1df0fc64e1c3f308417481ab15337519091144a635beb67ad16d22"
+  },
+  {
+    "path": "screenshots/before/corn_stage_5_side.png",
+    "bytes": 601620,
+    "sha256": "4f87ab036f0e5c892ea2594fb7ac57d234356b6c284878692a5a3418f07202cd"
+  },
+  {
+    "path": "screenshots/before/hybrid_aquatic_arrow_squid_view_1.png",
+    "bytes": 503291,
+    "sha256": "6096264821c540c862f5f85ba6c3668c1a7ea41235fd382ac64cead4f563765b"
+  },
+  {
+    "path": "screenshots/before/hybrid_aquatic_arrow_squid_view_2.png",
+    "bytes": 613137,
+    "sha256": "d57d10fa46f3b3c05b0a9d24d588c1f5a41dd7089d0c74878b0928c7e505f3a5"
+  },
+  {
+    "path": "screenshots/before/hybrid_aquatic_arrow_squid_view_3_above.png",
+    "bytes": 901356,
+    "sha256": "b52e48973c34885879c8733b905ee54185ce1c59f10a8f4356428981863769d3"
+  },
+  {
+    "path": "screenshots/before/hybrid_aquatic_flower_crab_view_1.png",
+    "bytes": 515960,
+    "sha256": "6a6aaaa3ffbf3fa6e8aaa132aaaf29ca2f3532d5e735494851ee1932b3478dfc"
+  },
+  {
+    "path": "screenshots/before/hybrid_aquatic_flower_crab_view_2.png",
+    "bytes": 515797,
+    "sha256": "f186aa4259cdb5b81dacae8c56227c78e933683dc9ec0ecefc9423fff45ae753"
+  },
+  {
+    "path": "screenshots/before/hybrid_aquatic_flower_crab_view_3_above.png",
+    "bytes": 516609,
+    "sha256": "63c4747eda45224cdafa02f257e285858038a1186c8a48b87ea97cd2816d5c49"
+  },
+  {
+    "path": "screenshots/before/hybrid_aquatic_lightfoot_crab_view_1.png",
+    "bytes": 496769,
+    "sha256": "c6ab4f954a737aea9a811e6cffad3a6bc515c10fb77f7f811f4a58914260052a"
+  },
+  {
+    "path": "screenshots/before/hybrid_aquatic_lightfoot_crab_view_2.png",
+    "bytes": 492187,
+    "sha256": "0b2618448cce5a076f186226b976078d5d5862c401eb9936e21e42bdab600786"
+  },
+  {
+    "path": "screenshots/before/hybrid_aquatic_lightfoot_crab_view_3_above.png",
+    "bytes": 469275,
+    "sha256": "f06873bf1d7b5edf4f5ac7aae9de9a0437a69b03b0c5d2fc44fee4b784dd0e8a"
+  },
+  {
+    "path": "screenshots/before/hybrid_aquatic_starfish_crown_of_thorns_view_1.png",
+    "bytes": 290685,
+    "sha256": "5f21ca75c48d0d498d4d0f625b24c29480433114b909a9973ad5b8004b98f9a2"
+  },
+  {
+    "path": "screenshots/before/hybrid_aquatic_starfish_crown_of_thorns_view_2.png",
+    "bytes": 290536,
+    "sha256": "442f3e5071705059af7cff3835d5dc004200d66a7d869610d69aface1d3e254c"
+  },
+  {
+    "path": "screenshots/before/hybrid_aquatic_starfish_crown_of_thorns_view_3_above.png",
+    "bytes": 204460,
+    "sha256": "09eacd8601300e206aa88d3722f67c2266d9813ae45448541837437f7113a90d"
+  },
+  {
+    "path": "screenshots/before/hybrid_aquatic_starfish_medium_view_1.png",
+    "bytes": 301383,
+    "sha256": "956a7d006a586f061b2822d507c7b6b98d03f1ea6c0b978babec3ff8b78c315c"
+  },
+  {
+    "path": "screenshots/before/hybrid_aquatic_starfish_medium_view_2.png",
+    "bytes": 304837,
+    "sha256": "d447f00c4381a7c7acc491f32d1650eeebf07847121f31ba59ecf7e850cc402a"
+  },
+  {
+    "path": "screenshots/before/hybrid_aquatic_starfish_medium_view_3_above.png",
+    "bytes": 214499,
+    "sha256": "fa5934f58d735d5427e2f54bdd19c9478322ed52eac277c9c190f91bc25e7765"
+  },
+  {
+    "path": "screenshots/before/hybrid_aquatic_starfish_small_view_1.png",
+    "bytes": 275207,
+    "sha256": "3436e0b97912d99e385831fcd0f992c63c6364c0324ca24250694002404cb4d0"
+  },
+  {
+    "path": "screenshots/before/hybrid_aquatic_starfish_small_view_2.png",
+    "bytes": 267025,
+    "sha256": "2afcf97c2d8eb1ee12cf0fb06d83e266c877ad24fe8d827e3e037f7e64c0df55"
+  },
+  {
+    "path": "screenshots/before/hybrid_aquatic_starfish_small_view_3_above.png",
+    "bytes": 156087,
+    "sha256": "75d6bd7cbc9500c826de1c9eb886275fcd66c9bb65f9d13ccdede17905b32e41"
+  },
+  {
+    "path": "screenshots/before/orcz_bigorcboss_view_1.png",
+    "bytes": 599686,
+    "sha256": "440fd022e115f141ebbd2907195effc52104dc379a5da6e99bf34f4d25e880ce"
+  },
+  {
+    "path": "screenshots/before/orcz_bigorcboss_view_2.png",
+    "bytes": 672502,
+    "sha256": "c0f41318007b6cf6d6c3aef030915cb88f0cd71c2f315463731420abc3c7e78e"
+  },
+  {
+    "path": "screenshots/before/orcz_bigorcboss_view_3_above.png",
+    "bytes": 897010,
+    "sha256": "ef2a4e3878ec2aaa59d5d5c6f371a6896061280870dfcd11e805e0562c21cc18"
+  },
+  {
+    "path": "screenshots/before/orcz_orcsavagemace_view_1.png",
+    "bytes": 521164,
+    "sha256": "8538c34f882aea48c228bbf597fd4aa027689e5ed582be2367e63a4b67ac6251"
+  },
+  {
+    "path": "screenshots/before/orcz_orcsavagemace_view_2.png",
+    "bytes": 592123,
+    "sha256": "fc405141f64261c205fd4b43ad6d4b5c3c95a625d73ff1c662665f39c6d4309a"
+  },
+  {
+    "path": "screenshots/before/orcz_orcsavagemace_view_3_above.png",
+    "bytes": 713023,
+    "sha256": "6db5f1d5ff035d63a633b893766f91f95a8703c30c1da3b5fb0adfd3afb434c6"
+  },
+  {
+    "path": "screenshots/before/orcz_orcshield_view_1.png",
+    "bytes": 527625,
+    "sha256": "6ce8d0529bb0030ec5ef0e947c862ba424d33da4d3c6b8eb6ac06ad6268abfeb"
+  },
+  {
+    "path": "screenshots/before/orcz_orcshield_view_2.png",
+    "bytes": 595559,
+    "sha256": "c47fd9acdc602a2fc56b8c81ad0e00fd4433e2d58be9744ef072062b55c9d258"
+  },
+  {
+    "path": "screenshots/before/orcz_orcshield_view_3_above.png",
+    "bytes": 718662,
+    "sha256": "3cd07c5bfadc4f1d737d42f1a0e763a66e790b557fa1f84cd569d49e7f474c9e"
+  },
+  {
+    "path": "screenshots/before/outer_end_stalker_view_1.png",
+    "bytes": 552096,
+    "sha256": "e28c8cd09fcb00791c00375b4449b65fd5b7d5758e5a67c71e0ecd35eb62918f"
+  },
+  {
+    "path": "screenshots/before/outer_end_stalker_view_2.png",
+    "bytes": 609872,
+    "sha256": "29e3f8271708aa50a54f2319f460763559e9879ba4f1cab22934c9fb8fb683be"
+  },
+  {
+    "path": "screenshots/before/outer_end_stalker_view_3_above.png",
+    "bytes": 802741,
+    "sha256": "a1c5c5681bf23f6695b25f15ecefb8270abe25fee940537251571bfddb8e0bfc"
+  },
+  {
+    "path": "screenshots/before/snowy_blue_berries_front.png",
+    "bytes": 304545,
+    "sha256": "03ddcc96fa1b0b380f9997cb7a00667450642a8355e8fa1c00f09a44b5d43cf3"
+  },
+  {
+    "path": "screenshots/before/snowy_blue_berries_side.png",
+    "bytes": 305967,
+    "sha256": "eaa6aece43de24e504bc59e06d6032877e3b404b52eee5762e0184507ec34bdd"
+  },
+  {
+    "path": "screenshots/before/snowy_blue_berries_stage_2_front.png",
+    "bytes": 307226,
+    "sha256": "b43d95c793eec7813814696db603bc5f9c9e6daaa155aca6489f5a7260289546"
+  },
+  {
+    "path": "screenshots/before/snowy_blue_berries_stage_2_side.png",
+    "bytes": 308293,
+    "sha256": "d71f2e44e913ba379348619b1c9cfee6653b7a3f1528583313bef2eced414118"
+  },
+  {
+    "path": "screenshots/before/soul_soil_quartz_ore_front.png",
+    "bytes": 489208,
+    "sha256": "06e62636474d885a15f37f807ab2e95c6cde751d8397b4883af09537d3530cd1"
+  },
+  {
+    "path": "screenshots/before/soul_soil_quartz_ore_side.png",
+    "bytes": 488736,
+    "sha256": "26ab0642b34aa660c675c7d86e73e413a0ab5e5588900d0119d802f8ac0fe24d"
+  },
+  {
+    "path": "screenshots/before/tropical_azalea_leaves_front.png",
+    "bytes": 508466,
+    "sha256": "79cc26bdf6299225db60139ff4ef6f6368c7667942cf59df62355870db3688a9"
+  },
+  {
+    "path": "screenshots/before/tropical_azalea_leaves_side.png",
+    "bytes": 505706,
+    "sha256": "5f6e57ed00ff26843550975a2a800a5d30918ecd1bb98a69b4e9a8a15ec54c58"
+  },
+  {
+    "path": "screenshots/before/tropical_flowering_azalea_leaves_front.png",
+    "bytes": 507749,
+    "sha256": "5c9b565ed42335feb06f70dff88831dbd5974067504a3b3b2e92c4efb5d11c85"
+  },
+  {
+    "path": "screenshots/before/tropical_flowering_azalea_leaves_side.png",
+    "bytes": 506731,
+    "sha256": "52a8d090a6ca113bed21846c3ae2594e5382d6e326141cf2a87e8ab2efadef39"
+  },
+  {
+    "path": "screenshots/before/wooden_desert_portal_front.png",
+    "bytes": 782425,
+    "sha256": "0131a87c214db37c2058be49c8bd6c001602ff41490f58f2db7f3c34ee5f714a"
+  },
+  {
+    "path": "screenshots/before/wooden_desert_portal_side.png",
+    "bytes": 776095,
+    "sha256": "fc763e962213a864c451c1ef20b55c58bac87a092217d0da2222fe83f7560b4a"
+  },
+  {
+    "path": "screenshots/before/wooden_nether_portal_front.png",
+    "bytes": 778956,
+    "sha256": "9139b84003155cb6cb9d5aff1c0eeabaa5a63553ce0fcf8dd705b6829e368b82"
+  },
+  {
+    "path": "screenshots/before/wooden_nether_portal_side.png",
+    "bytes": 774898,
+    "sha256": "3afec8d1c2dbc81a8a68918435ea0e560455a280e749f3668a72a4b1898ef2f9"
+  },
+  {
+    "path": "screenshots/before/wooden_overworld_portal_front.png",
+    "bytes": 784089,
+    "sha256": "0ce70c1f720110daeec70f20ca74c8539cd4d85d7f5c254b1adc9774c50489c6"
+  },
+  {
+    "path": "screenshots/before/wooden_overworld_portal_side.png",
+    "bytes": 775697,
+    "sha256": "bdc64d869985653623cebf1b9eeb926b4a28b2b4c34a244577ad1912c502df71"
+  },
+  {
+    "path": "screenshots/before/wooden_plains_portal_front.png",
+    "bytes": 778262,
+    "sha256": "ce7b42711058e46a11b87c0a25ef730422e921e76860131e85e136c6ff6ad5f5"
+  },
+  {
+    "path": "screenshots/before/wooden_plains_portal_side.png",
+    "bytes": 775582,
+    "sha256": "d4aabb985740cebda1511188f92b696ea7c9e466143a747ee047b10198cce8ee"
+  },
+  {
+    "path": "screenshots/before/wooden_savanna_portal_front.png",
+    "bytes": 783670,
+    "sha256": "0ab53e98f25af8cede171a64d9a970c39bccfcf68248a1a56ed556257246f439"
+  },
+  {
+    "path": "screenshots/before/wooden_savanna_portal_side.png",
+    "bytes": 777760,
+    "sha256": "ba1522cb1f6567ca351393eb93f42c6b7626254704f8cbb3b6afa09528804901"
+  },
+  {
+    "path": "screenshots/before/wooden_snowy_portal_front.png",
+    "bytes": 779683,
+    "sha256": "74d8832ca8dc494ba18733e6d82bcd155d9051dcbba4ca8984a85bcc4fcae7d3"
+  },
+  {
+    "path": "screenshots/before/wooden_snowy_portal_side.png",
+    "bytes": 779714,
+    "sha256": "fd488214600337c1146f72aaddbba8284b53fac63ea10476c6d013e714d8ef58"
+  },
+  {
+    "path": "screenshots/before/wooden_tropical_portal_front.png",
+    "bytes": 779927,
+    "sha256": "3498f095babc42e364740c5e1549979ef4ca7bf246c5aed13051fa056621c894"
+  },
+  {
+    "path": "screenshots/before/wooden_tropical_portal_side.png",
+    "bytes": 777418,
+    "sha256": "ca4bd8e86b6339e7902606b91ba60af52a19222748443273c84a427cbf541ab2"
+  },
+  {
+    "path": "seafood/cooked/aoemod__cooked_anglerfish.png",
+    "bytes": 578,
+    "sha256": "2d4d35b4cc704736144342ca4e69848d54863f88e64a92dbf82e824ea8bec0b6"
+  },
+  {
+    "path": "seafood/cooked/aoemod__cooked_anomalocaris.png",
+    "bytes": 518,
+    "sha256": "fa5ae7dd8a0ccb5e95b2a1f67e50bfda7bcf21392d9646bcc198ecab59ec1807"
+  },
+  {
+    "path": "seafood/cooked/aoemod__cooked_arrow_squid.png",
+    "bytes": 370,
+    "sha256": "e8f86730be22592c41e69423b1bb9555f8630a370587856954329284d86be356"
+  },
+  {
+    "path": "seafood/cooked/aoemod__cooked_blue_spotted_stingray.png",
+    "bytes": 1208,
+    "sha256": "52171a63375344cec42e4faa0c0e4c47e4bdfb6658baef19ebc6c673ca22df53"
+  },
+  {
+    "path": "seafood/cooked/aoemod__cooked_carp.png",
+    "bytes": 557,
+    "sha256": "48d55b2a70ddf3df8803ab6c03323f71263da4b8a4406ef7e181801c07a877c3"
+  },
+  {
+    "path": "seafood/cooked/aoemod__cooked_crab_meat.png",
+    "bytes": 255,
+    "sha256": "f024d7515d06250923e38618f97e4163b07575713450d96a7f13860386e64e62"
+  },
+  {
+    "path": "seafood/cooked/aoemod__cooked_flying_fish.png",
+    "bytes": 337,
+    "sha256": "b7140ca6ba60eb75d989006d7b27b87229813df2b817200dcb500f3aca577be7"
+  },
+  {
+    "path": "seafood/cooked/aoemod__cooked_mahi_mahi.png",
+    "bytes": 538,
+    "sha256": "8819b48d14acf98f6a36b7c3b31fe35683a8948b8a93086a37108d17a25de51c"
+  },
+  {
+    "path": "seafood/cooked/aoemod__cooked_octopus.png",
+    "bytes": 621,
+    "sha256": "122e00e593419c3c7538587824b102720b53b5593fd100c2f3a24fea29344a54"
+  },
+  {
+    "path": "seafood/cooked/aoemod__cooked_rubber_belly_glider.png",
+    "bytes": 502,
+    "sha256": "b49312711bbb2bd3cb4816248e61f1710ed1d97e676026222bcc0802e2c361ee"
+  },
+  {
+    "path": "seafood/cooked/aoemod__cooked_starfish.png",
+    "bytes": 1575,
+    "sha256": "5052e91ca19d24e14995680b00138c42e68a1878c24fcfbf98fd2803dbd7ad9f"
+  },
+  {
+    "path": "seafood/cooked/aoemod__cooked_swamp_mucker.png",
+    "bytes": 612,
+    "sha256": "97de9d4f097fb6c43bd54ab7208aadb3556227e9b748da96ae3a1dcfea210923"
+  },
+  {
+    "path": "seafood/cooked/aoemod__cooked_triops.png",
+    "bytes": 427,
+    "sha256": "ec52b53d369c298dbcfebd536179c597ae843d5239d2494fa842c26d5dd7db9e"
+  },
+  {
+    "path": "seafood/cooked/aoemod__cooked_tuna.png",
+    "bytes": 1925,
+    "sha256": "3c4019eb89030579071706eeeb663f98c29c6628d7c333baf058cb537274708f"
+  },
+  {
+    "path": "seafood/cooked/aoemod__cooked_umbrella_octopus.png",
+    "bytes": 580,
+    "sha256": "8fc6a273d3f01051b24bfadbc006f512e15f340e20d23111a20bdb973fe4db73"
+  },
+  {
+    "path": "seafood/cooked/aoemod__cooked_vampire_squid.png",
+    "bytes": 560,
+    "sha256": "a7efccc5725b2ff9054dd7c97720184eac2c4d9618c7557bd90756ba25362866"
+  },
+  {
+    "path": "seafood/pairs.json",
+    "bytes": 9361,
+    "sha256": "d7b5f7dde6c1cb2d700ad0a0711d4f4bbf7b5029dd956bad33e156eb3ce67f7d"
+  },
+  {
+    "path": "seafood/raw/alexsmobs__flying_fish.png",
+    "bytes": 428,
+    "sha256": "a1f95dbd1c16e2990d87bb63d12917016ee886a02ef98b328721bd8fac5b0d43"
+  },
+  {
+    "path": "seafood/raw/aoemod__raw_anglerfish.png",
+    "bytes": 591,
+    "sha256": "dc60c64e7d810668f9bbba21d796c43f332d8fc2aee37aac384e7edee0c2faa7"
+  },
+  {
+    "path": "seafood/raw/aoemod__raw_anomalocaris.png",
+    "bytes": 1117,
+    "sha256": "27701d51a66ef9e4936a60616eab67faed193b19f70fa9db0fb2601162016b47"
+  },
+  {
+    "path": "seafood/raw/aoemod__raw_arrow_squid.png",
+    "bytes": 962,
+    "sha256": "15f2d712ac5cf1182ce130cfea99ed6d1202a92f65a51e48ca72db338020cae4"
+  },
+  {
+    "path": "seafood/raw/aoemod__raw_blue_spotted_stingray.png",
+    "bytes": 1236,
+    "sha256": "6972a41667c7a538afe3761905090ecbb101782f7297e2aaa7a5c90493ca28b6"
+  },
+  {
+    "path": "seafood/raw/aoemod__raw_octopus.png",
+    "bytes": 1641,
+    "sha256": "3b3fbc3ed6a8994d9af7488308cc4a5c7babb4e8bc84b43a2a43078b0019ccc1"
+  },
+  {
+    "path": "seafood/raw/aoemod__raw_rubber_belly_glider.png",
+    "bytes": 514,
+    "sha256": "7c643e56666cd3075b7e4b3311a8f6e64a68f22d044a94bd26b3013f0ed3285b"
+  },
+  {
+    "path": "seafood/raw/aoemod__raw_triops.png",
+    "bytes": 425,
+    "sha256": "3c42793ccfa8fc840792cd96356b93a2cd1a8b06de5a2085f9b809bf182f7162"
+  },
+  {
+    "path": "seafood/raw/aoemod__raw_umbrella_octopus.png",
+    "bytes": 593,
+    "sha256": "a416137d046f2d8498aa6218cb3333bdda12387ad866fbea365f10219c8b9ea5"
+  },
+  {
+    "path": "seafood/raw/aoemod__raw_vampire_squid.png",
+    "bytes": 1191,
+    "sha256": "e557dd5e35365d31606d61f5b018a8e7cf91b8294b48e0f8eac63db58996e610"
+  },
+  {
+    "path": "seafood/raw/ecologics__crab_meat.png",
+    "bytes": 286,
+    "sha256": "45ea3dbda285fabdd55eef63b0994e911701695bfd4aa48ebb4eb732051b54c2"
+  },
+  {
+    "path": "seafood/raw/finsandtails__swamp_mucker.png",
+    "bytes": 560,
+    "sha256": "ff1f134d9785da593a641ac9b51422c092313b34c671dda3846354bc4b5035e3"
+  },
+  {
+    "path": "seafood/raw/hybrid_aquatic__carp.png",
+    "bytes": 460,
+    "sha256": "f4ac569435df3c217e1995ab7d06a3695623477d946705b6f80abdf3000f26e3"
+  },
+  {
+    "path": "seafood/raw/hybrid_aquatic__mahi.png",
+    "bytes": 467,
+    "sha256": "04344eb0c5f601ed1594a25c8680dc0a6072b9cc4b5341c48fda063751ef348e"
+  },
+  {
+    "path": "seafood/raw/hybrid_aquatic__starfish.png",
+    "bytes": 384,
+    "sha256": "a99b7a6cbb6894cdabc1ccf62734877cecd2f3abdf3a4818e41f6dafe1d1a63f"
+  },
+  {
+    "path": "seafood/raw/hybrid_aquatic__tuna.png",
+    "bytes": 527,
+    "sha256": "2d8f1b8fb0579260dfcc6c0502ce9f602204c418d1dcce85c8ee711f1621a69d"
+  }
+]

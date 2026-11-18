@@ -1,0 +1,37 @@
+[
+  {
+    "id": "overworld",
+    "rgb": "#86A9DC",
+    "texture": "portal-colors/overworld_portal.png"
+  },
+  {
+    "id": "tropical",
+    "rgb": "#48D05A",
+    "texture": "portal-colors/tropical_portal.png"
+  },
+  {
+    "id": "savanna",
+    "rgb": "#E99D36",
+    "texture": "portal-colors/savanna_portal.png"
+  },
+  {
+    "id": "plains",
+    "rgb": "#929292",
+    "texture": "portal-colors/plains_portal.png"
+  },
+  {
+    "id": "snowy",
+    "rgb": "#FFFFFF",
+    "texture": "portal-colors/snowy_portal.png"
+  },
+  {
+    "id": "desert",
+    "rgb": "#F8DD39",
+    "texture": "portal-colors/desert_portal.png"
+  },
+  {
+    "id": "nether",
+    "rgb": "#EF4444",
+    "texture": "portal-colors/nether_portal.png"
+  }
+]

@@ -1,0 +1,24 @@
+{
+  "passed": true,
+  "document_iteration": "15 November 2026, second revision",
+  "game_tests": {
+    "distinct": 64,
+    "passing_latest": 64
+  },
+  "build": "passed",
+  "isolated_data_generation": "passed; no generated resource changes",
+  "existing_save_new_world_and_reload": "passed",
+  "reviewed_native_views": 23,
+  "resource_validation": {
+    "json_files": 1560,
+    "checks": 1745,
+    "passed": true
+  },
+  "packaged_source_resources": 1882,
+  "protected_user_files": 1060,
+  "changed_user_files": [],
+  "production_jars_verified": 66,
+  "jar_sha256": "c15e71fe0aec139d892bd019b07dc5e7641c437cf1c018d2c3b09828022c136c",
+  "normal_launcher_refreshed": true,
+  "terrain_cuts": "deferred as requested"
+}

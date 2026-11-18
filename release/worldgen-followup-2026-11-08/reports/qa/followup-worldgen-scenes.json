@@ -1,0 +1,46 @@
+[
+  {
+    "reefRadius": 211.74800633954544,
+    "loadedRadiusChunks": 3,
+    "scene": "tropical_coast",
+    "z": 402148,
+    "x": 616359,
+    "kind": "unaltered natural terrain",
+    "landRadius": 175.91661816154607
+  },
+  {
+    "cottonAges": [
+      0,
+      2,
+      4,
+      7
+    ],
+    "scene": "cotton_and_pitcher_stages",
+    "z": 402147,
+    "y": 150,
+    "x": 616183,
+    "kind": "staged native blocks on Tropical rich-soil farmland/moss; random ticks disabled",
+    "pitcherAges": [
+      1,
+      2,
+      3,
+      4
+    ]
+  },
+  {
+    "kind": "unaltered natural terrain",
+    "x": 1230612,
+    "loadedRadiusChunks": 3,
+    "scene": "snowy_dappled_boundary",
+    "z": -616192
+  },
+  {
+    "cycle": 17203,
+    "loadedRadiusChunks": 3,
+    "scene": "desert_curved_mouth",
+    "z": 106,
+    "x": 10597359,
+    "kind": "unaltered natural terrain",
+    "length": 130
+  }
+]

@@ -1,0 +1,39 @@
+{
+  "passed": true,
+  "review": "Read-only source and pinned Forge 1.20.1 bytecode review; no Minecraft or Gradle launched by reviewer.",
+  "production_files": [
+    "C:\\Users\\andre\\Downloads\\Games\\September2024Mod\\src\\main\\java\\net\\amurdza\\examplemod\\worldgen\\SavannaCampTrees.java",
+    "C:\\Users\\andre\\Downloads\\Games\\September2024Mod\\src\\main\\java\\net\\amurdza\\examplemod\\mixins\\worldgen\\SavannaFinalCampTrees.java",
+    "C:\\Users\\andre\\Downloads\\Games\\September2024Mod\\src\\main\\java\\net\\amurdza\\examplemod\\worldgen\\SavannaCampVegetation.java",
+    "C:\\Users\\andre\\Downloads\\Games\\September2024Mod\\src\\main\\java\\net\\amurdza\\examplemod\\worldgen\\structure\\SavannaOrcCampPiece.java"
+  ],
+  "native_structure_access": {
+    "evidence_jar": "C:\\Users\\andre\\Downloads\\Games\\September2024Mod\\build\\fg_cache\\net\\minecraftforge\\forge\\1.20.1-47.4.22_mapped_parchment_2023.09.03-1.20.1\\forge-1.20.1-47.4.22_mapped_parchment_2023.09.03-1.20.1.jar",
+    "proof": [
+      "ChunkStatus FEATURES bytecode creates WorldGenRegion with write radius 1 and passes ServerLevel.structureManager().forWorldGenRegion(region) to ChunkGenerator.applyBiomeDecoration.",
+      "StructureManager.startsForStructure(ChunkPos, Predicate) reads its current chunk at STRUCTURE_REFERENCES.",
+      "StructureManager.fillStartsForStructure reads referenced owner chunks at STRUCTURE_STARTS. It does not request FULL chunks.",
+      "The RETURN injection retains this supplied region-bound manager; it does not substitute the live ServerLevel manager."
+    ]
+  },
+  "ordering_and_safety": [
+    "Natural placement runs the final tree pass after the current chunk has completed its structure and ordinary vegetation stages.",
+    "SavannaOrcCampPiece initializes its GroundPlan, places clipped mound/template blocks, records planting masks and refreshes WG heightmaps before the final pass.",
+    "Each newly generated tree is staged in GrowthPlacementBuffer; every proposed write must remain in its owning chunk and pass the complete-tree reservation rules before commit.",
+    "Later neighboring camp placement is clipped to that neighboring chunk, so it cannot erase the new tree writes retained entirely in this owner chunk.",
+    "The Orcz /place feature path completes every mound/template chunk before SavannaCampVegetation.decoratePlaced. The /place structure return hook similarly decorates only after native structure placement.",
+    "Command decoration refreshes all affected pre-tree WG snapshots first, then runs each chunk normal vegetation followed by its guaranteed-tree pass under the existing mound/reservation scope.",
+    "Existing rooted acacia detection prevents repeat filling. V7 and older saved camps and non-Savanna dimensions return before the new tree scan."
+  ],
+  "performance_scope": [
+    "The pass scans 256 columns only in chunks referenced by a V8 camp. It uses a separate deterministic random source, preserving ordinary feature random sequences.",
+    "The five-by-five lawn prefilter excludes thin margins and protected plots before native tree generation; candidate search is finite and commits at most one new tree per chunk.",
+    "No new global tree density, terrain formula, ordinary non-camp decoration or older-camp vegetation rule is changed."
+  ],
+  "previous_fixture_finding": {
+    "issue": "The initial detached tree fixture did not initialize the piece GroundPlan, causing hasMoundColumn to reject every root before generation.",
+    "status": "Reported to root before runtime completion; root subsequently reported all 25 focused tests passing, including the native tree tests."
+  },
+  "outstanding_actionable_issues": [],
+  "independent_saved_world_audit": "C:\\Users\\andre\\Downloads\\Games\\September2024Mod\\build\\nov16-iteration\\camp-tree-coverage-verification.json"
+}

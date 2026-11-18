@@ -1,0 +1,27 @@
+// .\gradlew.bat -I scripts/savanna-valley-audit.init.gradle auditSavannaValleys
+allprojects {
+    afterEvaluate { p ->
+        if (!p.plugins.hasPlugin('net.minecraftforge.gradle')) return
+        def auditDirectory = p.layout.buildDirectory.dir('savanna-valleys')
+        def auditClasses = auditDirectory.map { it.dir('classes') }
+        def compileAudit = p.tasks.register('compileSavannaValleyAudit', JavaCompile) {
+            source p.files('scripts/SavannaValleyAudit.java',
+                    'src/main/java/net/amurdza/examplemod/worldgen/SavannaHeight.java',
+                    'src/main/java/net/amurdza/examplemod/worldgen/SavannaLakeBasins.java')
+            classpath = p.sourceSets.main.runtimeClasspath
+            destinationDirectory.set(auditClasses)
+            javaCompiler.set(p.javaToolchains.compilerFor { languageVersion = JavaLanguageVersion.of(17) })
+            options.encoding = 'UTF-8'
+            options.compilerArgs.add('-proc:none')
+        }
+        p.tasks.register('auditSavannaValleys', JavaExec) {
+            dependsOn compileAudit
+            classpath = p.files(auditClasses) + p.sourceSets.main.runtimeClasspath
+            mainClass.set('SavannaValleyAudit')
+            javaLauncher.set(p.javaToolchains.launcherFor { languageVersion = JavaLanguageVersion.of(17) })
+            workingDir p.projectDir
+            jvmArgs '-Xmx1G', '-XX:ActiveProcessorCount=4', '-Djava.awt.headless=true'
+            args auditDirectory.get().asFile.absolutePath
+        }
+    }
+}

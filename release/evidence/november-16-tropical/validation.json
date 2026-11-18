@@ -1,0 +1,22 @@
+{
+  "requirements": [
+    "Bamboo replaces selected cherry tree sites",
+    "Rainforest includes all Y74 terrain; cherry begins at Y75",
+    "Summit capped at Y85",
+    "Y64 terrace spans 12 radial blocks"
+  ],
+  "build": "passed",
+  "targetedTestsPassed": 19,
+  "originalBatchPassed": 18,
+  "correctedShorelineTestPassed": 1,
+  "generatedSurfaceColumnsChecked": 2304,
+  "shorelineNeighborPairsChecked": 24336,
+  "configFilesChecked": 421,
+  "configFilesChanged": 0,
+  "jar": "C:\\Users\\andre\\Downloads\\Games\\September2024Mod\\build\\tropical-nov16\\compiled\\libs\\aoemod-1.0.0-1.20.1-all.jar",
+  "visualCheck": "passed",
+  "screenshotsChecked": 4,
+  "clientBiomeProbes": 14,
+  "clientBiomeMismatches": 0,
+  "jarSha256": "F5B74B6E51A97DE30F9B7741E9805E9979CEF04C38BF09984F77083866C9FB24"
+}

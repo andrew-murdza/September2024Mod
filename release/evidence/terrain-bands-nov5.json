@@ -1,0 +1,37 @@
+{
+  "updated": "2026-11-07",
+  "source": "Production Java formulas; detail=0; fixed-X phase displacement normalized to zero",
+  "desert_period_blocks": 768,
+  "desert_land_range": [
+    -0.58,
+    0.62
+  ],
+  "snowy_signed_period_blocks": 1920,
+  "snowy_habitat_cycle_blocks": 960,
+  "snowy_ridge_range": [
+    -0.9,
+    0.9
+  ],
+  "snowy_lake_weirdness": 0.3214,
+  "snowy_lake_slope": 500.0,
+  "snowy_plateau_factor": 0.75,
+  "snowy_plateau_height": 101.9782729946688,
+  "snowy_lake_width_per_960_blocks": 558.2176351910454,
+  "snowy_total_dappled_width_per_960_blocks": 113.7823648089546,
+  "snowy_total_forest_width_per_960_blocks": 288,
+  "desert_red_sand_start_noise": -0.03127245153764319,
+  "desert_terracotta_start_noise_new": 0.06302954115222692,
+  "desert_terracotta_start_noise_old": 0.15733153384209703,
+  "desert_red_sand_noise_width_new": 0.0943019926898701,
+  "desert_red_sand_noise_width_old": 0.1886039853797402,
+  "desert_red_sand_blocks_per_flank_new_continuous": 19.231330121726188,
+  "desert_red_sand_blocks_per_flank_old_cutoff_on_new_contour": 38.6850674823643,
+  "note": "Old cutoff comparison uses the new contour to isolate cutoff width. Original seeded noise terrain is not reconstructed. Interpolation, detail noise, and integer block material classification are excluded.",
+  "source_sha256": {
+    "DesertBands.java": "a1e1a594a295453500329d768eefbd8e57b1ab16c9ed315af7cb47a31f793141",
+    "DesertHeight.java": "cbe4977dc8995e70945e518aff6c559a14b410c82a76afb83b87498669f723fe",
+    "MountainRidges.java": "c5ce7d200845b621f17606af036eea84c8ae1f20f2abc73739f5408713a834a0",
+    "MountainLakeOffset.java": "75f0a039bcbf3c49a82548c96235520ba0f79a7c1d688311adb362b370fd84d1",
+    "SnowyTerrainProfile.java": "a991ee20af6b532acde58742f87c9026a4bfd6343ceb6cb5094a8bc2017f216b"
+  }
+}

@@ -5,19 +5,19 @@
       "type": "minecraft:weighted_state_provider",
       "entries": [
         {
-          "weight": 36,
+          "weight": 720,
           "data": {
-            "Name": "aoemod:desert_grass"
+            "Name": "minecraft:short_dry_grass"
           }
         },
         {
-          "weight": 9,
+          "weight": 180,
           "data": {
-            "Name": "aoemod:desert_tallgrass"
+            "Name": "minecraft:tall_dry_grass"
           }
         },
         {
-          "weight": 1,
+          "weight": 20,
           "data": {
             "Name": "minecraft:dead_bush"
           }

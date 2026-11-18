@@ -44,6 +44,7 @@ public class NoTropicalFire {
         if (!GameplayDimensions.is(entity.level(), GameplayDimensions.TROPICAL)) {
             return;
         }
+        if (UndeadHorseSunlight.applies(entity) && event.getSource().is(DamageTypes.ON_FIRE)) return;
 
         if (event.getSource().is(DamageTypes.ON_FIRE)
                 || event.getSource().is(DamageTypes.IN_FIRE)
@@ -59,7 +60,7 @@ public class NoTropicalFire {
     public static void onLivingHurt(LivingHurtEvent event) {
         LivingEntity entity = event.getEntity();
 
-        if (GameplayDimensions.is(entity.level(), GameplayDimensions.TROPICAL)) {
+        if (GameplayDimensions.is(entity.level(), GameplayDimensions.TROPICAL) && !UndeadHorseSunlight.applies(entity)) {
             entity.clearFire();
         }
     }
@@ -68,7 +69,7 @@ public class NoTropicalFire {
     public static void onLivingTick(LivingEvent.LivingTickEvent event) {
         LivingEntity entity = event.getEntity();
 
-        if (GameplayDimensions.is(entity.level(), GameplayDimensions.TROPICAL)) {
+        if (GameplayDimensions.is(entity.level(), GameplayDimensions.TROPICAL) && !UndeadHorseSunlight.applies(entity)) {
             entity.clearFire();
         }
     }

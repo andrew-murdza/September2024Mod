@@ -49,6 +49,7 @@ public abstract class ItemFoodProperties {
          * Make popped chorus fruit edible.
          */
 
+        aoe$add(map, com.github.alexthe666.alexsmobs.item.AMItemRegistry.LOST_TENTACLE.get(), aoe$food(3, .2F, false));
         aoe$add(map, Items.POPPED_CHORUS_FRUIT, aoe$food(3, 0.3F, false));
         aoe$add(map, Items.CHORUS_FRUIT, aoe$food(1, 0.2F, false,false,true));
         aoe$add(map, samebutdifferent.ecologics.registry.ModItems.COOKED_PRICKLY_PEAR.get(),

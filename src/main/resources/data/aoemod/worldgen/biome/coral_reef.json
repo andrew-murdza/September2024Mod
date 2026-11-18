@@ -1,6 +1,6 @@
 {
   "carvers": {},
-  "downfall": 0.5,
+  "downfall": 1.0,
   "effects": {
     "fog_color": 12638463,
     "mood_sound": {
@@ -23,127 +23,88 @@
     [],
     [],
     [],
-    [
-      "minecraft:glow_lichen",
-      "minecraft:trees_water",
-      "minecraft:flower_default",
-      "minecraft:patch_grass_badlands",
-      "minecraft:brown_mushroom_normal",
-      "minecraft:red_mushroom_normal",
-      "minecraft:patch_sugar_cane",
-      "minecraft:patch_pumpkin",
-      "minecraft:warm_ocean_vegetation",
-      "minecraft:seagrass_warm",
-      "minecraft:sea_pickle"
-    ],
+    [],
     []
   ],
   "has_precipitation": true,
   "spawn_costs": {},
   "spawners": {
-    "ambient": [
-      {
-        "type": "minecraft:bat",
-        "maxCount": 8,
-        "minCount": 8,
-        "weight": 10
-      }
-    ],
+    "ambient": [],
     "axolotls": [],
     "creature": [],
     "misc": [],
-    "monster": [
-      {
-        "type": "minecraft:drowned",
-        "maxCount": 1,
-        "minCount": 1,
-        "weight": 5
-      },
-      {
-        "type": "minecraft:spider",
-        "maxCount": 4,
-        "minCount": 4,
-        "weight": 100
-      },
-      {
-        "type": "minecraft:zombie",
-        "maxCount": 4,
-        "minCount": 4,
-        "weight": 95
-      },
-      {
-        "type": "minecraft:zombie_villager",
-        "maxCount": 1,
-        "minCount": 1,
-        "weight": 5
-      },
-      {
-        "type": "minecraft:skeleton",
-        "maxCount": 4,
-        "minCount": 4,
-        "weight": 100
-      },
-      {
-        "type": "minecraft:creeper",
-        "maxCount": 4,
-        "minCount": 4,
-        "weight": 100
-      },
-      {
-        "type": "minecraft:slime",
-        "maxCount": 4,
-        "minCount": 4,
-        "weight": 100
-      },
-      {
-        "type": "minecraft:enderman",
-        "maxCount": 4,
-        "minCount": 1,
-        "weight": 10
-      },
-      {
-        "type": "minecraft:witch",
-        "maxCount": 1,
-        "minCount": 1,
-        "weight": 5
-      }
-    ],
-    "underground_water_creature": [
-      {
-        "type": "minecraft:glow_squid",
-        "maxCount": 6,
-        "minCount": 4,
-        "weight": 10
-      }
-    ],
+    "monster": [],
+    "underground_water_creature": [],
     "water_ambient": [
       {
-        "type": "minecraft:pufferfish",
-        "maxCount": 3,
-        "minCount": 1,
-        "weight": 15
+        "type": "minecraft:tropical_fish",
+        "maxCount": 5,
+        "minCount": 2,
+        "weight": 10
       },
       {
-        "type": "minecraft:tropical_fish",
-        "maxCount": 8,
-        "minCount": 8,
-        "weight": 25
+        "type": "minecraft:pufferfish",
+        "maxCount": 5,
+        "minCount": 2,
+        "weight": 10
+      },
+      {
+        "type": "angling:anomalocaris",
+        "maxCount": 5,
+        "minCount": 2,
+        "weight": 10
+      },
+      {
+        "type": "hybrid_aquatic:starfish",
+        "maxCount": 5,
+        "minCount": 2,
+        "weight": 20
+      },
+      {
+        "type": "angling:sea_slug",
+        "maxCount": 5,
+        "minCount": 2,
+        "weight": 20
+      },
+      {
+        "type": "hybrid_aquatic:lightfoot_crab",
+        "maxCount": 5,
+        "minCount": 2,
+        "weight": 10
       }
     ],
     "water_creature": [
       {
-        "type": "minecraft:squid",
-        "maxCount": 4,
-        "minCount": 4,
+        "type": "aoemod:nautilus",
+        "maxCount": 3,
+        "minCount": 1,
         "weight": 10
       },
       {
-        "type": "minecraft:dolphin",
-        "maxCount": 2,
+        "type": "hybrid_aquatic:umbrella_octopus",
+        "maxCount": 3,
+        "minCount": 1,
+        "weight": 10
+      },
+      {
+        "type": "minecraft:axolotl",
+        "maxCount": 3,
+        "minCount": 1,
+        "weight": 10
+      },
+      {
+        "type": "minecraft:turtle",
+        "maxCount": 1,
         "minCount": 1,
         "weight": 2
+      },
+      {
+        "type": "minecraft:dolphin",
+        "maxCount": 3,
+        "minCount": 1,
+        "weight": 20
       }
     ]
   },
-  "temperature": 0.5
+  "temperature": 1.0
 }

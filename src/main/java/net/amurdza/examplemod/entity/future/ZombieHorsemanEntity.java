@@ -20,6 +20,25 @@ public class ZombieHorsemanEntity extends ZombieHorse {
 
     public ZombieHorsemanEntity(EntityType<? extends ZombieHorse> type, Level level) {
         super(type, level);
+        // Untamed horses run the vanilla bucking goal, which also ejects mob riders.
+        this.setTamed(true);
+    }
+
+    @Override
+    public boolean removeWhenFarAway(double distance) {
+        return getOwnerUUID() == null && !isSaddled();
+    }
+
+    @Override
+    protected boolean shouldDespawnInPeaceful() {
+        return getOwnerUUID() == null && !isSaddled();
+    }
+
+    @Override
+    public void readAdditionalSaveData(CompoundTag tag) {
+        super.readAdditionalSaveData(tag);
+        // Repair horsemen saved before their mounts were initialized as tame.
+        this.setTamed(true);
     }
 
     @Override

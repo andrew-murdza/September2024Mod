@@ -14,5 +14,18 @@ public final class ClientRecipeAvailability {
     @SubscribeEvent
     public static void onRecipesUpdated(RecipesUpdatedEvent event) {
         DimensionMaterialAvailability.clearCache();
+        var connection = net.minecraft.client.Minecraft.getInstance().getConnection();
+        if (connection != null) net.amurdza.examplemod.util.ObtainableContent.rebuild(
+                event.getRecipeManager(), connection.registryAccess());
+    }
+
+    @SubscribeEvent
+    public static void onTagsUpdated(net.minecraftforge.event.TagsUpdatedEvent event) {
+        if (event.getUpdateCause() != net.minecraftforge.event.TagsUpdatedEvent.UpdateCause.CLIENT_PACKET_RECEIVED) return;
+        var connection = net.minecraft.client.Minecraft.getInstance().getConnection();
+        // Dedicated-server login sends recipes before tags. Recompute once the
+        // actual dimension-source tags arrive, rather than retaining that partial catalog.
+        if (connection != null) net.amurdza.examplemod.util.ObtainableContent.rebuild(
+                connection.getRecipeManager(), event.getRegistryAccess());
     }
 }

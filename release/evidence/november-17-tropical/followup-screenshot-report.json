@@ -1,0 +1,35 @@
+{
+  "status": "passed",
+  "started": "2026-11-17T05:46:26.154179Z",
+  "elapsedMillis": 13037,
+  "requestedViews": 1,
+  "completedViews": 1,
+  "views": [
+    {
+      "label": "tropical-y84-summit",
+      "dimension": "aoemod:tropical_dimension",
+      "x": 1352404.9111710915,
+      "y": 118.0,
+      "z": 883554.2364033042,
+      "yaw": 136.68468,
+      "pitch": 36.51914,
+      "settledClientTicks": 120,
+      "readyChunkRadius": 4,
+      "terrainReadiness": "surrounding chunks arrived and terrain build queue is idle",
+      "tropicalClientBiomeAudit": {
+        "layoutSynchronized": true,
+        "radiusBlocks": 48,
+        "columnsChecked": 9409,
+        "altitudeComparisons": 9409,
+        "terrainHeightComparisons": 0,
+        "mangroveColumns": 0,
+        "rainforestColumns": 0,
+        "coralColumns": 0,
+        "cherryColumns": 9409
+      },
+      "width": 1440,
+      "height": 1000,
+      "path": "C:\\Users\\andre\\Downloads\\Games\\September2024Mod\\build\\tropical-nov17\\visuals\\client-1\\screenshots\\tropical-y84-summit.png"
+    }
+  ]
+}

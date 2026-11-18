@@ -1,0 +1,18 @@
+16 November 2026 — latest document revision
+
+Savanna
+Corrected the extra wool fascia on the authored tent side. New camps retain twelve-block tents with sixteen clear blocks between them and eight clear blocks between the outer tents and farmland. Roads remain eight blocks wide, and the central courtyard remains dirt path. Removed the four standalone podzol corner patches. Rebuilt the gateways with three-wide log pillars, an eight-wide opening, a horizontal beam, and three skulls over each pillar. Kept exactly six clear palisade blocks between regular posts and corner posts, adjusting the inner grass margin. Eligible camp lawn chunks receive complete native acacias while pens, retained podzol, roads, farmland and authored buildings remain protected. Archived V7 templates, geometry and planting masks preserve saved camps. The existing population and total chest-loot budget are retained.
+
+Plains
+Added continuous stone-brick floor thresholds and lintels across the mine entrances, including the marked center column. Moved each far brick backing out one block and added a mineable stone column before it. Raised only the wooden upstairs chandeliers by one block, as confirmed; basement lanterns retain their positions. Captured the straight three-wide birch staircase, landings and wall torches from the latest saved spawn and installed it as a new entrance template. New basement V6 and the versioned entrance preserve earlier saved layouts.
+
+Tropical
+The document's Tropical paragraph and reference image are unchanged from the previous delivery. The restored Tropical behavior and all three restored mods remain in place.
+
+Existing saves, settings, options and the room gallery are preserved. Terrain-cut investigation remains deferred. New layouts require fresh chunks or newly placed structures.
+
+Validation: build and isolated runData passed. All 25 focused GameTests have passing latest outcomes. The client loaded a copy of the latest existing save, created a fresh world, saved it and reloaded it successfully. All 9 targeted screenshots passed visual review. Resource validation passed 1747 checks across 1562 JSON files; all 1886 source resources match the JAR. All 1241 protected save/config/options files are unchanged. Generated data is unchanged. The normal launcher and 66-JAR production staging were refreshed and verified.
+
+JAR SHA-256: 5c3a2fdf55460a55edf7afe54e03f512927dfddde8d6e183ededc35c866c264c
+
+Evidence: evidence/november-16/

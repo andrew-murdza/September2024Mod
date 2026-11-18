@@ -1,0 +1,6 @@
+{
+  "type": "aoemod:snowy_terrain_profile",
+  "ridges": "aoemod:snowy/ridges",
+  "caverns": "aoemod:snowy/caves/cheese",
+  "surface_only": true
+}

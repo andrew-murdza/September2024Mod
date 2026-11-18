@@ -1,5 +1,7 @@
 # Modpack compatibility
 
+Historical October 2026 integration record. Dependency and retained-content decisions below describe that earlier pack, not the current catalog. Use `production-dependencies.json`, `IMPLEMENTED_CHANGES.md`, and `NOVEMBER_8_REVIEW_REVISION.txt` for the delivered revision. In particular, the full Cultural Delights mod is no longer loaded, End Fish is retired, and the four explicitly removed warped-toad/pufferfish/tropical-fish food IDs are not retained as items. The three requested Cultural Delights squid foods are registered internally.
+
 The exact supplied Forge jars are recorded in `dependency-lock.json`; Angling is required on client and server. Original dependency jars are unchanged. The runtime dependency audit loaded the complete pack and reached all 47 initial GameTests on 2026-10-19. That first run passed 42 tests and exposed five gameplay regressions, which are tracked separately; it was not a release pass.
 
 ## Targeted data repairs

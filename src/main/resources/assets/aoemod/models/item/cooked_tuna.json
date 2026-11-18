@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "minecraft:item/cooked_cod"
+    "layer0": "aoemod:item/cooked_tuna"
   }
 }
