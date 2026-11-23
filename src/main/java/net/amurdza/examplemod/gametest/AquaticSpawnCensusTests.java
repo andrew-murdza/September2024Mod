@@ -36,9 +36,9 @@ public final class AquaticSpawnCensusTests {
         try {
             // Preserve an old saved population even when it exceeds the new separate caps.
             for (int i = 0; i < 35; i++) {
-                String id = i < 21 ? "angling:anomalocaris"
+                String id = i < 21 ? "minecraft:pufferfish"
                         : i < 32 ? "minecraft:tropical_fish"
-                        : i == 32 ? "aoemod:nautilus" : "minecraft:turtle";
+                        : i == 32 ? "minecraft:axolotl" : "minecraft:turtle";
                 Mob mob = (Mob) ForgeRegistries.ENTITY_TYPES.getValue(new ResourceLocation(id)).create(level);
                 mob.setPos(i < 21 ? 0 : i < 32 ? 100 : 175, 100, 0);
                 animals.add(mob);
@@ -79,9 +79,9 @@ public final class AquaticSpawnCensusTests {
         ServerLevel tropical = helper.getLevel().getServer().getLevel(GameplayDimensions.TROPICAL);
         FakePlayer player = player(tropical, "ReefBoundary");
         Mob turtle = EntityType.TURTLE.create(tropical);
-        Mob squid = EntityType.SQUID.create(tropical);
+        Mob dolphin = EntityType.DOLPHIN.create(tropical);
         List<Mob> smallFish = new ArrayList<>();
-        for (String id : List.of("minecraft:pufferfish", "minecraft:tropical_fish", "angling:anomalocaris")) {
+        for (String id : List.of("minecraft:pufferfish", "minecraft:tropical_fish")) {
             smallFish.add((Mob) ForgeRegistries.ENTITY_TYPES.getValue(new ResourceLocation(id)).create(tropical));
         }
         Mob outside = EntityType.TROPICAL_FISH.create(helper.getLevel());
@@ -94,24 +94,24 @@ public final class AquaticSpawnCensusTests {
             for (Mob small : smallFish) {
                 small.setPos(64, 100, 0);
                 helper.assertTrue(census(tropical, List.of(small)).getMobCategoryCounts().getInt(net.amurdza.examplemod.worldgen.DocumentedFauna.spawnCategory(small.getType())) == 1,
-                        "Small fish, including tropical fish and Anomalocaris, must count through 64 blocks: " + small.getType());
+                        "Small fish, including tropical fish and pufferfish, must count through 64 blocks: " + small.getType());
                 small.setPos(64.01, 100, 0);
                 helper.assertTrue(count(tropical, List.of(small)) == 0 && !small.isRemoved(),
                         "Small fish beyond 64 blocks must release capacity without census deleting them: " + small.getType());
             }
-            squid.setPos(200, 100, 0);
-            helper.assertTrue(count(tropical, List.of(squid)) == 0,
-                    "Distant squid must release the same water-creature budget as other large animals");
-            squid.setPos(128, 100, 0);
-            helper.assertTrue(census(tropical, List.of(squid)).getMobCategoryCounts().getInt(MobCategory.WATER_CREATURE) == 1,
-                    "Nearby squid must count in the large-animal pool");
+            dolphin.setPos(200, 100, 0);
+            helper.assertTrue(count(tropical, List.of(dolphin)) == 0,
+                    "Distant dolphins must release the same water-creature budget as other large animals");
+            dolphin.setPos(128, 100, 0);
+            helper.assertTrue(census(tropical, List.of(dolphin)).getMobCategoryCounts().getInt(MobCategory.WATER_CREATURE) == 1,
+                    "Nearby dolphins must count in the large-animal pool");
             outside.setPos(200, 100, 0);
             helper.assertTrue(census(helper.getLevel(), List.of(outside)).getMobCategoryCounts()
                             .getInt(EntityType.TROPICAL_FISH.getCategory()) == 1,
                     "The distant-resident exemption must not change vanilla dimensions");
         } finally {
             tropical.players().remove(player);
-            player.discard(); turtle.discard(); squid.discard(); outside.discard();
+            player.discard(); turtle.discard(); dolphin.discard(); outside.discard();
             smallFish.forEach(Entity::discard);
         }
         helper.succeed();

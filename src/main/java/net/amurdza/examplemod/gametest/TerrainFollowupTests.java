@@ -47,7 +47,7 @@ public final class TerrainFollowupTests {
     }
 
     @GameTest(template = "plant_gameplay_empty", timeoutTicks = 1200)
-    public static void seededMountainsHaveSlowerCurvatureGentlerSlopesAndHalfWidthForest(GameTestHelper helper) throws Exception {
+    public static void seededMountainsKeepSlowerCurvatureAndNarrowForestWithSteeperFoothills(GameTestHelper helper) throws Exception {
         var level = helper.getLevel().getServer().getLevel(GameplayDimensions.SNOWY);
         var generator = (NoiseBasedChunkGenerator) level.getChunkSource().getGenerator();
         double oldWidth = 0, newWidth = 0, oldSlope = 0, newSlope = 0;
@@ -62,8 +62,8 @@ public final class TerrainFollowupTests {
         }
         helper.assertTrue(Math.abs(newWidth / oldWidth - .5) < .003,
                 "The forest must be half as wide in blocks, accounting for the nonlinear ridge contour");
-        helper.assertTrue(newSlope < oldSlope * .7,
-                "The actual steepest mountain grade must fall substantially: " + oldSlope + " -> " + newSlope);
+        helper.assertTrue(newSlope > .85 && newSlope < 1.1,
+                "The fortress foothills must rise steeply while remaining a traversable mountainside: " + oldSlope + " -> " + newSlope);
         helper.assertTrue(Math.abs(SnowyTerrainProfile.height(.28 + .001) - SnowyTerrainProfile.height(.28) - .5) < 1e-9,
                 "Water-region grade must quadruple from the interim125 to500 blocks per weirdness unit");
         StringBuilder report = new StringBuilder("Snowy terrain revision\n")
@@ -143,7 +143,7 @@ public final class TerrainFollowupTests {
             g.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
             g.setColor(new Color(0xf7f5ef)); g.fillRect(0, 0, 1200, 1040);
             g.setColor(new Color(0x25303b)); g.setFont(new Font(Font.SANS_SERIF, Font.BOLD, 28));
-            g.drawString("Snowy terrain: slower bends and gentler mountains", 30, 42);
+            g.drawString("Snowy terrain: slower bends and steeper foothills", 30, 42);
             g.setFont(new Font(Font.SANS_SERIF, Font.PLAIN, 17));
             g.drawString("Seed 12345 | Density surface preview; colors show water, dappled forest and snowy mountain elevation", 30, 72);
             for (int panel = 0; panel < 2; panel++) {

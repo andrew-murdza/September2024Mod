@@ -1,14 +1,12 @@
 {
   "replace": false,
   "values": [
-    "aoemod:raw_anomalocaris",
     "aoemod:raw_octopus",
     "aoemod:raw_arrow_squid",
     "aoemod:raw_vampire_squid",
     "aoemod:raw_triops",
     "aoemod:raw_blue_spotted_stingray",
     "hybrid_aquatic:trout",
-    "finsandtails:swamp_mucker",
     "hybrid_aquatic:needlefish",
     "hybrid_aquatic:tuna",
     "hybrid_aquatic:dragonfish",
@@ -16,7 +14,6 @@
     "culturaldelights:glow_squid",
     "aoemod:raw_umbrella_octopus",
     "alexsmobs:flying_fish",
-    "alexsmobs:lost_tentacle",
     "hybrid_aquatic:starfish",
     "ecologics:crab_meat"
   ]

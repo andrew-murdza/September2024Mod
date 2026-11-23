@@ -6,13 +6,17 @@ import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraftforge.registries.ForgeRegistries;
 
-/** Native planting origins remain strict; only the generated upper canopy may cross a layer boundary. */
+/** Natural habitats remain strict; Snowy's player-grown trees use its dimension-wide block union. */
 public final class TreeGrowthPlacementRules {
     public static final int CANOPY_EXTENSION = 16;
 
     private TreeGrowthPlacementRules() { }
 
     public static boolean isAllowed(LevelReader level, BlockPos origin, BlockPos pos, BlockState state) {
+        if (GameplayDimensions.is(level, GameplayDimensions.SNOWY)
+                && !DocumentedPlacementRules.isNaturalGeneration(level)) {
+            return !level.isOutsideBuildHeight(origin) && !level.isOutsideBuildHeight(pos);
+        }
         String habitat = habitat(level, origin, state);
         if (habitat == null) return true;
         if (level.isOutsideBuildHeight(origin) || level.isOutsideBuildHeight(pos)) return false;

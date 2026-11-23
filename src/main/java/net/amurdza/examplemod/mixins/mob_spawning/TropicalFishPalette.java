@@ -32,7 +32,7 @@ public abstract class TropicalFishPalette {
         var pattern = TropicalFish.getPattern(packed);
         var base = TropicalFish.getBaseColor(packed);
         var marking = TropicalFish.getPatternColor(packed);
-        return (pattern == TropicalFish.Pattern.BETTY || pattern == TropicalFish.Pattern.CLAYFISH)
+        return pattern == TropicalFish.Pattern.CLAYFISH && base != marking
                 && base != DyeColor.BLACK && base != DyeColor.GRAY && marking != DyeColor.BLACK && marking != DyeColor.GRAY
                 ? packed : aoemod$roll(fish);
     }
@@ -40,8 +40,10 @@ public abstract class TropicalFishPalette {
     @Unique
     private static int aoemod$roll(TropicalFish fish) {
         var random = fish.getRandom();
-        var pattern = random.nextBoolean() ? TropicalFish.Pattern.BETTY : TropicalFish.Pattern.CLAYFISH;
-        return new TropicalFish.Variant(pattern, aoemod$colors[random.nextInt(aoemod$colors.length)],
-                aoemod$colors[random.nextInt(aoemod$colors.length)]).getPackedId();
+        int base = random.nextInt(aoemod$colors.length);
+        int marking = random.nextInt(aoemod$colors.length - 1);
+        if (marking >= base) marking++;
+        return new TropicalFish.Variant(TropicalFish.Pattern.CLAYFISH, aoemod$colors[base],
+                aoemod$colors[marking]).getPackedId();
     }
 }

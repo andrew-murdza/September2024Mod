@@ -1,0 +1,132 @@
+import groovy.json.JsonOutput
+import java.security.MessageDigest
+
+// Isolated tropical/fish regression runs. No installed configs or worlds are used.
+allprojects {
+    afterEvaluate { p ->
+        if (!p.plugins.hasPlugin('net.minecraftforge.gradle')) return
+        p.tasks.matching { it.name in ['reobfJar', 'reobfJarJar'] }.configureEach { useArgsFile() }
+        p.tasks.matching { it.name in ['runGameTestServer', 'runData', 'runClient'] }.configureEach {
+            doFirst {
+                p.exec {
+                    commandLine 'powershell.exe', '-NoProfile', '-ExecutionPolicy', 'Bypass',
+                            '-File', p.file('scripts/wait-for-minecraft-idle.ps1').absolutePath, '-QuietSeconds', '0'
+                }
+            }
+        }
+
+        def focused = p.gradle.startParameter.taskNames.any { it.tokenize(':').last() == 'runGameTestServer' }
+        def runName = p.findProperty('revisionRun')?.toString() ?: 'run'
+        if (!(runName ==~ /^[A-Za-z0-9-]+$/)) throw new GradleException('revisionRun must be a simple folder name')
+        def qaRoot = p.file('build/tropical-fish-qa')
+        def clientName = p.findProperty('revisionClient')?.toString() ?: 'client-run'
+        if (!(clientName ==~ /^[A-Za-z0-9-]+$/)) throw new GradleException('revisionClient must be a simple folder name')
+        def clientRoot = new File(qaRoot, clientName)
+        p.buildDir = new File(qaRoot, focused ? 'tests' : 'full')
+        def clientSnapshot = new File(qaRoot, 'client-runtime')
+        p.tasks.named('snapshotClientRuntime', Sync).configure { into clientSnapshot }
+        p.minecraft.runs.client {
+            workingDirectory clientRoot
+            environment 'MOD_CLASSES', "${p.mod_id}%%${clientSnapshot.absolutePath}"
+            jvmArgs.clear()
+            jvmArgs '-Xms1G', '-Xmx5G', '-XX:ActiveProcessorCount=2'
+        }
+        if (p.findProperty('tropicalFishViews') != null) {
+            def sourceWorld = p.file(p.property('tropicalFishWorld'))
+            def views = p.file(p.property('tropicalFishViews'))
+            def buildRoot = p.file('build').canonicalFile.toPath()
+            if (!sourceWorld.canonicalFile.toPath().startsWith(buildRoot)
+                    || !views.canonicalFile.toPath().startsWith(buildRoot))
+                throw new GradleException('Visual world and viewpoints must come from disposable build/ output')
+            def destination = new File(clientRoot, 'saves/TropicalFishQA')
+            def prepareVisualWorld = p.tasks.register('prepareTropicalFishVisualWorld') {
+                doLast {
+                    if (!new File(sourceWorld, 'level.dat').isFile() || !views.isFile())
+                        throw new GradleException('The closed QA world or exported viewpoints are missing')
+                    if (destination.exists()) throw new GradleException('The isolated visual world already exists; preserve its evidence and choose a fresh client directory')
+                    p.copy { from sourceWorld; into destination }
+                    new File(clientRoot, 'options.txt').setText('renderDistance:6\nsimulationDistance:5\nsoundCategory_master:0.0\nfullscreen:false\npauseOnLostFocus:false\nmaxFps:30\nguiScale:2\n', 'UTF-8')
+                }
+            }
+            p.tasks.matching { it.name == 'runClient' }.configureEach { dependsOn prepareVisualWorld }
+            p.minecraft.runs.client {
+                property 'aoemod.structureAudit.views', views.absolutePath
+                property 'aoemod.structureAudit.report', new File(clientRoot, 'tropical-fish-screenshot-report.json').absolutePath
+                property 'aoemod.structureAudit.exit', 'true'
+                args '--quickPlaySingleplayer', 'TropicalFishQA', '--width', '1440', '--height', '1000'
+            }
+        }
+        if (focused) {
+            def selected = (p.findProperty('revisionTests') ?: [
+                    'TropicalFishPlantRevisionTests', 'TropicalLandNovemberEighteenTests',
+                    'TropicalNovemberFifteenTests', 'TropicalFishPaletteTests',
+                    'TropicalAnimalBehaviorTests', 'SmallAquaticRevisionTests',
+                    'AquaticRosterNovember18Tests', 'TropicalIslandFaunaTests',
+                    'FishFoodTextureRecipesTests', 'TropicalFaunaRevisionTests'
+            ].join(',')).split(',').collect { it + '.java' }.toSet()
+            if (selected.any { it in ['TropicalFishPlantRevisionTests.java', 'TropicalNovemberFifteenTests.java',
+                    'TropicalTreeAllocationTests.java', 'TropicalFishVisualSceneTests.java'] }) selected.add('TropicalTreeShapeTests.java')
+            if (selected.contains('TropicalFaunaRevisionTests.java')) selected.add('AquaticPlantGenerationTests.java')
+            selected.add('SurfaceWaterCacheTests.java')
+            if (p.findProperty('tropicalFishVisual')?.toString() == 'true') selected.add('TropicalFishVisualSceneTests.java')
+            p.sourceSets.main.java.exclude { element ->
+                element.relativePath.pathString.startsWith('net/amurdza/examplemod/gametest/')
+                        && !selected.contains(element.file.name)
+            }
+            def runtimeSnapshot = new File(qaRoot, 'runtime-' + runName)
+            def snapshot = p.tasks.register('snapshotTropicalFishGameTestRuntime', Sync) {
+                dependsOn p.tasks.named('classes')
+                from p.sourceSets.main.output
+                into runtimeSnapshot
+                doLast {
+                    if (!new File(runtimeSnapshot, 'net/amurdza/examplemod/AOEMod.class').isFile()
+                            || !new File(runtimeSnapshot, 'aoemod.mixins.json').isFile())
+                        throw new GradleException('Incomplete tropical/fish GameTest runtime')
+                }
+            }
+            p.tasks.matching { it.name in ['prepareRunGameTestServerCompile', 'runGameTestServer'] }.configureEach {
+                dependsOn snapshot
+            }
+            p.minecraft.runs.gameTestServer {
+                workingDirectory new File(qaRoot, 'tests/' + runName)
+                environment 'MOD_CLASSES', "${p.mod_id}%%${runtimeSnapshot.absolutePath}"
+                jvmArgs '-Xms1G', '-Xmx3G', '-XX:ActiveProcessorCount=2'
+                if (p.findProperty('tropicalFishVisual')?.toString() == 'true') property 'aoemod.tropicalFishVisual', 'true'
+            }
+        }
+
+        def generated = new File(qaRoot, 'generated')
+        p.minecraft.runs.data {
+            workingDirectory new File(qaRoot, 'data-run')
+            jvmArgs '-Xms1G', '-Xmx3G', '-XX:ActiveProcessorCount=2'
+            args.clear()
+            args '--mod', p.mod_id, '--all', '--output', generated.absolutePath,
+                    '--existing', p.file('src/main/resources').absolutePath
+        }
+        p.tasks.register('compareTropicalFishGeneratedResources') {
+            dependsOn p.tasks.named('runData')
+            doLast {
+                def existing = p.file('src/generated/resources')
+                def paths = { File directory ->
+                    def result = [:]
+                    p.fileTree(directory).matching { exclude '.cache/**' }.files.each { file ->
+                        result[directory.toPath().relativize(file.toPath()).toString().replace('\\', '/')] = file
+                    }
+                    result
+                }
+                def before = paths(existing), after = paths(generated)
+                def digest = { File file -> MessageDigest.getInstance('SHA-256').digest(file.bytes).encodeHex().toString() }
+                def report = [
+                        baseline: existing.absolutePath, generated: generated.absolutePath,
+                        added: (after.keySet() - before.keySet()).sort(),
+                        removed: (before.keySet() - after.keySet()).sort(),
+                        changed: before.keySet().intersect(after.keySet()).findAll { digest(before[it]) != digest(after[it]) }.sort()
+                ]
+                def output = new File(qaRoot, 'generated-resource-diff.json')
+                output.parentFile.mkdirs()
+                output.setText(JsonOutput.prettyPrint(JsonOutput.toJson(report)) + '\n', 'UTF-8')
+                logger.lifecycle("Generated-resource comparison: ${report.added.size()} added, ${report.removed.size()} removed, ${report.changed.size()} changed. ${output}")
+            }
+        }
+    }
+}

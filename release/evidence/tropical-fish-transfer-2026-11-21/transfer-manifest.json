@@ -1,0 +1,177 @@
+[
+  {
+    "Path": "src/main/java/net/amurdza/examplemod/client/SmallAquaticSeagrass.java",
+    "Action": "copy",
+    "SHA256": "BD9F88A706A56420AADA17BCD507AC5C65AB395CBF39AA41668C7237C578ADE2"
+  },
+  {
+    "Path": "src/main/java/net/amurdza/examplemod/client/AquaticPlantMask.java",
+    "Action": "copy",
+    "SHA256": "561865031A08E8768B2B33DE7BD98E61FA52C4556B663DA76E7A456211F4A84F"
+  },
+  {
+    "Path": "src/main/java/net/amurdza/examplemod/config/DocumentedContentBalance.java",
+    "Action": "copy",
+    "SHA256": "E202014E541AAF7A3D86EED25DB17A6D9C90A73A97888107DC2B6A23383299E5"
+  },
+  {
+    "Path": "src/main/java/net/amurdza/examplemod/event_handlers/CoconutCrabAquatics.java",
+    "Action": "copy",
+    "SHA256": "9A65AB5307EE745E9E5F0FD46D11C9C07529C398598D1058B894654FB122E14B"
+  },
+  {
+    "Path": "src/main/java/net/amurdza/examplemod/gametest/AquaticRosterNovember18Tests.java",
+    "Action": "copy",
+    "SHA256": "3396EECFCD8F331CF68BE64EAFF34B6949DCC559B4A81D28361F6FE24965E377"
+  },
+  {
+    "Path": "src/main/java/net/amurdza/examplemod/gametest/CreatureNetCreativeTests.java",
+    "Action": "copy",
+    "SHA256": "C04DA8E977F5BFE3F9523EE30437A35E91E11739F3925A19473E1FC3794AB270"
+  },
+  {
+    "Path": "src/main/java/net/amurdza/examplemod/gametest/FishFoodTextureRecipesTests.java",
+    "Action": "copy",
+    "SHA256": "5292F2C67CF8179B6BB1BA8F165141C6BF0F70D162FBA26A4E7FDD3FDB41E395"
+  },
+  {
+    "Path": "src/main/java/net/amurdza/examplemod/gametest/SmallAquaticRevisionTests.java",
+    "Action": "copy",
+    "SHA256": "CE2FC0C8B725A89BE539E4C73F6487D342F3DD05C4EC28F332DAA33A82E91E3C"
+  },
+  {
+    "Path": "src/main/java/net/amurdza/examplemod/gametest/TropicalFaunaRevisionTests.java",
+    "Action": "copy",
+    "SHA256": "29E662021ACE063804A48F5A8249174370FF07B13A5507A3EF1AE5BB166D07EA"
+  },
+  {
+    "Path": "src/main/java/net/amurdza/examplemod/gametest/TropicalFishPaletteTests.java",
+    "Action": "copy",
+    "SHA256": "346D85186CC5863040724C8C91FE865DE8B0EF3A1E31FAD5F575095FE92BD93E"
+  },
+  {
+    "Path": "src/main/java/net/amurdza/examplemod/gametest/TropicalNovemberRevisionTests.java",
+    "Action": "copy",
+    "SHA256": "FE3B00F4540568CE9719ED2431E88F05FC7CE9F2FB0026805F8705D58A4ACB13"
+  },
+  {
+    "Path": "src/main/java/net/amurdza/examplemod/gametest/ClientStructureScreenshotAudit.java",
+    "Action": "copy",
+    "SHA256": "C213D34ED1068B1B7A9B3D2EFE4D1A05C4429846EACC1069822D2B5BFDE3A09F"
+  },
+  {
+    "Path": "src/main/java/net/amurdza/examplemod/gametest/TropicalAnimalBehaviorTests.java",
+    "Action": "copy",
+    "SHA256": "BCB3CE2ADC21A52970E2B00B9F2B06E43EC7E6537417DFFB4C218A4E78CAE200"
+  },
+  {
+    "Path": "src/main/java/net/amurdza/examplemod/gametest/TropicalFishPlantRevisionTests.java",
+    "Action": "copy",
+    "SHA256": "FD7394FC0EF5D3EE57E2DB6BBDC66A9DA37F10C2929F676B7984B21E60B9985B"
+  },
+  {
+    "Path": "src/main/java/net/amurdza/examplemod/gametest/TropicalFishVisualSceneTests.java",
+    "Action": "copy",
+    "SHA256": "A1AE403301B701D032C359A04453A84644D95A0D9B0133DD94EAA67E21DBCBDD"
+  },
+  {
+    "Path": "src/main/java/net/amurdza/examplemod/gametest/ClientAquaticMaskAudit.java",
+    "Action": "copy",
+    "SHA256": "EC90C2596AE00B7691FF75D594FC8FA715AB67EF6392B5AF73B4C6679CD9889F"
+  },
+  {
+    "Path": "src/main/java/net/amurdza/examplemod/mixins/block_behavior/SmallAquaticPlantCollision.java",
+    "Action": "copy",
+    "SHA256": "577DE6E57EF74323D98FEFF714E91C3D9A4788F74C1375B5EFA1AF67DB86A759"
+  },
+  {
+    "Path": "src/main/java/net/amurdza/examplemod/mixins/mob_spawning/TropicalFishPalette.java",
+    "Action": "copy",
+    "SHA256": "3D3266A917ACC986B83BD3DD0CDBA3CBF2314B11BBD62EF1A987A99AE9B6CE7E"
+  },
+  {
+    "Path": "src/main/java/net/amurdza/examplemod/mixins/worldgen/TreeFeatureNeedsSolidGround.java",
+    "Action": "copy",
+    "SHA256": "C7F1EDD452EE382CE72D0D25A29FB58100D510AB7A9197D4D027DC57DF497FDC"
+  },
+  {
+    "Path": "src/main/java/net/amurdza/examplemod/mixins/client/SmallAquaticModelCapture.java",
+    "Action": "copy",
+    "SHA256": "F8CF0191A06AB53DCAE520ECCB096C53C90606FD947B925FDDFA16609273DCFC"
+  },
+  {
+    "Path": "src/main/java/net/amurdza/examplemod/mixins/mob_behavior/SmallAquaticPlantMovement.java",
+    "Action": "copy",
+    "SHA256": "4F67B20475B49A0BA6CEDB35AE35F629F413D4D7DD43579AEB9B9C586DF8D703"
+  },
+  {
+    "Path": "src/main/java/net/amurdza/examplemod/mixins/othermods/ecologics/AmphibiousCoconutCrab.java",
+    "Action": "copy",
+    "SHA256": "46BB038E256471F87B12D7FD70DF1A34A228431852AE3057CBC70A1B24DFAD9A"
+  },
+  {
+    "Path": "src/main/java/net/amurdza/examplemod/mixins/othermods/alexsmobs/ElephantsStayGrounded.java",
+    "Action": "copy",
+    "SHA256": "4AF032AACBF7B07B98C46BA507D7C736BD2C6957B4F31A1CCAE14E3EF2677CF2"
+  },
+  {
+    "Path": "src/main/java/net/amurdza/examplemod/worldgen/DocumentedFauna.java",
+    "Action": "copy",
+    "SHA256": "FD2309546EB024A369EF7C7F3D6CCB2E3BFE62E274582B40FD6D6D909D7BBE9C"
+  },
+  {
+    "Path": "src/main/java/net/amurdza/examplemod/worldgen/SmallAquaticPlants.java",
+    "Action": "copy",
+    "SHA256": "7ECCB2E981B43B474FA5C84E4BE670C0ADC4A2058E7F899BFF2D56D63714DF35"
+  },
+  {
+    "Path": "src/main/java/net/amurdza/examplemod/worldgen/TropicalBamboo.java",
+    "Action": "copy",
+    "SHA256": "52935978F9B5FBA64F90BD04559DCA327A3FDE6D0DE1FD17DB996BEEC890C396"
+  },
+  {
+    "Path": "src/main/java/net/amurdza/examplemod/worldgen/TropicalMulberryTrees.java",
+    "Action": "copy",
+    "SHA256": "EE5826BD96D7BEFCEB2420529E5DC6F2162909A00592380F9DBBB9E1AA91140B"
+  },
+  {
+    "Path": "src/main/java/net/amurdza/examplemod/worldgen/TropicalPlantIntegrity.java",
+    "Action": "copy",
+    "SHA256": "48A022F14443924E3A174E898393A9A77B6C25AA186D90F0235A287739B221F7"
+  },
+  {
+    "Path": "src/main/resources/aoemod.mixins.json",
+    "Action": "copy",
+    "SHA256": "4B8AFFD062ED75761DD73C724461D205BCBC9A8E95FC6DA668D209B0AEC0D6AA"
+  },
+  {
+    "Path": "src/main/resources/aoemod-retained-content.json",
+    "Action": "copy",
+    "SHA256": "8CBE79195130F435FF867F4D2BE2354E280979F5A57FB3A179B8B0881B1F84F8"
+  },
+  {
+    "Path": "src/main/resources/data/aoemod/worldgen/configured_feature/rainforest/tree/natural_mangrove.json",
+    "Action": "copy",
+    "SHA256": "6936B1CCD49C9871B2FFDF9C66139FB9FBECB5A7B5C615D0AAD362AC371D41A4"
+  },
+  {
+    "Path": "scripts/TropicalMulberryAudit.java",
+    "Action": "copy",
+    "SHA256": "73942DD5670CA4E70A0054BF6AE4AB31514FC1DF1568B963B0755941A32E14FA"
+  },
+  {
+    "Path": "scripts/tropical-fish-qa.init.gradle",
+    "Action": "copy",
+    "SHA256": "604C0DF00740FE963BE4017DDBAD3780AF0D42C9F51B2206F20637D138BF94B4"
+  },
+  {
+    "Path": "src/main/java/net/amurdza/examplemod/event_handlers/DocumentedNaturalSpawns.java",
+    "Action": "apply tropical collision hunk",
+    "SHA256": "78B9B5B48E1C7244CDC4583BEE683E95AE5CF31BFC78E9DE9F55CBC8D02D9935"
+  },
+  {
+    "Path": "src/main/java/net/amurdza/examplemod/mixins/othermods/hybridaquatic/CarpSpawnVariants.java",
+    "Action": "remove obsolete carp mixin",
+    "SHA256": null
+  }
+]

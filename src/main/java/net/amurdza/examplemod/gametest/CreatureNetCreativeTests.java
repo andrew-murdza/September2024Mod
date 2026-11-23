@@ -30,8 +30,8 @@ import java.nio.file.Path;
 @PrefixGameTestTemplate(false)
 public final class CreatureNetCreativeTests {
     private static final Set<String> EXPECTED_CAPTURE_SPECIES = Set.of(
-            "hybrid_aquatic:coconut_crab", "hybrid_aquatic:arrow_squid", "hybrid_aquatic:octopus",
-            "hybrid_aquatic:umbrella_octopus", "hybrid_aquatic:flower_crab", "hybrid_aquatic:lightfoot_crab",
+            "hybrid_aquatic:arrow_squid", "hybrid_aquatic:octopus",
+            "hybrid_aquatic:umbrella_octopus",
             "hybrid_aquatic:spider_crab", "hybrid_aquatic:starfish", "hybrid_aquatic:tuna",
             "hybrid_aquatic:vampire_squid", "hybrid_aquatic:hound_shark", "hybrid_aquatic:fiddler_crab");
 
@@ -62,7 +62,7 @@ public final class CreatureNetCreativeTests {
             }
         }
         helper.assertTrue(actual.equals(EXPECTED_CAPTURE_SPECIES),
-                "Filled nets must include exactly the twelve retained Hybrid Aquatic species: " + actual);
+                "Filled nets must include exactly the nine retained Hybrid Aquatic species: " + actual);
         helper.succeed();
     }
 

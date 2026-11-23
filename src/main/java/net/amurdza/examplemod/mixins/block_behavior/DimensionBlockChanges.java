@@ -19,6 +19,7 @@ public class DimensionBlockChanges {
     private void aoemod$enforceDimension(BlockPos pos, BlockState state, int flags, int recursion,
                                         CallbackInfoReturnable<Boolean> cir) {
         LevelReader level = (LevelReader) (Object) this;
+        if (net.amurdza.examplemod.worldgen.structure.GoblinFortressBlocks.isAuthored(level, pos, state)) return;
         if ((state.is(net.minecraft.world.level.block.Blocks.GRASS) || state.is(net.minecraft.world.level.block.Blocks.TALL_GRASS))
                 && level instanceof net.minecraft.world.level.WorldGenLevel world
                 && net.amurdza.examplemod.util.GameplayDimensions.is(level, net.amurdza.examplemod.util.GameplayDimensions.SAVANNA)) {

@@ -58,7 +58,7 @@ public final class AquaticSpawnDistanceTests {
         List<Entity> animals = new ArrayList<>();
         Pufferfish outside = EntityType.PUFFERFISH.create(helper.getLevel());
         try {
-            for (String id : List.of("minecraft:pufferfish", "minecraft:tropical_fish", "angling:anomalocaris")) {
+            for (String id : List.of("minecraft:pufferfish", "minecraft:tropical_fish")) {
                 var type = ForgeRegistries.ENTITY_TYPES.getValue(new ResourceLocation(id));
                 var entry = biome.value().getMobSettings().getMobs(DocumentedFauna.spawnCategory(type)).unwrap().stream()
                         .filter(spawn -> spawn.type == type).findFirst().orElseThrow();

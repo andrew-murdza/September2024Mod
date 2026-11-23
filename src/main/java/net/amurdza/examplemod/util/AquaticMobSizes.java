@@ -44,13 +44,13 @@ public final class AquaticMobSizes {
     }
 
     public static boolean usesMaximumSize(BaseWaterAnimal animal) {
-        return !usesNativeSize(animal) && GameplayDimensions.is(animal.level(), GameplayDimensions.TROPICAL);
+        return animal instanceof StarfishEntity
+                || !usesNativeSize(animal) && GameplayDimensions.is(animal.level(), GameplayDimensions.TROPICAL);
     }
 
-    /** These bottom dwellers retain upstream geometry and individual size variation. */
+    /** Retired crab species keep their upstream dimensions if instantiated by a compatibility tool. */
     public static boolean usesNativeSize(Entity animal) {
-        return animal instanceof FlowerCrabEntity || animal instanceof LightfootCrabEntity
-                || animal instanceof StarfishEntity;
+        return animal instanceof FlowerCrabEntity || animal instanceof LightfootCrabEntity;
     }
 
     public static int maximum(BaseWaterAnimal animal) {

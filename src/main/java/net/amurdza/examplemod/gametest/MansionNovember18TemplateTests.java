@@ -51,16 +51,16 @@ public final class MansionNovember18TemplateTests {
         }
         h.assertTrue(cells(template(manager, "aoe_compact_ceiling_v3")).values().stream().anyMatch(state -> state.is(Blocks.BIRCH_PLANKS)),
                 "Saved earlier mansions must keep their existing birch ceiling resource");
-        h.assertTrue(MansionRoomCatalogue.newTemplate("1x1_b4").equals("aoe_v6_1x1_b3")
+        h.assertTrue(MansionRoomCatalogue.nativeName(MansionRoomCatalogue.newTemplate("1x1_b4")).equals("1x1_b3")
                         && !MansionRoomCatalogue.SMALL.contains("1x1_b4") && !MansionRoomCatalogue.GROUND_SMALL.contains("1x1_b4"),
                 "The small library must always select a bedroom instead");
-        var large = cells(template(manager, MansionRoomCatalogue.BEDROOM_LARGE));
+        var large = cells(template(manager, "aoe_v6_2x2_b3"));
         h.assertTrue(count(large, Blocks.BOOKSHELF) == 0 && count(large, Blocks.WHITE_WOOL) == 48
-                        && count(large, Blocks.RED_CARPET) == 36 && MansionRoomCatalogue.bedCapacity(MansionRoomCatalogue.BEDROOM_LARGE) == 8,
+                        && count(large, Blocks.RED_CARPET) == 36 && MansionRoomCatalogue.bedCapacity("aoe_v6_2x2_b3") == 8,
                 "The booth library must become four three-wide beds, counting as eight sleeping places");
         for (int z = 0; z < 15; z++) for (int y = 1; y <= 3; y++)
             h.assertTrue(at(large, 7, y, z).isAir(), "The new bedroom must retain its central walking aisle");
-        var mapRoom = cells(template(manager, MansionRoomCatalogue.MAP_ROOM));
+        var mapRoom = cells(template(manager, "aoe_v6_2x2_b4"));
         h.assertTrue(count(mapRoom, Blocks.BOOKSHELF) == 0, "The asymmetric map-room bookshelf is removed");
         for (int x = 5; x <= 9; x++) for (int y = 1; y <= 5; y++)
             h.assertTrue(at(mapRoom, x, y, 14).isAir(), "The bookshelf display's wooden surround must be removed too");
@@ -116,8 +116,8 @@ public final class MansionNovember18TemplateTests {
         var level = h.getLevel().getServer().getLevel(GameplayDimensions.PLAINS);
         var manager = level.getStructureManager();
         var vanilla = cells(template(manager, "entrance"));
-        var portal = cells(template(manager, MansionRoomCatalogue.ENTRANCE));
-        var platform = cells(template(manager, MansionRoomCatalogue.ENTRANCE_PLATFORM));
+        var portal = cells(template(manager, "aoe_v6_entrance"));
+        var platform = cells(template(manager, "aoe_v6_entrance_platform"));
         for (var entry : portal.entrySet()) {
             var pos = entry.getKey();
             var expected = oakPlanks(at(vanilla, 16 - pos.getZ(), pos.getY(), pos.getX() + 4).rotate(Rotation.COUNTERCLOCKWISE_90));
@@ -146,8 +146,8 @@ public final class MansionNovember18TemplateTests {
             var clip = new BoundingBox(origin.getX() - 28, 218, origin.getZ() - 28, origin.getX() + 28, 240, origin.getZ() + 28);
             var platformOrigin = origin.offset(MansionRoomCatalogue.ENTRANCE_PLATFORM_OFFSET.rotate(rotation));
             for (var piece : new WoodlandMansionPiece[]{
-                    new WoodlandMansionPiece(manager, MansionRoomCatalogue.ENTRANCE, origin, rotation),
-                    new WoodlandMansionPiece(manager, MansionRoomCatalogue.ENTRANCE_PLATFORM, platformOrigin, rotation)})
+                    new WoodlandMansionPiece(manager, "aoe_v6_entrance", origin, rotation),
+                    new WoodlandMansionPiece(manager, "aoe_v6_entrance_platform", platformOrigin, rotation)})
                 piece.postProcess(region, level.structureManager().forWorldGenRegion(region), level.getChunkSource().getGenerator(),
                         RandomSource.create(0), clip, center, origin);
             int stairs = 0;

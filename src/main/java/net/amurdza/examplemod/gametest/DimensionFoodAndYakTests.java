@@ -32,10 +32,10 @@ public final class DimensionFoodAndYakTests {
 
     @GameTest(template = "plant_gameplay_empty")
     public static void missingDocumentedFishHaveEdibleCookingResults(GameTestHelper helper) {
-        for (String name : new String[]{"anomalocaris", "octopus",
+        for (String name : new String[]{"octopus",
                 "flying_fish", "arrow_squid", "vampire_squid", "crab_meat", "umbrella_octopus",
                 "triops", "blue_spotted_stingray",
-                "swamp_mucker", "tuna", "lost_tentacle"}) {
+                "tuna"}) {
             var cooked = DimensionFoods.get("cooked_" + name);
             helper.assertTrue(cooked != null && cooked != Items.AIR && cooked.isEdible(),
                     "Missing edible cooked item for " + name);

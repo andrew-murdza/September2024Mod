@@ -1,7 +1,7 @@
 {
   "creature_spawn_probability": 0.4,
-  "temperature": 1.0,
-  "downfall": 1.0,
+  "temperature": 1,
+  "downfall": 1,
   "has_precipitation": true,
   "effects": {
     "sky_color": 7907327,
@@ -77,12 +77,6 @@
         "maxCount": 5,
         "minCount": 2,
         "weight": 10
-      },
-      {
-        "type": "angling:anomalocaris",
-        "maxCount": 5,
-        "minCount": 2,
-        "weight": 10
       }
     ],
     "water_creature": [
@@ -100,18 +94,6 @@
       },
       {
         "type": "minecraft:turtle",
-        "maxCount": 5,
-        "minCount": 2,
-        "weight": 10
-      },
-      {
-        "type": "hybrid_aquatic:lightfoot_crab",
-        "maxCount": 5,
-        "minCount": 2,
-        "weight": 10
-      },
-      {
-        "type": "angling:sea_slug",
         "maxCount": 5,
         "minCount": 2,
         "weight": 10

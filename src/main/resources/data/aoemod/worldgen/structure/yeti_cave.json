@@ -1,13 +1,43 @@
 {
-  "type": "aoemod:boss_lair",
-  "kind": "yeti",
-  "biomes": ["aoemod:snowy_forest"],
+  "type": "aoemod:goblin_fortress",
+  "biomes": [
+    "aoemod:dappled_forest",
+    "aoemod:snowy_forest"
+  ],
   "step": "surface_structures",
   "terrain_adaptation": "none",
   "spawn_overrides": {
-    "monster": {"bounding_box": "piece", "spawns": [
-      {"type": "twilightforest:yeti", "weight": 10, "minCount": 1, "maxCount": 3},
-      {"type": "aoemod:breeze", "weight": 10, "minCount": 1, "maxCount": 2}
-    ]}
+    "monster": {
+      "bounding_box": "piece",
+      "spawns": []
+    },
+    "creature": {
+      "bounding_box": "piece",
+      "spawns": []
+    },
+    "ambient": {
+      "bounding_box": "piece",
+      "spawns": []
+    },
+    "axolotls": {
+      "bounding_box": "piece",
+      "spawns": []
+    },
+    "underground_water_creature": {
+      "bounding_box": "piece",
+      "spawns": []
+    },
+    "water_creature": {
+      "bounding_box": "piece",
+      "spawns": []
+    },
+    "water_ambient": {
+      "bounding_box": "piece",
+      "spawns": []
+    },
+    "misc": {
+      "bounding_box": "piece",
+      "spawns": []
+    }
   }
 }

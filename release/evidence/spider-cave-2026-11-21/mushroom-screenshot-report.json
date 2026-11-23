@@ -1,0 +1,35 @@
+{
+  "status": "passed",
+  "started": "2026-11-21T23:09:30.237169500Z",
+  "elapsedMillis": 17513,
+  "requestedViews": 1,
+  "completedViews": 1,
+  "views": [
+    {
+      "label": "spider-mushroom",
+      "dimension": "aoemod:tropical_dimension",
+      "x": 32107.5,
+      "y": 190.0,
+      "z": 32072.5,
+      "yaw": -180.0,
+      "pitch": 21.305784,
+      "settledClientTicks": 120,
+      "readyChunkRadius": 4,
+      "terrainReadiness": "surrounding chunks arrived and terrain build queue is idle",
+      "tropicalClientBiomeAudit": {
+        "layoutSynchronized": true,
+        "radiusBlocks": 48,
+        "columnsChecked": 9409,
+        "altitudeComparisons": 9409,
+        "terrainHeightComparisons": 6544,
+        "mangroveColumns": 6544,
+        "rainforestColumns": 0,
+        "coralColumns": 2865,
+        "cherryColumns": 0
+      },
+      "width": 1440,
+      "height": 1000,
+      "path": "C:\\Users\\andre\\Downloads\\September2024Mod\\build\\spider-cave-qa\\client-views3\\screenshots\\spider-mushroom.png"
+    }
+  ]
+}

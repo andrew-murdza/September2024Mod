@@ -39,10 +39,28 @@ public record MansionProtectionSnapshot(List<BoundingBox> rooms, List<MansionBas
     }
 
     public static boolean protects(Level level, BlockPos pos) {
-        if (!level.hasChunkAt(pos)) return false;
+        if (!level.hasChunkAt(pos) || level.getBlockState(pos).isAir()) return false;
         var snapshot = RECEIVED.get(level.getChunkAt(pos));
         return snapshot != null && snapshot.protects(pos)
-                && !(AuthoredRewardLocks.isRewardBlock(level.getBlockState(pos)) && snapshot.rewardsUnlocked(pos));
+                && !(snapshot.isReward(level, pos) && snapshot.rewardsUnlocked(pos));
+    }
+
+    /** Interaction locks must not include permanently protected fences after the encounter is cleared. */
+    public static boolean rewardsLocked(Level level, BlockPos pos) {
+        if (!level.hasChunkAt(pos)) return false;
+        var snapshot = RECEIVED.get(level.getChunkAt(pos));
+        return snapshot != null && snapshot.protects(pos) && !snapshot.rewardsUnlocked(pos);
+    }
+
+    public static boolean rewardsUnlocked(Level level, BlockPos pos) {
+        if (!level.hasChunkAt(pos)) return false;
+        var snapshot = RECEIVED.get(level.getChunkAt(pos));
+        return snapshot != null && snapshot.rewardsUnlocked(pos) && snapshot.isReward(level, pos);
+    }
+
+    private boolean isReward(Level level, BlockPos pos) {
+        return AuthoredRewardLocks.isRewardBlock(level.getBlockState(pos))
+                || MansionBasementLayoutV14.isOre(level.getBlockState(pos)) && basements.stream().anyMatch(piece -> piece.isMineOre(pos));
     }
 
     public static MansionProtectionSnapshot capture(ServerLevel level, ChunkPos chunk) {

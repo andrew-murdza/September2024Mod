@@ -1,0 +1,65 @@
+[
+  {
+    "yaw": 135.0,
+    "pitch": 4.1179805,
+    "z": 32157.5,
+    "y": 210,
+    "x": 32157.5,
+    "dimension": "aoemod:tropical_dimension",
+    "label": "spider-entrance"
+  },
+  {
+    "yaw": -180.0,
+    "pitch": 21.305784,
+    "z": 32100.5,
+    "y": 198,
+    "x": 32134.5,
+    "dimension": "aoemod:tropical_dimension",
+    "label": "spider-slime"
+  },
+  {
+    "yaw": -180.0,
+    "pitch": 21.305784,
+    "z": 32142.5,
+    "y": 198,
+    "x": 32092.5,
+    "dimension": "aoemod:tropical_dimension",
+    "label": "spider-garden"
+  },
+  {
+    "yaw": -180.0,
+    "pitch": 21.305784,
+    "z": 32072.5,
+    "y": 190,
+    "x": 32107.5,
+    "dimension": "aoemod:tropical_dimension",
+    "label": "spider-mushroom"
+  },
+  {
+    "yaw": -180.0,
+    "pitch": 21.305784,
+    "z": 32115.5,
+    "y": 190,
+    "x": 32064.5,
+    "dimension": "aoemod:tropical_dimension",
+    "label": "spider-larder"
+  },
+  {
+    "yaw": -180.0,
+    "pitch": 21.305784,
+    "z": 32110.5,
+    "y": 198,
+    "x": 32102.5,
+    "dimension": "aoemod:tropical_dimension",
+    "label": "spider-brood"
+  },
+  {
+    "yaw": -180.0,
+    "pitch": 15.835265,
+    "z": 32085.5,
+    "y": 178,
+    "x": 32074.5,
+    "dimension": "aoemod:tropical_dimension",
+    "label": "spider-queen"
+  }
+]

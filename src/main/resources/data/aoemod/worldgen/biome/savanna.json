@@ -189,7 +189,7 @@
         "maxCount": 8
       },
       {
-        "type": "hybrid_aquatic:flower_crab",
+        "type": "alexsmobs:lobster",
         "weight": 10,
         "minCount": 4,
         "maxCount": 4

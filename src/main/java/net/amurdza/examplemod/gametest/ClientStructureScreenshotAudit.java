@@ -11,6 +11,7 @@ import net.minecraft.client.CameraType;
 import net.minecraft.client.Screenshot;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.registries.Registries;
+import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.Mth;
@@ -60,7 +61,8 @@ public final class ClientStructureScreenshotAudit {
     private static String terrainWait = "not yet checked";
 
     private record View(ResourceKey<Level> dimension, double x, double y, double z, float yaw, float pitch, int fov,
-                        String label, com.google.gson.JsonArray biomeProbes) { }
+                        String label, com.google.gson.JsonArray biomeProbes, String messageKey, int messageCount,
+                        int guiScale, boolean nightVision) { }
 
     private ClientStructureScreenshotAudit() { }
 
@@ -79,6 +81,9 @@ public final class ClientStructureScreenshotAudit {
                 return;
             }
             View view = views.get(index);
+            minecraft.options.hideGui = view.messageKey() == null;
+            if (view.messageKey() != null)
+                minecraft.gui.setOverlayMessage(Component.translatable(view.messageKey(), view.messageCount()), false);
             if (!requested) {
                 requestTeleport(minecraft, view);
                 return;
@@ -86,7 +91,7 @@ public final class ClientStructureScreenshotAudit {
             if (now - phaseNanos > VIEW_TIMEOUT) throw new IllegalStateException("Timed out settling view " + view.label()
                     + ": " + terrainWait);
             boolean acknowledged = serverReadyIndex == index && minecraft.level.dimension().equals(view.dimension())
-                    && minecraft.player.hasEffect(MobEffects.NIGHT_VISION)
+                    && minecraft.player.hasEffect(MobEffects.NIGHT_VISION) == view.nightVision()
                     && minecraft.player.distanceToSqr(view.x(), view.y(), view.z()) < .04
                     && Math.abs(Mth.wrapDegrees(minecraft.player.getYRot() - view.yaw())) < 1.5F
                     && Math.abs(minecraft.player.getXRot() - view.pitch()) < 1.5F;
@@ -160,7 +165,14 @@ public final class ClientStructureScreenshotAudit {
                 throw new IllegalArgumentException("Invalid camera coordinates/angles for " + label);
             var dimension = ResourceKey.create(Registries.DIMENSION, new ResourceLocation(object.get("dimension").getAsString()));
             int fov = object.has("fov") ? Mth.clamp(object.get("fov").getAsInt(), 30, 110) : 70;
-            views.add(new View(dimension, x, y, z, yaw, pitch, fov, label, object.getAsJsonArray("biomeProbes")));
+            String messageKey = object.has("messageKey") && !object.get("messageKey").isJsonNull()
+                    ? object.get("messageKey").getAsString() : null;
+            if (messageKey != null && !messageKey.matches("message\\.aoemod\\.[a-z0-9_]+"))
+                throw new IllegalArgumentException("Invalid QA message key for " + label);
+            int messageCount = object.has("messageCount") ? Math.max(0, object.get("messageCount").getAsInt()) : 161;
+            int guiScale = object.has("guiScale") ? Mth.clamp(object.get("guiScale").getAsInt(), 1, 8) : 2;
+            views.add(new View(dimension, x, y, z, yaw, pitch, fov, label, object.getAsJsonArray("biomeProbes"),
+                    messageKey, messageCount, guiScale, !object.has("nightVision") || object.get("nightVision").getAsBoolean()));
         }
         minecraft.options.hideGui = true;
         minecraft.options.pauseOnLostFocus = false;
@@ -178,6 +190,10 @@ public final class ClientStructureScreenshotAudit {
         var playerId = minecraft.player.getUUID();
         var server = minecraft.getSingleplayerServer();
         minecraft.options.fov().set(view.fov());
+        if (minecraft.options.guiScale().get() != view.guiScale()) {
+            minecraft.options.guiScale().set(view.guiScale());
+            minecraft.resizeDisplay();
+        }
         minecraft.setCameraEntity(minecraft.player);
         server.execute(() -> {
             if (completed) return;
@@ -196,7 +212,8 @@ public final class ClientStructureScreenshotAudit {
                 player.teleportTo(destination, view.x(), view.y(), view.z(), view.yaw(), view.pitch());
                 // Send the effect after the dimension-change packet, which recreates the client player.
                 player.removeEffect(MobEffects.NIGHT_VISION);
-                player.addEffect(new MobEffectInstance(MobEffects.NIGHT_VISION, 20 * 60 * 10, 0, false, false, false));
+                if (view.nightVision())
+                    player.addEffect(new MobEffectInstance(MobEffects.NIGHT_VISION, 20 * 60 * 10, 0, false, false, false));
                 player.setDeltaMovement(Vec3.ZERO);
                 player.fallDistance = 0;
                 serverReadyIndex = requestIndex;
@@ -218,6 +235,32 @@ public final class ClientStructureScreenshotAudit {
         result.put("settledClientTicks", settledTicks);
         result.put("readyChunkRadius", READY_CHUNK_RADIUS);
         result.put("terrainReadiness", terrainWait);
+        result.put("requestedGuiScale", view.guiScale());
+        result.put("nightVision", view.nightVision());
+        result.put("actualGuiScale", minecraft.getWindow().getGuiScale());
+        result.put("guiScaledWidth", minecraft.getWindow().getGuiScaledWidth());
+        result.put("guiScaledHeight", minecraft.getWindow().getGuiScaledHeight());
+        if (view.messageKey() != null) {
+            var message = Component.translatable(view.messageKey(), view.messageCount());
+            int wrapWidth = Math.max(1, minecraft.getWindow().getGuiScaledWidth() - 24);
+            List<Map<String, Object>> lines = new ArrayList<>();
+            for (var line : minecraft.font.split(message, wrapWidth)) {
+                var text = new StringBuilder();
+                line.accept((characterIndex, style, codePoint) -> { text.appendCodePoint(codePoint); return true; });
+                int width = minecraft.font.width(line);
+                if (width > wrapWidth) throw new IllegalStateException("Wrapped QA message exceeds the available GUI width");
+                lines.add(Map.of("text", text.toString(), "width", width));
+            }
+            result.put("messageKey", view.messageKey());
+            result.put("messageCount", view.messageCount());
+            result.put("messageText", message.getString());
+            result.put("messageWrapWidth", wrapWidth);
+            result.put("messageLines", lines);
+        }
+        if (view.label().startsWith("small-aquatic-mask-")) {
+            result.put("pixelColumnGeometryChecks", ClientAquaticMaskAudit.verify());
+            result.put("liveAquaticMask", ClientAquaticMaskAudit.verifyScene(minecraft, view.label()));
+        }
         if (view.label().equals("tropical-crabs-and-starfish")) {
             result.put("smallAquaticSeagrass", auditSmallAquaticSeagrass(minecraft));
         }
@@ -273,7 +316,7 @@ public final class ClientStructureScreenshotAudit {
             if (!state.is(net.minecraft.world.level.block.Blocks.SEAGRASS))
                 throw new IllegalStateException("QA plant missing at " + pos);
             var model = minecraft.getBlockRenderer().getBlockModel(state);
-            var data = model.getModelData(minecraft.level, pos, state, net.minecraftforge.client.model.data.ModelData.EMPTY);
+            var data = net.amurdza.examplemod.client.SmallAquaticSeagrass.maskData(pos, state);
             var quads = model.getQuads(state, null, net.minecraft.util.RandomSource.create(91), data,
                     net.minecraft.client.renderer.RenderType.cutout());
             double maximum = Double.NEGATIVE_INFINITY;
@@ -284,7 +327,7 @@ public final class ClientStructureScreenshotAudit {
                         Float.intBitsToFloat(vertices[vertex * stride + 1]));
             }
             boolean clipped = net.amurdza.examplemod.client.SmallAquaticSeagrass.clippedAt(pos);
-            if (quads.isEmpty() || clipped != occupied || Math.abs(maximum - (occupied ? .125 : 1)) > .0001)
+            if (quads.isEmpty() || clipped != occupied || Math.abs(maximum - 1) > .0001)
                 throw new IllegalStateException("Seagrass model clipping mismatch at " + pos + ": occupied="
                         + occupied + ", clipped=" + clipped + ", maxQuadY=" + maximum + ", quads=" + quads.size());
             results.add(Map.of("x", pos.getX(), "y", pos.getY(), "z", pos.getZ(), "occupied", occupied,

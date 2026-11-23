@@ -77,9 +77,8 @@ public final class TropicalNovemberRevisionTests {
         level.players().add(player);
         List<Mob> mobs = new ArrayList<>();
         try {
-            for (String id : List.of("minecraft:tropical_fish", "minecraft:pufferfish", "hybrid_aquatic:coconut_crab",
-                    "hybrid_aquatic:lightfoot_crab", "angling:anomalocaris", "hybrid_aquatic:umbrella_octopus",
-                    "hybrid_aquatic:starfish", "angling:sea_slug", "minecraft:dolphin")) {
+            for (String id : List.of("minecraft:tropical_fish", "minecraft:pufferfish",
+                    "hybrid_aquatic:umbrella_octopus", "hybrid_aquatic:starfish", "minecraft:dolphin")) {
                 Mob mob = (Mob) ForgeRegistries.ENTITY_TYPES.getValue(new ResourceLocation(id)).create(level);
                 mob.setPos(28, 0, 0);
                 mobs.add(mob);
@@ -87,8 +86,8 @@ public final class TropicalNovemberRevisionTests {
             var state = NaturalSpawner.createState(289, new ArrayList<net.minecraft.world.entity.Entity>(mobs), (key, consumer) -> consumer.accept(chunk),
                     new LocalMobCapCalculator(level.getChunkSource().chunkMap));
             var counts = state.getMobCategoryCounts();
-            helper.assertTrue(counts.getInt(ModMobCategories.COMMON_AQUATIC) == 8
-                            && counts.getInt(MobCategory.WATER_AMBIENT) == 0 && counts.getInt(MobCategory.WATER_CREATURE) == 1,
+            helper.assertTrue(counts.getInt(ModMobCategories.COMMON_AQUATIC) == 4
+                            && counts.getInt(MobCategory.WATER_AMBIENT) == 1 && counts.getInt(MobCategory.WATER_CREATURE) == 1,
                     "Fish, bottom creatures, and large animals must occupy separate common and rare live counters");
             helper.assertTrue(ModMobCategories.COMMON_AQUATIC.getMaxInstancesPerChunk() == 2 * MobCategory.WATER_AMBIENT.getMaxInstancesPerChunk()
                             && !ModMobCategories.COMMON_AQUATIC.isPersistent(),
@@ -98,7 +97,8 @@ public final class TropicalNovemberRevisionTests {
             after.setAccessible(true);
             after.invoke(state, mobs.get(0), chunk);
             after.invoke(state, mobs.get(3), chunk);
-            helper.assertTrue(counts.getInt(ModMobCategories.COMMON_AQUATIC) == 10
+            helper.assertTrue(counts.getInt(ModMobCategories.COMMON_AQUATIC) == 6
+                            && counts.getInt(MobCategory.WATER_AMBIENT) == 1
                             && counts.getInt(MobCategory.WATER_CREATURE) == 1,
                     "New fish must charge the same separate caps immediately after spawning");
         } finally {

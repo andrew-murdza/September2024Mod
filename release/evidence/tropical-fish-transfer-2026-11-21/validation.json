@@ -1,0 +1,16 @@
+{
+  "project": "C:\\Users\\andre\\Downloads\\September2024Mod",
+  "date": "2026-11-21",
+  "implementation": "Transferred the completed tropical/fish changes from Documents; shared natural spawn hunk merged with concurrent Savanna work",
+  "sourceCopiesVerified": 33,
+  "galleryFilesTransferred": 3,
+  "build": "passed",
+  "clientRuntime": "refreshed and points to Downloads",
+  "gameTests": 61,
+  "failedGameTests": 0,
+  "gallery": "Real Chrome audit passed: 182 distinct rendered previews, filters, selection, JSON export, view changes",
+  "protectedSettingsChecked": 208,
+  "protectedSettingsChanged": 0,
+  "jar": "../../../build/libs/aoemod-1.0.0-1.20.1-all.jar",
+  "jarSHA256": "515B15348BA4421DA46CB4CACA1F2D559E03D77A13ECC69B6DEE14099103526E"
+}

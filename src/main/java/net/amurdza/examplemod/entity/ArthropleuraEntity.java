@@ -1,6 +1,8 @@
 package net.amurdza.examplemod.entity;
 
 import net.amurdza.examplemod.registry.ModEntities;
+import net.amurdza.examplemod.util.StructureSpawnedMobData;
+import net.amurdza.examplemod.worldgen.structure.BossStructureBounds;
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvent;
@@ -30,6 +32,8 @@ import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.ServerLevelAccessor;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.phys.AABB;
+import net.minecraft.world.phys.Vec3;
 import org.jetbrains.annotations.Nullable;
 
 /** Original herbivorous giant millipede: breedable, grazing rainforest livestock. */
@@ -68,7 +72,25 @@ public class ArthropleuraEntity extends Animal {
 
     @Override
     public @Nullable ArthropleuraEntity getBreedOffspring(ServerLevel level, AgeableMob partner) {
-        return ModEntities.ARTHROPLEURA.get().create(level);
+        var child = ModEntities.ARTHROPLEURA.get().create(level);
+        if (child == null) return null;
+        BlockPos home = spiderCaveHome(level, this);
+        if (home == null && partner instanceof ArthropleuraEntity mate) home = spiderCaveHome(level, mate);
+        // The twin-birth handler also uses this factory for every extra child.
+        // Inherit only cave membership; vanilla still sets the newborn's age and position.
+        if (home != null) StructureSpawnedMobData.mark(child, home);
+        return child;
+    }
+
+    private static @Nullable BlockPos spiderCaveHome(ServerLevel level, ArthropleuraEntity parent) {
+        if (parent.level() != level || !StructureSpawnedMobData.isMarked(parent)) return null;
+        BlockPos home = StructureSpawnedMobData.home(parent);
+        for (var boundary : BossStructureBounds.get(level).nearby(new AABB(home))) {
+            if (boundary.key().startsWith("lair:spider:")
+                    && boundary.box().contains(Vec3.atCenterOf(home))
+                    && boundary.box().contains(parent.position())) return home;
+        }
+        return null;
     }
 
     @Override

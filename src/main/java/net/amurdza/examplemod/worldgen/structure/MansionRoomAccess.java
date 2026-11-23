@@ -28,7 +28,7 @@ import java.util.WeakHashMap;
 /** Connects only disconnected native room components; existing prison doors and furniture survive. */
 public final class MansionRoomAccess {
     private record Cell(BlockPos pos, BlockState state) { }
-    private record Node(BoundingBox box, boolean hall, boolean stairs) { }
+    private record Node(BoundingBox box, boolean hall, boolean stairs, boolean fixedDoors) { }
     private record Edge(int first, int second, BoundingBox box, boolean open, int cost) { }
     private static final Map<StructureTemplate, List<Cell>> CELLS = new WeakHashMap<>();
     private MansionRoomAccess() { }
@@ -57,6 +57,21 @@ public final class MansionRoomAccess {
             voxels.put(pos, cell.state());
             if (corridors.contains(piece.template()) && (cell.state().is(Blocks.WHITE_CARPET) || cell.state().is(Blocks.RED_CARPET))) candidates.add(pos);
         }
+        // The V8 rug has a deliberate end and two short side borders where it
+        // meets a lateral hall. The surrounding hall can make those sides look
+        // like red interior to the general junction rule. Keep only these two
+        // authored rows explicit; older entrances retain their original plan.
+        var entranceRug = new HashMap<BlockPos, Boolean>();
+        for (String version : List.of("aoe_v8_", "aoe_v9_"))
+        manager.get(new ResourceLocation("minecraft", "woodland_mansion/" + version + "entrance")).ifPresent(template -> {
+            for (var piece : pieces) if (piece.template() == template)
+                for (int x = 1; x <= 5; x++) for (int z = 2; z <= 3; z++) {
+                    var pos = StructureTemplate.calculateRelativePosition(piece.placeSettings(), new BlockPos(x, 1, z))
+                            .offset(piece.templatePosition());
+                    entranceRug.put(pos, z == 2 || x == 1 || x == 5);
+                }
+        });
+        candidates.addAll(entranceRug.keySet());
         var red = new ArrayList<BlockPos>();
         var white = new ArrayList<BlockPos>();
         for (BlockPos pos : candidates) {
@@ -65,7 +80,7 @@ public final class MansionRoomAccess {
             boolean interior = true;
             for (int dx = -1; dx <= 1; dx++) for (int dz = -1; dz <= 1; dz++)
                 if (!voxels.getOrDefault(pos.offset(dx, 0, dz), Blocks.AIR.defaultBlockState()).is(BlockTags.WOOL_CARPETS)) interior = false;
-            boolean whiteBorder = !interior && wideCarpetBorder(pos, voxels);
+            boolean whiteBorder = entranceRug.getOrDefault(pos, !interior && wideCarpetBorder(pos, voxels));
             if (!whiteBorder && state.is(Blocks.WHITE_CARPET)) red.add(pos);
             if (whiteBorder && state.is(Blocks.RED_CARPET)) white.add(pos);
         }
@@ -113,6 +128,8 @@ public final class MansionRoomAccess {
         rooms.addAll(stairs);
         rooms.add(manager.getOrCreate(new ResourceLocation("minecraft", "woodland_mansion/aoe_compact_1x2_d1_v3")));
         rooms.add(manager.getOrCreate(new ResourceLocation("minecraft", "woodland_mansion/aoe_compact_1x2_c4_v4")));
+        var library = manager.getOrCreate(new ResourceLocation("minecraft", "woodland_mansion/" + MansionLibraryLayout.LIBRARY));
+        rooms.add(library);
         var floors = pieces.stream().filter(p -> halls.contains(p.template())).map(p -> p.templatePosition().getY()).distinct().sorted().toList();
         var voxels = new HashMap<BlockPos, BlockState>();
         for (var piece : pieces) {
@@ -131,17 +148,20 @@ public final class MansionRoomAccess {
                 boolean atFloor = piece.templatePosition().getY() == floor;
                 if (!atFloor && !(stairs.contains(piece.template()) && piece.getBoundingBox().minY() < floor
                         && piece.getBoundingBox().maxY() >= floor + 2)) continue;
-                nodes.add(new Node(piece.getBoundingBox(), isHall, stairs.contains(piece.template())));
+                boolean isStair = stairs.contains(piece.template());
+                nodes.add(new Node(piece.getBoundingBox(), isHall, isStair, isStair || piece.template() == library));
             }
             var edges = new ArrayList<Edge>();
             int[] parent = new int[nodes.size()];
             for (int i = 0; i < parent.length; i++) parent[i] = i;
             for (int i = 0; i < nodes.size(); i++) for (int j = i + 1; j < nodes.size(); j++) {
+                // Every room already borders a hall. Connecting two furnished
+                // rooms can create a second entrance or cut a hole beside a bed.
+                if (!nodes.get(i).hall() && !nodes.get(j).hall()) continue;
                 var edge = edge(i, j, nodes.get(i), nodes.get(j), floor, voxels);
-                // Authored straight flights have exactly two deliberate door
-                // planes. A side opening would cut through their supporting
-                // wedge and can strand the upper flight behind solid wood.
-                if (edge == null || !edge.open() && (nodes.get(i).stairs() || nodes.get(j).stairs())) continue;
+                // Keep stair openings and the player's library doorway where
+                // they were authored; neither needs an invented side opening.
+                if (edge == null || !edge.open() && (nodes.get(i).fixedDoors() || nodes.get(j).fixedDoors())) continue;
                 edges.add(edge);
                 if (edge.open()) {
                     parent[find(parent, i)] = find(parent, j);
@@ -151,7 +171,7 @@ public final class MansionRoomAccess {
             // A globally connected room can still be reached only through its
             // neighbor. Give every hall-adjacent room its own direct doorway.
             for (int i = 0; i < nodes.size(); i++) {
-                if (nodes.get(i).hall() || nodes.get(i).stairs()) continue;
+                if (nodes.get(i).hall() || nodes.get(i).fixedDoors()) continue;
                 Edge best = null;
                 for (var candidate : edges) {
                     int other = candidate.first() == i ? candidate.second() : candidate.second() == i ? candidate.first() : -1;

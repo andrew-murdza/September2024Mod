@@ -1,0 +1,140 @@
+{
+  "task": "Nether citadel",
+  "evidenceDate": "2026-11-21",
+  "bundledAtUtc": "2026-11-22T00:35:29.8372749Z",
+  "project": "C:\\Users\\andre\\Downloads\\September2024Mod",
+  "scope": {
+    "dimension": "aoemod:nether_dimension",
+    "biomes": [
+      "basalt_deltas",
+      "crimson_forest",
+      "warped_forest",
+      "soul_sand_valley"
+    ],
+    "replacesNewGenerationOf": "aoemod:wither_cave",
+    "desertSurfaceExtension": false,
+    "note": "Nether-only citadel; existing saved Wither caves retain their legacy loader. This bundle does not claim a desert structure extension or validation of unrelated concurrent work."
+  },
+  "authoredLayout": {
+    "defenders": 321,
+    "guards": 320,
+    "withers": 1,
+    "rooms": 128,
+    "rewardChests": 64,
+    "floors": 8,
+    "minY": 4,
+    "maxY": 125,
+    "radius": 112
+  },
+  "gameTests": {
+    "result": "passed",
+    "tests": 14,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "report": "game-test-results.xml",
+    "gradleSummary": "BUILD SUCCESSFUL in 13m 18s",
+    "sourceLog": "../../../build/nether-citadel-qa/gametest-verified.log",
+    "sourceLogSha256": "F0FF219233B0CFB24796185B24F49079674EEB04C7B8DF820E465238105BF1E9"
+  },
+  "savedEntities": {
+    "result": "passed",
+    "living": 321,
+    "uniqueSlots": 321,
+    "uniqueUuids": 321,
+    "report": "citadel-saved-entity-audit.json",
+    "note": "Actual saved entity records, not only progression counters. The screenshot scene freezes AI and grants invulnerability for stable captures."
+  },
+  "buildAndDatagen": {
+    "result": "passed",
+    "gradleSummary": "BUILD SUCCESSFUL in 10m 37s",
+    "sourceLog": "../../../build/nether-citadel-qa/build-and-data-final.log",
+    "sourceLogSha256": "71F556631DA4108D6E7BA6A9D9E545764FD9C8B0A51EC36079EC269FAF5E4B82",
+    "resourceReview": "datagen-resource-review.json",
+    "artifacts": [
+      {
+        "path": "../../../build/nether-citadel-qa/full/libs/aoemod-1.0.0-1.20.1.jar",
+        "bytes": 7729102,
+        "sha256": "1064F8C3B200A73E4A1789E80F2644CFA0CB34DCCE11A72978BF5EA9FB02F1CE"
+      },
+      {
+        "path": "../../../build/nether-citadel-qa/full/libs/aoemod-1.0.0-1.20.1-all.jar",
+        "bytes": 8359156,
+        "sha256": "E43CAB5C722F26495DADDB4FB02E20E515AD5A16258C6BACEED9CAAE79AA4F27"
+      }
+    ]
+  },
+  "screenshots": {
+    "captureResult": "passed",
+    "clientRunName": "visual3",
+    "gradleSummary": "BUILD SUCCESSFUL in 14m 2s",
+    "sourceLog": "../../../build/nether-citadel-qa/client-visual3.log",
+    "sourceLogSha256": "2E23AD1687374CD6F0399DDF16EDBE5E9C0CDB603379B29FD62598C4B0241F17",
+    "requested": 7,
+    "completed": 7,
+    "report": "screenshots.json",
+    "images": [
+      {
+        "label": "soul-gate",
+        "path": "screenshots/soul-gate.png",
+        "sha256": "B3F90811A521AE4D9683DFEFD23BC4741BC24EFD3863E38C373F2BCFB99F3024",
+        "width": 1440,
+        "height": 1000
+      },
+      {
+        "label": "soul-grand-hall",
+        "path": "screenshots/soul-grand-hall.png",
+        "sha256": "1C80B7F92E46DB35C1930850E883FF2ED8AB65CB3EF37C423978AECE3148BE19",
+        "width": 1440,
+        "height": 1000
+      },
+      {
+        "label": "warped-gallery",
+        "path": "screenshots/warped-gallery.png",
+        "sha256": "8FDA67A85A5EA75AA96C4FECB39E5ED77DBB768A5DE484A1B8582D5635D647BA",
+        "width": 1440,
+        "height": 1000
+      },
+      {
+        "label": "crimson-gallery",
+        "path": "screenshots/crimson-gallery.png",
+        "sha256": "593ED8FC506B54A6009940B630A2254B679352D1C08EBCD402C55D9FE9364CEB",
+        "width": 1440,
+        "height": 1000
+      },
+      {
+        "label": "wither-sanctum",
+        "path": "screenshots/wither-sanctum.png",
+        "sha256": "B15CFC7615727F109082FED43E8A6B75BA34986786509D0432011002E74324DD",
+        "width": 1440,
+        "height": 1000
+      },
+      {
+        "label": "crimson-cultivation-room",
+        "path": "screenshots/crimson-cultivation-room.png",
+        "sha256": "1C4F4A60940FA630B9D30854820769BE60DE203CFEE4FAC5EC3072725B6A0DBB",
+        "width": 1440,
+        "height": 1000
+      },
+      {
+        "label": "connecting-staircase",
+        "path": "screenshots/connecting-staircase.png",
+        "sha256": "A6C92B49624049B9E7BCA2860F4598F7CCA9903CA7ADE4D701034AE9A0351B93",
+        "width": 1440,
+        "height": 1000
+      }
+    ],
+    "visualReview": "All seven final captures were inspected. The fitted gate is unobstructed; the Wither, chandeliers, patterned floors, gallery edges, connected stair flights and cultivated crimson beds render without visible missing textures or malformed geometry. The garden has clear center and side paths. Native Nether fog continues to obscure distant hall details; the screenshots verify visible geometry alongside the automated navigation and roster checks.",
+    "scope": "Controlled isolated fixture with spectator camera and night vision; screenshots do not establish natural generation frequency."
+  },
+  "protectedSettings": {
+    "checked": 315,
+    "changed": 0,
+    "report": "settings-verification.json"
+  },
+  "sourceInventory": "source-inventory.json",
+  "sharedSourceSnapshotDifferences": [
+    "src/main/resources/aoemod.mixins.json"
+  ],
+  "preservation": "Packaging wrote only this new evidence directory; source, installed configs and world settings were not edited."
+}

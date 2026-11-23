@@ -9,18 +9,20 @@ import java.util.Set;
 public final class MansionRoomCatalogue {
     public static final List<String> SMALL = List.of("1x1_a3", "1x1_b2", "1x1_b3");
     public static final List<String> GROUND_SMALL = List.of("1x1_a1", "1x1_a3", "1x1_a5", "1x1_b2", "1x1_b3");
-    public static final List<String> SIDE = List.of("1x2_c1", "1x2_c3", "1x2_c4");
+    // The authored library is reserved once per floor, never selected at random.
+    public static final List<String> SIDE = List.of("1x2_c1", "1x2_c3");
     public static final List<String> FRONT = List.of("1x2_d1");
     // The sole map room is reserved explicitly by the residential planner.
-    public static final List<String> LARGE = List.of("2x2_b1", "2x2_b2", "2x2_b3");
+    public static final List<String> LARGE = List.of("2x2_b1", "2x2_b2");
     public static final Set<String> NORMAL = Set.of("1x1_a1", "1x1_a3", "1x1_a5", "1x1_b2", "1x1_b3",
-            "1x2_c1", "1x2_c3", "1x2_c4", "1x2_d1", "2x2_b1", "2x2_b2", "2x2_b3", "2x2_b4");
+            "1x2_c1", "1x2_c3", "1x2_d1", "2x2_b1", "2x2_b2", "2x2_b3", "2x2_b4");
     public static final String STAIRS = "1x2_d_stairs";
     public static final String FALLBACK = "1x1_as4";
-    public static final String MAP_ROOM = "aoe_v6_2x2_b4";
+    public static final String MAP_ROOM = "aoe_v9_2x2_b4";
+    // Retained only for saved version-six rooms and their regression checks.
     public static final String BEDROOM_LARGE = "aoe_v6_2x2_b3";
-    public static final String ENTRANCE = "aoe_v6_entrance";
-    public static final String ENTRANCE_PLATFORM = "aoe_v6_entrance_platform";
+    public static final String ENTRANCE = "aoe_v9_entrance";
+    public static final String ENTRANCE_PLATFORM = "aoe_v9_entrance_platform";
     public static final net.minecraft.core.BlockPos ENTRANCE_PLATFORM_OFFSET = new net.minecraft.core.BlockPos(-2, 0, -4);
 
     private MansionRoomCatalogue() { }
@@ -50,6 +52,9 @@ public final class MansionRoomCatalogue {
     }
     public static String nativeName(String name) {
         if (name.startsWith("aoe_plain_")) name = name.substring("aoe_plain_".length());
+        if (name.startsWith("aoe_v9_")) return name.substring("aoe_v9_".length());
+        if (name.startsWith("aoe_v8_")) return name.substring("aoe_v8_".length());
+        if (name.startsWith("aoe_v7_")) return name.substring("aoe_v7_".length());
         if (name.startsWith("aoe_v6_")) return name.substring("aoe_v6_".length());
         if (name.equals("aoe_compact_entrance_v2")) return "entrance";
         if (name.equals("aoe_compact_1x2_d1_v3")) return "1x2_d1";
@@ -63,15 +68,15 @@ public final class MansionRoomCatalogue {
     public static String newTemplate(String name) {
         String nativeName = nativeName(name);
         if (nativeName.equals("1x1_b4")) nativeName = "1x1_b3";
-        return "aoe_v6_" + nativeName;
+        return "aoe_v9_" + nativeName;
     }
 
-    /** The requested effective count: a two-wide bed counts one, a three-wide bed two. */
+    /** Native beds now count their full width; the old invented room is never selected. */
     public static int bedCapacity(String name) {
         return switch (nativeName(name)) {
-            case "1x1_b3" -> 1;
-            case "1x2_c3" -> 3;
-            case "1x2_d1" -> 2;
+            case "1x1_b3" -> 2;
+            case "1x2_c3" -> 6;
+            case "1x2_d1" -> 3;
             case "2x2_b3" -> name.startsWith("aoe_v6_") ? 8 : 0;
             default -> 0;
         };

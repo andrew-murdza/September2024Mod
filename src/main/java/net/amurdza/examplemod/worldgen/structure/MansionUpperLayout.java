@@ -21,10 +21,10 @@ public final class MansionUpperLayout {
     public static final int GRID_SIZE = 11;
     public static final int FLOOR_COUNT = 5;
     private static final int ONE_CELL = 65536, ORIGIN = 1048576, DOOR = 2097152;
-    public static final String SINGLE_STAIRS = "aoe_v6_stair_1x1";
-    public static final String STAIR_FRAME = "aoe_v6_stair_frame";
-    public static final String BASEMENT_LOBBY = "aoe_v6_basement_lobby";
-    public static final String BASEMENT_FRAME = "aoe_v6_basement_frame";
+    public static final String SINGLE_STAIRS = "aoe_v9_stair_1x1";
+    public static final String STAIR_FRAME = "aoe_v9_stair_frame";
+    public static final String BASEMENT_LOBBY = "aoe_v9_basement_lobby";
+    public static final String BASEMENT_FRAME = "aoe_v9_basement_frame";
     public static final String ENTRANCE = MansionRoomCatalogue.ENTRANCE;
 
     private MansionUpperLayout() { }
@@ -37,9 +37,9 @@ public final class MansionUpperLayout {
             int value = x == 2 || x == 5 || x == 8 || z == 2 || z == 5 || z == 8 ? 1 : 2;
             // Short branches meet the upper stair doors and the four exterior
             // entrances; every branch meets the continuous corridor ring.
-            if (value != 5 && (x == 4 && z == 3 || x == 7 && z == 6 || x == 5 && z == 0
-                    || z == 4 && (x <= 2 || x >= 7)
-                    || x == 4 && (z <= 2 || z >= 8))) value = 1;
+            // The centered north entrance needs a short bypass around the
+            // basement lobby; the other three meet the existing central halls.
+            if (x == 4 && z <= 3 || x == 7 && z == 6) value = 1;
             if (x == 5 && z == 1) value = 2;
             grid.baseGrid.set(x, z, value);
             grid.thirdFloorGrid.set(x, z, value);
@@ -55,6 +55,7 @@ public final class MansionUpperLayout {
         // footprint is narrower than the projecting roof. Mines sit one
         // block lower and can safely continue beneath the lawn to the west.
         reserve(grid, 0, 5, 1, 1005);
+        MansionLibraryLayout.reserve(grid);
         for (int floor = 0; floor < 3; floor++) reserveHallAccess(grid, floor, random);
         grid.identifyRooms(grid.baseGrid, grid.floorRooms[0]);
         grid.identifyRooms(grid.baseGrid, grid.floorRooms[1]);
@@ -81,14 +82,20 @@ public final class MansionUpperLayout {
             int[] targetFloors = nativeFloor == 1 ? new int[]{1, 2, 3} : new int[]{nativeFloor == 2 ? 4 : 0};
             for (int floor : targetFloors) {
                 String replacement = MansionRoomCatalogue.replacement(name, floor == 0, random);
-                if (name.equals("wall_corner")) replacement = "aoe_compact_wall_corner_v3";
+                if (name.equals("wall_corner")) replacement = MansionRoomCatalogue.newTemplate(
+                        floor == FLOOR_COUNT - 1 ? "wall_corner_top" : "wall_corner");
                 if (replacement.equals(MansionRoomCatalogue.compact("1x2_d1"))) replacement = "aoe_compact_1x2_d1_v3";
                 if (replacement.equals(MansionRoomCatalogue.compact("1x2_c4"))) replacement = "aoe_compact_1x2_c4_v4";
+                if (floor == FLOOR_COUNT - 1 && MansionRoomCatalogue.nativeName(replacement).equals("wall_window"))
+                    replacement = "aoe_v9_wall_window_top";
+                if (floor == FLOOR_COUNT - 1 && MansionRoomCatalogue.nativeName(replacement).equals("wall_flat"))
+                    replacement = "aoe_v9_wall_flat_top";
                 if (name.startsWith("1x") || name.startsWith("2x")) {
                     var box = piece.getBoundingBox();
                     boolean reserved = (floor < 4 && containsColumn(box, cell(origin, rotation, 3, 3, 0)))
                             || (floor > 0 && containsColumn(box, cell(origin, rotation, 6, 6, 0)))
-                            || (floor == 0 && containsColumn(box, cell(origin, rotation, 5, 1, 0)));
+                            || (floor == 0 && containsColumn(box, cell(origin, rotation, 5, 1, 0)))
+                            || MansionLibraryLayout.occupiesReservedCells(box, origin, rotation);
                     if (reserved) continue;
                 }
                 int nativeY = nativeFloor == 2 ? 19 : nativeFloor * 8;
@@ -99,7 +106,8 @@ public final class MansionUpperLayout {
         // The native perimeter omits the two foyer wall sections on its first
         // two floors. Replace them now that the foyer is ordinary room space.
         for (int floor = 0; floor < 4; floor++) for (int z : new int[]{0, 8})
-            adapted.add(new WoodlandMansionPiece(manager, "wall_window", transform(origin, rotation, 7, floor * 8, z), rotation));
+            adapted.add(new WoodlandMansionPiece(manager, MansionRoomCatalogue.newTemplate("wall_window"),
+                    transform(origin, rotation, 7, floor * 8, z), rotation));
 
         // Ceiling tiles precede roof pieces so the stair slope may shape only
         // its outer edge while the full third-storey interior stays covered.
@@ -115,6 +123,14 @@ public final class MansionUpperLayout {
             adapted.add(new WoodlandMansionPiece(manager, "aoe_compact_ceiling_v3", cell(origin, rotation, x, z, 40), rotation));
         roofs.sort(java.util.Comparator.comparingInt(MansionRoofLayout::placementOrder));
         adapted.addAll(roofs);
+        // Reapply only the facade's two upper courses after the low roof.
+        // Roof corner air used to erase the window headers and leave holes.
+        for (String top : List.of("wall_window_top", "wall_flat_top", "wall_corner_top")) {
+            var template = manager.getOrCreate(new ResourceLocation("minecraft", "woodland_mansion/aoe_v9_" + top));
+            for (var wall : List.copyOf(adapted)) if (wall.template() == template)
+                adapted.add(new WoodlandMansionPiece(manager, "aoe_v9_" + top + "_trim",
+                        wall.templatePosition().above(6), wall.getRotation(), wall.placeSettings().getMirror()));
+        }
         addStair(manager, adapted, origin, rotation, 3, 3, 0, Rotation.COUNTERCLOCKWISE_90);
         addStair(manager, adapted, origin, rotation, 6, 6, 8, Rotation.CLOCKWISE_90);
         addStair(manager, adapted, origin, rotation, 3, 3, 16, Rotation.COUNTERCLOCKWISE_90);
@@ -123,10 +139,11 @@ public final class MansionUpperLayout {
         adapted.add(new WoodlandMansionPiece(manager, BASEMENT_LOBBY, lobbyOrigin, rotation));
         adapted.add(new WoodlandMansionPiece(manager, BASEMENT_FRAME,
                 lobbyOrigin.offset(new BlockPos(-1, 0, 0).rotate(rotation)), rotation));
-        addEntrance(manager, adapted, origin, rotation, 4, 0, Rotation.NONE);
-        addEntrance(manager, adapted, origin, rotation, 10, 4, Rotation.CLOCKWISE_90);
-        addEntrance(manager, adapted, origin, rotation, 4, 10, Rotation.CLOCKWISE_180);
-        addEntrance(manager, adapted, origin, rotation, 0, 4, Rotation.COUNTERCLOCKWISE_90);
+        addEntrance(manager, adapted, origin, rotation, 5, 0, Rotation.NONE);
+        addEntrance(manager, adapted, origin, rotation, 10, 5, Rotation.CLOCKWISE_90);
+        addEntrance(manager, adapted, origin, rotation, 5, 10, Rotation.CLOCKWISE_180);
+        addEntrance(manager, adapted, origin, rotation, 0, 5, Rotation.COUNTERCLOCKWISE_90);
+        MansionLibraryLayout.add(manager, adapted, origin, rotation);
         MansionResidentialPlan.finish(manager, adapted, origin.getY());
         output.clear();
         output.addAll(adapted);
@@ -212,7 +229,7 @@ public final class MansionUpperLayout {
     private static void addEntrance(StructureTemplateManager manager, List<WoodlandMansionPiece> pieces,
             BlockPos origin, Rotation rotation, int x, int z, Rotation direction) {
         BlockPos offset = StructureTemplate.getZeroPositionWithTransform(BlockPos.ZERO, Mirror.NONE, direction, 7, 7)
-                .subtract(new BlockPos(0, 0, 2).rotate(direction));
+                .subtract(new BlockPos(0, 0, 1).rotate(direction));
         var position = cell(origin, rotation, x, z, 0).offset(offset.rotate(rotation));
         var entryRotation = rotation.getRotated(direction);
         pieces.add(new WoodlandMansionPiece(manager, ENTRANCE, position, entryRotation));

@@ -1,0 +1,83 @@
+import groovy.json.JsonOutput
+import java.security.MessageDigest
+
+allprojects {
+    afterEvaluate { p ->
+        if (!p.plugins.hasPlugin('net.minecraftforge.gradle')) return
+        def qa = p.file('build/nether-citadel-qa')
+        def focused = p.gradle.startParameter.taskNames.any { it.tokenize(':').last() == 'runGameTestServer' }
+        def runName = p.findProperty('citadelRun')?.toString() ?: 'run'
+        if (!(runName ==~ /^[A-Za-z0-9-]+$/)) throw new GradleException('Invalid citadelRun name')
+        def output = new File(qa, focused ? 'tests' : 'full')
+        p.sourceSets.main.java.setSrcDirs([new File(qa, 'source/java')])
+        p.sourceSets.main.resources.setSrcDirs([new File(qa, 'source/resources'), new File(qa, 'source/generated')])
+        p.buildDir = output
+        p.tasks.named('compileJava').configure { destinationDirectory.set(new File(output, 'classes/java/main')) }
+        p.tasks.named('processResources').configure { destinationDir = new File(output, 'resources/main') }
+        p.sourceSets.main.output.classesDirs.setFrom(new File(output, 'classes/java/main'))
+        p.sourceSets.main.output.resourcesDir = new File(output, 'resources/main')
+        p.tasks.matching { it.name in ['reobfJar', 'reobfJarJar'] }.configureEach { useArgsFile() }
+        p.tasks.matching { it.name in ['runGameTestServer', 'runClient', 'runData'] }.configureEach {
+            doFirst {
+                p.exec { commandLine 'powershell.exe', '-NoProfile', '-ExecutionPolicy', 'Bypass', '-File',
+                        p.file('scripts/wait-for-minecraft-idle.ps1').absolutePath, '-QuietSeconds', '0' }
+            }
+        }
+        if (focused) {
+            def selected = ['NetherCitadelTests.java', 'NetherCitadelApproachTests.java', 'NetherCitadelVisualSceneTests.java']
+            p.sourceSets.main.java.exclude { entry ->
+                entry.relativePath.pathString.startsWith('net/amurdza/examplemod/gametest/') && !selected.contains(entry.file.name)
+            }
+            def runtime = new File(qa, 'runtime-' + runName)
+            def snapshot = p.tasks.register('snapshotCitadelTests', Sync) {
+                dependsOn p.tasks.named('classes')
+                from p.sourceSets.main.output
+                into runtime
+            }
+            p.tasks.matching { it.name in ['prepareRunGameTestServerCompile', 'runGameTestServer'] }.configureEach { dependsOn snapshot }
+            p.minecraft.runs.gameTestServer {
+                workingDirectory new File(qa, runName)
+                environment 'MOD_CLASSES', "${p.mod_id}%%${runtime.absolutePath}"
+                property 'forge.logging.console.level', 'info'
+                property 'aoemod.citadelVisual', p.findProperty('citadelVisual')?.toString() ?: 'false'
+                jvmArgs '-Xms1G', '-Xmx3G', '-XX:ActiveProcessorCount=2'
+            }
+        }
+        def client = new File(qa, 'client-' + runName)
+        def clientRuntime = new File(qa, 'client-runtime-' + runName)
+        p.tasks.named('snapshotClientRuntime', Sync).configure { into clientRuntime }
+        p.minecraft.runs.client {
+            workingDirectory client
+            environment 'MOD_CLASSES', "${p.mod_id}%%${clientRuntime.absolutePath}"
+            jvmArgs.clear()
+            jvmArgs '-Xms1G', '-Xmx6G', '-XX:ActiveProcessorCount=2', '-XX:+ExitOnOutOfMemoryError'
+        }
+        if (p.findProperty('citadelViews') != null) {
+            def world = p.file(p.property('citadelWorld'))
+            def views = p.file(p.property('citadelViews'))
+            def destination = new File(client, 'saves/CitadelQA')
+            def prepare = p.tasks.register('prepareCitadelVisualWorld') {
+                doLast {
+                    if (!new File(world, 'level.dat').isFile() || !views.isFile()) throw new GradleException('Missing QA world/views')
+                    if (destination.exists()) throw new GradleException('Choose a fresh citadelRun for visual evidence')
+                    p.copy { from world; into destination }
+                    new File(client, 'options.txt').setText('renderDistance:8\nsimulationDistance:5\nsoundCategory_master:0.0\nfullscreen:false\npauseOnLostFocus:false\nmaxFps:30\nguiScale:2\n', 'UTF-8')
+                }
+            }
+            p.tasks.matching { it.name == 'runClient' }.configureEach { dependsOn prepare }
+            p.minecraft.runs.client {
+                property 'aoemod.structureAudit.views', views.absolutePath
+                property 'aoemod.structureAudit.report', new File(client, 'screenshots.json').absolutePath
+                property 'aoemod.structureAudit.exit', 'true'
+                args '--quickPlaySingleplayer', 'CitadelQA', '--width', '1440', '--height', '1000'
+            }
+        }
+        p.minecraft.runs.data {
+            workingDirectory new File(qa, 'data-run')
+            jvmArgs '-Xms1G', '-Xmx3G', '-XX:ActiveProcessorCount=2'
+            args.clear()
+            args '--mod', p.mod_id, '--all', '--output', new File(qa, 'generated').absolutePath,
+                    '--existing', new File(qa, 'source/resources').absolutePath
+        }
+    }
+}

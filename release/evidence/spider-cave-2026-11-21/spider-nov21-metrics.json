@@ -1,0 +1,39 @@
+{
+  "floorTiles": 4256,
+  "reachableWalkingCells": 20846,
+  "materials": {
+    "minecraft:azalea": 7,
+    "minecraft:azalea_leaves": 32,
+    "minecraft:bone_block": 93,
+    "minecraft:brown_mushroom": 14,
+    "minecraft:brown_mushroom_block": 21,
+    "minecraft:cave_vines": 98,
+    "minecraft:cave_vines_plant": 141,
+    "minecraft:chest": 6,
+    "minecraft:cobweb": 76,
+    "minecraft:fern": 54,
+    "minecraft:flowering_azalea": 7,
+    "minecraft:flowering_azalea_leaves": 10,
+    "minecraft:grass": 30,
+    "minecraft:moss_block": 639425,
+    "minecraft:mushroom_stem": 10,
+    "minecraft:oak_log": 4,
+    "minecraft:ochre_froglight": 28,
+    "minecraft:pearlescent_froglight": 30,
+    "minecraft:red_mushroom": 21,
+    "minecraft:red_mushroom_block": 33,
+    "minecraft:slime_block": 226,
+    "minecraft:spore_blossom": 22,
+    "minecraft:verdant_froglight": 34,
+    "minecraft:white_wool": 169
+  },
+  "roster": {
+    "aoemod:arthropleura": 4,
+    "aoemod:bogged": 8,
+    "aoemod:spider_queen": 1,
+    "minecraft:cave_spider": 20,
+    "minecraft:slime": 10,
+    "minecraft:spider": 20,
+    "twilightforest:slime_beetle": 10
+  }
+}

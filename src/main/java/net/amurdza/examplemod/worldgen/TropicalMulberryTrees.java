@@ -6,9 +6,13 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
-/** Six separated natural mangroves, reserved before any neighboring chunk decorates. */
+/** Area-scaled fruiting mangroves, reserved before any neighboring chunk decorates. */
 public final class TropicalMulberryTrees {
-    public static final int TREES = 6;
+    // The original six fruiting chunks served the 114..156-block mangrove ring.
+    // Keep that proportion as the ring grows, just as the island's crop quotas do.
+    public static final int TREES = (int) Math.round(6 *
+            (TropicalLayout.ISLAND_RADIUS * TropicalLayout.ISLAND_RADIUS
+                    - TropicalLayout.FOREST_RADIUS * TropicalLayout.FOREST_RADIUS) / (156 * 156.0 - 114 * 114.0));
     public static final int FRUIT_PER_TREE = 6;
     private static final int CLEARANCE = 22;
     public record Site(int chunkX, int chunkZ) {
@@ -45,7 +49,7 @@ public final class TropicalMulberryTrees {
             chosen.add(candidate);
             if (chosen.size() == TREES) break;
         }
-        if (chosen.size() != TREES) throw new IllegalStateException("Tropical island lacks six separated mulberry trees: " + island);
+        if (chosen.size() != TREES) throw new IllegalStateException("Tropical island lacks " + TREES + " separated mulberry trees: " + island);
         List<Site> result = List.copyOf(chosen);
         CACHE.put(key, result);
         if (CACHE.size() > 256) CACHE.remove(CACHE.keySet().iterator().next());

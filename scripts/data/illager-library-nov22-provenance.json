@@ -1,0 +1,69 @@
+{
+  "sourceWorldName": "New World (2)",
+  "sourceDimension": "aoemod:plains_dimension",
+  "sourceOrigin": [
+    1242,
+    129,
+    -526
+  ],
+  "sourceRotation": "CLOCKWISE_180",
+  "sourceMirror": "NONE",
+  "sourceTemplate": "aoe_v8_1x2_c4",
+  "size": [
+    7,
+    8,
+    15
+  ],
+  "sourceRegionSHA256": "fdfbdff969e0076906677fe1df0f844d966e830cafffeff192ab0067314d0f64",
+  "referenceSHA256": "df52037bfeb8c5736025094158b33ef06ded397780aaf0b168e208f81400010e",
+  "boundarySHA256": "2770698249cd7d1ea9c5e05e06cad3cfcb4fe3a315a7340175535fcf39a711e2",
+  "doorwayOpeningsInSurroundingWalls": {
+    "west": [],
+    "east": [],
+    "north": [],
+    "south": [
+      2,
+      3,
+      4
+    ]
+  },
+  "generatedTemplate": "aoe_v9_library",
+  "generatedTemplateSHA256": "2ac0c5335f2015f2641335dfcceba6e26eec56b88e7b92eee1bdc4c0c18f5b57",
+  "authoredInteriorCellCount": 840,
+  "preservedInteriorCellCount": 836,
+  "requestedAirCellAdditions": [
+    {
+      "pos": [
+        0,
+        3,
+        7
+      ],
+      "block": "minecraft:oak_fence"
+    },
+    {
+      "pos": [
+        0,
+        4,
+        7
+      ],
+      "block": "minecraft:torch"
+    },
+    {
+      "pos": [
+        6,
+        3,
+        7
+      ],
+      "block": "minecraft:oak_fence"
+    },
+    {
+      "pos": [
+        6,
+        4,
+        7
+      ],
+      "block": "minecraft:torch"
+    }
+  ],
+  "boundaryAdaptation": "North exterior facade replaced with an indoor oak partition; other boundary cells preserved."
+}

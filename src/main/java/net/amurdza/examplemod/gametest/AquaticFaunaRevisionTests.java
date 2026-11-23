@@ -34,10 +34,10 @@ import java.util.stream.Collectors;
 @PrefixGameTestTemplate(false)
 public final class AquaticFaunaRevisionTests {
     @GameTest(template = "plant_gameplay_empty")
-    public static void loadedWarmWaterRostersUseTheRequestedCrabsWithoutPerch(GameTestHelper helper) {
+    public static void loadedWarmWaterRostersUseLobstersAndAmbientStarfish(GameTestHelper helper) {
         for (String biome : List.of("savanna_lake", "plains_lake", "mangrove_swamp", "coral_reef")) {
             boolean warm = biome.equals("savanna_lake") || biome.equals("plains_lake");
-            String replacement = "hybrid_aquatic:" + (warm ? "flower_crab" : "lightfoot_crab");
+            String replacement = warm ? "alexsmobs:lobster" : "hybrid_aquatic:starfish";
             var dimension = biome.equals("savanna_lake") ? GameplayDimensions.SAVANNA
                     : biome.equals("plains_lake") ? GameplayDimensions.PLAINS : GameplayDimensions.TROPICAL;
             var level = helper.getLevel().getServer().getLevel(dimension);
@@ -45,16 +45,24 @@ public final class AquaticFaunaRevisionTests {
             Set<String> actual = Arrays.stream(MobCategory.values())
                     .flatMap(category -> loaded.getMobSettings().getMobs(category).unwrap().stream())
                     .map(spawn -> ForgeRegistries.ENTITY_TYPES.getKey(spawn.type).toString()).collect(Collectors.toSet());
-            helper.assertTrue(actual.contains(replacement), "Missing requested crab from the loaded biome: " + biome);
-            for (String removed : warm ? List.of("alexsmobs:lobster", "upgrade_aquatic:perch") : List.of("collectorsreap:chieftain_crab")) {
+            helper.assertTrue(actual.contains(replacement), "Missing requested bottom animal from the loaded biome: " + biome);
+            var habitat = AquaticPlantGenerationTests.fixture(helper, biome, new HashMap<>(), 8, level,
+                    Blocks.SAND.defaultBlockState(), Blocks.WATER.defaultBlockState());
+            for (var reason : new MobSpawnType[]{MobSpawnType.NATURAL, MobSpawnType.CHUNK_GENERATION}) {
+                var placement = new MobSpawnEvent.SpawnPlacementCheck(ForgeRegistries.ENTITY_TYPES.getValue(new ResourceLocation(replacement)),
+                        habitat, reason, new BlockPos(0, 101, 0), RandomSource.create(17), true);
+                DocumentedNaturalSpawns.placement(placement);
+                helper.assertTrue(placement.getResult() == Event.Result.ALLOW,
+                        "Requested lake/reef animal must pass actual spawn placement: " + replacement);
+            }
+            for (String removed : warm ? List.of("hybrid_aquatic:flower_crab", "upgrade_aquatic:perch")
+                    : List.of("collectorsreap:chieftain_crab", "hybrid_aquatic:lightfoot_crab", "ecologics:coconut_crab", "angling:sea_slug")) {
                 helper.assertFalse(actual.contains(removed), "Removed aquatic still appears in " + biome + ": " + removed);
                 ResourceLocation removedId = new ResourceLocation(removed);
-                if (removedId.getNamespace().equals("collectorsreap")) {
+                if (removedId.getNamespace().equals("collectorsreap") || removedId.getNamespace().equals("angling")) {
                     helper.assertFalse(ForgeRegistries.ENTITY_TYPES.containsKey(removedId), "Retired dependency mob must be unregistered");
                     continue;
                 }
-                var habitat = AquaticPlantGenerationTests.fixture(helper, biome, new HashMap<>(), 8, level,
-                        Blocks.SAND.defaultBlockState(), Blocks.WATER.defaultBlockState());
                 for (var reason : new MobSpawnType[]{MobSpawnType.NATURAL, MobSpawnType.CHUNK_GENERATION}) {
                     var event = new MobSpawnEvent.SpawnPlacementCheck(ForgeRegistries.ENTITY_TYPES.getValue(removedId),
                             habitat, reason, new BlockPos(0, 101, 0), RandomSource.create(17), true);

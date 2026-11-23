@@ -107,8 +107,7 @@
     ],
     "finsandtails": [
       "raw_golden_river_ray_wing",
-      "golden_river_ray_wing_fillet",
-      "swamp_mucker"
+      "golden_river_ray_wing_fillet"
     ],
     "floral": [
       "blue_tulip",
@@ -161,7 +160,6 @@
       "boiled_emu_egg",
       "kangaroo_meat",
       "cooked_kangaroo_meat",
-      "lost_tentacle",
       "flying_fish"
     ],
     "quark": [
@@ -248,7 +246,6 @@
       "emu",
       "flying_fish",
       "gazelle",
-      "giant_squid",
       "gorilla",
       "kangaroo",
       "lobster",
@@ -269,28 +266,21 @@
       "arrow_squid",
       "octopus",
       "umbrella_octopus",
-      "flower_crab",
-      "lightfoot_crab",
       "spider_crab",
       "starfish",
       "tuna",
       "vampire_squid",
       "hound_shark",
-      "fiddler_crab",
-      "coconut_crab"
+      "fiddler_crab"
     ],
+    "ecologics": [],
     "wildernature": [],
     "alexscaves": [
       "tripodfish",
       "gossamer_worm"
     ],
-    "angling": [
-      "anomalocaris",
-      "sea_slug"
-    ],
     "finsandtails": [
-      "golden_river_ray",
-      "swamp_mucker"
+      "golden_river_ray"
     ],
     "biodiverse": [
       "capybara",

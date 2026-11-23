@@ -198,7 +198,11 @@ public final class SnowyVegetation {
         BlockPos top = level.getHeightmapPos(Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, new BlockPos(x, 0, z));
         for (int y = top.getY(); y >= Math.max(1, top.getY() - 64); y--) {
             BlockPos pos = new BlockPos(x, y, z);
-            if (level.getBlockState(pos.below()).is(BlockTags.DIRT)) return pos;
+            if (level.getBlockState(pos.below()).is(BlockTags.DIRT)) {
+                // Brick ceilings and smooth floors used to be transparent to
+                // this search, so it snowed on the fortress's buried mycelium.
+                return GoblinFortressGroundCover.beneathRoof(level, pos, top.getY()) ? null : pos;
+            }
             BlockState below = level.getBlockState(pos.below());
             // Do not tunnel through lake water or rock looking for a cave floor.
             if (!below.getFluidState().isEmpty() || below.is(Blocks.STONE) || below.is(Blocks.DEEPSLATE)) return null;

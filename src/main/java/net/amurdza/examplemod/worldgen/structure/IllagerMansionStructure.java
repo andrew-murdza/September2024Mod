@@ -100,6 +100,7 @@ public final class IllagerMansionStructure extends WoodlandMansionStructure {
         var basement = pieces.pieces().stream().filter(MansionBasementPiece.class::isInstance)
                 .map(MansionBasementPiece.class::cast).findFirst().orElse(null);
         if (basement != null) {
+            BossStructureBounds.mansion(level.getLevel(), basement, rooms);
             // /place structure places pieces directly, without adding natural structure references.
             if (level instanceof net.minecraft.server.level.ServerLevel server && chunk.isInside(basement.keyAnchor()))
                 PlacedMansions.get(server).record(basement, rooms);

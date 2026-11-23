@@ -63,7 +63,7 @@ public final class AquaticLootRevisionTests {
         var tropical = helper.getLevel().getServer().getLevel(GameplayDimensions.TROPICAL);
         var meat = ForgeRegistries.ITEMS.getValue(new ResourceLocation("ecologics:crab_meat"));
         var cookedMeat = ForgeRegistries.ITEMS.getValue(new ResourceLocation("aoemod:cooked_crab_meat"));
-        for (String name : new String[]{"lightfoot_crab", "flower_crab", "fiddler_crab"}) {
+        for (String name : new String[]{"fiddler_crab", "spider_crab"}) {
             Mob crab = (Mob) ForgeRegistries.ENTITY_TYPES.getValue(new ResourceLocation("hybrid_aquatic", name)).create(tropical);
             var rows = MobConfig.mobDropEntries(crab);
             helper.assertTrue(rows.size() == 1 && rows.get(0).item() == meat && rows.get(0).cookedItem() == cookedMeat,

@@ -1,0 +1,72 @@
+[
+  {
+    "path": "citadel-saved-entity-audit.json",
+    "bytes": 217798,
+    "sha256": "05558EF08D0676E03DF9C4407007A3760D5B685B982CDA0AA39F696F5AE46F59"
+  },
+  {
+    "path": "datagen-resource-review.json",
+    "bytes": 2965,
+    "sha256": "568F5906F2C56820E0C827332945FF3109F0AE3CB1EFE24D16A1F0BD0DA4D84B"
+  },
+  {
+    "path": "game-test-results.xml",
+    "bytes": 1956,
+    "sha256": "F3C9BF4B56DAC00A09F63D47E6B4D6CF7AC7FA8D229DD1C82A8FE0E49A85750C"
+  },
+  {
+    "path": "screenshots.json",
+    "bytes": 3345,
+    "sha256": "6E922BE4A8574C7ABE66B320F24EF0768A87E2E9AC47A657F81C64DAD219BA2A"
+  },
+  {
+    "path": "screenshots/connecting-staircase.png",
+    "bytes": 1028395,
+    "sha256": "A6C92B49624049B9E7BCA2860F4598F7CCA9903CA7ADE4D701034AE9A0351B93"
+  },
+  {
+    "path": "screenshots/crimson-cultivation-room.png",
+    "bytes": 1428341,
+    "sha256": "1C4F4A60940FA630B9D30854820769BE60DE203CFEE4FAC5EC3072725B6A0DBB"
+  },
+  {
+    "path": "screenshots/crimson-gallery.png",
+    "bytes": 961137,
+    "sha256": "593ED8FC506B54A6009940B630A2254B679352D1C08EBCD402C55D9FE9364CEB"
+  },
+  {
+    "path": "screenshots/soul-gate.png",
+    "bytes": 792602,
+    "sha256": "B3F90811A521AE4D9683DFEFD23BC4741BC24EFD3863E38C373F2BCFB99F3024"
+  },
+  {
+    "path": "screenshots/soul-grand-hall.png",
+    "bytes": 1190255,
+    "sha256": "1C80B7F92E46DB35C1930850E883FF2ED8AB65CB3EF37C423978AECE3148BE19"
+  },
+  {
+    "path": "screenshots/warped-gallery.png",
+    "bytes": 969786,
+    "sha256": "8FDA67A85A5EA75AA96C4FECB39E5ED77DBB768A5DE484A1B8582D5635D647BA"
+  },
+  {
+    "path": "screenshots/wither-sanctum.png",
+    "bytes": 1195112,
+    "sha256": "B15CFC7615727F109082FED43E8A6B75BA34986786509D0432011002E74324DD"
+  },
+  {
+    "path": "settings-verification.json",
+    "bytes": 290,
+    "sha256": "31688E1AF381FFD9EF08A70848A64C4C58342340D56A487EF4C3235F95F0367E"
+  },
+  {
+    "path": "source-inventory.json",
+    "bytes": 25594,
+    "sha256": "76E66A9C66331806E899843F48C9557E9083073C6EACA731DF5A53AE089AF06C"
+  },
+  {
+    "path": "validation.json",
+    "bytes": 5496,
+    "sha256": "A182852B8480E120D62ED8E3546DA9DA22E4A2F8A8F06F93D93BFD42625EC2ED"
+  }
+]

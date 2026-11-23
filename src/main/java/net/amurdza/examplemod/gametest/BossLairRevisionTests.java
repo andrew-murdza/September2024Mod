@@ -92,7 +92,7 @@ public final class BossLairRevisionTests {
             BlockPos center = IslandBossPlacement.center(island);
             var sample = layout.sample(center.getX(), center.getZ());
             helper.assertTrue(sample.island().equals(island) && sample.biome() == 2
-                            && Math.abs(sample.distance() - 210) < 1.5
+                            && Math.abs(sample.distance() - (TropicalLayout.CHERRY_RADIUS + TropicalLayout.FOREST_RADIUS) / 2) < 1.5
                             && layout.sample(island.x(), island.z()).biome() == 3,
                     "Every island needs a cherry center and a cave halfway across the rainforest band");
             helper.assertTrue(candidates.add(new net.minecraft.world.level.ChunkPos(center)), "Two islands share a cave");
@@ -101,7 +101,7 @@ public final class BossLairRevisionTests {
             var cave = new BossLairPiece("spider", new BlockPos(0, 75, 0), seed);
             var mouth = cave.branchLayout().entrance();
             helper.assertTrue(mouth.getY() == 1, "Horizontal mouth must meet the original ground level");
-            helper.assertTrue(cave.branchLayout().branches().size() == 4, "Each branch needs its two cave pockets");
+            helper.assertTrue(cave.branchLayout().branches().size() == 5, "Both branches and the cross-gallery need their five side chambers");
             helper.assertTrue(cave.branchLayout().residents().get(0).getY() == -33,
                     "The long branches must descend into the deeper boss chamber");
             int sx = (seed & 1) == 0 ? 1 : -1, sz = (seed & 2) == 0 ? 1 : -1;

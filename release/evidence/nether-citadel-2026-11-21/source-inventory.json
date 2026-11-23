@@ -1,0 +1,499 @@
+{
+  "schemaVersion": 1,
+  "task": "Nether citadel replacing new Wither cave generation",
+  "sourceRoot": "C:/Users/andre/Downloads/September2024Mod",
+  "capturedAtUtc": "2026-11-22T00:35:29.3017378Z",
+  "purpose": "Task-owned source and scoped integration inventory for a later evidence bundle; not a validation report.",
+  "validationStatus": "not_asserted_by_this_inventory",
+  "testResults": null,
+  "ownershipNote": "Existing shared files contain concurrent work. Their SHA-256 fingerprints describe the whole current file, but only ownedChange and requiredMarkers identify this task contribution. Unrelated chat changes are not inventoried or attributed here.",
+  "snapshotNote": "Final packaging fingerprints active source and immutable QA source separately. New owned files must match exactly. Shared differences retain explicit ownership limits; unrelated newer changes are not claimed as validated.",
+  "counts": {
+    "totalFiles": 29,
+    "newTaskOwnedFiles": 21,
+    "scopedExistingFiles": 8
+  },
+  "observedAppliedRefinements": [
+    "Quark blackstone furnace layout",
+    "native adult/no-jockey roster finalization",
+    "native Creeper discard and magma split hooks",
+    "sampled fitted approaches",
+    "cultivated crimson and warped fungus reward unlock assertions"
+  ],
+  "files": [
+    {
+      "path": "src/main/java/net/amurdza/examplemod/worldgen/structure/NetherCitadelStructure.java",
+      "category": "production",
+      "ownership": "new_task_owned_file",
+      "ownedChange": "Four-layer citadel generation and terrain-safe site acceptance.",
+      "sha256": "C2EB99C5C2C0975746301847111907F2E37B8036E5E41E0A2DDB32471113DDC9",
+      "bytes": 2010,
+      "hashScope": "entire_file_as_read_from_active_Downloads_source",
+      "lastWriteTimeUtc": "2026-11-21T22:57:34.2331126Z",
+      "requiredMarkers": [],
+      "requiredMarkersPresent": true,
+      "qaSourceSnapshotSha256": "C2EB99C5C2C0975746301847111907F2E37B8036E5E41E0A2DDB32471113DDC9",
+      "matchesQaSourceSnapshot": true
+    },
+    {
+      "path": "src/main/java/net/amurdza/examplemod/worldgen/structure/NetherCitadelPiece.java",
+      "category": "production",
+      "ownership": "new_task_owned_file",
+      "ownedChange": "Chunk-clipped construction, saved encounter identity and decoration reservation.",
+      "sha256": "ACFA21B04DAA4172793856C9B82CC5ADBA88EDEBBCA3C2EC490E3F66EEDBE6AE",
+      "bytes": 7024,
+      "hashScope": "entire_file_as_read_from_active_Downloads_source",
+      "lastWriteTimeUtc": "2026-11-21T22:58:19.4620374Z",
+      "requiredMarkers": [],
+      "requiredMarkersPresent": true,
+      "qaSourceSnapshotSha256": "ACFA21B04DAA4172793856C9B82CC5ADBA88EDEBBCA3C2EC490E3F66EEDBE6AE",
+      "matchesQaSourceSnapshot": true
+    },
+    {
+      "path": "src/main/java/net/amurdza/examplemod/worldgen/structure/NetherCitadelLayout.java",
+      "category": "production",
+      "ownership": "new_task_owned_file",
+      "ownedChange": "Eight-floor voxel plan, rooms, gardens, Quark blackstone furnaces, fixed resident roster and reward chests.",
+      "sha256": "AB8DE6B86911FC7540CB6F6C7D15C3C4EB2FABA38872DB76946F3EDEBA50191B",
+      "bytes": 24387,
+      "hashScope": "entire_file_as_read_from_active_Downloads_source",
+      "lastWriteTimeUtc": "2026-11-21T23:24:32.5109106Z",
+      "requiredMarkers": [],
+      "requiredMarkersPresent": true,
+      "qaSourceSnapshotSha256": "AB8DE6B86911FC7540CB6F6C7D15C3C4EB2FABA38872DB76946F3EDEBA50191B",
+      "matchesQaSourceSnapshot": true
+    },
+    {
+      "path": "src/main/java/net/amurdza/examplemod/worldgen/structure/NetherCitadelApproach.java",
+      "category": "production",
+      "ownership": "new_task_owned_file",
+      "ownedChange": "Seeded native terrain sampling and walkable fitted approaches; unsafe mouths sealed.",
+      "sha256": "CE80F75C0E5134A51F216597E4644C8E31F7C02DB1931562E21D5A4C986C5850",
+      "bytes": 7571,
+      "hashScope": "entire_file_as_read_from_active_Downloads_source",
+      "lastWriteTimeUtc": "2026-11-21T22:55:16.7592848Z",
+      "requiredMarkers": [],
+      "requiredMarkersPresent": true,
+      "qaSourceSnapshotSha256": "CE80F75C0E5134A51F216597E4644C8E31F7C02DB1931562E21D5A4C986C5850",
+      "matchesQaSourceSnapshot": true
+    },
+    {
+      "path": "src/main/java/net/amurdza/examplemod/worldgen/structure/NetherCitadelProgress.java",
+      "category": "production",
+      "ownership": "new_task_owned_file",
+      "ownedChange": "Persistent 321-defender roster, loaded-chunk retries and controlled adult initialization.",
+      "sha256": "9DFED8F560977637AC86B22F86B8212A8076A123202388BD19C355012741A08D",
+      "bytes": 7385,
+      "hashScope": "entire_file_as_read_from_active_Downloads_source",
+      "lastWriteTimeUtc": "2026-11-21T22:53:17.3917945Z",
+      "requiredMarkers": [],
+      "requiredMarkersPresent": true,
+      "qaSourceSnapshotSha256": "9DFED8F560977637AC86B22F86B8212A8076A123202388BD19C355012741A08D",
+      "matchesQaSourceSnapshot": true
+    },
+    {
+      "path": "src/main/java/net/amurdza/examplemod/worldgen/structure/NetherCitadelProtectionSnapshot.java",
+      "category": "production",
+      "ownership": "new_task_owned_file",
+      "ownedChange": "Client chunk protection snapshots and watched-chunk victory refresh.",
+      "sha256": "A85BFD10825BB9D35E1FF3EE71FEC892B632AB0314AE5EC2F61CBE85470F595F",
+      "bytes": 4440,
+      "hashScope": "entire_file_as_read_from_active_Downloads_source",
+      "lastWriteTimeUtc": "2026-11-21T10:02:40.5359734Z",
+      "requiredMarkers": [],
+      "requiredMarkersPresent": true,
+      "qaSourceSnapshotSha256": "A85BFD10825BB9D35E1FF3EE71FEC892B632AB0314AE5EC2F61CBE85470F595F",
+      "matchesQaSourceSnapshot": true
+    },
+    {
+      "path": "src/main/java/net/amurdza/examplemod/event_handlers/NetherCitadelProtection.java",
+      "category": "production",
+      "ownership": "new_task_owned_file",
+      "ownedChange": "Construction/reward restrictions, remaining-enemy feedback, friendly-fire prevention and retry events.",
+      "sha256": "42B8E58B59FE58214C139F33D6A85741EE6224F6C8734E2D2A69E46478FB49A4",
+      "bytes": 11996,
+      "hashScope": "entire_file_as_read_from_active_Downloads_source",
+      "lastWriteTimeUtc": "2026-11-21T10:03:39.6868584Z",
+      "requiredMarkers": [],
+      "requiredMarkersPresent": true,
+      "qaSourceSnapshotSha256": "42B8E58B59FE58214C139F33D6A85741EE6224F6C8734E2D2A69E46478FB49A4",
+      "matchesQaSourceSnapshot": true
+    },
+    {
+      "path": "src/main/java/net/amurdza/examplemod/event_handlers/ClientNetherCitadelMining.java",
+      "category": "production",
+      "ownership": "new_task_owned_file",
+      "ownedChange": "One server explanation per deliberate mining press; suppress protected swings.",
+      "sha256": "913371535C36282B0C54371D8E229F63710E78CD21ADF649E4D81ED262F7293E",
+      "bytes": 3300,
+      "hashScope": "entire_file_as_read_from_active_Downloads_source",
+      "lastWriteTimeUtc": "2026-11-21T10:02:57.4991674Z",
+      "requiredMarkers": [],
+      "requiredMarkersPresent": true,
+      "qaSourceSnapshotSha256": "913371535C36282B0C54371D8E229F63710E78CD21ADF649E4D81ED262F7293E",
+      "matchesQaSourceSnapshot": true
+    },
+    {
+      "path": "src/main/java/net/amurdza/examplemod/mixins/client/NetherCitadelMiningFeedback.java",
+      "category": "mixin_client",
+      "ownership": "new_task_owned_file",
+      "ownedChange": "Adventure-mode feedback and prevention of protected block prediction/cracks.",
+      "sha256": "B286B1A44436CC33848863B51D8C11625FE7DF0DA78148A839851AD3675CBDCE",
+      "bytes": 2244,
+      "hashScope": "entire_file_as_read_from_active_Downloads_source",
+      "lastWriteTimeUtc": "2026-11-21T10:03:26.8259621Z",
+      "requiredMarkers": [],
+      "requiredMarkersPresent": true,
+      "qaSourceSnapshotSha256": "B286B1A44436CC33848863B51D8C11625FE7DF0DA78148A839851AD3675CBDCE",
+      "matchesQaSourceSnapshot": true
+    },
+    {
+      "path": "src/main/java/net/amurdza/examplemod/mixins/worldgen/ChunkPacketNetherCitadelProtection.java",
+      "category": "mixin_common",
+      "ownership": "new_task_owned_file",
+      "ownedChange": "Encode citadel bounds and cleared state into chunk packet metadata.",
+      "sha256": "489F81C51CF2ACBBCB67F86404EE8C0A8DFD7DE42B9F3D0C5C845A764340DDEC",
+      "bytes": 1012,
+      "hashScope": "entire_file_as_read_from_active_Downloads_source",
+      "lastWriteTimeUtc": "2026-11-21T10:03:33.5377363Z",
+      "requiredMarkers": [],
+      "requiredMarkersPresent": true,
+      "qaSourceSnapshotSha256": "489F81C51CF2ACBBCB67F86404EE8C0A8DFD7DE42B9F3D0C5C845A764340DDEC",
+      "matchesQaSourceSnapshot": true
+    },
+    {
+      "path": "src/main/java/net/amurdza/examplemod/mixins/worldgen/LevelChunkNetherCitadelProtection.java",
+      "category": "mixin_common",
+      "ownership": "new_task_owned_file",
+      "ownedChange": "Read or clear per-chunk citadel protection metadata.",
+      "sha256": "27F75AAC26A0951E4CDCE388304D23DD127AD75A3D83371C8FF1D31693FEF101",
+      "bytes": 1026,
+      "hashScope": "entire_file_as_read_from_active_Downloads_source",
+      "lastWriteTimeUtc": "2026-11-21T10:03:35.0781504Z",
+      "requiredMarkers": [],
+      "requiredMarkersPresent": true,
+      "qaSourceSnapshotSha256": "27F75AAC26A0951E4CDCE388304D23DD127AD75A3D83371C8FF1D31693FEF101",
+      "matchesQaSourceSnapshot": true
+    },
+    {
+      "path": "src/main/java/net/amurdza/examplemod/mixins/worldgen/SyncPlacedNetherCitadelProtection.java",
+      "category": "mixin_common",
+      "ownership": "new_task_owned_file",
+      "ownedChange": "Refresh watched chunk snapshots after command placement.",
+      "sha256": "E26E0C9147931A20F5CCBCBD3E5CC472AB2E2DCFF3AD3869F66F560E57D21663",
+      "bytes": 1331,
+      "hashScope": "entire_file_as_read_from_active_Downloads_source",
+      "lastWriteTimeUtc": "2026-11-21T10:03:36.9262171Z",
+      "requiredMarkers": [],
+      "requiredMarkersPresent": true,
+      "qaSourceSnapshotSha256": "E26E0C9147931A20F5CCBCBD3E5CC472AB2E2DCFF3AD3869F66F560E57D21663",
+      "matchesQaSourceSnapshot": true
+    },
+    {
+      "path": "src/main/java/net/amurdza/examplemod/mixins/worldgen/NetherCitadelDecoration.java",
+      "category": "mixin_common",
+      "ownership": "new_task_owned_file",
+      "ownedChange": "Prevent later normal worldgen writes from replacing authored blocks and air.",
+      "sha256": "56D597E21BD186570990B0A77B805E45AAD816268FC3B87AC8A40EF44F0455F4",
+      "bytes": 1165,
+      "hashScope": "entire_file_as_read_from_active_Downloads_source",
+      "lastWriteTimeUtc": "2026-11-21T09:58:42.2536864Z",
+      "requiredMarkers": [],
+      "requiredMarkersPresent": true,
+      "qaSourceSnapshotSha256": "56D597E21BD186570990B0A77B805E45AAD816268FC3B87AC8A40EF44F0455F4",
+      "matchesQaSourceSnapshot": true
+    },
+    {
+      "path": "src/main/java/net/amurdza/examplemod/mixins/worldgen/NetherCitadelOres.java",
+      "category": "mixin_common",
+      "ownership": "new_task_owned_file",
+      "ownedChange": "Prevent direct native ore-section writes from replacing citadel substrates.",
+      "sha256": "A275E880F4E91985C231A3D913C8A5CD3CFA9FF1ADD334C96FE8E3E7533FAE6C",
+      "bytes": 1479,
+      "hashScope": "entire_file_as_read_from_active_Downloads_source",
+      "lastWriteTimeUtc": "2026-11-21T23:01:07.0108099Z",
+      "requiredMarkers": [],
+      "requiredMarkersPresent": true,
+      "qaSourceSnapshotSha256": "A275E880F4E91985C231A3D913C8A5CD3CFA9FF1ADD334C96FE8E3E7533FAE6C",
+      "matchesQaSourceSnapshot": true
+    },
+    {
+      "path": "src/main/java/net/amurdza/examplemod/mixins/mob_behavior/CitadelMagmaCubeSplit.java",
+      "category": "mixin_common",
+      "ownership": "new_task_owned_file",
+      "ownedChange": "Preserve guard combat size while preventing untracked split children.",
+      "sha256": "5B024FE506D3DA3F8DAD335576A3EAA91991331BFEA85B73EBCB02973005F29D",
+      "bytes": 1125,
+      "hashScope": "entire_file_as_read_from_active_Downloads_source",
+      "lastWriteTimeUtc": "2026-11-21T22:53:13.1594265Z",
+      "requiredMarkers": [],
+      "requiredMarkersPresent": true,
+      "qaSourceSnapshotSha256": "5B024FE506D3DA3F8DAD335576A3EAA91991331BFEA85B73EBCB02973005F29D",
+      "matchesQaSourceSnapshot": true
+    },
+    {
+      "path": "src/main/java/net/amurdza/examplemod/mixins/mob_behavior/CitadelCreeperDefeat.java",
+      "category": "mixin_common",
+      "ownership": "new_task_owned_file",
+      "ownedChange": "Record detonating authored Creepers through their native discard path.",
+      "sha256": "21733E6DF17E159B9CF7B57CE91846F3B57E6FE8B7F6453468B5C3E7B16245A2",
+      "bytes": 1662,
+      "hashScope": "entire_file_as_read_from_active_Downloads_source",
+      "lastWriteTimeUtc": "2026-11-21T22:50:35.2116994Z",
+      "requiredMarkers": [],
+      "requiredMarkersPresent": true,
+      "qaSourceSnapshotSha256": "21733E6DF17E159B9CF7B57CE91846F3B57E6FE8B7F6453468B5C3E7B16245A2",
+      "matchesQaSourceSnapshot": true
+    },
+    {
+      "path": "src/main/java/net/amurdza/examplemod/gametest/NetherCitadelTests.java",
+      "category": "gametest",
+      "ownership": "new_task_owned_file",
+      "ownedChange": "Focused geometry, roster, persistence, native behavior, crop-reward and protection assertions.",
+      "sha256": "BCF0A5FFEB39C05C36AF9CF35B03DE8F3F735774C7FD63B5B5C8CE5C9141B97D",
+      "bytes": 47045,
+      "hashScope": "entire_file_as_read_from_active_Downloads_source",
+      "lastWriteTimeUtc": "2026-11-21T23:26:16.9484502Z",
+      "requiredMarkers": [],
+      "requiredMarkersPresent": true,
+      "qaSourceSnapshotSha256": "BCF0A5FFEB39C05C36AF9CF35B03DE8F3F735774C7FD63B5B5C8CE5C9141B97D",
+      "matchesQaSourceSnapshot": true
+    },
+    {
+      "path": "src/main/java/net/amurdza/examplemod/gametest/NetherCitadelApproachTests.java",
+      "category": "gametest",
+      "ownership": "new_task_owned_file",
+      "ownedChange": "Seeded outside-terrain and authored approach seam assertions.",
+      "sha256": "D3D4CBF90D7F60FCF91C9A66878639EBA524B71FBA70C6F74BF34EA7308A1B71",
+      "bytes": 5136,
+      "hashScope": "entire_file_as_read_from_active_Downloads_source",
+      "lastWriteTimeUtc": "2026-11-21T22:56:06.7448456Z",
+      "requiredMarkers": [],
+      "requiredMarkersPresent": true,
+      "qaSourceSnapshotSha256": "D3D4CBF90D7F60FCF91C9A66878639EBA524B71FBA70C6F74BF34EA7308A1B71",
+      "matchesQaSourceSnapshot": true
+    },
+    {
+      "path": "src/main/java/net/amurdza/examplemod/gametest/NetherCitadelVisualSceneTests.java",
+      "category": "gametest_visual_fixture",
+      "ownership": "new_task_owned_file",
+      "ownedChange": "Disposable scene construction, view export and metrics for later client review.",
+      "sha256": "11EA87A3B52C8D1A62402FAFFECA7CD543C83602BE7E3EDD7F1BD2534CD1814E",
+      "bytes": 7885,
+      "hashScope": "entire_file_as_read_from_active_Downloads_source",
+      "lastWriteTimeUtc": "2026-11-22T00:20:24.6096980Z",
+      "requiredMarkers": [],
+      "requiredMarkersPresent": true,
+      "qaSourceSnapshotSha256": "11EA87A3B52C8D1A62402FAFFECA7CD543C83602BE7E3EDD7F1BD2534CD1814E",
+      "matchesQaSourceSnapshot": true
+    },
+    {
+      "path": "scripts/nether-citadel-qa.init.gradle",
+      "category": "qa_script",
+      "ownership": "new_task_owned_file",
+      "ownedChange": "Isolated source/runtime directories, selected tests, client capture and datagen; sequential two-processor runtime checks.",
+      "sha256": "05A1CC48CFD9DC07A02A3FD2708D97C2F86CBD2E21F407FD8BADFE04CFBD1D43",
+      "bytes": 5126,
+      "hashScope": "entire_file_as_read_from_active_Downloads_source",
+      "lastWriteTimeUtc": "2026-11-22T00:06:29.9003598Z",
+      "requiredMarkers": [
+        "build/nether-citadel-qa"
+      ],
+      "requiredMarkersPresent": true
+    },
+    {
+      "path": "src/main/resources/data/aoemod/loot_tables/chests/bosses/nether_citadel.json",
+      "category": "loot_resource",
+      "ownership": "new_task_owned_file",
+      "ownedChange": "Authored citadel reward chest loot table.",
+      "sha256": "98714D5C4A9D056046297908F7A72FF6E2EDCE2DD3BEB14D7E78B582C180CE0C",
+      "bytes": 905,
+      "hashScope": "entire_file_as_read_from_active_Downloads_source",
+      "lastWriteTimeUtc": "2026-11-21T23:06:12.5373703Z",
+      "requiredMarkers": [
+        "minecraft:chest"
+      ],
+      "requiredMarkersPresent": true,
+      "qaSourceSnapshotSha256": "98714D5C4A9D056046297908F7A72FF6E2EDCE2DD3BEB14D7E78B582C180CE0C",
+      "matchesQaSourceSnapshot": true
+    },
+    {
+      "path": "src/main/java/net/amurdza/examplemod/registry/ModStructures.java",
+      "category": "shared_java",
+      "ownership": "scoped_integration_in_existing_file",
+      "ownedChange": "Register nether_citadel structure type and nether_citadel_piece loader; preserve existing registrations.",
+      "sha256": "5E8C77845FA45A0AB35D0408864CF5FD8FA02F0855213E8FF22C7F8DB79A6D8F",
+      "bytes": 5665,
+      "hashScope": "entire_file_as_read_from_active_Downloads_source",
+      "lastWriteTimeUtc": "2026-11-21T10:05:14.1961723Z",
+      "requiredMarkers": [
+        "NETHER_CITADEL",
+        "nether_citadel_piece"
+      ],
+      "requiredMarkersPresent": true,
+      "qaSourceSnapshotSha256": "5E8C77845FA45A0AB35D0408864CF5FD8FA02F0855213E8FF22C7F8DB79A6D8F",
+      "matchesQaSourceSnapshot": true
+    },
+    {
+      "path": "src/main/java/net/amurdza/examplemod/worldgen/structure/AuthoredRewardLocks.java",
+      "category": "shared_java",
+      "ownership": "scoped_integration_in_existing_file",
+      "ownedChange": "Add citadel chest/destruction gates and crop rewards for Nether wart, native powder-cane/pepper parts, crimson fungus and warped fungus; preserve all other encounters.",
+      "sha256": "C962ADF92584C1E9FE28309E9CD84CE53746CDBBB848AD1ACE70088A190FAAF0",
+      "bytes": 3086,
+      "hashScope": "entire_file_as_read_from_active_Downloads_source",
+      "lastWriteTimeUtc": "2026-11-21T23:26:16.9539659Z",
+      "requiredMarkers": [
+        "NetherCitadelProtection.rewardsLocked",
+        "NetherCitadelProtection.protectedBlock",
+        "PowderCaneShape.isPlant(state)",
+        "Blocks.NETHER_WART",
+        "Blocks.CRIMSON_FUNGUS",
+        "Blocks.WARPED_FUNGUS"
+      ],
+      "requiredMarkersPresent": true,
+      "qaSourceSnapshotSha256": "C962ADF92584C1E9FE28309E9CD84CE53746CDBBB848AD1ACE70088A190FAAF0",
+      "matchesQaSourceSnapshot": true
+    },
+    {
+      "path": "src/main/java/net/amurdza/examplemod/worldgen/structure/BossStructureBounds.java",
+      "category": "shared_java",
+      "ownership": "scoped_integration_in_existing_file",
+      "ownedChange": "Discover and restore a NetherCitadelPiece boundary from saved structure starts.",
+      "sha256": "7B3C459E29A51C33833270C7A80156B0E31603C81E61A263E9DC3D0266A9F894",
+      "bytes": 8988,
+      "hashScope": "entire_file_as_read_from_active_Downloads_source",
+      "lastWriteTimeUtc": "2026-11-21T10:05:14.2237649Z",
+      "requiredMarkers": [
+        "piece instanceof NetherCitadelPiece"
+      ],
+      "requiredMarkersPresent": true,
+      "qaSourceSnapshotSha256": "7B3C459E29A51C33833270C7A80156B0E31603C81E61A263E9DC3D0266A9F894",
+      "matchesQaSourceSnapshot": true
+    },
+    {
+      "path": "src/main/java/net/amurdza/examplemod/event_handlers/BossStructureProtection.java",
+      "category": "shared_java",
+      "ownership": "scoped_integration_in_existing_file",
+      "ownedChange": "Include NetherCitadelStructure in deferred reference-only chunk discovery.",
+      "sha256": "9BAE9A07C078A91796F9B758348DEA576CEF424747EA3D2C2BEE9091203D81C1",
+      "bytes": 11888,
+      "hashScope": "entire_file_as_read_from_active_Downloads_source",
+      "lastWriteTimeUtc": "2026-11-21T10:05:14.2247773Z",
+      "requiredMarkers": [
+        "structure instanceof net.amurdza.examplemod.worldgen.structure.NetherCitadelStructure"
+      ],
+      "requiredMarkersPresent": true,
+      "qaSourceSnapshotSha256": "9BAE9A07C078A91796F9B758348DEA576CEF424747EA3D2C2BEE9091203D81C1",
+      "matchesQaSourceSnapshot": true
+    },
+    {
+      "path": "src/main/java/net/amurdza/examplemod/mixins/mob_behavior/WitherSummons.java",
+      "category": "shared_java",
+      "ownership": "scoped_integration_in_existing_file",
+      "ownedChange": "Skip timed Wither summons for fixed-roster citadel encounters only.",
+      "sha256": "82AD7D2A51400C5552939683E31E3453C9267720646274BFA2175FF9C51FCFA4",
+      "bytes": 4117,
+      "hashScope": "entire_file_as_read_from_active_Downloads_source",
+      "lastWriteTimeUtc": "2026-11-21T10:05:14.2257773Z",
+      "requiredMarkers": [
+        "NetherCitadelProgress.KIND"
+      ],
+      "requiredMarkersPresent": true,
+      "qaSourceSnapshotSha256": "82AD7D2A51400C5552939683E31E3453C9267720646274BFA2175FF9C51FCFA4",
+      "matchesQaSourceSnapshot": true
+    },
+    {
+      "path": "src/main/resources/aoemod.mixins.json",
+      "category": "shared_mixin_config",
+      "ownership": "scoped_integration_in_existing_file",
+      "ownedChange": "Register eight new citadel mixins without replacing other registrations.",
+      "sha256": "DE062E2FF33D06946397935D80366D61C307C313FB56C9A0C598FB9F8AEEC4A7",
+      "bytes": 15541,
+      "hashScope": "entire_file_as_read_from_active_Downloads_source",
+      "lastWriteTimeUtc": "2026-11-21T23:20:43.0623026Z",
+      "requiredMarkers": [
+        "worldgen.ChunkPacketNetherCitadelProtection",
+        "worldgen.LevelChunkNetherCitadelProtection",
+        "worldgen.SyncPlacedNetherCitadelProtection",
+        "worldgen.NetherCitadelOres",
+        "worldgen.NetherCitadelDecoration",
+        "mob_behavior.CitadelMagmaCubeSplit",
+        "mob_behavior.CitadelCreeperDefeat",
+        "client.NetherCitadelMiningFeedback"
+      ],
+      "requiredMarkersPresent": true,
+      "qaSourceSnapshotSha256": "75EC6674785270E2C74D16E200E77D807E23861334976EBF89B67E0CFD606CDA",
+      "matchesQaSourceSnapshot": false
+    },
+    {
+      "path": "src/main/resources/assets/aoemod/lang/en_us.json",
+      "category": "shared_language_resource",
+      "ownership": "scoped_integration_in_existing_file",
+      "ownedChange": "Add only the permanent construction and remaining-enemy reward messages.",
+      "sha256": "4FC952A52850725AF056CCC5303993CB8A27B92577EF5127B0B7CD9B413CDCB1",
+      "bytes": 12828,
+      "hashScope": "entire_file_as_read_from_active_Downloads_source",
+      "lastWriteTimeUtc": "2026-11-21T10:05:14.3090231Z",
+      "requiredMarkers": [
+        "message.aoemod.nether_citadel_protected",
+        "message.aoemod.nether_citadel_rewards_locked"
+      ],
+      "requiredMarkersPresent": true,
+      "qaSourceSnapshotSha256": "4FC952A52850725AF056CCC5303993CB8A27B92577EF5127B0B7CD9B413CDCB1",
+      "matchesQaSourceSnapshot": true
+    },
+    {
+      "path": "src/main/resources/data/aoemod/worldgen/structure/wither_cave.json",
+      "category": "replaced_structure_resource",
+      "ownership": "scoped_integration_in_existing_file",
+      "ownedChange": "Retain the existing locator ID while selecting nether_citadel, all four Nether biomes and empty ambient spawn overrides.",
+      "sha256": "42EDA2C3EB95594C4DC2BEC49469CF954E036F723B65E15A83242FBD184B21FF",
+      "bytes": 666,
+      "hashScope": "entire_file_as_read_from_active_Downloads_source",
+      "lastWriteTimeUtc": "2026-11-21T23:06:12.5276355Z",
+      "requiredMarkers": [
+        "aoemod:nether_citadel",
+        "aoemod:basalt_deltas",
+        "aoemod:crimson_forest",
+        "aoemod:warped_forest",
+        "aoemod:soul_sand_valley"
+      ],
+      "requiredMarkersPresent": true,
+      "qaSourceSnapshotSha256": "42EDA2C3EB95594C4DC2BEC49469CF954E036F723B65E15A83242FBD184B21FF",
+      "matchesQaSourceSnapshot": true
+    }
+  ],
+  "preservedContext": [
+    {
+      "path": "src/main/resources/data/aoemod/worldgen/structure_set/wither_caves.json",
+      "relation": "Existing placement/locator set retained; not listed as changed."
+    },
+    {
+      "path": "src/main/java/net/amurdza/examplemod/worldgen/structure/BossLairPiece.java",
+      "relation": "Existing old saved-lair loader retained; no ownership claim on concurrent edits."
+    }
+  ],
+  "excluded": [
+    "Unrelated Goblin Fortress, Spider Cave, Savanna, Mansion and tropical/fish changes",
+    "run/config, options and existing world serverconfig",
+    "Generated build/run outputs and mutable logs",
+    "Completed-test or screenshot-quality claims"
+  ],
+  "evidenceConventionsReviewed": [
+    "release/evidence/tropical-fish-transfer-2026-11-21/validation.json",
+    "release/evidence/tropical-fish-transfer-2026-11-21/transfer-manifest.json",
+    "release/evidence/spider-cave-2026-11-21/VALIDATION.txt"
+  ],
+  "laterBundleChecklist": [
+    "Final exact source/runtime snapshot and source hashes",
+    "Focused GameTest XML and exact commands with truthful outcome",
+    "Built JAR path and SHA-256",
+    "Selected screenshots, viewpoints, metrics and actual visual review",
+    "Installed-settings checksum comparison",
+    "Generated-resource diff from isolated datagen"
+  ],
+  "sharedSnapshotDifferences": [
+    "src/main/resources/aoemod.mixins.json"
+  ]
+}

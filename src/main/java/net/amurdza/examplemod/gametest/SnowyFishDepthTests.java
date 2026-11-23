@@ -25,7 +25,7 @@ public final class SnowyFishDepthTests {
     public static void deepFishBeginImmediatelyBelowTheLastRegularFishBlock(GameTestHelper helper) {
         var snowy = helper.getLevel().getServer().getLevel(GameplayDimensions.SNOWY);
         Set<String> deep = Set.of("alexscaves:tripodfish", "alexscaves:gossamer_worm",
-                "minecraft:glow_squid", "hybrid_aquatic:vampire_squid", "alexsmobs:giant_squid");
+                "minecraft:glow_squid", "hybrid_aquatic:vampire_squid");
         for (String biome : List.of("snowy_forest", "dappled_forest", "mountain_lake", "cold_ocean", "mushroom_caves")) {
             var water = AquaticPlantGenerationTests.fixture(helper, biome, new HashMap<>(), 40, snowy);
             // Surface water occupies Y140. Y117 has 23 cells overhead; Y116 has 24.

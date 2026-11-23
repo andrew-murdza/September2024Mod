@@ -88,6 +88,16 @@ public final class IllagerMansionProcessor extends StructureProcessor {
                 }
             }
         }
+        // Native storage rooms contain empty physical chests without a Chest
+        // marker. Give those generated rewards a table while retaining fixed
+        // flower/sapling inventories and any explicitly authored loot table.
+        if ((state.is(Blocks.CHEST) || state.is(Blocks.TRAPPED_CHEST))
+                && (nbt == null || !nbt.contains("LootTable", Tag.TAG_STRING)
+                && nbt.getList("Items", Tag.TAG_COMPOUND).isEmpty())) {
+            nbt = nbt == null ? new CompoundTag() : nbt.copy();
+            nbt.remove("Items");
+            nbt.putString("LootTable", "aoemod:chests/illager_mansion");
+        }
         return new StructureTemplate.StructureBlockInfo(current.pos(), state, nbt);
     }
 

@@ -242,6 +242,12 @@ public class NautilusEntity extends TamableAnimal {
     }
 
     @Override
+    public boolean requiresCustomPersistence() {
+        // Player-owned mounts remain safe and outside the natural population cap.
+        return this.isTame() || this.isVehicle() || super.requiresCustomPersistence();
+    }
+
+    @Override
     public boolean canBeLeashed(Player player) {
         return false;
     }

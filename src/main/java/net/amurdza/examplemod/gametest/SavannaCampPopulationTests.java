@@ -12,8 +12,10 @@ import net.minecraft.gametest.framework.GameTest;
 import net.minecraft.gametest.framework.GameTestHelper;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.Difficulty;
 import net.minecraft.world.entity.Mob;
+import net.minecraft.world.level.ChunkPos;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.levelgen.structure.pieces.StructurePieceSerializationContext;
 import net.minecraftforge.gametest.GameTestHolder;
@@ -64,10 +66,38 @@ public final class SavannaCampPopulationTests {
         var id = UUID.randomUUID();
         int index = 63;
         var preferred = origin.offset(SavannaOrcVillage.residentPlan().get(index).local());
+        var forcedHere = new java.util.ArrayList<ChunkPos>();
+        // Block reads load chunks without making their entities visible to
+        // ServerLevel.getEntity. Activate only the retry/collision halo, then
+        // allow its entity sections to become tracked before checking UUIDs.
+        for (int x = (preferred.getX() - 8) >> 4; x <= (preferred.getX() + 8) >> 4; x++)
+            for (int z = (preferred.getZ() - 8) >> 4; z <= (preferred.getZ() + 8) >> 4; z++) {
+                var chunk = new ChunkPos(x, z);
+                if (!level.getForcedChunks().contains(chunk.toLong())) {
+                    level.setChunkForced(x, z, true);
+                    forcedHere.add(chunk);
+                }
+                level.getChunk(x, z);
+            }
+        helper.runAfterDelay(2, () -> {
+            try {
+                verifyBlockedResidentRetry(helper, level, origin, id, index, preferred);
+            } finally {
+                for (var chunk : forcedHere) level.setChunkForced(chunk.x, chunk.z, false);
+            }
+        });
+    }
+
+    private static void verifyBlockedResidentRetry(GameTestHelper helper, ServerLevel level, BlockPos origin,
+                                                   UUID id, int index, BlockPos preferred) {
         for (int dx = -5; dx <= 5; dx++) for (int dz = -5; dz <= 5; dz++) for (int dy = -1; dy <= 4; dy++)
             level.setBlock(preferred.offset(dx, dy, dz), Blocks.AIR.defaultBlockState(), 2);
         level.setBlock(preferred.below(), Blocks.GRASS_BLOCK.defaultBlockState(), 2);
-        level.setBlock(preferred, Blocks.STONE.defaultBlockState(), 2);
+        // Stone is unavailable in Savanna and its placement is rejected by the
+        // dimension rules. Use a real permitted obstacle to exercise collision.
+        level.setBlock(preferred, Blocks.ACACIA_WOOD.defaultBlockState(), 2);
+        helper.assertTrue(level.getBlockState(preferred).is(Blocks.ACACIA_WOOD),
+                "The blocked-spawn fixture must contain a solid obstacle at the authored position");
         var progress = AuthoredEncounterProgress.get(level);
         SavannaCampProgress.register(level, id, origin);
         helper.assertFalse(SavannaOrcVillage.retryResident(level, origin, id, index),
@@ -79,12 +109,18 @@ public final class SavannaCampPopulationTests {
         // Leave the authored cell blocked but provide a safe same-floor forest alternative.
         var alternate = preferred.offset(2, 0, 0);
         level.setBlock(alternate.below(), Blocks.GRASS_BLOCK.defaultBlockState(), 2);
+        helper.assertTrue(level.getBlockState(alternate.below()).is(Blocks.GRASS_BLOCK)
+                        && level.getBlockState(alternate).isAir()
+                        && level.getBlockState(preferred).is(Blocks.ACACIA_WOOD),
+                "The alternate must have a clear supported floor while the authored cell stays blocked");
         helper.assertTrue(SavannaOrcVillage.retryResident(level, origin, id, index),
                 "A permanently blocked authored cell must use a clear nearby floor cell in the same forest corner");
         var entity = level.getEntity(SavannaOrcVillage.residentId(id, index));
-        helper.assertTrue(entity instanceof Mob && entity.blockPosition().equals(alternate)
-                        && level.noCollision(entity) && !progress.pendingDefenders(id).get(index),
-                "Successful retry must retain its deterministic UUID, clear pending state and avoid collisions");
+        helper.assertTrue(entity instanceof Mob,
+                "The successfully inserted retry must be visible under its deterministic UUID");
+        helper.assertTrue(entity.blockPosition().equals(alternate) && level.noCollision(entity)
+                        && !progress.pendingDefenders(id).get(index),
+                "Successful retry must use the clear alternate floor and clear pending state: " + entity.position());
         helper.assertFalse(SavannaOrcVillage.retryResident(level, origin, id, index),
                 "An observed defender must not be duplicated by later retry passes");
         var mob = (Mob) entity;

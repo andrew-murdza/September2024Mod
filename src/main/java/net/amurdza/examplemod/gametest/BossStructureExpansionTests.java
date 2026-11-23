@@ -59,6 +59,14 @@ public final class BossStructureExpansionTests {
             ServerLevel level = helper.getLevel().getServer().getLevel(dimension);
             BlockPos center = new BlockPos(12288, level.getMaxBuildHeight() - 48, 12288);
             var piece = new BossLairPiece(kind, center, 40);
+            // Keep this historical five-pocket/7-resident regression on old saved geometry.
+            // SpiderCaveNovember21Tests covers newly generated decorated caves.
+            if (kind.equals("spider")) {
+                var context = StructurePieceSerializationContext.fromLevel(level);
+                var saved = piece.createTag(context);
+                saved.remove("SpiderCaveVersion");
+                piece = new BossLairPiece(context, saved);
+            }
             var box = piece.getBoundingBox();
             prepare(level, box, center.getY());
             var serial = StructurePieceSerializationContext.fromLevel(level);

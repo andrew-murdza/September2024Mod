@@ -1,0 +1,27 @@
+22 November 2026 publication report
+Minecraft 1.20.1 | Forge 47.4.22 | Java 17
+
+Artifact
+File: aoemod-1.0.0-1.20.1-all.jar
+Bytes: 8730826
+SHA256: c60ce628ec2e227eefb29f74b30734fa98901f506d0f12e2624e15bbb958b45c
+The published JAR is byte-identical to the successful final November 22 build. Its production mixin reference map and embedded MixinExtras 0.5.0 are present. Bytecode inspection confirms the new Snowy mycelium/grass bonemeal paths.
+
+Scope
+This delivery publishes the current working source and built mod, including the completed document work up to "Delay the rest" and the subsequent Snowy cultivation request. It includes illager mansion library/facade/lighting changes, the current mine and gameplay fixes, and shared Snowy block/cultivation permissions. The shared numeric growth, bonemeal, breeding, mount-stat, and resource-yield entries were retained; remaining bonemeal biome barriers were removed.
+Natural biome feature lists and mob pools keep their separate habitats. New structure geometry requires newly generated or newly placed structures. Existing worlds receive gameplay changes when loaded with the updated mod.
+
+Completed validation reused for this publication
+- Gradle build and prepareStandaloneClient succeeded after the final changes.
+- The initial focused runtime run passed 24 of 25 tests. Its only failure was the darkness control in the new cave-crop test after all three crop growth/bonemeal checks had succeeded.
+- The test enclosure was sealed beneath the farmland to prevent light from entering underneath. The focused rerun passed all 6 tests, including that unchanged darkness assertion. In total, all 25 distinct tests have a passing result.
+- Covered actual giant brown/red mushroom generation in Dappled Forest; wheat, beetroot, and oat natural growth and bonemeal in Mushroom Caves; moved mycelium/grass bonemeal palettes; six registered Snowy biome score lookups; animal aging, feeding, breeding cooldown/offspring, and drops; existing placement/generation boundaries.
+- Prepared normal-launch runtime matched all 3707 final compiled/resource files. All 331 protected installed settings files were unchanged. Prior mansion template preservation checks also passed.
+
+Packaging checks
+- The removed Angling dependency is omitted from the current lock, production manifest, and top-level release binaries. Historical licenses and dated evidence remain unchanged.
+- The production manifest records the current installed Platform and VanillaBackport hashes/byte sizes; their mod IDs and versions match and ZIP CRC checks passed. Other dependency records are unchanged.
+- The publication contains an update JAR, not third-party runtime dependencies or a complete modpack. The production manifest lists 60 external artifacts plus embedded MixinExtras.
+
+Limits
+No new Minecraft client, full GameTest suite, or standalone production-pack server was started just to publish these already built changes. The focused tests use isolated QA worlds and settings. Historical reports preserve their original validation scope and artifact hashes. A previously observed unrelated Goblin Fortress farm-generation test failure remains outside this completed document scope; this report does not claim that the entire repository test suite passes.

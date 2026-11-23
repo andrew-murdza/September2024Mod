@@ -21,9 +21,12 @@ public final class PlacedMansions extends SavedData {
     private final Map<BlockPos, Layout> layouts = new HashMap<>();
     private final Map<Long, List<Layout>> byChunk = new HashMap<>();
     private final Map<BlockPos, BoundingBox> replacedBounds = new HashMap<>();
+    private ServerLevel owner;
 
     public static PlacedMansions get(ServerLevel level) {
-        return level.getDataStorage().computeIfAbsent(PlacedMansions::load, PlacedMansions::new, "aoemod_placed_mansions");
+        var data = level.getDataStorage().computeIfAbsent(PlacedMansions::load, PlacedMansions::new, "aoemod_placed_mansions");
+        data.owner = level;
+        return data;
     }
 
     public void record(MansionBasementPiece basement, List<BoundingBox> rooms) {
@@ -44,11 +47,13 @@ public final class PlacedMansions extends SavedData {
             var oldBounds = BoundingBox.encapsulatingBoxes(previous.rooms).orElseThrow().encapsulate(previous.basement.getBoundingBox());
             replacedBounds.merge(basement.keyAnchor(), oldBounds, (first, next) -> first.encapsulate(next));
             var replaced = previous;
+            if (owner != null) BossStructureBounds.get(owner).remove("mansion:" + replaced.basement.keyAnchor().asLong());
             layouts.remove(previous.basement.keyAnchor());
             byChunk.values().forEach(entries -> entries.remove(replaced));
             byChunk.values().removeIf(List::isEmpty);
         }
         index(new Layout(basement, List.copyOf(rooms)));
+        if (owner != null) BossStructureBounds.mansion(owner, basement, rooms);
         setDirty();
     }
 
@@ -60,8 +65,9 @@ public final class PlacedMansions extends SavedData {
     private void index(Layout layout) {
         layouts.put(layout.basement.keyAnchor(), layout);
         var bounds = BoundingBox.encapsulatingBoxes(layout.rooms).orElseThrow().encapsulate(layout.basement.getBoundingBox());
-        int margin = layout.basement.layoutVersion() >= MansionEstateShape.SQUARE_VERSION
-                ? MansionEstateShape.SQUARE_MARGIN + Math.max(0, layout.basement.groundsY() + 64) : MansionGrounds.OUTER_MARGIN;
+        var shape = new MansionEstateShape(bounds, layout.basement.layoutVersion());
+        int margin = shape.widened()
+                ? shape.margin() + Math.max(0, layout.basement.groundsY() + 64) : MansionGrounds.OUTER_MARGIN;
         for (int x = (bounds.minX() - margin) >> 4; x <= (bounds.maxX() + margin) >> 4; x++) {
             for (int z = (bounds.minZ() - margin) >> 4; z <= (bounds.maxZ() + margin) >> 4; z++)
                 byChunk.computeIfAbsent(ChunkPos.asLong(x, z), unused -> new ArrayList<>()).add(layout);

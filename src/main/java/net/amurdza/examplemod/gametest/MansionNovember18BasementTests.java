@@ -40,7 +40,7 @@ public final class MansionNovember18BasementTests {
     public static void twoCellarLevelsPreserveRoomsAndHaveFiveFlatBlocksBeforeTheContinuingFlight(GameTestHelper h) {
         var serial = StructurePieceSerializationContext.fromLevel(h.getLevel());
         for (var rotation : Rotation.values()) {
-            var original = new MansionBasementPiece(new BlockPos(8, 150, 8), rotation);
+            var original = new MansionBasementPiece(new BlockPos(8, 150, 8), rotation, 11);
             var cellar = (MansionBasementPiece) MansionBasementPiece.load(serial, original.createTag(serial));
             var blocks = MansionBasementV3Tests.place(h, cellar);
             h.assertTrue(cellar.layoutVersion() == 11 && cellar.lowestFloorY() == cellar.keyAnchor().getY() - 7
@@ -123,7 +123,7 @@ public final class MansionNovember18BasementTests {
         var level = h.getLevel();
         var player = h.makeMockSurvivalPlayer();
         for (var rotation : Rotation.values()) {
-            var cellar = new MansionBasementPiece(h.absolutePos(new BlockPos(64 + rotation.ordinal() * 48, 0, 64)).atY(150), rotation);
+            var cellar = new MansionBasementPiece(h.absolutePos(new BlockPos(64 + rotation.ordinal() * 48, 0, 64)).atY(150), rotation, 11);
             // Place just the actual doorway neighborhoods. Known-shape placement
             // matches generation; using the levers below performs real updates.
             for (int x = -7; x <= 7; x++) for (int z = 17; z <= 26; z++) for (int y = -8; y <= 3; y++) {

@@ -7,18 +7,15 @@
       "id": "alexsmobs:cooked_lobster_tail",
       "required": false
     },
-    "aoemod:cooked_anomalocaris",
     "aoemod:cooked_octopus",
     "aoemod:cooked_flying_fish",
     "aoemod:cooked_arrow_squid",
     "aoemod:cooked_vampire_squid",
     "aoemod:cooked_triops",
     "aoemod:cooked_blue_spotted_stingray",
-    "aoemod:cooked_swamp_mucker",
     "aoemod:cooked_tuna",
     "aoemod:cooked_umbrella_octopus",
     "aoemod:cooked_starfish",
-    "aoemod:cooked_lost_tentacle",
     "aoemod:cooked_crab_meat"
   ]
 }

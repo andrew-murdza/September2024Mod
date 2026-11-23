@@ -29,6 +29,45 @@ public final class CassowaryFamilyTests {
     }
 
     @GameTest(template = "plant_gameplay_empty")
+    public static void placedEggHatchesThroughScheduledTicksInsteadOfRandomTicks(GameTestHelper helper) {
+        var level = helper.getLevel();
+        var pos = helper.absolutePos(new BlockPos(3, 2, 3));
+        var egg = ForgeRegistries.BLOCKS.getValue(new ResourceLocation("biodiverse:cassowary_egg"));
+        helper.assertTrue(egg != null && egg != Blocks.AIR, "The native cassowary egg must remain registered");
+        level.setBlock(pos.below(), Blocks.STONE.defaultBlockState(), 3);
+        level.setBlock(pos, egg.defaultBlockState(), 3);
+        var blockEntity = level.getBlockEntity(pos);
+        helper.assertTrue(blockEntity != null && blockEntity.getPersistentData().getDouble("age") == 60,
+                "Placing an egg must initialize its sixty-step incubation countdown");
+        helper.assertFalse(level.getBlockState(pos).isRandomlyTicking(),
+                "Increasing randomTickSpeed must not accelerate scheduled egg incubation");
+        helper.assertTrue(level.getBlockTicks().hasScheduledTick(pos, egg),
+                "Placement must schedule the egg's first incubation tick");
+        var bounds = new net.minecraft.world.phys.AABB(pos).inflate(2);
+        var before = level.getEntitiesOfClass(CassowaryEntity.class, bounds).stream()
+                .map(CassowaryEntity::getUUID).collect(java.util.stream.Collectors.toSet());
+        // Call the same block tick used every 200 game ticks without making QA wait ten minutes.
+        for (int i = 0; i < 60; i++) {
+            level.getBlockState(pos).tick(level, pos, level.random);
+        }
+        helper.assertTrue(level.getBlockState(pos).is(egg) && blockEntity.getPersistentData().getDouble("age") == 0,
+                "The egg must finish all sixty countdown steps before hatching on the next scheduled tick");
+        level.getBlockState(pos).tick(level, pos, level.random);
+        var hatchlings = level.getEntitiesOfClass(CassowaryEntity.class, bounds,
+                bird -> !before.contains(bird.getUUID()));
+        try {
+            helper.assertTrue(level.getBlockState(pos).isAir() && hatchlings.size() == 1,
+                    "The sixty-first scheduled tick must replace the egg with one cassowary");
+            helper.assertTrue(hatchlings.get(0).isBaby() && hatchlings.get(0).getTexture().equals("cassowarybaby"),
+                    "The hatchling must immediately be a baby with the baby appearance");
+        } finally {
+            hatchlings.forEach(CassowaryEntity::discard);
+            level.removeBlock(pos, false);
+        }
+        helper.succeed();
+    }
+
+    @GameTest(template = "plant_gameplay_empty")
     public static void clickingAdultWithNativeSpawnEggCreatesOneBaby(GameTestHelper helper) {
         var level = helper.getLevel();
         var adult = type().create(level);

@@ -19,17 +19,56 @@ public final class BranchedBossCaves {
     private final List<Passage> passages = new ArrayList<>();
     private final List<BlockPos> residents = new ArrayList<>();
     private final int sx, sz;
-    private final boolean spider;
+    private final boolean spider, expandedSpider;
     private final int witherDepth;
     private final BlockPos entrance;
     private final List<BlockPos> branches;
 
     public BranchedBossCaves(String kind, int centerY, long seed) {
+        this(kind, centerY, seed, true);
+    }
+
+    public BranchedBossCaves(String kind, int centerY, long seed, boolean expandedSpider) {
         spider = kind.equals("spider");
+        this.expandedSpider = spider && expandedSpider;
         witherDepth = spider ? 0 : Math.min(4, Math.max(0, centerY - 5));
         sx = spider && (seed & 1) != 0 ? -1 : 1;
         sz = spider && (seed & 2) != 0 ? -1 : 1;
-        if (spider) {
+        if (this.expandedSpider) {
+            path(54, 0, 54, 44, 0, 44, 3, 6);
+            path(44, 0, 44, 24, -6, 24, 3, 6);
+            // Finish each ramp outside its larger room before entering on a flat landing.
+            path(24, -6, 24, 32, -14, 6, 3, 6);
+            path(32, -14, 6, 32, -14, -10, 3, 6);
+            path(24, -6, 24, 6, -14, 32, 3, 6);
+            path(6, -14, 32, -10, -14, 32, 3, 6);
+            path(32, -14, -10, 32, -14, -25, 3, 6);
+            path(32, -14, -25, 20, -22, -35, 3, 6);
+            path(20, -22, -35, 5, -22, -38, 3, 6);
+            path(-10, -14, 32, -25, -14, 32, 3, 6);
+            path(-25, -14, 32, -35, -22, 20, 3, 6);
+            path(-35, -22, 20, -38, -22, 5, 3, 6);
+            path(5, -22, -38, -10, -22, -38, 3, 6);
+            path(-10, -22, -38, -23, -34, -51, 3, 6);
+            path(-23, -34, -51, -28, -34, -28, 3, 6);
+            path(-38, -22, 5, -38, -22, -10, 3, 6);
+            path(-38, -22, -10, -51, -34, -23, 3, 6);
+            path(-51, -34, -23, -28, -34, -28, 3, 6);
+            // A silk nursery connects the two upper galleries without another steep descent.
+            path(32, -14, -10, 0, -14, 0, 3, 6);
+            path(-10, -14, 32, 0, -14, 0, 3, 6);
+            for (var chamber : SpiderCaveLayout.chambers()) {
+                var point = chamber.center();
+                room(point.getX(), point.getY(), point.getZ(), chamber.radius(), chamber.height());
+            }
+            for (var resident : SpiderCaveLayout.residents()) {
+                var point = resident.pos();
+                residents.add(local(point.getX(), point.getY(), point.getZ()));
+            }
+            entrance = local(54, 1, 54);
+            branches = SpiderCaveLayout.chambers().stream().filter(chamber -> chamber.theme() != SpiderCaveLayout.Theme.QUEEN)
+                    .map(chamber -> local(chamber.center().getX(), chamber.center().getY() + 1, chamber.center().getZ())).toList();
+        } else if (spider) {
             path(54, 0, 54, 44, 0, 44, 3, 6);
             path(44, 0, 44, 24, -6, 24, 3, 6);
             path(24, -6, 24, 34, -12, 8, 3, 6);
@@ -82,7 +121,7 @@ public final class BranchedBossCaves {
             branches = List.of(new BlockPos(15, 1 - depth / 2, 1), new BlockPos(-15, 1 - depth / 2, 1));
         }
         // Mirroring is applied at lookup. All instances share one generated mesh per descent depth.
-        shape = SHAPES.computeIfAbsent(spider ? -1 : witherDepth, unused -> buildShape());
+        shape = SHAPES.computeIfAbsent(this.expandedSpider ? -2 : spider ? -1 : witherDepth, unused -> buildShape());
     }
 
     private BlockPos local(int x, int y, int z) { return new BlockPos(x * sx, y, z * sz); }
@@ -100,6 +139,8 @@ public final class BranchedBossCaves {
     public BlockPos entrance() { return entrance; }
     public List<BlockPos> branches() { return branches; }
     public List<BlockPos> lootPositions() {
+        if (expandedSpider) return SpiderCaveLayout.lootPositions().stream()
+                .map(pos -> local(pos.getX(), pos.getY(), pos.getZ())).toList();
         // Keep two blocks between the boss-room chest and the wide spider
         // helper at x=-35; adjacent blocks overlap their actual collision boxes.
         return spider ? List.of(local(36, -13, -10), local(-10, -13, 36),
@@ -161,6 +202,14 @@ public final class BranchedBossCaves {
                 result[i] = new Column(bottom, y, floor, ceiling);
             }
         }
+        if (expandedSpider) {
+            for (int z = -RADIUS; z <= RADIUS; z++) for (int x = -RADIUS; x <= RADIUS; x++) {
+                if (!SpiderCaveLayout.isFarmPit(x, z)) continue;
+                int index = (z + RADIUS) * WIDTH + x + RADIUS;
+                var column = result[index];
+                result[index] = new Column(column.bottom() - 2, column.top(), column.floor() - 2, column.ceiling());
+            }
+        }
         return result;
     }
 
@@ -218,7 +267,7 @@ public final class BranchedBossCaves {
             }
         }
         floor = Math.min(floor, tunnelFloor);
-        if (spider && (Math.abs(x + 28) == 13 && Math.abs(z + 28) <= 1
+        if (spider && !expandedSpider && (Math.abs(x + 28) == 13 && Math.abs(z + 28) <= 1
                 || Math.abs(z + 28) == 13 && Math.abs(x + 28) <= 1)) {
             // The three center columns of each cardinal wall ended one block
             // higher than their neighbors, creating the four recessed notches.

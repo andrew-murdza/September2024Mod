@@ -246,7 +246,14 @@ public final class MansionReplacementTests {
 
     private static void assertChestNbt(GameTestHelper helper, StructureBlockInfo before, StructureBlockInfo after) {
         CompoundTag expected = before.state().is(Blocks.CHEST) && before.nbt() != null ? replacedChest(before.nbt()) : before.nbt();
-        helper.assertTrue(java.util.Objects.equals(expected, after.nbt()), "Only fixed chest item identifiers may change");
+        if ((before.state().is(Blocks.CHEST) || before.state().is(Blocks.TRAPPED_CHEST))
+                && (expected == null || !expected.contains("LootTable", Tag.TAG_STRING)
+                && expected.getList("Items", Tag.TAG_COMPOUND).isEmpty())) {
+            expected = expected == null ? new CompoundTag() : expected.copy();
+            expected.remove("Items");
+            expected.putString("LootTable", "aoemod:chests/illager_mansion");
+        }
+        helper.assertTrue(java.util.Objects.equals(expected, after.nbt()), "Preserve fixed chest supplies and assign loot only to empty generated chests");
     }
 
     private static CompoundTag withoutSlot(CompoundTag original) {

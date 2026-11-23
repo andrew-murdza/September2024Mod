@@ -95,8 +95,8 @@ public final class DocumentedPlacementTests {
         var valleyAbove = boundary(nether, pos, "crimson_forest", "soul_sand_valley");
         h.assertTrue(placementFailureMessage(valleyAbove, pos, Blocks.SOUL_SAND.defaultBlockState()).isEmpty(), "Allowed substrate boundary must not show a denial");
         var forest = boundary(snowy, pos, "snowy_forest", "snowy_forest");
-        String beetroot = placementFailureMessage(forest, pos, Blocks.BEETROOTS.defaultBlockState()).orElseThrow().getString();
-        h.assertTrue(beetroot.endsWith("outside mushroom caves."), "Other habitat feedback must identify the actual biome: " + beetroot);
+        h.assertTrue(placementFailureMessage(forest, pos, Blocks.BEETROOTS.defaultBlockState()).isEmpty(),
+                "Snowy's shared block list must not show stale mushroom-cave feedback");
         String foreignWart = placementFailureMessage(savanna, pos, Blocks.NETHER_WART.defaultBlockState()).orElseThrow().getString();
         h.assertTrue(foreignWart.endsWith("in savanna dimension."), "A foreign dimension must take precedence over a plant's Nether habitat: " + foreignWart);
         h.assertTrue(placementFailureMessage(savanna, pos, Blocks.MUD.defaultBlockState()).isEmpty(), "Allowed placement must not show a denial");
@@ -125,7 +125,8 @@ public final class DocumentedPlacementTests {
         h.assertFalse(DocumentedPlacementRules.isBiomeAllowed(crimsonAbove, pos, paleLog, true), "A growing pale oak tree must keep its trunk inside soul sand valley");
         var nonCave = boundary(snowy, pos, "snowy_forest", "snowy_forest");
         var cave = boundary(snowy, pos, "mushroom_caves", "mushroom_caves");
-        h.assertFalse(DocumentedPlacementRules.isBiomeAllowed(nonCave, pos, Blocks.BEETROOTS.defaultBlockState(), false), "Snowy beetroot requires mushroom caves");
+        h.assertTrue(DocumentedPlacementRules.isBiomeAllowed(nonCave, pos, Blocks.BEETROOTS.defaultBlockState(), false), "Players can plant Snowy beetroot throughout the dimension");
+        h.assertFalse(DocumentedPlacementRules.isGenerationBiomeAllowed(nonCave, pos, Blocks.BEETROOTS.defaultBlockState(), false), "Naturally generated beetroot retains its mushroom-cave habitat");
         h.assertTrue(DocumentedPlacementRules.isBiomeAllowed(cave, pos, Blocks.BEETROOTS.defaultBlockState(), false), "Mushroom-cave beetroot is allowed");
         var surface = boundary(desert, pos, "desert", "desert");
         h.assertFalse(DocumentedPlacementRules.isBiomeAllowed(surface, pos, Blocks.CHORUS_FLOWER.defaultBlockState(), false), "Players plant chorus only in deep dark");

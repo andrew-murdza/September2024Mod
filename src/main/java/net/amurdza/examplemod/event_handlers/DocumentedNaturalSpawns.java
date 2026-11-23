@@ -47,7 +47,7 @@ public final class DocumentedNaturalSpawns {
     @SubscribeEvent(priority = EventPriority.LOWEST)
     public static void placement(MobSpawnEvent.SpawnPlacementCheck event) {
         if (!natural(event.getSpawnType()) || !GameplayDimensions.isCustom(event.getLevel())) return;
-        if (net.amurdza.examplemod.worldgen.SavannaCampSpawnRules.blocked(event.getLevel(), event.getPos(), event.getEntityType())) {
+        if (net.amurdza.examplemod.worldgen.BossStructureSpawnRules.blocked(event.getLevel(), event.getPos(), event.getEntityType())) {
             event.setResult(Event.Result.DENY);
             return;
         }
@@ -71,7 +71,7 @@ public final class DocumentedNaturalSpawns {
     @SubscribeEvent(priority = EventPriority.LOWEST)
     public static void position(MobSpawnEvent.PositionCheck event) {
         if (!natural(event.getSpawnType()) || !GameplayDimensions.isCustom(event.getLevel())) return;
-        if (net.amurdza.examplemod.worldgen.SavannaCampSpawnRules.blocked(event.getLevel(),
+        if (net.amurdza.examplemod.worldgen.BossStructureSpawnRules.blocked(event.getLevel(),
                 BlockPos.containing(event.getX(), event.getY(), event.getZ()), event.getEntity())) {
             event.setResult(Event.Result.DENY);
             return;
@@ -110,6 +110,7 @@ public final class DocumentedNaturalSpawns {
         var bounds = event.getEntity().getBoundingBox().move(0, ground.getY() - pos.getY(), 0);
         // Retain collision safety while replacing source-mod sea-level/biome/brightness assumptions.
         boolean allowed = SpawnCollisionSafety.canInspect(event.getLevel(), bounds)
+                && net.amurdza.examplemod.worldgen.SmallAquaticPlants.hasSpace(event.getLevel(), event.getEntity(), bounds)
                 && SpawnCollisionSafety.hasNoPowderCane(event.getLevel(), bounds)
                 && DocumentedFauna.hasSpace(event.getLevel(), pos, species)
                 && event.getLevel().noCollision(event.getEntity(), bounds);
@@ -147,10 +148,10 @@ public final class DocumentedNaturalSpawns {
         // Custom spawners such as PhantomSpawner do not run the ordinary
         // placement checks. Cancel the spawn itself, not just initialization.
         boolean campSpawn = natural(event.getSpawnType()) || switch (event.getSpawnType()) {
-            case SPAWNER, REINFORCEMENT, EVENT, JOCKEY -> event.getEntity().getMobType() == net.minecraft.world.entity.MobType.UNDEAD;
+            case SPAWNER, REINFORCEMENT, EVENT, JOCKEY, PATROL -> !(event.getEntity() instanceof twilightforest.entity.boss.AlphaYeti);
             default -> false;
         };
-        if (campSpawn && net.amurdza.examplemod.worldgen.SavannaCampSpawnRules.blocked(event.getLevel(),
+        if (campSpawn && net.amurdza.examplemod.worldgen.BossStructureSpawnRules.blocked(event.getLevel(),
                 BlockPos.containing(event.getX(), event.getY(), event.getZ()), event.getEntity())) {
             event.setSpawnCancelled(true);
             event.setCanceled(true);
@@ -205,6 +206,7 @@ public final class DocumentedNaturalSpawns {
             return;
         }
         if (GameplayDimensions.is(event.getLevel(), GameplayDimensions.TROPICAL)
+                || entity instanceof dev.hybridlabs.aquatic.entity.critter.StarfishEntity
                 || !event.loadedFromDisk() || entity.getPersistentData().getBoolean("aoemod:maximize_spawn_size")) {
             maximizeAquaticSize(entity);
             entity.getPersistentData().remove("aoemod:maximize_spawn_size");

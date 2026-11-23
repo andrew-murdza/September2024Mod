@@ -226,8 +226,8 @@ public final class SavannaRoundTwoTests {
             @Override public net.minecraft.world.entity.MobType getMobType() { return net.minecraft.world.entity.MobType.UNDEAD; }
         };
         unnamedUndead.moveTo(center, 0, 0);
-        helper.assertFalse(SavannaCampSpawnRules.blocked(level, center, unnamedUndead.getType()),
-                "This fixture must bypass the name-based undead optimization");
+        helper.assertTrue(SavannaCampSpawnRules.blocked(level, center, unnamedUndead.getType()),
+                "Camp spawning must reject every ambient mob category, including spiders");
         helper.assertTrue(SavannaCampSpawnRules.blocked(level, center, unnamedUndead),
                 "Modded undead with unrelated registry names must still be forbidden by their real mob family");
         unnamedUndead.discard();

@@ -32,6 +32,9 @@ public abstract class WitherSummons {
             return;
         }
 
+        // Authored citadel encounters have a fixed once-only roster.
+        if (net.amurdza.examplemod.worldgen.structure.NetherCitadelProgress.KIND.equals(
+                net.amurdza.examplemod.worldgen.structure.AuthoredEncounterProgress.kind(wither))) return;
         LivingEntity target = wither.getTarget();
         CompoundTag data = wither.getPersistentData();
         int cooldown = data.contains(AOEMOD_SUMMON_COOLDOWN)

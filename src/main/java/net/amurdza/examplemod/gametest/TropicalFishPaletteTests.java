@@ -25,7 +25,7 @@ public final class TropicalFishPaletteTests {
         fish.getRandom().setSeed(271828L);
         for (int i = 0; i < 6000; i++) {
             fish.finalizeSpawn(level, difficulty, MobSpawnType.NATURAL, null, null);
-            helper.assertTrue(fish.getVariant() == TropicalFish.Pattern.CLAYFISH || fish.getVariant() == TropicalFish.Pattern.BETTY,
+            helper.assertTrue(fish.getVariant() == TropicalFish.Pattern.CLAYFISH && fish.getBaseColor() != fish.getPatternColor(),
                     "Tropical natural spawn used another pattern");
             for (var color : new DyeColor[]{fish.getBaseColor(), fish.getPatternColor()}) {
                 helper.assertTrue(color != DyeColor.BLACK && color != DyeColor.GRAY, "Disallowed tropical color");
@@ -40,7 +40,46 @@ public final class TropicalFishPaletteTests {
                         && released.getPatternColor() == fish.getPatternColor(), "Bucket changed a captured fish's colors");
             }
         }
-        helper.assertTrue(variants.size() == 392, "Both patterns must support every pair of 14 colors");
+        helper.assertTrue(variants.size() == 182, "Clayfish must support exactly 14 * 13 distinct color pairs");
+        helper.succeed();
+    }
+
+    @GameTest(template = "plant_gameplay_empty")
+    public static void savedAndBucketVariantsEnforceExactlyTheSamePalette(GameTestHelper helper) {
+        var tropical = helper.getLevel().getServer().getLevel(GameplayDimensions.TROPICAL);
+        var fish = EntityType.TROPICAL_FISH.create(tropical);
+        var control = EntityType.TROPICAL_FISH.create(helper.getLevel());
+        int retained = 0;
+        for (var pattern : TropicalFish.Pattern.values()) for (var base : DyeColor.values()) for (var marking : DyeColor.values()) {
+            int packed = new TropicalFish.Variant(pattern, base, marking).getPackedId();
+            var saved = new net.minecraft.nbt.CompoundTag();
+            saved.putInt("Variant", packed);
+            fish.readAdditionalSaveData(saved);
+            control.readAdditionalSaveData(saved);
+            helper.assertTrue(fish.getVariant() == TropicalFish.Pattern.CLAYFISH && fish.getBaseColor() != fish.getPatternColor()
+                            && fish.getBaseColor() != DyeColor.BLACK && fish.getBaseColor() != DyeColor.GRAY
+                            && fish.getPatternColor() != DyeColor.BLACK && fish.getPatternColor() != DyeColor.GRAY,
+                    "Saved fish escaped the tropical palette");
+            helper.assertTrue(control.getVariant() == pattern && control.getBaseColor() == base && control.getPatternColor() == marking,
+                    "The tropical palette must not change fish in other dimensions");
+            boolean allowed = pattern == TropicalFish.Pattern.CLAYFISH && base != marking
+                    && base != DyeColor.BLACK && base != DyeColor.GRAY && marking != DyeColor.BLACK && marking != DyeColor.GRAY;
+            if (allowed) {
+                retained++;
+                helper.assertTrue(fish.getBaseColor() == base && fish.getPatternColor() == marking,
+                        "A valid saved clayfish must keep its exact colors");
+            }
+            var bucket = new net.minecraft.nbt.CompoundTag();
+            bucket.putInt(TropicalFish.BUCKET_VARIANT_TAG, packed);
+            fish.finalizeSpawn(tropical, tropical.getCurrentDifficultyAt(tropical.getSharedSpawnPos()), MobSpawnType.BUCKET, null, bucket);
+            helper.assertTrue(fish.getVariant() == TropicalFish.Pattern.CLAYFISH && fish.getBaseColor() != fish.getPatternColor()
+                            && fish.getBaseColor() != DyeColor.BLACK && fish.getBaseColor() != DyeColor.GRAY
+                            && fish.getPatternColor() != DyeColor.BLACK && fish.getPatternColor() != DyeColor.GRAY,
+                    "Bucket fish escaped the tropical palette");
+        }
+        helper.assertTrue(retained == 182, "Exactly 182 saved fish variants must retain their identity");
+        fish.discard();
+        control.discard();
         helper.succeed();
     }
 }

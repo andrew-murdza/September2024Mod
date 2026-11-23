@@ -13,8 +13,8 @@
         "kind": "project",
         "path": "libs/Platform-forge-1.20.1-1.4.0.2640.1.jar"
       },
-      "sha256": "75b5099f74710a529c640885366e21f5e5f0d063d210fc2caba86b086fc5105a",
-      "bytes": 1191183,
+      "sha256": "64b5406c21441657c9b756f9c6bb5eb0316a0a89fcf702e2091c52b698dde6aa",
+      "bytes": 1191184,
       "mods": [
         {
           "modId": "platform",
@@ -31,8 +31,8 @@
         "kind": "project",
         "path": "libs/VanillaBackport-forge-1.20.1-1.2.0.2640.1.jar"
       },
-      "sha256": "01371a3b2ade997f1e30816b97951f9581610bfe940944e93f0a796bf103e5db",
-      "bytes": 65055502,
+      "sha256": "5fbbcd4f245deafc1d5a4e3f35901890aa3e4a3e9dab8bc377e07bb8160d3cb7",
+      "bytes": 65055503,
       "mods": [
         {
           "modId": "vanillabackport",
@@ -91,24 +91,6 @@
         {
           "modId": "ambientadditions",
           "version": "1.20.1-1.1.2",
-          "embedded": false
-        }
-      ]
-    },
-    {
-      "filename": "angling-1.0.1-forge.1.jar",
-      "coordinate": "local.pack:angling:1.0.1-forge.1",
-      "category": "requested-pack",
-      "source": {
-        "kind": "project",
-        "path": "libs/pack/angling-1.0.1-forge.1.jar"
-      },
-      "sha256": "36c6857fc4ce52eb02ca6f78720223c0a3b781512dbdd0137b00bead9f1d139a",
-      "bytes": 662453,
-      "mods": [
-        {
-          "modId": "angling",
-          "version": "1.0.1-forge.1",
           "embedded": false
         }
       ]

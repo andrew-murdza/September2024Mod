@@ -63,6 +63,9 @@ public final class MansionProtectionTests {
         }
         use(player, basement.secondDoor(), ItemStack.EMPTY);
         h.assertFalse(level.getBlockState(pos).getValue(DoorBlock.OPEN), "Interacting with the second leaf must close the double door");
+        level.setBlock(entrance.above(), Blocks.STONE_BRICKS.defaultBlockState(), 18);
+        h.assertTrue(level.getBlockState(entrance.above()).is(Blocks.STONE_BRICKS),
+                "The room protection probe must contain actual masonry, not empty authored space");
         for (var target : List.of(pos, pos.below(), entrance.above())) {
             var breaking = new BlockEvent.BreakEvent(level, target, level.getBlockState(target), player);
             MansionProtection.breakBlock(breaking);

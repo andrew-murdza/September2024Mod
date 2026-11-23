@@ -1,0 +1,40 @@
+SPIDER CAVE — NOVEMBER 21, 2026
+
+Applies to newly generated spider caves in the Downloads project. Existing saved
+caves retain their original layout and resident flags.
+
+The cave has six themed chambers: slime habitat, azalea garden, huge-mushroom
+grove, Arthropleura farming larder, silk nursery, and queen chamber. The two
+branches descend to the queen 34 blocks below the covered entrance. A new cross
+gallery links the upper chambers. Total floor area is 4,256 blocks, up from
+2,657; it remains smaller than both the historical and current orc camp.
+
+Each cave starts with exactly 20 spiders, 20 cave spiders, 8 bogged, 10 small
+slimes, 10 slime beetles, one spider queen, and 4 adult Arthropleura in two lowered
+pits. The 68 regular monsters are below the requested maximum of 96. Slimes and
+beetles inhabit both their dedicated room and other chambers. Small slimes do
+not split. Random spider jockey passengers are removed. Saved placement flags
+cover every resident, including indices above 64, without replenishment on reload.
+Arthropleura offspring, including twins, inherit cave membership so the farming
+pits remain usable across breeding and reloads.
+
+Mature glowing cave vines, inset ochre/verdant/pearlescent frog lights, and spore
+blossoms decorate the ceiling. Floors and room edges include slime blocks,
+moss, grass, ordinary ferns, red/brown mushrooms, two huge mushrooms,
+azalea and flowering azalea shrubs, one azalea tree, bone blocks, white wool cocoons, and cobwebs.
+Vanilla azalea trees use oak logs beneath an exclusively azalea leaf canopy.
+The entrance, central paths, resident positions and chest approaches stay clear.
+Six loot chests face inward against room walls. No swamp water, drowned, wild
+crops, or non-azalea/non-mushroom trees were added.
+
+Optional future additions: a small calcite fossil gallery with bone ribs and
+tuff accents; a flowering-azalea alcove with decorative bee nests and honeycomb.
+These are recommendations, not additional rooms in this revision.
+
+Validation commands:
+.\gradlew.bat -I scripts/spider-cave-qa.init.gradle --max-workers=2 build
+.\gradlew.bat -I scripts/spider-cave-qa.init.gradle --max-workers=2 '-PspiderRun=check' runGameTestServer
+
+QA runs use disposable build/spider-cave-qa directories, immutable runtime
+copies, two active processors, and modest heaps. Installed configs, saves and
+options are not used by the test runtime.

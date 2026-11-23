@@ -32,20 +32,16 @@ public final class FishFoodTextureRecipesTests {
 
     private static final List<FishFood> FOODS = List.of(
             new FishFood("minecraft:squid", "culturaldelights:squid", "culturaldelights:cooked_squid", GameplayDimensions.TROPICAL),
-            food("hybrid_aquatic:coconut_crab", "ecologics:crab_meat", "crab_meat", GameplayDimensions.TROPICAL),
-            food("hybrid_aquatic:lightfoot_crab", "ecologics:crab_meat", "crab_meat", GameplayDimensions.TROPICAL),
-            food("hybrid_aquatic:flower_crab", "ecologics:crab_meat", "crab_meat", GameplayDimensions.PLAINS),
+            new FishFood("alexsmobs:lobster", "alexsmobs:lobster_tail", "alexsmobs:cooked_lobster_tail", GameplayDimensions.PLAINS),
+            new FishFood("alexsmobs:lobster", "alexsmobs:lobster_tail", "alexsmobs:cooked_lobster_tail", GameplayDimensions.SAVANNA),
             food("hybrid_aquatic:fiddler_crab", "ecologics:crab_meat", "crab_meat", GameplayDimensions.DESERT),
             food("hybrid_aquatic:spider_crab", "ecologics:crab_meat", "crab_meat", GameplayDimensions.SNOWY),
-            food("finsandtails:swamp_mucker", "finsandtails:swamp_mucker", "swamp_mucker", GameplayDimensions.PLAINS),
             food("hybrid_aquatic:umbrella_octopus", "aoemod:raw_umbrella_octopus", "umbrella_octopus", GameplayDimensions.TROPICAL),
             food("hybrid_aquatic:octopus", "aoemod:raw_octopus", "octopus", GameplayDimensions.PLAINS),
             food("hybrid_aquatic:starfish", "hybrid_aquatic:starfish", "starfish", GameplayDimensions.TROPICAL),
-            food("angling:anomalocaris", "aoemod:raw_anomalocaris", "anomalocaris", GameplayDimensions.TROPICAL),
             new FishFood("minecraft:glow_squid", "culturaldelights:glow_squid", "culturaldelights:cooked_squid", GameplayDimensions.SNOWY),
             food("hybrid_aquatic:tuna", "hybrid_aquatic:tuna", "tuna", GameplayDimensions.SNOWY),
             food("hybrid_aquatic:arrow_squid", "aoemod:raw_arrow_squid", "arrow_squid", GameplayDimensions.SNOWY),
-            food("alexsmobs:giant_squid", "alexsmobs:lost_tentacle", "lost_tentacle", GameplayDimensions.SNOWY),
             food("alexsmobs:flying_fish", "alexsmobs:flying_fish", "flying_fish", GameplayDimensions.SNOWY),
             food("hybrid_aquatic:vampire_squid", "aoemod:raw_vampire_squid", "vampire_squid", GameplayDimensions.SNOWY));
 

@@ -5,6 +5,7 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.ChunkPos;
+import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.WorldGenLevel;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.BambooStalkBlock;
@@ -106,5 +107,26 @@ public final class TropicalBamboo {
                 || state.is(Blocks.FERN) || state.is(Blocks.LARGE_FERN) || state.is(Blocks.VINE)
                 || state.is(Blocks.CAVE_VINES) || state.is(Blocks.CAVE_VINES_PLANT)
                 || state.is(Blocks.GLOW_LICHEN) || state.is(Blocks.HANGING_ROOTS);
+    }
+
+    /** Neighboring chunks can finish a canopy after this chunk's final bamboo pass. */
+    public static void trimForObstacle(LevelAccessor level, BlockPos pos, BlockState previous, BlockState placed) {
+        if (!previous.is(Blocks.BAMBOO) || placed.is(Blocks.BAMBOO) || !GameplayDimensions.is(level, GameplayDimensions.TROPICAL)
+                || !placed.isSolid() && !placed.is(BlockTags.LEAVES)) return;
+        // Remove the detached upper stalk without drops, inside the same tree transaction.
+        // Otherwise a later neighboring crown leaves bamboo protruding through its top.
+        BlockPos cursor = pos.above();
+        while (!level.isOutsideBuildHeight(cursor) && level.getBlockState(cursor).is(Blocks.BAMBOO)) {
+            level.setBlock(cursor, Blocks.AIR.defaultBlockState(), 18);
+            cursor = cursor.above();
+        }
+        // Finish the surviving stalk immediately below the obstruction and stop its growth.
+        for (int depth = 1; depth <= 3; depth++) {
+            BlockPos tip = pos.below(depth);
+            BlockState bamboo = level.getBlockState(tip);
+            if (!bamboo.is(Blocks.BAMBOO)) break;
+            level.setBlock(tip, bamboo.setValue(BambooStalkBlock.STAGE, depth == 1 ? 1 : 0)
+                    .setValue(BambooStalkBlock.LEAVES, depth <= 2 ? BambooLeaves.LARGE : BambooLeaves.SMALL), 18);
+        }
     }
 }

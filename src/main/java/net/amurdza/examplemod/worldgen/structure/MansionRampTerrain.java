@@ -72,7 +72,7 @@ public final class MansionRampTerrain {
                 pos.getMaxBlockX(), region.getMaxBuildHeight() - 1, pos.getMaxBlockZ());
         for (var site : sitesForChunk(region, pos, generator)) {
             place(region, clip, site);
-            if (site.shape().square()) MansionGrounds.placeTrees(region, clip, site.house, site.groundY, site.layoutVersion);
+            if (site.shape().widened()) MansionGrounds.placeTrees(region, clip, site.house, site.groundY, site.layoutVersion);
         }
     }
 
@@ -91,7 +91,7 @@ public final class MansionRampTerrain {
         var state = level.getChunkSource().getGeneratorState();
         // A cone cannot affect a column once it falls below the world's minimum
         // height. Add one chunk for the candidate's center offset within its chunk.
-        int range = (MAX_HOUSE_RADIUS + MansionEstateShape.SQUARE_MARGIN + level.getHeight() + 15) / 16 + 1;
+        int range = (MAX_HOUSE_RADIUS + MansionEstateShape.WIDE_MARGIN + level.getHeight() + 15) / 16 + 1;
         var result = new ArrayList<Site>();
         for (var holder : state.possibleStructureSets()) {
             var set = holder.value();
@@ -107,7 +107,7 @@ public final class MansionRampTerrain {
                             || !placement.isStructureChunk(state, candidate.x, candidate.z)) continue;
                     double dx = Math.max(0, Math.abs(candidate.getBlockX(7) - target.getMiddleBlockX()) - 8);
                     double dz = Math.max(0, Math.abs(candidate.getBlockZ(7) - target.getMiddleBlockZ()) - 8);
-                    if (Math.max(dx, dz) >= MAX_HOUSE_RADIUS + MansionEstateShape.SQUARE_MARGIN + level.getHeight()) continue;
+                    if (Math.max(dx, dz) >= MAX_HOUSE_RADIUS + MansionEstateShape.WIDE_MARGIN + level.getHeight()) continue;
                     var owner = availableOwner.apply(candidate.x, candidate.z);
                     Optional<Site> site;
                     if (owner != null) {
@@ -160,7 +160,7 @@ public final class MansionRampTerrain {
             boolean core = Math.abs((x >> 4) - site.owner.x) <= 8 && Math.abs((z >> 4) - site.owner.z) <= 8
                     && x >= site.house.minX() - MansionGrounds.OUTER_MARGIN && x <= site.house.maxX() + MansionGrounds.OUTER_MARGIN
                     && z >= site.house.minZ() - MansionGrounds.OUTER_MARGIN && z <= site.house.maxZ() + MansionGrounds.OUTER_MARGIN;
-            if (flat && (!site.shape().square() || core) || site.groundY - (int) Math.floor(Math.max(0, distance)) <= minY) continue;
+            if (flat && (!site.shape().widened() || core) || site.groundY - (int) Math.floor(Math.max(0, distance)) <= minY) continue;
             int top = Math.min(level.getHeight(map, x, z) - 1, clip.maxY());
             int natural = top;
             int waterTop = minY - 1;
@@ -203,7 +203,7 @@ public final class MansionRampTerrain {
                     for (int x = pos.getMinBlockX(); x <= pos.getMaxBlockX() && !needed; x++) {
                         for (int z = pos.getMinBlockZ(); z <= pos.getMaxBlockZ(); z++) {
                             double distance = site.distanceBeyondFlat(x, z);
-                            if (distance <= 0 && site.shape().square()
+                            if (distance <= 0 && site.shape().widened()
                                     || distance > 0 && targetHeight(site.groundY, distance, heights.height(x, z) - 1) >= heights.height(x, z)) {
                                 needed = true;
                                 break;
@@ -215,7 +215,7 @@ public final class MansionRampTerrain {
                 var clip = new BoundingBox(pos.getMinBlockX(), level.getMinBuildHeight(), pos.getMinBlockZ(),
                         pos.getMaxBlockX(), level.getMaxBuildHeight() - 1, pos.getMaxBlockZ());
                 place(level, clip, site);
-                if (site.shape().square()) {
+                if (site.shape().widened()) {
                     MansionGrounds.placeTrees(level, clip, site.house, site.groundY, site.layoutVersion);
                     MansionGroundCover.place(level, clip, site);
                 }

@@ -1,0 +1,65 @@
+{
+  "capturedAtUtc": "2026-11-21T23:38:21.0548432Z",
+  "sourceRoot": "C:/Users/andre/Downloads/September2024Mod",
+  "log": "build/nether-citadel-qa/build-and-data-final.log",
+  "outcome": "passed",
+  "completionEvidence": [
+    "All providers took: 0 ms",
+    "Caching: total files: 0, old count: 0, new count: 1, removed stale: 0, written: 0",
+    "BUILD SUCCESSFUL in 10m 37s",
+    "19 actionable tasks: 19 executed"
+  ],
+  "comparison": {
+    "baseline": "build/nether-citadel-qa/source/generated",
+    "generated": "build/nether-citadel-qa/generated",
+    "excluded": [
+      ".cache/**"
+    ],
+    "baselineResourceFiles": 0,
+    "generatedResourceFiles": 0,
+    "snapshotAuthoredResourceFiles": 2086,
+    "activeAuthoredResourceFiles": 2086,
+    "added": [],
+    "removed": [],
+    "changed": [],
+    "outputPathsOverlappingAuthoredResources": []
+  },
+  "semantics": "No generated resource changes: the selected aoemod datagen run emitted zero resource files. Source has no GatherData/addProvider registrations. Cache bookkeeping is excluded. This successful run does not itself constitute schema or gameplay validation of hand-authored resources.",
+  "authoredCitadelResources": [
+    {
+      "path": "src/main/resources/data/aoemod/loot_tables/chests/bosses/nether_citadel.json",
+      "sha256": "98714D5C4A9D056046297908F7A72FF6E2EDCE2DD3BEB14D7E78B582C180CE0C",
+      "unchangedSinceSourceInventory": true,
+      "matchesQaSourceSnapshot": true,
+      "emittedByDatagen": false
+    },
+    {
+      "path": "src/main/resources/aoemod.mixins.json",
+      "sha256": "DE062E2FF33D06946397935D80366D61C307C313FB56C9A0C598FB9F8AEEC4A7",
+      "unchangedSinceSourceInventory": true,
+      "matchesQaSourceSnapshot": false,
+      "emittedByDatagen": false
+    },
+    {
+      "path": "src/main/resources/assets/aoemod/lang/en_us.json",
+      "sha256": "4FC952A52850725AF056CCC5303993CB8A27B92577EF5127B0B7CD9B413CDCB1",
+      "unchangedSinceSourceInventory": true,
+      "matchesQaSourceSnapshot": true,
+      "emittedByDatagen": false
+    },
+    {
+      "path": "src/main/resources/data/aoemod/worldgen/structure/wither_cave.json",
+      "sha256": "42EDA2C3EB95594C4DC2BEC49469CF954E036F723B65E15A83242FBD184B21FF",
+      "unchangedSinceSourceInventory": true,
+      "matchesQaSourceSnapshot": true,
+      "emittedByDatagen": false
+    }
+  ],
+  "sourceWritesPerformedByReview": false,
+  "testResults": null,
+  "sharedSnapshotDifference": {
+    "path": "src/main/resources/aoemod.mixins.json",
+    "difference": "Active source includes three newer Goblin Fortress Twilight Forest mixins absent from the immutable QA snapshot: GoblinFortressIceBomb, GoblinFortressFallingIce, GoblinFortressYetiTerrain.",
+    "relevance": "Concurrent non-citadel integration difference; all citadel mixin entries match. Not caused by datagen, and source hash remains unchanged since this task inventory capture."
+  }
+}

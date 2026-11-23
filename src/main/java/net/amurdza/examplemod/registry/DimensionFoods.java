@@ -27,16 +27,15 @@ public final class DimensionFoods {
         add("plum", Foods.APPLE);
         add("raw_arthropleura", RAW);
         add("cooked_arthropleura", COOKED);
-        for (String name : new String[]{"anomalocaris", "octopus",
+        for (String name : new String[]{"octopus",
                 "arrow_squid", "vampire_squid",
                 "triops", "blue_spotted_stingray", "umbrella_octopus"}) {
             add("raw_" + name, RAW);
             add("cooked_" + name, COOKED);
         }
-        for (String name : new String[]{"swamp_mucker", "tuna", "flying_fish", "crab_meat"}) {
+        for (String name : new String[]{"tuna", "flying_fish", "crab_meat"}) {
             add("cooked_" + name, COOKED);
         }
-        add("cooked_lost_tentacle", COOKED);
         add("raw_squid", RAW);
         add("raw_glow_squid", RAW);
         // Legacy sulfur foods stay registered for saved stacks, but are excluded from catalogs and recipes.

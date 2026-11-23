@@ -9,7 +9,7 @@ import net.minecraft.world.level.levelgen.DensityFunctions;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
-/** Gentle snowy terrain over the original cheese field; round supports are applied to complete columns. */
+/** Steep snowy foothills over the original cheese field; round supports are applied to complete columns. */
 public final class SnowyTerrainProfile implements DensityFunction {
     public static final KeyDispatchDataCodec<SnowyTerrainProfile> CODEC = KeyDispatchDataCodec.of(
             RecordCodecBuilder.mapCodec(instance -> instance.group(
@@ -30,6 +30,8 @@ public final class SnowyTerrainProfile implements DensityFunction {
     // Twice the original underwater grade (four times the interim gentler setting).
     public static final double LAKE_SLOPE = 500;
     public static final double PLATEAU_HEIGHT = FOREST_TOP + 145 * .75 * Math.pow(0.45, 1.5);
+    public static final double MOUNTAIN_SHOULDER = .54;
+    public static final double PLATEAU_START = .895;
     private final DensityFunction ridges, caverns, pillars;
     private final boolean surfaceOnly;
     private final Map<Long, Column> columns = new ConcurrentHashMap<>();
@@ -78,14 +80,26 @@ public final class SnowyTerrainProfile implements DensityFunction {
             if (w <= FOREST_GENTLE_START) return SHORE_HEIGHT + FOREST_BANK_SLOPE * distance - 1.2;
             return 65 + FOREST_SLOPE * (w - FOREST_GENTLE_START) * FOREST_COMPRESSION;
         }
-        if (w >= 0.85) return PLATEAU_HEIGHT;
-        // One broad Hermite shoulder halves the mountain rise, joins the
-        // forest's grade continuously and gradually eases into the summit.
-        double t = (w - 0.4) / 0.45;
-        double tangent = FOREST_SLOPE * FOREST_COMPRESSION * 0.45;
-        return (2 * t * t * t - 3 * t * t + 1) * FOREST_TOP
-                + (t * t * t - 2 * t * t + t) * tangent
-                + (-2 * t * t * t + 3 * t * t) * PLATEAU_HEIGHT;
+        if (w >= PLATEAU_START) return PLATEAU_HEIGHT;
+        // Concentrate the climb beside the dappled forest, where a horizontal
+        // fortress entrance can meet the mountain. Keep the shoreline, ridge
+        // coordinates and summit altitude; the short level crown now starts
+        // much nearer the ridge's maximum contour of .9.
+        double shoulderHeight = PLATEAU_HEIGHT - 7;
+        if (w <= MOUNTAIN_SHOULDER) {
+            double span = MOUNTAIN_SHOULDER - .4;
+            return hermite((w - .4) / span, FOREST_TOP, shoulderHeight,
+                    FOREST_SLOPE * FOREST_COMPRESSION * span, 20 * span);
+        }
+        double span = PLATEAU_START - MOUNTAIN_SHOULDER;
+        return hermite((w - MOUNTAIN_SHOULDER) / span, shoulderHeight, PLATEAU_HEIGHT,
+                20 * span, 0);
+    }
+
+    private static double hermite(double t, double a, double b, double da, double db) {
+        return (2 * t * t * t - 3 * t * t + 1) * a
+                + (t * t * t - 2 * t * t + t) * da
+                + (-2 * t * t * t + 3 * t * t) * b + (t * t * t - t * t) * db;
     }
 
     private Column column(int x, int z) {

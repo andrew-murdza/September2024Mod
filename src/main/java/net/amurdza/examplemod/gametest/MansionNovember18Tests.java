@@ -161,9 +161,11 @@ public final class MansionNovember18Tests {
 
     @GameTest(template = "plant_gameplay_empty")
     public static void failedMansionSpawnRetriesAfterSaveWithoutDuplicatingOrRevivingGuards(GameTestHelper h) {
-        var level = h.getLevel(); var origin = h.absolutePos(new BlockPos(70, 0, -70)).atY(180);
+        // Stay within the 16x4x4 template's forced chunks so inserted entities are immediately tracked.
+        var level = h.getLevel(); var origin = h.absolutePos(new BlockPos(8, 0, 2)).atY(180);
         var id = UUID.randomUUID(); var room = BoundingBox.fromCorners(origin.offset(-3, 0, -3), origin.offset(3, 4, 3));
-        for (var pos : BlockPos.betweenClosed(origin.offset(-3, 0, -3), origin.offset(3, 4, 3))) level.setBlock(pos, Blocks.AIR.defaultBlockState(), 18);
+        // The retry search includes feet at the room's minimum Y; clear their support too.
+        for (var pos : BlockPos.betweenClosed(origin.offset(-3, -1, -3), origin.offset(3, 4, 3))) level.setBlock(pos, Blocks.AIR.defaultBlockState(), 18);
         var plan = new MansionDefenderSpawns.Plan(id, origin, 1, 0, "minecraft:vindicator", origin.above(), room);
         var queue = MansionDefenderSpawns.get(level); queue.plan(level, plan);
         h.assertFalse(MansionDefenderSpawns.retry(level, plan), "A failed floor search must leave the authored slot pending");
@@ -172,7 +174,8 @@ public final class MansionNovember18Tests {
         level.setBlock(origin, Blocks.STONE_BRICKS.defaultBlockState(), 18);
         h.assertTrue(MansionDefenderSpawns.retry(level, plan), "Restoring a safe floor must place the same pending guard");
         var mob = (Mob) level.getEntity(MansionDefenderSpawns.entityId(id, 0));
-        h.assertTrue(mob != null && level.noCollision(mob), "The replacement must use its deterministic UUID and clear floor");
+        h.assertTrue(mob != null, "The replacement must be tracked under its deterministic roster UUID");
+        h.assertTrue(level.noCollision(mob), "The replacement must occupy the restored floor without colliding with blocks or other entities");
         h.assertFalse(MansionDefenderSpawns.retry(level, plan), "A loaded guard must not be duplicated");
         mob.discard();
         h.assertFalse(MansionDefenderSpawns.retry(level, plan), "An observed but absent guard must not be replaced");

@@ -83,7 +83,51 @@ public final class MansionExpandedEstateTests {
         var mapRoom = rooms.stream().filter(p -> MansionResidentialPlan.isMapRoom(manager,p)).findFirst().orElseThrow();
         h.assertTrue(defenders.stream().filter(m -> m.getType() == net.amurdza.examplemod.registry.ModEntities.ILLAGER_LORD.get()).allMatch(m -> mapRoom.getBoundingBox().isInside(m.blockPosition())), "The lord must spawn in the sole map room");
         var names = names(manager);
+        int intactBeds = 0;
+        for (var room : rooms) {
+            int capacity = MansionRoomCatalogue.bedCapacity(names.get(room.template()));
+            if (capacity == 0) continue;
+            for (var wool : List.of(Blocks.WHITE_WOOL, Blocks.RED_WOOL))
+                for (var block : room.template().filterBlocks(room.templatePosition(), room.placeSettings(), wool))
+                    h.assertTrue(level.getBlockState(block.pos()).is(wool),
+                            "Doorway repairs must preserve the complete native bed: " + names.get(room.template()) + "/" + block.pos());
+            intactBeds += capacity;
+        }
+        h.assertTrue(intactBeds >= 180, "At least 180 bed-width places must survive real placement");
         var entries = rooms.stream().filter(p -> names.get(p.template()).equals(MansionRoomCatalogue.newTemplate(MansionUpperLayout.ENTRANCE))).toList();
+        for (var entrance : entries) for (int x = 1; x <= 5; x++) for (int z = 0; z <= 3; z++) {
+            var expected = z == 0 && (x == 1 || x == 5) ? Blocks.OAK_PLANKS : z <= 1 ? Blocks.AIR : z == 2 || x == 1 || x == 5 ? Blocks.WHITE_CARPET : Blocks.RED_CARPET;
+            var pos = local(entrance, x, 1, z);
+            h.assertTrue(level.getBlockState(pos).is(expected),
+                    "The new bordered entrance rug must survive overlapping pieces and carpet repair: " + pos
+                            + ", local=" + x + "/1/" + z + ", rotation=" + entrance.getRotation()
+                            + ", expected=" + expected + ", actual=" + level.getBlockState(pos));
+        }
+        var facadeExpected = new HashMap<BlockPos, net.minecraft.world.level.block.Block>();
+        for (var room : rooms) if (List.of("aoe_v9_wall_window_top_trim", "aoe_v9_wall_flat_top_trim",
+                "aoe_v9_wall_corner_top_trim").contains(names.get(room.template()))) {
+            // postProcess leaves the last chunk clip on each piece. Inspect the whole trim.
+            var allBlocks = room.placeSettings().copy().setBoundingBox(null);
+            for (var material : List.of(Blocks.DARK_OAK_LOG, Blocks.DARK_OAK_PLANKS, Blocks.COBBLESTONE, Blocks.COBBLESTONE_WALL))
+                for (var block : room.template().filterBlocks(room.templatePosition(), allBlocks, material)) {
+                    var expected = material == Blocks.DARK_OAK_LOG ? Blocks.OAK_LOG : material == Blocks.DARK_OAK_PLANKS ? Blocks.OAK_PLANKS : material;
+                    facadeExpected.put(block.pos(), expected);
+                }
+        }
+        // Corner masonry deliberately owns the cells where the perimeter turns.
+        // Compare the complete, ordered trim assembly rather than mutually overlapping pieces.
+        facadeExpected.forEach((pos, expected) -> h.assertTrue(level.getBlockState(pos).is(expected),
+                "Roof placement must retain solid headers, plank infill and extended masonry corners: "
+                        + pos + "/expected=" + expected + "/actual=" + level.getBlockState(pos)));
+        for (var room : rooms) if ("aoe_v9_wall_corner_top_trim".equals(names.get(room.template()))) {
+            var aboveCorner = local(room, 8, 3, 1);
+            h.assertFalse(level.getBlockState(aboveCorner).is(Blocks.COBBLESTONE)
+                            || level.getBlockState(aboveCorner).is(Blocks.COBBLESTONE_WALL),
+                    "The extended post must not create a detached masonry cap above the roof: " + aboveCorner);
+        }
+        for (int x = 8; x <= 30; x++) for (int y = 1; y <= 5; y++)
+            h.assertTrue(level.getBlockState(cellar.world(x, y, 18)).is(Blocks.STONE_BRICKS),
+                    "The upper crop room must have an authored brick front wall");
         var entry = local(entries.get(0),3,1,2);
         h.assertTrue(canWalk(level,entry), "An entrance must lead onto a supported floor: " + entry);
         var walking = walk(level,bounds,entry);
@@ -91,14 +135,14 @@ public final class MansionExpandedEstateTests {
         var halls = rooms.stream().filter(p -> MansionRoomCatalogue.nativeName(names.get(p.template())).equals("corridor_floor")).toList();
         for (var room : rooms) {
             String name = MansionRoomCatalogue.nativeName(names.get(room.template()));
-            if (!(name.startsWith("1x") || name.startsWith("2x") || name.equals("corridor_floor"))) continue;
+            if (!(name.startsWith("1x") || name.startsWith("2x") || name.equals("library") || name.equals("corridor_floor"))) continue;
             var b = room.getBoundingBox(); int y = room.templatePosition().getY();
             if (walking.stream().noneMatch(p -> p.getX() > b.minX() && p.getX() < b.maxX() && p.getZ() > b.minZ() && p.getZ() < b.maxZ() && p.getY() >= y+1 && p.getY() <= y+2)) inaccessible.add(name+"@"+b);
             if (!name.equals("corridor_floor")) h.assertTrue(halls.stream().anyMatch(hall -> directHallway(level,room,hall)), "Room has no direct hall connection: "+name+"@"+b);
             floors.merge(y,1,Integer::sum);
         }
         var gson = new com.google.gson.GsonBuilder().setPrettyPrinting().create();
-        java.nio.file.Files.writeString(java.nio.file.Path.of("expanded-mansion-report.json"),gson.toJson(Map.of("roster",counts,"beds",MansionResidentialPlan.bedCapacity(manager,rooms),"floors",floors,"inaccessible",inaccessible,"walkingCells",walking.size())));
+        java.nio.file.Files.writeString(java.nio.file.Path.of("expanded-mansion-report.json"),gson.toJson(Map.of("roster",counts,"beds",MansionResidentialPlan.bedCapacity(manager,rooms),"intactBeds",intactBeds,"floors",floors,"inaccessible",inaccessible,"walkingCells",walking.size())));
         h.assertTrue(inaccessible.isEmpty(), "Unreachable rooms: " + inaccessible);
         for (var door : cellar.doorLeaves()) h.assertTrue(level.getBlockState(door).is(Blocks.IRON_DOOR), "Every new cellar door must be iron");
         for (int layer=0; layer<2; layer++) for (int row=0; row<5; row++) for (boolean outer:new boolean[]{false,true}) for(boolean east:new boolean[]{false,true}) {
@@ -116,6 +160,21 @@ public final class MansionExpandedEstateTests {
             var p=entries.get(i);var camera=local(p,3,2,-10);var target=local(p,3,3,3).subtract(camera);
             views.add(view(level,"mansion-vanilla-platform-"+i,camera.getX()+.5,camera.getY()+.1,camera.getZ()+.5,(float)Math.toDegrees(Math.atan2(-target.getX(),target.getZ())),0));
         }
+        var northEntry = entries.stream().filter(p -> p.getRotation() == Rotation.NONE).findFirst().orElseThrow();
+        var northCamera = local(northEntry, 3, 2, -8);
+        views.add(view(level,"mansion-north-entrance",northCamera.getX()+.5,northCamera.getY()+.1,northCamera.getZ()+.5,0,0));
+        var roofUnder = local(northEntry, 3, 34, -4);
+        views.add(view(level,"mansion-north-roof-underside",roofUnder.getX()+.5,roofUnder.getY()+.1,roofUnder.getZ()+.5,0,-50));
+        var roofTop = local(northEntry, 3, 45, -6);
+        views.add(view(level,"mansion-north-roof-top",roofTop.getX()+.5,roofTop.getY()+.1,roofTop.getZ()+.5,0,20));
+        var rugCamera = local(northEntry, 3, 3, 5);
+        views.add(view(level,"mansion-bordered-entrance-rug",rugCamera.getX()+.5,rugCamera.getY()+.1,rugCamera.getZ()+.5,180,50));
+        var facadeCamera = local(northEntry, 12, 36, -5);
+        views.add(view(level,"mansion-top-window-headers",facadeCamera.getX()+.5,facadeCamera.getY()+.1,facadeCamera.getZ()+.5,0,-15));
+        var upperFront = cellar.world(12,2,23);
+        views.add(view(level,"mansion-upper-crop-room-brick-wall",upperFront.getX()+.5,upperFront.getY()+.1,upperFront.getZ()+.5,180,0));
+        var lowerFront = cellar.world(12,-5,30);
+        views.add(view(level,"mansion-lower-cellar-front-wall",lowerFront.getX()+.5,lowerFront.getY()+.1,lowerFront.getZ()+.5,180,0));
         var camera=local(mapRoom,7,2,1);views.add(view(level,"mansion-single-map-room",camera.getX()+.5,camera.getY()+.1,camera.getZ()+.5,mapRoom.getRotation().rotate(net.minecraft.core.Direction.SOUTH).toYRot(),-10));
         for(int layer=0;layer<2;layer++) {
             var p=layer==0?cellar.world(0,2,10):cellar.world(5,-6,20);
@@ -132,11 +191,21 @@ public final class MansionExpandedEstateTests {
             var c=local(p,3,1,-2);var t=local(p,3,5,4).subtract(c);
             views.add(view(level,"mansion-wood-stair-torches",c.getX()+.5,c.getY()+.1,c.getZ()+.5,(float)Math.toDegrees(Math.atan2(-t.getX(),t.getZ())),-24));
         });
-        for (String detail : List.of("2x2_b3","1x2_c4")) rooms.stream().filter(p -> MansionRoomCatalogue.nativeName(names.get(p.template())).equals(detail)).findFirst().ifPresent(p -> {
-            var c=detail.equals("2x2_b3")?local(p,7,2,2):local(p,3,3,7);
-            var t=(detail.equals("2x2_b3")?local(p,7,2,8):local(p,0,6,5)).subtract(c);
-            views.add(view(level,"mansion-room-"+detail,c.getX()+.5,c.getY()+.1,c.getZ()+.5,(float)Math.toDegrees(Math.atan2(-t.getX(),t.getZ())),detail.equals("2x2_b3")?10:-20));
+        for (String detail : List.of("1x2_c3","1x2_c4")) rooms.stream().filter(p -> MansionRoomCatalogue.nativeName(names.get(p.template())).equals(detail)).findFirst().ifPresent(p -> {
+            var c=detail.equals("1x2_c3")?local(p,5,2,3):local(p,3,3,7);
+            var t=(detail.equals("1x2_c3")?local(p,2,2,10):local(p,0,6,5)).subtract(c);
+            views.add(view(level,"mansion-room-"+detail,c.getX()+.5,c.getY()+.1,c.getZ()+.5,(float)Math.toDegrees(Math.atan2(-t.getX(),t.getZ())),detail.equals("1x2_c3")?10:-20));
         });
+        var library = rooms.stream().filter(p -> names.get(p.template()).equals("aoe_v9_library")).findFirst().orElseThrow();
+        var libraryInside = local(library, 3, 1, 13);
+        views.add(view(level, "mansion-authored-library", libraryInside.getX() + .5, libraryInside.getY() + .05,
+                libraryInside.getZ() + .5, library.getRotation().rotate(net.minecraft.core.Direction.NORTH).toYRot(), 10));
+        var libraryDoor = local(library, 3, 1, 17);
+        views.add(view(level, "mansion-library-door", libraryDoor.getX() + .5, libraryDoor.getY() + .05,
+                libraryDoor.getZ() + .5, library.getRotation().rotate(net.minecraft.core.Direction.NORTH).toYRot(), 0));
+        var mineView = cellar.world(-35, 1, MansionBasementLayoutV11.FIRST_ROOM_SHIFT + 16);
+        views.add(view(level, "mansion-mine-outer-wall", mineView.getX() + .5, mineView.getY() + .05,
+                mineView.getZ() + .5, cellar.stairRotation().rotate(net.minecraft.core.Direction.WEST).toYRot(), 0));
         java.nio.file.Files.writeString(java.nio.file.Path.of("expanded-mansion-views.json"),gson.toJson(views));
         level.getServer().saveEverything(true,true,true); h.succeed();
     }

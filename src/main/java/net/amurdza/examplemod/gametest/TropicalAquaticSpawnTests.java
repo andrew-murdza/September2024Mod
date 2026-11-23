@@ -27,13 +27,13 @@ import java.util.List;
 @PrefixGameTestTemplate(false)
 public final class TropicalAquaticSpawnTests {
     private static final List<String> BOTTOM_SPECIES = List.of(
-            "hybrid_aquatic:starfish", "hybrid_aquatic:lightfoot_crab", "angling:sea_slug");
+            "hybrid_aquatic:starfish");
 
     @GameTest(template = "plant_gameplay_empty")
     public static void reefAndMangrovePoolsAdmitShallowSeabedFaunaAndDolphins(GameTestHelper helper) {
         var tropical = helper.getLevel().getServer().getLevel(GameplayDimensions.TROPICAL);
         for (String biome : List.of("mangrove_swamp", "coral_reef")) {
-            for (String id : List.of("hybrid_aquatic:starfish", "angling:sea_slug", "minecraft:dolphin")) {
+            for (String id : List.of("hybrid_aquatic:starfish", "minecraft:dolphin")) {
                 var type = ForgeRegistries.ENTITY_TYPES.getValue(new ResourceLocation(id));
                 int depth = id.equals("minecraft:dolphin") ? 3 : 1;
                 var water = AquaticPlantGenerationTests.fixture(helper, biome, new HashMap<>(), depth, tropical,
@@ -44,7 +44,7 @@ public final class TropicalAquaticSpawnTests {
                                 water, feet, type) && SpawnPlacements.checkSpawnRules(type, water, MobSpawnType.NATURAL,
                                 feet, RandomSource.create(42)), "Natural spawning chain failed for " + id + " in " + biome);
                 helper.assertTrue(water.getBiome(feet).value().getMobSettings().getMobs(DocumentedFauna.spawnCategory(type))
-                                .unwrap().stream().anyMatch(row -> row.type == type && row.getWeight().asInt() == 20),
+                                .unwrap().stream().anyMatch(row -> row.type == type && row.getWeight().asInt() == DocumentedFauna.spawnWeight(species)),
                         "Missing active aquatic pool entry for " + id + " in " + biome);
             }
         }

@@ -6,12 +6,12 @@ import net.minecraft.world.level.block.Rotation;
 import net.minecraft.world.level.levelgen.structure.structures.WoodlandMansionPieces.WoodlandMansionPiece;
 import net.minecraft.world.level.levelgen.structure.templatesystem.StructureTemplateManager;
 
-/** Lower the whole roof three blocks and extend its eaves three blocks outward. */
+/** Lower the roof three blocks, with its revised rim one block outside the facade. */
 public final class MansionRoofLayout {
-    public static final String FLAT = "aoe_v6_roof";
-    public static final String FRONT = "aoe_v6_roof_front";
-    public static final String CORNER = "aoe_v6_roof_corner";
-    public static final String INNER_CORNER = "aoe_v6_roof_inner_corner";
+    public static final String FLAT = "aoe_v9_roof";
+    public static final String FRONT = "aoe_v9_roof_front";
+    public static final String CORNER = "aoe_v9_roof_corner";
+    public static final String INNER_CORNER = "aoe_v9_roof_inner_corner";
 
     private MansionRoofLayout() { }
 
@@ -19,10 +19,10 @@ public final class MansionRoofLayout {
         String name;
         BlockPos offset;
         switch (nativeName) {
-            case "roof" -> { name = FLAT; offset = new BlockPos(-3, -5, -3); }
-            case "roof_front" -> { name = FRONT; offset = new BlockPos(3, -5, -3); }
-            case "roof_corner" -> { name = CORNER; offset = new BlockPos(3, -5, 3); }
-            case "roof_inner_corner" -> { name = INNER_CORNER; offset = new BlockPos(3, -5, -3); }
+            case "roof" -> { name = FLAT; offset = new BlockPos(-1, -5, -1); }
+            case "roof_front" -> { name = FRONT; offset = new BlockPos(1, -5, -1); }
+            case "roof_corner" -> { name = CORNER; offset = new BlockPos(1, -5, 1); }
+            case "roof_inner_corner" -> { name = INNER_CORNER; offset = new BlockPos(1, -5, -1); }
             default -> throw new IllegalArgumentException("Unknown mansion roof template: " + nativeName);
         }
         // The native placer emits unmirrored roof pieces. Rotate both outward

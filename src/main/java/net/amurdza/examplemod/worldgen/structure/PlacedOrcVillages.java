@@ -12,6 +12,12 @@ import java.util.Map;
 public final class PlacedOrcVillages extends SavedData {
     private record Footprint(int radius, String shape) { }
     private final Map<BlockPos, Footprint> centers = new HashMap<>();
+    private long version;
+    public record Village(BlockPos center, int radius) { }
+    public long version() { return version; }
+    public java.util.List<Village> villages() {
+        return centers.entrySet().stream().map(entry -> new Village(entry.getKey(), entry.getValue().radius())).toList();
+    }
 
     public static PlacedOrcVillages get(ServerLevel level) {
         return level.getDataStorage().computeIfAbsent(PlacedOrcVillages::load, PlacedOrcVillages::new, "aoemod_placed_orc_villages");
@@ -33,7 +39,7 @@ public final class PlacedOrcVillages extends SavedData {
         if (!java.util.Set.of("square", "circle", "cubic").contains(shape)) throw new IllegalArgumentException(shape);
         var footprint = new Footprint(radius, shape);
         Footprint previous = centers.put(center.immutable(), footprint);
-        if (!footprint.equals(previous)) setDirty();
+        if (!footprint.equals(previous)) { version++; setDirty(); }
     }
 
     public boolean contains(BlockPos pos) {
@@ -73,6 +79,7 @@ public final class PlacedOrcVillages extends SavedData {
                     new Footprint(village.getInt("Radius"), village.contains("Shape") ? village.getString("Shape")
                             : village.getBoolean("Circular") ? "circle" : "cubic"));
         }
+        result.version = result.centers.size();
         return result;
     }
 }

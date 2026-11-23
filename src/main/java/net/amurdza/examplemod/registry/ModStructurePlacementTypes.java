@@ -3,6 +3,7 @@ package net.amurdza.examplemod.registry;
 import net.amurdza.examplemod.AOEMod;
 import net.amurdza.examplemod.worldgen.structure.BandStructurePlacement;
 import net.amurdza.examplemod.worldgen.structure.IslandBossPlacement;
+import net.amurdza.examplemod.worldgen.structure.GoblinFortressPlacement;
 import net.amurdza.examplemod.worldgen.structure.PlateauLairPlacement;
 import net.amurdza.examplemod.worldgen.structure.SavannaCampPlacement;
 import net.minecraft.core.registries.Registries;
@@ -20,6 +21,9 @@ public class ModStructurePlacementTypes {
 
     public static final RegistryObject<StructurePlacementType<PlateauLairPlacement>> PLATEAU_LAIR =
             STRUCTURE_PLACEMENT_TYPES.register("plateau_lair", () -> () -> PlateauLairPlacement.CODEC);
+
+    public static final RegistryObject<StructurePlacementType<GoblinFortressPlacement>> GOBLIN_FORTRESS =
+            STRUCTURE_PLACEMENT_TYPES.register("goblin_fortress", () -> () -> GoblinFortressPlacement.CODEC);
 
     public static final RegistryObject<StructurePlacementType<IslandBossPlacement>> ISLAND_BOSS =
             STRUCTURE_PLACEMENT_TYPES.register("island_boss", () -> () -> IslandBossPlacement.CODEC);

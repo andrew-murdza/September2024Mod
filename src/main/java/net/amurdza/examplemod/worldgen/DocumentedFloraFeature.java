@@ -261,7 +261,7 @@ public final class DocumentedFloraFeature extends Feature<NoneFeatureConfigurati
                 state = state.setValue(age, maximum);
             }
         }
-        if (!DocumentedPlacementRules.isBiomeAllowed(level, pos, state, false)) return false;
+        if (!DocumentedPlacementRules.isGenerationBiomeAllowed(level, pos, state, false)) return false;
         if (level.getFluidState(pos).is(FluidTags.WATER)) {
             if (block == Blocks.SUGAR_CANE || block == Blocks.BIG_DRIPLEAF) {
                 return AquaticPlantPlacement.placeShallowColumn(level, pos, state, random);

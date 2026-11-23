@@ -53,19 +53,19 @@ public final class MansionNovember18GroundsTests {
         h.assertTrue(new MansionEstateShape(house, 8).margin() == 64
                         && !new MansionEstateShape(house, 8).contains(104, 104), "Saved circle layouts must retain their original width and corner shape");
         for (int[] corner : new int[][]{{168, 168}, {-168, 168}, {168, -168}, {-168, -168}}) {
-            int highest = MansionSiteHeight.highestGround(house, (x, z) -> {
+            int highest = MansionSiteHeight.highestGround(house, 11, (x, z) -> {
                 h.assertTrue(Math.abs(x) <= 168 && Math.abs(z) <= 168, "Ramp terrain must never enter the estate height survey");
                 return x == corner[0] && z == corner[1] ? 215 : 71;
             });
             h.assertTrue(highest == 215, "A summit in every square forest corner must determine its height");
         }
-        h.assertTrue(MansionSiteHeight.highestGround(house, (x, z) -> Math.max(Math.abs(x), Math.abs(z)) > 168 ? 300 : 71) == 71,
+        h.assertTrue(MansionSiteHeight.highestGround(house, 11, (x, z) -> Math.max(Math.abs(x), Math.abs(z)) > 168 ? 300 : 71) == 71,
                 "Even an entirely higher surrounding ramp cannot raise the mansion");
         h.succeed();
     }
 
     @GameTest(template = "plant_gameplay_empty", timeoutTicks = 1600)
-    public static void squareForestGroundAndTreesGenerateBeyondStructureReferencesWithoutOwnerLoads(GameTestHelper h) {
+    public static void widenedForestGroundAndTreesGenerateBeyondStructureReferencesWithoutOwnerLoads(GameTestHelper h) {
         var level = h.getLevel().getServer().getLevel(GameplayDimensions.PLAINS);
         var generator = level.getChunkSource().getGenerator();
         var mansion = (IllagerMansionStructure) level.registryAccess().registryOrThrow(Registries.STRUCTURE).get(AOEMod.makeID("illager_mansion"));
@@ -80,25 +80,28 @@ public final class MansionNovember18GroundsTests {
                     level.getStructureManager(), level.getSeed(), owner, 0, level, mansion.biomes()::contains);
             site = MansionRampTerrain.fromStart(start).orElse(null);
         }
-        h.assertTrue(site != null && site.layoutVersion() >= 11, "Find a real seeded square estate");
-        var target = new ChunkPos(site.owner().x + 9, site.owner().z + 9);
-        var region = region(level, target);
-        var chunk = region.getChunk(target.x, target.z);
+        h.assertTrue(site != null && site.layoutVersion() >= 12 && !site.shape().square(), "Find a real seeded widened circular estate");
         int loaded = level.getChunkSource().getLoadedChunksCount();
-        for (int x = target.getMinBlockX(); x <= target.getMaxBlockX(); x++) for (int z = target.getMinBlockZ(); z <= target.getMaxBlockZ(); z++)
-            chunk.setBlockState(new BlockPos(x, 30, z), Blocks.GRASS_BLOCK.defaultBlockState(), false);
-        h.assertFalse(region.hasChunk(site.owner().x, site.owner().z), "The fixture must be outside the vanilla eight-chunk owner region");
-        MansionRampTerrain.prepare(region, chunk, generator);
-        int trees = 0;
-        for (int x = target.getMinBlockX(); x <= target.getMaxBlockX(); x++) for (int z = target.getMinBlockZ(); z <= target.getMaxBlockZ(); z++) {
-            h.assertTrue(site.shape().contains(x, z) && region.getBlockState(new BlockPos(x, site.groundY(), z)).is(Blocks.GRASS_BLOCK),
-                    "Every column of the distant square corner must meet the flat estate floor");
-            if (region.getBlockState(new BlockPos(x, site.groundY() + 1, z)).is(net.minecraft.tags.BlockTags.LOGS)) trees++;
-            h.assertTrue(Integer.valueOf(site.groundY() + 1).equals(MansionForestFloor.rootY(region, x, z)),
-                    "Forest floor metadata must reach the unreferenced outer forest under its canopy");
+        for (Rotation rotation : Rotation.values()) {
+            var offset = new BlockPos(9, 0, 0).rotate(rotation);
+            var target = new ChunkPos(site.owner().x + offset.getX(), site.owner().z + offset.getZ());
+            var region = region(level, target);
+            var chunk = region.getChunk(target.x, target.z);
+            for (int x = target.getMinBlockX(); x <= target.getMaxBlockX(); x++) for (int z = target.getMinBlockZ(); z <= target.getMaxBlockZ(); z++)
+                chunk.setBlockState(new BlockPos(x, 30, z), Blocks.GRASS_BLOCK.defaultBlockState(), false);
+            h.assertFalse(region.hasChunk(site.owner().x, site.owner().z), "The fixture must be outside the vanilla eight-chunk owner region");
+            MansionRampTerrain.prepare(region, chunk, generator);
+            int trees = 0;
+            for (int x = target.getMinBlockX(); x <= target.getMaxBlockX(); x++) for (int z = target.getMinBlockZ(); z <= target.getMaxBlockZ(); z++) {
+                h.assertTrue(site.shape().contains(x, z) && region.getBlockState(new BlockPos(x, site.groundY(), z)).is(Blocks.GRASS_BLOCK),
+                        "Every column of the distant circular forest must meet the flat estate floor: " + rotation);
+                if (region.getBlockState(new BlockPos(x, site.groundY() + 1, z)).is(net.minecraft.tags.BlockTags.LOGS)) trees++;
+                h.assertTrue(Integer.valueOf(site.groundY() + 1).equals(MansionForestFloor.rootY(region, x, z)),
+                        "Forest floor metadata must reach the unreferenced outer forest under its canopy");
+            }
+            h.assertTrue(trees > 0 && level.getChunkSource().getLoadedChunksCount() == loaded,
+                    "Every side of the outer forest must have trees while loading no owner or neighbor chunks: " + rotation);
         }
-        h.assertTrue(trees > 0 && level.getChunkSource().getLoadedChunksCount() == loaded,
-                "The outer forest must have actual trees while loading no owner or neighbor chunks");
         h.succeed();
     }
 
@@ -110,7 +113,7 @@ public final class MansionNovember18GroundsTests {
         var config = new AllSurfacesFeatureConfig(original.feature, original.deepFeature, List.of(), original.target,
                 original.predicate, false, original.skipHeight, original.biomes, null, null);
         int sample = 0;
-        for (boolean ramp : new boolean[]{false, true}) {
+        for (int version : new int[]{11, 12}) for (boolean ramp : new boolean[]{false, true}) {
             var pos = new ChunkPos(6100 + sample++, 6100);
             var region = region(level, pos);
             var chunk = region.getChunk(pos.x, pos.z);
@@ -118,11 +121,11 @@ public final class MansionNovember18GroundsTests {
             var room = new WoodlandMansionPiece(level.getStructureManager(), "corridor_floor", roomOrigin, Rotation.NONE);
             // Keep the basement away from this surface-only fixture so its
             // authored stairwell exclusion cannot stand in for the wall edge.
-            var cellar = new MansionBasementPiece(roomOrigin.offset(-300, 0, 0), Rotation.NONE, 11);
+            var cellar = new MansionBasementPiece(roomOrigin.offset(-300, 0, 0), Rotation.NONE, version);
             var mansion = level.registryAccess().registryOrThrow(Registries.STRUCTURE).get(AOEMod.makeID("illager_mansion"));
             chunk.addReferenceForStructure(mansion, pos.toLong());
             chunk.setStartForStructure(mansion, new StructureStart(mansion, pos, 0, new PiecesContainer(List.of(cellar, room))));
-            var shape = new MansionEstateShape(room.getBoundingBox(), 11);
+            var shape = new MansionEstateShape(room.getBoundingBox(), version);
             for (int x = pos.getMinBlockX(); x <= pos.getMaxBlockX(); x++) for (int z = pos.getMinBlockZ(); z <= pos.getMaxBlockZ(); z++) {
                 int root = 180 - (int) Math.floor(Math.max(0, shape.distanceBeyondFlat(x, z)));
                 chunk.setBlockState(new BlockPos(x, root - 1, z), Blocks.GRASS_BLOCK.defaultBlockState(), false);

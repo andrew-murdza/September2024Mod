@@ -1,0 +1,106 @@
+{
+  "distinctTests": 25,
+  "passed": true,
+  "tests": {
+    "myceliumindappledandgrassincaveskeeptheirsoilpalettes": {
+      "passed": true,
+      "run": "qa-rates-2-results.xml"
+    },
+    "allsnowybiomesshareeachmobratewithoutborrowingotherdimensions": {
+      "passed": true,
+      "run": "qa-rates-1-results.xml"
+    },
+    "habitatboundariesandchorusgrowth": {
+      "passed": true,
+      "run": "qa-rates-1-results.xml"
+    },
+    "richfarmlandhydrateswithoutfertilizing": {
+      "passed": true,
+      "run": "qa-rates-1-results.xml"
+    },
+    "documentoverridesandmoddedsources": {
+      "passed": true,
+      "run": "qa-rates-1-results.xml"
+    },
+    "unconfigureddimensionpreservesgrowthanddrops": {
+      "passed": true,
+      "run": "qa-rates-1-results.xml"
+    },
+    "sixsnowybiomesretainthesharedgrowthandbonemealscores": {
+      "passed": true,
+      "run": "qa-rates-2-results.xml"
+    },
+    "placedmyceliumandplantedspruceworkoutsidetheirformersnowyhabitats": {
+      "passed": true,
+      "run": "qa-rates-1-results.xml"
+    },
+    "placementfeedbacknamesonlyrelevanthabitats": {
+      "passed": true,
+      "run": "qa-rates-1-results.xml"
+    },
+    "campfiresdonotdamageplayers": {
+      "passed": true,
+      "run": "qa-rates-1-results.xml"
+    },
+    "clonesandconcurrentqueriesreusethesameseededcolumn": {
+      "passed": true,
+      "run": "qa-rates-2-results.xml"
+    },
+    "plantedbrownandredmushroomsbecomegiantsindappledforest": {
+      "passed": true,
+      "run": "qa-rates-2-results.xml"
+    },
+    "deepdarkbonemealwinsoverthedeserttag": {
+      "passed": true,
+      "run": "qa-rates-1-results.xml"
+    },
+    "mossreplacementislimitedtotropical": {
+      "passed": true,
+      "run": "qa-rates-1-results.xml"
+    },
+    "substraterestrictionsusethebiomeabove": {
+      "passed": true,
+      "run": "qa-rates-1-results.xml"
+    },
+    "snowybreedingfoodaginganddropsworkineveryhabitat": {
+      "passed": true,
+      "run": "qa-rates-1-results.xml"
+    },
+    "craftingdependenciesrestrictfinishedblocks": {
+      "passed": true,
+      "run": "qa-rates-1-results.xml"
+    },
+    "giantmushroomhabitat": {
+      "passed": true,
+      "run": "qa-rates-1-results.xml"
+    },
+    "cropdropsusetheiractualageproperties": {
+      "passed": true,
+      "run": "qa-rates-1-results.xml"
+    },
+    "dimensionratesandsnowyseedpool": {
+      "passed": true,
+      "run": "qa-rates-1-results.xml"
+    },
+    "snowynaturalfeaturesandmobpoolsremainbiomescoped": {
+      "passed": true,
+      "run": "qa-rates-1-results.xml"
+    },
+    "cachedclassificationstillmatchesactualcolumnsacrossseeds": {
+      "passed": true,
+      "run": "qa-rates-2-results.xml"
+    },
+    "writeloadedregistryaudit": {
+      "passed": true,
+      "run": "qa-rates-1-results.xml"
+    },
+    "everysnowybiomeacceptsexactlytheunionofitsoriginalblocklists": {
+      "passed": true,
+      "run": "qa-rates-1-results.xml"
+    },
+    "cavewheatbeetrootandoatsgrowwithlightandfarmland": {
+      "passed": true,
+      "run": "qa-rates-2-results.xml"
+    }
+  }
+}

@@ -1,11 +1,11 @@
 {
   "carvers": {},
-  "downfall": 1.0,
+  "downfall": 1,
   "effects": {
     "fog_color": 12638463,
     "mood_sound": {
       "block_search_extent": 8,
-      "offset": 2.0,
+      "offset": 2,
       "sound": "minecraft:ambient.cave",
       "tick_delay": 6000
     },
@@ -84,12 +84,6 @@
         "maxCount": 5,
         "minCount": 2,
         "weight": 10
-      },
-      {
-        "type": "angling:anomalocaris",
-        "maxCount": 5,
-        "minCount": 2,
-        "weight": 10
       }
     ],
     "water_creature": [
@@ -112,18 +106,6 @@
         "weight": 10
       },
       {
-        "type": "hybrid_aquatic:lightfoot_crab",
-        "maxCount": 5,
-        "minCount": 2,
-        "weight": 10
-      },
-      {
-        "type": "angling:sea_slug",
-        "maxCount": 5,
-        "minCount": 2,
-        "weight": 10
-      },
-      {
         "type": "hybrid_aquatic:starfish",
         "maxCount": 5,
         "minCount": 2,
@@ -131,5 +113,5 @@
       }
     ]
   },
-  "temperature": 1.0
+  "temperature": 1
 }

@@ -48,21 +48,19 @@ public final class DocumentedFauna {
         land("mangrove_swamp");
         land("cherry_grove", "minecraft:rabbit", "minecraft:panda", "minecraft:fox", "minecraft:cat");
         for (String biome : List.of("coral_reef", "mangrove_swamp")) {
-            water(biome, Habitat.SMALL_WATER, Depth.ANY, "minecraft:tropical_fish", "minecraft:pufferfish",
-                    "angling:anomalocaris");
+            water(biome, Habitat.SMALL_WATER, Depth.ANY, "minecraft:tropical_fish", "minecraft:pufferfish");
             water(biome, Habitat.LARGE_WATER, Depth.ANY, "hybrid_aquatic:umbrella_octopus",
                     "minecraft:turtle", "minecraft:axolotl", "minecraft:dolphin");
-            water(biome, Habitat.BOTTOM_WATER, Depth.ANY, "hybrid_aquatic:lightfoot_crab",
-                    "hybrid_aquatic:starfish", "angling:sea_slug", "hybrid_aquatic:coconut_crab");
+            water(biome, Habitat.BOTTOM_WATER, Depth.ANY, "hybrid_aquatic:starfish");
         }
         water("coral_reef", Habitat.LARGE_WATER, Depth.ANY, "aoemod:nautilus");
 
         land("savanna", "biodiverse:wildebeest", "biodiverse:oryx", "alexsmobs:bison", "alexsmobs:emu", "alexsmobs:kangaroo", "twilightforest:boar", "minecraft:rabbit", "minecraft:sheep", "minecraft:horse", "minecraft:llama");
         land("plains", "minecraft:cow", "minecraft:sheep", "minecraft:chicken", "minecraft:pig", "minecraft:rabbit", "minecraft:horse", "minecraft:donkey", "minecraft:wolf");
         for (String biome : List.of("savanna_lake", "plains_lake")) {
-            water(biome, Habitat.SMALL_WATER, Depth.ANY, "minecraft:cod", "minecraft:salmon", "finsandtails:swamp_mucker");
+            water(biome, Habitat.SMALL_WATER, Depth.ANY, "minecraft:cod", "minecraft:salmon");
             water(biome, Habitat.LARGE_WATER, Depth.ANY, "hybrid_aquatic:octopus");
-            water(biome, Habitat.BOTTOM_WATER, Depth.ANY, "hybrid_aquatic:flower_crab");
+            water(biome, Habitat.BOTTOM_WATER, Depth.ANY, "alexsmobs:lobster");
         }
 
         land("snowy_forest", "minecraft:goat", "biodiverse:reindeer", "minecraft:rabbit", "minecraft:polar_bear", "minecraft:fox");
@@ -79,7 +77,7 @@ public final class DocumentedFauna {
             water(biome, Habitat.LARGE_WATER, Depth.SHALLOW, "hybrid_aquatic:arrow_squid", "hybrid_aquatic:tuna",
                     "alexsmobs:orca");
             water(biome, Habitat.LARGE_WATER, Depth.DEEP, "alexscaves:gossamer_worm", "minecraft:glow_squid",
-                    "hybrid_aquatic:vampire_squid", "alexsmobs:giant_squid");
+                    "hybrid_aquatic:vampire_squid");
             water(biome, Habitat.BOTTOM_WATER, Depth.BELOW_Y39, "hybrid_aquatic:spider_crab");
             water(biome, Habitat.BOTTOM_WATER, Depth.AT_OR_ABOVE_Y39, "alexsmobs:lobster");
         }
@@ -148,9 +146,8 @@ public final class DocumentedFauna {
         ResourceLocation id = ForgeRegistries.ENTITY_TYPES.getKey(type);
         if (id != null) {
             switch (id.toString()) {
-                case "minecraft:tropical_fish", "minecraft:pufferfish", "angling:anomalocaris",
-                     "hybrid_aquatic:starfish", "angling:sea_slug", "hybrid_aquatic:coconut_crab",
-                     "hybrid_aquatic:umbrella_octopus", "hybrid_aquatic:lightfoot_crab" -> {
+                case "minecraft:tropical_fish", "minecraft:pufferfish",
+                     "hybrid_aquatic:umbrella_octopus" -> {
                     return net.amurdza.examplemod.registry.ModMobCategories.COMMON_AQUATIC;
                 }
             }
@@ -190,8 +187,7 @@ public final class DocumentedFauna {
         String id = species.id().toString();
         if (id.equals("minecraft:turtle")) return GroupSize.SINGLE;
         // Tiny fish and bottom animals form the largest schools; broad-bodied fish and octopi do not.
-        if (id.equals("minecraft:tropical_fish") || id.equals("hybrid_aquatic:starfish")
-                || id.equals("angling:sea_slug")) return GroupSize.SCHOOL;
+        if (id.equals("minecraft:tropical_fish") || id.equals("hybrid_aquatic:starfish")) return GroupSize.SCHOOL;
         if (id.equals("hybrid_aquatic:octopus")) return GroupSize.LARGE;
         if (net.amurdza.examplemod.registry.ModMobCategories.isTropicalFish(spawnCategory(species))) return GroupSize.MEDIUM;
         if (id.equals("alexsmobs:orca")) return GroupSize.VERY_LARGE;
@@ -238,9 +234,9 @@ public final class DocumentedFauna {
         // Three connected water blocks admit the four-deep desert pools.
         // PositionCheck separately tests each animal's maximum-size bounds;
         // a five-block blanket rule incorrectly excluded every desert shark.
-        // These two seabed animals fit in one water block, including the shallow mangrove fringe.
+        // Starfish fit in one water block, including the shallow mangrove fringe.
         boolean smallBottomAnimal = species.habitat() == Habitat.BOTTOM_WATER
-                && (species.id().toString().equals("hybrid_aquatic:starfish") || species.id().toString().equals("angling:sea_slug"));
+                && species.id().toString().equals("hybrid_aquatic:starfish");
         int clearance = smallBottomAnimal ? 0 : species.habitat() == Habitat.LARGE_LAVA || species.habitat() == Habitat.BOTTOM_WATER ? 2 : 1;
         for (int i = 1; i <= clearance; i++) if (!level.getFluidState(pos.above(i)).is(fluid)) return false;
         if (species.habitat() == Habitat.BOTTOM_WATER) {

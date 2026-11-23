@@ -4,6 +4,9 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.world.level.LevelReader;
+import net.minecraft.world.level.Level;
+import net.minecraft.world.level.WorldGenLevel;
+import net.amurdza.examplemod.worldgen.GrowthPlacementBuffer;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraftforge.registries.ForgeRegistries;
@@ -38,6 +41,14 @@ public final class DocumentedPlacementRules {
 
     /** Pure habitat check, also used to reject a whole tree before any of it is placed. */
     public static boolean isBiomeAllowed(LevelReader level, BlockPos pos, BlockState state, boolean fromGrowth) {
+        // Snowy's block/material allowlist is a dimension-wide union. The dimension
+        // gate still rejects foreign materials; only local habitat limits are lifted.
+        if (GameplayDimensions.is(level, GameplayDimensions.SNOWY) && !isNaturalGeneration(level)) return true;
+        return isGenerationBiomeAllowed(level, pos, state, fromGrowth);
+    }
+
+    /** Natural features retain their own habitats even when invoked on a live level. */
+    public static boolean isGenerationBiomeAllowed(LevelReader level, BlockPos pos, BlockState state, boolean fromGrowth) {
         if (!GameplayDimensions.isCustom(level)) return true;
         if (fromGrowth && GrowthPlacementContext.allowsCanopyExtension(level, pos, state)) return true;
         Habitat habitat = habitat(level, state, fromGrowth);
@@ -49,11 +60,18 @@ public final class DocumentedPlacementRules {
 
     /** Uses the same habitat definition as placement so feedback names the actual restriction. */
     public static Optional<String> requiredBiomes(LevelReader level, BlockState state, boolean fromGrowth) {
+        if (GameplayDimensions.is(level, GameplayDimensions.SNOWY) && !isNaturalGeneration(level)) return Optional.empty();
         Habitat habitat = habitat(level, state, fromGrowth);
         return habitat == null ? Optional.empty() : Optional.of(java.util.Arrays.stream(habitat.biomes)
                 .map(biome -> biome.equals("mountain_lake") ? "cold_ocean" : biome)
                 .distinct().collect(java.util.stream.Collectors.joining(" or "))
                 .replace("snowy_forest", "snowy_taiga").replace('_', ' '));
+    }
+
+    /** A buffered feature inherits its actual source rather than its WorldGenLevel interface. */
+    public static boolean isNaturalGeneration(LevelReader level) {
+        while (level instanceof GrowthPlacementBuffer buffer) level = buffer.sourceLevel();
+        return level instanceof WorldGenLevel && !(level instanceof Level);
     }
 
     private static Habitat habitat(LevelReader level, BlockState state, boolean fromGrowth) {

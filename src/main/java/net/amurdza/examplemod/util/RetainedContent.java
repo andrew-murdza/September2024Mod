@@ -157,12 +157,16 @@ public final class RetainedContent {
         String path = id.getPath();
         return switch (id.getNamespace()) {
             case "aoemod" -> Set.of("raw_mahi_mahi", "cooked_mahi_mahi", "raw_rubber_belly_glider",
-                    "cooked_rubber_belly_glider", "cooked_carp").contains(path);
-            case "angling" -> path.contains("mahi_mahi");
-            case "finsandtails" -> path.contains("rubber_belly_glider");
+                    "cooked_rubber_belly_glider", "cooked_carp", "raw_anomalocaris", "cooked_anomalocaris",
+                    "cooked_swamp_mucker", "cooked_lost_tentacle").contains(path);
+            case "angling" -> true;
+            case "ecologics" -> path.contains("coconut_crab");
+            case "finsandtails" -> path.contains("rubber_belly_glider") || path.contains("swamp_mucker");
+            case "alexsmobs" -> path.contains("giant_squid") || path.equals("lost_tentacle");
             case "upgrade_aquatic" -> path.contains("lionfish");
             case "hybrid_aquatic" -> path.equals("mahi") || path.startsWith("mahi_") || path.equals("cooked_mahi")
-                    || path.equals("carp") || path.startsWith("carp_") || path.equals("cooked_carp");
+                    || path.equals("carp") || path.startsWith("carp_") || path.equals("cooked_carp")
+                    || path.contains("flower_crab") || path.contains("lightfoot_crab");
             default -> false;
         };
     }

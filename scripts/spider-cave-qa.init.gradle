@@ -1,0 +1,78 @@
+// Isolated spider cave checks and screenshot client. Installed settings and saves are untouched.
+allprojects {
+    afterEvaluate { p ->
+        if (!p.plugins.hasPlugin('net.minecraftforge.gradle')) return
+        p.tasks.matching { it.name in ['reobfJar', 'reobfJarJar'] }.configureEach { useArgsFile() }
+        def focused = p.gradle.startParameter.taskNames.any { it.tokenize(':').last() == 'runGameTestServer' }
+        def visual = p.gradle.startParameter.taskNames.any { it.tokenize(':').last() == 'runClient' }
+        def runName = p.findProperty('spiderRun')?.toString() ?: 'run'
+        if (!(runName ==~ /^[A-Za-z0-9-]+$/)) throw new GradleException('spiderRun must be a simple folder name')
+        def qa = p.file('build/spider-cave-qa')
+        // Optional fixed source snapshot keeps concurrent chat edits out of an in-progress QA build.
+        if (p.findProperty('spiderSource') != null) {
+            def source = p.file(p.property('spiderSource')).canonicalFile
+            if (!source.toPath().startsWith(p.file('build').canonicalFile.toPath()))
+                throw new GradleException('QA source snapshots must be inside build/')
+            p.sourceSets.main.java.setSrcDirs([new File(source, 'main/java')])
+            p.sourceSets.main.resources.setSrcDirs([new File(source, 'main/resources'), new File(source, 'generated/resources')])
+        }
+        p.buildDir = new File(qa, focused ? 'tests' : visual ? 'client-build' : 'full')
+        p.tasks.matching { it.name in ['runGameTestServer', 'runClient'] }.configureEach {
+            doFirst {
+                p.exec {
+                    commandLine 'powershell.exe', '-NoProfile', '-ExecutionPolicy', 'Bypass',
+                            '-File', p.file('scripts/wait-for-minecraft-idle.ps1').absolutePath, '-QuietSeconds', '0'
+                }
+            }
+        }
+        if (focused) {
+            def selected = (p.findProperty('spiderTests') ?: 'SpiderCaveNovember21Tests,SpiderEntranceRevisionTests,BossLairRevisionTests').split(',').collect { it + '.java' }.toSet()
+            selected.add('SurfaceWaterCacheTests.java')
+            p.sourceSets.main.java.exclude { entry ->
+                entry.relativePath.pathString.startsWith('net/amurdza/examplemod/gametest/') && !selected.contains(entry.file.name)
+            }
+            def runtime = new File(qa, 'runtime-' + runName)
+            def snapshot = p.tasks.register('snapshotSpiderGameTestRuntime', Sync) {
+                dependsOn p.tasks.named('classes')
+                from p.sourceSets.main.output
+                into runtime
+            }
+            p.tasks.matching { it.name in ['prepareRunGameTestServerCompile', 'runGameTestServer'] }.configureEach { dependsOn snapshot }
+            p.minecraft.runs.gameTestServer {
+                workingDirectory new File(qa, runName)
+                environment 'MOD_CLASSES', "${p.mod_id}%%${runtime.absolutePath}"
+                jvmArgs '-Xms1G', '-Xmx3G', '-XX:ActiveProcessorCount=2'
+            }
+        }
+        if (visual) {
+            def client = new File(qa, 'client-' + runName)
+            def runtime = new File(client, 'runtime')
+            def world = p.file(p.property('spiderWorld'))
+            def views = p.file(p.property('spiderViews'))
+            def buildRoot = p.file('build').canonicalFile.toPath()
+            if (!world.canonicalFile.toPath().startsWith(buildRoot) || !views.canonicalFile.toPath().startsWith(buildRoot))
+                throw new GradleException('Only disposable build worlds and viewpoints may be used')
+            def destination = new File(client, 'saves/SpiderCaveQA')
+            def prepare = p.tasks.register('prepareSpiderVisualWorld') {
+                doLast {
+                    if (!new File(world, 'level.dat').isFile() || !views.isFile()) throw new GradleException('Missing QA world or viewpoints')
+                    if (destination.exists()) throw new GradleException('Choose a fresh spiderRun to preserve prior evidence')
+                    p.copy { from world; into destination }
+                    new File(client, 'options.txt').setText('renderDistance:5\nsimulationDistance:5\nsoundCategory_master:0.0\nfullscreen:false\npauseOnLostFocus:false\nmaxFps:30\nguiScale:2\n', 'UTF-8')
+                }
+            }
+            p.tasks.named('snapshotClientRuntime', Sync).configure { into runtime }
+            p.tasks.matching { it.name == 'runClient' }.configureEach { dependsOn prepare }
+            p.minecraft.runs.client {
+                workingDirectory client
+                environment 'MOD_CLASSES', "${p.mod_id}%%${runtime.absolutePath}"
+                jvmArgs.clear()
+                jvmArgs '-Xms1G', '-Xmx5G', '-XX:ActiveProcessorCount=2'
+                property 'aoemod.structureAudit.views', views.absolutePath
+                property 'aoemod.structureAudit.report', new File(client, 'screenshot-report.json').absolutePath
+                property 'aoemod.structureAudit.exit', 'true'
+                args '--quickPlaySingleplayer', 'SpiderCaveQA', '--width', '1440', '--height', '1000'
+            }
+        }
+    }
+}

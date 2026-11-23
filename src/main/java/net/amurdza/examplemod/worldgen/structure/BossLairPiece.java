@@ -36,6 +36,8 @@ public final class BossLairPiece extends StructurePiece {
     private final BlockPos center;
     private final long seed;
     private int spawned;
+    private final boolean expandedSpider;
+    private final java.util.BitSet spiderResidents = new java.util.BitSet();
     private final BranchedBossCaves branches;
 
     public BossLairPiece(String kind, BlockPos center, long seed) {
@@ -43,6 +45,7 @@ public final class BossLairPiece extends StructurePiece {
         this.kind = kind;
         this.center = center;
         this.seed = seed;
+        expandedSpider = kind.equals("spider");
         branches = kind.equals("spider") || kind.equals("wither") ? new BranchedBossCaves(kind, center.getY(), seed) : null;
     }
 
@@ -52,7 +55,11 @@ public final class BossLairPiece extends StructurePiece {
         center = BlockPos.of(tag.getLong("LairCenter"));
         seed = tag.getLong("LairSeed");
         spawned = tag.getInt("ResidentsPlaced");
-        branches = kind.equals("spider") || kind.equals("wither") ? new BranchedBossCaves(kind, center.getY(), seed) : null;
+        // Unversioned starts keep their original geometry and seven resident flags.
+        expandedSpider = kind.equals("spider") && tag.getInt("SpiderCaveVersion") >= 1;
+        spiderResidents.or(java.util.BitSet.valueOf(tag.getLongArray("SpiderResidents")));
+        branches = kind.equals("spider") || kind.equals("wither")
+                ? new BranchedBossCaves(kind, center.getY(), seed, expandedSpider) : null;
         boundingBox = bounds(kind, center);
     }
 
@@ -73,6 +80,10 @@ public final class BossLairPiece extends StructurePiece {
         tag.putLong("LairCenter", center.asLong());
         tag.putLong("LairSeed", seed);
         tag.putInt("ResidentsPlaced", spawned);
+        if (expandedSpider) {
+            tag.putInt("SpiderCaveVersion", 1);
+            tag.putLongArray("SpiderResidents", spiderResidents.toLongArray());
+        }
     }
 
     public static int spiderRoof(int dx, int dz) {
@@ -124,6 +135,7 @@ public final class BossLairPiece extends StructurePiece {
     @Override
     public void postProcess(WorldGenLevel level, StructureManager structures, ChunkGenerator generator,
                             RandomSource random, BoundingBox chunk, ChunkPos chunkPos, BlockPos pivot) {
+        registerBoundary(level.getLevel());
         for (int x = Math.max(chunk.minX(), boundingBox.minX()); x <= Math.min(chunk.maxX(), boundingBox.maxX()); x++) {
             for (int z = Math.max(chunk.minZ(), boundingBox.minZ()); z <= Math.min(chunk.maxZ(), boundingBox.maxZ()); z++) {
                 int dx = x - center.getX(), dz = z - center.getZ();
@@ -133,12 +145,20 @@ public final class BossLairPiece extends StructurePiece {
                 if (branches != null) placeBranchColumn(level, chunk, dx, dz);
             }
         }
+        if (expandedSpider) SpiderCaveDecoration.place(level, chunk, center, seed, branches);
         if (branches != null || kind.equals("yeti")) placeLoot(level, chunk);
         if (kind.equals("yeti")) placeYetiSpawner(level, chunk);
         placeResidents(level, chunk);
     }
 
+    public void registerBoundary(net.minecraft.server.level.ServerLevel level) {
+        BossStructureBounds.get(level).record("lair:" + kind + ":" + center.asLong(),
+                new net.minecraft.world.phys.AABB(boundingBox.minX(), boundingBox.minY(), boundingBox.minZ(),
+                        boundingBox.maxX() + 1, boundingBox.maxY() + 1, boundingBox.maxZ() + 1), null);
+    }
+
     public BranchedBossCaves branchLayout() { return branches; }
+    public boolean expandedSpider() { return expandedSpider; }
 
     private void placeBranchColumn(WorldGenLevel level, BoundingBox chunk, int dx, int dz) {
         var column = branches.column(dx, dz);
@@ -183,7 +203,14 @@ public final class BossLairPiece extends StructurePiece {
             if (!chunk.isInside(pos)) continue;
             if (level.getBlockState(pos).is(Blocks.CHEST)) continue;
             if (!level.getBlockState(pos).isAir() || !level.getBlockState(pos.below()).isFaceSturdy(level, pos.below(), Direction.UP)) continue;
-            level.setBlock(pos, Blocks.CHEST.defaultBlockState().setValue(ChestBlock.FACING, Direction.SOUTH), 2);
+            Direction facing = Direction.SOUTH;
+            if (expandedSpider) {
+                int sx = (seed & 1) == 0 ? 1 : -1, sz = (seed & 2) == 0 ? 1 : -1;
+                var authored = new BlockPos(local.getX() * sx, local.getY(), local.getZ() * sz);
+                Direction original = SpiderCaveLayout.chestFacing(authored);
+                facing = Direction.fromDelta(original.getStepX() * sx, 0, original.getStepZ() * sz);
+            }
+            level.setBlock(pos, Blocks.CHEST.defaultBlockState().setValue(ChestBlock.FACING, facing), 2);
             if (level.getBlockEntity(pos) instanceof ChestBlockEntity chest) chest.setLootTable(loot, seed ^ pos.asLong());
         }
     }
@@ -273,6 +300,10 @@ public final class BossLairPiece extends StructurePiece {
     }
 
     private synchronized void placeResidents(WorldGenLevel level, BoundingBox chunk) {
+        if (expandedSpider) {
+            placeSpiderResidents(level, chunk);
+            return;
+        }
         String[] ids = switch (kind) {
             case "spider" -> new String[]{"aoemod:spider_queen", "minecraft:spider", "minecraft:cave_spider",
                     "minecraft:spider", "minecraft:cave_spider", "minecraft:spider", "minecraft:cave_spider"};
@@ -294,6 +325,25 @@ public final class BossLairPiece extends StructurePiece {
                 pos = level.getHeightmapPos(net.minecraft.world.level.levelgen.Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, pos);
             }
             if (spawn(level, ids[i], pos)) spawned |= 1 << i;
+        }
+    }
+
+    private void placeSpiderResidents(WorldGenLevel level, BoundingBox chunk) {
+        var roster = SpiderCaveLayout.residents();
+        int sx = (seed & 1) == 0 ? 1 : -1, sz = (seed & 2) == 0 ? 1 : -1;
+        for (int index = 0; index < roster.size(); index++) {
+            if (spiderResidents.get(index)) continue;
+            var resident = roster.get(index);
+            BlockPos local = resident.pos();
+            BlockPos pos = center.offset(local.getX() * sx, local.getY(), local.getZ() * sz);
+            if (!chunk.isInside(pos)) continue;
+            if (spawn(level, resident.id(), pos, mob -> {
+                // Spider finalization can randomly create a jockey; the authored roster has no riders.
+                for (var passenger : java.util.List.copyOf(mob.getPassengers())) passenger.discard();
+                // A fixed small size keeps the roster deterministic and avoids split reinforcements.
+                if (mob instanceof net.minecraft.world.entity.monster.Slime slime) slime.setSize(1, true);
+                if (mob instanceof net.minecraft.world.entity.AgeableMob animal) animal.setAge(0);
+            })) spiderResidents.set(index);
         }
     }
 

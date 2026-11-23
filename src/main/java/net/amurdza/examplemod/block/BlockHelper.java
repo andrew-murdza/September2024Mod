@@ -31,6 +31,8 @@ public class BlockHelper {
     public static boolean canGrowGiantMushroom(LevelReader level, BlockPos mushroomPos) {
         return !GameplayDimensions.isCustom(level)
                 || GameplayDimensions.is(level, GameplayDimensions.TROPICAL)
+                || GameplayDimensions.is(level, GameplayDimensions.SNOWY)
+                    && !net.amurdza.examplemod.util.DocumentedPlacementRules.isNaturalGeneration(level)
                 || GameplayDimensions.biomeIs(level, mushroomPos, "mushroom_caves");
     }
 

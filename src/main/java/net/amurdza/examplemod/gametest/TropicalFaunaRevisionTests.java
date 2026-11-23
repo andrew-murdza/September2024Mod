@@ -51,11 +51,10 @@ public final class TropicalFaunaRevisionTests {
             helper.assertTrue(species.habitat() != DocumentedFauna.Habitat.LAND, "Reef fauna must spawn in water");
             reef.add(species.id().toString());
         }
-        helper.assertTrue(reef.equals(Set.of("minecraft:tropical_fish", "minecraft:pufferfish", "angling:anomalocaris",
+        helper.assertTrue(reef.equals(Set.of("minecraft:tropical_fish", "minecraft:pufferfish",
                         "minecraft:axolotl", "hybrid_aquatic:umbrella_octopus",
-                        "hybrid_aquatic:coconut_crab", "minecraft:turtle", "hybrid_aquatic:lightfoot_crab",
-                        "hybrid_aquatic:starfish", "aoemod:nautilus", "minecraft:dolphin", "angling:sea_slug")),
-                "Reef must contain exactly the twelve requested aquatic species");
+                        "minecraft:turtle", "hybrid_aquatic:starfish", "aoemod:nautilus", "minecraft:dolphin")),
+                "Reef must contain exactly the eight requested aquatic species");
         for (String biome : List.of("cherry_grove", "mangrove_swamp", "rainforest")) {
             Set<String> expected = new HashSet<>(reef);
             expected.remove("aoemod:nautilus");

@@ -17,7 +17,7 @@ public final class SnowyBandCompression {
         double low = .7, high = 1;
         for (int i = 0; i < 48; i++) {
             double mid = (low + high) / 2;
-            if (MountainRidges.contour(mid) < .85) low = mid; else high = mid;
+            if (MountainRidges.contour(mid) < SnowyTerrainProfile.PLATEAU_START) low = mid; else high = mid;
         }
         return (low + high) / 2;
     }

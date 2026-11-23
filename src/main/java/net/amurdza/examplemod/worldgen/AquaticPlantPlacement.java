@@ -150,7 +150,7 @@ public final class AquaticPlantPlacement {
 
     private static boolean commit(WorldGenLevel original, GrowthPlacementBuffer buffer) {
         return buffer.isValid((pos, state) -> preservesFluid(original, pos, state)
-                && DocumentedPlacementRules.isBiomeAllowed(buffer, pos, state, false)
+                && DocumentedPlacementRules.isGenerationBiomeAllowed(buffer, pos, state, false)
                 && state.canSurvive(buffer, pos)) && buffer.commit();
     }
 }

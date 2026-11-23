@@ -43,7 +43,7 @@ public final class MansionBasementPiece extends StructurePiece {
     public MansionBasementPiece(BlockPos entrance) { this(entrance, Rotation.NONE); }
 
     public MansionBasementPiece(BlockPos entrance, Rotation rotation) {
-        this(entrance, rotation, 11);
+        this(entrance, rotation, 14);
     }
 
     public MansionBasementPiece(BlockPos entrance, Rotation rotation, int layoutVersion) {
@@ -120,6 +120,11 @@ public final class MansionBasementPiece extends StructurePiece {
         if (!boundingBox.isInside(pos)) return false;
         var p = local(pos);
         return cell(p.getX(), p.getY(), p.getZ(), Blocks.WHEAT) != null;
+    }
+    public boolean isMineOre(BlockPos pos) {
+        if (layoutVersion < 14 || !boundingBox.isInside(pos)) return false;
+        var p = local(pos);
+        return MansionBasementLayoutV14.isOre(cell(p.getX(), p.getY(), p.getZ(), Blocks.WHEAT));
     }
     public int layoutVersion() { return layoutVersion; }
     public static int mainFloorOffset(int version) { return version >= 7 ? 7 : 10; }
@@ -218,7 +223,10 @@ public final class MansionBasementPiece extends StructurePiece {
         if (layoutVersion == 8) return MansionBasementLayoutV8.cell(x, y, z);
         if (layoutVersion == 9) return MansionBasementLayoutV9.cell(x, y, z);
         if (layoutVersion == 10) return MansionBasementLayoutV10.cell(x, y, z);
-        if (layoutVersion >= 11) return MansionBasementLayoutV11.cell(x, y, z);
+        if (layoutVersion == 11) return MansionBasementLayoutV11.cell(x, y, z);
+        if (layoutVersion == 12) return MansionBasementLayoutV12.cell(x, y, z);
+        if (layoutVersion == 13) return MansionBasementLayoutV13.cell(x, y, z);
+        if (layoutVersion >= 14) return MansionBasementLayoutV14.cell(x, y, z);
         int side = Math.abs(x);
         // A continuous slab sits beneath every channel and the sand-lined cane pond.
         if (y == -2 && side <= 30 && z >= 0 && z <= 69 && !(z < 10 && side <= 1)) return BRICK;

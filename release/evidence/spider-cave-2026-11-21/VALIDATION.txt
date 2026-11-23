@@ -1,0 +1,40 @@
+Spider cave validation — November 21, 2026
+
+PASS: all 10 final Forge GameTests (run5).
+- Connected decorated rooms, fixed roster, clear spawn positions and wall loot.
+- No water or crops; required cave materials, dry berry vines and ceiling support.
+- Chunk write boundaries, reversed chunk order and replay without duplicate residents.
+- Saved resident bits beyond index 64; legacy saved-cave layout compatibility.
+- Mirrored entrance sealing and rainforest placement.
+- Arthropleura offspring membership from either parent, twins, save/load and boundary protection.
+
+Measured floor area: 4,256 blocks; previous: 2,657.
+Initial roster: 68 monsters, 1 spider queen, 4 adult Arthropleura.
+Wall chests: 6. Farm pits: 2. Chambers: 6.
+
+Final test command:
+.\gradlew.bat -I scripts/spider-cave-qa.init.gradle --max-workers=2 '-PspiderRun=run5' '-PspiderSource=build/spider-cave-qa/source-final' runGameTestServer
+
+A fixed source snapshot kept validation independent of concurrent chat edits.
+The source snapshot matches the active spider cave and Arthropleura files.
+The final run reused terrain from a closed disposable QA world, excluding entities;
+the cave test rebuilds all cave blocks and residents before its assertions.
+
+PASS: final build task completed using the same final source snapshot.
+Artifact: build/spider-cave-qa/client-build/libs/aoemod-1.0.0-1.20.1.jar
+SHA-256: 7864E03DF99D8E38D458F658DF7C8A147B0B6F8190E2B61BFB10E64705E1772A
+
+PASS: seven views captured and inspected (client-views2): entrance, slime,
+garden, mushroom, larder, brood and queen. Visual inspection found an exposed
+mushroom-cap texture issue; the final code corrects the exposed side properties.
+PASS: final mushroom recapture (client-views3), visually inspected. Exposed cap sides
+now have correct red/brown textures. The corrected image replaces the earlier
+mushroom view in screenshots/. The other six views are unchanged.
+The full build/runClient command completed successfully, and the client exited.
+
+Build and recapture command:
+.\gradlew.bat -I scripts/spider-cave-qa.init.gradle --max-workers=2 '-PspiderRun=views3' '-PspiderSource=build/spider-cave-qa/source-final' '-PspiderWorld=build/spider-cave-qa/run5/world' '-PspiderViews=build/spider-cave-qa/final-mushroom-views.json' build runClient
+
+All QA runs are isolated beneath build/spider-cave-qa. Minecraft instances run
+sequentially with two active processors. All 326 protected installed config,
+options and serverconfig files still match their original checksums.

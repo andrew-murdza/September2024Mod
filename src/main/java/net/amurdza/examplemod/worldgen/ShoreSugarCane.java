@@ -203,7 +203,7 @@ public final class ShoreSugarCane {
     }
 
     private static boolean commit(GrowthPlacementBuffer buffer) {
-        return buffer.isValid((pos, state) -> DocumentedPlacementRules.isBiomeAllowed(buffer, pos, state, false)
+        return buffer.isValid((pos, state) -> DocumentedPlacementRules.isGenerationBiomeAllowed(buffer, pos, state, false)
                 && state.canSurvive(buffer, pos)) && buffer.commit();
     }
 

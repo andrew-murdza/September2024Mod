@@ -32,7 +32,7 @@ import java.lang.reflect.Method;
 import java.util.List;
 import java.util.function.DoubleSupplier;
 
-@GameTestHolder(AOEMod.MOD_ID)
+// Historical geometry audit for removed crab species; deliberately not registered as active GameTests.
 @PrefixGameTestTemplate(false)
 public final class TallCrabTests {
     private TallCrabTests() { }

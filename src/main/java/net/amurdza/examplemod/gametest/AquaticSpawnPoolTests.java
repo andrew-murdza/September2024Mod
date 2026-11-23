@@ -71,7 +71,7 @@ public final class AquaticSpawnPoolTests {
                     category = DocumentedFauna.spawnCategory(species);
                 }
                 var expected = switch (species.id().toString()) {
-                    case "minecraft:tropical_fish", "hybrid_aquatic:starfish", "angling:sea_slug" -> DocumentedFauna.GroupSize.SCHOOL;
+                    case "minecraft:tropical_fish", "hybrid_aquatic:starfish" -> DocumentedFauna.GroupSize.SCHOOL;
                     case "minecraft:turtle" -> DocumentedFauna.GroupSize.SINGLE;
                     case "alexsmobs:orca" -> DocumentedFauna.GroupSize.VERY_LARGE;
                     case "hybrid_aquatic:octopus" -> DocumentedFauna.GroupSize.LARGE;
@@ -111,7 +111,7 @@ public final class AquaticSpawnPoolTests {
                             .noneMatch(entry -> entry.type == type),
                     "The four requested water creatures must use 1-3 packs in the lower-cap pool: " + id);
         }
-        for (String id : List.of("angling:anomalocaris")) {
+        for (String id : List.of("minecraft:pufferfish")) {
             var type = ForgeRegistries.ENTITY_TYPES.getValue(new ResourceLocation(id));
             helper.assertTrue(type.getCategory() == MobCategory.WATER_AMBIENT
                             && DocumentedFauna.spawnCategory(type) == net.amurdza.examplemod.registry.ModMobCategories.COMMON_AQUATIC
@@ -120,7 +120,7 @@ public final class AquaticSpawnPoolTests {
                                     && entry.minCount == 2 && entry.maxCount == 5)
                             && reef.getMobSettings().getMobs(MobCategory.WATER_CREATURE).unwrap().stream()
                             .noneMatch(entry -> entry.type == type),
-                    "Anomalocaris must use the expanded tropical fish pool and schools: " + id);
+                    "Pufferfish must use the expanded tropical fish pool and schools: " + id);
         }
         helper.succeed();
     }
@@ -128,7 +128,7 @@ public final class AquaticSpawnPoolTests {
     @GameTest(template = "plant_gameplay_empty")
     public static void bottomAnimalsSettleFromOrdinaryWaterCandidatesWithoutLosingCollisionChecks(GameTestHelper helper) {
         var tropical = helper.getLevel().getServer().getLevel(GameplayDimensions.TROPICAL);
-        for (String id : List.of("hybrid_aquatic:starfish", "angling:sea_slug", "hybrid_aquatic:lightfoot_crab")) {
+        for (String id : List.of("hybrid_aquatic:starfish")) {
             var type = ForgeRegistries.ENTITY_TYPES.getValue(new ResourceLocation(id));
             var water = AquaticPlantGenerationTests.fixture(helper, "coral_reef", new HashMap<>(), 32, tropical,
                     Blocks.SAND.defaultBlockState(), Blocks.WATER.defaultBlockState());
@@ -151,7 +151,7 @@ public final class AquaticSpawnPoolTests {
         var tropical = helper.getLevel().getServer().getLevel(GameplayDimensions.TROPICAL);
         var player = helper.makeMockPlayer();
         final double x = 100000.5, z = 100000.5;
-        for (String id : List.of("hybrid_aquatic:starfish", "angling:sea_slug", "hybrid_aquatic:lightfoot_crab")) {
+        for (String id : List.of("hybrid_aquatic:starfish")) {
             var type = ForgeRegistries.ENTITY_TYPES.getValue(new ResourceLocation(id));
             Mob mob = (Mob) type.create(tropical);
             var base = AquaticPlantGenerationTests.fixture(helper, "coral_reef", new HashMap<>(), 32, tropical,
@@ -230,16 +230,16 @@ public final class AquaticSpawnPoolTests {
         try {
             var state = NaturalSpawner.createState(289, List.of(cod, squid, starfish), (key, consumer) -> consumer.accept(chunk),
                     new LocalMobCapCalculator(tropical.getChunkSource().chunkMap));
-            helper.assertTrue(state.getMobCategoryCounts().getInt(MobCategory.WATER_AMBIENT) == 1
-                            && state.getMobCategoryCounts().getInt(net.amurdza.examplemod.registry.ModMobCategories.COMMON_AQUATIC) == 1
+            helper.assertTrue(state.getMobCategoryCounts().getInt(MobCategory.WATER_AMBIENT) == 2
+                            && state.getMobCategoryCounts().getInt(net.amurdza.examplemod.registry.ModMobCategories.COMMON_AQUATIC) == 0
                             && state.getMobCategoryCounts().getInt(MobCategory.WATER_CREATURE) == 1,
                     "Small fish and starfish must count separately from larger water creatures");
             var afterSpawn = Arrays.stream(NaturalSpawner.SpawnState.class.getDeclaredMethods())
                     .filter(method -> Arrays.equals(method.getParameterTypes(), new Class<?>[]{Mob.class, ChunkAccess.class})).findFirst().orElseThrow();
             afterSpawn.setAccessible(true);
             afterSpawn.invoke(state, squid, chunk);
-            helper.assertTrue(state.getMobCategoryCounts().getInt(MobCategory.WATER_AMBIENT) == 1
-                            && state.getMobCategoryCounts().getInt(net.amurdza.examplemod.registry.ModMobCategories.COMMON_AQUATIC) == 1
+            helper.assertTrue(state.getMobCategoryCounts().getInt(MobCategory.WATER_AMBIENT) == 2
+                            && state.getMobCategoryCounts().getInt(net.amurdza.examplemod.registry.ModMobCategories.COMMON_AQUATIC) == 0
                             && state.getMobCategoryCounts().getInt(MobCategory.WATER_CREATURE) == 2,
                     "A successful squid spawn must charge its native cap immediately");
             helper.assertTrue(EntityType.SQUID.getCategory() == MobCategory.WATER_CREATURE,

@@ -62,7 +62,7 @@ public class BoneMeal {
         BlockPos pos = event.getPos();
         BlockState state = level.getBlockState(pos);
 
-        // In AOE dimensions, giant mushrooms need tropical or mushroom-cave habitat.
+        // Player-grown giant mushrooms use the tropical and Snowy material lists.
         if (state.is(Blocks.RED_MUSHROOM)||state.is(Blocks.BROWN_MUSHROOM)) {
             if (!BlockHelper.canGrowGiantMushroom(level, pos)) {
                 event.setCanceled(true);
@@ -213,6 +213,7 @@ public class BoneMeal {
 
         if (state.is(Blocks.MYCELIUM)) {
             return !GameplayDimensions.isCustom(level)
+                    || GameplayDimensions.is(level, GameplayDimensions.SNOWY)
                     || GameplayDimensions.biomeIs(level, pos.above(), "mushroom_caves");
         }
 
@@ -521,6 +522,9 @@ public class BoneMeal {
     ) {}
 
     private static boolean isBiomeSurfaceBonemealTarget(LevelReader level, BlockPos pos, BlockState state) {
+        if (GameplayDimensions.is(level, GameplayDimensions.SNOWY)) {
+            return state.is(Blocks.GRASS_BLOCK) || state.is(Blocks.MYCELIUM);
+        }
         Holder<Biome> biome = biomeAboveClickedBlock(level, pos);
 
         if (GameplayDimensions.biomeIs(level, pos.above(), "mushroom_caves")) {
@@ -661,6 +665,9 @@ public class BoneMeal {
 
     private static boolean isCorrectLandGroundForBiome(ServerLevel level, BlockPos groundPos) {
         BlockState ground = level.getBlockState(groundPos);
+        if (GameplayDimensions.is(level, GameplayDimensions.SNOWY)) {
+            return ground.is(Blocks.GRASS_BLOCK) || ground.is(Blocks.MYCELIUM);
+        }
         Holder<Biome> biome = biomeAboveClickedBlock(level, groundPos);
 
         if (GameplayDimensions.biomeIs(level, groundPos.above(), "mushroom_caves")) {
@@ -708,6 +715,13 @@ public class BoneMeal {
             BlockPos groundPos,
             BiomeBonemealFeatures features
     ) {
+        // Snowy habitats share cultivation permissions. Keep each soil's plants
+        // when it is moved to another habitat, including grass brought into caves.
+        if (GameplayDimensions.is(level, GameplayDimensions.SNOWY)) {
+            return level.getBlockState(groundPos).is(Blocks.MYCELIUM)
+                    ? ModConfiguredFeatures.MUSHROOM_CAVES_FLOOR
+                    : ModConfiguredFeatures.MOUNTAINS_FLOOR;
+        }
         if (level.getBlockState(groundPos).is(Blocks.MYCELIUM)
                 && GameplayDimensions.biomeIs(level, groundPos.above(), "mushroom_caves")) {
             return ModConfiguredFeatures.MUSHROOM_CAVES_FLOOR;

@@ -36,6 +36,11 @@ public class ModStructures {
     public static final RegistryObject<StructureProcessorType<SavannaOrcCampProcessor>> SAVANNA_ORC_CAMP_PROCESSOR =
             PROCESSOR_TYPES.register("savanna_orc_camp_materials", () -> () -> SavannaOrcCampProcessor.CODEC);
 
+    public static final RegistryObject<StructureType<net.amurdza.examplemod.worldgen.structure.GoblinFortressStructure>> GOBLIN_FORTRESS =
+            STRUCTURE_TYPES.register("goblin_fortress", () -> () -> net.amurdza.examplemod.worldgen.structure.GoblinFortressStructure.CODEC);
+    public static final RegistryObject<StructurePieceType> GOBLIN_FORTRESS_PIECE =
+            PIECE_TYPES.register("goblin_fortress", () -> net.amurdza.examplemod.worldgen.structure.GoblinFortressPiece::new);
+
     public static final RegistryObject<StructureType<BossLairStructure>> BOSS_LAIR =
             STRUCTURE_TYPES.register("boss_lair", () -> () -> BossLairStructure.CODEC);
     public static final RegistryObject<StructurePieceType> BOSS_LAIR_PIECE =
@@ -65,6 +70,10 @@ public class ModStructures {
     public static final RegistryObject<StructurePieceType> MUSHROOM_CAVE_PIECE =
             PIECE_TYPES.register("mushroom_cave_piece", () -> MushroomCavePiece::new);
 
+    public static final RegistryObject<StructureType<net.amurdza.examplemod.worldgen.structure.NetherCitadelStructure>> NETHER_CITADEL =
+            STRUCTURE_TYPES.register("nether_citadel", () -> () -> net.amurdza.examplemod.worldgen.structure.NetherCitadelStructure.CODEC);
+    public static final RegistryObject<StructurePieceType> NETHER_CITADEL_PIECE =
+            PIECE_TYPES.register("nether_citadel_piece", () -> net.amurdza.examplemod.worldgen.structure.NetherCitadelPiece::new);
     public static void register(IEventBus bus) {
         STRUCTURE_TYPES.register(bus);
         PIECE_TYPES.register(bus);

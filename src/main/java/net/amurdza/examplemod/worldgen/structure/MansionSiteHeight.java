@@ -25,7 +25,7 @@ public final class MansionSiteHeight {
     }
 
     public static int highestGround(BoundingBox house, IntBinaryOperator heights) {
-        return highestGround(house, MansionEstateShape.SQUARE_VERSION, heights);
+        return highestGround(house, MansionEstateShape.WIDE_CIRCLE_VERSION, heights);
     }
 
     public static int highestGround(BoundingBox house, int layoutVersion, IntBinaryOperator heights) {

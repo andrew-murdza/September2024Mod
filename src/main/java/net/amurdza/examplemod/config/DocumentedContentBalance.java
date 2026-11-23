@@ -97,22 +97,16 @@ public final class DocumentedContentBalance {
         working("wildernature:flamingo", 0, 1.25F);
         working("alexsmobs:elephant", 0, 0.5F);
 
-        fish("angling:anomalocaris", "aoemod:raw_anomalocaris", "aoemod:cooked_anomalocaris", 2, 0);
         fish("alexsmobs:flying_fish", "alexsmobs:flying_fish", "aoemod:cooked_flying_fish", 2, 3);
         fish("alexsmobs:triops", "aoemod:raw_triops", "aoemod:cooked_triops", 1, 4);
         fish("ambientadditions:blue_spotted_stingray", "aoemod:raw_blue_spotted_stingray", "aoemod:cooked_blue_spotted_stingray", 1, 4);
-        fish("hybrid_aquatic:coconut_crab", "ecologics:crab_meat", "aoemod:cooked_crab_meat", 2, 0);
-        fish("hybrid_aquatic:lightfoot_crab", "ecologics:crab_meat", "aoemod:cooked_crab_meat", 2, 0);
-        fish("hybrid_aquatic:flower_crab", "ecologics:crab_meat", "aoemod:cooked_crab_meat", 2, 1, 2);
         fish("hybrid_aquatic:fiddler_crab", "ecologics:crab_meat", "aoemod:cooked_crab_meat", 2, 4);
         fish("hybrid_aquatic:starfish", "hybrid_aquatic:starfish", "aoemod:cooked_starfish", 1, 0);
         fish("hybrid_aquatic:octopus", "aoemod:raw_octopus", "aoemod:cooked_octopus", 3, 1, 2);
         fish("hybrid_aquatic:umbrella_octopus", "aoemod:raw_umbrella_octopus", "aoemod:cooked_umbrella_octopus", 2, 0);
-        fish("finsandtails:swamp_mucker", "finsandtails:swamp_mucker", "aoemod:cooked_swamp_mucker", 1.5F, 1, 2);
         fish("hybrid_aquatic:arrow_squid", "aoemod:raw_arrow_squid", "aoemod:cooked_arrow_squid", 3, 3);
         fish("hybrid_aquatic:vampire_squid", "aoemod:raw_vampire_squid", "aoemod:cooked_vampire_squid", 3, 3);
         fish("hybrid_aquatic:tuna", "hybrid_aquatic:tuna", "aoemod:cooked_tuna", 3, 3);
-        fish("alexsmobs:giant_squid", "alexsmobs:lost_tentacle", "aoemod:cooked_lost_tentacle", 3, 3);
         fish("alexscaves:tripodfish", "alexscaves:tripodfish", "alexscaves:cooked_tripodfish", 2, 3);
         fish("hybrid_aquatic:spider_crab", "ecologics:crab_meat", "aoemod:cooked_crab_meat", 3, 3);
         fish("finsandtails:golden_river_ray", "finsandtails:raw_golden_river_ray_wing", "finsandtails:golden_river_ray_wing_fillet", 1, 4);

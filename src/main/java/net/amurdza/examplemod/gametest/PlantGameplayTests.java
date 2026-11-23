@@ -136,8 +136,11 @@ public final class PlantGameplayTests {
         var wrongSnowyFloor = biomeBoundary(snowy, floor, "mushroom_caves", "snowy_forest");
         helper.assertTrue(BiomePlacementRestrictions.isAllowed(snowyFloor, floor, Blocks.MYCELIUM.defaultBlockState()),
                 "Mycelium must accept mushroom caves above even if the floor itself has a different biome");
-        helper.assertFalse(BiomePlacementRestrictions.isAllowed(wrongSnowyFloor, floor, Blocks.MYCELIUM.defaultBlockState()),
-                "Mycelium must reject a mushroom-cave floor with a different biome above");
+        helper.assertTrue(BiomePlacementRestrictions.isAllowed(wrongSnowyFloor, floor, Blocks.MYCELIUM.defaultBlockState()),
+                "Player-placed mycelium belongs to the shared Snowy block list");
+        helper.assertFalse(net.amurdza.examplemod.util.DocumentedPlacementRules.isGenerationBiomeAllowed(
+                        wrongSnowyFloor, floor, Blocks.MYCELIUM.defaultBlockState(), false),
+                "Natural mycelium still requires mushroom caves immediately above");
         var crimsonAbove = biomeBoundary(nether, floor, "warped_forest", "crimson_forest");
         helper.assertTrue(BiomePlacementRestrictions.isAllowed(crimsonAbove, floor, Blocks.CRIMSON_NYLIUM.defaultBlockState()),
                 "Crimson nylium must accept crimson forest above");
@@ -157,8 +160,8 @@ public final class PlantGameplayTests {
                 "Tropical dimension should permit giant mushrooms");
         helper.assertTrue(BlockHelper.canGrowGiantMushroom(biomeBoundary(snowy, pos, "mushroom_caves", "snowy_forest"), pos),
                 "Mushroom caves should permit giant mushrooms");
-        helper.assertFalse(BlockHelper.canGrowGiantMushroom(biomeBoundary(snowy, pos, "snowy_forest", "mushroom_caves"), pos),
-                "Snowy forest alone should not permit giant mushrooms");
+        helper.assertTrue(BlockHelper.canGrowGiantMushroom(biomeBoundary(snowy, pos, "snowy_forest", "mushroom_caves"), pos),
+                "Player-planted mushrooms can grow across Snowy's shared block list");
         helper.assertTrue(BlockHelper.canGrowGiantMushroom(helper.getLevel(), pos),
                 "Unconfigured worlds must retain their original giant mushroom availability");
         helper.succeed();

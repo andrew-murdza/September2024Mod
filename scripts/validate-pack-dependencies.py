@@ -60,8 +60,8 @@ def main():
             errors.append(f"Missing required dependency {dep['modId']} for {owner}, range {dep.get('versionRange')}")
     aoe = tomllib.loads((ROOT / "src/main/resources/META-INF/mods.toml").read_text())
     angling = [dep for dep in aoe["dependencies"]["${mod_id}"] if dep["modId"] == "angling"]
-    if len(angling) != 1 or not angling[0].get("mandatory") or angling[0].get("side") != "BOTH":
-        errors.append("AOE must require Angling on both client and server")
+    if angling or "angling" in provided:
+        errors.append("The removed Angling dependency must not be loaded or required")
     for directory in (ROOT / "run/mods", ROOT / "run-data/mods"):
         for path in directory.glob("*.jar"):
             with zipfile.ZipFile(path) as archive:

@@ -2,7 +2,7 @@
   "format": 1,
   "minecraft": "1.20.1",
   "forge": "47.4.22",
-  "description": "Exact local Forge jars selected from the user supplied AnimalTesting profile, plus the completed Angling port. Libraries embedded in these jars are retained. My Nether's Delight is the official Forge dependency added for documented Nether powder cane. Immersive Portals 3.0.7 and Cloth Config 11.1.136 provide the continuous custom desert-Nether stack. Embeddium 0.3.31+mc1.20.1 supplies the Forge client renderer and NVIDIA driver workaround.",
+  "description": "Exact local Forge jars selected from the user supplied AnimalTesting profile. Libraries embedded in these jars are retained. My Nether's Delight is the official Forge dependency added for documented Nether powder cane. Immersive Portals 3.0.7 and Cloth Config 11.1.136 provide the continuous custom desert-Nether stack. Embeddium 0.3.31+mc1.20.1 supplies the Forge client renderer and NVIDIA driver workaround.",
   "jars": [
     {
       "artifact": "alexscaves",
@@ -96,46 +96,6 @@
           "mandatory": true,
           "versionRange": "[1.20,1.21)",
           "ordering": "NONE",
-          "side": "BOTH"
-        }
-      ]
-    },
-    {
-      "artifact": "angling",
-      "version": "1.0.1-forge.1",
-      "file": "libs/pack/angling-1.0.1-forge.1.jar",
-      "source_filename": "angling-forge-1.20.1-1.0.1-forge.1.jar",
-      "sha256": "36c6857fc4ce52eb02ca6f78720223c0a3b781512dbdd0137b00bead9f1d139a",
-      "mods": [
-        {
-          "modId": "angling",
-          "version": "1.0.1-forge.1"
-        }
-      ],
-      "embedded_mods": [],
-      "dependencies": [
-        {
-          "owner": "angling",
-          "modId": "forge",
-          "mandatory": true,
-          "versionRange": "[47.4.0,48)",
-          "ordering": "NONE",
-          "side": "BOTH"
-        },
-        {
-          "owner": "angling",
-          "modId": "minecraft",
-          "mandatory": true,
-          "versionRange": "[1.20.1,1.20.2)",
-          "ordering": "NONE",
-          "side": "BOTH"
-        },
-        {
-          "owner": "angling",
-          "modId": "geckolib",
-          "mandatory": true,
-          "versionRange": "[4.4.9,5)",
-          "ordering": "AFTER",
           "side": "BOTH"
         }
       ]

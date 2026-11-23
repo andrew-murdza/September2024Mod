@@ -72,8 +72,8 @@ public final class SnowyEcologyTests {
                         "Snowy rabbits, goats and reindeer must each have one equally weighted herd of two to four");
             }
             boolean ocean = name.equals("cold_ocean");
-            helper.assertTrue(!loaded.contains("iceandfire:hippocampus") && !loaded.contains("aoemod:nautilus"),
-                    "The explicit snowy aquatic roster must apply to lakes and forests");
+            helper.assertTrue(!loaded.contains("iceandfire:hippocampus") && loaded.contains("aoemod:nautilus") == ocean,
+                    "The retained nautilus belongs to cold ocean, while forests and all Snowy biomes exclude hippocampi: " + name);
             var habitat = habitat(snowy, name);
             for (int i = 0; i < 12; i++) {
                 var rabbit = EntityType.RABBIT.create(snowy);
@@ -133,15 +133,15 @@ public final class SnowyEcologyTests {
         for (var plant : new net.minecraft.world.level.block.Block[]{shrub, poplar, Blocks.WHEAT, oatCrop,
                 Blocks.PUMPKIN, Blocks.PUMPKIN_STEM, Blocks.ATTACHED_PUMPKIN_STEM, Blocks.SUGAR_CANE}) {
             helper.assertTrue(BiomePlacementRestrictions.isAllowed(dappled, pos, plant.defaultBlockState()), "Dappled plant rejected: " + plant);
-            helper.assertFalse(BiomePlacementRestrictions.isAllowed(taiga, pos, plant.defaultBlockState()), "Dappled plant leaked into taiga: " + plant);
+            helper.assertTrue(BiomePlacementRestrictions.isAllowed(taiga, pos, plant.defaultBlockState()), "Snowy's shared placement list must accept the dappled plant in taiga: " + plant);
         }
         for (var bush : new net.minecraft.world.level.block.Block[]{Blocks.SWEET_BERRY_BUSH,
                 net.amurdza.examplemod.registry.ModBlocks.BLUE_BERRY_BUSH.get()}) {
             helper.assertTrue(BiomePlacementRestrictions.isAllowed(taiga, pos, bush.defaultBlockState()), "Berry bush rejected in taiga");
-            helper.assertFalse(BiomePlacementRestrictions.isAllowed(dappled, pos, bush.defaultBlockState()), "Berry bush leaked into dappled forest");
+            helper.assertTrue(BiomePlacementRestrictions.isAllowed(dappled, pos, bush.defaultBlockState()), "Players can place Snowy berries in dappled forest");
         }
         helper.assertTrue(TreeGrowthPlacementRules.isAllowed(dappled, pos, pos.above(), poplarLog.defaultBlockState()), "Poplar must grow in dappled forest");
-        helper.assertFalse(TreeGrowthPlacementRules.isAllowed(taiga, pos, pos.above(), poplarLog.defaultBlockState()), "Poplar must not grow in taiga");
+        helper.assertTrue(TreeGrowthPlacementRules.isAllowed(taiga, pos, pos.above(), poplarLog.defaultBlockState()), "A player-planted poplar can grow in taiga");
         for (var habitat : new ServerLevelAccessor[]{taiga, dappled}) {
             helper.assertTrue(TreeGrowthPlacementRules.isAllowed(habitat, pos, pos.above(), Blocks.SPRUCE_LOG.defaultBlockState()),
                     "The reference spruce trees must be able to grow in either forest");

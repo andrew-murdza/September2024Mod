@@ -1,13 +1,15 @@
 {
-  "type": "aoemod:boss_lair",
-  "kind": "wither",
-  "biomes": ["aoemod:basalt_deltas"],
+  "type": "aoemod:nether_citadel",
+  "biomes": ["aoemod:basalt_deltas", "aoemod:crimson_forest", "aoemod:warped_forest", "aoemod:soul_sand_valley"],
   "step": "underground_structures",
   "terrain_adaptation": "none",
   "spawn_overrides": {
-    "monster": {"bounding_box": "piece", "spawns": [
-      {"type": "minecraft:wither_skeleton", "weight": 10, "minCount": 1, "maxCount": 3},
-      {"type": "minecraft:magma_cube", "weight": 10, "minCount": 1, "maxCount": 3}
-    ]}
+    "monster": {"bounding_box": "full", "spawns": []},
+    "creature": {"bounding_box": "full", "spawns": []},
+    "ambient": {"bounding_box": "full", "spawns": []},
+    "underground_water_creature": {"bounding_box": "full", "spawns": []},
+    "water_creature": {"bounding_box": "full", "spawns": []},
+    "water_ambient": {"bounding_box": "full", "spawns": []},
+    "axolotls": {"bounding_box": "full", "spawns": []}
   }
 }

@@ -10,6 +10,7 @@ import net.amurdza.examplemod.entity.ai.PolarBearTamingAccess;
 import net.amurdza.examplemod.util.AnimalFoodOverrides;
 import net.amurdza.examplemod.util.ModTags;
 import net.amurdza.examplemod.util.StructureSpawnedMobData;
+import net.amurdza.examplemod.worldgen.structure.AuthoredEncounterProgress;
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.tags.BlockTags;
@@ -35,6 +36,7 @@ import net.minecraft.world.entity.animal.horse.AbstractHorse;
 import net.minecraft.world.entity.animal.horse.Horse;
 import net.minecraft.world.entity.animal.horse.Llama;
 import net.minecraft.world.entity.monster.AbstractSkeleton;
+import net.minecraft.world.entity.monster.Enemy;
 import net.minecraft.world.entity.monster.Zombie;
 import net.minecraft.world.entity.monster.Zoglin;
 import net.minecraft.world.entity.monster.ZombifiedPiglin;
@@ -236,8 +238,31 @@ public class MobAI {
     }
 
     private static void keepStructureMobNearHome(ServerLevel level, Mob mob) {
-        if (!StructureSpawnedMobData.isMarked(mob)
-                || Math.floorMod(level.getGameTime() + mob.getId(), 20L) != 0L) {
+        if (AuthoredEncounterProgress.isLivestock(mob)) {
+            // Pens use fences and the encounter boundary, not a small home
+            // radius, even if saved livestock has already lost its home tag.
+            if (mob instanceof PathfinderMob pathfinderMob) pathfinderMob.clearRestriction();
+            if (StructureSpawnedMobData.isMarked(mob)
+                    && AuthoredEncounterProgress.get(level).isCleared(AuthoredEncounterProgress.encounterId(mob))) {
+                // Keep the encounter identity so released stock still belongs
+                // to its camp when crossing a gate, without requiring a lead.
+                StructureSpawnedMobData.release(mob);
+            }
+            return;
+        }
+
+        if (!StructureSpawnedMobData.isMarked(mob)) {
+            return;
+        }
+
+        if (mob instanceof Animal && !(mob instanceof Enemy)
+                && !AuthoredEncounterProgress.isDefender(mob)) {
+            // Remove old pen tethers from legacy marked animals as well.
+            if (mob instanceof PathfinderMob pathfinderMob) pathfinderMob.clearRestriction();
+            return;
+        }
+
+        if (Math.floorMod(level.getGameTime() + mob.getId(), 20L) != 0L) {
             return;
         }
 

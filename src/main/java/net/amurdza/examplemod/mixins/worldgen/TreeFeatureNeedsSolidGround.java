@@ -34,10 +34,13 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 public class TreeFeatureNeedsSolidGround {
 
     @Inject(method = "validTreePos", at = @At("HEAD"), cancellable = true)
-    private static void aoemod$growThroughTropicalVines(net.minecraft.world.level.LevelSimulatedReader level,
+    private static void aoemod$growThroughTropicalUnderstory(net.minecraft.world.level.LevelSimulatedReader level,
             BlockPos pos, CallbackInfoReturnable<Boolean> result) {
         if (level instanceof WorldGenLevel world && GameplayDimensions.is(world, GameplayDimensions.TROPICAL)
-                && net.amurdza.examplemod.worldgen.TropicalPlantIntegrity.isCaveVine(world.getBlockState(pos))) {
+                && (net.amurdza.examplemod.worldgen.TropicalPlantIntegrity.isCaveVine(world.getBlockState(pos))
+                || world.getBlockState(pos).is(Blocks.BAMBOO))) {
+            // Trees take precedence even when their neighbor decorated bamboo first;
+            // the replacement hook trims that stalk immediately below the new canopy.
             result.setReturnValue(true);
         }
     }

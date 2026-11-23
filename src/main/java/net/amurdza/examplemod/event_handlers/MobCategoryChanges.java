@@ -1,6 +1,5 @@
 package net.amurdza.examplemod.event_handlers;
 
-import com.eightsidedsquare.angling.core.AnglingEntities;
 import net.amurdza.examplemod.AOEMod;
 import net.amurdza.examplemod.mixins.accessor.EntityTypeCategoryAccessor;
 import net.minecraft.world.entity.EntityType;
@@ -20,8 +19,6 @@ public class MobCategoryChanges {
             setCategory(EntityType.AXOLOTL, MobCategory.WATER_CREATURE);
             setCategory(EntityType.TURTLE, MobCategory.WATER_CREATURE);
             setCategory(FTEntities.RUBBER_BELLY_GLIDER.get(), MobCategory.WATER_AMBIENT);
-            setCategory(AnglingEntities.ANOMALOCARIS.get(), MobCategory.WATER_AMBIENT);
-            setCategory(AnglingEntities.SEA_SLUG.get(), MobCategory.WATER_AMBIENT);
             setCategory(net.minecraftforge.registries.ForgeRegistries.ENTITY_TYPES.getValue(
                     new net.minecraft.resources.ResourceLocation("hybrid_aquatic", "starfish")), MobCategory.WATER_AMBIENT);
             setCategory(EntityType.HOGLIN, MobCategory.CREATURE);

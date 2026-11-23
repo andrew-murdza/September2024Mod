@@ -38,7 +38,7 @@ public final class SnowyAquaticRosterTests {
     private static final Set<String> RETAINED = Set.of("minecraft:salmon", "alexsmobs:flying_fish",
             "hybrid_aquatic:arrow_squid", "hybrid_aquatic:tuna", "alexsmobs:orca",
             "alexscaves:tripodfish", "alexscaves:gossamer_worm", "minecraft:glow_squid",
-            "hybrid_aquatic:vampire_squid", "alexsmobs:giant_squid", "hybrid_aquatic:spider_crab", "alexsmobs:lobster");
+            "hybrid_aquatic:vampire_squid", "hybrid_aquatic:spider_crab", "alexsmobs:lobster");
     private static final List<String> REMOVED_FROM_SNOWY = List.of("minecraft:squid", "minecraft:dolphin", "hybrid_aquatic:needlefish",
             "alexscaves:lanternfish", "hybrid_aquatic:dragonfish", "hybrid_aquatic:bull_shark",
             "aoemod:end_fish", "aoemod:cubozoa");
@@ -46,11 +46,9 @@ public final class SnowyAquaticRosterTests {
     @GameTest(template = "plant_gameplay_empty")
     public static void snowyLoadedAquaticsMatchTheReducedRosterAndKeepManualSpawns(GameTestHelper helper) {
         var snowy = helper.getLevel().getServer().getLevel(GameplayDimensions.SNOWY);
-        var anglerfish = ForgeRegistries.ENTITY_TYPES.getValue(new ResourceLocation("angling:anglerfish")).create(snowy);
-        var anglerJoin = new net.minecraftforge.event.entity.EntityJoinLevelEvent(anglerfish, snowy);
-        net.amurdza.examplemod.event_handlers.RetainedMobSpawns.joined(anglerJoin);
-        helper.assertTrue(anglerJoin.isCanceled(), "Retired Angling anglerfish must also be blocked on manual creation and reload");
-        anglerfish.discard();
+        helper.assertFalse(ModList.get().isLoaded("angling"), "The retired Angling mod must not be loaded");
+        helper.assertFalse(ForgeRegistries.ENTITY_TYPES.getKeys().stream().anyMatch(id -> id.getNamespace().equals("angling")),
+                "The removed dependency must not leave hidden Angling entities");
         helper.assertFalse(ForgeRegistries.ENTITY_TYPES.containsKey(new ResourceLocation("iceandfire:hippocampus")),
                 "The previously removed Ice and Fire dependency must not be restored by aquatic roster changes");
         helper.assertFalse(ModList.get().isLoaded("betterend"), "The actual BetterEnd dependency must be removed");

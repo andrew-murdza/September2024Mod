@@ -1,9 +1,9 @@
 package net.amurdza.examplemod.gametest;
 
-import dev.hybridlabs.aquatic.entity.crustacean.CoconutCrabEntity;
+import dev.hybridlabs.aquatic.entity.critter.StarfishEntity;
+import dev.hybridlabs.aquatic.entity.critter.StarfishEntity.Companion.Type;
 import dev.hybridlabs.hapi.entity.base.aquatic.BaseWaterAnimal;
 import net.amurdza.examplemod.AOEMod;
-import net.amurdza.examplemod.event_handlers.CoconutCrabAquatics;
 import net.amurdza.examplemod.event_handlers.DocumentedNaturalSpawns;
 import net.amurdza.examplemod.util.AquaticMobSizes;
 import net.amurdza.examplemod.util.GameplayDimensions;
@@ -15,11 +15,12 @@ import net.minecraft.nbt.CompoundTag;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.MoverType;
-import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.Items;
+import net.minecraft.world.entity.MobCategory;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.phys.Vec3;
 import net.minecraft.world.phys.shapes.CollisionContext;
+import net.minecraft.world.phys.shapes.BooleanOp;
+import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraftforge.event.entity.EntityJoinLevelEvent;
 import net.minecraftforge.gametest.GameTestHolder;
 import net.minecraftforge.gametest.PrefixGameTestTemplate;
@@ -31,29 +32,48 @@ import java.util.UUID;
 @GameTestHolder(AOEMod.MOD_ID)
 @PrefixGameTestTemplate(false)
 public final class SmallAquaticRevisionTests {
-    private static final List<String> SMALL = List.of("flower_crab", "lightfoot_crab", "starfish");
+    private static final List<String> SMALL = List.of("starfish");
 
     @GameTest(template = "plant_gameplay_empty")
-    public static void nativeBodySizeSurvivesJoinMetadataAndSaveReload(GameTestHelper helper) {
+    public static void everyStarfishStyleKeepsMaximumAcrossMetadataWorldSavesAndCaptureData(GameTestHelper helper) {
         var tropical = helper.getLevel().getServer().getLevel(GameplayDimensions.TROPICAL);
-        for (var level : List.of(helper.getLevel(), tropical)) for (String id : SMALL) {
-            var animal = (BaseWaterAnimal) ForgeRegistries.ENTITY_TYPES.getValue(new ResourceLocation("hybrid_aquatic", id)).create(level);
-            helper.assertTrue(AquaticMobSizes.usesNativeSize(animal), "Missing native-size exemption: " + id);
+        var type = ForgeRegistries.ENTITY_TYPES.getValue(new ResourceLocation("hybrid_aquatic", "starfish"));
+        helper.assertTrue(type.getCategory() == MobCategory.WATER_AMBIENT, "Starfish must retain their ambient population category");
+        for (var level : List.of(helper.getLevel(), tropical)) for (Type variant : Type.values()) {
+            var animal = (StarfishEntity) type.create(level);
             try {
-                for (int size : new int[]{-5, 0, 5}) {
+                animal.setVariant(variant);
+                animal.setStarfishColor(0xE9A86F);
+                animal.setOverlayColor(0xAD552C);
+                helper.assertTrue(AquaticMobSizes.usesMaximumSize(animal), "Missing maximum-size rule for " + variant);
+                for (int size : new int[]{-100, -5, 0, 5, 100}) {
                     animal.setSize(size);
                     DocumentedNaturalSpawns.finishedSpawn(new EntityJoinLevelEvent(animal, level, true));
-                    helper.assertTrue(animal.getSize() == size, "Join processing overwrote native size for " + id);
+                    helper.assertTrue(animal.getSize() == 5, "Size writes or saved-world joins must not shrink " + variant);
                     animal.getEntityData().set(BaseWaterAnimal.Companion.getSIZE(), size);
-                    helper.assertTrue(animal.getSize() == size, "Client metadata is still forced large for " + id);
+                    helper.assertTrue(animal.getSize() == 5, "Stale client metadata must still display maximum " + variant);
+                    helper.assertTrue(Math.abs(BaseWaterAnimal.Companion.getScaleAdjustment(animal, .05F) - 1.25F) < .0001,
+                            "Native rendering must use the maximum scale for " + variant);
                     CompoundTag saved = new CompoundTag();
-                    animal.addAdditionalSaveData(saved);
-                    animal.readAdditionalSaveData(saved);
-                    animal.refreshDimensions();
-                    var dimensions = animal.getDimensions(animal.getPose());
-                    helper.assertTrue(animal.getSize() == size && Math.abs(animal.getBbWidth() - dimensions.width) < .0001
-                                    && Math.abs(animal.getBbHeight() - dimensions.height) < .0001,
-                            "Native saved scale and collision bounds disagree for " + id);
+                    animal.saveWithoutId(saved);
+                    helper.assertTrue(saved.getInt("Size") == 5, "Saving must persist maximum size for " + variant);
+                    saved.putInt("Size", size);
+                    saved.putBoolean("FromFishingNet", true);
+                    var rescued = (StarfishEntity) type.create(level);
+                    try {
+                        // Native creature-net release loads its storedEntity compound using this exact path.
+                        rescued.load(saved);
+                        DocumentedNaturalSpawns.finishedSpawn(new EntityJoinLevelEvent(rescued, level, true));
+                        var dimensions = rescued.getDimensions(rescued.getPose());
+                        helper.assertTrue(rescued.getSize() == 5 && rescued.getVariant() == variant
+                                        && rescued.getStarfishColor() == 0xE9A86F && rescued.getOverlayColor() == 0xAD552C,
+                                "Capture/save restoration must maximize size while preserving style and colors: " + variant);
+                        helper.assertTrue(Math.abs(rescued.getBbWidth() - dimensions.width) < .0001
+                                        && Math.abs(rescued.getBbHeight() - dimensions.height) < .0001,
+                                "Restored collision bounds must match the retained native style: " + variant);
+                        helper.assertTrue(rescued.getEntityData().get(BaseWaterAnimal.Companion.getSIZE()) == 5,
+                                "Restored metadata must synchronize the maximum size: " + variant);
+                    } finally { rescued.discard(); }
                 }
             } finally { animal.discard(); }
         }
@@ -61,10 +81,16 @@ public final class SmallAquaticRevisionTests {
     }
 
     @GameTest(template = "plant_gameplay_empty")
-    public static void onlyTallSeagrassAndKelpBlockTheThreeSmallBottomDwellers(GameTestHelper helper) {
+    public static void onlyStarfishTreatTallSeagrassAndKelpAsSolid(GameTestHelper helper) {
         var level = helper.getLevel();
         BlockPos obstacle = helper.absolutePos(new BlockPos(3, 2, 3));
         var control = EntityType.COD.create(level);
+        for (String id : List.of("alexsmobs:lobster", "hybrid_aquatic:flower_crab", "hybrid_aquatic:lightfoot_crab")) {
+            var unrelated = ForgeRegistries.ENTITY_TYPES.getValue(new ResourceLocation(id)).create(level);
+            helper.assertFalse(net.amurdza.examplemod.worldgen.SmallAquaticPlants.affected(unrelated),
+                    "Starfish masking and collision must not apply to lobsters or removed crabs: " + id);
+            unrelated.discard();
+        }
         for (String id : SMALL) {
             var animal = (BaseWaterAnimal) ForgeRegistries.ENTITY_TYPES.getValue(new ResourceLocation("hybrid_aquatic", id)).create(level);
             try {
@@ -72,16 +98,27 @@ public final class SmallAquaticRevisionTests {
                         Blocks.SEA_PICKLE, Blocks.TUBE_CORAL, Blocks.BLUE_ORCHID, Blocks.WATER)) {
                     var state = block.defaultBlockState();
                     boolean blocked = block == Blocks.TALL_SEAGRASS || block == Blocks.KELP || block == Blocks.KELP_PLANT;
-                    helper.assertTrue(!state.getCollisionShape(level, obstacle, CollisionContext.of(animal)).isEmpty() == blocked,
+                    var nativeShape = state.getCollisionShape(level, obstacle, CollisionContext.empty());
+                    var expectedShape = blocked ? Shapes.block() : nativeShape;
+                    helper.assertFalse(Shapes.joinIsNotEmpty(state.getCollisionShape(level, obstacle, CollisionContext.of(animal)),
+                                    expectedShape, BooleanOp.NOT_SAME),
                             "Wrong plant collision for " + id + "/" + block);
-                    helper.assertTrue(state.getCollisionShape(level, obstacle, CollisionContext.of(control)).isEmpty(),
+                    helper.assertFalse(Shapes.joinIsNotEmpty(state.getCollisionShape(level, obstacle, CollisionContext.of(control)),
+                                    nativeShape, BooleanOp.NOT_SAME),
                             "Plant collision leaked to unrelated fish: " + block);
                 }
-                for (int y = -1; y <= 2; y++) level.setBlock(obstacle.above(y), Blocks.KELP_PLANT.defaultBlockState(), 18);
-                animal.setPos(obstacle.getX() - 1, obstacle.getY(), obstacle.getZ() + .5);
-                animal.move(MoverType.SELF, new Vec3(2, 0, 0));
-                helper.assertTrue(animal.getBoundingBox().maxX <= obstacle.getX() + .0001,
-                        "Real entity movement entered the kelp column: " + id);
+                for (var block : List.of(Blocks.TALL_SEAGRASS, Blocks.KELP, Blocks.KELP_PLANT)) {
+                    for (int y = -1; y <= 2; y++) level.setBlock(obstacle.above(y), block.defaultBlockState(), 18);
+                    for (var movement : List.of(new Vec3(2, 0, 0), new Vec3(2, 0, .2), new Vec3(2, -.1, 0))) {
+                        animal.setPos(obstacle.getX() - 1, obstacle.getY(), obstacle.getZ() + .5);
+                        animal.move(MoverType.SELF, movement);
+                        helper.assertTrue(animal.getBoundingBox().maxX <= obstacle.getX() + .0001,
+                                "Real entity movement entered tall aquatic plant: " + id + "/" + block + "/" + movement);
+                    }
+                    control.setPos(obstacle.getX() - 1, obstacle.getY(), obstacle.getZ() + .5);
+                    control.move(MoverType.SELF, new Vec3(2, 0, 0));
+                    helper.assertTrue(control.getX() > obstacle.getX(), "Other fish must cross tall aquatic plants");
+                }
                 for (int y = -1; y <= 2; y++) level.setBlock(obstacle.above(y), Blocks.WATER.defaultBlockState(), 18);
                 level.setBlock(obstacle, Blocks.SEAGRASS.defaultBlockState(), 18);
                 animal.setPos(obstacle.getX() - 1, obstacle.getY(), obstacle.getZ() + .5);
@@ -91,28 +128,6 @@ public final class SmallAquaticRevisionTests {
             } finally { animal.discard(); }
         }
         control.discard();
-        helper.succeed();
-    }
-
-    @GameTest(template = "plant_gameplay_empty")
-    public static void coconutFreshSpawnsHaveNoShellAndStayHealthyUnderwater(GameTestHelper helper) {
-        var level = helper.getLevel();
-        var crab = (CoconutCrabEntity) ForgeRegistries.ENTITY_TYPES.getValue(new ResourceLocation("hybrid_aquatic:coconut_crab")).create(level);
-        BlockPos tank = helper.absolutePos(new BlockPos(2, 2, 2));
-        for (BlockPos pos : BlockPos.betweenClosed(tank.offset(-1, -1, -1), tank.offset(1, 2, 1)))
-            level.setBlock(pos, Blocks.WATER.defaultBlockState(), 18);
-        crab.moveTo(tank.getX() + .5, tank.getY(), tank.getZ() + .5);
-        crab.setShellItem(new ItemStack(Items.TURTLE_HELMET));
-        CoconutCrabAquatics.joined(new EntityJoinLevelEvent(crab, level, false));
-        helper.assertTrue(crab.getShellItem().isEmpty(), "Fresh coconut crabs must spawn without a carried shell");
-        float health = crab.getHealth();
-        for (int tick = 0; tick < 360; tick++) crab.baseTick();
-        helper.assertTrue(crab.isInWater() && crab.getHealth() == health && crab.getAirSupply() == crab.getMaxAirSupply(),
-                "The coconut crab must remain an underwater animal");
-        crab.setShellItem(new ItemStack(Items.TURTLE_HELMET));
-        CoconutCrabAquatics.joined(new EntityJoinLevelEvent(crab, level, true));
-        helper.assertFalse(crab.getShellItem().isEmpty(), "Loading an existing owned crab must not erase its carried item");
-        crab.discard();
         helper.succeed();
     }
 

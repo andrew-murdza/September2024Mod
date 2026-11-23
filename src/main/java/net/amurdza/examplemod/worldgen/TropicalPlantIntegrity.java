@@ -34,6 +34,7 @@ public final class TropicalPlantIntegrity {
 
     public static void afterReplacement(LevelAccessor level, BlockPos pos, BlockState oldState, BlockState newState) {
         if (oldState == newState || oldState.isAir() || !GameplayDimensions.is(level, GameplayDimensions.TROPICAL)) return;
+        TropicalBamboo.trimForObstacle(level, pos, oldState, newState);
         if (oldState.getBlock() instanceof BushBlock && oldState.hasProperty(BlockStateProperties.DOUBLE_BLOCK_HALF)
                 && (!newState.is(oldState.getBlock())
                 || !newState.hasProperty(BlockStateProperties.DOUBLE_BLOCK_HALF)

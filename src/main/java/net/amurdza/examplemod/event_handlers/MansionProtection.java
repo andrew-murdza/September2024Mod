@@ -15,6 +15,7 @@ import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.DoorBlock;
+import net.minecraft.world.level.block.FenceGateBlock;
 import net.minecraft.world.level.levelgen.structure.Structure;
 import net.minecraft.world.level.levelgen.structure.structures.WoodlandMansionPieces.WoodlandMansionPiece;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent;
@@ -22,7 +23,10 @@ import net.minecraftforge.event.level.BlockEvent;
 import net.minecraftforge.event.level.ExplosionEvent;
 import net.minecraftforge.event.level.PistonEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
+import net.minecraftforge.eventbus.api.EventPriority;
 import net.minecraftforge.fml.common.Mod;
+
+import java.util.Optional;
 
 @Mod.EventBusSubscriber(modid = AOEMod.MOD_ID)
 public final class MansionProtection {
@@ -51,14 +55,40 @@ public final class MansionProtection {
         return false;
     }
 
-    public static boolean rewardsLocked(ServerLevel level, BlockPos pos) {
+    private static MansionBasementPiece encounterAt(ServerLevel level, BlockPos pos) {
         for (var layout : PlacedMansions.get(level).at(pos))
             if (layout.rooms().stream().anyMatch(box -> box.isInside(pos)) || layout.basement().containsAuthoredSpace(pos))
-                return locked(level, layout.basement());
+                return layout.basement();
         var start = level.structureManager().getStructureWithPieceAt(pos, MANSION);
         if (start.isValid()) for (var piece : start.getPieces())
-            if (piece instanceof MansionBasementPiece basement) return locked(level, basement);
-        return false;
+            if (piece instanceof MansionBasementPiece basement) return basement;
+        return null;
+    }
+
+    public static boolean rewardsLocked(ServerLevel level, BlockPos pos) {
+        var basement = encounterAt(level, pos);
+        return basement != null && locked(level, basement);
+    }
+
+    public static int remainingEnemies(ServerLevel level, BlockPos pos) {
+        var basement = encounterAt(level, pos);
+        if (basement == null || basement.encounterId() == null) return 0;
+        var encounter = AuthoredEncounterProgress.get(level).find(basement.encounterId());
+        return encounter == null ? basement.defenderCount() : Math.max(0, encounter.expected() - encounter.defeatedCount());
+    }
+
+    public static Component rewardsMessage(ServerLevel level, BlockPos pos) {
+        return Component.translatable("message.aoemod.mansion_rewards_locked", remainingEnemies(level, pos));
+    }
+
+    public static Component gatesMessage(ServerLevel level, BlockPos pos) {
+        return Component.translatable("message.aoemod.mansion_gates_locked", remainingEnemies(level, pos));
+    }
+
+    public static Optional<Component> breakingMessage(ServerLevel level, BlockPos pos) {
+        if (!protectedAt(level, pos)) return Optional.empty();
+        return Optional.of(rewardAt(level, pos) ? rewardsMessage(level, pos)
+                : Component.translatable("message.aoemod.mansion_protected"));
     }
 
     private static boolean locked(ServerLevel level, MansionBasementPiece basement) {
@@ -66,8 +96,17 @@ public final class MansionProtection {
     }
 
     public static boolean protectedAt(ServerLevel level, BlockPos pos) {
-        if (AuthoredRewardLocks.isRewardBlock(level.getBlockState(pos))) return rewardsLocked(level, pos);
+        if (level.getBlockState(pos).isAir()) return false;
+        if (rewardAt(level, pos)) return rewardsLocked(level, pos);
         return constructionAt(level, pos);
+    }
+
+    private static boolean rewardAt(ServerLevel level, BlockPos pos) {
+        var state = level.getBlockState(pos);
+        if (AuthoredRewardLocks.isRewardBlock(state)) return true;
+        if (!net.amurdza.examplemod.worldgen.structure.MansionBasementLayoutV14.isOre(state)) return false;
+        var basement = encounterAt(level, pos);
+        return basement != null && basement.isMineOre(pos);
     }
 
     private static boolean constructionAt(ServerLevel level, BlockPos pos) {
@@ -83,33 +122,39 @@ public final class MansionProtection {
         return false;
     }
 
-    @SubscribeEvent
+    @SubscribeEvent(priority = EventPriority.HIGHEST)
     public static void hit(PlayerInteractEvent.LeftClickBlock event) {
         if (event.getLevel() instanceof ServerLevel level && !event.getEntity().isCreative() && protectedAt(level, event.getPos())) {
             if (event.getAction() == PlayerInteractEvent.LeftClickBlock.Action.START)
-                message(event.getEntity(), "mansion_protected");
+                breakingMessage(level, event.getPos()).ifPresent(message -> event.getEntity().displayClientMessage(message, true));
             event.setCanceled(true);
         }
     }
 
-    @SubscribeEvent
+    @SubscribeEvent(priority = EventPriority.HIGHEST)
     public static void breakBlock(BlockEvent.BreakEvent event) {
         if (event.getLevel() instanceof ServerLevel level && !event.getPlayer().isCreative() && protectedAt(level, event.getPos())) {
             event.setCanceled(true);
-            message(event.getPlayer(), "mansion_protected");
+            breakingMessage(level, event.getPos()).ifPresent(message -> event.getPlayer().displayClientMessage(message, true));
         }
     }
 
-    @SubscribeEvent
+    @SubscribeEvent(priority = EventPriority.HIGHEST)
     public static void use(PlayerInteractEvent.RightClickBlock event) {
         if (!(event.getLevel() instanceof ServerLevel level)) return;
         var pos = event.getPos();
         var basement = door(level, pos);
         if (basement == null) {
-            if (!event.getEntity().isCreative() && AuthoredRewardLocks.isRewardBlock(level.getBlockState(pos)) && rewardsLocked(level, pos)) {
+            if (!event.getEntity().isCreative() && (AuthoredRewardLocks.isRewardBlock(level.getBlockState(pos))
+                    || level.getBlockState(pos).getBlock() instanceof FenceGateBlock) && rewardsLocked(level, pos)) {
+                var state = level.getBlockState(pos);
+                if (state.getBlock() instanceof FenceGateBlock
+                        && (state.getValue(FenceGateBlock.OPEN) || state.getValue(FenceGateBlock.POWERED)))
+                    level.setBlock(pos, state.setValue(FenceGateBlock.OPEN, false).setValue(FenceGateBlock.POWERED, false), 2);
                 event.setCanceled(true);
                 event.setCancellationResult(InteractionResult.FAIL);
-                message(event.getEntity(), "mansion_rewards_locked");
+                event.getEntity().displayClientMessage(level.getBlockState(pos).getBlock() instanceof FenceGateBlock
+                        ? gatesMessage(level, pos) : rewardsMessage(level, pos), true);
             }
             return;
         }
@@ -147,21 +192,22 @@ public final class MansionProtection {
             event.setCanceled(true);
     }
 
-    @SubscribeEvent
+    @SubscribeEvent(priority = EventPriority.HIGHEST, receiveCanceled = true)
     public static void livestockUse(PlayerInteractEvent.EntityInteract event) {
         if (!event.getEntity().isCreative() && livestockLocked(event.getTarget())) {
             event.setCanceled(true); event.setCancellationResult(InteractionResult.FAIL);
-            message(event.getEntity(), "mansion_rewards_locked");
+            livestockMessage(event.getEntity(), event.getTarget());
         } else if (event.getTarget() instanceof net.minecraft.world.entity.Mob mob
                 && AuthoredEncounterProgress.isLivestock(mob) && AuthoredEncounterProgress.kind(mob).equals("mansion")
                 && event.getItemStack().is(net.minecraft.world.item.Items.LEAD))
             net.amurdza.examplemod.util.StructureSpawnedMobData.release(mob);
     }
 
-    @SubscribeEvent
+    @SubscribeEvent(priority = EventPriority.HIGHEST, receiveCanceled = true)
     public static void livestockUseSpecific(PlayerInteractEvent.EntityInteractSpecific event) {
         if (!event.getEntity().isCreative() && livestockLocked(event.getTarget())) {
             event.setCanceled(true); event.setCancellationResult(InteractionResult.FAIL);
+            livestockMessage(event.getEntity(), event.getTarget());
         }
     }
 
@@ -179,7 +225,11 @@ public final class MansionProtection {
                 || resolver.getToDestroy().stream().anyMatch(pos -> protectedAt(level, pos)))) event.setCanceled(true);
     }
 
-    private static void message(Player player, String name) {
-        player.displayClientMessage(Component.translatable("message.aoemod." + name), true);
+    private static void livestockMessage(Player player, net.minecraft.world.entity.Entity livestock) {
+        if (!(livestock.level() instanceof ServerLevel level)) return;
+        var encounter = AuthoredEncounterProgress.get(level).find(AuthoredEncounterProgress.encounterId(livestock));
+        int remaining = encounter == null ? remainingEnemies(level, livestock.blockPosition())
+                : Math.max(0, encounter.expected() - encounter.defeatedCount());
+        player.displayClientMessage(Component.translatable("message.aoemod.mansion_rewards_locked", remaining), true);
     }
 }

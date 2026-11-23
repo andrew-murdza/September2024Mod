@@ -53,7 +53,6 @@ public final class PackTrimFaunaFoodsTests {
                 {"alexscaves:tripodfish", "alexscaves:cooked_tripodfish"},
                 {"finsandtails:raw_golden_river_ray_wing", "finsandtails:golden_river_ray_wing_fillet"},
                 {"ecologics:crab_meat", "aoemod:cooked_crab_meat"},
-                {"alexsmobs:lost_tentacle", "aoemod:cooked_lost_tentacle"},
                 {"culturaldelights:squid", "culturaldelights:cooked_squid"},
                 {"culturaldelights:glow_squid", "culturaldelights:cooked_squid"},
                 {"outer_end:stalker_meat", "outer_end:cooked_stalker_meat"},

@@ -24,10 +24,26 @@ public final class SavannaCampProtectionSnapshot {
     private static final Map<LevelChunk, List<Entry>> RECEIVED = Collections.synchronizedMap(new WeakHashMap<>());
     private SavannaCampProtectionSnapshot() { }
 
-    public static boolean protects(Level level, BlockPos pos) {
+    /** Gates remain construction after victory, so their use lock is separate from mining protection. */
+    public static boolean rewardsLocked(Level level, BlockPos pos) {
         if (!GameplayDimensions.is(level, GameplayDimensions.SAVANNA) || !level.hasChunkAt(pos)) return false;
+        for (var entry : RECEIVED.getOrDefault(level.getChunkAt(pos), List.of()))
+            if (entry.bounds.isInside(pos) && !entry.cleared) return true;
+        return false;
+    }
+
+    public static boolean protects(Level level, BlockPos pos) {
+        if (!GameplayDimensions.is(level, GameplayDimensions.SAVANNA) || !level.hasChunkAt(pos) || level.getBlockState(pos).isAir()) return false;
         for (var entry : RECEIVED.getOrDefault(level.getChunkAt(pos), List.of())) if (entry.bounds.isInside(pos))
             return !entry.cleared || !SavannaCampProgress.isRewardBlock(level.getBlockState(pos), pos, entry.bounds);
+        return false;
+    }
+
+    public static boolean rewardsUnlocked(Level level, BlockPos pos) {
+        if (!GameplayDimensions.is(level, GameplayDimensions.SAVANNA) || !level.hasChunkAt(pos)) return false;
+        for (var entry : RECEIVED.getOrDefault(level.getChunkAt(pos), List.of()))
+            if (entry.bounds.isInside(pos) && entry.cleared)
+                return SavannaCampProgress.isRewardBlock(level.getBlockState(pos), pos, entry.bounds);
         return false;
     }
 

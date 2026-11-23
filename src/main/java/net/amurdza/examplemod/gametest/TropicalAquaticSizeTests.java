@@ -73,15 +73,15 @@ public final class TropicalAquaticSizeTests {
         var starfish = (StarfishEntity) type.create(level);
         var mate = (StarfishEntity) type.create(level);
         starfish.finalizeSpawnChildFromBreeding(level, mate);
-        helper.assertTrue(starfish.getSize() >= -5 && starfish.getSize() <= 5 && mate.getSize() == 0,
-                "Starfish breeding keeps the native random scalar and does not maximize the other parent");
+        helper.assertTrue(starfish.getSize() == 5 && mate.getSize() == 5,
+                "Both starfish parents must retain the maximum native scalar after breeding");
         for (Type variant : Type.values()) {
             starfish.setVariant(variant);
             starfish.setSize(-5);
-            helper.assertTrue(starfish.getVariant() == variant && starfish.getSize() == -5,
-                    "Native scalar must preserve all artistic starfish types");
-            helper.assertTrue(Math.abs(BaseWaterAnimal.Companion.getScaleAdjustment(starfish, .05F) - .75F) < .0001F,
-                    "The real renderer must preserve the native starfish scale");
+            helper.assertTrue(starfish.getVariant() == variant && starfish.getSize() == 5,
+                    "Maximum native scalar must preserve all artistic starfish types");
+            helper.assertTrue(Math.abs(BaseWaterAnimal.Companion.getScaleAdjustment(starfish, .05F) - 1.25F) < .0001F,
+                    "The real renderer must use the maximum native starfish scale");
         }
         helper.succeed();
     }
@@ -127,7 +127,7 @@ public final class TropicalAquaticSizeTests {
             }
             var starfish = (BaseWaterAnimal) ForgeRegistries.ENTITY_TYPES.getValue(new ResourceLocation("hybrid_aquatic:starfish")).create(level);
             starfish.setSize(-5);
-            helper.assertTrue(starfish.getSize() == -5, "Starfish native size setters must work in every dimension");
+            helper.assertTrue(starfish.getSize() == 5, "Starfish must remain at maximum size in every dimension");
         }
         helper.succeed();
     }
